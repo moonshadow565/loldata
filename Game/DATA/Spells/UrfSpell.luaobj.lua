@@ -9,4 +9,3 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
 Nondispellable = true
 TriggersSpellCasts = true
-TargetExecuteBuildingBlocks = {}

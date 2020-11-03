@@ -8,36 +8,3 @@ AutoCooldownByLevel = {
   9,
   8
 }
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        70,
-        125,
-        180,
-        240,
-        300
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.9,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 1.5
-    }
-  }
-}

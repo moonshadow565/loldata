@@ -5,4 +5,3 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
-OnBuffDeactivateBuildingBlocks = {}

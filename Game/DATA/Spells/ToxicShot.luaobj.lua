@@ -9,15 +9,3 @@ SpellToggleSlot = 3
 SpellFXOverrideSkins = {
   "AstronautTeemo"
 }
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBOverrideAutoAttack,
-    Params = {
-      SpellSlot = 0,
-      SlotType = ExtraSlots,
-      OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1,
-      CancelAttack = true
-    }
-  }
-}

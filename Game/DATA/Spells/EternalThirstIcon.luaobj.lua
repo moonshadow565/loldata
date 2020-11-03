@@ -2,83 +2,17 @@ BuffTextureName = "Wolfman_InnerHunger.dds"
 BuffName = "Eternal Thirst"
 PersistsThroughDeath = true
 NonDispellable = true
-OnBuffActivateBuildingBlocks = {
+PreLoadBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBPreloadSpell,
     Params = {
-      DestVar = "lastTooltip",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
+      Name = "eternalthirst"
     }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
+  },
   {
-    Function = BBExecutePeriodically,
+    Function = BBPreloadParticle,
     Params = {
-      TimeBetweenExecutions = 10,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetLevel,
-        Params = {TargetVar = "Owner", DestVar = "Level"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "tooltipAmount",
-          SrcValueByLevel = {
-            6,
-            6,
-            6,
-            6,
-            6,
-            6,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            18,
-            18,
-            18,
-            18,
-            18,
-            18
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "tooltipAmount",
-          Src2Var = "lastTooltip",
-          Src2VarTable = "InstanceVars",
-          CompareOp = CO_GREATER_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "lastTooltip",
-              DestVarTable = "InstanceVars",
-              SrcVar = "tooltipAmount"
-            }
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "tooltipAmount",
-              Index = 1
-            }
-          }
-        }
-      }
+      Name = "eternalthirst_buf.troy"
     }
   }
 }

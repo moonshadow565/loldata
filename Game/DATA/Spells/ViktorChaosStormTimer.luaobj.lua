@@ -8,4 +8,3 @@ BuffName = "ViktorStormTimer"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
-OnBuffDeactivateBuildingBlocks = {}
