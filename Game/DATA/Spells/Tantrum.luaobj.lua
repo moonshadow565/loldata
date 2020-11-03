@@ -5,9 +5,6 @@ BuffTextureName = "SadMummy_Tantrum.dds"
 BuffName = "Tantrum"
 PersistsThroughDeath = true
 NonDispellable = true
-SpellFXOverrideSkins = {
-  "BadrobotAmumu"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

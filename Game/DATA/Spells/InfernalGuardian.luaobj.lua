@@ -36,13 +36,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "infernalguardiantimer"
+      Name = "infernalguardianguide"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "infernalguardianburning"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infernalguardiantimer"
     }
   },
   {

@@ -6,9 +6,6 @@ AutoBuffActivateEffect = "Despair_buf.troy"
 AutoBuffActivateAttachBoneName = "head"
 AutoBuffActivateEffect2 = "Despairpool_tar.troy"
 SpellToggleSlot = 2
-SpellFXOverrideSkins = {
-  "BadrobotAmumu"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

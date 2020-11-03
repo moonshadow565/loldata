@@ -1,6 +1,10 @@
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_beam_cas.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

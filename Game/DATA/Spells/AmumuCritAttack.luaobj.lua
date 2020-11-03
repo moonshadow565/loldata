@@ -1,3 +1,0 @@
-SpellFXOverrideSkins = {
-  "BadrobotAmumu"
-}

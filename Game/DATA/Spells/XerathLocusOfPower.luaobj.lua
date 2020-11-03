@@ -6,6 +6,9 @@ IsDamagingSpell = true
 BuffTextureName = "Xerath_LocusOfPower.dds"
 BuffName = "XerathLocusOfPower"
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {
+  "IronForgeXerath"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -29,6 +32,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xeratharcanebarragewrapperext"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_magmadrip.troy"
     }
   },
   {
