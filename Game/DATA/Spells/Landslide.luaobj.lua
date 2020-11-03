@@ -7,6 +7,9 @@ BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "ReefMalphite"
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -69,21 +72,62 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "Owner",
-      EffectName = "landslide_nova.troy",
-      Flags = 0,
-      EffectIDVar = "partname",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      UnitVar = "Owner",
+      SkinIDVar = "MalphiteSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "MalphiteSkinID",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "Owner",
+          EffectName = "landslide_blue_nova.troy",
+          Flags = 0,
+          EffectIDVar = "partname",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "Owner",
+          EffectName = "landslide_nova.troy",
+          Flags = 0,
+          EffectIDVar = "partname",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {
@@ -93,13 +137,15 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 355,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "ArmorDamage",
@@ -119,18 +165,26 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "LandslideDebuff",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "landslide_blue_nova.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

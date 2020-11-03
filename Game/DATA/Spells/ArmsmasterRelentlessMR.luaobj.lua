@@ -1,4 +1,4 @@
-BuffTextureName = "Armsmaster_MasterOfArms.dds"
+BuffTextureName = "Armsmaster_RelentlessMR.dds"
 BuffName = "RelentlessBarrier"
 AutoBuffActivateEffect = "JaxRelentlessAssault_buf.troy"
 AutoBuffActivateAttachBoneName = ""
@@ -52,7 +52,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "JaxRelentlessAssaultShield_hit.troy"
+      Name = "jaxrelentlessassaultshield_hit.troy"
     }
   }
 }

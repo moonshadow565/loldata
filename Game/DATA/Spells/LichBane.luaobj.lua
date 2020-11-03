@@ -51,6 +51,28 @@ BuffOnHitUnitBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "UdyrTigerStance"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "AbilityPower",
+                  Src1VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 3,
+                  DestVar = "AbilityPower",
+                  DestVarTable = "InstanceVars",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
             Function = BBMath,
             Params = {
               Src1Var = "DamageAmount",
@@ -131,6 +153,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "sheen"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrtigerstance"
+    }
   },
   {
     Function = BBPreloadSpell,

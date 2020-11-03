@@ -9,9 +9,18 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Count",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Owner",
       TargetVar = "Attacker",
       Damage = 0,
       DamageVar = "DamagePerTick",
@@ -19,18 +28,10 @@ OnBuffActivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.15,
+      SpellDamageRatio = 0.2,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Count",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
     }
   }
 }
@@ -40,7 +41,7 @@ BuffOnDealDamageBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1VarTable = "InstanceVars",
-      Src2Var = "0",
+      Value2 = 0,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -48,7 +49,7 @@ BuffOnDealDamageBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "DamageAmount",
-          Src1Value = 0.25,
+          Src1Value = 0.3,
           Src2Value = 0,
           DestVar = "ShieldAmount",
           MathOp = MO_MULTIPLY

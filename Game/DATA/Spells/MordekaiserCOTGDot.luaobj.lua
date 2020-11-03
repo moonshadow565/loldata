@@ -10,7 +10,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DoOnce",
-      DestVarTable = "CharVars",
+      DestVarTable = "InstanceVars",
       SrcValue = false
     }
   },
@@ -18,6 +18,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Attacker",
       Damage = 0,
       DamageVar = "DamageToDeal",
@@ -29,6 +30,16 @@ OnBuffActivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DoOnce",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
     }
   }
 }
@@ -45,7 +56,7 @@ BuffOnDealDamageBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "DoOnce",
-          Src1VarTable = "CharVars",
+          Src1VarTable = "InstanceVars",
           Value2 = false,
           CompareOp = CO_EQUAL
         },
@@ -54,7 +65,7 @@ BuffOnDealDamageBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "DamageAmount",
-              Src1Value = 0.25,
+              Src1Value = 0.3,
               Src2Value = 0,
               DestVar = "ShieldAmount",
               MathOp = MO_MULTIPLY
@@ -82,22 +93,12 @@ BuffOnDealDamageBuildingBlocks = {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "DoOnce",
-              DestVarTable = "CharVars",
+              DestVarTable = "InstanceVars",
               SrcValue = true
             }
           }
         }
       }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DoOnce",
-      DestVarTable = "CharVars",
-      SrcValue = true
     }
   }
 }

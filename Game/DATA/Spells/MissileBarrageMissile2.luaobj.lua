@@ -14,6 +14,45 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "baseDamage",
+      SrcValueByLevel = {
+        250,
+        400,
+        550
+      }
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalAttackDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "totalAttackDamage",
+      Src1Value = 0.4,
+      Src2Value = 0,
+      DestVar = "bonusAttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "bonusAttackDamage",
+      Src2Var = "baseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "IsStealthed",
@@ -41,17 +80,6 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageAmount",
-          SrcValueByLevel = {
-            200,
-            350,
-            500
-          }
-        }
-      },
-      {
         Function = BBGetUnitPosition,
         Params = {UnitVar = "Target", PositionVar = "TargetPos"}
       },
@@ -74,6 +102,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamageAmount",
@@ -124,17 +153,6 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageAmount",
-              SrcValueByLevel = {
-                200,
-                350,
-                500
-              }
-            }
-          },
-          {
             Function = BBGetUnitPosition,
             Params = {UnitVar = "Target", PositionVar = "TargetPos"}
           },
@@ -157,6 +175,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
                   Damage = 0,
                   DamageVar = "DamageAmount",
@@ -219,17 +238,6 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamageAmount",
-                  SrcValueByLevel = {
-                    200,
-                    350,
-                    500
-                  }
-                }
-              },
-              {
                 Function = BBGetUnitPosition,
                 Params = {UnitVar = "Target", PositionVar = "TargetPos"}
               },
@@ -252,6 +260,7 @@ TargetExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "DamageAmount",

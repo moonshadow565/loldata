@@ -14,6 +14,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "KennenSkinID"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
@@ -29,43 +36,99 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Owner",
-          PosVar = "Owner",
-          EffectName = "kennen_ss_aoe_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "spine",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "KennenSkinID",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_green.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "BUFFBONE_CSTM_ROOT",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "BUFFBONE_CSTM_ROOT",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "Owner",
-          EffectName = "kennen_ss_aoe_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "spine",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_green.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "spine",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "spine",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }
@@ -75,43 +138,99 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Owner",
-          PosVar = "Owner",
-          EffectName = "kennen_ss_aoe_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "spine",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "KennenSkinID",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "BUFFBONE_CSTM_ROOT",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_green.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "BUFFBONE_CSTM_ROOT",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "Owner",
-          EffectName = "kennen_ss_aoe_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "spine",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "spine",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              PosVar = "Owner",
+              EffectName = "kennen_ss_aoe_green.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "spine",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Owner",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }

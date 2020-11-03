@@ -441,7 +441,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 700,
+      Value2 = 800,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -449,7 +449,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 700,
+          Distance = 800,
           OffsetAngle = 0,
           PositionVar = "TargetPos"
         }
@@ -506,7 +506,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "MoveSpeed",
       Src1Value = 0,
-      Src2Value = 500,
+      Src2Value = 650,
       DestVar = "SlashSpeed",
       MathOp = MO_ADD
     }

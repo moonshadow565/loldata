@@ -34,25 +34,47 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BonusDamage",
+      DestVar = "BaseDamage",
       SrcValueByLevel = {
-        20,
-        40,
-        60,
         80,
-        100
+        110,
+        140,
+        170,
+        200
       }
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "baseDamage"
+    }
+  },
+  {
     Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Attacker", DestVar = "AD"}
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "AD",
-      Src2Var = "BonusDamage",
+      Src1Var = "totalDamage",
+      Src2Var = "baseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src2Var = "bonusDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "BaseDamage",
