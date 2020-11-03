@@ -326,7 +326,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -346,10 +347,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 3,
                   NumberOfStacks = 1,
-                  Duration = 12,
+                  Duration = 8,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -366,7 +368,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -401,7 +404,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -418,7 +422,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -506,7 +511,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -526,10 +532,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 3,
                   NumberOfStacks = 1,
-                  Duration = 12,
+                  Duration = 8,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -546,7 +553,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -581,7 +589,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -598,7 +607,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -686,7 +696,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -706,10 +717,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 3,
                   NumberOfStacks = 1,
-                  Duration = 12,
+                  Duration = 8,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -726,7 +738,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -761,7 +774,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -778,7 +792,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -837,7 +852,8 @@ SelfExecuteBuildingBlocks = {
         5
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

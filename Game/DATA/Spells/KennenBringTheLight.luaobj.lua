@@ -11,7 +11,7 @@ CanCastBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 825,
+      Range = 800,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       BuffNameFilter = "KennenMarkofStorm",
@@ -88,10 +88,11 @@ SelfExecuteBuildingBlocks = {
               BuffType = BUFF_CombatDehancer,
               MaxStack = 5,
               NumberOfStacks = 1,
-              Duration = 12,
+              Duration = 8,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {

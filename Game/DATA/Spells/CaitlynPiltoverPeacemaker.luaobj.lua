@@ -34,7 +34,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "BaseDamage",
-      Src1Value = 1,
+      Src1Value = 1.3,
       Src2Value = 0,
       DestVar = "BaseDamage",
       MathOp = MO_MULTIPLY
@@ -77,11 +77,11 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            40,
-            70,
-            100,
-            130,
-            160
+            20,
+            65,
+            110,
+            155,
+            200
           },
           Damage = 0,
           DamageVar = "BaseDamage",
@@ -101,7 +101,7 @@ TargetExecuteBuildingBlocks = {
           Src1Var = "percentOfAttack",
           Src1VarTable = "CharVars",
           Src1Value = 0,
-          Src2Value = 0.94,
+          Src2Value = 0.85,
           DestVar = "percentOfAttack",
           DestVarTable = "CharVars",
           MathOp = MO_MULTIPLY
@@ -113,7 +113,7 @@ TargetExecuteBuildingBlocks = {
           Src1Var = "percentOfAttack",
           Src1VarTable = "CharVars",
           Src1Value = 0,
-          Src2Value = 0.7,
+          Src2Value = 0.4,
           DestVar = "percentOfAttack",
           DestVarTable = "CharVars",
           MathOp = MO_MAX
@@ -158,11 +158,11 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
-                40,
-                70,
-                100,
-                130,
-                160
+                20,
+                65,
+                110,
+                155,
+                200
               },
               Damage = 0,
               DamageVar = "BaseDamage",
@@ -182,7 +182,7 @@ TargetExecuteBuildingBlocks = {
               Src1Var = "percentOfAttack",
               Src1VarTable = "CharVars",
               Src1Value = 0,
-              Src2Value = 0.94,
+              Src2Value = 0.85,
               DestVar = "percentOfAttack",
               DestVarTable = "CharVars",
               MathOp = MO_MULTIPLY
@@ -194,7 +194,7 @@ TargetExecuteBuildingBlocks = {
               Src1Var = "percentOfAttack",
               Src1VarTable = "CharVars",
               Src1Value = 0,
-              Src2Value = 0.7,
+              Src2Value = 0.4,
               DestVar = "percentOfAttack",
               DestVarTable = "CharVars",
               MathOp = MO_MAX
@@ -251,11 +251,11 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    40,
-                    70,
-                    100,
-                    130,
-                    160
+                    20,
+                    65,
+                    110,
+                    155,
+                    200
                   },
                   Damage = 0,
                   DamageVar = "BaseDamage",
@@ -275,7 +275,7 @@ TargetExecuteBuildingBlocks = {
                   Src1Var = "percentOfAttack",
                   Src1VarTable = "CharVars",
                   Src1Value = 0,
-                  Src2Value = 0.94,
+                  Src2Value = 0.85,
                   DestVar = "percentOfAttack",
                   DestVarTable = "CharVars",
                   MathOp = MO_MULTIPLY
@@ -287,7 +287,7 @@ TargetExecuteBuildingBlocks = {
                   Src1Var = "percentOfAttack",
                   Src1VarTable = "CharVars",
                   Src1Value = 0,
-                  Src2Value = 0.7,
+                  Src2Value = 0.4,
                   DestVar = "percentOfAttack",
                   DestVarTable = "CharVars",
                   MathOp = MO_MAX

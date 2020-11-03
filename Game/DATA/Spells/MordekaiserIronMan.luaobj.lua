@@ -91,7 +91,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "MaxEnergy",
           Src1Value = 0,
-          Src2Value = 0.05,
+          Src2Value = 0.03,
           DestVar = "ShieldDecay",
           MathOp = MO_MULTIPLY
         }

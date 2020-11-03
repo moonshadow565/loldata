@@ -87,7 +87,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -120,7 +121,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -153,7 +155,8 @@ SelfExecuteBuildingBlocks = {
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -191,11 +194,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "stunLength",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        1,
-        1.25,
-        1.5,
-        1.75,
-        2
+        0.7,
+        0.9,
+        1.1,
+        1.3,
+        1.5
       }
     }
   },
@@ -212,7 +215,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -447,6 +451,7 @@ TargetExecuteBuildingBlocks = {
           MoveBackBy = 150,
           MovementType = FURTHEST_WITHIN_RANGE,
           MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
           IdealDistance = 0,
           IdealDistanceVar = "Distance"
         }
@@ -469,6 +474,7 @@ TargetExecuteBuildingBlocks = {
           MoveBackBy = 0,
           MovementType = FURTHEST_WITHIN_RANGE,
           MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
           IdealDistance = 0,
           IdealDistanceVar = "Distance"
         }

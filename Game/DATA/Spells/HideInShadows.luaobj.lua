@@ -153,6 +153,16 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Src1Var = "TimeSinceLast",
       Src1Value = 0,
+      Src2Value = 2,
+      DestVar = "TimeSinceLast",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TimeSinceLast",
+      Src1Value = 0,
       Src2Value = 10,
       DestVar = "TimeSinceLast",
       MathOp = MO_MIN
@@ -182,7 +192,8 @@ OnBuffDeactivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "TimeSinceLast",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -417,11 +428,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "StealthDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            10,
             20,
             30,
             40,
-            50,
-            60
+            50
           }
         }
       },
@@ -439,7 +450,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
