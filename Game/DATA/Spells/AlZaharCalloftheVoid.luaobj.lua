@@ -113,115 +113,38 @@ OnBuffActivateBuildingBlocks = {
       EffectName = "voidflash.troy",
       Flags = 0,
       EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
-      SpecificTeamOnly = TEAM_CHAOS,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_CHAOS,
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 200,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "voidflash.troy",
+      EffectName = "voidportal_green.troy",
+      EffectNameForOtherTeam = "voidportal_red.troy",
       Flags = 0,
-      EffectIDVar = "Particle1",
+      EffectIDVar = "Particle3",
       EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle2",
+      EffectID2VarTable = "InstanceVars",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
-      SpecificTeamOnly = TEAM_ORDER,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_ORDER,
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 200,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "voidportal_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "voidportal_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "voidportal_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "voidportal_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -321,7 +244,22 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 0.75,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle3",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -414,7 +352,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -511,6 +450,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 300,
       DestVar = "Other1",
@@ -532,6 +472,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 300,
       VisibilitySizeVar = "LineWidth",
@@ -568,7 +509,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -584,7 +526,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -598,13 +541,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "voidportal_red.troy"
+      Name = "voidportal_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "voidportal_green.troy"
+      Name = "voidportal_red.troy"
     }
   },
   {

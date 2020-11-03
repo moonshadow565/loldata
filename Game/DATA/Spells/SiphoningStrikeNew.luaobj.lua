@@ -54,25 +54,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "Level"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifestealAmount",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        0.1,
-        0.15,
-        0.2,
-        0,
-        0
-      }
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -164,7 +148,7 @@ BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "AbilityDamage",
+      DestVar = "BaseDamage",
       SrcValueByLevel = {
         30,
         50,
@@ -175,9 +159,76 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ADMultiplier",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusAD"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseAD"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
-      Src1Var = "AbilityDamage",
+      Src1Var = "BaseAD",
+      Src2Var = "BonusAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalAD",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "TotalAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalAD",
+      Src2Var = "ADMultiplier",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "MultipliedAD",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "MultipliedAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
       Src2Var = "DamageAmount",
       Src1Value = 0,
       Src2Value = 0,
@@ -214,27 +265,6 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {TargetVar = "Owner", DestVar = "TeamID"}
           },
           {
-            Function = BBMath,
-            Params = {
-              Src1Var = "LifestealAmount",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "Lifesteal",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBIncHealth,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              DeltaVar = "Lifesteal",
-              HealerVar = "Nothing"
-            }
-          },
-          {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Target",
@@ -248,7 +278,9 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -263,9 +295,10 @@ BuffOnHitUnitBuildingBlocks = {
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 1,
-              BuffVarsTable = "NextBuffVars",
+              BuffVarsTable = "CharVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -277,7 +310,8 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SiphoningStrikeNew"
+      BuffName = "SiphoningStrikeNew",
+      ResetDuration = 0
     }
   },
   {
@@ -316,7 +350,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

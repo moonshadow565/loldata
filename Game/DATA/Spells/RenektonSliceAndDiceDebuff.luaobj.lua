@@ -16,17 +16,95 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "ArmorShred",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBGetArmor,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "SubjectArmor"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ArmorShred",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "armorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentArmorMod,
+      Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorShred",
+      DeltaVar = "armorInc",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetArmor,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "SubjectArmor"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "SubjectArmor",
+      Src2Var = "armorInc",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "SubjectArmor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ArmorShred",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "armorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
     }
   }
 }

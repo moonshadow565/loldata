@@ -65,7 +65,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -184,7 +185,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -276,7 +278,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Caster",
-      BuffName = "XenZhaoSweep"
+      BuffName = "XenZhaoSweep",
+      ResetDuration = 0
     }
   }
 }
@@ -322,120 +325,59 @@ BuffOnMoveSuccessBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBApplyDamage,
         Params = {
-          Src1Var = "Caster",
-          Src2Var = "Unit",
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Unit",
-              EffectName = "xenZiou_AudaciousCharge_tar_03_unit_tar.troy",
-              Flags = 0,
-              EffectIDVar = "part",
-              TargetObjectVar = "Unit",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "DamageDealt",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.4,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "Slow",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-              StacksExclusive = true,
-              BuffType = BUFF_Slow,
-              MaxStack = 100,
-              NumberOfStacks = 1,
-              Duration = 1.7,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Owner",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "DamageDealt",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "Slow",
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
+          BuffType = BUFF_Slow,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 1.7,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
   },
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Caster"}
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Caster",
-      Damage = 0,
-      DamageVar = "DamageDealt",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.4,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Caster",
-      AttackerVar = "Owner",
-      BuffName = "Slow",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Slow,
-      MaxStack = 100,
-      NumberOfStacks = 1,
-      Duration = 1.7,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBIssueOrder,
-    Params = {
-      WhomToOrderVar = "Owner",
-      TargetOfOrderVar = "Caster",
-      Order = AI_ATTACKTO
+    Function = BBIf,
+    Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
+      }
     }
   }
 }
@@ -456,12 +398,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xenzhaosweep"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xenziou_audaciouscharge_tar_03_unit_tar.troy"
     }
   },
   {

@@ -154,6 +154,178 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   }
 }
+CharOnKillUnitBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "AkaliShadowDance"
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBGetBuffCountFromAll,
+            Params = {
+              DestVar = "Count",
+              TargetVar = "Owner",
+              BuffName = "AkaliShadowDance"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 4,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 3,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "AkaliShadowDance",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_AmmoStack,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "AkaliShadowDance",
+                  BuffAddType = BUFF_STACKS_AND_CONTINUE,
+                  StacksExclusive = true,
+                  BuffType = BUFF_AmmoStack,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+CharOnAssistUnitBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "AkaliShadowDance"
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBGetBuffCountFromAll,
+            Params = {
+              DestVar = "Count",
+              TargetVar = "Owner",
+              BuffName = "AkaliShadowDance"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 4,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 3,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "AkaliShadowDance",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_AmmoStack,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "AkaliShadowDance",
+                  BuffAddType = BUFF_STACKS_AND_CONTINUE,
+                  StacksExclusive = true,
+                  BuffType = BUFF_AmmoStack,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -169,7 +341,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -186,7 +359,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -203,7 +377,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -220,7 +395,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -279,13 +455,14 @@ CharOnResurrectBuildingBlocks = {
           BuffName = "AkaliShadowDance",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 3,
-          NumberOfStacks = 3,
+          BuffType = BUFF_AmmoStack,
+          MaxStack = 4,
+          NumberOfStacks = 4,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -324,33 +501,17 @@ CharOnLevelUpSpellBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
               BuffName = "AkaliShadowDance",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 3,
-              NumberOfStacks = 1,
-              Duration = 25000,
+              BuffType = BUFF_AmmoStack,
+              MaxStack = 4,
+              NumberOfStacks = 2,
+              Duration = 25,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -359,6 +520,12 @@ CharOnLevelUpSpellBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "akalishadowdance"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -380,17 +547,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "isninja"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdancecounter"
-    }
   }
 }

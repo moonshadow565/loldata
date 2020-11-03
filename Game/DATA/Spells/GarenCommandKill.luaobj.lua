@@ -93,7 +93,8 @@ BuffOnKillBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -143,10 +144,10 @@ BuffOnLevelUpSpellBuildingBlocks = {
           DestVar = "MaxBonus",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            5,
-            10,
-            15,
-            20,
+            25,
+            25,
+            25,
+            25,
             25
           }
         }
@@ -174,7 +175,8 @@ BuffOnLevelUpSpellBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

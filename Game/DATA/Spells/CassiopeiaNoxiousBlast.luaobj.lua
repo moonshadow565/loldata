@@ -51,88 +51,28 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Src1VarTable = "InstanceVars",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxiousSnakePlane_red.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxiousSnakePlane_green.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxiousSnakePlane_red.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxiousSnakePlane_green.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "CassNoxiousSnakePlane_green.troy",
+      EffectNameForOtherTeam = "CassNoxiousSnakePlane_red.troy",
+      Flags = 0,
+      EffectIDVar = "particle",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "particle2",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWTeamOverrideVarTable = "InstanceVars",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -149,88 +89,24 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Src1VarTable = "InstanceVars",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxious_tar.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxious_tar.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxious_tar.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "CassNoxious_tar.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "CassNoxious_tar.troy",
+      Flags = 0,
+      EffectIDVar = "particle",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWTeamOverrideVarTable = "InstanceVars",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -271,7 +147,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 3.25,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -306,7 +183,8 @@ OnBuffDeactivateBuildingBlocks = {
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -314,14 +192,17 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBSpellEffectRemove,
     Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 200,
-      Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      EffectIDVar = "particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "particle2",
+      EffectIDVarTable = "InstanceVars"
     }
   },
   {
@@ -378,6 +259,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -411,7 +293,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -428,7 +311,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -436,13 +320,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassnoxioussnakeplane_red.troy"
+      Name = "cassnoxioussnakeplane_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassnoxioussnakeplane_green.troy"
+      Name = "cassnoxioussnakeplane_red.troy"
     }
   },
   {

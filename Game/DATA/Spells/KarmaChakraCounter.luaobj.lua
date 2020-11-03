@@ -8,63 +8,6 @@ BuffName = "Pick A Card"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBGetBuffCountFromCaster,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "KarmaChakraCharge"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
-    SubBlocks = {
-      {
-        Function = BBIfNotHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "KarmaChakraTimer"
-        },
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Count",
-              Value2 = 2,
-              CompareOp = CO_LESS_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "KarmaChakraTimer",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 0,
-                  BuffVarsTable = "NextBuffVars",
-                  DurationVar = "MantraTimerCooldown",
-                  DurationVarTable = "CharVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBGetCastInfo,
@@ -368,18 +311,6 @@ BuffOnSpellCastBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmachakracharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmachakratimer"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

@@ -55,7 +55,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               Src1Var = "APValue",
               Src1Value = 0,
-              Src2Value = 0.55,
+              Src2Value = 0.6,
               DestVar = "APMod",
               MathOp = MO_MULTIPLY
             }
@@ -157,7 +157,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -215,7 +217,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }

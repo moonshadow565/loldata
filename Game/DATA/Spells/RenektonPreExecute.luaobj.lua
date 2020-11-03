@@ -140,11 +140,13 @@ OnBuffDeactivateBuildingBlocks = {
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = true,
+          UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "OwnerVar",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -291,7 +293,11 @@ BuffOnPreAttackBuildingBlocks = {
           },
           {
             Function = BBSpellBuffRemove,
-            Params = {TargetVar = "Owner", AttackerVar = "Owner"}
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              ResetDuration = 0
+            }
           }
         }
       }
@@ -306,7 +312,8 @@ SelfExecuteBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {

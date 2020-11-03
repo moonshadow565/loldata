@@ -5,7 +5,7 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "NIdalee_Bushwhack.dds"
 BuffName = "Bushwhack"
-AutoBuffActivateEffect = "nidalee_bushwhack_sentry_tar.troy"
+AutoBuffActivateEffect = "global_Watched.troy"
 AutoBuffActivateAttachBoneName = "head"
 OnBuffActivateBuildingBlocks = {
   {
@@ -36,54 +36,15 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BaseDamage",
-      SrcValueByLevel = {
-        80,
-        125,
-        170,
-        215,
-        260
-      }
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Attacker",
-      DestVar = "AP"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AP",
-      Src1Value = 0,
-      Src2Value = 0.4,
-      DestVar = "APBonus",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BaseDamage",
-      Src2Var = "APBonus",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TotalDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "TotalDamage",
-      Src1Value = 0,
-      Src2Value = 4,
       DestVar = "DamagePerTick",
       DestVarTable = "InstanceVars",
-      MathOp = MO_DIVIDE
+      SrcValueByLevel = {
+        20,
+        31.25,
+        42.5,
+        53.75,
+        65
+      }
     }
   },
   {
@@ -113,25 +74,64 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBAddUnitPerceptionBubble,
+    Function = BBGetArmor,
     Params = {
-      TeamVar = "Team",
-      Radius = 50,
       TargetVar = "Owner",
-      Duration = 20,
-      SpecificUnitsClientOnlyVar = "Nothing",
-      RevealSpecificUnitOnlyVar = "Nothing",
-      RevealSteath = true,
-      BubbleIDVar = "BubbleID2",
-      BubbleIDVarTable = "InstanceVars"
+      DestVar = "SubjectArmor"
     }
   },
   {
-    Function = BBGetStat,
+    Function = BBMath,
     Params = {
-      Stat = GetFlatArmorMod,
-      TargetVar = "Owner",
-      DestVar = "BaseArmor"
+      Src1Var = "Debuff",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "armorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
+    }
+  },
+  {
+    Function = BBGetSpellBlock,
+    Params = {TargetVar = "Owner", DestVar = "SubjectMR"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Debuff",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectMR",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "mrInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "mrInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "mrInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
     }
   },
   {
@@ -169,22 +169,15 @@ OnBuffDeactivateBuildingBlocks = {
       BubbleIDVar = "BubbleID",
       BubbleIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBRemovePerceptionBubble,
-    Params = {
-      BubbleIDVar = "BubbleID2",
-      BubbleIDVarTable = "InstanceVars"
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentArmorMod,
+      Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "Debuff",
+      DeltaVar = "armorInc",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -192,9 +185,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentSpellBlockMod,
+      Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "Debuff",
+      DeltaVar = "mrInc",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -235,6 +228,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Owner",
               Damage = 0,
               DamageVar = "DamagePerTick",
@@ -254,21 +248,32 @@ BuffOnUpdateActionsBuildingBlocks = {
   },
   {
     Function = BBGetArmor,
-    Params = {TargetVar = "Owner", DestVar = "BaseArmor"}
-  },
-  {
-    Function = BBGetSpellBlock,
-    Params = {TargetVar = "Owner", DestVar = "BaseMR"}
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "SubjectArmor"
+    }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BaseArmor",
-      Src2Var = "Debuff",
+      Src1Var = "SubjectArmor",
+      Src2Var = "armorInc",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "ArmorDebuff",
+      DestVar = "SubjectArmor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Debuff",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
     }
@@ -276,14 +281,54 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BaseMR",
-      Src2Var = "Debuff",
+      Src1Var = "armorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
+    }
+  },
+  {
+    Function = BBGetSpellBlock,
+    Params = {TargetVar = "Owner", DestVar = "SubjectMR"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "SubjectMR",
+      Src2Var = "mrInc",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "MRDebuff",
+      DestVar = "SubjectMR",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Debuff",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectMR",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "mrInc",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "mrInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "mrInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
     }
   }
 }

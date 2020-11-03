@@ -48,87 +48,26 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Radiance_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Radiance_Green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Radiance_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Radiance_green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "Radiance_Green_cas.troy",
+      EffectNameForOtherTeam = "Radiance_red_cas.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -175,6 +114,7 @@ OnBuffActivateBuildingBlocks = {
       BuffDuration = 1.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
+      IsHiddenOnClient = false,
       InclusiveBuffFilter = true
     }
   },
@@ -392,6 +332,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffDuration = 1.1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
+              IsHiddenOnClient = false,
               InclusiveBuffFilter = true
             }
           }
@@ -406,7 +347,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "Radiance"
+              BuffName = "Radiance",
+              ResetDuration = 0
             }
           }
         }
@@ -448,7 +390,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Radiance"
+          BuffName = "Radiance",
+          ResetDuration = 0
         }
       }
     }
@@ -544,7 +487,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -554,13 +498,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "radiance_red_cas.troy"
+      Name = "radiance_green_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "radiance_green_cas.troy"
+      Name = "radiance_red_cas.troy"
     }
   },
   {

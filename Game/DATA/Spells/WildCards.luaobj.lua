@@ -37,7 +37,8 @@ BuffOnSpellHitBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -59,6 +60,7 @@ BuffOnSpellHitBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
             60,
@@ -126,6 +128,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
@@ -151,6 +154,16 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "SealFateMissile",
+      TargetVar = "Other1"
+    }
+  },
+  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Other1",
@@ -158,14 +171,15 @@ SelfExecuteBuildingBlocks = {
       PosVar = "Pos1",
       EndPosVar = "Pos1",
       OverrideCastPosition = false,
-      SlotNumber = 2,
+      SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {
@@ -176,14 +190,15 @@ SelfExecuteBuildingBlocks = {
       PosVar = "Pos2",
       EndPosVar = "Pos2",
       OverrideCastPosition = false,
-      SlotNumber = 2,
+      SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {
@@ -194,14 +209,15 @@ SelfExecuteBuildingBlocks = {
       PosVar = "Pos3",
       EndPosVar = "Pos3",
       OverrideCastPosition = false,
-      SlotNumber = 2,
+      SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {
@@ -217,7 +233,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 6,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -234,7 +251,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 6,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

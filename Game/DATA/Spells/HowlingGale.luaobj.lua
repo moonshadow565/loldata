@@ -175,6 +175,16 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetSpell,
+        Params = {
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          SpellName = "HowlingGaleSpell",
+          TargetVar = "Other1"
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other1",
@@ -191,26 +201,6 @@ OnBuffDeactivateBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Other1",
-          TargetVar = "Nothing",
-          PosVar = "FacePos",
-          EndPosVar = "FacePos",
-          OverrideCastPosition = false,
-          SlotNumber = 1,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideForceLevelVarTable = "InstanceVars",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
       }
     }
   },
@@ -223,6 +213,16 @@ OnBuffDeactivateBuildingBlocks = {
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetSpell,
+        Params = {
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          SpellName = "HowlingGaleSpell1",
+          TargetVar = "Other1"
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -240,26 +240,6 @@ OnBuffDeactivateBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Other1",
-          TargetVar = "Nothing",
-          PosVar = "FacePos",
-          EndPosVar = "FacePos",
-          OverrideCastPosition = false,
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideForceLevelVarTable = "InstanceVars",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
       }
     }
   },
@@ -272,6 +252,16 @@ OnBuffDeactivateBuildingBlocks = {
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetSpell,
+        Params = {
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          SpellName = "HowlingGaleSpell2",
+          TargetVar = "Other1"
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -289,26 +279,6 @@ OnBuffDeactivateBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Other1",
-          TargetVar = "Nothing",
-          PosVar = "FacePos",
-          EndPosVar = "FacePos",
-          OverrideCastPosition = false,
-          SlotNumber = 1,
-          SlotType = SpellSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideForceLevelVarTable = "InstanceVars",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
       }
     }
   },
@@ -316,6 +286,16 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBSetSpell,
+        Params = {
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          SpellName = "HowlingGaleSpell3",
+          TargetVar = "Other1"
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -333,27 +313,27 @@ OnBuffDeactivateBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Other1",
-          TargetVar = "Nothing",
-          PosVar = "FacePos",
-          EndPosVar = "FacePos",
-          OverrideCastPosition = false,
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideForceLevelVarTable = "InstanceVars",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
       }
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Other1",
+      TargetVar = "Nothing",
+      PosVar = "FacePos",
+      EndPosVar = "FacePos",
+      OverrideCastPosition = false,
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 0,
+      OverrideForceLevelVar = "Level",
+      OverrideForceLevelVarTable = "InstanceVars",
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {

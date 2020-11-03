@@ -71,7 +71,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -89,7 +90,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -107,7 +109,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -125,7 +128,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -144,7 +148,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -163,7 +168,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -210,7 +216,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -229,7 +236,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -248,7 +256,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -267,7 +276,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -286,179 +296,56 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfAttacker",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_ult_beam_teamID_ally_green.troy",
-              Flags = 0,
-              EffectIDVar = "ParticleID",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_ult_beam_teamID_enemy_red.troy",
-              Flags = 0,
-              EffectIDVar = "SoulShackleIdle",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundGreen.troy",
-              Flags = 0,
-              EffectIDVar = "SoundOne",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundRed.troy",
-              Flags = 0,
-              EffectIDVar = "SoundTwo",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Attacker",
+          EffectName = "karma_spiritBond_ult_beam_teamID_ally_green.troy",
+          EffectNameForOtherTeam = "karma_spiritBond_ult_beam_teamID_enemy_red.troy",
+          Flags = 0,
+          EffectIDVar = "ParticleID",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "SoulShackleIdle",
+          EffectID2VarTable = "InstanceVars",
+          BoneName = "root",
+          TargetObjectVar = "Owner",
+          TargetBoneName = "root",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfAttacker",
-          Value2 = TEAM_CHAOS,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_ult_beam_teamID_ally_green.troy",
-              Flags = 0,
-              EffectIDVar = "ParticleID",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_ult_beam_teamID_enemy_red.troy",
-              Flags = 0,
-              EffectIDVar = "SoulShackleIdle",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundGreen.troy",
-              Flags = 0,
-              EffectIDVar = "SoundOne",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundRed.troy",
-              Flags = 0,
-              EffectIDVar = "SoundTwo",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "KarmaSpiritBondSoundGreen.troy",
+          EffectNameForOtherTeam = "KarmaSpiritBondSoundRed.troy",
+          Flags = 0,
+          EffectIDVar = "SoundOne",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "SoundTwo",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -468,175 +355,51 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfAttacker",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_beam_teamID_ally_green.troy",
-              Flags = 0,
-              EffectIDVar = "ParticleID",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_beam_teamID_enemy_red.troy",
-              Flags = 0,
-              EffectIDVar = "SoulShackleIdle",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundGreen.troy",
-              Flags = 0,
-              EffectIDVar = "SoundOne",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundRed.troy",
-              Flags = 0,
-              EffectIDVar = "SoundTwo",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Attacker",
+          EffectName = "karma_spiritBond_ult_beam_teamID_ally_green.troy",
+          EffectNameForOtherTeam = "karma_spiritBond_ult_beam_teamID_enemy_red.troy",
+          Flags = 0,
+          EffectIDVar = "ParticleID",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "SoulShackleIdle",
+          EffectID2VarTable = "InstanceVars",
+          BoneName = "root",
+          TargetObjectVar = "Owner",
+          TargetBoneName = "root",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfAttacker",
-          Value2 = TEAM_CHAOS,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_beam_teamID_ally_green.troy",
-              Flags = 0,
-              EffectIDVar = "ParticleID",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "karma_spiritBond_beam_teamID_enemy_red.troy",
-              Flags = 0,
-              EffectIDVar = "SoulShackleIdle",
-              EffectIDVarTable = "InstanceVars",
-              BoneName = "root",
-              TargetObjectVar = "Owner",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundGreen.troy",
-              Flags = 0,
-              EffectIDVar = "SoundOne",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KarmaSpiritBondSoundRed.troy",
-              Flags = 0,
-              EffectIDVar = "SoundTwo",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "KarmaSpiritBondSoundGreen.troy",
+          EffectNameForOtherTeam = "KarmaSpiritBondSoundRed.troy",
+          Flags = 0,
+          EffectIDVar = "SoundOne",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "SoundTwo",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -810,7 +573,8 @@ OnBuffActivateBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -940,7 +704,8 @@ OnBuffActivateBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -1135,7 +900,8 @@ OnBuffActivateBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -1265,7 +1031,8 @@ OnBuffActivateBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -1414,7 +1181,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Attacker",
-          BuffName = "KarmaSpiritBondAllySelfTooltip"
+          BuffName = "KarmaSpiritBondAllySelfTooltip",
+          ResetDuration = 0
         }
       }
     }
@@ -1585,7 +1353,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -1603,7 +1372,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -1744,7 +1514,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -1874,7 +1645,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -2069,7 +1841,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -2199,7 +1972,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
-                              FollowsGroundTilt = false
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           },
                           {
@@ -2301,7 +2075,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -2347,7 +2122,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -2541,7 +2317,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
-              AttackerVar = "Owner",
+              AttackerVar = "Attacker",
               BuffName = "KarmaSpiritBondC",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
@@ -2675,18 +2451,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "karmaspiritbondsoundred.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "karma_spiritbond_beam_teamid_ally_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "karma_spiritbond_beam_teamid_enemy_red.troy"
     }
   },
   {

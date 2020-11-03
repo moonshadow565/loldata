@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 AutoBuffActivateEffect = ""
 BuffOnCollisionBuildingBlocks = {
   {
@@ -11,91 +11,103 @@ BuffOnCollisionBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "SlashBeenHit",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 2,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Target"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "Damage",
-          DamageVarTable = "InstanceVars",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 1,
-          PhysicalDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "BloodSlash.troy",
-          Flags = 0,
-          EffectIDVar = "particle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBStartTrackingCollisions,
-        Params = {TargetVar = "Owner", Value = true}
-      },
-      {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
         SubBlocks = {
           {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 5,
-              PARType = PAR_OTHER
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 2,
-              PARType = PAR_OTHER
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Owner",
+                  BuffName = "SlashBeenHit",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "Damage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = true
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "BloodSlash.troy",
+                  Flags = 0,
+                  EffectIDVar = "particle",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBStartTrackingCollisions,
+                Params = {TargetVar = "Owner", Value = true}
+              },
+              {
+                Function = BBIf,
+                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 5,
+                      PARType = PAR_OTHER
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 2,
+                      PARType = PAR_OTHER
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -230,10 +242,20 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_AI},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_TURRET}
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Unit",
-              AttackerVar = "Attacker",
+              AttackerVar = "Owner",
               BuffName = "SlashBeenHit",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
@@ -295,7 +317,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Function = BBIncPAR,
                 Params = {
                   TargetVar = "Owner",
-                  Delta = 0,
+                  Delta = 5,
                   PARType = PAR_OTHER
                 }
               }
@@ -309,7 +331,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Function = BBIncPAR,
                 Params = {
                   TargetVar = "Owner",
-                  Delta = 0,
+                  Delta = 2,
                   PARType = PAR_OTHER
                 }
               }
@@ -437,11 +459,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "baseAbilityDamage",
       SrcValueByLevel = {
-        60,
-        90,
-        120,
-        150,
-        180
+        70,
+        100,
+        130,
+        160,
+        190
       }
     }
   },
@@ -469,6 +491,16 @@ SelfExecuteBuildingBlocks = {
       Src2Value = 0,
       DestVar = "bonusDamage",
       MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "bonusDamage",
+      Src1Value = 1.2,
+      Src2Value = 0,
+      DestVar = "bonusDamage",
+      MathOp = MO_MULTIPLY
     }
   },
   {

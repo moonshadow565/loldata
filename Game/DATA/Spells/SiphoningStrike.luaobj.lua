@@ -2,6 +2,15 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DamageBonus",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
@@ -21,7 +30,9 @@ BuffOnDeathBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -76,104 +87,6 @@ BuffOnDeathBuildingBlocks = {
           IsHiddenOnClient = false
         }
       }
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBGetTotalAttackDamage,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "BaseAttackDamage"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AbilityDamage",
-      SrcValueByLevel = {
-        30,
-        50,
-        70,
-        90,
-        110
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AbilityDamage",
-      Src2Var = "BaseAttackDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SecondDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SecondDamage",
-      Src2Var = "DamageBonus",
-      Src2VarTable = "CharVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "FinalDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "FinalDamage",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = true,
-      IgnoreDamageCrit = true
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "FinalDamage",
-      Src1Value = 0.15,
-      Src2Value = 0,
-      DestVar = "Lifesteal",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "Lifesteal",
-      HealerVar = "Nothing"
     }
   }
 }

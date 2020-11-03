@@ -66,6 +66,44 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Attacker"
         }
+      },
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Nothing",
+          BuffName = "YorickRAZombie"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Nothing",
+              BuffName = "YorickReviveAllySelf"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "KogMawIcathianSurpriseReady",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -273,6 +311,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "kogmawicathiansurpriseready"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "kogmawcausticspittle"
     }
   },
@@ -280,12 +324,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurpriseready"
     }
   },
   {

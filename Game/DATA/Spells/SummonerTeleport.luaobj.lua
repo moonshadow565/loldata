@@ -750,13 +750,13 @@ TargetExecuteBuildingBlocks = {
             Params = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
-              BuffName = "RevealWard",
+              BuffName = "Destealth",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 0,
+              Duration = 1,
               BuffVarsTable = "NextBuffVars",
               DurationVar = "BuffDuration",
               DurationVarTable = "NextBuffVars",
@@ -824,5 +824,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sharedwardbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "destealth"}
   }
 }

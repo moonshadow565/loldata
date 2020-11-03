@@ -20,14 +20,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyAssistMarker,
-    Params = {
-      Duration = 10,
-      TargetVar = "Target",
-      SourceVar = "Attacker"
-    }
-  },
-  {
     Function = BBIncPermanentStat,
     Params = {
       Stat = IncPermanentFlatBubbleRadiusMod,
@@ -36,25 +28,6 @@ OnBuffActivateBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {
-      TargetVar = "Attacker",
-      DestVar = "TeamOfAttacker"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "TeamOfAttacker",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

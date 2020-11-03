@@ -34,87 +34,26 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "ReapTheWhirlwind_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "ReapTheWhirlwind_green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "ReapTheWhirlwind_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "ReapTheWhirlwind_green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "ReapTheWhirlwind_green_cas.troy",
+      EffectNameForOtherTeam = "ReapTheWhirlwind_red_cas.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -402,7 +341,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "ReapTheWhirlwind"
+      BuffName = "ReapTheWhirlwind",
+      ResetDuration = 0
     }
   }
 }
@@ -412,7 +352,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "ReapTheWhirlwind"
+      BuffName = "ReapTheWhirlwind",
+      ResetDuration = 0
     }
   }
 }
@@ -420,13 +361,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "reapthewhirlwind_red_cas.troy"
+      Name = "reapthewhirlwind_green_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "reapthewhirlwind_green_cas.troy"
+      Name = "reapthewhirlwind_red_cas.troy"
     }
   },
   {

@@ -85,11 +85,12 @@ OnBuffActivateBuildingBlocks = {
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
+      UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -112,11 +113,12 @@ OnBuffActivateBuildingBlocks = {
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = true,
+          UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -131,11 +133,12 @@ OnBuffActivateBuildingBlocks = {
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = true,
+          UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -156,11 +159,12 @@ OnBuffActivateBuildingBlocks = {
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = true,
+          UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -175,11 +179,12 @@ OnBuffActivateBuildingBlocks = {
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = true,
+          UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

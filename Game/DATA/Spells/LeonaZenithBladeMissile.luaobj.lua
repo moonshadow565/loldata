@@ -78,348 +78,118 @@ SpellOnMissileEndBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBForNClosestUnitsInTargetArea,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 3000,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes AffectDead ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 1,
+      BuffNameFilter = "LeonaZenithBladeBuffOrder",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBForNClosestUnitsInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 3000,
-          Flags = "AffectDead ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          BuffNameFilter = "LeonaZenithBladeBuffOrder",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBFaceDirection,
-            Params = {TargetVar = "Owner", LocationVar = "Unit"}
-          },
-          {
-            Function = BBDistanceBetweenObjects,
-            Params = {
-              DestVar = "Distance",
-              ObjectVar1 = "Owner",
-              ObjectVar2 = "Unit"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 225,
-              DestVar = "finalDistance",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 0,
-              DistanceVar = "finalDistance",
-              OffsetAngle = 0,
-              PositionVar = "TargetPos"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "LeonaZenithBladeRoot",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Net,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBIssueOrder,
-            Params = {
-              WhomToOrderVar = "Owner",
-              TargetOfOrderVar = "Unit",
-              Order = AI_ATTACKTO
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Destination",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "TargetPos"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Distance",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "Distance"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "Leona_ZenithBlade_trail.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar1",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 225,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "Leona_ZenithBlade_trail.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar1",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 225,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Owner", LocationVar = "Unit"}
+      },
       {
-        Function = BBForNClosestUnitsInTargetArea,
+        Function = BBDistanceBetweenObjects,
         Params = {
+          DestVar = "Distance",
+          ObjectVar1 = "Owner",
+          ObjectVar2 = "Unit"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Distance",
+          Src1Value = 0,
+          Src2Value = 225,
+          DestVar = "finalDistance",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 0,
+          DistanceVar = "finalDistance",
+          OffsetAngle = 0,
+          PositionVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
           AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 3000,
-          Flags = "AffectDead ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          BuffNameFilter = "LeonaZenithBladeBuffChaos",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBFaceDirection,
-            Params = {TargetVar = "Owner", LocationVar = "Unit"}
-          },
-          {
-            Function = BBDistanceBetweenObjects,
-            Params = {
-              DestVar = "Distance",
-              ObjectVar1 = "Owner",
-              ObjectVar2 = "Unit"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 225,
-              DestVar = "finalDistance",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 0,
-              DistanceVar = "finalDistance",
-              OffsetAngle = 0,
-              PositionVar = "TargetPos"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "LeonaZenithBladeRoot",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Net,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBIssueOrder,
-            Params = {
-              WhomToOrderVar = "Owner",
-              TargetOfOrderVar = "Unit",
-              Order = AI_ATTACKTO
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Destination",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "TargetPos"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Distance",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "Distance"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBMove,
-            Params = {
-              UnitVar = "Owner",
-              TargetVar = "TargetPos",
-              Speed = 1900,
-              Gravity = 0,
-              MoveBackBy = 0,
-              MovementType = FURTHEST_WITHIN_RANGE,
-              MovementOrdersType = CANCEL_ORDER,
-              MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-              IdealDistance = 0,
-              IdealDistanceVar = "Distance"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "Leona_ZenithBlade_trail.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar1",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 225,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "Leona_ZenithBlade_trail.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar1",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 225,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          }
+          BuffName = "LeonaZenithBladeRoot",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Net,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Destination",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Distance",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "Distance"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Unit",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Leona_ZenithBlade_trail.troy",
+          Flags = 0,
+          EffectIDVar = "ar1",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -435,97 +205,42 @@ TargetExecuteBuildingBlocks = {
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBForEachUnitInTargetArea,
         Params = {
-          Src1Var = "TeamID",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
+          AttackerVar = "Attacker",
+          CenterVar = "Attacker",
+          Range = 3000,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes NotAffectSelf AffectDead ",
+          IteratorVar = "Unit",
+          BuffNameFilter = "LeonaZenithBladeBuffOrder",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
-            Function = BBForEachUnitInTargetArea,
+            Function = BBSpellBuffClear,
             Params = {
-              AttackerVar = "Attacker",
-              CenterVar = "Attacker",
-              Range = 3000,
-              Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes NotAffectSelf AffectDead ",
-              IteratorVar = "Unit",
-              BuffNameFilter = "LeonaZenithBladeBuffOrder",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffClear,
-                Params = {
-                  TargetVar = "Unit",
-                  BuffName = "LeonaZenithBladeBuffOrder"
-                }
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "LeonaZenithBladeBuffOrder",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+              TargetVar = "Unit",
+              BuffName = "LeonaZenithBladeBuffOrder"
             }
           }
         }
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Attacker",
-              CenterVar = "Attacker",
-              Range = 3000,
-              Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes NotAffectSelf AffectDead ",
-              IteratorVar = "Unit",
-              BuffNameFilter = "LeonaZenithBladeBuffChaos",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffClear,
-                Params = {
-                  TargetVar = "Unit",
-                  BuffName = "LeonaZenithBladeBuffChaos"
-                }
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "LeonaZenithBladeBuffChaos",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "LeonaZenithBladeBuffOrder",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -628,17 +343,37 @@ BuffOnMoveEndBuildingBlocks = {
     }
   }
 }
+BuffOnMoveSuccessBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Attacker",
+          Src2Var = "Owner",
+          CompareOp = CO_DIFFERENT_TEAM
+        },
+        SubBlocks = {
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Attacker",
+              Order = AI_ATTACKTO
+            }
+          }
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "leonazenithbladebufforder"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_arcaneshift_cas.troy"
     }
   },
   {
@@ -656,19 +391,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leonazenithbladebuffchaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "leonasunlight"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leonazenithblademissile"
     }
   },
   {

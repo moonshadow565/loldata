@@ -285,30 +285,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickrazombie"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrazombielich"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrazombiekogmaw"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrapetbuff2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "chronorevive"
     }
   }

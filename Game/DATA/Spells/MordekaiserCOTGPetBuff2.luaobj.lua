@@ -17,94 +17,32 @@ OnBuffActivateBuildingBlocks = {
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
       SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
+      UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "mordekaiser_cotg_ring.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "mordekaiser_cotg_ring.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "mordekaiser_cotg_ring.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "mordekaiser_cotg_ring.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "mordekaiser_cotg_ring.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 500,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -273,7 +211,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -290,7 +229,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -306,7 +246,8 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "LeblancPassive"
+          BuffName = "LeblancPassive",
+          ResetDuration = 0
         }
       }
     }
@@ -356,7 +297,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Attacker",
-          BuffName = "MordekaiserCOTGSelf"
+          BuffName = "MordekaiserCOTGSelf",
+          ResetDuration = 0
         }
       }
     }
@@ -416,7 +358,8 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "KogMawIcathianSurprise"
+          BuffName = "KogMawIcathianSurprise",
+          ResetDuration = 0
         }
       }
     }
@@ -434,7 +377,8 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "KogMawIcathianSurpriseReady"
+          BuffName = "KogMawIcathianSurpriseReady",
+          ResetDuration = 0
         }
       }
     }
@@ -505,7 +449,8 @@ BuffOnHitUnitBuildingBlocks = {
           Duration = 0.001,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -532,7 +477,8 @@ BuffOnHitUnitBuildingBlocks = {
           Duration = 0.001,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -585,24 +531,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisercotgpetbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancpassive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurprise"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurpriseready"
     }
   },
   {

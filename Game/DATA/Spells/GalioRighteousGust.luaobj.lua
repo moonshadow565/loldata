@@ -111,6 +111,16 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "GalioRighteousGustMissile",
+      TargetVar = "Owner"
+    }
+  },
+  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
@@ -118,7 +128,7 @@ OnBuffActivateBuildingBlocks = {
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
       OverrideCastPosition = false,
-      SlotNumber = 3,
+      SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
@@ -254,7 +264,8 @@ BuffOnSpellHitBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -315,6 +326,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -372,6 +384,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galiorighteousgustmissile"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "galio"}

@@ -23,95 +23,26 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "JarvanDemacianStandard_tar_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "JarvanDemacianStandard_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "JarvanDemacianStandard_tar_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "JarvanDemacianStandard_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "JarvanDemacianStandard_tar_green.troy",
+      EffectNameForOtherTeam = "JarvanDemacianStandard_tar_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle1",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -312,6 +243,7 @@ OnBuffDeactivateBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -403,13 +335,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "jarvandemacianstandard_tar_red.troy"
+      Name = "jarvandemacianstandard_tar_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "jarvandemacianstandard_tar_green.troy"
+      Name = "jarvandemacianstandard_tar_red.troy"
     }
   },
   {

@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = ""
 BuffName = "GalioRighteousGust"

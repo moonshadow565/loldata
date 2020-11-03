@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "DrMundo_InfectedCleaver.dds"
 BuffName = "InfectedCleaverDebuff"
@@ -31,7 +31,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -287,7 +288,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -311,7 +313,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -484,7 +487,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -508,7 +512,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -726,7 +731,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -750,7 +756,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }

@@ -245,43 +245,51 @@ TargetExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Feast",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 6,
-          NumberOfStacks = 1,
-          Duration = 30000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Feast_internal",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 30000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Feast",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 6,
+              NumberOfStacks = 1,
+              Duration = 30000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Feast_internal",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 30000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
         }
       }
     }

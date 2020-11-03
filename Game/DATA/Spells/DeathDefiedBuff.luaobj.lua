@@ -49,42 +49,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Nothing",
-      BuffName = "MordekaiserChildrenOfTheGrave"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "mordekeiser_cotg_tar.troy",
-          Flags = 0,
-          EffectIDVar = "MordekaiserParticle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "COTGFound",
-          DestVarTable = "InstanceVars",
-          SrcValue = true
-        }
-      }
-    }
-  },
-  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -119,11 +83,12 @@ OnBuffActivateBuildingBlocks = {
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
       SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
+      UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -499,56 +464,6 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "COTGFound",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "MordekaiserParticle",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 25000,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          BuffNameFilter = "MordekaiserIronMan",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Unit",
-              TargetVar = "Owner",
-              PosVar = "Owner",
-              EndPosVar = "Owner",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
-            }
-          }
-        }
-      }
     }
   },
   {
@@ -933,30 +848,6 @@ BuffOnLevelUpSpellBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "mordekaiserchildrenofthegrave"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "mordekeiser_cotg_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "mordekeiser_cotg_skin.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "mordekaiserironman"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "defile"}

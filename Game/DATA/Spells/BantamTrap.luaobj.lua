@@ -592,6 +592,49 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "Level",
+              SpellSlotValue = 3,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Attacker",
+              Function = GetSlotSpellLevel
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamagePerTick",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                50,
+                100,
+                150
+              }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                -0.3,
+                -0.4,
+                -0.5
+              }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "AttackSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 0
+            }
+          },
+          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Attacker",
@@ -605,33 +648,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               {
                 Function = BBBreakSpellShields,
                 Params = {TargetVar = "Unit"}
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamagePerTick",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "DamagePerTick",
-                  SrcVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "MoveSpeedMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "MoveSpeedMod",
-                  SrcVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "AttackSpeedMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "AttackSpeedMod",
-                  SrcVarTable = "InstanceVars"
-                }
               },
               {
                 Function = BBSpellBuffAdd,
@@ -824,37 +840,6 @@ SelfExecuteBuildingBlocks = {
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamagePerTick",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        50,
-        100,
-        150
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MoveSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        -0.3,
-        -0.4,
-        -0.5
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars"
     }
   },
   {

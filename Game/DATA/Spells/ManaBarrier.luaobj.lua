@@ -11,9 +11,22 @@ AutoCooldownByLevel = {
   0
 }
 NonDispellable = true
-OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "ManaShield",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "amountToSubtract",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
@@ -33,34 +46,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurMana",
-      OwnerVar = "Owner",
-      Function = GetPAR,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurMana",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "ManaShield",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ManaShield",
-      DestVarTable = "InstanceVars",
-      SrcVar = "ManaShield"
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -103,6 +91,41 @@ OnBuffDeactivateBuildingBlocks = {
           PhysicalShield = true
         }
       }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBReduceShield,
+    Params = {
+      UnitVar = "Owner",
+      AmountVar = "amountToSubtract",
+      AmountVarTable = "InstanceVars",
+      Amount = 0,
+      MagicShield = true,
+      PhysicalShield = true
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ManaShield",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "amountToSubtract",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "ManaShield",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "amountToSubtract",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
     }
   }
 }
@@ -187,7 +210,9 @@ BuffOnPreDamageBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -240,7 +265,9 @@ BuffOnPreDamageBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {

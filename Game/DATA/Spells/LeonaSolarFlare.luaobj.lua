@@ -30,95 +30,26 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Leona_SolarFlare_cas_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Leona_SolarFlare_cas_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Leona_SolarFlare_cas_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Leona_SolarFlare_cas_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "Leona_SolarFlare_cas_green.troy",
+      EffectNameForOtherTeam = "Leona_SolarFlare_cas_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -216,7 +147,7 @@ OnBuffDeactivateBuildingBlocks = {
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
       SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
+      UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 100,
       SendIfOnScreenOrDiscard = true,
@@ -529,13 +460,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "leona_solarflare_cas_red.troy"
+      Name = "leona_solarflare_cas_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "leona_solarflare_cas_green.troy"
+      Name = "leona_solarflare_cas_red.troy"
     }
   },
   {

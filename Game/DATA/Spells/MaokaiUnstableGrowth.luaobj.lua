@@ -113,91 +113,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "maokai_elementalAdvance_mis.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "maokai_elementalAdvance_mis.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "maokai_elementalAdvance_mis.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "maokai_elementalAdvance_mis.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "maokai_elementalAdvance_mis.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -332,13 +264,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Particle1",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -533,6 +458,30 @@ BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Caster",
+          Src2Var = "Owner",
+          CompareOp = CO_DIFFERENT_TEAM
+        },
+        SubBlocks = {
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Caster",
+              Order = AI_ATTACKTO
+            }
+          }
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

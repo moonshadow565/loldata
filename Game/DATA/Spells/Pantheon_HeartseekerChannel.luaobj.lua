@@ -3,35 +3,96 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "pantheon_heartseeker_cas2.troy",
+      Flags = 0,
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "L_BUFFBONE_GLB_HAND_LOC",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = true
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDmg"}
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TotalDamage"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
   },
   {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DmgPerLvl",
       SrcValueByLevel = {
-        4,
-        6,
-        8,
-        10,
-        12
+        13,
+        23,
+        33,
+        43,
+        53
       }
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBMath,
     Params = {
-      DestVar = "PerLevel",
-      SrcValueByLevel = {
-        0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
-      }
+      Src1Var = "TotalDamage",
+      Src2Var = "BaseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0.6,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src2Var = "DmgPerLvl",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      MathOp = MO_ADD
     }
   },
   {
@@ -43,38 +104,16 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BaseDmg",
-      Src2Var = "PerLevel",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "MultiDmg",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MultiDmg",
-      Src2Var = "DmgPerLvl",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "FinalDmg",
-      MathOp = MO_ADD
-    }
-  },
-  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src2Var = "FinalDmg",
+          Src2Var = "FinalDamage",
           Src1Value = 2,
           Src2Value = 0,
-          DestVar = "FinalDmg",
+          DestVar = "FinalDamage",
           MathOp = MO_MULTIPLY
         }
       }
@@ -95,7 +134,7 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "FinalDmg",
+          DamageVar = "FinalDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
@@ -118,7 +157,7 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "FinalDmg",
+          DamageVar = "FinalDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
@@ -157,7 +196,7 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
-              DamageVar = "FinalDmg",
+              DamageVar = "FinalDamage",
               DamageType = PHYSICAL_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
@@ -169,6 +208,29 @@ TargetExecuteBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+ChannelingCancelStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "Pantheon_HeartseekerChannel"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_heartseeker_cas2.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_heartseekerchannel"
     }
   }
 }

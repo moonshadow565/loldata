@@ -1,3 +1,19 @@
+UpdateSelfBuffStatsBuildingBlocks = {
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  }
+}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -15,14 +31,31 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "TearOfTheGoddessTrack",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }
@@ -47,6 +80,20 @@ OnActivateBuildingBlocks = {
           SrcValue = 0
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }

@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 3
+ChannelDuration = 1.5
 BuffTextureName = "Pantheon_GrandSkyfall.dds"
 BuffName = "Pantheon Grand Skyfall"
 AutoBuffActivateEffect = ""
@@ -21,6 +21,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "a",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -29,7 +30,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -41,64 +43,51 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetTeamID,
+    Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GS_Particle",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
-    Function = BBIf,
+    Function = BBSealSpellSlot,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "pantheon_grandskyfall_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "CharVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "pantheon_grandskyfall_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "CharVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   }
 }
@@ -109,12 +98,51 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
+  },
+  {
+    Function = BBGetNearestPassablePosition,
+    Params = {
+      Owner = "Owner",
+      PositionVar = "TargetPos",
+      NewPositionVar = "TargetPos"
+    }
   },
   {
     Function = BBSetVarInTable,
@@ -201,7 +229,7 @@ SelfExecuteBuildingBlocks = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
                   BuffName = "Pantheon_AegisShield",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
@@ -237,7 +265,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "pantheon_grandskyfall_jump"
+      BuffName = "Pantheon_GrandSkyfall_Jump",
+      ResetDuration = 0
     }
   },
   {
@@ -260,21 +289,20 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   },
   {
-    Function = BBGetNearestPassablePosition,
-    Params = {
-      Owner = "Owner",
-      PositionVar = "TargetPos",
-      NewPositionVar = "TargetPos",
-      NewPositionVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
       DestVarTable = "NextBuffVars",
       SrcVar = "TargetPos",
       SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanCast
     }
   },
   {
@@ -307,6 +335,7 @@ ChannelingSuccessStopBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "b",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -315,7 +344,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -332,13 +362,13 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_Grandskyfall",
+      BuffName = "Pantheon_GrandSkyfall",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -365,6 +395,24 @@ ChannelingSuccessStopBuildingBlocks = {
       SlotType = SpellSlots,
       OwnerVar = "Owner",
       Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GS_ParticleRed",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -454,15 +502,30 @@ ChannelingCancelStopBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
-    Params = {EffectIDVar = "Particle", EffectIDVarTable = "CharVars"}
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GrandSkyfall_Jump",
+      ResetDuration = 0
+    }
   },
   {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_grandskyfall_jump"
+      BuffName = "Pantheon_GS_Particle",
+      ResetDuration = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GS_ParticleRed",
+      ResetDuration = 0
     }
   }
 }
@@ -474,9 +537,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "pantheon_grandskyfall_tar_green.troy"
+      Name = "pantheon_gs_particle"
     }
   },
   {
@@ -513,6 +576,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "pantheon_grandskyfall"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_gs_particlered"
     }
   }
 }

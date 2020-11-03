@@ -4,91 +4,26 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "trundledesecrate_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "trundledesecrate_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "trundledesecrate_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "trundledesecrate_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "trundledesecrate_green.troy",
+      EffectNameForOtherTeam = "trundledesecrate_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_ORDER,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -268,7 +203,8 @@ BuffOnUpdateStatsBuildingBlocks = {
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -354,6 +290,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
@@ -374,7 +311,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -391,7 +329,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -401,7 +340,8 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 1,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   }
 }
@@ -409,13 +349,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "trundledesecrate_red.troy"
+      Name = "trundledesecrate_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "trundledesecrate_green.troy"
+      Name = "trundledesecrate_red.troy"
     }
   },
   {

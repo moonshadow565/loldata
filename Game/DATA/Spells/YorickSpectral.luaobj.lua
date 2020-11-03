@@ -188,6 +188,16 @@ BuffOnHitUnitBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
+              Src2Var = "DamageAmount",
+              Src1Value = 1.2,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
               Src1Var = "DamageAmount",
               Src2Var = "BonusDamage",
               Src2VarTable = "InstanceVars",

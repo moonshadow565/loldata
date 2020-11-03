@@ -10,6 +10,165 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DamageToDeal",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageToDeal",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.26,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TicksRemaining",
+      DestVarTable = "InstanceVars",
+      SrcValue = 4
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Target",
+      ObjectVar2 = "Owner"
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Attacker",
+      BuffName = "Suppression"
+    },
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_LostTarget
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Distance",
+      Value2 = 1500,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_LostTarget
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_LostTarget
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "TicksRemaining",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBExecutePeriodically,
+        Params = {
+          TimeBetweenExecutions = 0.5,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = false
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageToDeal",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.26,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "TicksRemaining",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "TicksRemaining",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
+    }
+  }
+}
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -131,96 +290,6 @@ ChannelingStartBuildingBlocks = {
     }
   }
 }
-ChannelingUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBDistanceBetweenObjects,
-        Params = {
-          DestVar = "Distance",
-          ObjectVar1 = "Target",
-          ObjectVar2 = "Owner"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 1000,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBStopChanneling,
-            Params = {
-              CasterVar = "Owner",
-              StopCondition = ChannelingStopCondition_Cancel,
-              StopSource = ChannelingStopSource_LostTarget
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD},
-        SubBlocks = {
-          {
-            Function = BBStopChanneling,
-            Params = {
-              CasterVar = "Owner",
-              StopCondition = ChannelingStopCondition_Cancel,
-              StopSource = ChannelingStopSource_LostTarget
-            }
-          }
-        }
-      },
-      {
-        Function = BBIfNotHasBuff,
-        Params = {
-          OwnerVar = "Target",
-          CasterVar = "Owner",
-          BuffName = "AlZaharNetherGrasp"
-        },
-        SubBlocks = {
-          {
-            Function = BBStopChanneling,
-            Params = {
-              CasterVar = "Owner",
-              StopCondition = ChannelingStopCondition_Cancel,
-              StopSource = ChannelingStopSource_LostTarget
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectRemove,
-                Params = {
-                  EffectIDVar = "ParticleID",
-                  EffectIDVarTable = "InstanceVars"
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
@@ -249,15 +318,6 @@ ChannelingSuccessStopBuildingBlocks = {
   }
 }
 ChannelingCancelStopBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "Stun",
-      ResetDuration = 0
-    }
-  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -293,96 +353,13 @@ ChannelingCancelStopBuildingBlocks = {
     }
   }
 }
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageToDeal",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "DamageToDeal",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.26,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TicksRemaining",
-      DestVarTable = "InstanceVars",
-      SrcValue = 4
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "TicksRemaining",
-          Src1VarTable = "InstanceVars",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.26,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "TicksRemaining",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "TicksRemaining",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_SUBTRACT
-            }
-          }
-        }
-      }
-    }
-  }
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -416,15 +393,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "alzaharnethergrasp"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "stun"}
   }
 }

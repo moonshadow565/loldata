@@ -49,7 +49,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -99,7 +101,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "TimeElapsed",
-          Value2 = 4,
+          Value2 = 3,
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
@@ -189,7 +191,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Attacker",
-              BuffName = "SoulShackleSlow"
+              BuffName = "SoulShackleSlow",
+              ResetDuration = 0
             }
           },
           {
@@ -219,7 +222,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Attacker",
-                  BuffName = "SoulShackleSlow"
+                  BuffName = "SoulShackleSlow",
+                  ResetDuration = 0
                 }
               },
               {
@@ -261,7 +265,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Attacker",
-                      BuffName = "SoulShackleSlow"
+                      BuffName = "SoulShackleSlow",
+                      ResetDuration = 0
                     }
                   },
                   {
@@ -313,10 +318,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -340,9 +346,9 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
-        1,
         1.5,
-        2
+        1.5,
+        1.5
       }
     }
   },
@@ -365,10 +371,11 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -416,10 +423,11 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Slow,
       MaxStack = 100,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

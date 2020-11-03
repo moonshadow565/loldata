@@ -28,13 +28,36 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBGetBuffRemainingDuration,
+    Params = {
+      DestVar = "Duration",
+      DestVarTable = "InstanceVars",
+      TargetVar = "Target",
+      BuffName = "Wither"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Duration",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 5,
+      DestVar = "TimeBetweenTicks",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_DIVIDE
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1.05,
+      TimeBetweenExecutions = 0,
+      TickTimeVar = "TimeBetweenTicks",
+      TickTimeVarTable = "InstanceVars",
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -127,7 +150,15 @@ TargetExecuteBuildingBlocks = {
         5,
         5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "wither"}
   }
 }

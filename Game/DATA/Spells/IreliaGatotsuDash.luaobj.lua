@@ -71,7 +71,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -137,6 +138,17 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
+    }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "IreliaGatotsuDash",
+      ResetDuration = 0
     }
   }
 }
@@ -220,15 +232,19 @@ BuffOnMoveSuccessBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = true
     }
-  }
-}
-BuffOnMoveEndBuildingBlocks = {
+  },
   {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "IreliaGatotsuDash"
+    Function = BBIf,
+    Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
+      }
     }
   }
 }
@@ -246,6 +262,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "ireliagatotsudash"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "ireliagatotsu"
     }
   },
@@ -253,12 +275,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ireliagatotsudashparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ireliagatotsudash"
     }
   }
 }

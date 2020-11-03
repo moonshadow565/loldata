@@ -65,103 +65,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "AlzaharVoidPortal_flat_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "AlzaharVoidPortal_flat_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "AlzaharVoidPortal_flat_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "AlzaharVoidPortal_flat_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
+      EffectName = "AlzaharVoidPortal_flat_green.troy",
+      EffectNameForOtherTeam = "AlzaharVoidPortal_flat_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle2",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -169,7 +93,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "Particle",
+      EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -459,13 +383,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "alzaharvoidportal_flat_red.troy"
+      Name = "alzaharvoidportal_flat_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "alzaharvoidportal_flat_green.troy"
+      Name = "alzaharvoidportal_flat_red.troy"
     }
   },
   {

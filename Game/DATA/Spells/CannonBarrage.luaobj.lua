@@ -32,7 +32,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       DestVar = "TeamOfOwner"
     }
   },
@@ -45,95 +45,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "CastPosition",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "CastPosition",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "CastPosition",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "CastPosition",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+      BindObjectVar = "Nothing",
+      PosVar = "CastPosition",
+      EffectName = "pirate_cannonBarrage_aoe_indicator_green.troy",
+      EffectNameForOtherTeam = "pirate_cannonBarrage_aoe_indicator_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle2",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 500,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -181,7 +113,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "CastPosition",
+      DestVar = "CenterPosition",
       SrcVar = "CastPosition",
       SrcVarTable = "InstanceVars"
     }
@@ -300,7 +232,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBGetRandomPointInAreaPosition,
         Params = {
-          PosVar = "CastPosition",
+          PosVar = "CenterPosition",
           Radius = 480,
           InnerRadius = 100,
           ResultVar = "CannonPosition"
@@ -359,7 +291,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "CastPosition",
+      CenterVar = "CenterPosition",
       Range = 580,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
@@ -450,6 +382,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
@@ -485,13 +418,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pirate_cannonbarrage_aoe_indicator_red.troy"
+      Name = "pirate_cannonbarrage_aoe_indicator_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pirate_cannonbarrage_aoe_indicator_green.troy"
+      Name = "pirate_cannonbarrage_aoe_indicator_red.troy"
     }
   },
   {

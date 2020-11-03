@@ -6,10 +6,6 @@ AutoBuffActivateEffect = "AcidTrail_buf.troy"
 AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "DamagePerTick",
@@ -96,106 +92,37 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       DestVar = "TeamOfOwner"
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CassMiasma_tar_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CassMiasma_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CassMiasma_tar_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CassMiasma_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "CassMiasma_tar_green.troy",
+      EffectNameForOtherTeam = "CassMiasma_tar_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
     Function = BBAddUnitPerceptionBubble,
     Params = {
-      TeamVar = "TeamID",
+      TeamVar = "TeamOfOwner",
       Radius = 250,
       TargetVar = "Owner",
       Duration = 7,
@@ -277,10 +204,6 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
   {
     Function = BBRemoveDebugCircle,
     Params = {
@@ -441,7 +364,7 @@ SpellOnMissileEndBuildingBlocks = {
       Skin = "TestCubeRender",
       AiScript = "idle.lua",
       PosVar = "MissileEndPosition",
-      Team = TEAM_NEUTRAL,
+      Team = TEAM_UNKNOWN,
       TeamVar = "TeamID",
       Stunned = false,
       Rooted = true,
@@ -536,13 +459,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassmiasma_tar_red.troy"
+      Name = "cassmiasma_tar_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassmiasma_tar_green.troy"
+      Name = "cassmiasma_tar_red.troy"
     }
   },
   {

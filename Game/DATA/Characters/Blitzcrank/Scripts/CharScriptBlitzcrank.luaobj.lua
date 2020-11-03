@@ -12,11 +12,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
         Function = BBIf,
@@ -71,105 +67,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       Duration = 25000,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Target",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "MaxHealth",
-      OwnerVar = "Target",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MaxHealth",
-      Src1Value = 0,
-      Src2Value = 0.2,
-      DestVar = "PercentHealth",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "ManaBarrierCooldown"
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "CurrentHealth",
-              Src2Var = "PercentHealth",
-              CompareOp = CO_LESS_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "ManaBarrier",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 10,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "ManaBarrierCooldown",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 60,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
                 }
               }
             }
@@ -237,7 +138,8 @@ CharOnSpellCastBuildingBlocks = {
           Duration = 0.6,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -258,7 +160,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -275,7 +178,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -292,7 +196,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -321,18 +226,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "staticfield"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "manabarriercooldown"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "manabarrier"
     }
   },
   {

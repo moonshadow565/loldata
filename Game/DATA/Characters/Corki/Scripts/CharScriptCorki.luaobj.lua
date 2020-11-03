@@ -26,7 +26,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -48,7 +49,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "CorkiDeathParticle"
+                  BuffName = "CorkiDeathParticle",
+                  ResetDuration = 0
                 }
               }
             }
@@ -60,7 +62,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 2,
       TrackTimeVar = "LastTime2Executed",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -142,7 +144,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -159,7 +162,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -176,94 +180,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 20000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  }
-}
-CharOnLevelUpSpellBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Slot",
-      Value2 = 3,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 3,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "CorkiMissileBarrageCounter",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "MissileBarrage",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 7,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -302,34 +220,107 @@ CharOnResurrectBuildingBlocks = {
           BuffName = "MissileBarrage",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 7,
-          NumberOfStacks = 4,
+          BuffType = BUFF_AmmoStack,
+          MaxStack = 8,
+          NumberOfStacks = 8,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "CorkiMissileBarrageTimer",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "ChargeCooldown",
-          DurationVarTable = "CharVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "MissileBarrage",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_AmmoStack,
+              MaxStack = 8,
+              NumberOfStacks = 2,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "ChargeCooldown",
+              DurationVarTable = "CharVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "CorkiMissileBarrageNC",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 3,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
         }
       }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }
@@ -361,13 +352,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "corkimissilebarragecounter"
+      Name = "missilebarrage"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "missilebarrage"
+      Name = "corkimissilebarragenc"
     }
   }
 }

@@ -1,47 +1,3 @@
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 25000,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "Malice_markertwo",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -124,9 +80,9 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "MaliceHeal",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            350,
-            500,
-            650
+            150,
+            225,
+            300
           }
         }
       }
@@ -154,12 +110,6 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "malice_markertwo"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

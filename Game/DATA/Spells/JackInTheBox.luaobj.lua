@@ -5,6 +5,226 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Jester_DeathWard.dds"
 BuffName = "Jack In The Box"
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "MaxStack",
+          Value2 = 76,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_CombatDehancer,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "MaxStack",
+          Value2 = 76,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterFade,
@@ -73,7 +293,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -96,7 +318,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -178,7 +402,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 90,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -252,7 +477,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Owner",
-                      BuffName = "Stealth"
+                      BuffName = "Stealth",
+                      ResetDuration = 0
                     }
                   }
                 }
@@ -318,7 +544,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                         Params = {
                           TargetVar = "Owner",
                           AttackerVar = "Owner",
-                          BuffName = "Stealth"
+                          BuffName = "Stealth",
+                          ResetDuration = 0
                         }
                       }
                     }
@@ -369,7 +596,8 @@ BuffOnPreAttackBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -487,7 +715,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

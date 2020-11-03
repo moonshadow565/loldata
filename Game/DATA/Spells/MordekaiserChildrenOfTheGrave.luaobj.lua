@@ -1,6 +1,8 @@
 BuffTextureName = "Mordekaiser_COTG.dds"
 BuffName = "MordekaiserCOTGDot"
-AutoBuffActivateEffect = "mordekeiser_cotg_tar.troy"
+AutoBuffActivateEffect = ""
+NonDispellable = true
+OnPreDamagePriority = 10
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -29,6 +31,53 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "DamageToDeal",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "mordekeiser_cotg_tar.troy",
+      Flags = 0,
+      EffectIDVar = "MordekaiserParticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "removeParticle",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "removeParticle",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "MordekaiserParticle",
+          EffectIDVarTable = "InstanceVars"
+        }
+      }
     }
   }
 }
@@ -65,49 +114,33 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 0.01,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
   }
 }
-BuffOnDeathBuildingBlocks = {
-  {
-    Function = BBGetIsZombie,
-    Params = {UnitVar = "Owner", ResultVar = "zombie"}
-  },
+BuffOnTakeDamageBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "zombie",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBIfHasBuff,
+        Function = BBGetPAROrHealth,
         Params = {
+          DestVar = "curHealth",
           OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "VladimirSanguinePool"
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "VladimirSanguinePool"
-            }
-          }
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
-        Function = BBIfNotHasBuff,
+        Function = BBIf,
         Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "KogMawIcathianSurpriseReady"
+          Src1Var = "curHealth",
+          Value2 = 0,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
         },
         SubBlocks = {
           {
@@ -115,21 +148,38 @@ BuffOnDeathBuildingBlocks = {
             Params = {CasterVar = "Caster"}
           },
           {
-            Function = BBSpellCast,
+            Function = BBSetVarInTable,
             Params = {
-              CasterVar = "Caster",
-              TargetVar = "Owner",
-              PosVar = "Owner",
-              EndPosVar = "Owner",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
+              DestVar = "removeParticle",
+              DestVarTable = "InstanceVars",
+              SrcValue = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MordekaiserParticle",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "MordekaiserParticle",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Caster",
+              AttackerVar = "Owner",
+              BuffName = "MordekaiserCOTGRevive",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 30,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -239,7 +289,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 10.4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -264,11 +315,18 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordekeiser_cotg_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -278,13 +336,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "vladimirsanguinepool"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurpriseready"
+      Name = "mordekaisercotgrevive"
     }
   }
 }

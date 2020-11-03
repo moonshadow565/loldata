@@ -31,7 +31,60 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
-BuffOnPreAttackBuildingBlocks = {
+BuffOnPreAttackBuildingBlocks = {}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "FrostShot"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "FrostShot",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "ManaCostPerAttack",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 8
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  }
+}
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {
@@ -78,6 +131,7 @@ BuffOnPreAttackBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   Delta = 0,
+                  PARType = PAR_MANA,
                   DeltaVar = "ManaToInc"
                 }
               }
@@ -93,54 +147,6 @@ BuffOnPreAttackBuildingBlocks = {
               }
             }
           }
-        }
-      }
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "FrostShot"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "FrostShot"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ManaCostPerAttack",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 8
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
         }
       }
     }

@@ -14,6 +14,7 @@ OnBuffActivateBuildingBlocks = {
           Flags = 0,
           EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle2",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -39,6 +40,7 @@ OnBuffActivateBuildingBlocks = {
           Flags = 0,
           EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle2",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -136,6 +138,34 @@ BuffOnTakeDamageBuildingBlocks = {
                 }
               },
               {
+                Function = BBTestUnitAttributeFlag,
+                Params = {
+                  TargetVar = "Owner",
+                  AttributeFlag = HAS_SUNGLASSES,
+                  ResultVar = "Sunglasses"
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Sunglasses",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "SunlightDamage",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "SunlightDamage",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
+                }
+              },
+              {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "Attacker1",
@@ -155,7 +185,7 @@ BuffOnTakeDamageBuildingBlocks = {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Target",
-                  EffectName = "LuxPassive_tar.troy",
+                  EffectName = "LeonaPassive_tar.troy",
                   Flags = 0,
                   EffectIDVar = "MotaExplosion",
                   TargetObjectVar = "Target",
@@ -221,7 +251,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "luxpassive_tar.troy"
+      Name = "leonapassive_tar.troy"
     }
   },
   {

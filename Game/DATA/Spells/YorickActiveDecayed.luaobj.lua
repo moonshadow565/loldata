@@ -1,4 +1,5 @@
 DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

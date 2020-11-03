@@ -19,6 +19,20 @@ UpdateSelfBuffStatsBuildingBlocks = {
       DeltaVar = "BonusAbilityPower",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 UpdateSelfBuffActionsBuildingBlocks = {
@@ -60,6 +74,20 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 OnActivateBuildingBlocks = {
@@ -83,6 +111,20 @@ OnActivateBuildingBlocks = {
           SrcValue = 0
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TearBonusMana",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }

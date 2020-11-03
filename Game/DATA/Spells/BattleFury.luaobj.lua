@@ -364,7 +364,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "fury",
-      Value2 = 1,
+      Value2 = 3,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -445,6 +445,16 @@ BuffOnUpdateActionsBuildingBlocks = {
           Src2Value = 0,
           DestVar = "bonusDamage",
           MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "bonusDamage",
+          Src1Value = 1.2,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_MULTIPLY
         }
       },
       {

@@ -1,6 +1,60 @@
 BuffTextureName = "Summoner_teleport.dds"
 BuffName = "Teleport Target"
-AutoBuffActivateEffect = "Teleport_target.troy"
+AutoBuffActivateEffect = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetInvulnerable
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "Teleport_target.troy",
+      Flags = 0,
+      EffectIDVar = "part",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  }
+}
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -32,6 +86,13 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetInvulnerable
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "part",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -69,37 +130,11 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-OnBuffActivateBuildingBlocks = {
+PreLoadBuildingBlocks = {
   {
-    Function = BBSetStatus,
+    Function = BBPreloadParticle,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetInvulnerable
+      Name = "teleport_target.troy"
     }
   }
 }

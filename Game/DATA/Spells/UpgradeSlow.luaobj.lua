@@ -27,13 +27,39 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPushCharacterData,
+    Function = BBSetVarInTable,
     Params = {
-      SkinName = "HeimerTBlue",
-      TargetVar = "Owner",
-      IDVar = "RedShift",
-      IDVarTable = "InstanceVars",
-      OverrideSpells = true
+      DestVar = "willPop",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "H28GEvolutionTurret"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "willPop",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
+        Function = BBPushCharacterData,
+        Params = {
+          SkinName = "HeimerTBlue",
+          TargetVar = "Owner",
+          IDVar = "RedShift",
+          IDVarTable = "InstanceVars",
+          OverrideSpells = true
+        }
+      }
     }
   },
   {
@@ -102,18 +128,94 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBPopCharacterData,
-    Params = {
-      TargetVar = "Owner",
-      IDVar = "RedShift",
-      IDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "FrostTurrets",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "willPop",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPopCharacterData,
+        Params = {
+          TargetVar = "Owner",
+          IDVar = "RedShift",
+          IDVarTable = "InstanceVars"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "ExplosiveCartridges"
+        },
+        SubBlocks = {
+          {
+            Function = BBPushCharacterData,
+            Params = {
+              SkinName = "HeimerTRed",
+              TargetVar = "Owner",
+              IDVar = "rShift",
+              OverrideSpells = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "UrAniumRounds"
+            },
+            SubBlocks = {
+              {
+                Function = BBPushCharacterData,
+                Params = {
+                  SkinName = "HeimerTGreen",
+                  TargetVar = "Owner",
+                  IDVar = "gShift",
+                  OverrideSpells = true
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBPushCharacterData,
+                Params = {
+                  SkinName = "HeimerTYellow",
+                  TargetVar = "Owner",
+                  IDVar = "yShift",
+                  OverrideSpells = true
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -122,6 +224,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_slowaura_self.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturret"
     }
   },
   {
@@ -146,6 +254,34 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "h28gevolutionturretspell3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "explosivecartridges"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "heimertred"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "uraniumrounds"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "heimertgreen"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "heimertyellow"
     }
   }
 }

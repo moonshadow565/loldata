@@ -40,7 +40,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = false}
+    Params = {OwnerVar = "Owner", Blend = true}
   },
   {
     Function = BBSpellEffectRemove,
@@ -143,7 +143,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -165,7 +166,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Attacker",
-          AttackerVar = "Attacker",
+          AttackerVar = "Target",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
@@ -225,7 +226,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -282,7 +284,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -304,7 +307,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Attacker",
-              AttackerVar = "Attacker",
+              AttackerVar = "Target",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
@@ -364,7 +367,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -433,7 +437,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -455,7 +460,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
+                  AttackerVar = "Target",
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Internal,
@@ -515,7 +520,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -535,6 +541,22 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Attacker",
+          Order = AI_ATTACKTO
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

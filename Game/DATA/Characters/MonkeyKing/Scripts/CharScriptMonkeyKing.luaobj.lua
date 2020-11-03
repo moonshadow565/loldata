@@ -22,7 +22,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Src1Var = "BonusAD",
           Src1Value = 0,
           Src2Value = 0.8,
-          DestVar = "BonusAD80",
+          DestVar = "BonusAD",
           MathOp = MO_MULTIPLY
         }
       },
@@ -30,7 +30,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "BonusAD80",
+          ValueVar = "BonusAD",
           Index = 1,
           SlotNumber = 2,
           SlotType = SpellSlots,
@@ -47,7 +47,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "TAD",
           Src1Value = 0,
-          Src2Value = 1,
+          Src2Value = 1.2,
           DestVar = "TAD",
           MathOp = MO_MULTIPLY
         }

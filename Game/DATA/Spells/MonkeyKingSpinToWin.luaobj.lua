@@ -307,7 +307,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "TotalAttackDamage",
           Src1Value = 0,
-          Src2Value = 1,
+          Src2Value = 1.2,
           DestVar = "TotalAttackDamage",
           MathOp = MO_MULTIPLY
         }

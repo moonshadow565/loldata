@@ -230,11 +230,19 @@ OnBuffDeactivateBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBGetBuffCountFromAll,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
+      DestVar = "Count",
+      TargetVar = "Owner",
       BuffName = "KarmaChakraCharge"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 1,
+      CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
       {
@@ -256,12 +264,83 @@ CanCastBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffRemoveStacks,
+    Function = BBGetBuffCountFromAll,
     Params = {
+      DestVar = "Count",
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KarmaChakraCharge",
-      NumStacks = 1
+      BuffName = "KarmaChakraCharge"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakraCharge",
+          ResetDuration = 0,
+          ResetDurationVar = "MantraTimerCooldown",
+          ResetDurationVarTable = "CharVars"
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaTwoMantraParticle",
+          ResetDuration = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaOneMantraParticle",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaOneMantraParticle",
+          ResetDuration = 0
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakraCharge",
+          ResetDuration = 0
+        }
+      }
     }
   },
   {
@@ -279,36 +358,6 @@ SelfExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBIfNotHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "KarmaChakraTimer"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "KarmaChakraTimer",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "MantraTimerCooldown",
-          DurationVarTable = "CharVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
     }
   },
   {
@@ -406,6 +455,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmachakracharge"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmatwomantraparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmaonemantraparticle"
     }
   },
   {

@@ -128,23 +128,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "guardianangel"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrazombie"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrazombielich"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickrazombiekogmaw"
-    }
   }
 }

@@ -29,7 +29,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -51,7 +53,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -128,14 +132,28 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "InitialDamage",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        55,
+        95,
+        135,
+        175,
+        215
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "Damage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        120,
-        204,
-        288,
-        372,
-        456
+        55,
+        95,
+        135,
+        175,
+        215
       }
     }
   },
@@ -153,7 +171,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -196,6 +215,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -212,10 +232,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.5,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

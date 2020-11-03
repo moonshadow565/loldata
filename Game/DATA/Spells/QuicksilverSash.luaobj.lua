@@ -30,29 +30,61 @@ TargetExecuteBuildingBlocks = {
     Params = {AttackerVar = "Owner"}
   },
   {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "Slot", Info = GetSpellSlot}
+    Function = BBSetVarInTable,
+    Params = {DestVar = "slotCheck", SrcValue = 0}
   },
   {
-    Function = BBMath,
+    Function = BBWhile,
     Params = {
-      Src1Var = "Slot",
-      Src1Value = 0,
-      Src2Value = 4,
-      DestVar = "Slot",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTimeVer2,
-    Params = {
-      Src = 90,
-      SlotNumber = 0,
-      SlotNumberVar = "Slot",
-      SlotType = InventorySlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner",
-      BroadcastEvent = false
+      Src1Var = "slotCheck",
+      Value2 = 5,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "name",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = InventorySlots,
+          SpellSlotVar = "slotCheck",
+          OwnerVar = "Owner",
+          Function = GetSlotSpellName
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "name",
+          Value2 = "QuicksilverSash",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 60,
+              SlotNumber = 0,
+              SlotNumberVar = "slotCheck",
+              SlotType = InventorySlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner",
+              BroadcastEvent = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "slotCheck",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "slotCheck",
+          MathOp = MO_ADD
+        }
+      }
     }
   }
 }

@@ -139,53 +139,23 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamID",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "Owner",
-              EffectName = "maoki_sapling_detonate.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "Owner",
-              EffectName = "maoki_sapling_detonate.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "Owner",
+          EffectName = "maoki_sapling_detonate.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -255,6 +225,34 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle3",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle4",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -345,53 +343,23 @@ BuffOnUpdateActionsBuildingBlocks = {
                         }
                       },
                       {
-                        Function = BBIf,
+                        Function = BBSpellEffectCreate,
                         Params = {
-                          Src1Var = "TeamID",
-                          Value2 = TEAM_ORDER,
-                          CompareOp = CO_EQUAL
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBSpellEffectCreate,
-                            Params = {
-                              BindObjectVar = "Nothing",
-                              PosVar = "Owner",
-                              EffectName = "maoki_sapling_detonate.troy",
-                              Flags = 0,
-                              EffectIDVar = "Particle",
-                              TargetObjectVar = "Owner",
-                              SpecificUnitOnlyVar = "Owner",
-                              SpecificTeamOnly = TEAM_UNKNOWN,
-                              UseSpecificUnit = false,
-                              FOWTeam = TEAM_ORDER,
-                              FOWVisibilityRadius = 200,
-                              SendIfOnScreenOrDiscard = true
-                            }
-                          }
-                        }
-                      },
-                      {
-                        Function = BBElse,
-                        Params = {},
-                        SubBlocks = {
-                          {
-                            Function = BBSpellEffectCreate,
-                            Params = {
-                              BindObjectVar = "Nothing",
-                              PosVar = "Owner",
-                              EffectName = "maoki_sapling_detonate.troy",
-                              Flags = 0,
-                              EffectIDVar = "Particle",
-                              TargetObjectVar = "Owner",
-                              SpecificUnitOnlyVar = "Owner",
-                              SpecificTeamOnly = TEAM_UNKNOWN,
-                              UseSpecificUnit = false,
-                              FOWTeam = TEAM_CHAOS,
-                              FOWVisibilityRadius = 200,
-                              SendIfOnScreenOrDiscard = true
-                            }
-                          }
+                          BindObjectVar = "Nothing",
+                          PosVar = "Owner",
+                          EffectName = "maoki_sapling_detonate.troy",
+                          Flags = 0,
+                          EffectIDVar = "Particle",
+                          TargetObjectVar = "Owner",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWTeamOverrideVar = "TeamID",
+                          FOWVisibilityRadius = 200,
+                          SendIfOnScreenOrDiscard = true,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       },
                       {
@@ -528,7 +496,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                 Params = {
                                   TargetVar = "Owner",
                                   AttackerVar = "Owner",
-                                  BuffName = "MaokaiSapling2"
+                                  BuffName = "MaokaiSapling2",
+                                  ResetDuration = 0
                                 }
                               },
                               {
@@ -540,53 +509,23 @@ BuffOnUpdateActionsBuildingBlocks = {
                                 }
                               },
                               {
-                                Function = BBIf,
+                                Function = BBSpellEffectCreate,
                                 Params = {
-                                  Src1Var = "TeamID",
-                                  Value2 = TEAM_ORDER,
-                                  CompareOp = CO_EQUAL
-                                },
-                                SubBlocks = {
-                                  {
-                                    Function = BBSpellEffectCreate,
-                                    Params = {
-                                      BindObjectVar = "Nothing",
-                                      PosVar = "Owner",
-                                      EffectName = "maoki_sapling_detonate.troy",
-                                      Flags = 0,
-                                      EffectIDVar = "Particle",
-                                      TargetObjectVar = "Owner",
-                                      SpecificUnitOnlyVar = "Owner",
-                                      SpecificTeamOnly = TEAM_UNKNOWN,
-                                      UseSpecificUnit = false,
-                                      FOWTeam = TEAM_ORDER,
-                                      FOWVisibilityRadius = 200,
-                                      SendIfOnScreenOrDiscard = true
-                                    }
-                                  }
-                                }
-                              },
-                              {
-                                Function = BBElse,
-                                Params = {},
-                                SubBlocks = {
-                                  {
-                                    Function = BBSpellEffectCreate,
-                                    Params = {
-                                      BindObjectVar = "Nothing",
-                                      PosVar = "Owner",
-                                      EffectName = "maoki_sapling_detonate.troy",
-                                      Flags = 0,
-                                      EffectIDVar = "Particle",
-                                      TargetObjectVar = "Owner",
-                                      SpecificUnitOnlyVar = "Owner",
-                                      SpecificTeamOnly = TEAM_UNKNOWN,
-                                      UseSpecificUnit = false,
-                                      FOWTeam = TEAM_CHAOS,
-                                      FOWVisibilityRadius = 200,
-                                      SendIfOnScreenOrDiscard = true
-                                    }
-                                  }
+                                  BindObjectVar = "Nothing",
+                                  PosVar = "Owner",
+                                  EffectName = "maoki_sapling_detonate.troy",
+                                  Flags = 0,
+                                  EffectIDVar = "Particle",
+                                  TargetObjectVar = "Owner",
+                                  SpecificUnitOnlyVar = "Owner",
+                                  SpecificTeamOnly = TEAM_UNKNOWN,
+                                  UseSpecificUnit = false,
+                                  FOWTeam = TEAM_UNKNOWN,
+                                  FOWTeamOverrideVar = "TeamID",
+                                  FOWVisibilityRadius = 200,
+                                  SendIfOnScreenOrDiscard = true,
+                                  FollowsGroundTilt = false,
+                                  FacesTarget = false
                                 }
                               },
                               {
@@ -803,160 +742,50 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               },
               {
-                Function = BBIf,
+                Function = BBSpellEffectCreate,
                 Params = {
-                  Src1Var = "TeamID",
-                  Src1VarTable = "InstanceVars",
-                  Value2 = TEAM_ORDER,
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_rdy_indicator_green.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      BoneName = "BUFFBONE_CSTM_STEM_3",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_ORDER,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_rdy_indicator_red.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      BoneName = "BUFFBONE_CSTM_STEM_3",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_CHAOS,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_team_id_green.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_ORDER,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_team_id_red.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_CHAOS,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  }
+                  BindObjectVar = "Owner",
+                  EffectName = "maokai_sapling_rdy_indicator_green.troy",
+                  EffectNameForOtherTeam = "maokai_sapling_rdy_indicator_red.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle",
+                  EffectIDVarTable = "InstanceVars",
+                  EffectID2Var = "Particle2",
+                  EffectID2VarTable = "InstanceVars",
+                  BoneName = "BUFFBONE_CSTM_STEM_3",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Nothing",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_rdy_indicator_green.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      BoneName = "BUFFBONE_CSTM_STEM_3",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_CHAOS,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_rdy_indicator_red.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      BoneName = "BUFFBONE_CSTM_STEM_3",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_ORDER,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_team_id_green.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_CHAOS,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "maokai_sapling_team_id_red.troy",
-                      Flags = 0,
-                      EffectIDVar = "Particle",
-                      EffectIDVarTable = "InstanceVars",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Nothing",
-                      SpecificTeamOnly = TEAM_ORDER,
-                      UseSpecificUnit = true,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  }
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "maokai_sapling_team_id_green.troy",
+                  EffectNameForOtherTeam = "maokai_sapling_team_id_red.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle3",
+                  EffectIDVarTable = "InstanceVars",
+                  EffectID2Var = "Particle4",
+                  EffectID2VarTable = "InstanceVars",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Nothing",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }

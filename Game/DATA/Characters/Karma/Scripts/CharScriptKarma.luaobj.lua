@@ -86,6 +86,255 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   }
 }
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "SpellSlot", Info = GetSpellSlot}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SpellSlot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakra"
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "SpellSlot",
+              Value2 = 2,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetPercentCooldownMod,
+                  TargetVar = "Owner",
+                  DestVar = "CooldownStat"
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "BaseCooldown",
+                  SrcValue = 10
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "CooldownStat",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "Multiplier",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Multiplier",
+                  Src2Var = "BaseCooldown",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "NewCooldown",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "NewCooldown",
+                  SlotNumber = 2,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveStacks,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "KarmaChakra",
+                  NumStacks = 1
+                }
+              }
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {
+              Src1Var = "SpellSlot",
+              Value2 = 1,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetPercentCooldownMod,
+                  TargetVar = "Owner",
+                  DestVar = "CooldownStat"
+                }
+              },
+              {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Owner",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "BaseCooldown",
+                  SrcValueByLevel = {
+                    15,
+                    14,
+                    13,
+                    12,
+                    11,
+                    10
+                  }
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "CooldownStat",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "Multiplier",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Multiplier",
+                  Src2Var = "BaseCooldown",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "NewCooldown",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "NewCooldown",
+                  SlotNumber = 1,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveStacks,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "KarmaChakra",
+                  NumStacks = 1
+                }
+              }
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {
+              Src1Var = "SpellSlot",
+              Value2 = 0,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetPercentCooldownMod,
+                  TargetVar = "Owner",
+                  DestVar = "CooldownStat"
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "BaseCooldown",
+                  SrcValue = 6
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "CooldownStat",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "Multiplier",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Multiplier",
+                  Src2Var = "BaseCooldown",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "NewCooldown",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "NewCooldown",
+                  SlotNumber = 0,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveStacks,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "KarmaChakra",
+                  NumStacks = 1
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -111,11 +360,13 @@ CharOnActivateBuildingBlocks = {
       BuffName = "KarmaChakraCharge",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 2,
-      NumberOfStacks = 1,
-      Duration = 25000,
+      BuffType = BUFF_AmmoStack,
+      MaxStack = 3,
+      NumberOfStacks = 2,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
+      DurationVar = "MantraTimerCooldown",
+      DurationVarTable = "CharVars",
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
@@ -148,24 +399,6 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KarmaChakraCounter",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
@@ -221,9 +454,9 @@ CharOnResurrectBuildingBlocks = {
       BuffName = "KarmaChakraCharge",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 2,
-      NumberOfStacks = 2,
+      BuffType = BUFF_AmmoStack,
+      MaxStack = 3,
+      NumberOfStacks = 3,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
@@ -244,7 +477,8 @@ CharOnResurrectBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "KarmaOneMantraParticle"
+          BuffName = "KarmaOneMantraParticle",
+          ResetDuration = 0
         }
       }
     }
@@ -289,6 +523,12 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmachakra"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

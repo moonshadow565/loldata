@@ -6,24 +6,6 @@ SpellDamageRatio = 1
 PersistsThroughDeath = true
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "FiddleSticksDarkWindMissile",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 4,
-      NumberOfStacks = 1,
-      Duration = 4,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -44,10 +26,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         65,
-        90,
-        115,
-        140,
-        165
+        85,
+        105,
+        125,
+        145
       }
     }
   },
@@ -223,6 +205,24 @@ TargetExecuteBuildingBlocks = {
           }
         }
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "FiddleSticksDarkWindMissile",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 4,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

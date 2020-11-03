@@ -101,101 +101,33 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
+      Src1Var = "NocturneSkinID",
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "NocturneSkinID",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_frost_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_frost_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "NocturneDuskbringer_path_frost_green.troy",
+          EffectNameForOtherTeam = "NocturneDuskbringer_path_frost_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 240,
+          SendIfOnScreenOrDiscard = false,
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       }
     }
@@ -205,95 +137,27 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "NocturneSkinID",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_frost_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_frost_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "NocturneDuskbringer_path_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 240,
-              SendIfOnScreenOrDiscard = false,
-              OrientTowardsVar = "OrientationPoint",
-              FollowsGroundTilt = true
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "NocturneDuskbringer_path_green.troy",
+          EffectNameForOtherTeam = "NocturneDuskbringer_path_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 240,
+          SendIfOnScreenOrDiscard = false,
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       }
     }
@@ -550,6 +414,7 @@ SpellOnMissileUpdateBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -727,6 +592,7 @@ TargetExecuteBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = true,
+          IsWard = false,
           Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other3",
@@ -871,7 +737,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -921,7 +788,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -945,7 +813,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -986,7 +855,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -1090,7 +960,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -1108,7 +979,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = false,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -1158,7 +1030,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -1182,7 +1055,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -1239,7 +1113,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
-                      FollowsGroundTilt = false
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   },
                   {
@@ -1279,25 +1154,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nocturneduskbringer_path_frost_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "nocturneduskbringer_path_frost_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nocturneduskbringer_path_red.troy"
+      Name = "nocturneduskbringer_path_frost_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "nocturneduskbringer_path_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturneduskbringer_path_red.troy"
     }
   },
   {

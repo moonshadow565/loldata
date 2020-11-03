@@ -1,4 +1,5 @@
 DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,

@@ -36,7 +36,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -116,10 +117,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               ForceCastingOrChannelling = false,
               UpdateAutoAttackTimer = false
             }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -233,7 +230,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Attacker",
-          BuffName = "JarvanIVCataclysmSelfCheck"
+          BuffName = "JarvanIVCataclysmSelfCheck",
+          ResetDuration = 0
         }
       }
     }
@@ -323,18 +321,21 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBMoveToUnit,
+        Function = BBGetUnitPosition,
+        Params = {UnitVar = "Target", PositionVar = "TargetPos"}
+      },
+      {
+        Function = BBMove,
         Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 0,
+          UnitVar = "Owner",
+          TargetVar = "TargetPos",
+          Speed = 2000,
           Gravity = 150,
-          MovementOrdersType = CANCEL_ORDER,
           MoveBackBy = 0,
-          MaxTrackDistance = 1500,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          TimeOverride = 0.4
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+          IdealDistance = 700
         }
       },
       {
@@ -349,6 +350,127 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "TargetPos"}
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "JarvanCataclysm_tar.troy",
+      Flags = 0,
+      EffectIDVar = "groundhit",
+      BoneName = "weapon_C",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBForEachPointAroundCircle,
+    Params = {
+      CenterVar = "TargetPos",
+      Radius = 350,
+      Iterations = 12,
+      IteratorVar = "Pos"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpawnMinion,
+        Params = {
+          Name = "JarvanIVWall",
+          Skin = "JarvanIVWall",
+          AiScript = "idle.lua",
+          PosVar = "Pos",
+          Team = TEAM_UNKNOWN,
+          TeamVar = "teamID",
+          Stunned = true,
+          Rooted = true,
+          Silenced = true,
+          Invulnerable = true,
+          MagicImmune = true,
+          IgnoreCollision = true,
+          IsWard = false,
+          Placemarker = false,
+          VisibilitySize = 0,
+          DestVar = "Other2",
+          GoldRedirectTargetVar = "Attacker"
+        }
+      },
+      {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Other2", LocationVar = "TargetPos"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other2",
+          AttackerVar = "Attacker",
+          BuffName = "JarvanIVCataclysmAttack",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Other2",
+          SrcValue = true,
+          Status = SetGhostProof
+        }
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 1200,
+      Flags = "AffectEnemies AffectFriends AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBForceRefreshPath,
+        Params = {UnitVar = "Unit"}
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {
@@ -386,6 +508,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "jarvanivcataclysmvisibility"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvancataclysm_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "jarvanivwall"
     }
   }
 }

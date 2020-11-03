@@ -35,6 +35,16 @@ BuffOnKillBuildingBlocks = {
               DeltaVarTable = "CharVars",
               HealerVar = "Owner"
             }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 0,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              SpellSlotValue = 3,
+              OwnerVar = "Owner"
+            }
           }
         }
       }
@@ -73,6 +83,16 @@ BuffOnAssistBuildingBlocks = {
               DeltaVar = "MaliceHeal",
               DeltaVarTable = "CharVars",
               HealerVar = "Owner"
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 0,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              SpellSlotValue = 3,
+              OwnerVar = "Owner"
             }
           }
         }

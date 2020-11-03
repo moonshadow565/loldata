@@ -11,87 +11,26 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "CasterID"}
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "CasterID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "akali_smoke_bomb_tar_team_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "akali_smoke_bomb_tar_team_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "akali_smoke_bomb_tar_team_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "akali_smoke_bomb_tar_team_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "akali_smoke_bomb_tar_team_green.troy",
+      EffectNameForOtherTeam = "akali_smoke_bomb_tar_team_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_ORDER,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "CasterID",
+      FOWVisibilityRadius = 250,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -170,6 +109,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 10000,
       DamageType = TRUE_DAMAGE,
@@ -263,7 +203,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               Duration = 0.25,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -286,7 +227,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               Duration = 0.5,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -309,7 +251,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -336,7 +279,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -370,6 +314,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -396,7 +341,8 @@ SelfExecuteBuildingBlocks = {
         8
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -404,13 +350,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "akali_smoke_bomb_tar_team_red.troy"
+      Name = "akali_smoke_bomb_tar_team_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "akali_smoke_bomb_tar_team_green.troy"
+      Name = "akali_smoke_bomb_tar_team_red.troy"
     }
   },
   {

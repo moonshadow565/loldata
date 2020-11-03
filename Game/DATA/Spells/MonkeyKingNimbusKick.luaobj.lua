@@ -211,14 +211,6 @@ BuffOnMoveSuccessBuildingBlocks = {
     Params = {CasterVar = "Caster"}
   },
   {
-    Function = BBIssueOrder,
-    Params = {
-      WhomToOrderVar = "Owner",
-      TargetOfOrderVar = "Caster",
-      Order = AI_ATTACKTO
-    }
-  },
-  {
     Function = BBBreakSpellShields,
     Params = {TargetVar = "Caster"}
   },
@@ -283,6 +275,20 @@ BuffOnMoveSuccessBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
+      }
     }
   }
 }

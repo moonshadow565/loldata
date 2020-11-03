@@ -1,7 +1,7 @@
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
-ChannelDuration = 1.3
+ChannelDuration = 0.75
 BuffName = "Heartseeker"
 OnBuffActivateBuildingBlocks = {
   {
@@ -12,11 +12,18 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "sourcePosition",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ticksRemaining",
       DestVarTable = "InstanceVars",
-      SrcValue = 4
+      SrcValue = 2
     }
   },
   {
@@ -39,6 +46,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "sourcePosition",
+      SrcVar = "sourcePosition",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
@@ -46,6 +61,7 @@ OnBuffActivateBuildingBlocks = {
       PosVar = "CastPosition",
       EndPosVar = "CastPosition",
       OverrideCastPosition = false,
+      OverrideCastPosVar = "sourcePosition",
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -55,6 +71,115 @@ OnBuffActivateBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ticksRemaining",
+      Src1VarTable = "InstanceVars",
+      Value2 = 1,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Expired",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "ticksRemaining",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "ticksRemaining",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "Level",
+              SpellSlotValue = 2,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Owner",
+              Function = GetSlotSpellLevel
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "CastPosition",
+              SrcVar = "CastPosition",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "sourcePosition",
+              SrcVar = "sourcePosition",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Nothing",
+              PosVar = "CastPosition",
+              EndPosVar = "CastPosition",
+              OverrideCastPosition = false,
+              OverrideCastPosVar = "sourcePosition",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerSound",
+      ResetDuration = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_Heartseeker",
+      ResetDuration = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerChannel",
+      ResetDuration = 0
     }
   }
 }
@@ -109,6 +234,14 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "sourcePosition",
+              SrcVar = "sourcePosition",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
             Function = BBSpellCast,
             Params = {
               CasterVar = "Owner",
@@ -116,6 +249,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               PosVar = "CastPosition",
               EndPosVar = "CastPosition",
               OverrideCastPosition = false,
+              OverrideCastPosVar = "sourcePosition",
               SlotNumber = 0,
               SlotType = ExtraSlots,
               OverrideForceLevel = 0,
@@ -160,6 +294,23 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = -25,
+      OffsetAngle = 0,
+      PositionVar = "sourcePosition"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "sourcePosition",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "sourcePosition"
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -170,7 +321,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 0.75,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.25,
       CanMitigateDuration = false,
@@ -188,7 +339,25 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1.3,
+      Duration = 0.75,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerChannel",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 15,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -251,7 +420,7 @@ ChannelingStartBuildingBlocks = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
                   BuffName = "Pantheon_AegisShield",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
@@ -277,31 +446,26 @@ ChannelingStartBuildingBlocks = {
     }
   }
 }
-ChannelingSuccessStopBuildingBlocks = {
+ChannelingStopBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_HeartseekerSound"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Pantheon_Heartseeker"
+      BuffName = "Pantheon_HeartseekerChannel",
+      ResetDuration = 0
     }
   }
 }
+ChannelingSuccessStopBuildingBlocks = {}
 ChannelingCancelStopBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_Heartseeker"
+      BuffName = "Pantheon_Heartseeker",
+      ResetDuration = 0
     }
   },
   {
@@ -309,11 +473,27 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_HeartseekerSound"
+      BuffName = "Pantheon_HeartseekerSound",
+      ResetDuration = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerChannel",
+      ResetDuration = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_heartseekersound"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -323,7 +503,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "pantheon_heartseekersound"
+      Name = "pantheon_heartseekerchannel"
     }
   },
   {

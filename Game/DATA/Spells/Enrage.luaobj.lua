@@ -99,77 +99,12 @@ BuffOnKillBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Enrage"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Enrage"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "BonusDamage",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 0,
-          SrcValueByLevel = {
-            25,
-            35,
-            45,
-            55,
-            65
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "BonusDamageIncrement",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 10
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
-          BuffName = "Enrage",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 20000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  }
-}
-BuffOnLaunchAttackBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -236,6 +171,74 @@ BuffOnLaunchAttackBuildingBlocks = {
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Enrage"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Enrage",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamage",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0,
+          SrcValueByLevel = {
+            25,
+            35,
+            45,
+            55,
+            65
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamageIncrement",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 10
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "Enrage",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 20000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
       }
     }
   }

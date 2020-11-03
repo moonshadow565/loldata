@@ -14,7 +14,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -24,17 +26,19 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanCast
-    }
-  },
   {
     Function = BBSetStatus,
     Params = {
@@ -76,12 +80,18 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
         Function = BBSpellCast,
@@ -89,18 +99,47 @@ OnBuffDeactivateBuildingBlocks = {
           CasterVar = "Owner",
           TargetVar = "Owner",
           PosVar = "Owner",
+          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = ExtraSlots,
           OverrideForceLevel = 1,
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
   {
     Function = BBIf,
     Params = {
@@ -110,30 +149,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBSetStatus,
-        Params = {
-          TargetVar = "Owner",
-          SrcValue = false,
-          Status = SetCanCast
-        }
-      },
-      {
-        Function = BBSetStatus,
-        Params = {
-          TargetVar = "Owner",
-          SrcValue = false,
-          Status = SetCanAttack
-        }
-      },
-      {
-        Function = BBSetStatus,
-        Params = {
-          TargetVar = "Owner",
-          SrcValue = false,
-          Status = SetCanMove
-        }
-      },
       {
         Function = BBSetStatus,
         Params = {
@@ -231,12 +246,15 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "AlphaStrikeMarker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -276,6 +294,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "AlphaStrikeTarget",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -288,7 +307,9 @@ TargetExecuteBuildingBlocks = {
         5,
         5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

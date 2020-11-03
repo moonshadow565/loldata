@@ -55,7 +55,7 @@ SelfExecuteBuildingBlocks = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
                   BuffName = "Pantheon_AegisShield",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
@@ -87,16 +87,11 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "AtkDmg"}
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBGetStat,
     Params = {
-      DestVar = "PerDmg",
-      SrcValueByLevel = {
-        1,
-        1.15,
-        1.3,
-        1.45,
-        1.6
-      }
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
     }
   },
   {
@@ -104,34 +99,102 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ThrowDmg",
       SrcValueByLevel = {
-        16,
-        28,
-        40,
-        52,
-        64
+        65,
+        105,
+        145,
+        185,
+        225
       }
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "PerDmg",
-      Src2Var = "AtkDmg",
+      Src1Var = "AtkDmg",
+      Src2Var = "BaseDamage",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "PerDmgFinal",
+      DestVar = "BonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 1.4,
+      DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "PerDmgFinal",
+      Src1Var = "BonusDamage",
       Src2Var = "ThrowDmg",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "ThrowDmgFinal",
+      DestVar = "FinalDamage",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "MaxHP",
+      OwnerVar = "Target",
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "CurrentHP",
+      OwnerVar = "Target",
+      Function = GetHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxHP",
+      Src1Value = 0,
+      Src2Value = 0.15,
+      DestVar = "CritHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentHP",
+      Src2Var = "CritHealth",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pantheon_CertainDeath"
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src2Var = "FinalDamage",
+              Src1Value = 1.5,
+              Src2Value = 0,
+              DestVar = "FinalDamage",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      }
     }
   },
   {
@@ -141,7 +204,7 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
-      DamageVar = "ThrowDmgFinal",
+      DamageVar = "FinalDamage",
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
@@ -169,6 +232,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "pantheon_aegis_counter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_certaindeath"
     }
   }
 }

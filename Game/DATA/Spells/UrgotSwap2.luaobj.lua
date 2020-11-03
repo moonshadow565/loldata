@@ -142,13 +142,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "GateParticle2",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "TargetPos",
       RequiredVarTable = "InstanceVars"
     }
@@ -169,87 +162,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "UrgotSwapDrip.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "UrgotSwapDrip.troy",
-          Flags = 0,
-          EffectIDVar = "Particle4",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "UrgotSwapDrip.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "UrgotSwapDrip.troy",
-          Flags = 0,
-          EffectIDVar = "Particle4",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "UrgotSwapDrip.troy",
+      Flags = 0,
+      EffectIDVar = "Particle3",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -275,7 +204,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 1.2,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -306,13 +236,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "GateParticle2",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
       EffectIDVar = "GateParticle",
       EffectIDVarTable = "InstanceVars"
     }
@@ -325,10 +248,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
+    Function = BBSpellBuffRemove,
     Params = {
-      EffectIDVar = "Particle4",
-      EffectIDVarTable = "InstanceVars"
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "UrgotSwapMissile",
+      ResetDuration = 0
     }
   },
   {
@@ -336,7 +261,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "UrgotSwapMissile"
+      BuffName = "Suppression",
+      ResetDuration = 0
     }
   },
   {
@@ -344,15 +270,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "Suppression"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "UrgotSwapTarget"
+      BuffName = "UrgotSwapTarget",
+      ResetDuration = 0
     }
   },
   {
@@ -402,7 +321,8 @@ OnBuffDeactivateBuildingBlocks = {
               Duration = 0.1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -419,7 +339,8 @@ OnBuffDeactivateBuildingBlocks = {
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -429,7 +350,8 @@ OnBuffDeactivateBuildingBlocks = {
               ScaleTime = 0.7,
               TargetVar = "Owner",
               Loop = false,
-              Blend = false
+              Blend = false,
+              Lock = true
             }
           }
         }
@@ -508,89 +430,24 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfOwner",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Target",
-              EffectName = "UrgotSwapTarget.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Target",
-              EffectName = "UrgotSwapTarget.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              TargetBoneName = "root",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Target",
-              EffectName = "UrgotSwapTarget.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Target",
-              EffectName = "UrgotSwapTarget.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
+          BindObjectVar = "Target",
+          EffectName = "UrgotSwapTarget.troy",
+          Flags = 0,
+          EffectIDVar = "GateParticle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          TargetBoneName = "root",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -599,15 +456,6 @@ TargetExecuteBuildingBlocks = {
           DestVar = "GateParticle",
           DestVarTable = "NextBuffVars",
           SrcVar = "GateParticle",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "GateParticle2",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "GateParticle2",
           SrcVarTable = "InstanceVars"
         }
       },
@@ -637,7 +485,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -654,7 +503,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -671,7 +521,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -718,7 +569,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -739,7 +591,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -756,7 +609,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -772,7 +626,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -788,7 +643,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 3,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       },
       {

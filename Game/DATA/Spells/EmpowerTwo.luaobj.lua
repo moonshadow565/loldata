@@ -29,7 +29,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -49,7 +50,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -151,6 +153,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       State = false
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnHitUnitBuildingBlocks = {
@@ -223,7 +229,8 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -259,7 +266,8 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -270,6 +278,10 @@ BuffOnHitUnitBuildingBlocks = {
               BuffName = "EmpowerTwo",
               ResetDuration = 0
             }
+          },
+          {
+            Function = BBSetDodgePiercing,
+            Params = {TargetVar = "Owner", Value = false}
           }
         }
       }

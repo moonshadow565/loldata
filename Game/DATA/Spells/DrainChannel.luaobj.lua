@@ -79,7 +79,8 @@ ChannelingStartBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -147,7 +148,7 @@ ChannelingStartBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.25,
+      Src2Value = 0.225,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -329,7 +330,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Params = {
                   Src1Var = "AbilityPower",
                   Src1Value = 0,
-                  Src2Value = 0.25,
+                  Src2Value = 0.225,
                   DestVar = "BonusDamage",
                   MathOp = MO_MULTIPLY
                 }
@@ -383,7 +384,8 @@ ChannelingSuccessStopBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
-          BuffName = "Drain"
+          BuffName = "Drain",
+          ResetDuration = 0
         }
       }
     }
@@ -393,7 +395,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Fearmonger_marker"
+      BuffName = "Fearmonger_marker",
+      ResetDuration = 0
     }
   },
   {
@@ -418,7 +421,8 @@ ChannelingCancelStopBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
-          BuffName = "Drain"
+          BuffName = "Drain",
+          ResetDuration = 0
         }
       }
     }
@@ -428,7 +432,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Fearmonger_marker"
+      BuffName = "Fearmonger_marker",
+      ResetDuration = 0
     }
   },
   {

@@ -1,3 +1,4 @@
+DoesntTriggerSpellCasts = true
 BuffTextureName = "034_Steel_Shield.dds"
 BuffName = "Danger Zone"
 AutoBuffActivateEffect = "pirate_attack_buf_01.troy"
@@ -6,6 +7,7 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -69,7 +71,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -97,7 +100,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -117,7 +121,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -147,7 +152,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -167,7 +173,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -193,7 +200,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -213,7 +221,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -241,7 +250,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -269,7 +279,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -289,7 +300,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -319,7 +331,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -339,7 +352,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -365,7 +379,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -385,7 +400,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }

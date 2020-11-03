@@ -36,107 +36,38 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Attacker", SkinIDVar = "KMSkinID"}
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
+      Src1Var = "KMSkinID",
+      Value2 = 5,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBGetSkinID,
-        Params = {UnitVar = "Attacker", SkinIDVar = "KMSkinID"}
-      },
-      {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "KMSkinID",
-          Value2 = 5,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_chinese_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_chinese_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "KogMawLivingArtillery_cas_chinese_green.troy",
+          EffectNameForOtherTeam = "KogMawLivingArtillery_cas_chinese_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle1",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -146,99 +77,26 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBGetSkinID,
-        Params = {UnitVar = "Attacker", SkinIDVar = "KMSkinID"}
-      },
-      {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "KMSkinID",
-          Value2 = 5,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_chinese_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_chinese_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "KogMawLivingArtillery_cas_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "KogMawLivingArtillery_cas_green.troy",
+          EffectNameForOtherTeam = "KogMawLivingArtillery_cas_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle1",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -794,25 +652,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kogmawlivingartillery_cas_chinese_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "kogmawlivingartillery_cas_chinese_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kogmawlivingartillery_cas_red.troy"
+      Name = "kogmawlivingartillery_cas_chinese_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "kogmawlivingartillery_cas_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kogmawlivingartillery_cas_red.troy"
     }
   },
   {

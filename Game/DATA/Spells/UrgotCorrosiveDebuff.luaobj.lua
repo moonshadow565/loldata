@@ -16,7 +16,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -33,7 +35,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -58,50 +62,28 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBMath,
     Params = {
-      Src1Var = "SubjectArmor",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "ArmorReduced",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "SubjectArmor",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "ArmorReduced",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatArmorMod,
-          TargetVar = "Owner",
-          DeltaVar = "ArmorReduced",
-          DeltaVarTable = "InstanceVars",
-          Delta = 0
-        }
-      }
+      Src1Var = "ArmorReduced",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorReduced",
-          DestVarTable = "InstanceVars",
-          SrcValue = 0
-        }
-      }
+    Function = BBMath,
+    Params = {
+      Src1Var = "armorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "armorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
     }
   }
 }
@@ -127,7 +109,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorReduced",
+      DeltaVar = "armorInc",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -161,6 +143,50 @@ BuffOnUpdateActionsBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
+    }
+  },
+  {
+    Function = BBGetArmor,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "SubjectArmor"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "SubjectArmor",
+      Src2Var = "armorInc",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "SubjectArmor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ArmorReduced",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "SubjectArmor",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "newarmorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "newarmorInc",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "newarmorInc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
     }
   }
 }

@@ -58,8 +58,79 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GS_ParticleRed"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pantheon_GS_ParticleRed",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GS_Particle"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pantheon_GS_Particle",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "CharVars"
+    }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "TargetPos"}
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
+      EffectName = "pantheon_grandskyfall_land.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      TargetObjectVar = "Target",
+      TargetPosVar = "TargetPos",
+      SpecificUnitOnlyVar = "Target",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
   },
   {
     Function = BBSetVarInTable,
@@ -86,181 +157,8 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "pantheon_grandskyfall_land.troy",
-      Flags = 0,
-      EffectIDVar = "a",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
     Function = BBGetUnitPosition,
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 700,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetUnitPosition,
-        Params = {UnitVar = "Unit", PositionVar = "UnitPos"}
-      },
-      {
-        Function = BBDistanceBetweenPoints,
-        Params = {
-          DestVar = "Distance",
-          Point1Var = "OwnerPos",
-          Point2Var = "UnitPos"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 250,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "PercentDamage",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 200,
-              DestVar = "PercentNotDamage",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 500,
-              DestVar = "PercentNotDamage",
-              MathOp = MO_DIVIDE
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "PercentNotDamage",
-              Src1Value = 1,
-              Src2Value = 0,
-              DestVar = "PercentDamage",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "PercentDamage",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "PercentDamage",
-              MathOp = MO_MIN
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "PercentDamage",
-              Src1Value = 0,
-              Src2Value = 0.33,
-              DestVar = "PercentDamage",
-              MathOp = MO_MAX
-            }
-          }
-        }
-      },
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "DamageRank",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 0,
-          PercentOfAttackVar = "PercentDamage",
-          SpellDamageRatio = 1,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "Slow",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-          StacksExclusive = true,
-          BuffType = BUFF_Slow,
-          MaxStack = 100,
-          NumberOfStacks = 1,
-          Duration = 1,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Unit",
-          EffectName = "Globalhit_physical.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          BoneName = "head",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
   },
   {
     Function = BBSetStatus,
@@ -292,6 +190,24 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetNoRender
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GrandSkyfall_FallD",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -362,7 +278,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "pantheon_grandskyfall_fall",
+      BuffName = "Pantheon_GrandSkyfall_Fall",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
@@ -382,11 +298,24 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pantheon_GrandSkyfall_Fall"
+      BuffName = "Pantheon_GrandSkyfall_Fall",
+      ResetDuration = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_gs_particlered"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_gs_particle"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -395,12 +324,8 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
-    Function = BBPreloadParticle,
     Params = {
-      Name = "globalhit_physical.troy"
+      Name = "pantheon_grandskyfall_falld"
     }
   },
   {

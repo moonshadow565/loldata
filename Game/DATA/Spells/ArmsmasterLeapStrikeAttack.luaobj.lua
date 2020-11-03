@@ -194,6 +194,30 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Owner",
+          Src2Var = "Target",
+          CompareOp = CO_DIFFERENT_TEAM
+        },
+        SubBlocks = {
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Target",
+              Order = AI_ATTACKTO
+            }
+          }
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

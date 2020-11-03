@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 AutoCooldownByLevel = {
   22,
   20,
@@ -122,7 +122,9 @@ TargetExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -139,19 +141,23 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Attacker",
           AttackerVar = "Target",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationVar = "Time",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
             60,
@@ -165,6 +171,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -190,12 +197,15 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "RocketGrab2",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 0.6,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -249,7 +259,9 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -266,19 +278,23 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Attacker",
               AttackerVar = "Target",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationVar = "Time",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
                 60,
@@ -292,6 +308,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -317,12 +334,15 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "RocketGrab2",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Stun,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.6,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -388,7 +408,9 @@ TargetExecuteBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -405,19 +427,23 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Attacker",
                   AttackerVar = "Target",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0,
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "Time",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
                     60,
@@ -431,6 +457,7 @@ TargetExecuteBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 0,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -456,12 +483,15 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "RocketGrab2",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Stun,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0.6,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

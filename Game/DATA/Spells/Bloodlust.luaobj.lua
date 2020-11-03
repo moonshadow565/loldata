@@ -139,11 +139,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthPerFury",
       SrcValueByLevel = {
-        0.5,
-        0.95,
-        1.4,
-        1.85,
-        2.3
+        0.65,
+        1.15,
+        1.65,
+        2.15,
+        2.65
       }
     }
   },

@@ -14,13 +14,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Owner",
-      SkinIDVar = "KennenSkinID"
-    }
-  },
-  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
@@ -28,203 +21,28 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "KennenSkinID",
-          Value2 = 3,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "KennenSkinID",
-          Value2 = 3,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              PosVar = "Owner",
-              EffectName = "kennen_ss_aoe_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Owner",
-              TargetPosVar = "Owner",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      }
+      BindObjectVar = "Owner",
+      PosVar = "Owner",
+      EffectName = "kennen_ss_aoe_green.troy",
+      EffectNameForOtherTeam = "kennen_ss_aoe_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle2",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      TargetPosVar = "Owner",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -433,7 +251,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -618,7 +438,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -803,7 +625,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }

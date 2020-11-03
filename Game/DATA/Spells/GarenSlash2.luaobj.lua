@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 BuffTextureName = "17.dds"
 BuffName = "GarenSlash"
 AutoBuffActivateEffect = ""

@@ -1,6 +1,6 @@
 BuffTextureName = "KogMaw_LivingArtillery.dds"
 BuffName = "KogMawLivingArtillerySight"
-AutoBuffActivateEffect = "nidalee_bushwhack_sentry_tar.troy"
+AutoBuffActivateEffect = "global_Watched.troy"
 AutoBuffActivateAttachBoneName = "head"
 OnBuffActivateBuildingBlocks = {
   {

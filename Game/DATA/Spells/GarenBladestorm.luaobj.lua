@@ -105,7 +105,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -124,7 +126,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -235,7 +239,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -456,7 +461,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -496,7 +503,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }
@@ -558,7 +567,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeam = TEAM_UNKNOWN,
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
-                          SendIfOnScreenOrDiscard = true
+                          SendIfOnScreenOrDiscard = true,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       }
                     }
@@ -598,7 +609,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeam = TEAM_UNKNOWN,
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
-                          SendIfOnScreenOrDiscard = true
+                          SendIfOnScreenOrDiscard = true,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       }
                     }
@@ -660,7 +673,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeam = TEAM_UNKNOWN,
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
-                              SendIfOnScreenOrDiscard = true
+                              SendIfOnScreenOrDiscard = true,
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           }
                         }
@@ -700,7 +715,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeam = TEAM_UNKNOWN,
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
-                              SendIfOnScreenOrDiscard = true
+                              SendIfOnScreenOrDiscard = true,
+                              FollowsGroundTilt = false,
+                              FacesTarget = false
                             }
                           }
                         }
@@ -737,11 +754,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        14,
         13,
         12,
         11,
-        10
+        10,
+        9
       }
     }
   },
@@ -798,7 +815,8 @@ SelfExecuteBuildingBlocks = {
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }

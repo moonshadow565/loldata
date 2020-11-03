@@ -100,21 +100,20 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBGetStat,
+    Function = BBGetTotalAttackDamage,
     Params = {
-      Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
-      DestVar = "BaseAttackDamage"
+      DestVar = "totalAttackDamage"
     }
   },
   {
     Function = BBMath,
     Params = {
       Src1Var = "DamageAmount",
-      Src2Var = "BaseAttackDamage",
+      Src2Var = "totalAttackDamage",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "DamageToDeal",
+      DestVar = "DamageAmount",
       MathOp = MO_ADD
     }
   },
@@ -124,41 +123,7 @@ BuffOnHitUnitBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Owner",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_DEFAULT,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_SUBTRACT
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
             Function = BBBreakSpellShields,
@@ -178,35 +143,8 @@ BuffOnHitUnitBuildingBlocks = {
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Owner",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_DEFAULT,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_SUBTRACT
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -218,7 +156,8 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "PowerFist"
+      BuffName = "PowerFist",
+      ResetDuration = 0
     }
   }
 }
@@ -250,7 +189,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

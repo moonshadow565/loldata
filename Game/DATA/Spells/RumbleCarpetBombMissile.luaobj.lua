@@ -155,6 +155,7 @@ SpellOnMissileUpdateBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = true,
           IgnoreCollision = true,
+          IsWard = false,
           Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other1",
@@ -222,6 +223,7 @@ SpellOnMissileUpdateBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = true,
           IgnoreCollision = true,
+          IsWard = false,
           Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other1",
@@ -274,10 +276,31 @@ SpellOnMissileUpdateBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "MissilePosition",
+      EffectName = "rumble_ult_placeholder_01.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
+      Src1Var = "RumbleSkinID",
+      Value2 = 2,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -286,101 +309,51 @@ SpellOnMissileUpdateBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "MissilePosition",
-          EffectName = "rumble_ult_placeholder_01.troy",
+          EffectName = "rumble_incoming_mis_cannon_ball.troy",
           Flags = 0,
-          EffectIDVar = "Particle",
+          EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "RumbleSkinID",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "RumbleSkinID",
-          Value2 = 2,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis_cannon_ball.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "RumbleSkinID",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis_pineapple.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "MissilePosition",
+          EffectName = "rumble_incoming_mis_pineapple.troy",
+          Flags = 0,
+          EffectIDVar = "Particle1",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -394,101 +367,20 @@ SpellOnMissileUpdateBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "MissilePosition",
-          EffectName = "rumble_ult_placeholder_01.troy",
+          EffectName = "rumble_incoming_mis.troy",
           Flags = 0,
-          EffectIDVar = "Particle",
+          EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "RumbleSkinID",
-          Value2 = 2,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis_cannon_ball.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "RumbleSkinID",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis_pineapple.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "MissilePosition",
-              EffectName = "rumble_incoming_mis.troy",
-              Flags = 0,
-              EffectIDVar = "Particle1",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          }
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

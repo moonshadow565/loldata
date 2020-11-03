@@ -23,7 +23,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -83,95 +84,26 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "olaf_axe_totem_team_id_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "olaf_axe_totem_team_id_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "olaf_axe_totem_team_id_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "olaf_axe_totem_team_id_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "olaf_axe_totem_team_id_green.troy",
+      EffectNameForOtherTeam = "olaf_axe_totem_team_id_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle1",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 400,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -182,6 +114,13 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetNoRender
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
     }
   },
   {
@@ -351,61 +290,28 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
-            Function = BBIf,
+            Function = BBSpellEffectCreate,
             Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "OwnerPos",
-                  EffectName = "olaf_axe_trigger_02.troy",
-                  Flags = 0,
-                  EffectIDVar = "a",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 100,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "OwnerPos",
-                  EffectName = "olaf_axe_trigger_02.troy",
-                  Flags = 0,
-                  EffectIDVar = "a",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 100,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
-                }
-              }
+              BindObjectVar = "Nothing",
+              PosVar = "OwnerPos",
+              EffectName = "olaf_axe_trigger_02.troy",
+              Flags = 0,
+              EffectIDVar = "b",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -427,13 +333,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "olaf_axe_totem_team_id_red.troy"
+      Name = "olaf_axe_totem_team_id_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "olaf_axe_totem_team_id_green.troy"
+      Name = "olaf_axe_totem_team_id_red.troy"
     }
   },
   {

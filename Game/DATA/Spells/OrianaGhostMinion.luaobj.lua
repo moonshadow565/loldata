@@ -70,191 +70,54 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "yomu_ring_red.troy",
-          Flags = 0,
-          EffectIDVar = "Ring1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "oriana_ball_glow_red.troy",
-          Flags = 0,
-          EffectIDVar = "Ring3",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "balldown",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "yomu_ring_green.troy",
-          Flags = 0,
-          EffectIDVar = "Ring2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "oriana_ball_glow_green.troy",
-          Flags = 0,
-          EffectIDVar = "Ring4",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "balldown",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      BindObjectVar = "Owner",
+      PosVar = "OwnerPos",
+      EffectName = "yomu_ring_green.troy",
+      EffectNameForOtherTeam = "yomu_ring_red.troy",
+      Flags = 0,
+      EffectIDVar = "Ring2",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Ring1",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      TargetPosVar = "OwnerPos",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "yomu_ring_red.troy",
-          Flags = 0,
-          EffectIDVar = "Ring1",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "oriana_ball_glow_red.troy",
-          Flags = 0,
-          EffectIDVar = "Ring3",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "balldown",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "yomu_ring_green.troy",
-          Flags = 0,
-          EffectIDVar = "Ring2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          PosVar = "OwnerPos",
-          EffectName = "oriana_ball_glow_green.troy",
-          Flags = 0,
-          EffectIDVar = "Ring4",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "balldown",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      PosVar = "OwnerPos",
+      EffectName = "oriana_ball_glow_green.troy",
+      EffectNameForOtherTeam = "oriana_ball_glow_red.troy",
+      Flags = 0,
+      EffectIDVar = "Ring4",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Ring3",
+      EffectID2VarTable = "InstanceVars",
+      BoneName = "balldown",
+      TargetObjectVar = "Owner",
+      TargetPosVar = "OwnerPos",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -333,25 +196,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yomu_ring_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "oriana_ball_glow_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "yomu_ring_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "yomu_ring_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "oriana_ball_glow_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "oriana_ball_glow_red.troy"
     }
   },
   {

@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
@@ -39,7 +39,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -205,23 +207,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "TrundleQ",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 8,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "NegSapVar",
@@ -248,7 +233,9 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -265,7 +252,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -282,7 +270,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -295,6 +284,7 @@ TargetExecuteBuildingBlocks = {
       MoveBackBy = 25,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 50
     }
   },
@@ -313,7 +303,8 @@ TargetExecuteBuildingBlocks = {
           ScaleTime = 0,
           TargetVar = "Attacker",
           Loop = false,
-          Blend = true
+          Blend = true,
+          Lock = true
         }
       }
     }
@@ -329,7 +320,8 @@ TargetExecuteBuildingBlocks = {
           ScaleTime = 0,
           TargetVar = "Attacker",
           Loop = false,
-          Blend = true
+          Blend = true,
+          Lock = true
         }
       }
     }
@@ -341,10 +333,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "trundleq_buf.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "trundleq"}
   },
   {
     Function = BBPreloadParticle,

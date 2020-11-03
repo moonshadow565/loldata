@@ -17,6 +17,20 @@ BuffOnAllowAddBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
+          Src1Var = "MaxStack",
+          Value2 = 76,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
           Src1Var = "Type",
           Value2 = BUFF_Stun,
           CompareOp = CO_EQUAL
@@ -45,8 +59,28 @@ BuffOnAllowAddBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
+        Function = BBIf,
+        Params = {
+          Src1Var = "MaxStack",
+          Value2 = 76,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
       }
     }
   }
@@ -173,6 +207,27 @@ OnBuffActivateBuildingBlocks = {
               IsHiddenOnClient = false
             }
           }
+        }
+      }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Attacker",
+      AttackerVar = "Owner",
+      BuffName = "HeimerdingerTurretMaximum"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Owner",
+          BuffName = "HeimerdingerTurretMaximum",
+          ResetDuration = 0
         }
       }
     }
@@ -450,35 +505,15 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnSpellHitBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBMath,
     Params = {
-      Src1Var = "HitResult",
-      Value2 = HIT_Dodge,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "HitResult",
-          Value2 = HIT_Miss,
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "BonusArmor",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0.143,
-              DestVar = "BonusArmor",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          }
-        }
-      }
+      Src1Var = "BonusArmor",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0.143,
+      DestVar = "BonusArmor",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
     }
   }
 }
@@ -549,6 +584,17 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "NumFound", SrcValue = 0}
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "minDuration",
+      SrcValue = 25000
+    }
+  },
+  {
+    Function = BBSetUnit,
+    Params = {SrcVar = "Owner", DestVar = "Other2"}
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -556,26 +602,50 @@ SelfExecuteBuildingBlocks = {
       Range = 25000,
       Flags = "AffectFriends AffectMinions ",
       IteratorVar = "Unit",
+      BuffNameFilter = "H28GEvolutionTurret",
       InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBIfHasBuff,
+        Function = BBMath,
         Params = {
-          OwnerVar = "Unit",
-          AttackerVar = "Owner",
+          Src1Var = "NumFound",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "NumFound",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "durationRemaining",
+          TargetVar = "Unit",
           BuffName = "H28GEvolutionTurret"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "durationRemaining",
+          Src2Var = "minDuration",
+          CompareOp = CO_LESS_THAN
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "NumFound",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "NumFound",
-              MathOp = MO_ADD
+              DestVar = "minDuration",
+              SrcVar = "durationRemaining"
             }
+          },
+          {
+            Function = BBInvalidateUnit,
+            Params = {TargetVar = "Other2"}
+          },
+          {
+            Function = BBSetUnit,
+            Params = {SrcVar = "Unit", DestVar = "Other2"}
           }
         }
       }
@@ -590,517 +660,27 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "LowestLevel",
-          SrcValue = 4
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level1",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level2",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level3",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level4",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level5",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Level6",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestLevel",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {DestVar = "LowestTime", SrcValue = 25000}
-      },
-      {
         Function = BBIf,
         Params = {
-          Src1Var = "Level1",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
+          Src1Var = "Owner",
+          Src2Var = "Other2",
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBApplyDamage,
             Params = {
-              Src1Var = "Time1",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level2",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Time2",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level3",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Time3",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level4",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Time4",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level5",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Time5",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level6",
-          Src1VarTable = "CharVars",
-          Src2Var = "LowestLevel",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Time6",
-              Src1VarTable = "CharVars",
-              Src2Var = "LowestTime",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LowestTime",
-              MathOp = MO_MIN
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "LowestTime",
-          Src2Var = "Time1",
-          Src2VarTable = "CharVars",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerOne"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "LowestTime",
-          Src2Var = "Time2",
-          Src2VarTable = "CharVars",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerTwo"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "LowestTime",
-          Src2Var = "Time3",
-          Src2VarTable = "CharVars",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerThree"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "LowestTime",
-          Src2Var = "Time4",
-          Src2VarTable = "CharVars",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerFour"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "LowestTime",
-          Src2Var = "Time5",
-          Src2VarTable = "CharVars",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerFive"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 25000,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "MarkerSix"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Unit",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 10000,
-                      DamageType = TRUE_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
-                }
-              }
+              AttackerVar = "Other2",
+              CallForHelpAttackerVar = "Other2",
+              TargetVar = "Other2",
+              Damage = 10000,
+              DamageType = TRUE_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_INTERNALRAW,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -1219,21 +799,21 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBIfHasBuff,
     Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_LESS_THAN
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UpgradeBuff"
     },
     SubBlocks = {
       {
         Function = BBSpawnMinion,
         Params = {
           Name = "H-28G Evolution Turret",
-          Skin = "HeimerTYellow",
+          Skin = "HeimerTBlue",
           AiScript = "Minion.lua",
           PosVar = "TargetPos",
-          Team = TEAM_CASTER,
+          Team = TEAM_UNKNOWN,
           TeamVar = "TeamID",
           Stunned = false,
           Rooted = false,
@@ -1247,6 +827,93 @@ SelfExecuteBuildingBlocks = {
           DestVar = "Other3",
           GoldRedirectTargetVar = "Owner"
         }
+      },
+      {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "remainingDuration",
+          TargetVar = "Owner",
+          BuffName = "UpgradeBuff"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Attacker",
+          BuffName = "UpgradeSlow",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationVar = "remainingDuration",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "UpgradeBuff"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpawnMinion,
+            Params = {
+              Name = "H-28G Evolution Turret",
+              Skin = "HeimerTRed",
+              AiScript = "Minion.lua",
+              PosVar = "TargetPos",
+              Team = TEAM_UNKNOWN,
+              TeamVar = "TeamID",
+              Stunned = false,
+              Rooted = false,
+              Silenced = true,
+              Invulnerable = false,
+              MagicImmune = false,
+              IgnoreCollision = false,
+              IsWard = false,
+              Placemarker = false,
+              VisibilitySize = 0,
+              DestVar = "Other3",
+              GoldRedirectTargetVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Owner",
+          BuffName = "ExplosiveCartridges",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
       }
     }
   },
@@ -1259,11 +926,11 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "Level",
-          Value2 = 5,
-          CompareOp = CO_LESS_THAN
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "UpgradeBuff"
         },
         SubBlocks = {
           {
@@ -1273,7 +940,7 @@ SelfExecuteBuildingBlocks = {
               Skin = "HeimerTGreen",
               AiScript = "Minion.lua",
               PosVar = "TargetPos",
-              Team = TEAM_CASTER,
+              Team = TEAM_UNKNOWN,
               TeamVar = "TeamID",
               Stunned = false,
               Rooted = false,
@@ -1286,40 +953,50 @@ SelfExecuteBuildingBlocks = {
               VisibilitySize = 0,
               DestVar = "Other3",
               GoldRedirectTargetVar = "Owner"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Other3",
-              AttackerVar = "Owner",
-              BuffName = "UrAniumRounds",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
             }
           }
         }
       },
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Owner",
+          BuffName = "UrAniumRounds",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "UpgradeBuff"
+        },
         SubBlocks = {
           {
             Function = BBSpawnMinion,
             Params = {
               Name = "H-28G Evolution Turret",
-              Skin = "HeimerTRed",
+              Skin = "HeimerTYellow",
               AiScript = "Minion.lua",
               PosVar = "TargetPos",
-              Team = TEAM_CASTER,
+              Team = TEAM_UNKNOWN,
               TeamVar = "TeamID",
               Stunned = false,
               Rooted = false,
@@ -1332,24 +1009,6 @@ SelfExecuteBuildingBlocks = {
               VisibilitySize = 0,
               DestVar = "Other3",
               GoldRedirectTargetVar = "Owner"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Other3",
-              AttackerVar = "Owner",
-              BuffName = "ExplosiveCartridges",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
             }
           }
         }
@@ -1390,373 +1049,6 @@ SelfExecuteBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "1Found", SrcValue = 0}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "2Found", SrcValue = 0}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "3Found", SrcValue = 0}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "4Found", SrcValue = 0}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "5Found", SrcValue = 0}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "6Found", SrcValue = 0}
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 25000,
-      Flags = "AffectFriends AffectMinions ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Unit",
-          AttackerVar = "Owner",
-          BuffName = "H28GEvolutionTurret"
-        },
-        SubBlocks = {
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerOne"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "1Found", SrcValue = 1}
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerTwo"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "2Found", SrcValue = 1}
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerThree"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "3Found", SrcValue = 1}
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerFour"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "4Found", SrcValue = 1}
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerFive"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "5Found", SrcValue = 1}
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "MarkerSix"
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "6Found", SrcValue = 1}
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "1Found",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time1", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level1",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerOne",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 6,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "2Found",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time2", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level2",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerTwo",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "3Found",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time3", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level3",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerThree",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "4Found",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time4", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level4",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerFour",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "5Found",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time5", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level5",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerFive",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBGetGameTime,
-        Params = {SecondsVar = "Time6", SecondsVarTable = "CharVars"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level6",
-          DestVarTable = "CharVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "MarkerSix",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -1776,6 +1068,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "h28gevolutionturretspell3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerturretmaximum"
     }
   },
   {
@@ -1804,34 +1102,24 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "markerone"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "markertwo"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
-      Name = "markerthree"
+      Name = "upgradebuff"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "markerfour"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "markerfive"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "markersix"}
   },
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "heimertyellow"
+      Name = "heimertblue"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "heimertred"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "explosivecartridges"
     }
   },
   {
@@ -1848,12 +1136,8 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "heimertred"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
-      Name = "explosivecartridges"
+      Name = "heimertyellow"
     }
   },
   {

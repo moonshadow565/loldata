@@ -130,107 +130,28 @@ SelfExecuteBuildingBlocks = {
         Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSpellEffectCreate,
             Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ally_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_ORDER,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ally_red.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_CHAOS,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_CHAOS,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ally_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_CHAOS,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ally_red.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_ORDER,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "OrianaDissonance_ally_green.troy",
+              EffectNameForOtherTeam = "OrianaDissonance_ally_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "NextBuffVars",
+              EffectID2Var = "Particle2",
+              EffectID2VarTable = "NextBuffVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -240,107 +161,28 @@ SelfExecuteBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSpellEffectCreate,
             Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ball_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_ORDER,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ball_red.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_CHAOS,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_ORDER,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "TeamID",
-              Value2 = TEAM_CHAOS,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ball_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_CHAOS,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Nothing",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaDissonance_ball_red.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_ORDER,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_CHAOS,
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
-                }
-              }
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "OrianaDissonance_ball_green.troy",
+              EffectNameForOtherTeam = "OrianaDissonance_ball_red.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "NextBuffVars",
+              EffectID2Var = "Particle2",
+              EffectID2VarTable = "NextBuffVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -378,107 +220,28 @@ SelfExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamID",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "OrianaDissonance_cas_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "OrianaDissonance_cas_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "TeamID",
-          Value2 = TEAM_CHAOS,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "OrianaDissonance_cas_green.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "OrianaDissonance_cas_red.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "OrianaDissonance_cas_green.troy",
+          EffectNameForOtherTeam = "OrianaDissonance_cas_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle2",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

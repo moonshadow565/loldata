@@ -131,6 +131,26 @@ CharOnActivateBuildingBlocks = {
     }
   }
 }
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeathDefied",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 30000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
 CharOnDisconnectBuildingBlocks = {
   {
     Function = BBSpellCast,
@@ -151,23 +171,55 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
-CharOnResurrectBuildingBlocks = {
+UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
+    Function = BBExecutePeriodically,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "DeathDefied",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 30000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      TimeBetweenExecutions = 0,
+      TickTimeVar = "1",
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Nothing",
+          BuffName = "YorickRAZombie"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Nothing",
+              BuffName = "YorickReviveAllySelf"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "DeathDefied",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 30000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

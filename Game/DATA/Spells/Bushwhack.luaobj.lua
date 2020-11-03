@@ -79,7 +79,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -88,6 +90,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "emptyparticle",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -166,7 +175,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -184,7 +195,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -265,54 +278,26 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBIf,
+            Function = BBSpellEffectCreate,
             Params = {
-              Src1Var = "TeamID",
-              Src1VarTable = "InstanceVars",
-              Value2 = TEAM_ORDER,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "nidalee_trap_team_id_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Nothing",
-                  SpecificTeamOnly = TEAM_ORDER,
-                  UseSpecificUnit = true,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "nidalee_trap_team_id_green.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Nothing",
-                  SpecificTeamOnly = TEAM_CHAOS,
-                  UseSpecificUnit = true,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              }
+              BindObjectVar = "Owner",
+              EffectName = "nidalee_trap_team_id_green.troy",
+              EffectNameForOtherTeam = "empty.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              EffectID2Var = "emptyparticle",
+              EffectID2VarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              SpecificTeamOnlyOverrideVar = "TeamID",
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -344,6 +329,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -357,7 +343,8 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 1,
       TargetVar = "Other3",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -408,6 +395,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nidalee_trap_team_id_green.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {Name = "empty.troy"}
   },
   {
     Function = BBPreloadCharacter,

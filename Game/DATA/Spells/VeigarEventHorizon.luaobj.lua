@@ -155,109 +155,35 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
+      Src1Var = "VeigarSkinID",
+      Value2 = 4,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "VeigarSkinID",
-          Value2 = 4,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_red_cas_leprechaun.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_green_cas_leprechaun.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_red_cas.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_green_cas.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "permission_desecrate_green_cas_leprechaun.troy",
+          EffectNameForOtherTeam = "permission_desecrate_red_cas_leprechaun.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -267,103 +193,30 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "VeigarSkinID",
-          Value2 = 4,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_red_cas_leprechaun.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_green_cas_leprechaun.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_red_cas.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              PosVarTable = "InstanceVars",
-              EffectName = "permission_desecrate_green_cas.troy",
-              Flags = 0,
-              EffectIDVar = "Particle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Nothing",
-              TargetPosVar = "TargetPos",
-              TargetPosVarTable = "InstanceVars",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 900,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          PosVarTable = "InstanceVars",
+          EffectName = "permission_desecrate_green_cas.troy",
+          EffectNameForOtherTeam = "permission_desecrate_red_cas.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -534,6 +387,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -592,25 +446,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "permission_desecrate_red_cas_leprechaun.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "permission_desecrate_green_cas_leprechaun.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "permission_desecrate_red_cas.troy"
+      Name = "permission_desecrate_red_cas_leprechaun.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "permission_desecrate_green_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "permission_desecrate_red_cas.troy"
     }
   },
   {

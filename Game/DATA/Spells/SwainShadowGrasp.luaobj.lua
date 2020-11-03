@@ -78,163 +78,46 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "swain_shadowGrasp_transform.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning_green.troy",
-          Flags = 0,
-          EffectIDVar = "GroundParticleEffect",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning_red.troy",
-          Flags = 0,
-          EffectIDVar = "GroundParticleEffect2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "swain_shadowGrasp_transform.troy",
-          Flags = 0,
-          EffectIDVar = "a2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "Swain_shadowGrasp_warning_green.troy",
+      EffectNameForOtherTeam = "Swain_shadowGrasp_warning_red.troy",
+      Flags = 0,
+      EffectIDVar = "GroundParticleEffect",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "GroundParticleEffect2",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "swain_shadowGrasp_transform.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning_green.troy",
-          Flags = 0,
-          EffectIDVar = "GroundParticleEffect",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning_red.troy",
-          Flags = 0,
-          EffectIDVar = "GroundParticleEffect2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "swain_shadowGrasp_transform.troy",
-          Flags = 0,
-          EffectIDVar = "a2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWTeamOverrideVar = "TeamOfOwner",
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "swain_shadowGrasp_transform.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -257,13 +140,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a2",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -316,7 +192,8 @@ OnBuffDeactivateBuildingBlocks = {
           DurationVar = "RootDuration",
           DurationVarTable = "InstanceVars",
           TickRate = 0,
-          CanMitigateDuration = true
+          CanMitigateDuration = true,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -373,6 +250,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -420,17 +298,12 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.75,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "swain_shadowgrasp_transform.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -441,6 +314,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "swain_shadowgrasp_warning_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_shadowgrasp_transform.troy"
     }
   },
   {

@@ -214,91 +214,26 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CardmasterTeleport_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CardmasterTeleport_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle4",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CardmasterTeleport_red.troy",
-          Flags = 0,
-          EffectIDVar = "Particle3",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "CardmasterTeleport_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle4",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "CardmasterTeleport_green.troy",
+      EffectNameForOtherTeam = "CardmasterTeleport_red.troy",
+      Flags = 0,
+      EffectIDVar = "Particle3",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "Particle4",
+      EffectID2VarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -472,6 +407,14 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "TargetPos"}
   },
   {
+    Function = BBGetNearestPassablePosition,
+    Params = {
+      Owner = "Owner",
+      PositionVar = "TargetPos",
+      NewPositionVar = "TargetPos"
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -487,95 +430,27 @@ SelfExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "TeamOfOwner",
-          Value2 = TEAM_ORDER,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "GateMarker_red.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "GateMarker_green.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "GateMarker_red.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_ORDER,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "TargetPos",
-              EffectName = "GateMarker_green.troy",
-              Flags = 0,
-              EffectIDVar = "GateParticle2",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Nothing",
-              SpecificTeamOnly = TEAM_CHAOS,
-              UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
-              FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
-            }
-          }
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "GateMarker_green.troy",
+          EffectNameForOtherTeam = "GateMarker_red.troy",
+          Flags = 0,
+          EffectIDVar = "GateParticle",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "GateParticle2",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -626,7 +501,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Destiny_marker"
+          BuffName = "Destiny_marker",
+          ResetDuration = 0
         }
       }
     }
@@ -665,13 +541,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cardmasterteleport_red.troy"
+      Name = "cardmasterteleport_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cardmasterteleport_green.troy"
+      Name = "cardmasterteleport_red.troy"
     }
   },
   {
@@ -683,13 +559,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "gatemarker_red.troy"
+      Name = "gatemarker_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "gatemarker_green.troy"
+      Name = "gatemarker_red.troy"
     }
   }
 }

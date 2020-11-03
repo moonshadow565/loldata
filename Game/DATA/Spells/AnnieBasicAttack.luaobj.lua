@@ -29,66 +29,72 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Owner",
-      SkinIDVar = "AnnieSkinID"
-    }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
     Function = BBIf,
-    Params = {
-      Src1Var = "AnnieSkinID",
-      Value2 = 5,
-      CompareOp = CO_EQUAL
-    },
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetSkinID,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "AnnieBasicAttack_tar_frost.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          UnitVar = "Owner",
+          SkinIDVar = "AnnieSkinID"
         }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
+      },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "AnnieBasicAttack_tar.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          Src1Var = "AnnieSkinID",
+          Value2 = 5,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "AnnieBasicAttack_tar_frost.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "AnnieBasicAttack_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }

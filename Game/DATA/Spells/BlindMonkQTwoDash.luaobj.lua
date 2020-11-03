@@ -77,7 +77,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -290,6 +291,30 @@ BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Caster",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Caster",
+              Order = AI_ATTACKTO
+            }
+          }
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

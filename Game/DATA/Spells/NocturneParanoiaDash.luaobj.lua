@@ -109,7 +109,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -238,7 +239,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -294,7 +296,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "UnstoppableForceMarker"
+      BuffName = "UnstoppableForceMarker",
+      ResetDuration = 0
     }
   }
 }
@@ -385,7 +388,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -423,7 +427,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "NocturneParanoiaDash"
+      BuffName = "NocturneParanoiaDash",
+      ResetDuration = 0
     }
   },
   {
@@ -485,6 +490,22 @@ BuffOnMoveEndBuildingBlocks = {
               BuffName = "NocturneParanoiaDashSound"
             }
           }
+        }
+      }
+    }
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Attacker",
+          Order = AI_ATTACKTO
         }
       }
     }

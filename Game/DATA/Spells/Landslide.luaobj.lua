@@ -101,7 +101,9 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -125,7 +127,9 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -135,7 +139,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 355,
+      Range = 400,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -170,7 +174,7 @@ SelfExecuteBuildingBlocks = {
           BuffName = "LandslideDebuff",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
-          BuffType = BUFF_Slow,
+          BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 4,

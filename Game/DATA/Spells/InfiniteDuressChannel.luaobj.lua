@@ -6,164 +6,97 @@ IsDamagingSpell = true
 ChannelDuration = 2.1
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
 BuffName = "Infinite Duress"
-ChannelingStartBuildingBlocks = {
+OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetTime,
+    Function = BBRequireVar,
     Params = {
-      DestVar = "DuressExecuted",
-      DestVarTable = "InstanceVars"
+      RequiredVar = "hitsRemaining",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBRequireVar,
     Params = {
-      DestVar = "NumHitsRemaining",
-      DestVarTable = "CharVars",
-      SrcValue = 5
+      RequiredVar = "damagePerTick",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBSpellEffectCreate,
     Params = {
-      DestVar = "BonusDamage",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        40,
-        60,
-        80
-      }
+      BindObjectVar = "Owner",
+      EffectName = "InfiniteDuress_tar.troy",
+      Flags = 0,
+      EffectIDVar = "arr",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBApplyDamage,
     Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "InfiniteDuressSound",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1.9,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      Damage = 0,
+      DamageVar = "damagePerTick",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "hitsRemaining",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "hitsRemaining",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_SUBTRACT
     }
   }
 }
-ChannelingUpdateActionsBuildingBlocks = {
+OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIf,
     Params = {
-      TimeBetweenExecutions = 0.3,
-      TrackTimeVar = "DuressExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      Src1Var = "Expired",
+      Value2 = true,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
+        Params = {
+          Src1Var = "hitsRemaining",
+          Src1VarTable = "InstanceVars",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
         SubBlocks = {
           {
-            Function = BBStopChanneling,
+            Function = BBWhile,
             Params = {
-              CasterVar = "Owner",
-              StopCondition = ChannelingStopCondition_Cancel,
-              StopSource = ChannelingStopSource_Die
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetStatus,
-            Params = {
-              TargetVar = "Target",
-              DestVar = "canMove",
-              Status = GetCanMove
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "canMove",
-              Value2 = true,
-              CompareOp = CO_EQUAL
+              Src1Var = "hitsRemaining",
+              Src1VarTable = "InstanceVars",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
             },
             SubBlocks = {
-              {
-                Function = BBStopChanneling,
-                Params = {
-                  CasterVar = "Owner",
-                  StopCondition = ChannelingStopCondition_Cancel,
-                  StopSource = ChannelingStopSource_Casting
-                }
-              },
-              {
-                Function = BBIssueOrder,
-                Params = {
-                  WhomToOrderVar = "Owner",
-                  TargetOfOrderVar = "Target",
-                  Order = AI_ATTACKTO
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBGetTotalAttackDamage,
-                Params = {
-                  TargetVar = "Owner",
-                  DestVar = "TotalAttackDamage"
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "TotalAttackDamage",
-                  Src1Value = 0,
-                  Src2Value = 0.33,
-                  DestVar = "DamageToDeal",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "DamageToDeal",
-                  Src2Var = "BonusDamage",
-                  Src2VarTable = "CharVars",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "DamageToDeal",
-                  MathOp = MO_ADD
-                }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Owner",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "DamageToDeal",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_ATTACK,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              },
               {
                 Function = BBSpellEffectCreate,
                 Params = {
@@ -177,48 +110,153 @@ ChannelingUpdateActionsBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Owner",
+                  Damage = 0,
+                  DamageVar = "damagePerTick",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_ATTACK,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               },
               {
                 Function = BBMath,
                 Params = {
-                  Src1Var = "NumHitsRemaining",
-                  Src1VarTable = "CharVars",
+                  Src1Var = "hitsRemaining",
+                  Src1VarTable = "InstanceVars",
                   Src1Value = 0,
                   Src2Value = 1,
-                  DestVar = "NumHitsRemaining",
-                  DestVarTable = "CharVars",
+                  DestVar = "hitsRemaining",
+                  DestVarTable = "InstanceVars",
                   MathOp = MO_SUBTRACT
                 }
-              },
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "NumHitsRemaining",
-                  Src1VarTable = "CharVars",
-                  Value2 = 0,
-                  CompareOp = CO_LESS_THAN_OR_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBStopChanneling,
-                    Params = {
-                      CasterVar = "Owner",
-                      StopCondition = ChannelingStopCondition_Success,
-                      StopSource = ChannelingStopSource_TimeCompleted
-                    }
-                  },
-                  {
-                    Function = BBIssueOrder,
-                    Params = {
-                      WhomToOrderVar = "Owner",
-                      TargetOfOrderVar = "Target",
-                      Order = AI_ATTACKTO
-                    }
-                  }
-                }
               }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Owner",
+      TargetOfOrderVar = "Target",
+      Order = AI_ATTACKTO
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Attacker",
+          BuffName = "Suppression"
+        },
+        SubBlocks = {
+          {
+            Function = BBStopChanneling,
+            Params = {
+              CasterVar = "Attacker",
+              StopCondition = ChannelingStopCondition_Cancel,
+              StopSource = ChannelingStopSource_LostTarget
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "hitsRemaining",
+          Src1VarTable = "InstanceVars",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "InfiniteDuress_tar.troy",
+              Flags = 0,
+              EffectIDVar = "arr",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Damage = 0,
+              DamageVar = "damagePerTick",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_ATTACK,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "hitsRemaining",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "hitsRemaining",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_SUBTRACT
             }
           }
         }
@@ -232,23 +270,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressSound"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "Suppression"
+      BuffName = "InfiniteDuressSound",
+      ResetDuration = 0
     }
   }
 }
@@ -258,7 +281,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold"
+      BuffName = "InfiniteDuressChannel",
+      ResetDuration = 0
     }
   },
   {
@@ -266,7 +290,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressSound"
+      BuffName = "InfiniteDuressSound",
+      ResetDuration = 0
     }
   },
   {
@@ -274,17 +299,12 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Suppression"
+      BuffName = "Suppression",
+      ResetDuration = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "infiniteduresssound"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -294,13 +314,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "infiniteduresshold"
+      Name = "suppression"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "suppression"
+      Name = "infiniteduresssound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infiniteduresschannel"
     }
   }
 }

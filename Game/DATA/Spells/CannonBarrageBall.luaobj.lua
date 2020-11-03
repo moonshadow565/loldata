@@ -157,7 +157,7 @@ OnBuffDeactivateBuildingBlocks = {
       {
         Function = BBGetChampionBySkinName,
         Params = {
-          Skin = "Pirate",
+          Skin = "Gangplank",
           Team = TEAM_ORDER,
           DestVar = "Attacker"
         }
@@ -190,7 +190,7 @@ OnBuffDeactivateBuildingBlocks = {
       {
         Function = BBGetChampionBySkinName,
         Params = {
-          Skin = "Pirate",
+          Skin = "Gangplank",
           Team = TEAM_CHAOS,
           DestVar = "Attacker"
         }
@@ -313,6 +313,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",

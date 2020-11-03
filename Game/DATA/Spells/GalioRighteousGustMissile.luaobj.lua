@@ -82,103 +82,29 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "galio_windTunnel_rune.troy",
-          Flags = 0,
-          EffectIDVar = "WindVFXAlly",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "head",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint",
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "galio_windTunnel_rune_team_red.troy",
-          Flags = 0,
-          EffectIDVar = "WindVFXEnemy",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "head",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint",
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "galio_windTunnel_rune.troy",
-          Flags = 0,
-          EffectIDVar = "WindVFXAlly",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "head",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint",
-          FollowsGroundTilt = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Owner",
-          EffectName = "galio_windTunnel_rune_team_red.troy",
-          Flags = 0,
-          EffectIDVar = "WindVFXEnemy",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "head",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint",
-          FollowsGroundTilt = false
-        }
-      }
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "galio_windTunnel_rune.troy",
+      EffectNameForOtherTeam = "galio_windTunnel_rune_team_red.troy",
+      Flags = 0,
+      EffectIDVar = "WindVFXAlly",
+      EffectIDVarTable = "InstanceVars",
+      EffectID2Var = "WindVFXEnemy",
+      EffectID2VarTable = "InstanceVars",
+      BoneName = "head",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 240,
+      SendIfOnScreenOrDiscard = false,
+      OrientTowardsVar = "OrientationPoint",
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -373,7 +299,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                         Params = {
                           TargetVar = "Unit",
                           AttackerVar = "Other1",
-                          BuffName = "GalioRighteousGustHaste"
+                          BuffName = "GalioRighteousGustHaste",
+                          ResetDuration = 0
                         }
                       }
                     }
@@ -389,7 +316,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       TargetVar = "Unit",
                       AttackerVar = "Other1",
-                      BuffName = "GalioRighteousGustHaste"
+                      BuffName = "GalioRighteousGustHaste",
+                      ResetDuration = 0
                     }
                   }
                 }
@@ -444,6 +372,7 @@ SpellOnMissileUpdateBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 100,
       DestVar = "Other3",

@@ -79,7 +79,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "Pantheon_AegisShield",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
@@ -147,7 +147,7 @@ SelfExecuteBuildingBlocks = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
                   BuffName = "Pantheon_AegisShield",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
@@ -194,11 +194,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "stunLength",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.7,
-        0.9,
-        1.1,
-        1.3,
-        1.5
+        1,
+        1,
+        1,
+        1,
+        1
       }
     }
   },
@@ -474,6 +474,20 @@ BuffOnMoveSuccessBuildingBlocks = {
           Duration = 0,
           DurationVar = "stunLength",
           DurationVarTable = "InstanceVars"
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
         }
       }
     }

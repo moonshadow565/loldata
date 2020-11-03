@@ -4,6 +4,25 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "Damage"}
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Damage",
+      Src2Var = "BaseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusAD",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -33,18 +52,18 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       DestVar = "HSS",
       SrcValueByLevel = {
-        0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
+        0.6,
+        0.6,
+        0.6,
+        0.6,
+        0.6
       }
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Damage",
+      Src1Var = "BonusAD",
       Src2Var = "HSS",
       Src1Value = 0,
       Src2Value = 0,
@@ -97,7 +116,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -132,18 +152,18 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       DestVar = "Spear",
       SrcValueByLevel = {
-        1,
-        1.15,
-        1.3,
-        1.45,
-        1.6
+        1.4,
+        1.4,
+        1.4,
+        1.4,
+        1.4
       }
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Damage",
+      Src1Var = "BonusAD",
       Src2Var = "Spear",
       Src1Value = 0,
       Src2Value = 0,
@@ -179,7 +199,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -196,7 +217,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -213,7 +235,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

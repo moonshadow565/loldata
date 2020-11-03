@@ -46,31 +46,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifestealBonus",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0.3
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
     Function = BBGetRandomPointInAreaUnit,
     Params = {
       TargetVar = "Target",
@@ -103,6 +78,131 @@ TargetExecuteBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "LifestealBonus",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0.3
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "hitsRemaining",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 5
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "baseDamage",
+          SrcValueByLevel = {
+            200,
+            300,
+            400
+          }
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {TargetVar = "Owner", DestVar = "totalAD"}
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "totalAD",
+          Src1Value = 1.667,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "baseDamage",
+          Src2Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "totalDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "hitsRemaining",
+          Src2VarTable = "NextBuffVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "damagePerTick",
+          MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "damagePerTick",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "damagePerTick"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Owner",
+          BuffName = "InfiniteDuressChannel",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.8,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "InfiniteDuressSound",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.8,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
       {
         Function = BBSpellCast,
         Params = {
@@ -144,6 +244,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "suppression"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infiniteduresschannel"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infiniteduresssound"
     }
   }
 }

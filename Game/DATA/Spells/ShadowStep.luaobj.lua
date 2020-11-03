@@ -230,6 +230,20 @@ TargetExecuteBuildingBlocks = {
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Target",
+              Order = AI_ATTACKTO
+            }
+          }
+        }
       }
     }
   },
@@ -304,5 +318,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sharedwardbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "destealth"}
   }
 }
