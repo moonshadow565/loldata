@@ -22,7 +22,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -104,7 +105,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -122,7 +124,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -146,7 +149,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -164,7 +168,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -345,7 +350,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -371,7 +377,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeam = TEAM_ORDER,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 100,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               }
             }
@@ -395,7 +402,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeam = TEAM_CHAOS,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 100,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               }
             }
@@ -426,6 +434,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "olaf_axe_totem_team_id_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "olafaxeexpirationtimer2"
     }
   },
   {

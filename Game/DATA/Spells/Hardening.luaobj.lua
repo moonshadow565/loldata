@@ -217,16 +217,6 @@ BuffOnAllowAddBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Duration",
-      Src1Value = 0,
-      Src2Value = 0.3,
-      DestVar = "Duration",
-      MathOp = MO_MAX
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

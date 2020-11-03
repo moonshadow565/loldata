@@ -17,7 +17,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -61,7 +62,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
-                  Damage = 40,
+                  Damage = 35,
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_PERIODIC,
                   PercentOfAttack = 1,

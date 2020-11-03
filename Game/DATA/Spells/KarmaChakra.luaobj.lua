@@ -37,7 +37,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -69,7 +70,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -101,7 +103,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
@@ -152,7 +155,8 @@ OnBuffDeactivateBuildingBlocks = {
           SlotNumber = 0,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       },
       {
@@ -184,7 +188,8 @@ OnBuffDeactivateBuildingBlocks = {
           SlotNumber = 1,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       },
       {
@@ -216,7 +221,8 @@ OnBuffDeactivateBuildingBlocks = {
           SlotNumber = 2,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -276,13 +282,80 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTimeVer2,
+    Function = BBIfNotHasBuff,
     Params = {
-      Src = 0.1,
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "KarmaChakraTimer"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakraTimer",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationVar = "MantraTimerCooldown",
+          DurationVarTable = "CharVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KarmaChakraCharge"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 0,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "remainingDuration",
+          TargetVar = "Owner",
+          BuffName = "KarmaChakraTimer"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 0,
+          SrcVar = "remainingDuration",
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = true
+        }
+      }
     }
   }
 }
@@ -333,6 +406,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmachakracharge"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmachakratimer"
     }
   }
 }

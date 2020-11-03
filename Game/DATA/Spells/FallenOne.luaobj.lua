@@ -21,7 +21,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -31,12 +32,15 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "FallenOneTarget",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -50,7 +54,8 @@ ChannelingSuccessStopBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -61,6 +66,7 @@ ChannelingSuccessStopBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
             250,
@@ -71,7 +77,8 @@ ChannelingSuccessStopBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.7,
+          SpellDamageRatio = 0.6,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -89,7 +96,8 @@ ChannelingSuccessStopBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -103,7 +111,8 @@ ChannelingCancelStopBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {

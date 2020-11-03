@@ -24,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "trundle_PlagueBlock_green.troy",
           Flags = 0,
-          EffectIDVar = "asdf",
+          EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Nothing",
@@ -33,7 +33,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -42,7 +43,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "trundle_PlagueBlock_red.troy",
           Flags = 0,
-          EffectIDVar = "asdf",
+          EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Nothing",
@@ -51,7 +52,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -66,7 +68,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "trundle_PlagueBlock_red.troy",
           Flags = 0,
-          EffectIDVar = "asdf",
+          EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Nothing",
@@ -75,7 +77,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -84,7 +87,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "trundle_PlagueBlock_green.troy",
           Flags = 0,
-          EffectIDVar = "asdf",
+          EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Nothing",
@@ -93,7 +96,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -255,7 +259,8 @@ OnBuffActivateBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -281,7 +286,14 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "asdf",
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -419,7 +431,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -500,7 +513,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 6,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

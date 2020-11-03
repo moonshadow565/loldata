@@ -173,14 +173,6 @@ BuffOnPreDamageBuildingBlocks = {
         Params = {CasterVar = "Caster"}
       },
       {
-        Function = BBIncPAR,
-        Params = {
-          TargetVar = "Caster",
-          Delta = 30,
-          PARType = PAR_ENERGY
-        }
-      },
-      {
         Function = BBGetTeamID,
         Params = {TargetVar = "Owner", DestVar = "TeamID"}
       },

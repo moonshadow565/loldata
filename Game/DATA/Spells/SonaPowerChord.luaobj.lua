@@ -5,6 +5,18 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetDodgePiercing,
     Params = {TargetVar = "Owner", Value = true}
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncAcquisitionRangeMod,
+      TargetVar = "Owner",
+      Delta = -900
+    }
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = false}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -17,7 +29,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaHymnofValorCheck"
+      BuffName = "SonaHymnofValorCheck",
+      ResetDuration = 0
     }
   },
   {
@@ -25,7 +38,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaAriaofPerseveranceCheck"
+      BuffName = "SonaAriaofPerseveranceCheck",
+      ResetDuration = 0
     }
   },
   {
@@ -33,7 +47,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongofDiscordCheck"
+      BuffName = "SonaSongofDiscordCheck",
+      ResetDuration = 0
     }
   },
   {
@@ -110,6 +125,16 @@ OnBuffDeactivateBuildingBlocks = {
           CancelAttack = false
         }
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncAcquisitionRangeMod,
+      TargetVar = "Owner",
+      Delta = -900
     }
   }
 }

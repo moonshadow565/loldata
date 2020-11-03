@@ -1,3 +1,3 @@
-BuffTextureName = "Kennen_ElectricalSurge.dds"
+BuffTextureName = "Kennen_ElectricalSurge_Charging.dds"
 BuffName = "KennenDoubleStrikeIndicator"
 AutoBuffActivateEffect = ""

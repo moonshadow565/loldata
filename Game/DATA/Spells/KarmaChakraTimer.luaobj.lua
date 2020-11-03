@@ -97,6 +97,44 @@ OnBuffDeactivateBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBGetBuffCountFromAll,
+        Params = {
+          DestVar = "Count",
+          TargetVar = "Owner",
+          BuffName = "KarmaChakraCharge"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Count",
+          Value2 = 1,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "KarmaChakraTimer",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "MantraTimerCooldown",
+              DurationVarTable = "CharVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
       }
     }
   }
@@ -118,6 +156,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmatwomantraparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmachakratimer"
     }
   }
 }

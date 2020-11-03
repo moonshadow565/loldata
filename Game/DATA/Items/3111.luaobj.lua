@@ -2,7 +2,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 9,
+      TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -11,16 +11,19 @@ UpdateSelfBuffActionsBuildingBlocks = {
       {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "MercuryTreads",
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "Hardening",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 10,
+          Duration = 2,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -46,18 +49,25 @@ OnActivateBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MercuryTreads",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "hardening"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

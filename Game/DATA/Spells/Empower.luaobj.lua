@@ -44,7 +44,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -111,12 +112,15 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "EmpowerCleave",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 3,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -136,7 +140,8 @@ BuffOnHitUnitBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -187,7 +192,8 @@ BuffOnHitUnitBuildingBlocks = {
       Range = 0,
       RangeVar = "RadiusOfCleave",
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -202,6 +208,7 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "AoEDamage",
@@ -209,6 +216,7 @@ BuffOnHitUnitBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -221,6 +229,7 @@ BuffOnHitUnitBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageBonus",
@@ -228,6 +237,7 @@ BuffOnHitUnitBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -237,7 +247,8 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Empower"
+      BuffName = "Empower",
+      ResetDuration = 0
     }
   },
   {
@@ -271,12 +282,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

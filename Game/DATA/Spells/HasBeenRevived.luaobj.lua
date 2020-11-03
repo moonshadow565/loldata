@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "3026_Guardian_Angel.dds"
+BuffTextureName = "3026_Guardian_Angel_Charging.dds"
 BuffName = "HasBeenRevived"
 PersistsThroughDeath = true
 NonDispellable = true
@@ -19,7 +19,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -38,7 +39,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

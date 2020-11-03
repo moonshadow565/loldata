@@ -251,25 +251,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationVar = "factor",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "Spell2",
@@ -278,7 +259,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       Loop = false,
       Blend = false,
-      Lock = true
+      Lock = false
     }
   }
 }
@@ -327,12 +308,6 @@ BuffOnMoveSuccessBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "leapstrike"}

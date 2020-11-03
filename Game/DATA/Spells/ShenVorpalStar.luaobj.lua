@@ -29,7 +29,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -74,7 +75,8 @@ BuffOnBeingHitBuildingBlocks = {
           Duration = 2.9,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -93,10 +95,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       DamageByLevel = {
         50,
-        95,
-        140,
-        185,
-        230
+        90,
+        130,
+        170,
+        210
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -171,7 +173,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -188,7 +191,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   }
 }

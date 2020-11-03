@@ -1,3 +1,5 @@
+BuffTextureName = "3091_Wits_End.dds"
+BuffName = "WitsEndBuff"
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -21,20 +23,84 @@ BuffOnHitUnitBuildingBlocks = {
             SubBlocks = {
               {
                 Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndBuff",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndCounter",
+                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
+                      MaxStack = 4,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
               },
               {
                 Function = BBElse,
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBIf,
-                    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_HERO},
-                    SubBlocks = {
-                      {
-                        Function = BBGetPetOwner,
-                        Params = {PetVar = "Attacker", DestVar = "Attacker"}
-                      }
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndBuff",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndCounter",
+                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
+                      MaxStack = 4,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   },
                   {
@@ -52,13 +118,53 @@ BuffOnHitUnitBuildingBlocks = {
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
+                  }
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {CompareOp = CO_IS_NOT_TURRET},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndBuff",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
                   },
                   {
-                    Function = BBIncPAR,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      TargetVar = "Target",
-                      Delta = -42,
-                      PARType = PAR_MANA
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "WitsEndCounter",
+                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
+                      MaxStack = 4,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -67,6 +173,20 @@ BuffOnHitUnitBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "witsendbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "witsendcounter"
     }
   }
 }

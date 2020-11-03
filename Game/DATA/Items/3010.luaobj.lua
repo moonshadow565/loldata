@@ -13,16 +13,22 @@ UpdateSelfBuffActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Owner",
-          Delta = 300,
-          HealerVar = "Owner"
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "CatalystHeal",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 8.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
-      },
-      {
-        Function = BBIncPAR,
-        Params = {TargetVar = "Owner", Delta = 250}
       },
       {
         Function = BBSetVarInTable,
@@ -42,6 +48,14 @@ OnActivateBuildingBlocks = {
       TargetVar = "Owner",
       DestVar = "OwnerLevel",
       DestVarTable = "InstanceVars"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "catalystheal"
     }
   }
 }

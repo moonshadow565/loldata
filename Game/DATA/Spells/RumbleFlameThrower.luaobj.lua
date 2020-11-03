@@ -15,13 +15,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "HeatCost",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "DangerZone",
       RequiredVarTable = "InstanceVars"
     }
@@ -33,12 +26,44 @@ OnBuffActivateBuildingBlocks = {
       OverrideAnim = "Run2",
       OwnerVar = "Owner"
     }
+  },
+  {
+    Function = BBOverrideAnimation,
+    Params = {
+      ToOverrideAnim = "Attack1",
+      OverrideAnim = "Attack3",
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBOverrideAnimation,
+    Params = {
+      ToOverrideAnim = "Attack2",
+      OverrideAnim = "Attack3",
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Counter",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBClearOverrideAnimation,
     Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Attack1", OwnerVar = "Owner"}
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Attack2", OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -67,24 +92,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcVar = "DangerZone",
           SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "RumbleFlameThrowerEffect",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
         }
       },
       {
@@ -138,6 +145,47 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Counter",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Counter",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Counter",
+          Src1VarTable = "InstanceVars",
+          Value2 = 6,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "RumbleFlameThrowerEffect",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
       }
     }
   }
@@ -156,7 +204,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "RumbleFlameThrower"
+          BuffName = "RumbleFlameThrower",
+          ResetDuration = 0
         }
       }
     }
@@ -309,13 +358,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleflamethrowereffect"
+      Name = "rumbleflamethrowerbuff"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleflamethrowerbuff"
+      Name = "rumbleflamethrowereffect"
     }
   },
   {

@@ -1,4 +1,4 @@
-BuffTextureName = "Kassadin_ForcePulse.dds"
+BuffTextureName = "Kassadin_ForcePulse_Charging.dds"
 BuffName = "ForcePulse"
 OnBuffActivateBuildingBlocks = {
   {
@@ -25,12 +25,15 @@ OnBuffActivateBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "ForcePulseCanCast",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

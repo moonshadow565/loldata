@@ -117,7 +117,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -134,7 +135,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -194,7 +196,7 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
-          SrcValue = 0.5,
+          SrcValue = 1,
           SpellbookType = SPELLBOOK_SUMMONER,
           SlotType = SpellSlots,
           SpellSlotValue = 0,
@@ -232,7 +234,7 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
-          SrcValue = 0.5,
+          SrcValue = 1,
           SpellbookType = SPELLBOOK_SUMMONER,
           SlotType = SpellSlots,
           SpellSlotValue = 1,
@@ -353,7 +355,8 @@ OnBuffDeactivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -650,7 +653,8 @@ TargetExecuteBuildingBlocks = {
           DurationVar = "BuffDuration",
           DurationVarTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -677,7 +681,8 @@ TargetExecuteBuildingBlocks = {
                   DurationVar = "BuffDuration",
                   DurationVarTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -702,7 +707,8 @@ TargetExecuteBuildingBlocks = {
                   DurationVar = "BuffDuration",
                   DurationVarTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -723,7 +729,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

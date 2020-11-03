@@ -172,6 +172,78 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {SrcValue = true}
           }
         }
+      },
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "WrathTimer"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "SweepTimer"
+            },
+            SubBlocks = {
+              {
+                Function = BBIfNotHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "PropelTimer"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIfNotHasBuff,
+                    Params = {
+                      OwnerVar = "Owner",
+                      CasterVar = "Owner",
+                      BuffName = "ActionTimer2"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBIfNotHasBuff,
+                        Params = {
+                          OwnerVar = "Owner",
+                          CasterVar = "Owner",
+                          BuffName = "ActionTimer"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBDistanceBetweenObjects,
+                            Params = {
+                              DestVar = "Distance",
+                              ObjectVar1 = "Attacker",
+                              ObjectVar2 = "Owner"
+                            }
+                          },
+                          {
+                            Function = BBIf,
+                            Params = {
+                              Src1Var = "Distance",
+                              Value2 = 950,
+                              CompareOp = CO_GREATER_THAN
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBSetReturnValue,
+                                Params = {SrcValue = false}
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   },
@@ -386,7 +458,8 @@ BuffOnDeathBuildingBlocks = {
                   Duration = 240,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -425,7 +498,8 @@ BuffOnDeathBuildingBlocks = {
                   Duration = 240,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -436,6 +510,32 @@ BuffOnDeathBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "wrathtimer"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "sweeptimer"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "propeltimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "actiontimer2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "actiontimer"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

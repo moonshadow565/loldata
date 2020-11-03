@@ -751,6 +751,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nocturneparanoiavo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "nocturneparanoiatargetordervo"
     }
   },

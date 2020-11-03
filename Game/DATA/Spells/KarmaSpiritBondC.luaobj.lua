@@ -2320,15 +2320,6 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellBuffRemoveStacks,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "KarmaChakra",
-          NumStacks = 1
-        }
-      },
-      {
         Function = BBIf,
         Params = {
           Src1Var = "Target",
@@ -2628,12 +2619,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmasbstealthbreak"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmachakra"
     }
   },
   {

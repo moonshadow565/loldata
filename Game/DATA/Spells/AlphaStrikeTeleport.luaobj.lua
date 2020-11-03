@@ -2,50 +2,62 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBIfHasBuff,
     Params = {
+      OwnerVar = "Owner",
       AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 2000,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      BuffName = "AlphaStrikeTeleport"
     },
     SubBlocks = {
       {
-        Function = BBIfHasBuff,
+        Function = BBSpellBuffRemove,
         Params = {
-          OwnerVar = "Unit",
+          TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "AlphaStrikeMarker"
+          BuffName = "AlphaStrikeTeleport"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 2000,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
-            Function = BBGetPointByUnitFacingOffset,
+            Function = BBIfHasBuff,
             Params = {
-              UnitVar = "Unit",
-              Distance = 75,
-              OffsetAngle = 0,
-              PositionVar = "Pos"
-            }
-          },
-          {
-            Function = BBTeleportToPosition,
-            Params = {OwnerVar = "Owner", CastPositionName = "Pos"}
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Unit",
+              OwnerVar = "Unit",
               AttackerVar = "Owner",
               BuffName = "AlphaStrikeMarker"
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AlphaStrikeMarker"
+            },
+            SubBlocks = {
+              {
+                Function = BBGetUnitPosition,
+                Params = {UnitVar = "Unit", PositionVar = "Pos"}
+              },
+              {
+                Function = BBTeleportToPosition,
+                Params = {OwnerVar = "Owner", CastPositionName = "Pos"}
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "AlphaStrikeMarker"
+                }
+              }
             }
           }
         }
@@ -54,6 +66,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alphastriketeleport"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

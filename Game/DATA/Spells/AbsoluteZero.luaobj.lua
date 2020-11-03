@@ -9,7 +9,7 @@ BuffName = "Absolute Zero"
 AutoBuffActivateEffect = "AbsoluteZero3_cas.troy"
 AutoBuffActivateAttachBoneName = ""
 SpellFXOverrideSkins = {"NunuBot"}
-SpellVOOverrideSkins = {}
+SpellVOOverrideSkins = {""}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -177,7 +177,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "LifeTime",
-      DestVarTable = "InstanceVars",
+      DestVarTable = "CharVars",
       SrcValue = 0
     }
   }

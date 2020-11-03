@@ -1,4 +1,4 @@
-BuffTextureName = "Annie_Brilliance.dds"
+BuffTextureName = "Annie_Brilliance_Charging.dds"
 BuffName = "Pyromania"
 OnBuffActivateBuildingBlocks = {
   {
@@ -25,12 +25,15 @@ OnBuffActivateBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Pyromania_particle",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

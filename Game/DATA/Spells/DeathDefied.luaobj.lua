@@ -2,16 +2,6 @@ BuffTextureName = "Lich_Untransmutable.dds"
 BuffName = "Death Defied"
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentRespawnTimeMod,
-      TargetVar = "Owner",
-      Delta = 0.2
-    }
-  }
-}
 BuffOnDeathBuildingBlocks = {
   {
     Function = BBIf,
@@ -39,10 +29,11 @@ BuffOnZombieBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8,
+      Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "ShurikenDamage",
       DestVarTable = "InstanceVars",
-      SrcValue = 15
+      SrcValue = 10
     }
   },
   {
@@ -30,6 +30,91 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ShurikenDamage",
+      SrcValueByLevel = {
+        10,
+        15,
+        20,
+        25,
+        30,
+        35,
+        40,
+        45,
+        50,
+        55,
+        60,
+        65,
+        70,
+        75,
+        80,
+        85,
+        90,
+        95,
+        100,
+        105
+      }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatHPPoolMod,
+      TargetVar = "Owner",
+      DestVar = "MaxHP"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxHP",
+      Src1Value = 0,
+      Src2Value = 0.08,
+      DestVar = "BonusDmgFromHP",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDmgFromHP",
+      Src2Var = "ShurikenDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ShurikenDamage",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "FinalDamage",
+      Index = 2
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusDmgFromHP",
+      Index = 3
+    }
+  },
   {
     Function = BBIf,
     Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
@@ -229,68 +314,6 @@ BuffOnBeingHitBuildingBlocks = {
               }
             }
           }
-        }
-      }
-    }
-  }
-}
-BuffOnLevelUpBuildingBlocks = {
-  {
-    Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "Level"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "CurrentDamage",
-      SrcValueByLevel = {
-        15,
-        20,
-        25,
-        30,
-        35,
-        40,
-        45,
-        50,
-        55,
-        60,
-        65,
-        70,
-        75,
-        80,
-        85,
-        90,
-        95,
-        100,
-        105,
-        110
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CurrentDamage",
-      Src2Var = "ShurikenDamage",
-      Src2VarTable = "InstanceVars",
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ShurikenDamage",
-          DestVarTable = "InstanceVars",
-          SrcVar = "CurrentDamage"
-        }
-      },
-      {
-        Function = BBSetBuffToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "ShurikenDamage",
-          ValueVarTable = "InstanceVars",
-          Index = 1
         }
       }
     }

@@ -1,105 +1,57 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBIfNotHasBuff,
     Params = {
-      DestVar = "Level",
-      SrcVar = "TalentLevel"
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "MaxMana",
-      OwnerVar = "Target",
-      Function = GetMaxPAR,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MaxMana",
-      Src1Value = 6.6E-4,
-      Src2Value = 0,
-      DestVar = "RegenMod",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MaxMana",
-      Src1Value = 0.00133,
-      Src2Value = 0,
-      DestVar = "RegenMod2",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MaxMana",
-      Src1Value = 0.002,
-      Src2Value = 0,
-      DestVar = "RegenMod3",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "StrengthOfSpirit"
     },
     SubBlocks = {
       {
-        Function = BBIncStat,
+        Function = BBSetVarInTable,
         Params = {
-          Stat = IncFlatHPRegenMod,
+          DestVar = "Level",
+          SrcVar = "TalentLevel"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "multiplier",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            6.6E-4,
+            0.00133,
+            0.002
+          }
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
           TargetVar = "Owner",
-          DeltaVar = "RegenMod",
-          Delta = 0
+          AttackerVar = "Owner",
+          BuffName = "StrengthOfSpirit",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
-  },
+  }
+}
+PreLoadBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBPreloadSpell,
     Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatHPRegenMod,
-          TargetVar = "Owner",
-          DeltaVar = "RegenMod2",
-          Delta = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 3,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatHPRegenMod,
-          TargetVar = "Owner",
-          DeltaVar = "RegenMod3",
-          Delta = 0
-        }
-      }
+      Name = "strengthofspirit"
     }
   }
 }

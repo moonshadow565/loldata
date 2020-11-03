@@ -218,6 +218,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "tailwindself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "tailwind"}
   },
   {

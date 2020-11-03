@@ -56,12 +56,11 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetPAROrHealth,
+    Function = BBGetStat,
     Params = {
-      DestVar = "MaxHP",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
+      Stat = GetFlatHPPoolMod,
+      TargetVar = "Owner",
+      DestVar = "MaxHP"
     }
   },
   {
@@ -69,7 +68,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "MaxHP",
       Src1Value = 0,
-      Src2Value = 0.035,
+      Src2Value = 0.08,
       DestVar = "BonusDmgFromHP",
       MathOp = MO_MULTIPLY
     }
@@ -83,6 +82,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ShurikenDamage",
       SrcValueByLevel = {
+        10,
         15,
         20,
         25,
@@ -101,8 +101,7 @@ TargetExecuteBuildingBlocks = {
         90,
         95,
         100,
-        105,
-        110
+        105
       }
     }
   },
@@ -139,7 +138,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
-      BuffName = "ShenWayOfTheNinjaAura"
+      BuffName = "ShenWayOfTheNinjaAura",
+      ResetDuration = 0
     }
   }
 }

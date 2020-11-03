@@ -1,70 +1,10 @@
 CharOnHitUnitBuildingBlocks = {
   {
-    Function = BBRequireVar,
-    Params = {RequiredVar = "HitCount", RequiredVarTable = "CharVars"}
-  },
-  {
-    Function = BBIfHasBuff,
+    Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
-      AttackerVar = "Owner",
+      CasterVar = "Owner",
       BuffName = "Visionary"
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "HitCount",
-          Src1VarTable = "CharVars",
-          Value2 = 6,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "HitCount",
-              Src1VarTable = "CharVars",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "HitCount",
-              DestVarTable = "CharVars",
-              MathOp = MO_ADD
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "HitCount",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "HitCount",
-          DestVarTable = "CharVars",
-          MathOp = MO_ADD
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HitCount",
-      Src1VarTable = "CharVars",
-      Value2 = 7,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -72,24 +12,17 @@ CharOnHitUnitBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Visionary",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffName = "Visionary_Counter",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
+          BuffType = BUFF_Aura,
+          MaxStack = 8,
           NumberOfStacks = 1,
-          Duration = 20000,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HitCount",
-          DestVarTable = "CharVars",
-          SrcValue = 0
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -110,7 +43,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -127,7 +61,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -144,7 +79,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -163,7 +99,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }
@@ -171,6 +108,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "visionary"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "visionary_counter"
+    }
   },
   {
     Function = BBPreloadSpell,

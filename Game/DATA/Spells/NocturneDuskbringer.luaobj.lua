@@ -882,10 +882,10 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   DamageByLevel = {
                     48.75,
-                    91.25,
-                    133.75,
-                    176.25,
-                    218.75
+                    86.25,
+                    123.75,
+                    161.25,
+                    198.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -997,10 +997,10 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   DamageByLevel = {
                     48.75,
-                    91.25,
-                    133.75,
-                    176.25,
-                    218.75
+                    86.25,
+                    123.75,
+                    161.25,
+                    198.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -1119,10 +1119,10 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   DamageByLevel = {
                     48.75,
-                    91.25,
-                    133.75,
-                    176.25,
-                    218.75
+                    86.25,
+                    123.75,
+                    161.25,
+                    198.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -1250,10 +1250,10 @@ TargetExecuteBuildingBlocks = {
                       TargetVar = "Target",
                       DamageByLevel = {
                         48.75,
-                        91.25,
-                        133.75,
-                        176.25,
-                        218.75
+                        86.25,
+                        123.75,
+                        161.25,
+                        198.75
                       },
                       Damage = 0,
                       DamageVar = "PhysPostMod",

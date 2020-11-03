@@ -70,7 +70,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -121,7 +122,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -659,7 +661,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Defile"
+      BuffName = "Defile",
+      ResetDuration = 0
     }
   },
   {
@@ -732,7 +735,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
-      Value2 = 4.5,
+      Value2 = 3.5,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -746,6 +749,15 @@ BuffOnUpdateStatsBuildingBlocks = {
           State = true
         }
       }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
     }
   }
 }
@@ -917,15 +929,6 @@ BuffOnLevelUpSpellBuildingBlocks = {
           PARType = PAR_MANA
         }
       }
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageAmount",
-      SrcValue = 0
     }
   }
 }

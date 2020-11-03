@@ -142,8 +142,8 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         150,
-        300,
-        450
+        250,
+        350
       }
     }
   },

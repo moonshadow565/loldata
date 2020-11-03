@@ -212,7 +212,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.4,
+      Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -440,7 +440,7 @@ BuffOnMoveSuccessBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "DistanceTar",
-      Value2 = 500,
+      Value2 = 800,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {

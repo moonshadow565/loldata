@@ -415,8 +415,8 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.15,
-        -0.2,
+        -0.25,
+        -0.25,
         -0.25
       }
     }

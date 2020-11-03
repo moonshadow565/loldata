@@ -3,27 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Kassadin_ForcePulse.dds"
 BuffName = "ForcePulse"
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KarmaChakra"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveStacks,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "KarmaChakra",
-          NumStacks = 1
-        }
-      }
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -255,12 +234,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmachakra"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -64,107 +64,63 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBIfHasBuff,
             Params = {
-              Src2Var = "Count",
-              Src2VarTable = "CharVars",
-              Src1Value = 1,
-              Src2Value = 0,
-              DestVar = "Count",
-              DestVarTable = "CharVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Count",
-              Src1VarTable = "CharVars",
-              Value2 = 4,
-              CompareOp = CO_GREATER_THAN_OR_EQUAL
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "CardmasterStackParticle"
             },
             SubBlocks = {
               {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "CardmasterStackParticle"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffRemove,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "CardmasterStackParticle"
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "Count",
-                  DestVarTable = "CharVars",
-                  SrcValue = 0
-                }
-              },
-              {
-                Function = BBSpellBuffRemoveStacks,
+                Function = BBSpellBuffRemove,
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "CardMasterStackHolder",
-                  NumStacks = 0
+                  BuffName = "CardmasterStackParticle"
                 }
               },
               {
-                Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-                SubBlocks = {
-                  {
-                    Function = BBGetTeamID,
-                    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-                  },
-                  {
-                    Function = BBBreakSpellShields,
-                    Params = {TargetVar = "Target"}
-                  },
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Target",
-                      Damage = 0,
-                      DamageVar = "BonusDamage",
-                      DamageVarTable = "InstanceVars",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0.4,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  },
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Target",
-                      EffectName = "CardmasterStackAttack_tar.troy",
-                      Flags = 0,
-                      EffectIDVar = "c",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWTeamOverrideVar = "TeamID",
-                      FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
-                    }
-                  }
+                Function = BBGetTeamID,
+                Params = {TargetVar = "Owner", DestVar = "TeamID"}
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "BonusDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "CardmasterStackAttack_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "c",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               }
             }
@@ -173,34 +129,6 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBElse,
             Params = {},
             SubBlocks = {
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "Count",
-                  Src1VarTable = "CharVars",
-                  Value2 = 3,
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "CardmasterStackParticle",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Internal,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 25000,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
-                    }
-                  }
-                }
-              },
               {
                 Function = BBSpellBuffAdd,
                 Params = {
@@ -215,7 +143,8 @@ BuffOnHitUnitBuildingBlocks = {
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -233,15 +162,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "cardmasterstackholder"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "cardmasterstackattack_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cardmasterstackholder"
     }
   }
 }

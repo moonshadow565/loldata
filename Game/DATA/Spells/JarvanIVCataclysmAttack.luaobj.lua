@@ -245,7 +245,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -261,7 +262,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Attacker",
-          BuffName = "JarvanIVCataclysmSelfCheck"
+          BuffName = "JarvanIVCataclysmSelfCheck",
+          ResetDuration = 0
         }
       }
     }
@@ -329,7 +331,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Attacker",
-                  BuffName = "JarvanIVCataclysmAttack"
+                  BuffName = "JarvanIVCataclysmAttack",
+                  ResetDuration = 0
                 }
               }
             }
@@ -373,7 +376,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -472,8 +476,8 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         200,
-        350,
-        500
+        325,
+        450
       }
     }
   },
@@ -546,7 +550,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "UnstoppableForceMarker"
+      BuffName = "UnstoppableForceMarker",
+      ResetDuration = 0
     }
   }
 }

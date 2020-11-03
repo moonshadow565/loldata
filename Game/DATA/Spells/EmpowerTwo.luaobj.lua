@@ -19,7 +19,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "BUFFBONE_CSTM_WEAPON_1",
+      BoneName = "R_hand",
       TargetObjectVar = "Owner",
       TargetBoneName = "weapon",
       SpecificUnitOnlyVar = "Owner",
@@ -28,7 +28,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -39,7 +40,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "BUFFBONE_CSTM_WEAPON_1",
+      BoneName = "R_hand",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -47,7 +48,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -220,7 +222,8 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -255,7 +258,8 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -263,7 +267,8 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "EmpowerTwo"
+              BuffName = "EmpowerTwo",
+              ResetDuration = 0
             }
           }
         }
@@ -314,7 +319,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

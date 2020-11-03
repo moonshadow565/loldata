@@ -133,6 +133,201 @@ BuffOnSpellCastBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "SpellSlot",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValue = 10
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownStat",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "Multiplier",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Multiplier",
+          Src2Var = "BaseCooldown",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "NewCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 0,
+          SrcVar = "NewCooldown",
+          SlotNumber = 2,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakra",
+          NumStacks = 1
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "SpellSlot",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValueByLevel = {
+            15,
+            14,
+            13,
+            12,
+            11,
+            10
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownStat",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "Multiplier",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Multiplier",
+          Src2Var = "BaseCooldown",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "NewCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 0,
+          SrcVar = "NewCooldown",
+          SlotNumber = 1,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakra",
+          NumStacks = 1
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "SpellSlot",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValue = 6
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownStat",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "Multiplier",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Multiplier",
+          Src2Var = "BaseCooldown",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "NewCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 0,
+          SrcVar = "NewCooldown",
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "KarmaChakra",
+          NumStacks = 1
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -158,6 +353,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmatwomantraparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmachakra"
     }
   }
 }
