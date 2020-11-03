@@ -269,6 +269,30 @@ OnBuffActivateBuildingBlocks = {
       SecondsVar = "InitialTime",
       SecondsVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {

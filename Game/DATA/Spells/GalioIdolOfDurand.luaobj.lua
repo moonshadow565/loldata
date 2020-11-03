@@ -205,36 +205,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "APStat"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "APStat",
-      Src1Value = 0,
-      Src2Value = 0.85,
-      DestVar = "APDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BaseDamage",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "APDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TotalBaseDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
     Function = BBMath,
     Params = {
       Src1Var = "HitCount",
@@ -252,7 +222,7 @@ OnBuffDeactivateBuildingBlocks = {
       Src1Var = "HitCount",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
-      Src2Value = 0.1,
+      Src2Value = 0.05,
       DestVar = "BonusDmgPercent",
       MathOp = MO_MULTIPLY
     }
@@ -260,23 +230,10 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "TotalBaseDamage",
-      Src2Var = "BonusDmgPercent",
+      Src1Var = "BonusDmgPercent",
       Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BaseDamage",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "BonusDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "Damage",
+      Src2Value = 1,
+      DestVar = "totalDmgPercent",
       MathOp = MO_ADD
     }
   },
@@ -302,11 +259,13 @@ OnBuffDeactivateBuildingBlocks = {
           CallForHelpAttackerVar = "Owner",
           TargetVar = "Unit",
           Damage = 0,
-          DamageVar = "Damage",
+          DamageVar = "BaseDamage",
+          DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.8,
+          PercentOfAttack = 0,
+          PercentOfAttackVar = "totalDmgPercent",
+          SpellDamageRatio = 0.6,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false

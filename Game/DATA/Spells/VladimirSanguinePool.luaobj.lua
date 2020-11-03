@@ -372,7 +372,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVar = "DamagePulse",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
     },
@@ -388,23 +388,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           InclusiveBuffFilter = true
         },
         SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "Slow",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-              StacksExclusive = true,
-              BuffType = BUFF_Slow,
-              MaxStack = 100,
-              NumberOfStacks = 1,
-              Duration = 1.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
           {
             Function = BBApplyDamage,
             Params = {
@@ -441,6 +424,47 @@ BuffOnUpdateActionsBuildingBlocks = {
               Delta = 0,
               DeltaVar = "HealAmount",
               HealerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "SlowPulse",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 350,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "Slow",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

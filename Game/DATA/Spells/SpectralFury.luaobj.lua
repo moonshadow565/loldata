@@ -50,46 +50,63 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {Src1Var = "Owner", CompareOp = CO_IS_MELEE},
     SubBlocks = {
       {
-        Function = BBGetBuffRemainingDuration,
+        Function = BBIfNotHasBuff,
         Params = {
-          DestVar = "SpectralDuration",
-          TargetVar = "Owner",
-          BuffName = "SpectralFury"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
-          BuffName = "SpectralFury",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 2,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "SpectralDuration",
-          TickRate = 0
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "SpectralCount",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "SpectralCount",
-          DestVarTable = "CharVars",
-          MathOp = MO_ADD
+          OwnerVar = "Owner",
+          CasterVar = "Nothing",
+          BuffName = "JudicatorRighteousFury"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetBuffRemainingDuration,
+            Params = {
+              DestVar = "SpectralDuration",
+              TargetVar = "Owner",
+              BuffName = "SpectralFury"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "SpectralFury",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "SpectralDuration",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "SpectralCount",
+              Src1VarTable = "CharVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "SpectralCount",
+              DestVarTable = "CharVars",
+              MathOp = MO_ADD
+            }
+          }
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "judicatorrighteousfury"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

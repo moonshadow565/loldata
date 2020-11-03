@@ -13,6 +13,16 @@ SpellToggleSlot = 3
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBPushCharacterData,
+    Params = {
+      SkinName = "Udyr",
+      TargetVar = "Owner",
+      IDVar = "CasterID",
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
+    }
+  },
+  {
     Function = BBOverrideAutoAttack,
     Params = {
       SpellSlot = 3,
@@ -26,7 +36,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBOverrideAnimation,
     Params = {
       ToOverrideAnim = "Run",
-      OverrideAnim = "Run4",
+      OverrideAnim = "Run2",
       OwnerVar = "Owner"
     }
   },
@@ -34,31 +44,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBOverrideAnimation,
     Params = {
       ToOverrideAnim = "Idle1",
-      OverrideAnim = "Idle4",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle2",
-      OverrideAnim = "Idle4",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle3",
-      OverrideAnim = "Idle4",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle5",
-      OverrideAnim = "Idle4",
+      OverrideAnim = "Idle2",
       OwnerVar = "Owner"
     }
   }
@@ -75,18 +61,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBClearOverrideAnimation,
     Params = {ToOverrideAnim = "Idle1", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle2", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle3", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle5", OwnerVar = "Owner"}
   }
 }
 SelfExecuteBuildingBlocks = {
@@ -274,12 +248,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -289,6 +265,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "UdyrBearActivation",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -301,11 +278,16 @@ SelfExecuteBuildingBlocks = {
         3.5,
         4
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "udyr"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

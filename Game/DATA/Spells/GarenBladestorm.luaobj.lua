@@ -25,13 +25,56 @@ BuffOnAllowAddBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBGetStat,
             Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.5,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
+              Stat = GetPercentHardnessMod,
+              TargetVar = "Owner",
+              DestVar = "HardnessPercent"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "HardnessPercent",
+              Value2 = 0.5,
+              CompareOp = CO_GREATER_THAN
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Duration",
+                  Src1Value = 0,
+                  Src2Value = 0.5,
+                  DestVar = "Duration",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "HardnessPercent",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "ReversalDivisor",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Duration",
+                  Src2Var = "ReversalDivisor",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "Duration",
+                  MathOp = MO_DIVIDE
+                }
+              }
             }
           }
         }

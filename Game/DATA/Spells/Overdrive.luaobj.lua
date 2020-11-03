@@ -26,23 +26,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "OverdriveSlow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -102,6 +85,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Haste,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -114,15 +98,8 @@ TargetExecuteBuildingBlocks = {
         8,
         8
       },
-      TickRate = 0
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "overdriveslow"
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

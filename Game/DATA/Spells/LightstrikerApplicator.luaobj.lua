@@ -48,6 +48,7 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Caster",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 100,
           DamageType = MAGIC_DAMAGE,
@@ -75,10 +76,9 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Target",
-              EffectName = "SpiralBlade_tar.troy",
+              EffectName = "sword_of_the_divine_tar.troy",
               Flags = 0,
               EffectIDVar = "part",
-              BoneName = "spine",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -97,7 +97,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "spiralblade_tar.troy"
+      Name = "sword_of_the_divine_tar.troy"
     }
   }
 }

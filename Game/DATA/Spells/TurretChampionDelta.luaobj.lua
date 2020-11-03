@@ -1,181 +1,165 @@
 PersistsThroughDeath = true
 NonDispellable = true
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetNumberOfHeroesOnTeam,
-        Params = {
-          Team = TEAM_ORDER,
-          ConnectedFromStart = false,
-          IncludeBots = false,
-          DestVar = "NumChampions",
-          DestVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_CHAOS,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetNumberOfHeroesOnTeam,
-        Params = {
-          Team = TEAM_CHAOS,
-          ConnectedFromStart = false,
-          IncludeBots = false,
-          DestVar = "NumChampions",
-          DestVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "NumChampions",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 5,
-      Src2Value = 0,
-      DestVar = "NumChampions",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
-    }
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBIf,
+    Function = BBExecutePeriodically,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
+      TimeBetweenExecutions = 10,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBGetNumberOfHeroesOnTeam,
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
+        Function = BBIf,
         Params = {
-          Team = TEAM_ORDER,
-          ConnectedFromStart = false,
-          IncludeBots = false,
-          DestVar = "NumChampions"
+          Src1Var = "TeamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBGetNumberOfHeroesOnTeam,
+            Params = {
+              Team = TEAM_ORDER,
+              ConnectedFromStart = false,
+              IncludeBots = true,
+              DestVar = "NumAlliedChampions",
+              DestVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBGetNumberOfHeroesOnTeam,
+            Params = {
+              Team = TEAM_CHAOS,
+              ConnectedFromStart = false,
+              IncludeBots = true,
+              DestVar = "NumHostileChampions"
+            }
+          }
         }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_CHAOS,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
+      },
       {
-        Function = BBGetNumberOfHeroesOnTeam,
+        Function = BBElseIf,
         Params = {
-          Team = TEAM_CHAOS,
-          ConnectedFromStart = false,
-          IncludeBots = false,
-          DestVar = "NumChampions"
+          Src1Var = "TeamID",
+          Value2 = TEAM_CHAOS,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBGetNumberOfHeroesOnTeam,
+            Params = {
+              Team = TEAM_CHAOS,
+              ConnectedFromStart = false,
+              IncludeBots = true,
+              DestVar = "NumAlliedChampions",
+              DestVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBGetNumberOfHeroesOnTeam,
+            Params = {
+              Team = TEAM_ORDER,
+              ConnectedFromStart = false,
+              IncludeBots = true,
+              DestVar = "NumHostileChampions"
+            }
+          }
         }
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "NumChampions",
-      Src1Value = 5,
-      Src2Value = 0,
-      DestVar = "NumChampions",
-      MathOp = MO_MIN
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "NumChampions",
-      Src2Var = "NumChampions",
-      Src2VarTable = "InstanceVars",
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
+      },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "NumChampions",
+          Src1Var = "NumAlliedChampions",
           Src1VarTable = "InstanceVars",
-          Src2Var = "NumChampions",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "ChampionDelta",
-          MathOp = MO_SUBTRACT
+          Src2Var = "NumHostileChampions",
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "NegativeTurretDelta",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 21,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Owner",
+              BuffName = "PositiveChampionDelta"
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBElseIf,
         Params = {
-          Src1Var = "ChampionDelta",
-          Src1Value = 0,
-          Src2Value = 10,
-          DestVar = "BonusDamage",
-          MathOp = MO_MULTIPLY
+          Src1Var = "NumAlliedChampions",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "NumHostileChampions",
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "PositiveTurretDelta",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 21,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Owner",
+              BuffName = "NegativeChampionDelta"
+            }
+          }
         }
       },
       {
-        Function = BBMath,
-        Params = {
-          Src1Var = "ChampionDelta",
-          Src1Value = 0,
-          Src2Value = 10,
-          DestVar = "BonusArmor",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncPermanentStat,
-        Params = {
-          Stat = IncPermanentFlatPhysicalDamageMod,
-          TargetVar = "Owner",
-          DeltaVar = "BonusDamage",
-          Delta = 0
-        }
-      },
-      {
-        Function = BBIncPermanentStat,
-        Params = {
-          Stat = IncPermanentFlatArmorMod,
-          TargetVar = "Owner",
-          DeltaVar = "BonusArmor",
-          Delta = 0
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "NumChampions",
-          DestVarTable = "InstanceVars",
-          SrcVar = "NumChampions"
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Owner",
+              BuffName = "PositiveChampionDelta"
+            }
+          },
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Owner",
+              BuffName = "NegativeChampionDelta"
+            }
+          }
         }
       }
     }

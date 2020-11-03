@@ -137,6 +137,19 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBStartTrackingCollisions,
@@ -485,7 +498,7 @@ BuffOnMoveEndBuildingBlocks = {
               EffectName = "gragas_bodySlam_unit_tar_02.troy",
               Flags = 10,
               EffectIDVar = "asdf1",
-              BoneName = "chest",
+              BoneName = "C_BUFFBONE_GLB_CHEST_LOC",
               TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -565,7 +578,7 @@ BuffOnMoveEndBuildingBlocks = {
               EffectName = "gragas_bodySlam_unit_tar_02.troy",
               Flags = 10,
               EffectIDVar = "asdf1",
-              BoneName = "chest",
+              BoneName = "C_BUFFBONE_GLB_CHEST_LOC",
               TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -630,19 +643,6 @@ BuffOnMoveEndBuildingBlocks = {
         }
       }
     }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
   }
 }
 BuffOnMoveSuccessBuildingBlocks = {}

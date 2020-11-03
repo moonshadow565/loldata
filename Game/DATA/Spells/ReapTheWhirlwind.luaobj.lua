@@ -26,6 +26,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Ticks",
+      DestVarTable = "CharVars",
+      SrcValue = 0
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "TeamOfOwner",
@@ -257,24 +265,25 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBExecutePeriodically,
     Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 700,
-      Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      TimeBetweenExecutions = 0.5,
+      TrackTimeVar = "FriendlyTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBForEachUnitInTargetArea,
         Params = {
-          Src1Var = "Owner",
-          Src2Var = "Unit",
-          CompareOp = CO_SAME_TEAM
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 700,
+          Flags = "AffectFriends AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -315,17 +324,35 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           }
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "HostileTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 700,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "MoveSpeedMod",
               DestVarTable = "NextBuffVars",
-              SrcValue = -0.4
+              SrcValue = -0.3
             }
           },
           {
@@ -339,7 +366,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 1,
+              Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false
@@ -356,9 +383,9 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "BaseTickAmount",
       SrcValueByLevel = {
-        45,
-        65,
-        85
+        35,
+        55,
+        75
       }
     }
   },
@@ -411,7 +438,7 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.5,
+      TickRate = 0.25,
       CanMitigateDuration = false
     }
   }

@@ -8,47 +8,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 5,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 20000,
-              Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "Tailwind",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 6,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
         Function = BBGetSlotSpellInfo,
         Params = {
           DestVar = "Level",
@@ -130,6 +89,36 @@ UpdateSelfBuffActionsBuildingBlocks = {
 }
 CharOnActivateBuildingBlocks = {
   {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectFriends AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "Tailwind",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -187,11 +176,11 @@ CharOnDisconnectBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "tailwind"}
+    Params = {Name = "sowthewind"}
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "sowthewind"}
+    Params = {Name = "tailwind"}
   },
   {
     Function = BBPreloadSpell,

@@ -9,6 +9,16 @@ SpellToggleSlot = 1
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBPushCharacterData,
+    Params = {
+      SkinName = "UdyrTiger",
+      TargetVar = "Owner",
+      IDVar = "CasterID",
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
@@ -40,46 +50,6 @@ OnBuffActivateBuildingBlocks = {
       AutoAttackSpellLevel = 1,
       CancelAttack = true
     }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Run",
-      OverrideAnim = "Run2",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle1",
-      OverrideAnim = "Idle2",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle3",
-      OverrideAnim = "Idle2",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle4",
-      OverrideAnim = "Idle2",
-      OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Idle5",
-      OverrideAnim = "Idle2",
-      OwnerVar = "Owner"
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -93,26 +63,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
     Params = {OwnerVar = "Owner", CancelAttack = true}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle1", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle3", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle4", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Idle5", OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -396,6 +346,10 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "udyrtiger"}
+  },
   {
     Function = BBPreloadParticle,
     Params = {

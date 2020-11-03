@@ -286,52 +286,11 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVar = "DamageManaTimer",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
     },
     SubBlocks = {
-      {
-        Function = BBGetStatus,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "canCast",
-          Status = GetCanCast
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "canCast",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "TargetPos",
-          SrcVar = "TargetPos",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 3,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
       {
         Function = BBGetPAROrHealth,
         Params = {
@@ -342,29 +301,11 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetUnitPosition,
-        Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
-      },
-      {
-        Function = BBDistanceBetweenPoints,
+        Function = BBSetVarInTable,
         Params = {
-          DestVar = "Distance",
-          Point1Var = "OwnerPos",
-          Point2Var = "TargetPos"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 1200,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
         }
       },
       {
@@ -437,6 +378,130 @@ BuffOnUpdateActionsBuildingBlocks = {
               IgnoreDamageCrit = false
             }
           },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "AttackSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.2
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MovementSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.2
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "Chilled",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 2.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "SlowTimer",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBGetStatus,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "canCast",
+          Status = GetCanCast
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "canCast",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetUnitPosition,
+        Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+      },
+      {
+        Function = BBDistanceBetweenPoints,
+        Params = {
+          DestVar = "Distance",
+          Point1Var = "OwnerPos",
+          Point2Var = "TargetPos"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Distance",
+          Value2 = 1200,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "TargetPos",
+          Range = 400,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {

@@ -248,20 +248,6 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "ParticleID6",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "ParticleID4",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "ParticleID5",
-      EffectIDVarTable = "InstanceVars"
-    }
   }
 }
 PreLoadBuildingBlocks = {

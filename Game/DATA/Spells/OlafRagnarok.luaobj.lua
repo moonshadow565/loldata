@@ -19,6 +19,7 @@ AutoCooldownByLevel = {
   120
 }
 NonDispellable = true
+SpellVOOverrideSkins = {"BroOlaf"}
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
