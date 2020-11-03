@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "3114_Malady.dds"
 BuffName = "MaladySpell"
-BuffOnBeingHitBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetBuffCountFromAll,
     Params = {
@@ -17,69 +17,49 @@ BuffOnBeingHitBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Count",
-      Src1Value = 0,
-      Src2Value = 5,
-      DestVar = "DamageToDeal",
+      Src2Var = "Count",
+      Src1Value = -6,
+      Src2Value = 0,
+      DestVar = "ResistanceShred",
       MathOp = MO_MULTIPLY
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Owner",
-          Damage = 0,
-          DamageVar = "DamageToDeal",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "ResistanceShred",
+      Delta = 0
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "MaladyCounter"
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_HERO},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {DestVar = "Caster", SrcVar = "Attacker"}
-      },
-      {
-        Function = BBGetPetOwner,
-        Params = {PetVar = "Attacker", DestVar = "Caster"}
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Caster",
-              TargetVar = "Owner",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      }
+    Function = BBMath,
+    Params = {
+      Src2Var = "Count",
+      Src1Value = -6,
+      Src2Value = 0,
+      DestVar = "ResistanceShred",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "ResistanceShred",
+      Delta = 0
     }
   }
 }

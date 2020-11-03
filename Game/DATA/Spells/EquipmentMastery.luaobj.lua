@@ -80,6 +80,24 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       IncCurrentHealth = false
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AttackHealthAdded",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "APHealthAdded",
+      ValueVarTable = "InstanceVars",
+      Index = 2
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {

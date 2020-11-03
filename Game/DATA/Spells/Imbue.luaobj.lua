@@ -10,11 +10,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseHealAmount",
       SrcValueByLevel = {
-        70,
-        110,
-        150,
-        190,
-        230
+        60,
+        100,
+        140,
+        180,
+        220
       }
     }
   },

@@ -72,18 +72,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ASDebuff",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        -0.2,
-        -0.3,
-        -0.4
-      }
-    }
-  },
-  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -229,28 +217,6 @@ TargetExecuteBuildingBlocks = {
           TickRate = 0,
           CanMitigateDuration = false
         }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "GragasExplosiveCaskDebuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationByLevel = {
-            3,
-            4,
-            5
-          },
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
       }
     }
   }
@@ -272,12 +238,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "moveawaycollision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragasexplosivecaskdebuff"
     }
   }
 }

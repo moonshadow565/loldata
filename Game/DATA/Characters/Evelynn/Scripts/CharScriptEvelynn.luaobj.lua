@@ -15,7 +15,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 25000,
           Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -25,63 +26,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Malice_markertwo",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      }
-    }
-  }
-}
-CharOnSpellCastBuildingBlocks = {
-  {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "tempName", Info = GetSpellName}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "tempName",
-      Value2 = "Ravage",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Owner",
-          Src2Var = "Target",
-          CompareOp = CO_IS_TARGET_IN_FRONT_OF_ME
-        },
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Target",
-              Src2Var = "Owner",
-              CompareOp = CO_IS_TARGET_BEHIND_ME
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "FromBehind",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -97,12 +49,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "SilentKiller",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -112,12 +66,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -127,12 +83,49 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MaliceHeal",
+          DestVarTable = "CharVars",
+          SrcValueByLevel = {
+            350,
+            500,
+            650
+          }
+        }
+      }
     }
   }
 }
@@ -144,12 +137,15 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }
@@ -159,10 +155,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "malice_markertwo"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "frombehind"}
   },
   {
     Function = BBPreloadSpell,

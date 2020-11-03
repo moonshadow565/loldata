@@ -1,6 +1,7 @@
 BuffTextureName = "Yeti_FrostNova.dds"
 BuffName = "Visions"
 AutoBuffActivateEffect = "Visionary_buf.troy"
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -92,7 +93,8 @@ OnBuffActivateBuildingBlocks = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 0,
           SlotType = SpellSlots,
-          Cost = -80
+          Cost = -80,
+          PARType = PAR_MANA
         }
       }
     }
@@ -111,7 +113,8 @@ OnBuffActivateBuildingBlocks = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 1,
           SlotType = SpellSlots,
-          Cost = -75
+          Cost = -75,
+          PARType = PAR_MANA
         }
       }
     }
@@ -131,7 +134,8 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 2,
           SlotType = SpellSlots,
           Cost = 0,
-          CostVar = "SpellTwoMana"
+          CostVar = "SpellTwoMana",
+          PARType = PAR_MANA
         }
       }
     }
@@ -151,7 +155,8 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 3,
           SlotType = SpellSlots,
           Cost = 0,
-          CostVar = "SpellThreeMana"
+          CostVar = "SpellThreeMana",
+          PARType = PAR_MANA
         }
       }
     }
@@ -164,7 +169,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 0,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   },
   {
@@ -173,7 +179,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   },
   {
@@ -182,7 +189,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 2,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   },
   {
@@ -191,7 +199,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }

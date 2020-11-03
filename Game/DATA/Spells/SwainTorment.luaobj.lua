@@ -135,38 +135,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.15,
+          SpellDamageRatio = 0.2,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
-        }
-      }
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Attacker",
-      Src2Var = "Caster",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "SwainMultiplier",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
         }
       }
     }
@@ -179,11 +151,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DoTDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        18,
-        27.5,
-        37,
-        46.5,
-        56
+        18.75,
+        28.75,
+        38.75,
+        48.75,
+        58.75
       }
     }
   },

@@ -23,6 +23,10 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeemoTeam"}
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Nothing",
@@ -35,7 +39,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeemoTeam",
+      FOWVisibilityRadius = 300,
       SendIfOnScreenOrDiscard = false
     }
   },
@@ -46,7 +51,8 @@ OnBuffDeactivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 450,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -76,12 +82,14 @@ OnBuffDeactivateBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Slow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -90,6 +98,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 500,
       DamageType = TRUE_DAMAGE,

@@ -5,24 +5,24 @@ SetVarsByLevelBuildingBlocks = {
       DestVar = "DamageAmount",
       DestVarTable = "CharVars",
       SrcValueByLevel = {
-        2,
-        2,
-        2,
-        2,
-        2,
-        4,
-        4,
-        4,
-        4,
-        4,
-        6,
-        6,
-        6,
-        6,
-        6,
-        8,
-        8,
-        8
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        2.5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        7.5,
+        10,
+        10,
+        10
       }
     }
   }
@@ -67,7 +67,7 @@ CharOnHitUnitBuildingBlocks = {
                       BuffType = BUFF_CombatDehancer,
                       MaxStack = 6,
                       NumberOfStacks = 1,
-                      Duration = 8.1,
+                      Duration = 6.1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
                       CanMitigateDuration = false
@@ -101,7 +101,7 @@ CharOnHitUnitBuildingBlocks = {
                       BuffType = BUFF_Internal,
                       MaxStack = 1,
                       NumberOfStacks = 1,
-                      Duration = 8.1,
+                      Duration = 6.1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
                       CanMitigateDuration = false
@@ -184,7 +184,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

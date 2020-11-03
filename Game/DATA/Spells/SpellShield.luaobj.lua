@@ -90,7 +90,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIncPAR,
-        Params = {TargetVar = "Owner", Delta = 125}
+        Params = {TargetVar = "Owner", Delta = 150}
       },
       {
         Function = BBSpellBuffRemoveCurrent,

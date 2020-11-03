@@ -110,7 +110,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       BuffName = "SowTheWind",
                       BuffAddType = BUFF_REPLACE_EXISTING,
                       StacksExclusive = true,
-                      BuffType = BUFF_CombatEnchancer,
+                      BuffType = BUFF_Aura,
                       MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 25000,
@@ -179,7 +179,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

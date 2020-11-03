@@ -8,6 +8,7 @@ BuffName = "KogMawIcathianSurprise"
 AutoBuffActivateEffect = "KogMawIcathianSurprise_foam.troy"
 AutoBuffActivateAttachBoneName = "C_Mouth_d"
 AutoBuffActivateEffect2 = "KogMawIcathianSurprise_splats.troy"
+PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -38,23 +39,9 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "COTGCheck",
+          DestVar = "COTGFound",
           DestVarTable = "InstanceVars",
-          SrcValue = 1
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "COTGCheck",
-          DestVarTable = "InstanceVars",
-          SrcValue = 0
+          SrcValue = true
         }
       }
     }
@@ -194,6 +181,10 @@ OnBuffActivateBuildingBlocks = {
       Loop = false,
       Blend = false
     }
+  },
+  {
+    Function = BBShowHealthBar,
+    Params = {UnitVar = "Owner", Show = false}
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -477,12 +468,28 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetTargetable
+    }
+  },
+  {
+    Function = BBPopAllCharacterData,
+    Params = {TargetVar = "Owner"}
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "COTGCheck",
+      Src1Var = "COTGFound",
       Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
+      Value2 = true,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -525,14 +532,6 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBPopAllCharacterData,
-    Params = {TargetVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
   },
   {
     Function = BBPushCharacterData,
@@ -655,20 +654,29 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
-      Damage = 10000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      AttackerVar = "Attacker",
+      BuffName = "KogMawIcathianSurprise",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBForceDead,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
+    Function = BBShowHealthBar,
+    Params = {UnitVar = "Owner", Show = true}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -767,6 +775,15 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -832,6 +849,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "kogmawdead_idle.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawicathiansurprise"
     }
   }
 }

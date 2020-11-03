@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Teemo_MoveQuick.dds"
 BuffName = "Move Quick"
-AutoBuffActivateEffect = "MoveQuick_buf.troy"
+AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 OnBuffActivateBuildingBlocks = {
   {
@@ -10,6 +10,64 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "TeemoSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "MoveQuick_buf.troy",
+          Flags = 0,
+          EffectIDVar = "MoveQuickParticle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "MoveQuick_buf.troy",
+          Flags = 0,
+          EffectIDVar = "MoveQuickParticle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
     }
   }
 }
@@ -51,6 +109,13 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       SpellSlotValue = 1,
       OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "MoveQuickParticle",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -210,6 +275,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "movequick_buf.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "movequick"}

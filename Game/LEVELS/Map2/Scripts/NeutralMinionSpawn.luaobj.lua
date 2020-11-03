@@ -585,6 +585,9 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.GroupsRespawnTime = 120
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.CampLevel = 1
   end
   L1[1] = L2
   L0.Groups = L1
@@ -658,6 +661,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 420
   L0.GroupDelaySpawnTime = 800
+  L0.CampLevel = 2
 end
 NeutralMinionInit = L0
 function L0(A0)

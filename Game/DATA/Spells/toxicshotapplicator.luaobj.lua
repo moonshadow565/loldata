@@ -38,11 +38,11 @@ BuffOnHitUnitBuildingBlocks = {
               DestVar = "DamagePerTick",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                8,
-                14,
-                21,
-                28,
-                35
+                6,
+                12,
+                18,
+                24,
+                30
               }
             }
           },

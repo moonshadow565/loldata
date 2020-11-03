@@ -19,7 +19,8 @@ CanCastBuildingBlocks = {
       Range = 350,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -62,7 +63,8 @@ SelfExecuteBuildingBlocks = {
       Range = 355,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -72,13 +74,16 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Unit",
           PosVar = "Owner",
           EndPosVar = "Owner",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }

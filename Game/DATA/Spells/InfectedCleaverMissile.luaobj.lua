@@ -5,6 +5,7 @@ IsDamagingSpell = true
 BuffTextureName = "DrMundo_InfectedCleaver.dds"
 BuffName = "InfectedCleaverDebuff"
 SpellDamageRatio = 1
+SpellFXOverrideSkins = {"MundoMundo"}
 TriggersSpellCasts = false
 PopupMessage1 = "game_floatingtext_Slowed"
 OnBuffActivateBuildingBlocks = {
@@ -73,6 +74,10 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Owner", SkinIDVar = "MundoID"}
   },
   {
     Function = BBGetStatus,
@@ -225,23 +230,6 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "dr_mundo_infected_cleaver_tar.troy",
-          Flags = 0,
-          EffectIDVar = "hit",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
         Function = BBGetSlotSpellInfo,
         Params = {
           DestVar = "Level",
@@ -272,6 +260,56 @@ TargetExecuteBuildingBlocks = {
           Delta = 0,
           DeltaVar = "HealthReturn",
           HealerVar = "Owner"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "MundoID",
+          Value2 = 4,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "dr_mundo_as_mundo_infected_cleaver_tar",
+              Flags = 0,
+              EffectIDVar = "hit",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "dr_mundo_infected_cleaver_tar.troy",
+              Flags = 0,
+              EffectIDVar = "hit",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
         }
       }
     }
@@ -419,20 +457,53 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellEffectCreate,
+            Function = BBIf,
             Params = {
-              BindObjectVar = "Target",
-              EffectName = "dr_mundo_infected_cleaver_tar.troy",
-              Flags = 0,
-              EffectIDVar = "hit",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWTeamOverrideVar = "TeamID",
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              Src1Var = "MundoID",
+              Value2 = 4,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "dr_mundo_as_mundo_infected_cleaver_tar",
+                  Flags = 0,
+                  EffectIDVar = "hit",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "dr_mundo_infected_cleaver_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "hit",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              }
             }
           },
           {
@@ -625,20 +696,53 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBSpellEffectCreate,
+                Function = BBIf,
                 Params = {
-                  BindObjectVar = "Target",
-                  EffectName = "dr_mundo_infected_cleaver_tar.troy",
-                  Flags = 0,
-                  EffectIDVar = "hit",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  Src1Var = "MundoID",
+                  Value2 = 4,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Target",
+                      EffectName = "dr_mundo_as_mundo_infected_cleaver_tar",
+                      Flags = 0,
+                      EffectIDVar = "hit",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Target",
+                      EffectName = "dr_mundo_infected_cleaver_tar.troy",
+                      Flags = 0,
+                      EffectIDVar = "hit",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
+                    }
+                  }
                 }
               },
               {

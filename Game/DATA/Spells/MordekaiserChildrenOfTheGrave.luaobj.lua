@@ -71,22 +71,17 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnDeathBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "targetHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
+    Function = BBGetIsZombie,
+    Params = {UnitVar = "Owner", ResultVar = "zombie"}
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "targetHealth",
-      Value2 = 0,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "zombie",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -108,25 +103,35 @@ BuffOnTakeDamageBuildingBlocks = {
         }
       },
       {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
-        Function = BBSpellCast,
+        Function = BBIfNotHasBuff,
         Params = {
-          CasterVar = "Caster",
-          TargetVar = "Owner",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          OverrideCastPosition = false,
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 1,
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "KogMawIcathianSurpriseReady"
+        },
+        SubBlocks = {
+          {
+            Function = BBSetBuffCasterUnit,
+            Params = {CasterVar = "Caster"}
+          },
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Caster",
+              TargetVar = "Owner",
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              OverrideCastPosition = false,
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 1,
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
+            }
+          }
         }
       }
     }
@@ -209,6 +214,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "vladimirsanguinepool"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawicathiansurpriseready"
     }
   }
 }

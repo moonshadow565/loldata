@@ -58,40 +58,58 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBApplyDamage,
+                Function = BBCanSeeTarget,
                 Params = {
-                  AttackerVar = "Owner",
-                  CallForHelpAttackerVar = "Attacker",
+                  ViewerVar = "Owner",
                   TargetVar = "Unit",
-                  DamageByLevel = {
-                    100,
-                    200,
-                    300
-                  },
-                  Damage = 0,
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
+                  ResultVar = "Result"
                 }
               },
               {
-                Function = BBSpellEffectCreate,
+                Function = BBIf,
                 Params = {
-                  BindObjectVar = "Unit",
-                  EffectName = "StaticField_tar.troy",
-                  Flags = 0,
-                  TargetObjectVar = "Unit",
-                  SpecificUnitOnlyVar = "Unit",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  Src1Var = "Result",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBApplyDamage,
+                    Params = {
+                      AttackerVar = "Owner",
+                      CallForHelpAttackerVar = "Attacker",
+                      TargetVar = "Unit",
+                      DamageByLevel = {
+                        100,
+                        200,
+                        300
+                      },
+                      Damage = 0,
+                      DamageType = MAGIC_DAMAGE,
+                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      PercentOfAttack = 1,
+                      SpellDamageRatio = 0.2,
+                      PhysicalDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
+                    }
+                  },
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Unit",
+                      EffectName = "StaticField_tar.troy",
+                      Flags = 0,
+                      TargetObjectVar = "Unit",
+                      SpecificUnitOnlyVar = "Unit",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
+                    }
+                  }
                 }
               }
             }
