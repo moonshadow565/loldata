@@ -45,7 +45,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "KayleAP",
-          Src1Value = 0.2,
+          Src1Value = 0.3,
           Src2Value = 0,
           DestVar = "KayleAP",
           MathOp = MO_MULTIPLY
@@ -56,11 +56,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "DamageMod",
           SrcValueByLevel = {
+            4,
             10,
-            20,
-            30,
-            40,
-            50
+            16,
+            22,
+            28
           }
         }
       },

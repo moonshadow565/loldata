@@ -33,7 +33,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -56,7 +57,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -66,7 +68,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DrainPercent",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1
+      SrcValue = 0.8
     }
   },
   {
@@ -193,7 +195,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -239,7 +242,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

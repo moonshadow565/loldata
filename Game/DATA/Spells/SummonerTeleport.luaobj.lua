@@ -118,7 +118,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -136,7 +137,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -356,7 +358,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -581,7 +584,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "SummonerTeleport"
+          BuffName = "SummonerTeleport",
+          ResetDuration = 0
         }
       }
     }
@@ -732,6 +736,36 @@ TargetExecuteBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Nothing",
+          BuffName = "SharedWardBuff"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "RevealWard",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "BuffDuration",
+              DurationVarTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
       }
     }
   }
@@ -783,6 +817,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "teleport_deathremoval"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
     }
   }
 }

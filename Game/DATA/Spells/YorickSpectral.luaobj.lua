@@ -163,24 +163,6 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "YorickSpectralPrimaryTarget",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
             Function = BBGetTeamID,
             Params = {TargetVar = "Owner", DestVar = "TeamID"}
           },
@@ -216,6 +198,24 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "YorickSpectralPrimaryTarget",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Target"}
           },
@@ -228,7 +228,7 @@ BuffOnHitUnitBuildingBlocks = {
               Damage = 0,
               DamageVar = "TotalDamage",
               DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_ATTACK,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               PhysicalDamageRatio = 0,
@@ -269,7 +269,7 @@ BuffOnHitUnitBuildingBlocks = {
               OverrideForceLevel = 0,
               OverrideForceLevelVar = "Level",
               OverrideCoolDownCheck = true,
-              FireWithoutCasting = false,
+              FireWithoutCasting = true,
               UseAutoAttackSpell = false,
               ForceCastingOrChannelling = true,
               UpdateAutoAttackTimer = false
@@ -330,6 +330,25 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "YorickSpectralUnlock"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "YorickSpectralUnlock",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -340,6 +359,24 @@ SelfExecuteBuildingBlocks = {
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "YorickSpectralUnlock",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 11,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -365,15 +402,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickspectralprimarytarget"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yorick_spectralghoul_attack_buf_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickspectralprimarytarget"
     }
   },
   {

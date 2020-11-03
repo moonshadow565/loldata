@@ -571,55 +571,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.95,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "MaxHealth",
-          OwnerVar = "Owner",
-          Function = GetMaxHealth,
-          PARType = PAR_MANA
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "MaxHealth",
-          Src1Value = 0.1,
-          Src2Value = 0,
-          DestVar = "MaxHealth",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Owner",
-          TargetVar = "Owner",
-          Damage = 0,
-          DamageVar = "MaxHealth",
-          DamageType = TRUE_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  }
-}
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBMath,

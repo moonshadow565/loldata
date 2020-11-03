@@ -8,6 +8,31 @@ BuffName = "Spell Flux"
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "BrandWildfire"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "BrandWildfire",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -274,7 +299,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -389,21 +415,20 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WildfireCount",
-      DestVarTable = "CharVars",
-      SrcValue = 1
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "brandwildfire"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

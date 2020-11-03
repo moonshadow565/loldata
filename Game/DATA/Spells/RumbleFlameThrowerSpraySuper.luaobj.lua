@@ -29,11 +29,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        20,
-        32.5,
+        15,
+        30,
         45,
-        57.5,
-        70
+        60,
+        75
       }
     }
   },
@@ -50,7 +50,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AP",
       Src1Value = 0,
-      Src2Value = 0.25,
+      Src2Value = 0.225,
       DestVar = "AP",
       MathOp = MO_MULTIPLY
     }

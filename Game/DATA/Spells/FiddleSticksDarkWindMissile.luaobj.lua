@@ -1,13 +1,27 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = True
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "FiddleSticksDarkWindMissile",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -38,12 +52,19 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "FiddleSticksDarkWindMissile"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "DarkWindCount",
-      Src1VarTable = "CharVars",
+      Src1Var = "Count",
       Value2 = 4,
-      CompareOp = CO_LESS_THAN
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -191,23 +212,6 @@ TargetExecuteBuildingBlocks = {
                               ForceCastingOrChannelling = false,
                               UpdateAutoAttackTimer = false
                             }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Target",
-                              AttackerVar = "Attacker",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
-                              StacksExclusive = true,
-                              BuffType = BUFF_Internal,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 0.5,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0,
-                              CanMitigateDuration = false,
-                              IsHiddenOnClient = false
-                            }
                           }
                         }
                       }
@@ -220,10 +224,6 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
   },
   {
     Function = BBSpellBuffAdd,
@@ -266,21 +266,15 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "DarkWindCount",
-      Src2VarTable = "CharVars",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "DarkWindCount",
-      DestVarTable = "CharVars",
-      MathOp = MO_ADD
-    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fiddlesticksdarkwindmissile"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "darkwind"}

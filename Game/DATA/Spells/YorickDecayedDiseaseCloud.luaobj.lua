@@ -39,7 +39,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -59,7 +59,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Attacker",
           CenterVar = "Owner",
-          Range = 250,
+          Range = 275,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
           InclusiveBuffFilter = true

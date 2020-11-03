@@ -58,7 +58,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = true
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       },
       {
@@ -77,7 +78,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = true
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       }
     }
@@ -102,7 +104,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = true
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       },
       {
@@ -121,7 +124,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = true
+          FollowsGroundTilt = true,
+          FacesTarget = false
         }
       }
     }
@@ -298,7 +302,7 @@ TargetExecuteBuildingBlocks = {
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.7,
           PhysicalDamageRatio = 1,
@@ -321,7 +325,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "CasterID2",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

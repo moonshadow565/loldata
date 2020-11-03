@@ -22,7 +22,9 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -43,7 +45,9 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -177,7 +181,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "KillerInstinct"
+          BuffName = "KillerInstinct",
+          ResetDuration = 0
         }
       }
     }
@@ -204,7 +209,9 @@ TargetExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -222,6 +229,40 @@ TargetExecuteBuildingBlocks = {
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Nothing",
+          BuffName = "SharedWardBuff"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "Destealth",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
         }
       }
     }
@@ -256,6 +297,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_shadowstep_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
     }
   }
 }

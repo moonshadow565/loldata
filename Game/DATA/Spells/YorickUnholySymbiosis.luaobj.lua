@@ -204,6 +204,131 @@ BuffOnHitUnitBuildingBlocks = {
     }
   }
 }
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "PassiveMultiplier",
+      SrcValue = 0.05
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "Count", SrcValue = 0}
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Nothing",
+      BuffName = "YorickSummonSpectral"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Count",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Nothing",
+      BuffName = "YorickSummonRavenous"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Count",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Nothing",
+      BuffName = "YorickSummonDecayed"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Count",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Nothing",
+      BuffName = "YorickRARemovePet"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Count",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Count",
+      Src2Var = "PassiveMultiplier",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "PassiveMultiplier",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "PassiveMultiplier",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "PassiveMultiplier",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "PassiveMultiplier",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_MULTIPLY
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

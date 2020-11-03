@@ -96,7 +96,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -113,7 +115,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -136,7 +140,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -153,7 +159,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -335,7 +343,9 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_ORDER,
       FOWVisibilityRadius = 100,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -353,6 +363,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -384,10 +395,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         60,
-        110,
-        160,
-        210,
-        260
+        105,
+        150,
+        195,
+        240
       }
     }
   },

@@ -37,7 +37,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.4,
+      Src2Value = 0.2,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -89,7 +89,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -163,7 +164,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

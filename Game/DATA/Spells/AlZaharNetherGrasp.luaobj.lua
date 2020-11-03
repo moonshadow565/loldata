@@ -65,19 +65,12 @@ ChannelingStartBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DamageToDeal",
+      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         50,
         80,
         110
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageToDeal",
-      DestVarTable = "CharVars",
-      SrcVar = "DamageToDeal"
     }
   },
   {
@@ -97,7 +90,8 @@ ChannelingStartBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -134,23 +128,6 @@ ChannelingStartBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "DamageToDeal",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.26,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
     }
   }
 }
@@ -238,30 +215,6 @@ ChannelingUpdateActionsBuildingBlocks = {
                 }
               }
             }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Owner",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "DamageToDeal",
-                  DamageVarTable = "CharVars",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.26,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              }
-            }
           }
         }
       }
@@ -274,7 +227,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "AlZaharNetherGrasp"
+      BuffName = "AlZaharNetherGrasp",
+      ResetDuration = 0
     }
   },
   {
@@ -282,7 +236,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "AlZaharNetherGraspSound"
+      BuffName = "AlZaharNetherGraspSound",
+      ResetDuration = 0
     }
   },
   {
@@ -299,7 +254,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
-      BuffName = "Stun"
+      BuffName = "Stun",
+      ResetDuration = 0
     }
   },
   {
@@ -307,7 +263,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
-      BuffName = "Suppression"
+      BuffName = "Suppression",
+      ResetDuration = 0
     }
   },
   {
@@ -315,7 +272,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "AlZaharNetherGrasp"
+      BuffName = "AlZaharNetherGrasp",
+      ResetDuration = 0
     }
   },
   {
@@ -323,7 +281,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "AlZaharNetherGraspSound"
+      BuffName = "AlZaharNetherGraspSound",
+      ResetDuration = 0
     }
   },
   {
@@ -331,6 +290,95 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DamageToDeal",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageToDeal",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.26,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TicksRemaining",
+      DestVarTable = "InstanceVars",
+      SrcValue = 4
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "TicksRemaining",
+          Src1VarTable = "InstanceVars",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageToDeal",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.26,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "TicksRemaining",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "TicksRemaining",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
     }
   }
 }

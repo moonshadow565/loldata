@@ -248,6 +248,34 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "LifeTime",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Stealth",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Invisibility,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 600,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = true
+        }
+      }
+    }
+  },
+  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
@@ -256,24 +284,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       ExecuteImmediately = false
     },
     SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "LifeTime",
-          Value2 = 2,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyStealth,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Owner",
-              Duration = 300
-            }
-          }
-        }
-      },
       {
         Function = BBIncPAR,
         Params = {
@@ -333,5 +343,11 @@ BuffOnHealBuildingBlocks = {
   {
     Function = BBSetReturnValue,
     Params = {SrcValue = 0}
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stealth"}
   }
 }

@@ -24,62 +24,9 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DrainPercent",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.5,
-        0.5,
-        0.5,
-        0.5,
-        0.5
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "DrainedBool",
       DestVarTable = "NextBuffVars",
       SrcValue = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "GlobalDrain",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.01,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        50,
-        70,
-        90
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.2,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
     }
   },
   {
@@ -134,6 +81,34 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DrainPercent",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0.75
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DrainPercent",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0.25
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
     Params = {
       Src1Var = "IsTargetable",
       Value2 = true,
@@ -159,19 +134,58 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GlobalDrain",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.01,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        50,
+        70,
+        90
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.2,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "globaldrain"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "swain_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globaldrain"
     }
   }
 }

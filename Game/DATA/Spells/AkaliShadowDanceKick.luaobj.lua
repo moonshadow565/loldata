@@ -49,6 +49,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0,
       IdealDistanceVar = "Distance",
       IdealDistanceVarTable = "InstanceVars"
@@ -68,7 +69,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -78,7 +81,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -142,7 +146,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "AkaliShadowDanceKick"
+      BuffName = "AkaliShadowDanceKick",
+      ResetDuration = 0
     }
   },
   {
@@ -177,7 +182,8 @@ BuffOnMoveSuccessBuildingBlocks = {
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -196,6 +202,20 @@ BuffOnMoveSuccessBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
+      }
     }
   }
 }

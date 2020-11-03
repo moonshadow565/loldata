@@ -355,6 +355,55 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TechmaturgicalIcon"
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 20000,
+          Flags = "AffectFriends AffectMinions ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "H28GEvolutionTurret"
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 1000,
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_RAW,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     Function = BBForceDead,
     Params = {OwnerVar = "Owner"}
   }
@@ -398,9 +447,76 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src2Var = "HealthDecay",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "HealthDecay",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBIf,
         Params = {
           Src1Var = "HealthDecay",
+          Src2Var = "CurrentHealth",
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "UndyingRage"
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {}
+      }
+    }
+  }
+}
+BuffOnPreTakeDamageBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UndyingRage"
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetPAROrHealth,
+        Params = {
+          DestVar = "CurrentHealth",
+          OwnerVar = "Owner",
+          Function = GetHealth,
+          PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "DamageAmount",
           Src2Var = "CurrentHealth",
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
@@ -410,54 +526,6 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {TargetVar = "Owner"}
           }
         }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Owner",
-              TargetVar = "Owner",
-              Damage = 0,
-              DamageVar = "HealthDecay",
-              DamageType = TRUE_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnPreTakeDamageBuildingBlocks = {
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "DamageAmount",
-      Src2Var = "CurrentHealth",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
       }
     }
   }
@@ -518,6 +586,30 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickultstun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "techmaturgicalicon"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturret"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "h28gevolutionturret"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "undyingrage"
     }
   }
 }

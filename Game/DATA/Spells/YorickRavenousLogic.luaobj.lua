@@ -1,5 +1,21 @@
 BuffTextureName = "YorickOmenOfFamine.dds"
 BuffName = "YorickRavenousGhoul"
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Type",
+      Value2 = BUFF_Slow,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetLevel,
@@ -56,7 +72,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "TAD",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.35,
       DestVar = "ADFromStats",
       MathOp = MO_MULTIPLY
     }
@@ -86,7 +102,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "MaxHealth",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.35,
       DestVar = "HealthFromStats",
       MathOp = MO_MULTIPLY
     }
@@ -173,7 +189,7 @@ OnBuffActivateBuildingBlocks = {
       Src1Var = "StartingLevel",
       Src1VarTable = "InstanceVars",
       Value2 = 11,
-      CompareOp = CO_EQUAL
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -258,6 +274,24 @@ BuffOnUpdateActionsBuildingBlocks = {
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      }
+    }
+  }
+}
+BuffOnPreTakeDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Value1 = DAMAGESOURCE_SPELLAOE, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "DamageAmount",
+          Src1Value = 0.5,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
         }
       }
     }

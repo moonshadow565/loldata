@@ -79,94 +79,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Blind}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Poison}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Stun}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Invisibility}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Silence}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Taunt}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Polymorph}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Slow}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Snare}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Damage}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Heal}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Haste}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_SpellImmunity}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_PhysicalImmunity}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Invulnerability}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Fear}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Net}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "CurrentCooldown",
@@ -408,6 +320,196 @@ BuffOnPreDamageBuildingBlocks = {
         Params = {
           DestVar = "DamageAmount",
           SrcValue = 0
+        }
+      }
+    }
+  }
+}
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_CombatDehancer,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Damage,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
         }
       }
     }

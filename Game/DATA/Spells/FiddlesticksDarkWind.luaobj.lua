@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = True
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
@@ -8,6 +8,13 @@ BuffName = "Silence"
 AutoBuffActivateEffect = "Global_Silence.troy"
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "FiddleSticksDarkWindMissile"
+    }
+  },
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
@@ -21,14 +28,6 @@ TargetExecuteBuildingBlocks = {
       SlotType = SpellSlots,
       OwnerVar = "Owner",
       Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DarkWindCount",
-      DestVarTable = "CharVars",
-      SrcValue = 0
     }
   },
   {
@@ -49,55 +48,108 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBForEachUnitInTargetAreaRandom,
     Params = {
-      Src1Var = "DarkWindCount",
-      Src1VarTable = "CharVars",
-      Value2 = 4,
-      CompareOp = CO_LESS_THAN
+      AttackerVar = "Attacker",
+      CenterVar = "Target",
+      Range = 600,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes NotAffectSelf ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 10,
+      InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetAreaRandom,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
-          CenterVar = "Target",
-          Range = 600,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes NotAffectSelf ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 10,
-          InclusiveBuffFilter = false
+          Src1Var = "Unit",
+          Src2Var = "Target",
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "Unit",
-              Src2Var = "Target",
+              Src1Var = "DoOnce",
+              Value2 = true,
               CompareOp = CO_NOT_EQUAL
             },
             SubBlocks = {
               {
+                Function = BBGetStatus,
+                Params = {
+                  TargetVar = "Unit",
+                  DestVar = "IsStealthed",
+                  Status = GetStealthed
+                }
+              },
+              {
                 Function = BBIf,
                 Params = {
-                  Src1Var = "DoOnce",
-                  Value2 = true,
-                  CompareOp = CO_NOT_EQUAL
+                  Src1Var = "IsStealthed",
+                  Value2 = false,
+                  CompareOp = CO_EQUAL
                 },
                 SubBlocks = {
                   {
-                    Function = BBGetStatus,
+                    Function = BBGetUnitPosition,
                     Params = {
+                      UnitVar = "Target",
+                      PositionVar = "AttackerPos"
+                    }
+                  },
+                  {
+                    Function = BBGetSlotSpellInfo,
+                    Params = {
+                      DestVar = "Level",
+                      SpellSlotValue = 2,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      SlotType = SpellSlots,
+                      OwnerVar = "Attacker",
+                      Function = GetSlotSpellLevel
+                    }
+                  },
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Attacker",
                       TargetVar = "Unit",
-                      DestVar = "IsStealthed",
-                      Status = GetStealthed
+                      OverrideCastPosition = true,
+                      OverrideCastPosVar = "AttackerPos",
+                      SlotNumber = 1,
+                      SlotType = ExtraSlots,
+                      OverrideForceLevel = 0,
+                      OverrideForceLevelVar = "Level",
+                      OverrideCoolDownCheck = true,
+                      FireWithoutCasting = true,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = false,
+                      UpdateAutoAttackTimer = false
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "DoOnce", SrcValue = true}
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBCanSeeTarget,
+                    Params = {
+                      ViewerVar = "Attacker",
+                      TargetVar = "Unit",
+                      ResultVar = "CanSee"
                     }
                   },
                   {
                     Function = BBIf,
                     Params = {
-                      Src1Var = "IsStealthed",
-                      Value2 = false,
+                      Src1Var = "CanSee",
+                      Value2 = true,
                       CompareOp = CO_EQUAL
                     },
                     SubBlocks = {
@@ -142,87 +194,6 @@ TargetExecuteBuildingBlocks = {
                         Params = {DestVar = "DoOnce", SrcValue = true}
                       }
                     }
-                  },
-                  {
-                    Function = BBElse,
-                    Params = {},
-                    SubBlocks = {
-                      {
-                        Function = BBCanSeeTarget,
-                        Params = {
-                          ViewerVar = "Attacker",
-                          TargetVar = "Unit",
-                          ResultVar = "CanSee"
-                        }
-                      },
-                      {
-                        Function = BBIf,
-                        Params = {
-                          Src1Var = "CanSee",
-                          Value2 = true,
-                          CompareOp = CO_EQUAL
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBGetUnitPosition,
-                            Params = {
-                              UnitVar = "Target",
-                              PositionVar = "AttackerPos"
-                            }
-                          },
-                          {
-                            Function = BBGetSlotSpellInfo,
-                            Params = {
-                              DestVar = "Level",
-                              SpellSlotValue = 2,
-                              SpellbookType = SPELLBOOK_CHAMPION,
-                              SlotType = SpellSlots,
-                              OwnerVar = "Attacker",
-                              Function = GetSlotSpellLevel
-                            }
-                          },
-                          {
-                            Function = BBSpellCast,
-                            Params = {
-                              CasterVar = "Attacker",
-                              TargetVar = "Unit",
-                              OverrideCastPosition = true,
-                              OverrideCastPosVar = "AttackerPos",
-                              SlotNumber = 1,
-                              SlotType = ExtraSlots,
-                              OverrideForceLevel = 0,
-                              OverrideForceLevelVar = "Level",
-                              OverrideCoolDownCheck = true,
-                              FireWithoutCasting = true,
-                              UseAutoAttackSpell = false,
-                              ForceCastingOrChannelling = false,
-                              UpdateAutoAttackTimer = false
-                            }
-                          },
-                          {
-                            Function = BBSetVarInTable,
-                            Params = {DestVar = "DoOnce", SrcValue = true}
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Target",
-                              AttackerVar = "Attacker",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
-                              StacksExclusive = true,
-                              BuffType = BUFF_Internal,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 0.5,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0,
-                              CanMitigateDuration = false,
-                              IsHiddenOnClient = false
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 }
               }
@@ -233,8 +204,22 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "FiddleSticksDarkWindMissile",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   },
   {
     Function = BBSpellBuffAdd,
@@ -277,21 +262,15 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "DarkWindCount",
-      Src2VarTable = "CharVars",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "DarkWindCount",
-      DestVarTable = "CharVars",
-      MathOp = MO_ADD
-    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fiddlesticksdarkwindmissile"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "darkwind"}

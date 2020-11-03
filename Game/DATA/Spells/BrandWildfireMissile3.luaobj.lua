@@ -6,6 +6,24 @@ SpellDamageRatio = 1
 PersistsThroughDeath = true
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "BrandWildfire",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseDamage",
@@ -23,24 +41,19 @@ TargetExecuteBuildingBlocks = {
     Params = {DestVar = "DoOnce", SrcValue = false}
   },
   {
-    Function = BBMath,
+    Function = BBGetBuffCountFromAll,
     Params = {
-      Src1Var = "WildfireCount",
-      Src1VarTable = "CharVars",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "WildfireCount",
-      DestVarTable = "CharVars",
-      MathOp = MO_ADD
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "BrandWildfire"
     }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "WildfireCount",
-      Src1VarTable = "CharVars",
-      Value2 = 5,
-      CompareOp = CO_LESS_THAN
+      Src1Var = "Count",
+      Value2 = 4,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -292,7 +305,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -407,13 +421,20 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "brandwildfire"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

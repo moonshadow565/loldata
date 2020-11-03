@@ -87,7 +87,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 900,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -179,6 +180,34 @@ TargetExecuteBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Nothing",
+          BuffName = "SharedWardBuff"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "Destealth",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
       }
     }
   },
@@ -242,6 +271,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blindmonkwmanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
     }
   },
   {

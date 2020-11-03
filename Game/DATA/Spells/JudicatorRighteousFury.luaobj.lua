@@ -89,11 +89,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackRangeIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        425,
-        425,
-        425,
-        425,
-        425
+        400,
+        400,
+        400,
+        400,
+        400
       }
     }
   },

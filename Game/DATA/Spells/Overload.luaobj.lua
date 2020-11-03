@@ -68,7 +68,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -89,11 +90,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        30,
-        55,
-        80,
-        105,
-        130
+        40,
+        65,
+        90,
+        115,
+        140
       }
     }
   },
@@ -191,7 +192,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -228,7 +230,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {

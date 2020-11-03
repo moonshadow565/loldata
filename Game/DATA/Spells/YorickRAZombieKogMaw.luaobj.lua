@@ -394,6 +394,16 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src2Var = "HealthDecay",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "HealthDecay",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBIf,
         Params = {
           Src1Var = "HealthDecay",
@@ -409,26 +419,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       },
       {
         Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Owner",
-              TargetVar = "Owner",
-              Damage = 0,
-              DamageVar = "HealthDecay",
-              DamageType = TRUE_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
+        Params = {}
       }
     }
   }

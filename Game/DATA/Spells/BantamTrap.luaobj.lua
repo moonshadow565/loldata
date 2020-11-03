@@ -219,13 +219,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Activated",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBGetSkinID,
     Params = {
       UnitVar = "Owner",
@@ -455,64 +448,45 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "Activated",
-      Src1VarTable = "InstanceVars",
-      Value2 = false,
-      CompareOp = CO_EQUAL
+      Src1Var = "LifeTime",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellBuffAdd,
         Params = {
-          Src1Var = "LifeTime",
-          Value2 = 2,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Activated",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Stealth",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 600,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "BantamArmor",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 600,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Stealth",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Invisibility,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 600,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = true
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "BantamArmor",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 600,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -865,14 +839,6 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Activated",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
     }
   },
   {

@@ -261,6 +261,44 @@ TargetExecuteBuildingBlocks = {
       Blend = false,
       Lock = false
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Target",
+      CompareOp = CO_SAME_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Nothing",
+          BuffName = "SharedWardBuff"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "Destealth",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
+      }
+    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
@@ -269,7 +307,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "LeapStrike"
+      BuffName = "LeapStrike",
+      ResetDuration = 0
     }
   }
 }
@@ -308,6 +347,12 @@ BuffOnMoveSuccessBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "leapstrike"}

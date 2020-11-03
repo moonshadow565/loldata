@@ -26,6 +26,16 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "AttackRangeIncrease",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -53,11 +63,21 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner"}
+    Params = {TargetVar = "Owner", Reset = false}
   },
   {
     Function = BBRemoveOverrideAutoAttack,
     Params = {OwnerVar = "Owner", CancelAttack = true}
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -97,10 +117,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 6,
+      Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

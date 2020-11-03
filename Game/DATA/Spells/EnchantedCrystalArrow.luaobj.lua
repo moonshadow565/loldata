@@ -158,6 +158,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
                 250,
@@ -187,7 +188,9 @@ TargetExecuteBuildingBlocks = {
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationVar = "StunDuration",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -229,10 +232,12 @@ TargetExecuteBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
                 3,
-                4,
-                5
+                3,
+                3
               },
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -249,6 +254,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
                 125,
@@ -304,10 +310,12 @@ TargetExecuteBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
                 3,
-                4,
-                5
+                3,
+                3
               },
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

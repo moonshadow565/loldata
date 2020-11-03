@@ -149,21 +149,31 @@ BuffOnPreDamageBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
+                    Function = BBIfNotHasBuff,
                     Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Caster",
-                      BuffName = "ChronoRevive",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 3,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false,
-                      IsHiddenOnClient = false
+                      OwnerVar = "Owner",
+                      CasterVar = "Owner",
+                      BuffName = "YorickRAPetBuff2"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Owner",
+                          AttackerVar = "Caster",
+                          BuffName = "ChronoRevive",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 3,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
+                        }
+                      }
                     }
                   }
                 }
@@ -288,6 +298,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickrazombiekogmaw"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrapetbuff2"
     }
   },
   {

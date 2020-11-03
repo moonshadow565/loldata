@@ -344,6 +344,90 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Nothing",
+          BuffName = "YorickRADelayLich"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Nothing",
+              BuffName = "YorickRADelayKogMaw"
+            },
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "IsKarthus",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "DeathDefied",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 30000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "IsKogMaw",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "KogMawIcathianSurpriseReady",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 30000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 BuffOnDeathBuildingBlocks = {
@@ -379,6 +463,86 @@ BuffOnZombieBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Poison}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Stun}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Invisibility}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Silence}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Taunt}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Polymorph}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Snare}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Slow}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Damage}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_SpellImmunity}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_PhysicalImmunity}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Invulnerability}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Fear}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Net}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
   },
   {
     Function = BBIf,
@@ -553,12 +717,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickultpetactive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yorickradelaylich"
     }
   },
@@ -566,6 +724,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickradelaykogmaw"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickultpetactive"
     }
   },
   {
