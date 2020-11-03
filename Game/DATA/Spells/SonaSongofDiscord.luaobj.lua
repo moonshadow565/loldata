@@ -7,6 +7,7 @@ BuffTextureName = "Sona_SongofDiscordGold.dds"
 BuffName = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {"GuqinSona"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
@@ -320,24 +321,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonahymnofvalor"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchord"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

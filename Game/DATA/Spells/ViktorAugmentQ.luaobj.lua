@@ -34,15 +34,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DestVar = "HealthtoAdd",
       MathOp = MO_MULTIPLY
     }
-  },
-  {
-    Function = BBIncMaxHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthtoAdd",
-      IncCurrentHealth = false
-    }
   }
 }
 BuffOnSpellCastBuildingBlocks = {

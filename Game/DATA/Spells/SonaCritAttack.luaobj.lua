@@ -1,26 +1,30 @@
-IsDeathRecapSource = true
 SpellFXOverrideSkins = {"GuqinSona"}
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetTotalAttackDamage,
+    Function = BBSetVarInTable,
+    Params = {DestVar = "HitResult", SrcValue = HIT_Critical}
+  },
+  {
+    Function = BBGetStat,
     Params = {
+      Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
-      DestVar = "AttackDamage"
+      DestVar = "BaseAttackDamage"
     }
   },
   {
     Function = BBApplyDamage,
     Params = {
-      AttackerVar = "Owner",
+      AttackerVar = "Attacker",
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
-      DamageVar = "AttackDamage",
+      DamageVar = "BaseAttackDamage",
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
