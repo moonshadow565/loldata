@@ -86,7 +86,8 @@ BuffOnMissileEndBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -111,7 +112,8 @@ BuffOnMissileEndBuildingBlocks = {
           Duration = 20,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -128,11 +130,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageLevel",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        100,
-        150,
-        200,
+        85,
+        140,
+        195,
         250,
-        300
+        305
       }
     }
   },
@@ -158,7 +160,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

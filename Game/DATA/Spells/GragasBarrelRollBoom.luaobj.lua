@@ -230,11 +230,11 @@ OnBuffDeactivateBuildingBlocks = {
           CallForHelpAttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
-            100,
-            150,
-            200,
-            250,
-            300
+            85,
+            135,
+            185,
+            235,
+            285
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

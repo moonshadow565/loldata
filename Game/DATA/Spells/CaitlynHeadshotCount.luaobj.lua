@@ -14,7 +14,8 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Count",
-      Value2 = 7,
+      Src2Var = "tooltipAmount",
+      Src2VarTable = "CharVars",
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -32,7 +33,8 @@ OnBuffActivateBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

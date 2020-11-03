@@ -13,11 +13,35 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = false}
   },
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaHymnofValorCheck"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaAriaofPerseveranceCheck"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaSongofDiscordCheck"
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaAriaofPerseverance"
+      BuffName = "SonaAriaOfPerseverance"
     },
     SubBlocks = {
       {
@@ -27,7 +51,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
           AutoAttackSpellLevel = 1,
-          CancelAttack = true
+          CancelAttack = false
         }
       }
     }
@@ -37,7 +61,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaHymnofValor"
+      BuffName = "SonaHymnOfValor"
     },
     SubBlocks = {
       {
@@ -47,7 +71,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
           AutoAttackSpellLevel = 1,
-          CancelAttack = true
+          CancelAttack = false
         }
       }
     }
@@ -57,7 +81,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongofDiscord"
+      BuffName = "SonaSongOfDiscord"
     },
     SubBlocks = {
       {
@@ -67,198 +91,47 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
           AutoAttackSpellLevel = 1,
-          CancelAttack = true
+          CancelAttack = false
         }
       }
     }
   },
   {
-    Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = false}
-  }
-}
-BuffOnHitUnitBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetLevel,
-            Params = {
-              TargetVar = "Owner",
-              DestVar = "LevelDamage"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "LevelDamage",
-              Src1Value = 0,
-              Src2Value = 12,
-              DestVar = "BonusDamage",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "BonusDamage",
-              Src1Value = 0,
-              Src2Value = 24,
-              DestVar = "TotalDamage",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Target"}
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "TotalDamage",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Attacker",
-              AttackerVar = "Attacker",
-              BuffName = "IfHasBuffCheck",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "SonaPowerChord"
-            }
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnPreAttackBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
-        SubBlocks = {
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "SonaAriaofPerseverance"
-            },
-            SubBlocks = {
-              {
-                Function = BBOverrideAutoAttack,
-                Params = {
-                  SpellSlot = 3,
-                  SlotType = ExtraSlots,
-                  OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1,
-                  CancelAttack = true
-                }
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "SonaHymnofValor"
-            },
-            SubBlocks = {
-              {
-                Function = BBOverrideAutoAttack,
-                Params = {
-                  SpellSlot = 4,
-                  SlotType = ExtraSlots,
-                  OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1,
-                  CancelAttack = true
-                }
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "SonaSongofDiscord"
-            },
-            SubBlocks = {
-              {
-                Function = BBOverrideAutoAttack,
-                Params = {
-                  SpellSlot = 5,
-                  SlotType = ExtraSlots,
-                  OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1,
-                  CancelAttack = true
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBOverrideAutoAttack,
-            Params = {
-              SpellSlot = 2,
-              SlotType = ExtraSlots,
-              OwnerVar = "Owner",
-              AutoAttackSpellLevel = 1,
-              CancelAttack = true
-            }
-          }
+        Function = BBOverrideAutoAttack,
+        Params = {
+          SpellSlot = 5,
+          SlotType = ExtraSlots,
+          OwnerVar = "Owner",
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvalorcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseverancecheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonasongofdiscordcheck"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -275,18 +148,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonasongofdiscord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchord"
     }
   }
 }

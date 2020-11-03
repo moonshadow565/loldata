@@ -303,11 +303,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageLevel",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        100,
-        155,
-        210,
-        270,
-        330
+        90,
+        145,
+        200,
+        260,
+        320
       }
     }
   },
@@ -448,11 +448,11 @@ TargetExecuteBuildingBlocks = {
             Params = {
               DestVar = "damageToDeal",
               SrcValueByLevel = {
-                100,
-                155,
-                210,
-                270,
-                330
+                90,
+                145,
+                200,
+                260,
+                320
               }
             }
           },
@@ -507,7 +507,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 1,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

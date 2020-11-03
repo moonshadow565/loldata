@@ -14,11 +14,11 @@ SpellOnMissileEndBuildingBlocks = {
     Params = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
-        50,
-        75,
-        100,
-        125,
-        150
+        60,
+        85,
+        110,
+        135,
+        160
       }
     }
   },
@@ -73,7 +73,8 @@ SpellOnMissileEndBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -91,11 +92,11 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "baseDamageBlock",
           SrcValueByLevel = {
-            50,
-            75,
-            100,
-            125,
-            150
+            60,
+            85,
+            110,
+            135,
+            160
           }
         }
       },
@@ -150,7 +151,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

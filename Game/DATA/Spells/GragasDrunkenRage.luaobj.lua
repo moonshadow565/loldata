@@ -78,11 +78,11 @@ ChannelingStartBuildingBlocks = {
       DestVar = "ManaTick",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
-        27.5,
-        35,
-        42.5,
-        50
+        15,
+        22.5,
+        30,
+        37.5,
+        45
       }
     }
   },
@@ -99,7 +99,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -146,7 +147,8 @@ ChannelingSuccessStopBuildingBlocks = {
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

@@ -21,7 +21,7 @@ dr_BuildingToUnit                       =       1.105 ;
 dr_UnitToUnit                           =       1.000 ;  
 dr_HeroToBuilding                       =       1.000 ;  
 dr_BuildingToBuilding                   =       1.000 ;  
-dr_UnitToBuilding                       =       0.600 ;  
+dr_UnitToBuilding                       =       0.500 ;  
 
 ; Call For Help variables
 cfh_Delay                               =       1.000 ; How often a unit will issue a Call For Help

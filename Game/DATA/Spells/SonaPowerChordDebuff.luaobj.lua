@@ -35,7 +35,7 @@ BuffOnDealDamageBuildingBlocks = {
     Params = {
       Src1Var = "DamageAmount",
       Src1Value = 0,
-      Src2Value = 0.85,
+      Src2Value = 0.8,
       DestVar = "DamageAmount",
       MathOp = MO_MULTIPLY
     }

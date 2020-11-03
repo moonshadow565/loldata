@@ -16,6 +16,7 @@ AutoCooldownByLevel = {
   90
 }
 NonDispellable = true
+OnPreDamagePriority = 2
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
@@ -147,7 +148,9 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -224,7 +227,9 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -252,7 +257,9 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

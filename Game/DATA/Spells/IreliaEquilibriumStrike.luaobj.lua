@@ -34,16 +34,16 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       DamageByLevel = {
         80,
-        135,
-        190,
-        245,
-        300
+        130,
+        180,
+        230,
+        280
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1,
+      SpellDamageRatio = 0.5,
       PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -123,7 +123,8 @@ TargetExecuteBuildingBlocks = {
             2
           },
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
