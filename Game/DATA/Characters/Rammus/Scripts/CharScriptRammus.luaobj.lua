@@ -1,3 +1,86 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcValueByLevel = {
+        50,
+        75,
+        100,
+        125,
+        150
+      }
+    }
+  },
+  {
+    Function = BBGetArmor,
+    Params = {TargetVar = "Owner", DestVar = "armorMod"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Level",
+      Src2Var = "armorMod",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusArmor",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value1 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusArmor",
+          Src1Value = 0,
+          Src2Value = 50,
+          DestVar = "bonusArmor",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "bonusArmor",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "bonusArmor",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "bonusArmor",
+      Index = 1,
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Owner"
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -13,7 +96,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -30,7 +114,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -47,7 +132,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -68,34 +154,6 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBGetArmor,
-    Params = {TargetVar = "Owner", DestVar = "armorMod"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorMod",
-      Src1Value = 0,
-      Src2Value = 0.1,
-      DestVar = "bonusArmor",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "bonusArmor",
-      Index = 1,
-      SlotNumber = 1,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Owner"
     }
   }
 }

@@ -92,6 +92,10 @@ CharOnSpellCastBuildingBlocks = {
     Params = {DestVar = "SpellSlot", Info = GetSpellSlot}
   },
   {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "SpellName", Info = GetSpellName}
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "SpellSlot",
@@ -114,8 +118,8 @@ CharOnSpellCastBuildingBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "SpellSlot",
-              Value2 = 2,
+              Src1Var = "SpellName",
+              Value2 = "karmasoulshieldc",
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
@@ -181,8 +185,8 @@ CharOnSpellCastBuildingBlocks = {
           {
             Function = BBElseIf,
             Params = {
-              Src1Var = "SpellSlot",
-              Value2 = 1,
+              Src1Var = "SpellName",
+              Value2 = "karmaspiritbondc",
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
@@ -266,8 +270,8 @@ CharOnSpellCastBuildingBlocks = {
           {
             Function = BBElseIf,
             Params = {
-              Src1Var = "SpellSlot",
-              Value2 = 0,
+              Src1Var = "SpellName",
+              Value2 = "karmaheavenlywavec",
               CompareOp = CO_EQUAL
             },
             SubBlocks = {

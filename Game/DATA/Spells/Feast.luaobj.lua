@@ -60,6 +60,114 @@ OnBuffActivateBuildingBlocks = {
       ValueVar = "BonusHealth",
       Index = 1
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run1",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run2",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run3",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run4",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run5",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run6",
+          OwnerVar = "Owner"
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -111,6 +219,14 @@ OnBuffDeactivateBuildingBlocks = {
       Value = 0,
       ValueVar = "BonusHealth",
       Index = 1
+    }
+  },
+  {
+    Function = BBOverrideAnimation,
+    Params = {
+      ToOverrideAnim = "Run",
+      OverrideAnim = "Run",
+      OwnerVar = "Owner"
     }
   }
 }
@@ -246,6 +362,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }

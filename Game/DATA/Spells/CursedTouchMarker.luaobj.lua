@@ -1,5 +1,5 @@
 BuffTextureName = "SadMummy_CorpseExplosion.dds"
-BuffName = "CursedTouchSelf"
+BuffName = "CursedTouchMarker"
 PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
@@ -31,24 +31,24 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "tooltipAmount",
           SrcValueByLevel = {
-            20,
-            20,
-            20,
-            20,
-            20,
-            20,
-            30,
-            30,
-            30,
-            30,
-            30,
-            30,
-            40,
-            40,
-            40,
-            40,
-            40,
-            40
+            15,
+            15,
+            15,
+            15,
+            15,
+            15,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
+            35,
+            35,
+            35,
+            35,
+            35,
+            35
           }
         }
       },

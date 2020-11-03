@@ -50,7 +50,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "bonusDamage",
           Src1Value = 0,
-          Src2Value = 1.2,
+          Src2Value = 1.4,
           DestVar = "Spell3Display",
           MathOp = MO_MULTIPLY
         }

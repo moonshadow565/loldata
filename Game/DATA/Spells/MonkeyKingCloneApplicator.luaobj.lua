@@ -34,6 +34,7 @@ OnBuffDeactivateBuildingBlocks = {
               PosVar = "Pos1",
               HealthBonus = 0,
               DamageBonus = 0,
+              ShowMinimapIcon = false,
               DestVar = "Other1"
             }
           },
@@ -86,7 +87,11 @@ OnBuffDeactivateBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -102,7 +107,11 @@ OnBuffDeactivateBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -119,6 +128,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "monkeykingclone"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
     Params = {
       Name = "monkeykingclone"
     }

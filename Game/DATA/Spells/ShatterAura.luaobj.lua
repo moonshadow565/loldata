@@ -4,54 +4,6 @@ IsDamagingSpell = true
 BuffTextureName = "GemKnight_Shatter.dds"
 BuffName = "ShatterAura"
 AutoBuffActivateEffect = ""
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "ShatterReady_buf.troy",
-          Flags = 0,
-          EffectIDVar = "taric",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "taric",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -68,6 +20,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ArmorBonus",
+      DestVarTable = "InstanceVars",
       SrcValueByLevel = {
         10,
         15,
@@ -83,15 +36,8 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
       DeltaVar = "ArmorBonus",
+      DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "shatterready_buf.troy"
     }
   }
 }

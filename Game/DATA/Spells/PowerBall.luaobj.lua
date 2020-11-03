@@ -11,6 +11,25 @@ SpellToggleSlot = 1
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DefensiveBallCurl"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "DefensiveBallCurl",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "AoEDamage",
@@ -52,27 +71,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSealSpellSlot,
     Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
       SpellSlot = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
@@ -147,6 +146,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -461,6 +462,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
                   SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -634,6 +637,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -726,6 +731,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "defensiveballcurl"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "rammuspb"}

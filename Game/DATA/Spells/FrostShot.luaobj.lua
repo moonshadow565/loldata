@@ -31,7 +31,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
-BuffOnPreAttackBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -84,7 +83,7 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnPreDealDamageBuildingBlocks = {
+BuffOnLaunchMissileBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {

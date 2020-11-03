@@ -1,3 +1,5 @@
+BuffTextureName = "XinZhao_TirelessWarrior.dds"
+BuffName = "XenZhaoPuncture"
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -52,6 +54,7 @@ BuffOnHitUnitBuildingBlocks = {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "HealAmount",
+                  DestVarTable = "InstanceVars",
                   SrcValueByLevel = {
                     25,
                     25,
@@ -80,6 +83,7 @@ BuffOnHitUnitBuildingBlocks = {
                   TargetVar = "Owner",
                   Delta = 0,
                   DeltaVar = "HealAmount",
+                  DeltaVarTable = "InstanceVars",
                   HealerVar = "Owner"
                 }
               },
@@ -96,13 +100,57 @@ BuffOnHitUnitBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
           }
         }
       }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealAmount",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        25,
+        25,
+        30,
+        30,
+        35,
+        35,
+        40,
+        40,
+        45,
+        45,
+        50,
+        50,
+        55,
+        55,
+        60,
+        60,
+        65,
+        65
+      }
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "HealAmount",
+      ValueVarTable = "InstanceVars",
+      Index = 1
     }
   }
 }

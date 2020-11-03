@@ -143,6 +143,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -157,10 +159,6 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
   {
     Function = BBSpellEffectRemove,
     Params = {
@@ -294,6 +292,8 @@ BuffOnMoveSuccessBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }

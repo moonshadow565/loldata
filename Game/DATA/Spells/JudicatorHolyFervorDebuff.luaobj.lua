@@ -2,64 +2,19 @@ BuffTextureName = "Judicator_DivineBlessing.dds"
 BuffName = "JudicatorHolyFervorDebuff"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetArmor,
+    Function = BBIncStat,
     Params = {
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DestVar = "SubjectArmor"
+      Delta = -0.03
     }
   },
   {
-    Function = BBMath,
+    Function = BBIncStat,
     Params = {
-      Src2Var = "SubjectArmor",
-      Src1Value = -0.03,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatSpellBlockMod,
+      Stat = IncPercentSpellBlockMod,
       TargetVar = "Owner",
-      DestVar = "SubjectMR"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "SubjectMR",
-      Src1Value = -0.03,
-      Src2Value = 0,
-      DestVar = "mrInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "mrInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "mrInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
+      Delta = -0.03
     }
   }
 }
@@ -67,104 +22,17 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorMod,
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "armorInc",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Delta = -0.03
     }
   },
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatSpellBlockMod,
+      Stat = IncPercentSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "mrInc",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBGetArmor,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SubjectArmor",
-      Src2Var = "armorInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SubjectArmor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "SubjectArmor",
-      Src1Value = -0.03,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
-    }
-  },
-  {
-    Function = BBGetSpellBlock,
-    Params = {TargetVar = "Owner", DestVar = "SubjectMR"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SubjectMR",
-      Src2Var = "mrInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SubjectMR",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "SubjectMR",
-      Src1Value = -0.03,
-      Src2Value = 0,
-      DestVar = "mrInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "mrInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "mrInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
+      Delta = -0.03
     }
   }
 }

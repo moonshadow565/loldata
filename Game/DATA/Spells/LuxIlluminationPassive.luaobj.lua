@@ -1,5 +1,7 @@
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
+BuffTextureName = "LuxIlluminatingFraulein.dds"
+BuffName = "LuxIlluminationPassive"
 PersistsThroughDeath = true
 NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
@@ -47,7 +49,9 @@ BuffOnHitUnitBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -55,9 +59,21 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffName = "LuxIlluminatingFraulein"
+          BuffName = "LuxIlluminatingFraulein",
+          ResetDuration = 0
         }
       }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "IlluminateDamage",
+      ValueVarTable = "CharVars",
+      Index = 1
     }
   }
 }

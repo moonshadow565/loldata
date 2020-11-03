@@ -209,13 +209,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "BuffDuration",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Name1",
@@ -328,13 +321,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetGameTime,
-    Params = {
-      SecondsVar = "InitialTime",
-      SecondsVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -369,10 +355,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetGameTime,
-    Params = {SecondsVar = "CurTime"}
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "Interrupted",
@@ -380,24 +362,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurTime",
-      Src2Var = "InitialTime",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "lifetime",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "lifetime",
-      Src2Var = "BuffDuration",
-      Src2VarTable = "InstanceVars",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
+      Src1Var = "TeleportCancelled",
+      Src1VarTable = "CharVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -661,17 +631,17 @@ BuffOnUpdateStatsBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifeTime",
-      DestVarTable = "InstanceVars",
-      SrcVar = "LifeTime"
-    }
   }
 }
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TeleportCancelled",
+      DestVarTable = "CharVars",
+      SrcValue = false
+    }
+  },
   {
     Function = BBIfHasBuff,
     Params = {

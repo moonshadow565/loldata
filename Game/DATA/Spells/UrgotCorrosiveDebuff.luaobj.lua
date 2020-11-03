@@ -17,6 +17,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -36,6 +38,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -55,35 +59,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetArmor,
+    Function = BBIncStat,
     Params = {
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorReduced",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
+      DeltaVar = "ArmorReduced",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -107,9 +89,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorMod,
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "armorInc",
+      DeltaVar = "ArmorReduced",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -143,50 +125,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
-    }
-  },
-  {
-    Function = BBGetArmor,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SubjectArmor",
-      Src2Var = "armorInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SubjectArmor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorReduced",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "newarmorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "newarmorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "newarmorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
     }
   }
 }

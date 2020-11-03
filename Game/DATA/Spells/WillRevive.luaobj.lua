@@ -5,6 +5,220 @@ AutoBuffActivateAttachBoneName = "spine"
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 6
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name1",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name2",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name3",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name4",
+      SpellSlotValue = 4,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "name5",
+      SpellSlotValue = 5,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = InventorySlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "GuardianAngelCount",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name1",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name2",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name3",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name4",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name5",
+      Value2 = "GuardianAngel",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GuardianAngelCount",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "GuardianAngelCount",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "GuardianAngelCount",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "WillRevive",
+          ResetDuration = 0
+        }
+      }
+    }
+  }
+}
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -117,6 +331,10 @@ BuffOnPreDamageBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "willrevive"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

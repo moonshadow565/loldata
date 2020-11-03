@@ -5,7 +5,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "LastLifesteal",
+      DestVar = "HealAmount",
       DestVarTable = "InstanceVars",
       SrcValue = 0
     }
@@ -13,71 +13,44 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBGetPAROrHealth,
     Params = {
-      TimeBetweenExecutions = 5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetLevel,
-        Params = {TargetVar = "Owner", DestVar = "Level"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "CurrentLifesteal",
-          SrcValueByLevel = {
-            6,
-            6,
-            6,
-            6,
-            6,
-            9,
-            9,
-            9,
-            9,
-            9,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12,
-            12
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CurrentLifesteal",
-          Src2Var = "LastLifesteal",
-          Src2VarTable = "InstanceVars",
-          CompareOp = CO_GREATER_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "LastLifesteal",
-              DestVarTable = "InstanceVars",
-              SrcVar = "CurrentLifesteal"
-            }
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "CurrentLifesteal",
-              Index = 1
-            }
-          }
-        }
-      }
+      DestVar = "MaxHP",
+      OwnerVar = "Target",
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxHP",
+      Src1Value = 0,
+      Src2Value = 0.07,
+      DestVar = "HealAmount",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HealAmount",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "HealAmount",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ROUND
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "HealAmount",
+      ValueVarTable = "InstanceVars",
+      Index = 1
     }
   }
 }

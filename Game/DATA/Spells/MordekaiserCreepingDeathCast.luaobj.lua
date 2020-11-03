@@ -76,7 +76,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -129,7 +130,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 6,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

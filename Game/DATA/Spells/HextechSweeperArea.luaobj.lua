@@ -37,7 +37,7 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "corki_phosphorous_bomb_tar.troy",
+          EffectName = "Odin_HextechSweeper_tar_green.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
@@ -49,6 +49,7 @@ OnBuffActivateBuildingBlocks = {
           FOWVisibilityRadius = 250,
           SendIfOnScreenOrDiscard = true,
           PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -64,7 +65,7 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "corki_phosphorous_bomb_tar.troy",
+          EffectName = "Odin_HextechSweeper_tar_green.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
@@ -76,6 +77,7 @@ OnBuffActivateBuildingBlocks = {
           FOWVisibilityRadius = 250,
           SendIfOnScreenOrDiscard = true,
           PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -161,13 +163,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "corki_phosphorous_bomb_tar.troy"
+      Name = "odin_hextechsweeper_tar_green.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hextechsweepersight"
+      Name = "odinlightbringer"
     }
   }
 }

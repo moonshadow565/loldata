@@ -1,4 +1,4 @@
-UpdateSelfBuffStatsBuildingBlocks = {
+UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -19,71 +19,57 @@ UpdateSelfBuffStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBExecutePeriodically,
         Params = {
-          DestVar = "ArmorBonus",
-          SrcValueByLevel = {
-            10,
-            15,
-            20,
-            25,
-            30
-          }
-        }
-      },
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatArmorMod,
-          TargetVar = "Owner",
-          DeltaVar = "ArmorBonus",
-          Delta = 0
-        }
-      }
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+          TimeBetweenExecutions = 1,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = true
+        },
         SubBlocks = {
           {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Level",
-              SpellSlotValue = 1,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellLevel
-            }
+            Function = BBIf,
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
           },
           {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Level",
-              Value2 = 0,
-              CompareOp = CO_GREATER_THAN
-            },
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
+              {
+                Function = BBForEachUnitInTargetArea,
+                Params = {
+                  AttackerVar = "Owner",
+                  CenterVar = "Owner",
+                  Range = 1000,
+                  Flags = "AffectFriends AffectHeroes ",
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ShatterAura",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 1.25,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              },
               {
                 Function = BBGetSlotSpellInfo,
                 Params = {
-                  DestVar = "Cooldown",
+                  DestVar = "ShatterCD",
                   SpellSlotValue = 1,
                   SpellbookType = SPELLBOOK_CHAMPION,
                   SlotType = SpellSlots,
@@ -94,44 +80,27 @@ UpdateSelfBuffActionsBuildingBlocks = {
               {
                 Function = BBIf,
                 Params = {
-                  Src1Var = "Cooldown",
+                  Src1Var = "ShatterCD",
                   Value2 = 0,
-                  CompareOp = CO_GREATER_THAN
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
+                  CompareOp = CO_LESS_THAN_OR_EQUAL
+                },
                 SubBlocks = {
                   {
-                    Function = BBForEachUnitInTargetArea,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      AttackerVar = "Owner",
-                      CenterVar = "Owner",
-                      Range = 600,
-                      Flags = "AffectFriends AffectHeroes ",
-                      IteratorVar = "Unit",
-                      InclusiveBuffFilter = true
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Attacker",
-                          BuffName = "ShatterAura",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Aura,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 0.6,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
-                        }
-                      }
+                      TargetVar = "Target",
+                      AttackerVar = "Attacker",
+                      BuffName = "ShatterSelfBonus",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatEnchancer,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -261,6 +230,40 @@ CharOnHitUnitBuildingBlocks = {
     }
   }
 }
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "temp", Info = GetSpellSlot}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "temp",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "TaricHammerInternal",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -342,6 +345,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "shatteraura"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shatterselfbonus"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tarichammerinternal"
     }
   },
   {

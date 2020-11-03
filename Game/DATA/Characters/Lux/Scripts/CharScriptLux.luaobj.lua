@@ -116,7 +116,7 @@ CharOnActivateBuildingBlocks = {
       BuffName = "LuxIlluminationPassive",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 250000,
@@ -166,7 +166,8 @@ CharOnResurrectBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "LuxDeathParticle"
+      BuffName = "LuxDeathParticle",
+      ResetDuration = 0
     }
   }
 }

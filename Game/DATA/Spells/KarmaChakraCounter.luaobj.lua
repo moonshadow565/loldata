@@ -14,6 +14,18 @@ BuffOnSpellCastBuildingBlocks = {
     Params = {DestVar = "SpellSlot", Info = GetSpellSlot}
   },
   {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "SpellName", Info = GetSpellName}
+  },
+  {
+    Function = BBDebugSay,
+    Params = {
+      OwnerVar = "Owner",
+      ToSay = "YOshield",
+      SrcVar = "SpellName"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "SpellSlot",

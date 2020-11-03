@@ -58,6 +58,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               PosVar = "Pos",
               HealthBonus = 0,
               DamageBonus = 0,
+              ShowMinimapIcon = false,
               DestVar = "Other1"
             }
           },

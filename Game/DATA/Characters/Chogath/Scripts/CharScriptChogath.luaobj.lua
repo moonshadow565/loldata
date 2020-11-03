@@ -392,6 +392,125 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBGetBuffCountFromCaster,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Feast"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run1",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run2",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run3",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run4",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run5",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run6",
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

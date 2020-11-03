@@ -38,6 +38,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell4",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true,
+      Blend = false,
+      Lock = true
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Owner",
@@ -70,19 +81,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell4",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = true,
-      Blend = false,
-      Lock = true
     }
   },
   {
@@ -123,39 +125,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
+    Function = BBSpellBuffClear,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "AkaliShadowDanceKick",
-      ResetDuration = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      BuffName = "AkaliShadowDanceKick"
     }
   }
 }

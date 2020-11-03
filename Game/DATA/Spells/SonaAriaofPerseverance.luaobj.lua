@@ -352,11 +352,11 @@ SelfExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "APMod",
       DeltaByLevel = {
-        25,
-        50,
-        75,
+        40,
+        60,
+        80,
         100,
-        125
+        120
       },
       HealerVar = "Attacker"
     }

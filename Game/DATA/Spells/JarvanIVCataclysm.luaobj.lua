@@ -705,8 +705,14 @@ BuffOnMoveSuccessBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBForceRefreshPath,
-            Params = {UnitVar = "Unit"}
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBForceRefreshPath,
+                Params = {UnitVar = "Unit"}
+              }
+            }
           }
         }
       },

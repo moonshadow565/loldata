@@ -145,6 +145,7 @@ TargetExecuteBuildingBlocks = {
           PosVar = "Pos",
           HealthBonus = 0,
           DamageBonus = 0,
+          ShowMinimapIcon = true,
           DestVar = "Other1"
         }
       },
@@ -198,7 +199,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 18,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -215,7 +217,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -232,7 +235,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -249,7 +253,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

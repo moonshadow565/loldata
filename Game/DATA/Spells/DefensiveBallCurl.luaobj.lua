@@ -4,6 +4,25 @@ BuffName = "DefensiveBallCurl"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Powerball"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "PowerBall",
+          ResetDuration = 0
+        }
+      }
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "ArmorAmount",
@@ -52,24 +71,16 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
   },
   {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 0.5,
+      Src = 1,
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
@@ -100,6 +111,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -275,6 +288,8 @@ BuffOnBeingHitBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -303,11 +318,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReturn",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        22,
-        28,
-        34,
+        20,
+        30,
         40,
-        46
+        50,
+        60
       }
     }
   },
@@ -331,6 +346,10 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "powerball"}
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "rammusdbc"}

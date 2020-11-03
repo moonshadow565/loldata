@@ -27,6 +27,10 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Attacker",
@@ -104,6 +108,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "CasterID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }

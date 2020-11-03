@@ -81,7 +81,11 @@ BuffOnPreDealDamageBuildingBlocks = {
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
                       FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      SendIfOnScreenOrDiscard = false,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   },
                   {
@@ -156,7 +160,11 @@ BuffOnPreDealDamageBuildingBlocks = {
                           UseSpecificUnit = false,
                           FOWTeam = TEAM_UNKNOWN,
                           FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
+                          SendIfOnScreenOrDiscard = false,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       }
                     }
@@ -213,14 +221,16 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "Cannibalism",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

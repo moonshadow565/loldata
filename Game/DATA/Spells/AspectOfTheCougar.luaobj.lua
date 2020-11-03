@@ -336,8 +336,8 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             10,
-            15,
-            20
+            20,
+            30
           }
         }
       },
@@ -384,12 +384,12 @@ BuffOnLevelUpSpellBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "spellVampMod",
+          DestVar = "armorMod",
           DestVarTable = "InstanceVars",
           SrcValueByLevel = {
-            0.15,
-            0.2,
-            0.25
+            10,
+            20,
+            30
           }
         }
       }

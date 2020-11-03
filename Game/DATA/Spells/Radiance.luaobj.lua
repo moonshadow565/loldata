@@ -5,27 +5,15 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "GemKnight_Radiance.dds"
 BuffName = "Radiance"
-AutoBuffActivateEffect = "Radiance_glow.troy"
-AutoBuffActivateAttachBoneName = "weapon"
-AutoBuffActivateEffect2 = "Radiance_cas2.troy"
-AutoBuffActivateAttachBoneName2 = "spine"
+AutoBuffActivateEffect = "Taric_HammerFlare.troy"
+AutoBuffActivateAttachBoneName = "BUFFBONE_CSTM_WEAPON_1"
+AutoBuffActivateEffect2 = "Taric_HammerFlare.troy"
+AutoBuffActivateAttachBoneName2 = "BUFFBONE_CSTM_WEAPON_2"
+AutoBuffActivateEffect3 = "Taric_ShoulderFlare.troy"
+AutoBuffActivateAttachBoneName3 = "spine"
 SpellToggleSlot = 4
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ManaCostInc",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ManaCost",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBRequireVar,
     Params = {
@@ -36,8 +24,28 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "RegenIncrease",
+      RequiredVar = "AbilityPower",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "DamageIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AbilityPower",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   },
   {
@@ -51,13 +59,10 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "Radiance_Green_cas.troy",
-      EffectNameForOtherTeam = "Radiance_red_cas.troy",
+      EffectName = "taricgemstorm.troy",
       Flags = 0,
-      EffectIDVar = "Particle2",
+      EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      EffectID2Var = "Particle",
-      EffectID2VarTable = "InstanceVars",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -66,6 +71,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -90,106 +97,69 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBMath,
     Params = {
-      DestVar = "RegenIncrease",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "RegenIncrease",
-      SrcVarTable = "InstanceVars"
+      Src1Var = "AbilityPower",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "AbilityPower",
+      MathOp = MO_MULTIPLY
     }
   },
   {
-    Function = BBForEachUnitInTargetAreaAddBuff,
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AbilityPower",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "AbilityPower"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 850,
+      Range = 1000,
       Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-      BuffAttackerVar = "Attacker",
-      BuffName = "RadianceAura",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Aura,
-      BuffMaxStack = 1,
-      BuffNumberOfStacks = 1,
-      BuffDuration = 1.1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      IsHiddenOnClient = false,
+      IteratorVar = "Unit",
       InclusiveBuffFilter = true
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "RegenIncrease",
-      DeltaVarTable = "InstanceVars",
-      HealerVar = "Attacker"
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "DamageIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "RadianceAura",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Unit",
+          SourceVar = "Attacker"
+        }
+      }
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetPercentCooldownMod,
-      TargetVar = "Owner",
-      DestVar = "CooldownStat"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "CooldownStat",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "Multiplier",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "Multiplier",
-      Src1Value = 20,
-      Src2Value = 0,
-      DestVar = "NewCooldown",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcVar = "NewCooldown",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 3,
-      OwnerVar = "Owner"
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
   }
@@ -201,6 +171,16 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
       DeltaVar = "DamageIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AbilityPower",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -217,207 +197,14 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Target",
-          Src2Var = "Owner",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBIncHealth,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              DeltaVar = "RegenIncrease",
-              DeltaVarTable = "InstanceVars",
-              HealerVar = "Attacker"
-            }
-          }
-        }
-      },
-      {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "CurMana",
-          OwnerVar = "Owner",
-          Function = GetPAR,
-          PARType = PAR_MANA
-        }
-      },
-      {
         Function = BBMath,
         Params = {
-          Src1Var = "ManaCost",
+          Src1Var = "DamageIncrease",
           Src1VarTable = "InstanceVars",
-          Src2Var = "ManaCostInc",
-          Src2VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "ManaCost",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "ManaCost",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "CurMana",
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "ManaCost",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = -1,
-              DestVar = "ManaCostNeg",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              PARType = PAR_MANA,
-              DeltaVar = "ManaCostNeg"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageIncrease",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0.5,
-              DestVar = "DamageIncrease",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "DamageIncrease"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "RegenIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "RegenIncrease",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBForEachUnitInTargetAreaAddBuff,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 850,
-              Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-              BuffAttackerVar = "Attacker",
-              BuffName = "RadianceAura",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Aura,
-              BuffMaxStack = 1,
-              BuffNumberOfStacks = 1,
-              BuffDuration = 1.1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              IsHiddenOnClient = false,
-              InclusiveBuffFilter = true
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Radiance",
-              ResetDuration = 0
-            }
-          }
-        }
-      }
-    }
-  }
-}
-AdjustCooldownBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Radiance"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = 0.75}
-      }
-    }
-  }
-}
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Radiance"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Radiance",
-          ResetDuration = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ManaCost",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 20
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ManaCostInc",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            4,
-            7,
-            10
-          }
+          Src2Value = 0.5,
+          DestVar = "DamageIncrease",
+          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -425,70 +212,65 @@ SelfExecuteBuildingBlocks = {
         Params = {
           DestVar = "DamageIncrease",
           DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            30,
-            60,
-            90
-          }
+          SrcVar = "DamageIncrease"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AbilityPower",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "AbilityPower",
+          MathOp = MO_MULTIPLY
         }
       },
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "RegenIncrease",
-          SrcValueByLevel = {
-            30,
-            40,
-            50
-          }
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "APMod"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "APMod",
-          Src1Value = 0,
-          Src2Value = 0.2,
-          DestVar = "APMod",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "APMod",
-          Src2Var = "RegenIncrease",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "RegenIncrease",
+          DestVar = "AbilityPower",
           DestVarTable = "NextBuffVars",
-          MathOp = MO_ADD
+          SrcVar = "AbilityPower"
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBForEachUnitInTargetArea,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "Radiance",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 1000,
+          Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "RadianceAura",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1.25,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Unit",
+              SourceVar = "Attacker"
+            }
+          }
         }
       }
     }
@@ -498,13 +280,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "radiance_green_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "radiance_red_cas.troy"
+      Name = "taricgemstorm.troy"
     }
   },
   {
@@ -512,9 +288,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "radianceaura"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "radiance"}
   }
 }

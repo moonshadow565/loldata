@@ -12,48 +12,6 @@ AutoCooldownByLevel = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "APStat"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BaseDamage",
-      SrcValueByLevel = {
-        80,
-        160,
-        240,
-        320,
-        400
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BaseDamage",
-      Src2Var = "APStat",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "DazzleDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "DazzleDamage",
-      Src1Value = 0,
-      Src2Value = 0.25,
-      DestVar = "MinDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
     Function = BBGetUnitPosition,
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
@@ -70,118 +28,175 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APStat"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "APStat",
+      Src1Value = 0.4,
+      Src2Value = 0,
+      DestVar = "APStat",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBSetVarInTable,
-    Params = {DestVar = "StunLength", SrcValue = 1}
+    Params = {
+      DestVar = "BaseDamage",
+      SrcValueByLevel = {
+        40,
+        70,
+        100,
+        130,
+        160
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MaxMultiplier",
+      SrcValue = 2
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxMultiplier",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "MaxMultiplier",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src2Var = "APStat",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DazzleDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBGetCastRange,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SlotNumber = 2,
+      SlotType = SpellSlots,
+      RangeVar = "CastRange"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "FullDamageRange",
+      SrcValue = 250
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CastRange",
+      Src2Var = "FullDamageRange",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "VaryingRange",
+      MathOp = MO_SUBTRACT
+    }
   },
   {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 160,
-      CompareOp = CO_GREATER_THAN
+      Src2Var = "CastRange",
+      CompareOp = CO_LESS_THAN
     },
     SubBlocks = {
       {
         Function = BBMath,
         Params = {
           Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 650,
-          DestVar = "StunMult",
-          MathOp = MO_DIVIDE
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "StunMult",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "StunMult",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "StunLength",
-          Src2Var = "StunMult",
+          Src2Var = "FullDamageRange",
           Src1Value = 0,
           Src2Value = 0,
-          DestVar = "StunLength",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "StunLength",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "StunLength",
-          MathOp = MO_MAX
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "StunLength",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "StunLength",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "StunMult",
-          Src1Value = 5,
-          Src2Value = 0,
-          DestVar = "DamageMult",
+          DestVar = "Distance",
           MathOp = MO_SUBTRACT
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "DamageMult",
+          Src1Var = "Distance",
+          Src2Var = "VaryingRange",
           Src1Value = 0,
-          Src2Value = 4,
-          DestVar = "DamageMult",
+          Src2Value = 0,
+          DestVar = "Multiplier",
           MathOp = MO_DIVIDE
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src2Var = "DamageMult",
-          Src1Value = 0,
+          Src2Var = "Multiplier",
+          Src1Value = 1,
           Src2Value = 0,
-          DestVar = "DamageMult",
-          MathOp = MO_MAX
+          DestVar = "Multiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Multiplier",
+          Value2 = 1,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {DestVar = "Multiplier", SrcValue = 1}
+          }
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "DazzleDamage",
-          Src2Var = "DamageMult",
+          Src1Var = "Multiplier",
+          Src2Var = "MaxMultiplier",
           Src1Value = 0,
           Src2Value = 0,
-          DestVar = "DazzleDamage",
+          DestVar = "Multiplier",
           MathOp = MO_MULTIPLY
         }
       },
       {
         Function = BBMath,
         Params = {
+          Src1Var = "Multiplier",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Multiplier",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
           Src1Var = "DazzleDamage",
-          Src2Var = "MinDamage",
+          Src2Var = "Multiplier",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "DazzleDamage",
-          MathOp = MO_MAX
+          MathOp = MO_MULTIPLY
         }
       }
     }
@@ -191,14 +206,14 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 0,
-      DurationVar = "StunLength"
+      Duration = 1.5
     }
   },
   {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DazzleDamage",

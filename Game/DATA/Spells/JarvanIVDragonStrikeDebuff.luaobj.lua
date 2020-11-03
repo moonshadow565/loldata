@@ -13,6 +13,16 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorDebuff",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -27,6 +37,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -47,40 +59,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
-    }
-  },
-  {
-    Function = BBGetArmor,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorDebuff",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
     }
   }
 }
@@ -104,57 +86,11 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorMod,
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "armorInc",
+      DeltaVar = "ArmorDebuff",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBGetArmor,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SubjectArmor",
-      Src2Var = "armorInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SubjectArmor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorDebuff",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
     }
   }
 }

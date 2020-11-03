@@ -84,29 +84,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.001,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealAmount",
-      SrcValueByLevel = {
-        1,
-        2,
-        3,
-        4,
-        5
-      }
-    }
-  },
-  {
-    Function = BBIncPAR,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      PARType = PAR_SHIELD,
-      DeltaVar = "HealAmount"
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -123,7 +102,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -140,7 +120,11 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -157,7 +141,11 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

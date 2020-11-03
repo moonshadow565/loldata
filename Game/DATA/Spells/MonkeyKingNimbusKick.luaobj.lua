@@ -51,6 +51,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -61,6 +63,17 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "TargetPos",
       SrcVar = "TargetPos",
       SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell1",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true,
+      Blend = true,
+      Lock = true
     }
   },
   {
@@ -78,17 +91,6 @@ OnBuffActivateBuildingBlocks = {
       MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0,
       IdealDistanceVar = "Distance"
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell1",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = true,
-      Blend = true,
-      Lock = true
     }
   },
   {
@@ -169,39 +171,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
+    Function = BBSpellBuffClear,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MonkeyKingNimbusKick",
-      ResetDuration = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      BuffName = "MonkeyKingNimbusKick"
     }
   }
 }

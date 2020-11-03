@@ -3,31 +3,70 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "2004_Flask_of_Crystal_Water.dds"
 BuffName = "Mana Potion"
 AutoBuffActivateEffect = "ManaPotion_itm.troy"
-BuffOnUpdateActionsBuildingBlocks = {
+OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
+    Function = BBIf,
     Params = {
-      DestVar = "PercentMana",
-      OwnerVar = "Owner",
-      Function = GetPARPercent,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      Src1Var = "countManaPotion",
+      Src1VarTable = "CharVars",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIncPAR,
+        Function = BBMath,
+        Params = {
+          Src1Var = "countManaPotion",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "stacksToAdd",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
-          Delta = 5,
-          PARType = PAR_MANA
+          AttackerVar = "Owner",
+          BuffName = "FlaskOfCrystalWater",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_Heal,
+          MaxStack = 5,
+          NumberOfStacks = 0,
+          NumberOfStacksVar = "stacksToAdd",
+          Duration = 20,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Target",
+          BuffName = "Potion_Internal",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 20,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "countManaPotion",
+          DestVarTable = "CharVars",
+          SrcValue = 0
         }
       }
     }
@@ -74,15 +113,60 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "FlaskOfCrystalWater",
+      BuffAddType = BUFF_STACKS_AND_CONTINUE,
+      StacksExclusive = false,
       BuffType = BUFF_Heal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 20,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "Potion_Internal",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "countManaPotion",
+      DestVarTable = "CharVars",
+      TargetVar = "Owner",
+      BuffName = "FlaskOfCrystalWater"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "flaskofcrystalwater"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "potion_internal"
     }
   }
 }

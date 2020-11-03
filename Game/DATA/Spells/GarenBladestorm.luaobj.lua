@@ -106,6 +106,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -127,6 +129,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -346,7 +350,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "bonusDamage",
-          Src1Value = 0.6,
+          Src1Value = 0.7,
           Src2Value = 0,
           DestVar = "RatioDamage",
           MathOp = MO_MULTIPLY
@@ -462,6 +466,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -504,6 +510,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -568,6 +576,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
                           SendIfOnScreenOrDiscard = true,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
                           FollowsGroundTilt = false,
                           FacesTarget = false
                         }
@@ -610,6 +620,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
                           SendIfOnScreenOrDiscard = true,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
                           FollowsGroundTilt = false,
                           FacesTarget = false
                         }
@@ -674,6 +686,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -716,6 +730,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -740,11 +756,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "baseDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        30,
-        50,
-        70,
-        90,
-        110
+        25,
+        45,
+        65,
+        85,
+        105
       }
     }
   },

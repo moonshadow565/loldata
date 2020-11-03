@@ -7,8 +7,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetChampionBySkinName,
     Params = {
       Skin = "Shaco",
-      Team = TEAM_UNKNOWN,
-      TeamVar = "teamID",
+      Team = TEAM_ORDER,
       DestVar = "Attacker"
     }
   },

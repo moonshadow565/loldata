@@ -310,6 +310,10 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
   },
   {
@@ -452,6 +456,14 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetTargetable
+    }
+  },
+  {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Owner",
+      StopCondition = ChannelingStopCondition_Cancel,
+      StopSource = ChannelingStopSource_Die
     }
   },
   {
@@ -692,7 +704,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.75,
+      TimeBetweenExecutions = 0.25,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false

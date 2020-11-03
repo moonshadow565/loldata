@@ -29,7 +29,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -82,8 +83,18 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "baseShieldHealth",
       Src2Var = "abilityPower",
+      Src1Value = 1.5,
+      Src2Value = 0,
+      DestVar = "bonusShieldHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "baseShieldHealth",
+      Src2Var = "bonusShieldHealth",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "shieldHealth",

@@ -17,7 +17,16 @@ OnBuffActivateBuildingBlocks = {
       PosVar = "Pos",
       HealthBonus = 0,
       DamageBonus = 0,
+      ShowMinimapIcon = false,
       DestVar = "Other1"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisercotgpetbuff"
     }
   }
 }

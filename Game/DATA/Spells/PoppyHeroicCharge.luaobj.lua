@@ -15,7 +15,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -97,7 +99,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -110,9 +115,25 @@ OnBuffActivateBuildingBlocks = {
       Blend = false,
       Lock = true
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
   {
     Function = BBStopCurrentOverrideAnimation,
     Params = {
@@ -126,6 +147,34 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "ParticleCharge",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "PoppyHeroicChargePart2"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = true,
+          Status = SetCanAttack
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }
@@ -327,7 +376,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.05,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
@@ -354,104 +403,206 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
 BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "PoppyHeroicChargePart2Fix",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.01,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
   },
   {
-    Function = BBIfNotHasBuff,
+    Function = BBIfHasBuff,
     Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "PoppyHeroicChargeCheck"
+      OwnerVar = "Caster",
+      AttackerVar = "Caster",
+      BuffName = "PoppyHeroicChargePoppyFix"
     },
     SubBlocks = {
       {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageTwo",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "Damage",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageTwo",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Caster"}
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Caster",
+          Damage = 0,
+          DamageVar = "DamageTwo",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBApplyStun,
+        Params = {
+          AttackerVar = "Owner",
+          TargetVar = "Caster",
+          Duration = 1.5
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "HeroicCharge_tar.troy",
+          Flags = 0,
+          EffectIDVar = "TargetParticle",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Caster"}
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Owner",
+          TargetVar = "Caster",
+          Damage = 0,
+          DamageVar = "Damage",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 400,
+          OffsetAngle = 0,
+          PositionVar = "NewTargetPos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "SlashSpeed",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "SlashSpeed",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "NewTargetPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "NewTargetPos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageTwo",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "DamageTwo",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Caster",
+          AttackerVar = "Owner",
+          BuffName = "PoppyHeroicChargePart2",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Stun,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = true
+        }
+      },
+      {
+        Function = BBUnlockAnimation,
+        Params = {OwnerVar = "Owner", Blend = false}
+      },
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
       },
       {
         Function = BBIfHasBuff,
         Params = {
           OwnerVar = "Caster",
-          AttackerVar = "Caster",
-          BuffName = "PoppyHeroicChargePoppyFix"
+          AttackerVar = "Nothing",
+          BuffName = "PoppyHeroicChargePart2"
         },
         SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageTwo",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "Damage",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageTwo",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Caster"}
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Owner",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Caster",
-              Damage = 0,
-              DamageVar = "DamageTwo",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.8,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBApplyStun,
-            Params = {
-              AttackerVar = "Owner",
-              TargetVar = "Caster",
-              Duration = 1.5
-            }
-          },
-          {
-            Function = BBUnlockAnimation,
-            Params = {OwnerVar = "Owner", Blend = false}
-          },
           {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "PoppyHeroicChargeCheck",
-              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffName = "PoppyHeroicChargePart2",
+              BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -466,182 +617,8 @@ BuffOnMoveSuccessBuildingBlocks = {
         }
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "HeroicCharge_tar.troy",
-              Flags = 0,
-              EffectIDVar = "TargetParticle",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWTeamOverrideVar = "TeamID",
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
-            }
-          },
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 325,
-              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "Caster",
-                  Src2Var = "Unit",
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "Unit",
-                      Src2Var = "Owner",
-                      CompareOp = CO_DIFFERENT_TEAM
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBBreakSpellShields,
-                        Params = {TargetVar = "Unit"}
-                      },
-                      {
-                        Function = BBApplyDamage,
-                        Params = {
-                          AttackerVar = "Owner",
-                          CallForHelpAttackerVar = "Attacker",
-                          TargetVar = "Unit",
-                          Damage = 0,
-                          DamageVar = "Damage",
-                          DamageVarTable = "InstanceVars",
-                          DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELL,
-                          PercentOfAttack = 1,
-                          SpellDamageRatio = 0.4,
-                          PhysicalDamageRatio = 1,
-                          IgnoreDamageIncreaseMods = false,
-                          IgnoreDamageCrit = false
-                        }
-                      },
-                      {
-                        Function = BBGetPointByUnitFacingOffset,
-                        Params = {
-                          UnitVar = "Owner",
-                          Distance = 400,
-                          OffsetAngle = 0,
-                          PositionVar = "NewTargetPos"
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "SlashSpeed",
-                          DestVarTable = "NextBuffVars",
-                          SrcVar = "SlashSpeed",
-                          SrcVarTable = "InstanceVars"
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "NewTargetPos",
-                          DestVarTable = "NextBuffVars",
-                          SrcVar = "NewTargetPos"
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "DamageTwo",
-                          DestVarTable = "NextBuffVars",
-                          SrcVar = "DamageTwo",
-                          SrcVarTable = "InstanceVars"
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Owner",
-                          BuffName = "PoppyHeroicChargePart2",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Stun,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 1,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
-                        }
-                      },
-                      {
-                        Function = BBIfHasBuff,
-                        Params = {
-                          OwnerVar = "Unit",
-                          AttackerVar = "Owner",
-                          BuffName = "PoppyHeroicChargePart2"
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Owner",
-                              AttackerVar = "Owner",
-                              BuffName = "PoppyHeroicChargePart2",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
-                              StacksExclusive = true,
-                              BuffType = BUFF_Internal,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 2,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0,
-                              CanMitigateDuration = false,
-                              IsHiddenOnClient = false
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "PoppyHeroicChargeCheck",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 2,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
-        }
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
       }
     }
   }
@@ -656,31 +633,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "poppyheroicchargepart2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "poppyheroicchargepoppyfix"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyheroicchargepart2fix"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyheroicchargecheck"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "heroiccharge_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyheroicchargepart2"
     }
   }
 }

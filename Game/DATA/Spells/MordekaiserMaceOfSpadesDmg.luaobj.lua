@@ -53,28 +53,66 @@ BuffOnPreDealDamageBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "Level"}
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "percentLeech",
-      SrcValueByLevel = {
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.275,
-        0.275,
-        0.275,
-        0.275,
-        0.275,
-        0.275,
-        0.3,
-        0.3,
-        0.3,
-        0.3,
-        0.3,
-        0.3
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "percentLeech",
+          SrcValueByLevel = {
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3,
+            0.3
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "percentLeech",
+          SrcValueByLevel = {
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15,
+            0.15
+          }
+        }
       }
     }
   },

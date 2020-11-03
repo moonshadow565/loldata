@@ -2,6 +2,16 @@ BuffTextureName = "Kassadin_VoidStone.dds"
 BuffName = "VoidStone"
 PersistsThroughDeath = true
 NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedBoost",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  }
+}
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
@@ -55,21 +65,12 @@ BuffOnPreDamageBuildingBlocks = {
               Duration = 4,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedBoost",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
     }
   }
 }

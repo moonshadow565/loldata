@@ -131,7 +131,7 @@ BuffOnPreDamageBuildingBlocks = {
                 Params = {
                   WhomToOrderVar = "Owner",
                   TargetOfOrderVar = "Owner",
-                  Order = AI_ORDER_NONE
+                  Order = AI_HOLD
                 }
               },
               {

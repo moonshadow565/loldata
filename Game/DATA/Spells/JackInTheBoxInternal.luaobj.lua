@@ -60,7 +60,7 @@ OnBuffDeactivateBuildingBlocks = {
       IgnoreCollision = false,
       IsWard = false,
       Placemarker = false,
-      VisibilitySize = 500,
+      VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Attacker"
     }

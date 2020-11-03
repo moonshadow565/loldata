@@ -30,7 +30,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -94,62 +95,20 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        50,
-        90,
-        130,
-        170,
+        70,
+        115,
+        140,
+        175,
         210
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.65,
+      SpellDamageRatio = 0.75,
       PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "APMod"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "APMod",
-      Src1Value = 0.067,
-      Src2Value = 0,
-      DestVar = "BonusHealFromAP",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "baseLifeTapMod",
-      SrcValueByLevel = {
-        3.3,
-        6.6,
-        10,
-        13.3,
-        16.6
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "baseLifeTapMod",
-      Src2Var = "BonusHealFromAP",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "LifeTapMod",
-      MathOp = MO_ADD
     }
   },
   {
@@ -157,7 +116,13 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "LifeTapMod",
       DestVarTable = "NextBuffVars",
-      SrcVar = "LifeTapMod"
+      SrcValueByLevel = {
+        6,
+        8.66,
+        11.33,
+        14,
+        16.66
+      }
     }
   },
   {
@@ -192,7 +157,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

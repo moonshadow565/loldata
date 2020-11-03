@@ -29,6 +29,7 @@ SelfExecuteBuildingBlocks = {
       PosVar = "OwnerPos",
       HealthBonus = 0,
       DamageBonus = 0,
+      ShowMinimapIcon = true,
       DestVar = "Other1"
     }
   },

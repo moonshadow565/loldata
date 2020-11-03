@@ -22,11 +22,11 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "BaseDamage",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        20,
         30,
-        40,
-        50,
-        60
+        45,
+        60,
+        75,
+        90
       }
     }
   },
@@ -46,6 +46,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }

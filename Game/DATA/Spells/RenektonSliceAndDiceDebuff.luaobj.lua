@@ -18,35 +18,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetArmor,
+    Function = BBIncStat,
     Params = {
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorShred",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
+      DeltaVar = "ArmorShred",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -54,57 +32,11 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorMod,
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "armorInc",
+      DeltaVar = "ArmorShred",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBGetArmor,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "SubjectArmor"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SubjectArmor",
-      Src2Var = "armorInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SubjectArmor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ArmorShred",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "SubjectArmor",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "armorInc",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "armorInc",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MIN
     }
   }
 }

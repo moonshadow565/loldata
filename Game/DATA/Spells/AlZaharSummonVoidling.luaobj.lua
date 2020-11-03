@@ -41,7 +41,7 @@ BuffOnSpellCastBuildingBlocks = {
           MagicImmune = false,
           IgnoreCollision = true,
           Placemarker = false,
-          VisibilitySize = 500,
+          VisibilitySize = 0,
           DestVar = "Other3",
           GoldRedirectTargetVar = "Owner"
         }

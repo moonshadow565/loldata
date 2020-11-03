@@ -329,8 +329,16 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
+          },
+          {
+            Function = BBGetUnitPosition,
+            Params = {UnitVar = "Target", PositionVar = "TargetPos"}
           },
           {
             Function = BBForNClosestUnitsInTargetArea,
@@ -359,7 +367,8 @@ BuffOnHitUnitBuildingBlocks = {
                       TargetVar = "Unit",
                       PosVar = "Target",
                       EndPosVar = "Target",
-                      OverrideCastPosition = false,
+                      OverrideCastPosition = true,
+                      OverrideCastPosVar = "TargetPos",
                       SlotNumber = 2,
                       SlotType = ExtraSlots,
                       OverrideForceLevel = 0,
@@ -386,7 +395,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               Src1Var = "BaseDamage",
               Src1Value = 0,
-              Src2Value = 1.75,
+              Src2Value = 1.65,
               DestVar = "BaseDamage",
               MathOp = MO_MULTIPLY
             }
@@ -405,7 +414,11 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }

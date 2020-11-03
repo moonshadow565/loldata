@@ -7,8 +7,8 @@ BuffTextureName = "KogMaw_BioArcaneBarrage.dds"
 BuffName = "KogMawBioArcaneBarrage"
 AutoBuffActivateEffect = "KogMawBioArcaneBarrage_buf.troy"
 AutoBuffActivateAttachBoneName = "C_Tail"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect2 = "kogmaw_deepsea_bio_glow.troy"
+AutoBuffActivateAttachBoneName2 = "BUFFBONE_CSTM_ANGLER"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBOverrideAutoAttack,

@@ -38,6 +38,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell1",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true,
+      Blend = true,
+      Lock = true
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Owner",
@@ -69,19 +80,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell1",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = true,
-      Blend = true,
-      Lock = true
     }
   },
   {
@@ -196,23 +198,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
 BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -257,20 +242,10 @@ BuffOnPreDealDamageBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
+    Function = BBSpellBuffClear,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MonkeyKingNimbusKickClone",
-      ResetDuration = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      BuffName = "MonkeyKingNimbusKickClone"
     }
   }
 }
@@ -317,15 +292,6 @@ BuffOnMoveSuccessBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MonkeyKingNimbusKickClone",
-      ResetDuration = 0
     }
   }
 }

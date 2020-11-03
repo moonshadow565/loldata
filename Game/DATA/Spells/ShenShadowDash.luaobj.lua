@@ -403,10 +403,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "tauntDuration",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.8,
-        1.1,
-        1.4,
-        1.7,
+        1,
+        1.25,
+        1.5,
+        1.75,
         2
       }
     }

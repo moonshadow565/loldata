@@ -3,51 +3,70 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "2003_Regeneration_Potion.dds"
 BuffName = "Health Potion"
 AutoBuffActivateEffect = "Regenerationpotion_itm.troy"
-BuffOnUpdateActionsBuildingBlocks = {
+OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
+    Function = BBIf,
     Params = {
-      DestVar = "CurHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "MaxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurHealth",
-      Src2Var = "MaxHealth",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "PercentHealth",
-      MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      Src1Var = "countHealthPotion",
+      Src1VarTable = "CharVars",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBMath,
+        Params = {
+          Src1Var = "countHealthPotion",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "stacksToAdd",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
-          Delta = 10,
-          HealerVar = "Owner"
+          AttackerVar = "Owner",
+          BuffName = "RegenerationPotion",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_Heal,
+          MaxStack = 5,
+          NumberOfStacks = 0,
+          NumberOfStacksVar = "stacksToAdd",
+          Duration = 20,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Target",
+          BuffName = "Potion_Internal",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 20,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "countHealthPotion",
+          DestVarTable = "CharVars",
+          SrcValue = 0
         }
       }
     }
@@ -57,30 +76,10 @@ CanCastBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {
-      DestVar = "CurHealth",
-      OwnerVar = "Target",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "MaxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurHealth",
-      Src2Var = "MaxHealth",
-      Src1Value = 0,
-      Src2Value = 0,
       DestVar = "PercentHealth",
-      MathOp = MO_DIVIDE
+      OwnerVar = "Target",
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
     }
   },
   {
@@ -114,13 +113,58 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Target",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffName = "RegenerationPotion",
+      BuffAddType = BUFF_STACKS_AND_CONTINUE,
+      StacksExclusive = false,
       BuffType = BUFF_Heal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 20,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "Potion_Internal",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "countHealthPotion",
+      DestVarTable = "CharVars",
+      TargetVar = "Owner",
+      BuffName = "RegenerationPotion"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "regenerationpotion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "potion_internal"
     }
   }
 }

@@ -67,6 +67,48 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetIsZombie,
+    Params = {UnitVar = "Owner", ResultVar = "Zombie"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Zombie",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_Die
+        }
+      },
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Owner",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_Die
+        }
+      }
+    }
+  }
+}
+BuffOnZombieBuildingBlocks = {
+  {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Attacker",
+      StopCondition = ChannelingStopCondition_Cancel,
+      StopSource = ChannelingStopSource_Die
+    }
+  }
+}
 ChannelingStartBuildingBlocks = {
   {
     Function = BBFaceDirection,
@@ -106,7 +148,11 @@ ChannelingStartBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -195,7 +241,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
-      BuffName = "CaitlynAceintheHole"
+      BuffName = "CaitlynAceintheHole",
+      ResetDuration = 0
     }
   }
 }

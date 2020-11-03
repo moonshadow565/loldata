@@ -244,11 +244,11 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBSetStatus,
     Params = {
-      DestVar = "Activated",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   },
   {
@@ -257,14 +257,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
     }
   },
   {
@@ -294,6 +286,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -319,6 +313,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -352,58 +348,167 @@ BuffOnUpdateStatsBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "Activated",
-      Src1VarTable = "InstanceVars",
-      Value2 = false,
-      CompareOp = CO_EQUAL
+      Src1Var = "LifeTime",
+      Value2 = 2,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "LifeTime",
-          Value2 = 2,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "EndKill"
         },
         SubBlocks = {
           {
-            Function = BBSetStatus,
+            Function = BBIfNotHasBuff,
             Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanAttack
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "Stealth"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "Stealth",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 90,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
             }
           },
           {
-            Function = BBSetVarInTable,
+            Function = BBForNClosestVisibleUnitsInTargetArea,
             Params = {
-              DestVar = "Activated",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Stealth",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 90,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+              AttackerVar = "Attacker",
+              CenterVar = "Owner",
+              Range = 350,
+              Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSetBuffCasterUnit,
+                Params = {CasterVar = "Caster"}
+              },
+              {
+                Function = BBPushCharacterFade,
+                Params = {
+                  TargetVar = "Owner",
+                  FadeAmount = 1,
+                  fadeTime = 0.1,
+                  IDVar = "ID",
+                  IDVarTable = "InstanceVars"
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "JackInTheBoxDamageSensor",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = false,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "EndKill",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "Stealth",
+                  ResetDuration = 0
+                }
+              },
+              {
+                Function = BBForEachUnitInTargetArea,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CenterVar = "Owner",
+                  Range = 400,
+                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
+                },
+                SubBlocks = {
+                  {
+                    Function = BBBreakSpellShields,
+                    Params = {TargetVar = "Unit"}
+                  },
+                  {
+                    Function = BBApplyAssistMarker,
+                    Params = {
+                      Duration = 10,
+                      TargetVar = "Unit",
+                      SourceVar = "Caster"
+                    }
+                  },
+                  {
+                    Function = BBApplyFear,
+                    Params = {
+                      AttackerVar = "Caster",
+                      TargetVar = "Unit",
+                      Duration = 0,
+                      DurationVar = "FearDuration",
+                      DurationVarTable = "InstanceVars"
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -420,124 +525,109 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfHasBuff,
         Params = {
-          Src1Var = "Activated",
-          Src1VarTable = "InstanceVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Endkill"
         },
         SubBlocks = {
           {
-            Function = BBGetBuffCountFromAll,
+            Function = BBSetVarInTable,
+            Params = {DestVar = "unitFound", SrcValue = 0}
+          },
+          {
+            Function = BBForNClosestVisibleUnitsInTargetArea,
             Params = {
-              DestVar = "Count",
-              TargetVar = "Owner",
-              BuffName = "Taunt"
+              AttackerVar = "Attacker",
+              CenterVar = "Owner",
+              Range = 400,
+              Flags = "AffectEnemies AffectHeroes ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              BuffNameFilter = "JackInTheBoxHardLock",
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  OverrideCastPosition = false,
+                  SlotNumber = 0,
+                  SlotType = SpellSlots,
+                  OverrideForceLevel = 1,
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = false,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = true,
+                  UpdateAutoAttackTimer = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "unitFound", SrcValue = 1}
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "Stealth",
+                  ResetDuration = 0
+                }
+              }
             }
           },
           {
             Function = BBIf,
             Params = {
-              Src1Var = "Count",
+              Src1Var = "unitFound",
               Value2 = 0,
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBSetVarInTable,
-                Params = {DestVar = "unitFound", SrcValue = 0}
-              },
-              {
-                Function = BBForNClosestUnitsInTargetArea,
+                Function = BBForNClosestVisibleUnitsInTargetArea,
                 Params = {
                   AttackerVar = "Attacker",
                   CenterVar = "Owner",
                   Range = 400,
-                  Flags = "AffectEnemies AffectHeroes ",
+                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
                   IteratorVar = "Unit",
                   MaximumUnitsToPick = 1,
+                  BuffNameFilter = "JackInTheBoxSoftLock",
                   InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
-                    Function = BBIssueOrder,
+                    Function = BBIfHasBuff,
                     Params = {
-                      WhomToOrderVar = "Owner",
-                      TargetOfOrderVar = "Unit",
-                      Order = AI_ATTACKTO
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {DestVar = "unitFound", SrcValue = 1}
-                  },
-                  {
-                    Function = BBSpellBuffRemove,
-                    Params = {
-                      TargetVar = "Owner",
+                      OwnerVar = "Unit",
                       AttackerVar = "Owner",
-                      BuffName = "Stealth",
-                      ResetDuration = 0
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "unitFound",
-                  Value2 = 0,
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBForNClosestUnitsInTargetArea,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      CenterVar = "Owner",
-                      Range = 400,
-                      Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectTurrets ",
-                      IteratorVar = "Unit",
-                      MaximumUnitsToPick = 1,
-                      InclusiveBuffFilter = true
+                      BuffName = "JackInTheBoxSoftLock"
                     },
                     SubBlocks = {
                       {
-                        Function = BBGetTeamID,
-                        Params = {TargetVar = "Unit", DestVar = "teamID"}
-                      },
-                      {
-                        Function = BBIf,
+                        Function = BBSpellCast,
                         Params = {
-                          Src1Var = "teamID",
-                          Value2 = TEAM_NEUTRAL,
-                          CompareOp = CO_EQUAL
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBApplyTaunt,
-                            Params = {
-                              AttackerVar = "Unit",
-                              TargetVar = "Owner",
-                              Duration = 5
-                            }
-                          }
+                          CasterVar = "Owner",
+                          TargetVar = "Unit",
+                          OverrideCastPosition = false,
+                          SlotNumber = 0,
+                          SlotType = SpellSlots,
+                          OverrideForceLevel = 1,
+                          OverrideCoolDownCheck = true,
+                          FireWithoutCasting = false,
+                          UseAutoAttackSpell = false,
+                          ForceCastingOrChannelling = true,
+                          UpdateAutoAttackTimer = false
                         }
                       },
                       {
-                        Function = BBElse,
-                        Params = {},
-                        SubBlocks = {
-                          {
-                            Function = BBIssueOrder,
-                            Params = {
-                              WhomToOrderVar = "Owner",
-                              TargetOfOrderVar = "Unit",
-                              Order = AI_ATTACKTO
-                            }
-                          }
-                        }
+                        Function = BBSetVarInTable,
+                        Params = {DestVar = "unitFound", SrcValue = 1}
                       },
                       {
                         Function = BBSpellBuffRemove,
@@ -553,104 +643,133 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               }
             }
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnPreAttackBuildingBlocks = {
-  {
-    Function = BBIfNotHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "EndKill"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
-        Function = BBPushCharacterFade,
-        Params = {
-          TargetVar = "Owner",
-          FadeAmount = 1,
-          fadeTime = 0.5,
-          IDVar = "ID",
-          IDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "EndKill",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Attacker",
-          CenterVar = "Owner",
-          Range = 400,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyAssistMarker,
-            Params = {
-              Duration = 10,
-              TargetVar = "Unit",
-              SourceVar = "Caster"
-            }
-          },
-          {
-            Function = BBApplyFear,
-            Params = {
-              AttackerVar = "Caster",
-              TargetVar = "Unit",
-              Duration = 0,
-              DurationVar = "FearDuration",
-              DurationVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBGetTeamID,
-            Params = {TargetVar = "Unit", DestVar = "teamID"}
           },
           {
             Function = BBIf,
             Params = {
-              Src1Var = "teamID",
-              Value2 = 300,
+              Src1Var = "unitFound",
+              Value2 = 0,
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBApplyTaunt,
+                Function = BBForNClosestVisibleUnitsInTargetArea,
                 Params = {
-                  AttackerVar = "Owner",
-                  TargetVar = "Unit",
-                  Duration = 5
+                  AttackerVar = "Attacker",
+                  CenterVar = "Owner",
+                  Range = 400,
+                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+                  IteratorVar = "Unit",
+                  MaximumUnitsToPick = 1,
+                  InclusiveBuffFilter = true
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      OverrideCastPosition = false,
+                      SlotNumber = 0,
+                      SlotType = SpellSlots,
+                      OverrideForceLevel = 1,
+                      OverrideCoolDownCheck = true,
+                      FireWithoutCasting = false,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = true,
+                      UpdateAutoAttackTimer = false
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "unitFound", SrcValue = 1}
+                  },
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "Stealth",
+                      ResetDuration = 0
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "JackInTheBoxSoftLock",
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                          StacksExclusive = false,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 20,
+                          NumberOfStacks = 1,
+                          Duration = 5,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "unitFound",
+              Value2 = 0,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBForNClosestVisibleUnitsInTargetArea,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CenterVar = "Owner",
+                  Range = 400,
+                  Flags = "AffectEnemies AffectBuildings AffectTurrets ",
+                  IteratorVar = "Unit",
+                  MaximumUnitsToPick = 1,
+                  InclusiveBuffFilter = true
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      OverrideCastPosition = false,
+                      SlotNumber = 0,
+                      SlotType = SpellSlots,
+                      OverrideForceLevel = 1,
+                      OverrideCoolDownCheck = true,
+                      FireWithoutCasting = false,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = true,
+                      UpdateAutoAttackTimer = false
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "unitFound", SrcValue = 1}
+                  },
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "Stealth",
+                      ResetDuration = 0
+                    }
+                  }
                 }
               }
             }
@@ -720,6 +839,49 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
+BuffOnPreMitigationDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Stealth"
+        },
+        SubBlocks = {
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Attacker",
+              TargetVar = "Owner",
+              ResultVar = "canSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "canSee",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageAmount",
+                  SrcValue = 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -729,15 +891,11 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "stealth"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "taunt"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "endkill"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stealth"}
   },
   {
     Function = BBPreloadSpell,
