@@ -11,16 +11,31 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "BonusAP",
+      RequiredVar = "Vamp",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Level",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcVar = "Level",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatMagicDamageMod,
+      Stat = IncPercentSpellVampMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusAP",
+      DeltaVar = "Vamp",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -55,15 +70,23 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "asdf",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcVar = "Level",
+      SrcVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatMagicDamageMod,
+      Stat = IncPercentSpellVampMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusAP",
+      DeltaVar = "Vamp",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -73,20 +96,21 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BonusAP",
+      DestVar = "Vamp",
+      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        50,
-        80,
-        110
+        0.15,
+        0.15,
+        0.15
       }
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BonusAP",
+      DestVar = "Level",
       DestVarTable = "NextBuffVars",
-      SrcVar = "BonusAP"
+      SrcVar = "Level"
     }
   },
   {
@@ -99,10 +123,16 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        5,
+        6,
+        7
+      },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

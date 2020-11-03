@@ -206,13 +206,53 @@ function L0(A0, A1)
 end
 BBSetReturnValue = L0
 function L0(A0, A1)
-  local L2
+  local L2, L3
+  L2 = type
+  L3 = A0
+  L2 = L2(L3)
+  if L2 == "string" then
+    L2 = type
+    L3 = A1
+    L2 = L2(L3)
+    if L2 == "string" then
+      L2 = string
+      L2 = L2.lower
+      L3 = A0
+      L2 = L2(L3)
+      A0 = L2
+      L2 = string
+      L2 = L2.lower
+      L3 = A1
+      L2 = L2(L3)
+      A1 = L2
+    end
+  end
   L2 = A0 == A1
   return L2
 end
 CO_EQUAL = L0
 function L0(A0, A1)
-  local L2
+  local L2, L3
+  L2 = type
+  L3 = A0
+  L2 = L2(L3)
+  if L2 == "string" then
+    L2 = type
+    L3 = A1
+    L2 = L2(L3)
+    if L2 == "string" then
+      L2 = string
+      L2 = L2.lower
+      L3 = A0
+      L2 = L2(L3)
+      A0 = L2
+      L2 = string
+      L2 = L2.lower
+      L3 = A1
+      L2 = L2(L3)
+      A1 = L2
+    end
+  end
   L2 = A0 ~= A1
   return L2
 end

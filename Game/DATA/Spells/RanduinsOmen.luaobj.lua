@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.08
+      Delta = -0.05
     }
   }
 }
@@ -18,7 +18,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = 0.08
+      Delta = 0.05
     }
   }
 }
@@ -57,7 +57,8 @@ BuffOnBeingHitBuildingBlocks = {
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -82,7 +83,8 @@ BuffOnBeingHitBuildingBlocks = {
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -198,7 +200,8 @@ SelfExecuteBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           DurationVar = "FinalSlow",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -216,7 +219,8 @@ SelfExecuteBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           DurationVar = "FinalSlow",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

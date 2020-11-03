@@ -28,12 +28,34 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Mana",
+          Src1Value = 0,
+          Src2Value = 0.05,
+          DestVar = "BonusDamage2",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
           ValueVar = "BonusDamage",
           Index = 1,
           SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "BonusDamage2",
+          Index = 1,
+          SlotNumber = 1,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
@@ -57,7 +79,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -74,7 +97,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -91,27 +115,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -138,9 +143,48 @@ CharOnLevelUpSpellBuildingBlocks = {
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIncPermanentFlatPARPoolMod,
+        Params = {
+          PARType = PAR_MANA,
+          TargetVar = "Owner",
+          Delta = 75
+        }
+      }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

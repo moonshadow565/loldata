@@ -130,43 +130,76 @@ OnBuffDeactivateBuildingBlocks = {
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 700,
-          DestVar = "PercentNotDamage",
-          MathOp = MO_DIVIDE
+          Value2 = 250,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "PercentDamage",
+              SrcValue = 1
+            }
+          }
         }
       },
       {
-        Function = BBMath,
-        Params = {
-          Src2Var = "PercentNotDamage",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "PercentDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "PercentDamage",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "PercentDamage",
-          MathOp = MO_MIN
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "PercentDamage",
-          Src1Value = 0,
-          Src2Value = 0.33,
-          DestVar = "PercentDamage",
-          MathOp = MO_MAX
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Distance",
+              Src1Value = 0,
+              Src2Value = 200,
+              DestVar = "PercentNotDamage",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Distance",
+              Src1Value = 0,
+              Src2Value = 500,
+              DestVar = "PercentNotDamage",
+              MathOp = MO_DIVIDE
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src2Var = "PercentNotDamage",
+              Src1Value = 1,
+              Src2Value = 0,
+              DestVar = "PercentDamage",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "PercentDamage",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "PercentDamage",
+              MathOp = MO_MIN
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "PercentDamage",
+              Src1Value = 0,
+              Src2Value = 0.33,
+              DestVar = "PercentDamage",
+              MathOp = MO_MAX
+            }
+          }
         }
       },
       {
@@ -206,7 +239,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -337,7 +371,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 2,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

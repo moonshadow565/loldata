@@ -61,6 +61,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCallForHelpSuppresser
+    }
+  },
+  {
     Function = BBPushCharacterFade,
     Params = {
       TargetVar = "Owner",
@@ -281,6 +289,14 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCallForHelpSuppresser
+    }
+  },
+  {
     Function = BBPushCharacterFade,
     Params = {
       TargetVar = "Owner",
@@ -302,6 +318,35 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle1",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 350,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }

@@ -28,6 +28,16 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageReduction",
+      Src1Value = 0,
+      Src2Value = 2,
+      DestVar = "DamageReduction",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatPhysicalReduction,
@@ -104,6 +114,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         75,

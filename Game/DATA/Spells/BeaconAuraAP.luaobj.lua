@@ -117,5 +117,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "summoner_flash.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "beaconauranoparticleap"
+    }
   }
 }

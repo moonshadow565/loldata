@@ -189,6 +189,15 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "CurrentDamageTotal",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -230,6 +239,16 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
       DeltaVar = "BonusHealth",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "CurrentDamageTotal",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -396,17 +415,16 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "CurrentDamageTotal",
+          ValueVarTable = "InstanceVars",
+          Index = 1
+        }
       }
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "CurrentDamageTotal",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }
@@ -479,7 +497,8 @@ SelfExecuteBuildingBlocks = {
         15
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
