@@ -24,18 +24,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleshield"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbledangerzone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rumbleheatdelay"
     }
   },

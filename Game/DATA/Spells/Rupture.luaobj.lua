@@ -2,10 +2,26 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "BattlecastChogath"
+}
 SpellVOOverrideSkins = {
-  "DandyChogath"
+  "DandyChogath",
+  "BattlecastChogath"
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_rupture_cas_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_rupture_cas_red.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -19,25 +35,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "rupture_dino_cas_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rupture_cas_02.troy"
+      Name = "testcuberender"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rupturelaunch"
+      Name = "rupturepopup"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
   }
 }

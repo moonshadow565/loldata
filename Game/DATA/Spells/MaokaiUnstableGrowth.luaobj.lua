@@ -7,12 +7,6 @@ BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "MaokaiUnstableGrowth"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "maokai_elementaladvance_mis.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "maokaiunstablegrowth"

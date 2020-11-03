@@ -5,16 +5,64 @@ BuffTextureName = "GreenTerror_Feast.dds"
 BuffName = "Feast"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "DandyChogath"
+  "DandyChogath",
+  "BattlecastChogath"
 }
 SpellVOOverrideSkins = {
-  "DandyChogath"
+  "DandyChogath",
+  "BattlecastChogath"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "chogath_feast_sign.troy"
+      Name = "chogath_battlecast_vents.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_textureswap.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_eye_glow_l.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_eye_glow_r.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_red_glow.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_audio_feast1.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_audio_feast3.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chogath_battlecast_audio_feast6.troy"
     }
   },
   {

@@ -4,22 +4,8 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "Soraka_Starcall.dds"
 BuffName = "RumbleGrenadeDebuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenadedz"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenadedebuff"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -30,6 +16,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rumblegrenadeslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumblegrenadedebuff"
     }
   },
   {

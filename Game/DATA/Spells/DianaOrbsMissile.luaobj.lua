@@ -1,35 +1,33 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = True
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+BuffTextureName = "Ahri_FoxFire.dds"
+BuffName = "AhriFoxFire"
 SpellDamageRatio = 1
-PersistsThroughDeath = true
-SpellFXOverrideSkins = {
-  "FrostFireBrand"
-}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "brandwildfire"
+      Name = "diana_w_orb_end_valkyrie.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandconflagration_tar_frost.troy"
+      Name = "diana_w_orb_end.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandconflagration_tar.troy"
+      Name = "diana_w_tar_valkyrie.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "brandablaze"
+      Name = "diana_w_tar.troy"
     }
   }
 }

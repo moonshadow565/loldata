@@ -1,5 +1,4 @@
 BuffTextureName = "SadMummy_AuraofDespair.dds"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

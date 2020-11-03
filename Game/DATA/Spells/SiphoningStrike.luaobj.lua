@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "deathscaress_nova.prt"
+      Name = "deathscaress_nova.troy"
     }
   },
   {
