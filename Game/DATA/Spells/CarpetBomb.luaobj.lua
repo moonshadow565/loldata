@@ -1,6 +1,9 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "UrfRiderCorki"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -57,6 +60,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
   },
@@ -75,7 +79,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -85,7 +90,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -271,7 +277,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -572,7 +579,8 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -590,7 +598,8 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
