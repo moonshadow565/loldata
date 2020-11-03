@@ -257,99 +257,19 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "TempHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "TempMaxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "TempMaxHealth",
-      Src1Value = 0.4,
-      Src2Value = 0,
-      DestVar = "HealthNeeded",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthNeeded",
-      Src2Var = "TempHealth",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "HealthToInc",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
     Function = BBIncHealth,
     Params = {
       TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthToInc",
+      Delta = 750,
       HealerVar = "Owner"
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "TempMana",
-      OwnerVar = "Owner",
-      Function = GetPAR,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "TempMaxMana",
-      OwnerVar = "Owner",
-      Function = GetMaxPAR,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "TempMaxMana",
-      Src1Value = 0.4,
-      Src2Value = 0,
-      DestVar = "ManaNeeded",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ManaNeeded",
-      Src2Var = "TempMana",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "ManaToInc",
-      MathOp = MO_SUBTRACT
     }
   },
   {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = 0,
-      PARType = PAR_MANA,
-      DeltaVar = "ManaToInc"
+      Delta = 375,
+      PARType = PAR_MANA
     }
   },
   {

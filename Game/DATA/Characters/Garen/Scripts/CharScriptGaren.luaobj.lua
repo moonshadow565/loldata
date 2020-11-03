@@ -265,11 +265,11 @@ CharOnLevelUpSpellBuildingBlocks = {
               DestVar = "MaxBonus",
               DestVarTable = "CharVars",
               SrcValueByLevel = {
-                7,
-                14,
-                21,
-                28,
-                35
+                5,
+                10,
+                15,
+                20,
+                25
               }
             }
           },

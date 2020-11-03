@@ -10,7 +10,6 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
-PopupMessage1 = "game_floatingtext_Stunned"
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -112,15 +111,24 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = true
+      CanMitigateDuration = false
     }
   },
   {
-    Function = BBApplyStun,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Owner",
       TargetVar = "Target",
-      Duration = 2.5
+      AttackerVar = "Owner",
+      BuffName = "Suppression",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
+      BuffType = BUFF_Suppression,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -293,6 +301,14 @@ ChannelingCancelStopBuildingBlocks = {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Suppression"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "AlZaharNetherGrasp"
     }
@@ -346,6 +362,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharnethergrasp"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
     }
   },
   {

@@ -1,0 +1,6 @@
+BuffTextureName = "3057_SheenDelay.dds"
+BuffName = "SheenDelay"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""

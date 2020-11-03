@@ -1,39 +1,3 @@
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 3,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CooldownResevoir",
-          Src1VarTable = "InstanceVars",
-          Value2 = 2,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "CooldownResevoir",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 1,
-              Src2Value = 0,
-              DestVar = "CooldownResevoir",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          }
-        }
-      }
-    }
-  }
-}
 ItemOnSpellCastBuildingBlocks = {
   {
     Function = BBIf,
@@ -41,16 +5,19 @@ ItemOnSpellCastBuildingBlocks = {
       Src1Var = "DoesntTriggerSpellCasts",
       Src1VarTable = "SpellVars",
       Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
+      CompareOp = CO_EQUAL
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "CooldownResevoir",
-          Src1VarTable = "InstanceVars",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "SheenDelay"
         },
         SubBlocks = {
           {
@@ -93,18 +60,6 @@ ItemOnSpellCastBuildingBlocks = {
               TickRate = 0,
               CanMitigateDuration = false
             }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "CooldownResevoir",
-              Src2VarTable = "InstanceVars",
-              Src1Value = -1,
-              Src2Value = 0,
-              DestVar = "CooldownResevoir",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
           }
         }
       }
@@ -122,6 +77,10 @@ OnActivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "sheendelay"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "sheen"}
