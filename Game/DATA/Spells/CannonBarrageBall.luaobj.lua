@@ -11,20 +11,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "MoveSpeedMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -119,7 +105,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 225,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -143,7 +130,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 225,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -189,7 +177,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 225,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -221,7 +210,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 225,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -335,9 +325,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageAmount",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        65,
-        110,
-        155
+        75,
+        120,
+        165
       }
     }
   },

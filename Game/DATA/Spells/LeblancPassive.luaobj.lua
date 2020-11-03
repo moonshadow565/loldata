@@ -1,4 +1,4 @@
-BuffTextureName = "LeblancPH5.dds"
+BuffTextureName = "LeblancMirrorImage.dds"
 BuffName = "LeblancNoxianCruelty"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
@@ -47,7 +47,8 @@ BuffOnTakeDamageBuildingBlocks = {
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -64,7 +65,8 @@ BuffOnTakeDamageBuildingBlocks = {
               Duration = 60,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

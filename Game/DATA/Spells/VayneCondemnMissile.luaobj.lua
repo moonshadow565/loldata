@@ -292,11 +292,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        50,
-        90,
-        130,
-        170,
-        210
+        45,
+        80,
+        115,
+        150,
+        185
       }
     }
   },
@@ -434,11 +434,11 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        50,
-        90,
-        130,
-        170,
-        210
+        45,
+        80,
+        115,
+        150,
+        185
       },
       Damage = 0,
       DamageType = PHYSICAL_DAMAGE,

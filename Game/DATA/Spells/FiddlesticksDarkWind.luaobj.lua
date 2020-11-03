@@ -41,10 +41,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageToDeal",
       SrcValueByLevel = {
         65,
-        85,
-        105,
-        125,
-        145
+        90,
+        115,
+        140,
+        165
       }
     }
   },

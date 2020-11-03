@@ -70,6 +70,13 @@ OnBuffDeactivateBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HasHitTarget",
+      SrcValue = false
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "CasterID"}
   },
@@ -136,7 +143,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -156,7 +164,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -176,7 +185,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -191,24 +201,6 @@ SelfExecuteBuildingBlocks = {
       InclusiveBuffFilter = false
     },
     SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "BlindMonkEManager",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
       {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Unit"}
@@ -262,7 +254,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "CasterID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -280,7 +273,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "CasterID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -298,7 +292,43 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "CasterID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HasHitTarget",
+          SrcValue = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HasHitTarget",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "BlindMonkEManager",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -330,12 +360,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkemanager"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_thundercrash_impact_unit_tar.troy"
@@ -351,6 +375,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_e_thundercrash_unit_tar_blood.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "blindmonkemanager"
     }
   }
 }

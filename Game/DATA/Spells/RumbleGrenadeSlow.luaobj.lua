@@ -1,4 +1,4 @@
-BuffTextureName = "GragasBodySlam.dds"
+BuffTextureName = "Rumble_Electro Harpoon.dds"
 BuffName = "RumbleGrenadeSlow"
 AutoBuffActivateEffect = "Global_Slow.troy"
 AutoBuffActivateEffect2 = ""

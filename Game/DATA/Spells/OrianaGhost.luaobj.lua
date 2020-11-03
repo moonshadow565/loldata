@@ -29,8 +29,61 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MinionBall",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBGetUnitSkinName,
+    Params = {TargetVar = "Owner", DestVar = "SkinName"}
+  },
+  {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    Params = {
+      Src1Var = "SkinName",
+      Value2 = "oriana_ball",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MinionBall",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SkinName",
+      Value2 = "Oriana_Ball",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MinionBall",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "MinionBall",
+      Src1VarTable = "InstanceVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
@@ -317,8 +370,16 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitSkinName,
+    Params = {TargetVar = "Owner", DestVar = "SkinName"}
+  },
+  {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    Params = {
+      Src1Var = "SkinName",
+      Value2 = "Oriana_Ball",
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
@@ -335,6 +396,19 @@ OnBuffDeactivateBuildingBlocks = {
               EffectIDVarTable = "InstanceVars"
             }
           }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffClear,
+        Params = {
+          TargetVar = "Attacker",
+          BuffName = "OriannaBallTracker"
         }
       }
     }
@@ -607,7 +681,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 0,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = true
         }
       },
@@ -617,7 +691,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 1,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = true
         }
       },
@@ -627,7 +701,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 2,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = true
         }
       },
@@ -637,7 +711,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 3,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = true
         }
       },
@@ -722,7 +796,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 0,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = false
         }
       },
@@ -732,7 +806,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 1,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = false
         }
       },
@@ -742,7 +816,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 2,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = false
         }
       },
@@ -752,7 +826,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SpellSlot = 3,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
+          TargetVar = "Caster",
           State = false
         }
       }
@@ -781,17 +855,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               {
                 Function = BBSetBuffCasterUnit,
                 Params = {CasterVar = "Caster"}
-              },
-              {
-                Function = BBGetSlotSpellInfo,
-                Params = {
-                  DestVar = "Time",
-                  SpellSlotValue = 0,
-                  SpellbookType = SPELLBOOK_CHAMPION,
-                  SlotType = SpellSlots,
-                  OwnerVar = "Caster",
-                  Function = GetSlotSpellCooldownTime
-                }
               },
               {
                 Function = BBSpellBuffAdd,
@@ -870,10 +933,158 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = true
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = true
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 2,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = true
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = true
+                }
+              },
+              {
                 Function = BBSpellBuffClear,
                 Params = {
                   TargetVar = "Owner",
                   BuffName = "OrianaGhost"
+                }
+              },
+              {
+                Function = BBGetUnitPosition,
+                Params = {UnitVar = "Owner", PositionVar = "CastPos"}
+              },
+              {
+                Function = BBGetTeamID,
+                Params = {TargetVar = "Owner", DestVar = "TeamID"}
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Nothing",
+                  PosVar = "CastPos",
+                  EffectName = "Orianna_Ball_Flash.troy",
+                  Flags = 0,
+                  EffectIDVar = "Temp",
+                  BoneName = "root",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Caster",
+                  AttackerVar = "Caster",
+                  BuffName = "OrianaGhostSelf",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Caster",
+                  PosVar = "CastPos",
+                  EffectName = "Orianna_Ball_Flash_Reverse.troy",
+                  Flags = 0,
+                  EffectIDVar = "Temp",
+                  BoneName = "SpinnigBottomRidge",
+                  TargetObjectVar = "Caster",
+                  SpecificUnitOnlyVar = "Caster",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = false
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = false
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 2,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = false
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Caster",
+                  State = false
                 }
               }
             }
@@ -899,6 +1110,10 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBIf,
             Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
             SubBlocks = {
+              {
+                Function = BBSetBuffCasterUnit,
+                Params = {CasterVar = "Caster"}
+              },
               {
                 Function = BBGetUnitPosition,
                 Params = {
@@ -936,7 +1151,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Placemarker = true,
                   VisibilitySize = 0,
                   DestVar = "Other3",
-                  GoldRedirectTargetVar = "Owner"
+                  GoldRedirectTargetVar = "Caster"
                 }
               },
               {
@@ -1000,6 +1215,41 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Caster",
+      Src2Var = "Owner",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Caster",
+          AttackerVar = "Caster",
+          BuffName = "OrianaGhostSelf",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffClear,
+        Params = {
+          TargetVar = "Owner",
+          BuffName = "OrianaGhost"
+        }
+      }
+    }
   }
 }
 BuffOnDeathBuildingBlocks = {
@@ -1021,7 +1271,12 @@ BuffOnDeathBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+        Params = {
+          Src1Var = "MinionBall",
+          Src1VarTable = "InstanceVars",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
         SubBlocks = {
           {
             Function = BBSetBuffCasterUnit,
@@ -1064,7 +1319,7 @@ BuffOnDeathBuildingBlocks = {
               Placemarker = true,
               VisibilitySize = 0,
               DestVar = "Other3",
-              GoldRedirectTargetVar = "Owner"
+              GoldRedirectTargetVar = "Caster"
             }
           },
           {
@@ -1156,6 +1411,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaghostminion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "oriannaballtracker"
     }
   },
   {

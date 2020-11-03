@@ -1,3 +1,53 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 4,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+        SubBlocks = {
+          {
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 25000,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "SecondSight",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBForEachUnitInTargetArea,
@@ -21,10 +71,11 @@ CharOnActivateBuildingBlocks = {
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 25000,
+          Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -53,7 +104,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -70,7 +122,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -161,7 +214,8 @@ CharOnLevelUpSpellBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

@@ -25,7 +25,7 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnDealDamageBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBGetLevel,
     Params = {TargetVar = "Owner", DestVar = "Level"}

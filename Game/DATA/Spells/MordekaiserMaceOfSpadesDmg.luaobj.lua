@@ -43,7 +43,7 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnDealDamageBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}

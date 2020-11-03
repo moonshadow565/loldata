@@ -9,7 +9,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "StunDuration",
+      RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -18,6 +18,14 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TeamID",
+      DestVarTable = "InstanceVars"
     }
   },
   {
@@ -188,9 +196,18 @@ BuffOnSpellCastBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "StunDuration",
+          DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcVar = "StunDuration",
+          SrcVar = "MoveSpeedMod",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TeamID",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TeamID",
           SrcVarTable = "InstanceVars"
         }
       },
@@ -233,9 +250,18 @@ BuffOnSpellCastBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "StunDuration",
+          DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcVar = "StunDuration",
+          SrcVar = "MoveSpeedMod",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TeamID",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TeamID",
           SrcVarTable = "InstanceVars"
         }
       },
@@ -329,9 +355,18 @@ BuffOnPreAttackBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "StunDuration",
+      DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcVar = "StunDuration",
+      SrcVar = "MoveSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TeamID",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TeamID",
       SrcVarTable = "InstanceVars"
     }
   },
@@ -388,7 +423,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "ShadowWalk"
+          BuffName = "ShadowWalk",
+          ResetDuration = 0
         }
       },
       {
@@ -396,7 +432,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "ShadowWalk_internal"
+          BuffName = "ShadowWalk_internal",
+          ResetDuration = 0
         }
       }
     }
@@ -419,7 +456,9 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -449,14 +488,14 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "StunDuration",
+          DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            1,
-            1.25,
-            1.5,
-            1.75,
-            2
+            -0.3,
+            -0.35,
+            -0.4,
+            -0.45,
+            -0.5
           }
         }
       },
@@ -472,6 +511,15 @@ TargetExecuteBuildingBlocks = {
             40,
             50
           }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TeamID",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TeamID",
+          SrcVarTable = "InstanceVars"
         }
       },
       {

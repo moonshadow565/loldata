@@ -1,38 +1,26 @@
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBExecutePeriodically,
     Params = {
-      DestVar = "XpBonus",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "XpBonus",
-      SrcVarTable = "CharVars"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-  },
-  {
-    Function = BBElse,
-    Params = {},
+      TimeBetweenExecutions = 4,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
     SubBlocks = {
       {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 5,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
-        },
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
-              Range = 20000,
+              Range = 25000,
               Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -42,46 +30,20 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "HeightenedLearning",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 6,
+                  Duration = 5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
           }
         }
-      }
-    }
-  }
-}
-SetVarsByLevelBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "XpBonus",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08,
-        0.08
       }
     }
   }
@@ -94,12 +56,15 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -109,12 +74,15 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -126,12 +94,15 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

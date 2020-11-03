@@ -16,7 +16,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 DoOnPreDamageInExpirationOrder = true
 OnBuffActivateBuildingBlocks = {
@@ -41,7 +43,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -171,10 +175,10 @@ BuffOnHitUnitBuildingBlocks = {
                       DestVarTable = "NextBuffVars",
                       SrcValueByLevel = {
                         -0.2,
-                        -0.22,
-                        -0.24,
-                        -0.26,
-                        -0.28
+                        -0.25,
+                        -0.3,
+                        -0.35,
+                        -0.4
                       }
                     }
                   },
@@ -408,5 +412,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "urgotterrorcapacitor_buf.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "urgotslow"}
   }
 }

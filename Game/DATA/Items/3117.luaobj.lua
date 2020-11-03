@@ -253,7 +253,7 @@ BuffOnAllowAddBuildingBlocks = {
     }
   }
 }
-ItemOnTakeDamageBuildingBlocks = {
+ItemOnPreDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
@@ -272,7 +272,7 @@ ItemOnTakeDamageBuildingBlocks = {
     }
   }
 }
-ItemOnDealDamageBuildingBlocks = {
+ItemOnPreDealDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {

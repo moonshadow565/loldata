@@ -65,7 +65,9 @@ CharOnKillUnitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -88,7 +90,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 30000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -105,7 +108,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -122,7 +126,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -143,6 +148,26 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
+    }
+  }
+}
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeathDefied",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 30000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

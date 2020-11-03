@@ -9,7 +9,7 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnUpdateStatsBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
@@ -22,43 +22,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       {
         Function = BBGetLevel,
         Params = {TargetVar = "Owner", DestVar = "Level"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "APBonus",
-          SrcValueByLevel = {
-            4,
-            4,
-            4,
-            6,
-            6,
-            6,
-            8,
-            8,
-            8,
-            10,
-            10,
-            10,
-            12,
-            12,
-            12,
-            14,
-            14,
-            14,
-            16,
-            16,
-            16
-          }
-        }
-      },
-      {
-        Function = BBSetBuffToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "APBonus",
-          Index = 1
-        }
       },
       {
         Function = BBSetVarInTable,
@@ -213,42 +176,128 @@ BuffOnSpellCastBuildingBlocks = {
             Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBSpellEffectCreate,
+                Function = BBGetStatus,
                 Params = {
-                  BindObjectVar = "Unit",
-                  PosVar = "TargetPos",
-                  EffectName = "OrianaVacuumIndicator_ally.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  BoneName = "spinnigtopridge",
-                  TargetObjectVar = "Nothing",
-                  TargetPosVar = "TargetPos",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false,
-                  FacesTarget = false
+                  TargetVar = "Owner",
+                  DestVar = "IsStealth",
+                  Status = GetStealthed
                 }
               },
               {
-                Function = BBSetVarInTable,
+                Function = BBIf,
                 Params = {
-                  DestVar = "UltimateType",
-                  DestVarTable = "CharVars",
-                  SrcValue = 0
+                  Src1Var = "IsStealth",
+                  Value2 = false,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Unit",
+                      PosVar = "TargetPos",
+                      EffectName = "OrianaVacuumIndicator_ally.troy",
+                      Flags = 0,
+                      EffectIDVar = "Particle",
+                      EffectIDVarTable = "InstanceVars",
+                      BoneName = "spinnigtopridge",
+                      TargetObjectVar = "Nothing",
+                      TargetPosVar = "TargetPos",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "UltimateType",
+                      DestVarTable = "CharVars",
+                      SrcValue = 0
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "UltimateTargetPos",
+                      DestVarTable = "CharVars",
+                      SrcVar = "TargetPos"
+                    }
+                  }
                 }
               },
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "UltimateTargetPos",
-                  DestVarTable = "CharVars",
-                  SrcVar = "TargetPos"
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Nothing",
+                      PosVar = "TargetPos",
+                      EffectName = "OrianaVacuumIndicatorSelfNoRing.troy",
+                      Flags = 0,
+                      EffectIDVar = "Particle",
+                      EffectIDVarTable = "InstanceVars",
+                      BoneName = "root",
+                      TargetObjectVar = "Nothing",
+                      TargetPosVar = "TargetPos",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
+                    }
+                  },
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Nothing",
+                      PosVar = "TargetPos",
+                      EffectName = "OrianaVacuumIndicatorSelfRing.troy",
+                      Flags = 0,
+                      EffectIDVar = "Particle",
+                      EffectIDVarTable = "InstanceVars",
+                      BoneName = "root",
+                      TargetObjectVar = "Nothing",
+                      TargetPosVar = "TargetPos",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "UltimateType",
+                      DestVarTable = "CharVars",
+                      SrcValue = 1
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "UltimateTargetPos",
+                      DestVarTable = "CharVars",
+                      SrcVar = "TargetPos"
+                    }
+                  }
                 }
               }
             }
@@ -309,33 +358,54 @@ BuffOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBIfHasBuff,
             Params = {
-              Src1Var = "GhostAlive",
-              Src1VarTable = "CharVars",
-              Value2 = true,
-              CompareOp = CO_EQUAL
+              OwnerVar = "Owner",
+              AttackerVar = "Nothing",
+              BuffName = "OriannaBallTracker"
             },
             SubBlocks = {
               {
-                Function = BBGetMissilePosFromID,
+                Function = BBSetVarInTable,
                 Params = {
-                  TargetIDVar = "MissileID",
-                  TargetIDVarTable = "CharVars",
-                  TargetID = 0,
-                  ResultVar = "TargetPos"
+                  DestVar = "TargetPos",
+                  SrcVar = "BallPosition",
+                  SrcVarTable = "CharVars"
                 }
               },
               {
                 Function = BBSpellEffectCreate,
                 Params = {
-                  BindObjectVar = "Unit",
+                  BindObjectVar = "Nothing",
                   PosVar = "TargetPos",
-                  EffectName = "OrianaVacuumIndicator.troy",
+                  EffectName = "OrianaVacuumIndicatorSelfNoRing.troy",
                   Flags = 0,
                   EffectIDVar = "Particle",
                   EffectIDVarTable = "InstanceVars",
-                  BoneName = "spinnigtopridge",
+                  BoneName = "root",
+                  TargetObjectVar = "Nothing",
+                  TargetPosVar = "TargetPos",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Nothing",
+                  PosVar = "TargetPos",
+                  EffectName = "OrianaVacuumIndicatorSelfRing.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle",
+                  EffectIDVarTable = "InstanceVars",
+                  BoneName = "root",
                   TargetObjectVar = "Nothing",
                   TargetPosVar = "TargetPos",
                   SpecificUnitOnlyVar = "Owner",
@@ -354,7 +424,7 @@ BuffOnSpellCastBuildingBlocks = {
                 Params = {
                   DestVar = "UltimateType",
                   DestVarTable = "CharVars",
-                  SrcValue = 2
+                  SrcValue = 5
                 }
               },
               {
@@ -528,7 +598,7 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       Src1Var = "APBonus",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.2,
       DestVar = "Damage",
       MathOp = MO_MULTIPLY
     }
@@ -732,14 +802,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "orianavacuumindicator.troy"
+      Name = "orianavacuumindicatorselfnoring.troy"
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianavacuumindicatorselfnoring.troy"
-    }
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,
@@ -748,8 +816,16 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "orianavacuumindicator.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
-    Params = {Name = "root"}
+    Params = {
+      Name = "oriannaballtracker"
+    }
   },
   {
     Function = BBPreloadSpell,

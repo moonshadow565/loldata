@@ -20,7 +20,9 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -44,12 +46,13 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 105,
+      Src = 90,
       SlotNumber = 0,
       SlotNumberVar = "Slot",
       SlotType = InventorySlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }

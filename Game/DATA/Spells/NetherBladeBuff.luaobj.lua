@@ -19,14 +19,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ArmorPenAmount",
+      DestVar = "BaseDamage",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        7,
-        15,
-        25,
-        38,
-        50
+        20,
+        30,
+        40,
+        50,
+        60
       }
     }
   },
@@ -45,7 +45,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -58,15 +60,29 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorPenetrationMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorPenAmount",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "BaseDamage",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.15,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }

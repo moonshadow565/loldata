@@ -1,4 +1,4 @@
-BuffTextureName = "DrMundo.KissOfDeath.dds"
+BuffTextureName = "Mordekaiser_IronMan.dds"
 BuffName = "MordekaiserIronMan"
 PersistsThroughDeath = true
 BuffOnUpdateActionsBuildingBlocks = {

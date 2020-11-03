@@ -39,9 +39,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVar = "BurnDmg",
           DestVarTable = "InstanceVars",
           SrcValueByLevel = {
-            60,
-            80,
-            100
+            50,
+            70,
+            90
           }
         }
       },
@@ -57,7 +57,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.125,
+          SpellDamageRatio = 0.1,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false

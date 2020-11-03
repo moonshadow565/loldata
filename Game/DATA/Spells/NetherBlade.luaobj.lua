@@ -21,10 +21,10 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       DestVar = "ManaGainAmount",
       SrcValueByLevel = {
-        4,
         8,
-        12,
-        16,
+        11,
+        14,
+        17,
         20
       }
     }
@@ -86,7 +86,9 @@ BuffOnHitUnitBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

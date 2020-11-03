@@ -58,7 +58,8 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "ForcePulseCanCast"
+      BuffName = "ForcePulseCanCast",
+      ResetDuration = 0
     }
   }
 }

@@ -30,7 +30,7 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnDealDamageBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {

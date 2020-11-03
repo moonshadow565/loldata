@@ -87,7 +87,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 90,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

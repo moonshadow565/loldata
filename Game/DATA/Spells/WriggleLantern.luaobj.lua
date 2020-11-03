@@ -75,6 +75,7 @@ SelfExecuteBuildingBlocks = {
       MagicImmune = false,
       IgnoreCollision = false,
       Placemarker = false,
+      IsWard = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"

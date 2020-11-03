@@ -2,6 +2,15 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Gate",
+      ResetDuration = 0
+    }
+  },
+  {
     Function = BBStopChanneling,
     Params = {
       CasterVar = "Owner",
@@ -108,7 +117,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -128,7 +138,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -148,7 +159,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -168,7 +180,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -188,7 +201,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -208,13 +222,18 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "gate"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

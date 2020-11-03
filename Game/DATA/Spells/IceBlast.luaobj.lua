@@ -2,12 +2,20 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Yeti_IceBlast.dds"
+BuffName = "Iceblast"
 AutoBuffActivateEffect = "Global_Freeze.troy"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "SlowPercent",
+      RequiredVar = "MovementSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -18,7 +26,17 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "SlowPercent",
+      DeltaVar = "MovementSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "MovementSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -32,10 +50,10 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        -0.2,
+        -0.3,
         -0.4,
-        -0.45,
         -0.5,
-        -0.55,
         -0.6
       }
     }
@@ -52,6 +70,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         85,
@@ -62,7 +81,7 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
       PhysicalDamageRatio = 1,
@@ -75,7 +94,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Chilled",
+      BuffName = "IceBlast",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
       BuffType = BUFF_Slow,
@@ -83,13 +102,15 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
+    Params = {Name = "iceblast"}
   }
 }

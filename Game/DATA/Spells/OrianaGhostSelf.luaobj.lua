@@ -35,28 +35,49 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitSkinName,
+    Params = {TargetVar = "Owner", DestVar = "MyName"}
+  },
+  {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    Params = {
+      Src1Var = "MyName",
+      Value2 = "Oriana",
+      CompareOp = CO_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {
-          Src1Var = "GhostInitialized",
-          Src1VarTable = "CharVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
-            Function = BBPopCharacterData,
+            Function = BBIf,
             Params = {
-              TargetVar = "Owner",
-              IDVar = "TempSkin",
-              IDVarTable = "CharVars"
+              Src1Var = "GhostInitialized",
+              Src1VarTable = "CharVars",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBPopCharacterData,
+                Params = {
+                  TargetVar = "Owner",
+                  IDVar = "TempSkin",
+                  IDVarTable = "CharVars"
+                }
+              }
             }
           }
         }
       }
+    }
+  },
+  {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "OriannaBallTracker"
     }
   }
 }
@@ -175,6 +196,12 @@ BuffOnUpdateStatsBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "oriannaballtracker"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {

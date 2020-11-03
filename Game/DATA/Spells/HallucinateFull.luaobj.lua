@@ -33,7 +33,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -58,7 +59,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -105,7 +107,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -190,29 +193,15 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {
-      TargetVar = "Caster",
-      DestVar = "TotalDamage"
-    }
-  },
-  {
     Function = BBMath,
     Params = {
-      Src1Var = "TotalDamage",
+      Src1Var = "DamageAmount",
       Src2Var = "DamageDealt",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "TotalDamage",
       MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageAmount",
-      SrcValue = 0
     }
   },
   {
@@ -232,10 +221,17 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Caster",
-      CallForHelpAttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Caster",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "TotalDamage",
@@ -243,8 +239,8 @@ BuffOnHitUnitBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = true,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
   }
@@ -318,7 +314,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

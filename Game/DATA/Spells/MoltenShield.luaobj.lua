@@ -41,7 +41,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {

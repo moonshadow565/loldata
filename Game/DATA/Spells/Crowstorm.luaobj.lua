@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-ChannelDuration = 2
+ChannelDuration = 1.5
 BuffTextureName = "Fiddlesticks_Crowstorm.dds"
 BuffName = "Crowstorm"
 AutoBuffActivateEffect = ""
@@ -48,7 +48,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -66,7 +67,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -90,7 +92,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -108,7 +111,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -163,7 +167,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.2,
+              SpellDamageRatio = 0.225,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -209,7 +213,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -228,7 +233,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -246,7 +252,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

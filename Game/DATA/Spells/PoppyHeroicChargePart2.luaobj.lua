@@ -123,6 +123,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FIRST_COLLISION_HIT,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
   },
@@ -141,7 +142,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -290,7 +293,9 @@ BuffOnMoveSuccessBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -318,6 +323,20 @@ BuffOnMoveSuccessBuildingBlocks = {
                   TargetVar = "Owner",
                   Duration = 1.5
                 }
+              },
+              {
+                Function = BBIf,
+                Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+                SubBlocks = {
+                  {
+                    Function = BBIssueOrder,
+                    Params = {
+                      WhomToOrderVar = "Caster",
+                      TargetOfOrderVar = "Owner",
+                      Order = AI_ATTACKTO
+                    }
+                  }
+                }
               }
             }
           },
@@ -339,7 +358,8 @@ BuffOnMoveSuccessBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

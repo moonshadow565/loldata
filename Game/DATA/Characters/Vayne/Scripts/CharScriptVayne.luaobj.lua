@@ -105,7 +105,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             Params = {
               Src1Var = "SpeedBoost",
               Src1Value = 0,
-              Src2Value = 4,
+              Src2Value = 3,
               DestVar = "SpeedBoost",
               MathOp = MO_MULTIPLY
             }
@@ -283,11 +283,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       DestVar = "Spear",
       SrcValueByLevel = {
+        0.4,
+        0.45,
+        0.5,
         0.55,
-        0.6,
-        0.65,
-        0.7,
-        0.75
+        0.6
       }
     }
   },
@@ -401,77 +401,6 @@ CharOnActivateBuildingBlocks = {
     }
   }
 }
-CharOnLevelUpSpellBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Slot",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "VayneSilveredBolts",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
-    }
-  }
-}
 CharOnResurrectBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -564,6 +493,77 @@ CharOnResurrectBuildingBlocks = {
           State = false
         }
       }
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "VayneSilveredBolts",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
+      }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

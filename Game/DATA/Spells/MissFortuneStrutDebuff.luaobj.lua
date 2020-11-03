@@ -292,7 +292,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {

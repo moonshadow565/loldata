@@ -21,20 +21,30 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnDeathBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD}
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBIncGold,
+        Function = BBIf,
         Params = {
-          TargetVar = "Attacker",
-          Delta = 0,
-          DeltaVar = "GoldGain",
-          DeltaVarTable = "InstanceVars"
+          Src1Var = "Attacker",
+          Src2Var = "Caster",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncGold,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 0,
+              DeltaVar = "GoldGain",
+              DeltaVarTable = "InstanceVars"
+            }
+          }
         }
       }
     }
@@ -108,7 +118,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1,
+      Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

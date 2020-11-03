@@ -114,52 +114,62 @@ BuffOnPreDamageBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBGetLevel,
-                Params = {TargetVar = "Owner", DestVar = "Level"}
-              },
-              {
-                Function = BBSetVarInTable,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  DestVar = "RebirthArmorMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValueByLevel = {
-                    -40,
-                    -40,
-                    -40,
-                    -40,
-                    -25,
-                    -25,
-                    -25,
-                    -10,
-                    -10,
-                    -10,
-                    -10,
-                    5,
-                    5,
-                    5,
-                    20,
-                    20,
-                    20,
-                    20
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "YorickRAZombie"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBGetLevel,
+                    Params = {TargetVar = "Owner", DestVar = "Level"}
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "RebirthArmorMod",
+                      DestVarTable = "NextBuffVars",
+                      SrcValueByLevel = {
+                        -40,
+                        -40,
+                        -40,
+                        -40,
+                        -25,
+                        -25,
+                        -25,
+                        -10,
+                        -10,
+                        -10,
+                        -10,
+                        5,
+                        5,
+                        5,
+                        20,
+                        20,
+                        20,
+                        20
+                      }
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "Rebirth",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 6,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
                   }
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "Rebirth",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 6,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
                 }
               }
             }
@@ -225,5 +235,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "rebirth"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombie"
+    }
   }
 }

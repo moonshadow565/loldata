@@ -44,7 +44,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -61,7 +63,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -84,7 +88,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -101,7 +107,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -219,7 +227,9 @@ OnBuffDeactivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -241,7 +251,9 @@ OnBuffDeactivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -313,10 +325,10 @@ OnBuffDeactivateBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         10,
-        14,
-        18,
-        22,
-        26
+        13,
+        16,
+        19,
+        22
       }
     }
   },
@@ -327,10 +339,10 @@ OnBuffDeactivateBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         0.1,
-        0.14,
-        0.18,
-        0.22,
-        0.26
+        0.13,
+        0.16,
+        0.19,
+        0.22
       }
     }
   },

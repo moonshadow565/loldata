@@ -12,31 +12,6 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "EzrealRisingSpellForce",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 5,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        0,
-        0,
-        0,
-        0,
-        0
-      },
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "cooldown",
@@ -78,134 +53,6 @@ TargetExecuteBuildingBlocks = {
       SlotType = SpellSlots,
       OwnerVar = "Attacker",
       Function = GetSlotSpellCooldownTime
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "cooldown",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cooldown",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "newCooldown",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTimeVer2,
-        Params = {
-          Src = 0,
-          SrcVar = "newCooldown",
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker",
-          BroadcastEvent = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "cooldown1",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cooldown1",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "newCooldown1",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTimeVer2,
-        Params = {
-          Src = 0,
-          SrcVar = "newCooldown1",
-          SlotNumber = 1,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker",
-          BroadcastEvent = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "cooldown2",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cooldown2",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "newCooldown2",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTimeVer2,
-        Params = {
-          Src = 0,
-          SrcVar = "newCooldown2",
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker",
-          BroadcastEvent = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "cooldown3",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cooldown3",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "newCooldown3",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTimeVer2,
-        Params = {
-          Src = 0,
-          SrcVar = "newCooldown3",
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker",
-          BroadcastEvent = false
-        }
-      }
     }
   },
   {
@@ -292,6 +139,134 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown",
+              SlotNumber = 0,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Attacker",
+              BroadcastEvent = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown1",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown1",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown1",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown1",
+              SlotNumber = 1,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Attacker",
+              BroadcastEvent = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown2",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown2",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown2",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown2",
+              SlotNumber = 2,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Attacker",
+              BroadcastEvent = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown3",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown3",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown3",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown3",
+              SlotNumber = 3,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Attacker",
+              BroadcastEvent = false
+            }
+          }
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -331,6 +306,31 @@ TargetExecuteBuildingBlocks = {
         Params = {
           MissileIDVar = "MissileNetworkID"
         }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "EzrealRisingSpellForce",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 5,
+          NumberOfStacks = 1,
+          Duration = 6,
+          BuffVarsTable = "NextBuffVars",
+          DurationByLevel = {
+            0,
+            0,
+            0,
+            0,
+            0
+          },
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
       }
     }
   },
@@ -342,6 +342,134 @@ TargetExecuteBuildingBlocks = {
         Function = BBIf,
         Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "cooldown",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "cooldown",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "newCooldown",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "newCooldown",
+                  SlotNumber = 0,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Attacker",
+                  BroadcastEvent = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "cooldown1",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "cooldown1",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "newCooldown1",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "newCooldown1",
+                  SlotNumber = 1,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Attacker",
+                  BroadcastEvent = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "cooldown2",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "cooldown2",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "newCooldown2",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "newCooldown2",
+                  SlotNumber = 2,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Attacker",
+                  BroadcastEvent = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "cooldown3",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "cooldown3",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "newCooldown3",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTimeVer2,
+                Params = {
+                  Src = 0,
+                  SrcVar = "newCooldown3",
+                  SlotNumber = 3,
+                  SlotType = SpellSlots,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  OwnerVar = "Attacker",
+                  BroadcastEvent = false
+                }
+              }
+            }
+          },
           {
             Function = BBApplyDamage,
             Params = {
@@ -382,6 +510,31 @@ TargetExecuteBuildingBlocks = {
             Params = {
               MissileIDVar = "MissileNetworkID"
             }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "EzrealRisingSpellForce",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 5,
+              NumberOfStacks = 1,
+              Duration = 6,
+              BuffVarsTable = "NextBuffVars",
+              DurationByLevel = {
+                0,
+                0,
+                0,
+                0,
+                0
+              },
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
           }
         }
       },
@@ -405,6 +558,134 @@ TargetExecuteBuildingBlocks = {
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "cooldown",
+                  Value2 = 0,
+                  CompareOp = CO_GREATER_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "cooldown",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "newCooldown",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSetSlotSpellCooldownTimeVer2,
+                    Params = {
+                      Src = 0,
+                      SrcVar = "newCooldown",
+                      SlotNumber = 0,
+                      SlotType = SpellSlots,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      OwnerVar = "Attacker",
+                      BroadcastEvent = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "cooldown1",
+                  Value2 = 0,
+                  CompareOp = CO_GREATER_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "cooldown1",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "newCooldown1",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSetSlotSpellCooldownTimeVer2,
+                    Params = {
+                      Src = 0,
+                      SrcVar = "newCooldown1",
+                      SlotNumber = 1,
+                      SlotType = SpellSlots,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      OwnerVar = "Attacker",
+                      BroadcastEvent = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "cooldown2",
+                  Value2 = 0,
+                  CompareOp = CO_GREATER_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "cooldown2",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "newCooldown2",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSetSlotSpellCooldownTimeVer2,
+                    Params = {
+                      Src = 0,
+                      SrcVar = "newCooldown2",
+                      SlotNumber = 2,
+                      SlotType = SpellSlots,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      OwnerVar = "Attacker",
+                      BroadcastEvent = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "cooldown3",
+                  Value2 = 0,
+                  CompareOp = CO_GREATER_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "cooldown3",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "newCooldown3",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSetSlotSpellCooldownTimeVer2,
+                    Params = {
+                      Src = 0,
+                      SrcVar = "newCooldown3",
+                      SlotNumber = 3,
+                      SlotType = SpellSlots,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      OwnerVar = "Attacker",
+                      BroadcastEvent = false
+                    }
+                  }
+                }
+              },
               {
                 Function = BBApplyDamage,
                 Params = {
@@ -445,6 +726,31 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   MissileIDVar = "MissileNetworkID"
                 }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "EzrealRisingSpellForce",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 5,
+                  NumberOfStacks = 1,
+                  Duration = 6,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationByLevel = {
+                    0,
+                    0,
+                    0,
+                    0,
+                    0
+                  },
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
               }
             }
           }
@@ -455,15 +761,15 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ezrealrisingspellforce"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_mysticshot_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ezrealrisingspellforce"
     }
   }
 }

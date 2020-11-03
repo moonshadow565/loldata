@@ -1,7 +1,5 @@
 BuffTextureName = "Janna_Tailwind.dds"
 BuffName = "Tailwind"
-PersistsThroughDeath = true
-NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,

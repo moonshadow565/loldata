@@ -33,11 +33,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12
+        0.18,
+        0.21,
+        0.24,
+        0.27,
+        0.3
       }
     }
   },
@@ -51,10 +51,11 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 10,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -81,11 +82,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealLevel",
       SrcValueByLevel = {
-        65,
-        100,
-        135,
+        60,
+        115,
         170,
-        205
+        225,
+        280
       }
     }
   },
@@ -94,7 +95,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.25,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }

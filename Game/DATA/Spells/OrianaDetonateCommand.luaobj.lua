@@ -104,7 +104,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 25000,
-      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf AffectUntargetable ",
+      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 1,
       BuffNameFilter = "OrianaGhost",
@@ -160,28 +160,26 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfHasBuff,
         Params = {
-          Src1Var = "GhostAlive",
-          Src1VarTable = "CharVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
+          OwnerVar = "Owner",
+          AttackerVar = "Nothing",
+          BuffName = "OriannaBallTracker"
         },
         SubBlocks = {
           {
-            Function = BBGetMissilePosFromID,
+            Function = BBSetVarInTable,
             Params = {
-              TargetIDVar = "MissileID",
-              TargetIDVarTable = "CharVars",
-              TargetID = 0,
-              ResultVar = "TargetPos"
+              DestVar = "CurrentType",
+              SrcValue = 5
             }
           },
           {
             Function = BBSetVarInTable,
             Params = {
-              DestVar = "CurrentType",
-              SrcValue = 2
+              DestVar = "TargetPos",
+              SrcVar = "BallPosition",
+              SrcVarTable = "CharVars"
             }
           }
         }
@@ -249,26 +247,72 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetStatus,
         Params = {
-          BindObjectVar = "Other1",
-          PosVar = "TargetPos",
-          EffectName = "Oriana_Shockwave_nova_ally.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "SpinnigTopRidge",
-          TargetObjectVar = "Nothing",
-          TargetPosVar = "TargetPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          TargetVar = "Other1",
+          DestVar = "IsStealthed",
+          Status = GetStealthed
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Other1",
+              PosVar = "TargetPos",
+              EffectName = "Oriana_Shockwave_nova_ally.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "SpinnigTopRidge",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "Oriana_Shockwave_nova.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -620,6 +664,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaghost"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "oriannaballtracker"
     }
   },
   {

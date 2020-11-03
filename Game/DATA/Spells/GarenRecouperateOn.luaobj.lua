@@ -46,30 +46,21 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSpellBuffAdd,
             Params = {
-              Src1Var = "CurHealth",
-              Src2Var = "MaxHealth",
-              CompareOp = CO_LESS_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "GarenRecouperate1",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = false,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 25000,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              }
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "GarenRecouperate1",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = false,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

@@ -33,7 +33,8 @@ ChannelingStartBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -56,7 +57,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -94,7 +96,8 @@ ChannelingStartBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -111,7 +114,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -128,7 +132,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -142,7 +147,7 @@ ChannelingStartBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.3,
+      SpellDamageRatio = 0.26,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -250,7 +255,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.3,
+                  SpellDamageRatio = 0.26,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false

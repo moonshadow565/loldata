@@ -14,7 +14,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -74,8 +76,8 @@ BuffOnUpdateStatsBuildingBlocks = {
           DestVar = "FeastBase",
           SrcValueByLevel = {
             300,
-            550,
-            800
+            475,
+            650
           }
         }
       },

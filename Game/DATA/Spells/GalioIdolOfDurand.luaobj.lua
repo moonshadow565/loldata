@@ -65,7 +65,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -83,7 +84,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -107,7 +109,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -125,7 +128,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -145,7 +149,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -190,7 +195,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -208,7 +214,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -311,7 +318,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -382,7 +390,27 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "DamageType",
+      Value2 = TRUE_DAMAGE,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.7,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
   {
     Function = BBIf,
     Params = {
@@ -401,28 +429,6 @@ BuffOnTakeDamageBuildingBlocks = {
           DestVar = "HitCount",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
-        }
-      }
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "DamageType",
-      Value2 = TRUE_DAMAGE,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0.7,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
         }
       }
     }

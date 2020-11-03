@@ -290,42 +290,6 @@ SpellOnMissileEndBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Other3",
-              AttackerVar = "Owner",
-              BuffName = "OrianaGhost",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Other3",
-              AttackerVar = "Owner",
-              BuffName = "OrianaGhostMinion",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
             Function = BBGetSlotSpellInfo,
             Params = {
               DestVar = "Level",
@@ -604,7 +568,7 @@ TargetExecuteBuildingBlocks = {
           BuffName = "OrianaIzunaDamage",
           BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Aura,
+          BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
@@ -663,18 +627,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "oriana_ball"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghostminion"
     }
   },
   {

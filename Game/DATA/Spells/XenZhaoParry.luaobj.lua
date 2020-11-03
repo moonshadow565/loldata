@@ -56,7 +56,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -98,9 +99,9 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "PercentByLevel",
       SrcValueByLevel = {
-        0.2,
-        0.2,
-        0.2
+        0.15,
+        0.15,
+        0.15
       }
     }
   },
@@ -120,7 +121,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -215,7 +217,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -233,7 +236,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -251,7 +255,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -422,9 +427,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "ScalingArmor",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        7,
-        10,
-        13
+        5,
+        8,
+        11
       }
     }
   },
@@ -434,9 +439,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "ScalingMR",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        7,
-        10,
-        13
+        5,
+        8,
+        11
       }
     }
   },

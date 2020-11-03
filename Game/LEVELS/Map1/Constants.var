@@ -99,6 +99,10 @@ sp_HealthRegenPercent                   =      0.085 ; The percentage of max HP 
 sp_ManaRegenPercent                     =      0.085 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_RegenTickInterval                    =      1.000 ; Interval between spawn point regen ticks.
 
+; Attack Flags
+ca_RevealAttackerRange                  =    400.000 ; The range of reveal for attackers
+ca_RevealAttackerTimeOut                =      1.500 ; The timeout for the reveal for attackers
+
 ; obj_BarracksDampener variables
 
 ; obj_AI_Hero variables
@@ -137,8 +141,6 @@ cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flash
 cr_MouseScrollSpeed                     =   3900.000 ; Mouse Scroll Speed
 
 ; Attack Flags
-ca_RevealAttackerRange                  =    400.000 ; The range of reveal for attackers
-ca_RevealAttackerTimeOut                =      1.500 ; The timeout for the reveal for attackers
 ca_MinCastRotationSpeed                 =    250.000 ; Whats the minimum speed we will rotate to face a target during a spell cast?
 
 ; obj_AI_Base variables

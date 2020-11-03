@@ -23,11 +23,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "scalingDamage",
       SrcValueByLevel = {
+        0.4,
+        0.45,
+        0.5,
         0.55,
-        0.6,
-        0.65,
-        0.7,
-        0.75
+        0.6
       }
     }
   },
@@ -198,7 +198,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_NEUTRAL,
               FOWVisibilityRadius = 200,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {

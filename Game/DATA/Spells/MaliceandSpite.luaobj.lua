@@ -9,6 +9,37 @@ AutoBuffActivateEffect2 = "evelyn_maliceSpite_buf.troy"
 AutoBuffActivateAttachBoneName2 = "r_hand"
 AutoBuffActivateEffect3 = "evelyn_maliceSpite_speed_buf.troy"
 AutoBuffActivateAttachBoneName3 = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell4",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false,
+      Blend = false,
+      Lock = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "EvelynnUnlockAnimation",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -41,9 +72,9 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
+        0.25,
         0.5,
-        0.75,
-        1
+        0.75
       }
     }
   }
@@ -68,38 +99,13 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
-OnBuffActivateBuildingBlocks = {
+PreLoadBuildingBlocks = {
   {
-    Function = BBPlayAnimation,
+    Function = BBPreloadSpell,
     Params = {
-      AnimationName = "Spell4",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = false,
-      Blend = false,
-      Lock = false
+      Name = "evelynnunlockanimation"
     }
   },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "EvelynnUnlockAnimation",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  }
-}
-PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {

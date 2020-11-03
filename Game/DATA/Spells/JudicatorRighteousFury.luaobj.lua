@@ -67,7 +67,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner"}
+    Params = {TargetVar = "Owner", Reset = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -89,11 +89,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackRangeIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        400,
-        400,
-        400,
-        400,
-        400
+        425,
+        425,
+        425,
+        425,
+        425
       }
     }
   },
@@ -110,7 +110,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

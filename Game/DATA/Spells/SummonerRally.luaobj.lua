@@ -55,7 +55,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -81,7 +82,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -153,6 +155,7 @@ TargetExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = true,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",

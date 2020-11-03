@@ -38,7 +38,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -109,10 +110,10 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            250,
-            300,
-            350,
-            400,
+            200,
+            262.5,
+            325,
+            387.5,
             450
           },
           Damage = 0,
@@ -138,10 +139,10 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            500,
-            600,
-            700,
-            800,
+            400,
+            525,
+            650,
+            775,
             900
           },
           Damage = 0,

@@ -23,16 +23,27 @@ BuffOnCollisionBuildingBlocks = {
             Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_DEAD},
             SubBlocks = {
               {
-                Function = BBSpellBuffRemove,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "GragasBodySlamHolder"
+                  OwnerVar = "Target",
+                  CasterVar = "Nothing",
+                  BuffName = "SharedWardBuff"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "GragasBodySlamHolder",
+                      ResetDuration = 0
+                    }
+                  },
+                  {
+                    Function = BBStopMoveBlock,
+                    Params = {TargetVar = "Owner"}
+                  }
                 }
-              },
-              {
-                Function = BBStopMoveBlock,
-                Params = {TargetVar = "Owner"}
               }
             }
           }
@@ -116,7 +127,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -131,6 +144,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0,
       IdealDistanceVar = "Distance",
       IdealDistanceVarTable = "InstanceVars"
@@ -322,7 +336,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.1,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -338,7 +353,9 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -355,7 +372,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -369,7 +387,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GragasBodySlam"
+      BuffName = "GragasBodySlam",
+      ResetDuration = 0
     }
   },
   {
@@ -397,7 +416,9 @@ BuffOnMoveEndBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -506,7 +527,9 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -523,7 +546,9 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -558,7 +583,8 @@ BuffOnMoveEndBuildingBlocks = {
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -586,7 +612,9 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -603,7 +631,9 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -637,7 +667,8 @@ BuffOnMoveEndBuildingBlocks = {
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -647,6 +678,12 @@ BuffOnMoveEndBuildingBlocks = {
 }
 BuffOnMoveSuccessBuildingBlocks = {}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

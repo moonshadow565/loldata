@@ -111,6 +111,52 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DrainPercent",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0.25
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DrainPercent",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0.1
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GlobalDrain",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.01,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
@@ -126,56 +172,6 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageToDeal2",
-          Src1Value = 0,
-          Src2Value = 0.2,
-          DestVar = "HealthGain",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "HealthGain",
-          HealerVar = "Owner"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageToDeal2",
-          Src1Value = 0,
-          Src2Value = 0.1,
-          DestVar = "HealthGain",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "HealthGain",
-          HealerVar = "Owner"
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -188,5 +184,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globaldrain"
+    }
   }
 }

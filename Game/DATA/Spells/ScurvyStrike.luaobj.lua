@@ -4,128 +4,102 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffName = "ScurvyStrike"
-TargetExecuteBuildingBlocks = {
+OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetStat,
+    Function = BBRequireVar,
     Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Owner",
-      DestVar = "AttackDamage"
+      RequiredVar = "DotDamage",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBRequireVar,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "AttackDamage",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      RequiredVar = "moveSpeedMod",
+      RequiredVarTable = "InstanceVars"
     }
-  },
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+        Function = BBGetBuffCountFromCaster,
+        Params = {
+          DestVar = "Count",
+          TargetVar = "Owner",
+          CasterVar = "Attacker",
+          BuffName = "ScurvyStrikeParticle"
+        }
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetLevel,
-            Params = {TargetVar = "Owner", DestVar = "Level"}
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DotDamage",
-              DestVarTable = "NextBuffVars",
-              SrcValueByLevel = {
-                5,
-                6,
-                6,
-                7,
-                8,
-                9,
-                10,
-                10,
-                11,
-                12,
-                13,
-                14,
-                14,
-                15,
-                16,
-                17,
-                18,
-                18
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Owner",
-              BuffName = "ScurvyStrikeParticle",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Damage,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 10,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "Internal_50MS",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 10,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "GrievousWound",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 10,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
+        Function = BBMath,
+        Params = {
+          Src1Var = "DotDamage",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "Count",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "damageToDeal",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Owner",
+          Damage = 0,
+          DamageVar = "damageToDeal",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_PROC,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBGetBuffCountFromCaster,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      CasterVar = "Attacker",
+      BuffName = "ScurvyStrikeParticle"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "moveSpeedMod",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "Count",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "totalSlow",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "totalSlow",
+      Delta = 0
     }
   }
 }
@@ -134,18 +108,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "scurvystrikeparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "internal_50ms"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "grievouswound"
     }
   }
 }

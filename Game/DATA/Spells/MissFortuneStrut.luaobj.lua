@@ -461,7 +461,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {

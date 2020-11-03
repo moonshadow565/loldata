@@ -2,7 +2,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "StunDuration",
+      RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -55,9 +55,17 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TeamID",
+      RequiredVarTable = "InstanceVars"
     }
   }
 }
@@ -73,9 +81,18 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "StunDuration",
+      DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcVar = "StunDuration",
+      SrcVar = "MoveSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TeamID",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TeamID",
       SrcVarTable = "InstanceVars"
     }
   },
@@ -95,13 +112,15 @@ OnBuffDeactivateBuildingBlocks = {
       DurationVar = "StealthDuration",
       DurationVarTable = "InstanceVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false

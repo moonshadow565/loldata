@@ -6,6 +6,196 @@ BuffName = "Noxious Trap"
 SpellFXOverrideSkins = {
   "AstronautTeemo"
 }
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "MaxStack",
+          Value2 = 76,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_CombatDehancer,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -137,7 +327,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -169,7 +360,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -370,7 +562,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "Stealth"
+              BuffName = "Stealth",
+              ResetDuration = 0
             }
           },
           {
@@ -404,7 +597,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -635,6 +829,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = true,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -688,6 +883,24 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Invisibility,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 600,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
+      AttackerVar = "Attacker",
+      BuffName = "SharedWardBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 600,
@@ -750,5 +963,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "bantamtrap"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
+    }
   }
 }

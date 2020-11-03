@@ -26,79 +26,97 @@ BuffOnCollisionBuildingBlocks = {
                 Function = BBIfNotHasBuff,
                 Params = {
                   OwnerVar = "Target",
-                  CasterVar = "Owner",
-                  BuffName = "ShenShadowDashCooldown"
+                  CasterVar = "Nothing",
+                  BuffName = "SharedWardBuff"
                 },
                 SubBlocks = {
                   {
-                    Function = BBGetTeamID,
-                    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
+                    Function = BBIfNotHasBuff,
                     Params = {
-                      TargetVar = "Target",
-                      AttackerVar = "Owner",
-                      BuffName = "ShenShadowDashCooldown",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Internal,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 0,
-                      BuffVarsTable = "NextBuffVars",
-                      DurationVar = "tauntDuration",
-                      DurationVarTable = "InstanceVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false,
-                      IsHiddenOnClient = false
-                    }
-                  },
-                  {
-                    Function = BBBreakSpellShields,
-                    Params = {TargetVar = "Target"}
-                  },
-                  {
-                    Function = BBApplyTaunt,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Target",
-                      Duration = 0,
-                      DurationVar = "tauntDuration",
-                      DurationVarTable = "InstanceVars"
-                    }
-                  },
-                  {
-                    Function = BBIf,
-                    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+                      OwnerVar = "Target",
+                      CasterVar = "Owner",
+                      BuffName = "ShenShadowDashCooldown"
+                    },
                     SubBlocks = {
                       {
-                        Function = BBIf,
+                        Function = BBGetTeamID,
+                        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+                      },
+                      {
+                        Function = BBSpellBuffAdd,
                         Params = {
-                          Src1Var = "EnergyRefunds",
-                          Src1VarTable = "InstanceVars",
-                          Value2 = 1,
-                          CompareOp = CO_GREATER_THAN_OR_EQUAL
-                        },
+                          TargetVar = "Target",
+                          AttackerVar = "Owner",
+                          BuffName = "ShenShadowDashCooldown",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 0,
+                          BuffVarsTable = "NextBuffVars",
+                          DurationVar = "tauntDuration",
+                          DurationVarTable = "InstanceVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
+                        }
+                      },
+                      {
+                        Function = BBBreakSpellShields,
+                        Params = {TargetVar = "Target"}
+                      },
+                      {
+                        Function = BBSetVarInTable,
+                        Params = {
+                          DestVar = "playParticle",
+                          DestVarTable = "NextBuffVars",
+                          SrcValue = true
+                        }
+                      },
+                      {
+                        Function = BBApplyTaunt,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          TargetVar = "Target",
+                          Duration = 0,
+                          DurationVar = "tauntDuration",
+                          DurationVarTable = "InstanceVars"
+                        }
+                      },
+                      {
+                        Function = BBIf,
+                        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
                         SubBlocks = {
                           {
-                            Function = BBIncPAR,
-                            Params = {
-                              TargetVar = "Owner",
-                              Delta = 50,
-                              PARType = PAR_ENERGY
-                            }
-                          },
-                          {
-                            Function = BBMath,
+                            Function = BBIf,
                             Params = {
                               Src1Var = "EnergyRefunds",
                               Src1VarTable = "InstanceVars",
-                              Src1Value = 0,
-                              Src2Value = 1,
-                              DestVar = "EnergyRefunds",
-                              DestVarTable = "InstanceVars",
-                              MathOp = MO_SUBTRACT
+                              Value2 = 1,
+                              CompareOp = CO_GREATER_THAN_OR_EQUAL
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBIncPAR,
+                                Params = {
+                                  TargetVar = "Owner",
+                                  Delta = 50,
+                                  PARType = PAR_ENERGY
+                                }
+                              },
+                              {
+                                Function = BBMath,
+                                Params = {
+                                  Src1Var = "EnergyRefunds",
+                                  Src1VarTable = "InstanceVars",
+                                  Src1Value = 0,
+                                  Src2Value = 1,
+                                  DestVar = "EnergyRefunds",
+                                  DestVarTable = "InstanceVars",
+                                  MathOp = MO_SUBTRACT
+                                }
+                              }
                             }
                           }
                         }
@@ -200,7 +218,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -467,7 +486,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -583,6 +603,14 @@ BuffOnMoveEndBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "playParticle",
+              DestVarTable = "NextBuffVars",
+              SrcValue = true
+            }
+          },
+          {
             Function = BBApplyTaunt,
             Params = {
               AttackerVar = "Attacker",
@@ -607,7 +635,8 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -657,6 +686,12 @@ BuffOnMoveEndBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

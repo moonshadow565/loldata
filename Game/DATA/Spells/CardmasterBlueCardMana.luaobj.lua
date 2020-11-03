@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnDealDamageBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
@@ -49,7 +49,8 @@ BuffOnDealDamageBuildingBlocks = {
                   FOWTeamOverrideVar = "teamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -67,7 +68,8 @@ BuffOnDealDamageBuildingBlocks = {
                   FOWTeamOverrideVar = "teamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {

@@ -56,9 +56,9 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIfHasBuff,
     Params = {
-      OwnerVar = "Attacker",
+      OwnerVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "GalioRunicSkin"
+      BuffName = "GalioIdolOfDurandMarker"
     },
     SubBlocks = {
       {
@@ -77,7 +77,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -93,9 +95,9 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIfHasBuff,
     Params = {
-      OwnerVar = "Attacker",
+      OwnerVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "ShenWayOfTheNinjaMarker"
+      BuffName = "ShenShadowDashCooldown"
     },
     SubBlocks = {
       {
@@ -114,7 +116,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -131,7 +135,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -147,9 +153,9 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIfHasBuff,
     Params = {
-      OwnerVar = "Attacker",
+      OwnerVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "SpikedShell"
+      BuffName = "PuncturingTauntArmorDebuff"
     },
     SubBlocks = {
       {
@@ -168,7 +174,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -240,7 +248,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "galiorunicskin"
+      Name = "galioidolofdurandmarker"
     }
   },
   {
@@ -252,7 +260,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shenwayoftheninjamarker"
+      Name = "shenshadowdashcooldown"
     }
   },
   {
@@ -270,7 +278,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "spikedshell"
+      Name = "puncturingtauntarmordebuff"
     }
   },
   {

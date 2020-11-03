@@ -19,24 +19,56 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "CDOne",
-      Value2 = 0.24,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
       {
-        Function = BBSetSlotSpellCooldownTimeVer2,
+        Function = BBIf,
         Params = {
-          Src = 0.24,
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          Src1Var = "CDOne",
+          Value2 = 0.24,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0.24,
+              SlotNumber = 0,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner",
+              BroadcastEvent = false
+            }
+          }
         }
       }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
@@ -53,22 +85,43 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "CDTwo",
-      Value2 = 0.24,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
       {
-        Function = BBSetSlotSpellCooldownTimeVer2,
+        Function = BBIf,
         Params = {
-          Src = 0.24,
-          SlotNumber = 1,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          Src1Var = "CDTwo",
+          Value2 = 0.24,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0.24,
+              SlotNumber = 1,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner",
+              BroadcastEvent = false
+            }
+          }
         }
       }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
@@ -85,22 +138,43 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "CDThree",
-      Value2 = 0.24,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
       {
-        Function = BBSetSlotSpellCooldownTimeVer2,
+        Function = BBIf,
         Params = {
-          Src = 0.24,
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          Src1Var = "CDThree",
+          Value2 = 0.24,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0.24,
+              SlotNumber = 2,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner",
+              BroadcastEvent = false
+            }
+          }
         }
       }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
@@ -117,20 +191,30 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "CDFour",
-      Value2 = 0.24,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
       {
-        Function = BBSetSlotSpellCooldownTimeVer2,
+        Function = BBIf,
         Params = {
-          Src = 0.24,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          Src1Var = "CDFour",
+          Value2 = 0.24,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0.24,
+              SlotNumber = 3,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner",
+              BroadcastEvent = false
+            }
+          }
         }
       }
     }

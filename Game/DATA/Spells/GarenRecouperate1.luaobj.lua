@@ -32,7 +32,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -40,7 +40,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -59,7 +60,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -67,7 +68,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -86,7 +88,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -94,7 +96,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -113,7 +116,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -121,7 +124,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -140,7 +144,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -148,7 +152,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -167,7 +172,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -175,7 +180,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -194,7 +200,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -202,7 +208,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -221,7 +228,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -229,7 +236,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -248,7 +256,7 @@ BuffOnAllowAddBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -256,7 +264,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -284,7 +293,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -292,7 +303,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GarenRecouperateOn"
+      BuffName = "GarenRecouperateOn",
+      ResetDuration = 0
     }
   }
 }
@@ -318,7 +330,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -378,45 +391,18 @@ BuffOnUpdateStatsBuildingBlocks = {
             }
           }
         }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "healthPercent",
-          Value2 = 1,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 7,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
       }
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "GarenRecoupDebuff",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
@@ -424,7 +410,8 @@ BuffOnTakeDamageBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

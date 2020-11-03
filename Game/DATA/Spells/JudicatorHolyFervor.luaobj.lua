@@ -4,6 +4,24 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ADMod",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "APMod",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -68,7 +86,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       Src1Var = "CurrentAD",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.2,
       DestVar = "APMod",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
@@ -79,28 +97,10 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       Src1Var = "CurrentAP",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.1,
       DestVar = "ADMod",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ADMod",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "APMod",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
     }
   }
 }

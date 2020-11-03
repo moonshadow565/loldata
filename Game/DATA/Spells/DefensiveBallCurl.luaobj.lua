@@ -51,7 +51,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -71,7 +73,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
@@ -96,7 +99,9 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -171,7 +176,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -250,7 +256,7 @@ BuffOnBeingHitBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.25,
+          SpellDamageRatio = 0,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -268,7 +274,9 @@ BuffOnBeingHitBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -317,7 +325,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

@@ -48,31 +48,61 @@ BuffOnPreDamageBuildingBlocks = {
                     Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
                     SubBlocks = {
                       {
-                        Function = BBMath,
+                        Function = BBIfNotHasBuff,
                         Params = {
-                          Src1Var = "CurHealth",
-                          Src1Value = 0,
-                          Src2Value = 1,
-                          DestVar = "DamageAmount",
-                          MathOp = MO_SUBTRACT
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Owner",
-                          AttackerVar = "Owner",
-                          BuffName = "GuardianAngel",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 4,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
+                          OwnerVar = "Owner",
+                          CasterVar = "Owner",
+                          BuffName = "YorickRAZombie"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBIfNotHasBuff,
+                            Params = {
+                              OwnerVar = "Owner",
+                              CasterVar = "Owner",
+                              BuffName = "YorickRAZombieLich"
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBIfNotHasBuff,
+                                Params = {
+                                  OwnerVar = "Owner",
+                                  CasterVar = "Owner",
+                                  BuffName = "YorickRAZombieKogMaw"
+                                },
+                                SubBlocks = {
+                                  {
+                                    Function = BBMath,
+                                    Params = {
+                                      Src1Var = "CurHealth",
+                                      Src1Value = 0,
+                                      Src2Value = 1,
+                                      DestVar = "DamageAmount",
+                                      MathOp = MO_SUBTRACT
+                                    }
+                                  },
+                                  {
+                                    Function = BBSpellBuffAdd,
+                                    Params = {
+                                      TargetVar = "Owner",
+                                      AttackerVar = "Owner",
+                                      BuffName = "GuardianAngel",
+                                      BuffAddType = BUFF_RENEW_EXISTING,
+                                      StacksExclusive = true,
+                                      BuffType = BUFF_Internal,
+                                      MaxStack = 1,
+                                      NumberOfStacks = 1,
+                                      Duration = 4,
+                                      BuffVarsTable = "NextBuffVars",
+                                      TickRate = 0,
+                                      CanMitigateDuration = false,
+                                      IsHiddenOnClient = false
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
                         }
                       }
                     }
@@ -97,6 +127,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "guardianangel"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombie"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombielich"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombiekogmaw"
     }
   }
 }

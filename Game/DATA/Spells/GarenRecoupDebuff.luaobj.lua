@@ -31,7 +31,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -58,7 +59,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -85,7 +87,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -112,7 +115,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -139,7 +143,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -166,7 +171,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -193,7 +199,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -220,7 +227,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -247,7 +255,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -261,11 +270,12 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GarenRecouperate1"
+      BuffName = "GarenRecouperate1",
+      ResetDuration = 0
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
@@ -280,26 +290,8 @@ BuffOnTakeDamageBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  }
-}
-BuffOnDealDamageBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "GarenRecoupDebuff",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 7,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

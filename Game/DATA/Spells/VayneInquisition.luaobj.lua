@@ -362,9 +362,9 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
-        35,
-        55,
-        75
+        25,
+        40,
+        55
       }
     }
   },

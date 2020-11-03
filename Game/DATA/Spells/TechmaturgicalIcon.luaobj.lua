@@ -185,7 +185,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
     Params = {

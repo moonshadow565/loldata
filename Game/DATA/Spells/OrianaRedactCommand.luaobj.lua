@@ -155,7 +155,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 25000,
-      Flags = "AffectFriends AffectMinions AffectHeroes AffectUntargetable ",
+      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf AffectUntargetable ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 1,
       BuffNameFilter = "OrianaGhost",
@@ -220,20 +220,6 @@ TargetExecuteBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_HERO},
-            SubBlocks = {
-              {
-                Function = BBSetStatus,
-                Params = {
-                  TargetVar = "Unit",
-                  SrcValue = true,
-                  Status = SetNoRender
-                }
-              }
-            }
-          },
           {
             Function = BBSpellBuffClear,
             Params = {
@@ -417,12 +403,180 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfHasBuff,
         Params = {
-          Src1Var = "GhostAlive",
-          Src1VarTable = "CharVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
+          OwnerVar = "Owner",
+          AttackerVar = "Nothing",
+          BuffName = "OriannaBallTracker"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Owner",
+              BuffName = "OriannaBallTracker"
+            }
+          },
+          {
+            Function = BBGetUnitPosition,
+            Params = {UnitVar = "Target", PositionVar = "TargetPos"}
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "CastPos",
+              SrcVar = "BallPosition",
+              SrcVarTable = "CharVars"
+            }
+          },
+          {
+            Function = BBDistanceBetweenPoints,
+            Params = {
+              DestVar = "MinDistance",
+              Point1Var = "CastPos",
+              Point2Var = "TargetPos"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "MinDistance",
+              Value2 = 100,
+              CompareOp = CO_LESS_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageBlock",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "TotalShield"
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Owner",
+                  BuffName = "OrianaRedactShield",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 4,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Target",
+                  Src2Var = "Owner",
+                  CompareOp = CO_NOT_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Owner",
+                      BuffName = "OrianaGhost",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Owner",
+                      BuffName = "OrianaGhostSelf",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageBlock",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "TotalShield"
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "OrianaRedact",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Target",
+                  PosVar = "Target",
+                  EndPosVar = "Target",
+                  OverrideCastPosition = true,
+                  OverrideCastPosVar = "CastPos",
+                  SlotNumber = 2,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = false,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              }
+            }
+          }
         }
       },
       {
@@ -584,6 +738,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaredact"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "oriannaballtracker"
     }
   }
 }

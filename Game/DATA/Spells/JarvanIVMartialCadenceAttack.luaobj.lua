@@ -25,7 +25,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "TargetHealth",
       Src1Value = 0,
-      Src2Value = 0.1,
+      Src2Value = 0.08,
       DestVar = "HealthDamage",
       MathOp = MO_MULTIPLY
     }
@@ -123,7 +123,9 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

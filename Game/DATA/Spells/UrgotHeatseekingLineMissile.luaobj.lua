@@ -97,6 +97,17 @@ TargetExecuteBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "Level",
+              SpellSlotValue = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Owner",
+              Function = GetSlotSpellLevel
+            }
+          },
+          {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "MoveSpeedMod",
@@ -152,7 +163,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -170,7 +182,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -231,6 +244,17 @@ TargetExecuteBuildingBlocks = {
             },
             SubBlocks = {
               {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Owner",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "MoveSpeedMod",
@@ -286,7 +310,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -304,7 +329,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -377,6 +403,17 @@ TargetExecuteBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBGetSlotSpellInfo,
+                    Params = {
+                      DestVar = "Level",
+                      SpellSlotValue = 1,
+                      SpellbookType = SPELLBOOK_CHAMPION,
+                      SlotType = SpellSlots,
+                      OwnerVar = "Owner",
+                      Function = GetSlotSpellLevel
+                    }
+                  },
+                  {
                     Function = BBSetVarInTable,
                     Params = {
                       DestVar = "MoveSpeedMod",
@@ -432,7 +469,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -450,7 +488,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {

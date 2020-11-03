@@ -33,7 +33,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -60,7 +62,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -76,7 +79,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -93,7 +98,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -110,7 +117,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -127,7 +136,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -144,7 +155,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -161,7 +174,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 0.75,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -179,12 +193,9 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0.75,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
-  },
-  {
-    Function = BBShowHealthBar,
-    Params = {UnitVar = "Owner", Show = false}
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -326,7 +337,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 0.75,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -564,7 +576,9 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -581,7 +595,9 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -667,7 +683,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

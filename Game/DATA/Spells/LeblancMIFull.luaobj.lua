@@ -12,7 +12,8 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "LeblancPassive"
+          BuffName = "LeblancPassive",
+          ResetDuration = 0
         }
       }
     }
@@ -45,7 +46,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -70,9 +73,35 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
     }
   }
 }
@@ -96,7 +125,9 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

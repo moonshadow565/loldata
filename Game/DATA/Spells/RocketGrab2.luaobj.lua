@@ -39,14 +39,9 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
-  }
-}
-BuffOnMoveEndBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -73,5 +68,25 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Attacker",
+          TargetOfOrderVar = "Owner",
+          Order = AI_ATTACKTO
+        }
+      }
+    }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }

@@ -37,6 +37,8 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "tooltipAmount",
           SrcValueByLevel = {
+            4,
+            5,
             6,
             7,
             8,
@@ -52,9 +54,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             18,
             19,
             20,
-            21,
-            22,
-            23
+            21
           }
         }
       },
@@ -90,110 +90,86 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBIfNotHasBuff,
-    Params = {
-      OwnerVar = "Target",
-      CasterVar = "Owner",
-      BuffName = "Parley"
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+            Function = BBGetLevel,
+            Params = {TargetVar = "Owner", DestVar = "Level"}
           },
           {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBGetLevel,
-                Params = {TargetVar = "Owner", DestVar = "Level"}
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DotDamage",
-                  DestVarTable = "NextBuffVars",
-                  SrcValueByLevel = {
-                    6,
-                    7,
-                    8,
-                    9,
-                    10,
-                    11,
-                    12,
-                    13,
-                    14,
-                    15,
-                    16,
-                    17,
-                    18,
-                    19,
-                    20,
-                    21,
-                    22,
-                    23
-                  }
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Owner",
-                  BuffName = "ScurvyStrikeParticle",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 10,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 1,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Target",
-                  BuffName = "Internal_50MS",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 10,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffName = "GrievousWound",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 10,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
-                }
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DotDamage",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                4,
+                5,
+                6,
+                7,
+                8,
+                9,
+                10,
+                11,
+                12,
+                13,
+                14,
+                15,
+                16,
+                17,
+                18,
+                19,
+                20,
+                21
               }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "moveSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.07
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "ScurvyStrikeParticle",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 5,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "ScurvyStrike",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -204,10 +180,6 @@ BuffOnHitUnitBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "parley"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "scurvystrikeparticle"
     }
@@ -215,13 +187,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "internal_50ms"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "grievouswound"
+      Name = "scurvystrike"
     }
   }
 }

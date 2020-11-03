@@ -10,6 +10,44 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentLifeStealMod,
+      TargetVar = "Owner",
+      DestVar = "lifeStealMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "lifeStealMod",
+      Src1Value = 0,
+      Src2Value = -0.5,
+      DestVar = "lifeStealMod",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentSpellBlockMod,
+      TargetVar = "Owner",
+      DestVar = "spellVampMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "spellVampMod",
+      Src1Value = 0,
+      Src2Value = -0.5,
+      DestVar = "spellVampMod",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -27,6 +65,26 @@ BuffOnUpdateStatsBuildingBlocks = {
           Stat = IncPercentHPRegenMod,
           TargetVar = "Owner",
           Delta = -0.5
+        }
+      },
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncPercentLifeStealMod,
+          TargetVar = "Owner",
+          DeltaVar = "lifeStealMod",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
+        }
+      },
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncPercentSpellVampMod,
+          TargetVar = "Owner",
+          DeltaVar = "spellVampMod",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
         }
       }
     }
@@ -67,6 +125,70 @@ BuffOnHealBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentLifeStealMod,
+      TargetVar = "Owner",
+      DestVar = "lifeStealMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "lifeStealMod",
+      Src2Var = "lifeStealMod",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "lifeStealMod",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "lifeStealMod",
+      Src1Value = 0,
+      Src2Value = -0.5,
+      DestVar = "lifeStealMod",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentSpellBlockMod,
+      TargetVar = "Owner",
+      DestVar = "spellVampMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "spellVampMod",
+      Src2Var = "spellVampMod",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "spellVampMod",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "spellVampMod",
+      Src1Value = 0,
+      Src2Value = -0.5,
+      DestVar = "spellVampMod",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
     }
   }
 }

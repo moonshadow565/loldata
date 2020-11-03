@@ -33,7 +33,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -56,7 +57,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -73,7 +75,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -90,7 +93,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -120,9 +124,9 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "MaliceHeal",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            350,
-            500,
-            650
+            150,
+            225,
+            300
           }
         }
       }

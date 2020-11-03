@@ -18,7 +18,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.35,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -100,7 +101,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.4,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0.7,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -110,7 +111,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "EmpowerTwo"
+          BuffName = "EmpowerTwo",
+          ResetDuration = 0
         }
       }
     }
@@ -150,6 +152,16 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "AttackDamage",
+      Src1Value = 0,
+      Src2Value = 0.7,
+      DestVar = "AttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AttackDamage",
       Src2Var = "BonusDamage",
       Src1Value = 0,
       Src2Value = 0,
@@ -169,7 +181,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.7,
-      PhysicalDamageRatio = 1,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

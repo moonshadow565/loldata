@@ -59,7 +59,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -86,7 +88,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -105,7 +109,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -130,7 +136,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -149,7 +157,9 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -334,7 +344,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -360,11 +371,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthPercent",
       SrcValueByLevel = {
+        0.04,
         0.05,
         0.06,
         0.07,
-        0.08,
-        0.09
+        0.08
       }
     }
   },
@@ -395,7 +406,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPowerRatio",
       Src1Value = 0,
-      Src2Value = 1.25E-4,
+      Src2Value = 1.0E-4,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -433,7 +444,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

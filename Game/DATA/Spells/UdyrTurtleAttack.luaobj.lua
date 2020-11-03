@@ -1,29 +1,5 @@
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Owner",
-      DestVar = "baseDamage"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "baseDamage",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
@@ -31,10 +7,6 @@ TargetExecuteBuildingBlocks = {
         Function = BBIf,
         Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
-          {
-            Function = BBGetTotalAttackDamage,
-            Params = {TargetVar = "Owner", DestVar = "baseDamage"}
-          },
           {
             Function = BBGetSlotSpellInfo,
             Params = {
@@ -49,7 +21,8 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {
-              DestVar = "HealthPerc",
+              DestVar = "DrainPercent",
+              DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
                 0.12,
                 0.14,
@@ -62,40 +35,13 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
-              Src1Var = "HealthPerc",
-              Src2Var = "baseDamage",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "LeechAmount",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "LeechAmount",
+              Src2Var = "DrainPercent",
+              Src2VarTable = "NextBuffVars",
               Src1Value = 0.75,
               Src2Value = 0,
-              DestVar = "ManaLeechAmount",
+              DestVar = "ManaDrainPercent",
+              DestVarTable = "NextBuffVars",
               MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBIncHealth,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              DeltaVar = "LeechAmount",
-              HealerVar = "Owner"
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              PARType = PAR_MANA,
-              DeltaVar = "ManaLeechAmount"
             }
           },
           {
@@ -111,7 +57,9 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -127,11 +75,56 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "GlobalDrainMana",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0.01,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
       }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "baseDamage"
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "baseDamage",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

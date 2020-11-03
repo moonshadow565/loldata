@@ -44,7 +44,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 1200,
-              Flags = "AffectFriends AffectMinions AffectHeroes ",
+              Flags = "AffectFriends AffectHeroes ",
               IteratorVar = "Unit",
               InclusiveBuffFilter = true
             },
@@ -71,7 +71,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       Duration = 1.2,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -98,7 +99,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -123,7 +125,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   AttackerVar = "Owner",
                   CenterVar = "Owner",
                   Range = 1200,
-                  Flags = "AffectFriends AffectMinions AffectHeroes ",
+                  Flags = "AffectFriends AffectHeroes ",
                   IteratorVar = "Unit",
                   InclusiveBuffFilter = true
                 },
@@ -162,7 +164,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                               Duration = 1.2,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -191,7 +194,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -220,7 +224,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

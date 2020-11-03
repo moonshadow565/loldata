@@ -268,10 +268,6 @@ OnBuffActivateBuildingBlocks = {
         }
       },
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Owner"}
-      },
-      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Caster",

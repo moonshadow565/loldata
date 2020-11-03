@@ -43,7 +43,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -123,21 +125,51 @@ BuffOnPreDamageBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIfNotHasBuff,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Caster",
-          BuffName = "ChronoRevive",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "YorickRAZombie"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "YorickRAZombieLich"
+            },
+            SubBlocks = {
+              {
+                Function = BBIfNotHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "YorickRAZombieKogMaw"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Caster",
+                      BuffName = "ChronoRevive",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 3,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -238,6 +270,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nickoftime_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombie"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombielich"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickrazombiekogmaw"
     }
   },
   {

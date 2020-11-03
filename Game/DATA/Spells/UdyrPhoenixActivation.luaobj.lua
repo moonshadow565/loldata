@@ -116,7 +116,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -141,11 +143,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                10,
-                18,
-                26,
-                34,
-                42
+                15,
+                25,
+                35,
+                45,
+                55
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,

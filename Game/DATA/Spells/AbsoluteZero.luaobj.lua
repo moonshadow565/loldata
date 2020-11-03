@@ -42,7 +42,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -61,7 +62,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -86,7 +88,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -105,7 +108,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -125,6 +129,24 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MovementSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MovementSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "AttackSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -136,29 +158,11 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "MovementSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "MovementSpeedMod",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "AttackSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "AttackSpeedMod",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "Chilled",
+          BuffName = "AbsoluteZeroSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
@@ -242,7 +246,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "Chilled",
+              BuffName = "AbsoluteZeroSlow",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               StacksExclusive = true,
               BuffType = BUFF_Slow,
@@ -275,9 +279,9 @@ ChannelingStartBuildingBlocks = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.49,
-        -0.49,
-        -0.49
+        -0.5,
+        -0.5,
+        -0.5
       }
     }
   },
@@ -298,6 +302,7 @@ ChannelingStartBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
+      BuffName = "AbsoluteZero",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
@@ -321,7 +326,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "AbsoluteZero"
+      BuffName = "AbsoluteZero",
+      ResetDuration = 0
     }
   },
   {
@@ -339,7 +345,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -368,7 +375,8 @@ ChannelingSuccessStopBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -441,7 +449,8 @@ ChannelingCancelStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -470,7 +479,8 @@ ChannelingCancelStopBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -502,7 +512,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "AbsoluteZero"
+      BuffName = "AbsoluteZero",
+      ResetDuration = 0
     }
   }
 }
@@ -518,10 +529,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "absolutezero2_green_cas.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
   },
   {
     Function = BBPreloadSpell,

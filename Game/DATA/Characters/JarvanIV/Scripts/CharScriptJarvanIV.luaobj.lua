@@ -12,7 +12,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       Src1Var = "BonusAD",
       Src1Value = 0,
-      Src2Value = 1.1,
+      Src2Value = 1.2,
       DestVar = "BonusAD2",
       MathOp = MO_MULTIPLY
     }
@@ -172,10 +172,10 @@ CharOnLevelUpSpellBuildingBlocks = {
       DestVar = "ArmorBoost",
       SrcValueByLevel = {
         10,
-        4,
-        4,
-        4,
-        4
+        3,
+        3,
+        3,
+        3
       }
     }
   },
@@ -185,10 +185,10 @@ CharOnLevelUpSpellBuildingBlocks = {
       DestVar = "AttackSpeedBoost",
       SrcValueByLevel = {
         0.1,
-        0.04,
-        0.04,
-        0.04,
-        0.04
+        0.03,
+        0.03,
+        0.03,
+        0.03
       }
     }
   },

@@ -47,7 +47,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-BuffOnDealDamageBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
