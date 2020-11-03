@@ -34,8 +34,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "BaseCooldown",
       SrcValueByLevel = {
-        30,
-        30,
+        40,
+        35,
         30
       }
     }

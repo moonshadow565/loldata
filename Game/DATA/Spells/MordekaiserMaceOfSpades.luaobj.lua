@@ -197,6 +197,34 @@ BuffOnHitUnitBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "damageDifference",
+          SrcValue = 0
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src2Var = "totalDamage",
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src2Var = "totalDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "damageDifference",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      },
+      {
         Function = BBMath,
         Params = {
           Src1Var = "totalDamage",
@@ -212,6 +240,35 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {
           Src1Var = "BaseDamage",
           Src2Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "abilityPower"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "abilityPower",
+          Src1Value = 0,
+          Src2Value = 0.2,
+          DestVar = "bonusAPDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseDamage",
+          Src2Var = "bonusAPDamage",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "BaseDamage",
@@ -344,6 +401,27 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "damageDifference",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "BaseDamage",
+              Src2Var = "damageDifference",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "BaseDamage",
+              MathOp = MO_ADD
             }
           }
         }

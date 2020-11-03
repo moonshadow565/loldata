@@ -22,13 +22,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageAmount",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBApplyAssistMarker,
     Params = {
       Duration = 10,
@@ -38,24 +31,6 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PERIODIC,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.35,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
   {
     Function = BBSetStatus,
     Params = {
@@ -91,48 +66,26 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1.2,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Owner",
-          Damage = 0,
-          DamageVar = "DamageAmount",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PERIODIC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.35,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBApplyDamage,
     Params = {
-      DestVar = "DamageAmount",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        50,
-        100,
-        150
-      }
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        150,
+        250,
+        350
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -145,7 +98,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Net,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

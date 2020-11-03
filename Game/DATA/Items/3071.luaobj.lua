@@ -44,12 +44,14 @@ ItemOnHitUnitBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "BlackCleaver",
                       BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      StacksExclusive = true,
                       BuffType = BUFF_CombatDehancer,
                       MaxStack = 5,
                       NumberOfStacks = 1,
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   },
                   {

@@ -31,7 +31,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 3,
+                  Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false
@@ -58,7 +58,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 3,
+                  Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false
@@ -85,7 +85,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 3,
+                  Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false
@@ -333,11 +333,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "APADBoost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            6,
             8,
-            11,
-            14,
-            17,
-            20
+            10,
+            12,
+            14
           }
         }
       },

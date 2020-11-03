@@ -629,11 +629,11 @@ SelfExecuteBuildingBlocks = {
           DestVar = "AEDamage",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            108,
-            156,
-            204,
-            252,
-            300
+            93.5,
+            137.5,
+            181.5,
+            225.5,
+            269.5
           }
         }
       }
@@ -664,11 +664,11 @@ SelfExecuteBuildingBlocks = {
           DestVar = "AEDamage",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            117,
-            169,
-            221,
-            273,
-            325
+            106.25,
+            156.25,
+            206.25,
+            256.25,
+            306.25
           }
         }
       }
@@ -695,11 +695,11 @@ SelfExecuteBuildingBlocks = {
           DestVar = "AEDamage",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            126,
-            182,
-            238,
-            294,
-            350
+            119,
+            175,
+            231,
+            287,
+            343
           }
         }
       }
@@ -889,7 +889,7 @@ BuffOnMoveEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.72,
+              SpellDamageRatio = 0.66,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -917,7 +917,7 @@ BuffOnMoveEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.78,
+              SpellDamageRatio = 0.75,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -1010,17 +1010,17 @@ BuffOnMoveEndBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
                   DamageByLevel = {
-                    24,
-                    48,
-                    72,
-                    96,
-                    120
+                    22,
+                    44,
+                    66,
+                    88,
+                    110
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.36,
+                  SpellDamageRatio = 0.33,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
@@ -1054,17 +1054,17 @@ BuffOnMoveEndBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
                   DamageByLevel = {
-                    26,
-                    52,
-                    78,
-                    104,
-                    130
+                    25,
+                    50,
+                    75,
+                    100,
+                    125
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.39,
+                  SpellDamageRatio = 0.375,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false

@@ -82,6 +82,35 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "abilityPower"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "abilityPower",
+      Src1Value = 0,
+      Src2Value = 0.2,
+      DestVar = "bonusAPDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src2Var = "bonusAPDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BaseDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseDamage",

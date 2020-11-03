@@ -12,7 +12,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       Src1Var = "BonusAD",
       Src1Value = 0,
-      Src2Value = 0.45,
+      Src2Value = 0.4,
       DestVar = "BonusAD",
       MathOp = MO_MULTIPLY
     }
@@ -204,13 +204,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ispiratehunter"
+      Name = "missfortunestrut"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "missfortunestrut"
+      Name = "ispiratehunter"
     }
   },
   {

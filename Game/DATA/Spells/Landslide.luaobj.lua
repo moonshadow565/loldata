@@ -142,6 +142,10 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -179,12 +183,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "landslide_blue_nova.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

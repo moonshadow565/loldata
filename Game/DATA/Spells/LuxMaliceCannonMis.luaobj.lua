@@ -32,6 +32,63 @@ SelfExecuteBuildingBlocks = {
         Params = {TargetVar = "Unit"}
       },
       {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "LuxIlluminatingFraulein"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Unit", DestVar = "TeamID"}
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "IlluminateDamage",
+              DamageVarTable = "CharVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "LuxPassive_tar.troy",
+              Flags = 0,
+              EffectIDVar = "MotaExplosion",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "LuxIlluminatingFraulein"
+            }
+          }
+        }
+      },
+      {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Unit",
@@ -108,15 +165,21 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "luxmalicecannon_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "luxilluminatingfraulein"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "luxpassive_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "luxmalicecannon_tar.troy"
     }
   }
 }

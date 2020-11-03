@@ -68,23 +68,6 @@ BuffOnCollisionBuildingBlocks = {
                     }
                   },
                   {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "shen_shadowDash_unit_impact.troy",
-                      Flags = 0,
-                      EffectIDVar = "TargetParticle",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWTeamOverrideVar = "TeamID",
-                      FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
-                    }
-                  },
-                  {
                     Function = BBIf,
                     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
                     SubBlocks = {
@@ -128,6 +111,10 @@ BuffOnCollisionBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBStartTrackingCollisions,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffActivateBuildingBlocks = {
@@ -461,25 +448,6 @@ SelfExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "ShenShadowDashTaunt",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Taunt,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationVar = "tauntDuration",
-              DurationVarTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
@@ -689,19 +657,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shen_shadowdash_unit_impact.troy"
+      Name = "shen_shadowdash_mis.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shen_shadowdash_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdashtaunt"
+      Name = "shen_shadowdash_unit_impact.troy"
     }
   }
 }

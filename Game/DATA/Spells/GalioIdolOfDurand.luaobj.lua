@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 ChannelDuration = 2
 BuffTextureName = "Galio_IdolOfDurand.dds"
@@ -216,7 +217,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Src1Var = "APStat",
       Src1Value = 0,
-      Src2Value = 0.8,
+      Src2Value = 0.85,
       DestVar = "APDamage",
       MathOp = MO_MULTIPLY
     }
@@ -305,7 +306,7 @@ OnBuffDeactivateBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.85,
+          SpellDamageRatio = 0.8,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -365,50 +366,45 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 500,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          InclusiveBuffFilter = true
+          BuffNameFilter = "GalioIdolOfDurandMarker",
+          InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
-            Function = BBIfNotHasBuff,
+            Function = BBApplyAssistMarker,
             Params = {
-              OwnerVar = "Unit",
-              CasterVar = "Owner",
-              BuffName = "GalioIdolOfDurandMarker"
-            },
-            SubBlocks = {
-              {
-                Function = BBApplyTaunt,
-                Params = {
-                  AttackerVar = "Owner",
-                  TargetVar = "Unit",
-                  Duration = 1.5
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "GalioIdolOfDurandTaunt",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Taunt,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 1.5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              },
-              {
-                Function = BBApplyAssistMarker,
-                Params = {
-                  Duration = 10,
-                  TargetVar = "Unit",
-                  SourceVar = "Owner"
-                }
-              }
+              Duration = 10,
+              TargetVar = "Unit",
+              SourceVar = "Owner"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "GalioIdolOfDurandMarker",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBApplyTaunt,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Unit",
+              Duration = 1.5
             }
           }
         }
@@ -464,28 +460,11 @@ BuffOnPreDamageBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyTaunt,
+    Function = BBApplyAssistMarker,
     Params = {
-      AttackerVar = "Owner",
+      Duration = 10,
       TargetVar = "Target",
-      Duration = 2
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "GalioIdolOfDurandTaunt",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 2,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      SourceVar = "Owner"
     }
   },
   {
@@ -503,6 +482,18 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
+    Function = BBApplyTaunt,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      Duration = 2
     }
   }
 }

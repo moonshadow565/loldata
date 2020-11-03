@@ -65,9 +65,26 @@ OnBuffActivateBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "WallofPainTarget",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "WallofPainExtra",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
@@ -143,6 +160,23 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Slow,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "WallofPainExtra",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 5,
@@ -455,6 +489,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "wallofpaintarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "wallofpainextra"
     }
   },
   {

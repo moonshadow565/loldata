@@ -239,7 +239,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       CenterVar = "Position",
-      Range = 300,
+      Range = 350,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -461,11 +461,11 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.14,
-        -0.18,
-        -0.22,
-        -0.26,
-        -0.3
+        -0.2,
+        -0.24,
+        -0.28,
+        -0.32,
+        -0.36
       }
     }
   },

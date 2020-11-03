@@ -1,3 +1,4 @@
+DoesntTriggerSpellCasts = true
 BuffTextureName = "SummonerIgnite.dds"
 BuffName = "SummonerIgnite"
 OnBuffActivateBuildingBlocks = {

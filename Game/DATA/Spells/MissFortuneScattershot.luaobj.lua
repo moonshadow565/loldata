@@ -21,11 +21,11 @@ OnBuffDeactivateBuildingBlocks = {
       DestVar = "Damage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        95,
-        155,
-        215,
-        275,
-        335
+        90,
+        145,
+        200,
+        255,
+        310
       }
     }
   },

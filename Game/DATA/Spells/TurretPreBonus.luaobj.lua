@@ -1,4 +1,4 @@
-BuffTextureName = "1020_Glowing_Orb.dds"
+BuffTextureName = "096_Eye_of_the_Observer.dds"
 BuffName = "Turret Idle"
 OnBuffActivateBuildingBlocks = {
   {
@@ -17,6 +17,7 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "TurretBonus",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -24,7 +25,8 @@ OnBuffDeactivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "StartDecay",
       DurationVarTable = "InstanceVars",
-      TickRate = 60
+      TickRate = 60,
+      CanMitigateDuration = false
     }
   }
 }
