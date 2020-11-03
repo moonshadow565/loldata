@@ -17,7 +17,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -83,7 +84,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -118,7 +120,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -145,7 +148,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -176,7 +180,40 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "OdinCaptureChannel"
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CamouflageCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -207,7 +244,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -242,7 +280,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0.1,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -274,7 +313,8 @@ BuffOnSpellCastBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -315,7 +355,8 @@ BuffOnSpellCastBuildingBlocks = {
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -342,7 +383,8 @@ BuffOnTakeDamageBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -367,7 +409,8 @@ BuffOnHitUnitBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -388,7 +431,8 @@ BuffOnLaunchAttackBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -402,6 +446,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "recall"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "odincapturechannel"
+    }
   },
   {
     Function = BBPreloadSpell,

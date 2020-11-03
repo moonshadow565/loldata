@@ -54,11 +54,11 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BonusDamage",
                   SrcValueByLevel = {
-                    75,
-                    110,
-                    145,
-                    180,
-                    215
+                    60,
+                    95,
+                    130,
+                    165,
+                    200
                   }
                 }
               },
@@ -84,6 +84,10 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              },
+              {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
@@ -105,7 +109,8 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "EmpowerTwo"
+                  BuffName = "EmpowerTwo",
+                  ResetDuration = 0
                 }
               }
             }
@@ -189,7 +194,11 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }

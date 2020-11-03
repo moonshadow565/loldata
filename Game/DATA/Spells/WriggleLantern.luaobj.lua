@@ -26,19 +26,29 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
                 SubBlocks = {
                   {
-                    Function = BBApplyDamage,
+                    Function = BBIfNotHasBuff,
                     Params = {
-                      AttackerVar = "Attacker",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Target",
-                      Damage = 500,
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_PROC,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 0,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
+                      OwnerVar = "Target",
+                      CasterVar = "Nothing",
+                      BuffName = "OdinGolemBombBuff"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBApplyDamage,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CallForHelpAttackerVar = "Attacker",
+                          TargetVar = "Target",
+                          Damage = 500,
+                          DamageType = MAGIC_DAMAGE,
+                          SourceDamageType = DAMAGESOURCE_PROC,
+                          PercentOfAttack = 1,
+                          SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 0,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
+                        }
+                      }
                     }
                   }
                 }
@@ -374,6 +384,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "odingolembombbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

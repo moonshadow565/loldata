@@ -279,7 +279,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnPreTakeDamageBuildingBlocks = {
+BuffOnPreMitigationDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {Value1 = DAMAGESOURCE_SPELLAOE, CompareOp = CO_DAMAGE_SOURCETYPE_IS},

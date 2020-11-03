@@ -38,7 +38,7 @@ function L0_0(A0_2, A1_3)
     return true
   end
   if A0_2 == ORDER_MOVETO then
-    if DistanceBetweenObjectAndInPos(me) > FAR_MOVMEMENT_DISTANCE or GetState() == AI_PET_HOLDPOSITION or GetState() == AI_PET_HOLDPOSITION_ATTACKING then
+    if DistanceBetweenObjectAndInPosSq(me) > FAR_MOVMEMENT_DISTANCE * FAR_MOVMEMENT_DISTANCE or GetState() == AI_PET_HOLDPOSITION or GetState() == AI_PET_HOLDPOSITION_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_MOVE, owner)
     end
     return true

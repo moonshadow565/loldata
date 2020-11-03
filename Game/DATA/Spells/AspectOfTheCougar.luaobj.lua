@@ -10,6 +10,13 @@ PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "armorMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "CD0",
@@ -68,7 +75,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -107,7 +118,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = true
     }
   }
 }
@@ -125,7 +137,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Takedown"
+          BuffName = "Takedown",
+          ResetDuration = 0
         }
       }
     }
@@ -151,7 +164,11 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -190,7 +207,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -237,7 +255,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -248,7 +267,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -259,7 +279,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
@@ -267,9 +288,21 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatDodgeMod,
+      Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 0.1
+      DeltaVar = "armorMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "armorMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -284,7 +317,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSpellBuffRemove,
-        Params = {TargetVar = "Owner", AttackerVar = "Owner"}
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          ResetDuration = 0
+        }
       }
     }
   },
@@ -293,17 +330,67 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "armorMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            10,
+            15,
+            20
+          }
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  }
+}
+BuffOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "spellVampMod",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            0.15,
+            0.2,
+            0.25
+          }
         }
       }
     }

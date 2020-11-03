@@ -302,7 +302,7 @@ BuffOnMoveSuccessBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+        Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
           {
             Function = BBIssueOrder,

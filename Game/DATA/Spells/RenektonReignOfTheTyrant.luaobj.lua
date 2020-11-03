@@ -27,12 +27,15 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.2, OwnerVar = "Owner"}
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.2, OwnerVar = "Owner"}
   },
   {
     Function = BBRequireVar,
@@ -104,10 +107,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1, OwnerVar = "Owner"}
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -120,7 +119,10 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -144,15 +146,11 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.25, OwnerVar = "Owner"}
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.2, OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.2, OwnerVar = "Owner"}
-  },
   {
     Function = BBExecutePeriodically,
     Params = {

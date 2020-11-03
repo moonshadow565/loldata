@@ -29,7 +29,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SpellPower",
       Src1Value = 0,
-      Src2Value = 1.3,
+      Src2Value = 0.7,
       DestVar = "SpellPowerBonus",
       MathOp = MO_MULTIPLY
     }
@@ -43,6 +43,15 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 0,
       DestVar = "HealthToHeal",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBIncHealth,
+    Params = {
+      TargetVar = "Target",
+      Delta = 0,
+      DeltaVar = "HealthToHeal",
+      HealerVar = "Owner"
     }
   },
   {
@@ -76,16 +85,11 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Target",
-          Delta = 0,
-          DeltaVar = "HealthToHeal",
-          HealerVar = "Owner"
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {

@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = false
-BuffTextureName = "Katarina_Voracity.dds"
+BuffTextureName = "OriannaPowerDagger.dds"
 BuffName = "OrianaSpellSword"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""

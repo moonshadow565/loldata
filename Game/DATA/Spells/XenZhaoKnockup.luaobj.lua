@@ -15,11 +15,12 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       TargetVar = "BouncePos",
-      Speed = 90,
+      Speed = 100,
       Gravity = 20,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 80
     }
   },

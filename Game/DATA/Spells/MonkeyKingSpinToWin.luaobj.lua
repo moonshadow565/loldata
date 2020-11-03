@@ -56,6 +56,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -77,6 +79,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -396,6 +400,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -470,6 +476,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -538,6 +546,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
                           SendIfOnScreenOrDiscard = true,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
                           FollowsGroundTilt = false,
                           FacesTarget = false
                         }
@@ -595,6 +605,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                   FOWTeamOverrideVar = "TeamID",
                                   FOWVisibilityRadius = 10,
                                   SendIfOnScreenOrDiscard = true,
+                                  PersistsThroughReconnect = false,
+                                  BindFlexToOwnerPAR = false,
                                   FollowsGroundTilt = false,
                                   FacesTarget = false
                                 }
@@ -675,6 +687,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -732,6 +746,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                       FOWTeamOverrideVar = "TeamID",
                                       FOWVisibilityRadius = 10,
                                       SendIfOnScreenOrDiscard = true,
+                                      PersistsThroughReconnect = false,
+                                      BindFlexToOwnerPAR = false,
                                       FollowsGroundTilt = false,
                                       FacesTarget = false
                                     }
@@ -793,6 +809,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -867,6 +885,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -935,6 +955,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
                           SendIfOnScreenOrDiscard = true,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
                           FollowsGroundTilt = false,
                           FacesTarget = false
                         }
@@ -992,6 +1014,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                   FOWTeamOverrideVar = "TeamID",
                                   FOWVisibilityRadius = 10,
                                   SendIfOnScreenOrDiscard = true,
+                                  PersistsThroughReconnect = false,
+                                  BindFlexToOwnerPAR = false,
                                   FollowsGroundTilt = false,
                                   FacesTarget = false
                                 }
@@ -1072,6 +1096,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
@@ -1129,6 +1155,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                       FOWTeamOverrideVar = "TeamID",
                                       FOWVisibilityRadius = 10,
                                       SendIfOnScreenOrDiscard = true,
+                                      PersistsThroughReconnect = false,
+                                      BindFlexToOwnerPAR = false,
                                       FollowsGroundTilt = false,
                                       FacesTarget = false
                                     }
@@ -1246,7 +1274,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 0.5,
+      Src = 1,
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,

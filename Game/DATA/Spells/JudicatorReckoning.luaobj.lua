@@ -37,6 +37,17 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "MoveSpeedMod",
@@ -48,6 +59,68 @@ TargetExecuteBuildingBlocks = {
         -0.35,
         -0.35
       }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AP"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseAD"
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "TotalAD"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalAD",
+      Src2Var = "BaseAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusAD",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BonusAD",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "BonusAD",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "AP",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "AP",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AP",
+      Src2Var = "BonusAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      MathOp = MO_ADD
     }
   },
   {
@@ -64,11 +137,12 @@ TargetExecuteBuildingBlocks = {
         260
       },
       Damage = 0,
+      DamageVar = "FinalDamage",
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

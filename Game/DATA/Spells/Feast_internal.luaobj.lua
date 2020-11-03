@@ -1,21 +1,30 @@
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      DestVar = "CurSkinScale",
-      DestVarTable = "InstanceVars",
-      SrcValue = 1.03
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
-    Function = BBSetScaleSkinCoef,
+    Function = BBSetVarInTable,
     Params = {
-      Scale = 0,
-      ScaleVar = "CurSkinScale",
-      ScaleVarTable = "InstanceVars",
-      OwnerVar = "Owner"
+      DestVar = "SizeByLevel",
+      SrcValueByLevel = {
+        0.07,
+        0.11,
+        0.15
+      }
     }
+  },
+  {
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.5, OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -80,63 +89,10 @@ BuffOnUpdateStatsBuildingBlocks = {
         }
       },
       {
-        Function = BBMath,
-        Params = {
-          Src2Var = "Bonus",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "MaxSkinScale",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CurSkinScale",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "MaxSkinScale",
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "CurSkinScale",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0.03,
-              DestVar = "CurSkinScale",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "MaxSkinScale",
-          Src2Var = "CurSkinScale",
-          Src2VarTable = "InstanceVars",
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CurSkinScale",
-              DestVarTable = "InstanceVars",
-              SrcVar = "MaxSkinScale"
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetScaleSkinCoef,
+        Function = BBIncScaleSkinCoef,
         Params = {
           Scale = 0,
-          ScaleVar = "CurSkinScale",
-          ScaleVarTable = "InstanceVars",
+          ScaleVar = "Bonus",
           OwnerVar = "Owner"
         }
       },

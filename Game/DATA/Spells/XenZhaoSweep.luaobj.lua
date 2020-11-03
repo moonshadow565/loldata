@@ -65,6 +65,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -185,6 +187,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -357,7 +361,7 @@ BuffOnMoveSuccessBuildingBlocks = {
           BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,
-          Duration = 1.7,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,

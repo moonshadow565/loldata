@@ -1,6 +1,6 @@
 BuffTextureName = "Chronokeeper_Recall.dds"
 BuffName = "Haste"
-AutoBuffActivateEffect = "MoveQuick_buf.troy"
+AutoBuffActivateEffect = "Highlander_buf.troy"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

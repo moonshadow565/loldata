@@ -24,5 +24,13 @@ SetVarsByLevelBuildingBlocks = {
       DestVarTable = "AvatarVars",
       SrcValueByLevel = {5, 10}
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "PromoteCooldownBonus",
+      DestVarTable = "AvatarVars",
+      SrcValueByLevel = {30, 30}
+    }
   }
 }

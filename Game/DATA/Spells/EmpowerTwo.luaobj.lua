@@ -29,6 +29,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -50,6 +52,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -229,9 +233,15 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
           },
           {
             Function = BBApplyDamage,
@@ -266,6 +276,8 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -309,11 +321,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        75,
-        110,
-        145,
-        180,
-        215
+        60,
+        95,
+        130,
+        165,
+        200
       }
     }
   },

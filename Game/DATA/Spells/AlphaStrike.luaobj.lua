@@ -26,67 +26,68 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetStatus,
+    Function = BBIf,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetNoRender
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
+      Src1Var = "AlphaStrikeLaunched",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = true,
+          Status = SetCanAttack
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = true,
+          Status = SetCanMove
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = false,
+          Status = SetGhosted
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = false,
+          Status = SetNoRender
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = true,
+          Status = SetTargetable
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
     }
   },
   {
@@ -114,32 +115,6 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  },
   {
     Function = BBIf,
     Params = {
@@ -170,7 +145,33 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           SrcValue = false,
+          Status = SetCanAttack
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = false,
+          Status = SetCanMove
+        }
+      },
+      {
+        Function = BBSetStatus,
+        Params = {
+          TargetVar = "Owner",
+          SrcValue = false,
           Status = SetTargetable
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
         }
       }
     }
@@ -320,6 +321,16 @@ BuffOnLaunchMissileBuildingBlocks = {
       DestVar = "AlphaStrikeLaunched",
       DestVarTable = "InstanceVars",
       SrcValue = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   },
   {

@@ -14,12 +14,12 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
-  },
-  {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.5, OwnerVar = "Owner"}
   },
   {
     Function = BBGetArmor,
@@ -50,13 +50,13 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
     }
+  },
+  {
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.5, OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.5, OwnerVar = "Owner"}
-  },
   {
     Function = BBIncStat,
     Params = {
@@ -76,6 +76,10 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.5, OwnerVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

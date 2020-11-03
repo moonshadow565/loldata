@@ -1,7 +1,7 @@
 BuffTextureName = "Mordekaiser_COTG.dds"
 BuffName = "MordekaiserCOTGDot"
 AutoBuffActivateEffect = ""
-NonDispellable = true
+NonDispellable = false
 OnPreDamagePriority = 10
 OnBuffActivateBuildingBlocks = {
   {

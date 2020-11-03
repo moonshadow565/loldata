@@ -55,6 +55,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 100,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -80,6 +82,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 100,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -115,6 +119,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 100,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -140,6 +146,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 100,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }

@@ -64,10 +64,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "Damage",
       SrcValueByLevel = {
         70,
-        120,
-        170,
-        220,
-        270
+        115,
+        160,
+        205,
+        250
       }
     }
   },
@@ -150,6 +150,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -181,6 +183,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -240,6 +244,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -276,6 +282,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }

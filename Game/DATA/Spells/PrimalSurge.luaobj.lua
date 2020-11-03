@@ -98,11 +98,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthToRestore",
       SrcValueByLevel = {
-        60,
-        90,
+        50,
+        85,
         120,
-        150,
-        180
+        155,
+        190
       }
     }
   },
@@ -111,7 +111,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "TempAbilityPower",
       Src1Value = 0,
-      Src2Value = 1.25,
+      Src2Value = 0.7,
       DestVar = "HealingBonus",
       MathOp = MO_MULTIPLY
     }
@@ -140,7 +140,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

@@ -159,7 +159,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "RenektonBonusAD",
           Src1Value = 0,
-          Src2Value = 1.2,
+          Src2Value = 0.9,
           DestVar = "RenekthonTooltip2",
           MathOp = MO_MULTIPLY
         }

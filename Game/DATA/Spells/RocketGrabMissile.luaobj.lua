@@ -123,6 +123,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -152,6 +154,10 @@ TargetExecuteBuildingBlocks = {
           CanMitigateDuration = false,
           IsHiddenOnClient = false
         }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
       },
       {
         Function = BBApplyDamage,
@@ -260,6 +266,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -289,6 +297,10 @@ TargetExecuteBuildingBlocks = {
               CanMitigateDuration = false,
               IsHiddenOnClient = false
             }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
           },
           {
             Function = BBApplyDamage,
@@ -409,6 +421,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
                   SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -438,6 +452,10 @@ TargetExecuteBuildingBlocks = {
                   CanMitigateDuration = false,
                   IsHiddenOnClient = false
                 }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
               },
               {
                 Function = BBApplyDamage,

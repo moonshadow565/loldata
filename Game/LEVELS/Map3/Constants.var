@@ -41,6 +41,7 @@ ai_DrawAttackRadius                     =           0 ; Render Attack Radius
 ai_DrawBoundBox                         =           0 ; Render Bounding Box
 ai_AIToggle                             =           1 ; Enable/disable AI
 ai_DrawActualPosition                   =           0 ; Draws the actual position a unit is at based on its pathfinding position.
+ai_PathIgnoresBuildings                 =          0 ; Should AI pathing ignore buildings and not take them into account in their lane positioning?
 ai_ExpRadius2                           =    1600.000 ; Radius for Experience sharing 
 ai_StartingGold                         =     475.000 ; Gold granted on startup
 ai_DefaultPetReturnRadius               =     200.000 ; Default pet return radius
@@ -118,6 +119,7 @@ aud_FMODDefeatMusicCueID                =           0 ; FMOD ID for a Defeat mus
 ; HUD variables
 hud_BlinkFrequency                      =        1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
 hud_DefaultBlinkCount                   =           3 ; Sets the default number of pulses a HUD element will blink when highlighted.
+hud_targeting_reticle_height      = 40.0 ; Height of the location circular location casting reticle
 
 ; Camera Variables
 cam_KeyboardOrbitSpeedX                 =     100.000 ; Keyboard Orbit Speed x axis

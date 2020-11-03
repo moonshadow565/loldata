@@ -35,7 +35,7 @@ CanCastBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 580,
+      Range = 610,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 1,
@@ -81,10 +81,24 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         60,
-        90,
-        120,
-        150,
-        180
+        85,
+        110,
+        135,
+        160
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "StarcallShred",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -8,
+        -9,
+        -10,
+        -11,
+        -12
       }
     }
   },

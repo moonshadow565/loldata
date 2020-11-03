@@ -110,7 +110,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       CenterVar = "Owner",
                       Range = 600,
                       Flags = "AffectFriends AffectHeroes ",
-                      IteratorVar = "Unit"
+                      IteratorVar = "Unit",
+                      InclusiveBuffFilter = true
                     },
                     SubBlocks = {
                       {
@@ -120,12 +121,15 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           AttackerVar = "Attacker",
                           BuffName = "ShatterAura",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 0.6,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -195,24 +199,57 @@ CharOnHitUnitBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBMath,
-                    Params = {
-                      Src1Var = "Cooldown",
-                      Src1Value = 0,
-                      Src2Value = 2,
-                      DestVar = "NewCooldown",
-                      MathOp = MO_SUBTRACT
+                    Function = BBIf,
+                    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+                    SubBlocks = {
+                      {
+                        Function = BBMath,
+                        Params = {
+                          Src1Var = "Cooldown",
+                          Src1Value = 0,
+                          Src2Value = 3,
+                          DestVar = "NewCooldown",
+                          MathOp = MO_SUBTRACT
+                        }
+                      },
+                      {
+                        Function = BBSetSlotSpellCooldownTime,
+                        Params = {
+                          SrcVar = "NewCooldown",
+                          SrcValue = 0,
+                          SpellbookType = SPELLBOOK_CHAMPION,
+                          SlotType = SpellSlots,
+                          SpellSlotValue = 0,
+                          OwnerVar = "Owner"
+                        }
+                      }
                     }
                   },
                   {
-                    Function = BBSetSlotSpellCooldownTime,
-                    Params = {
-                      SrcVar = "NewCooldown",
-                      SrcValue = 0,
-                      SpellbookType = SPELLBOOK_CHAMPION,
-                      SlotType = SpellSlots,
-                      SpellSlotValue = 0,
-                      OwnerVar = "Owner"
+                    Function = BBElse,
+                    Params = {},
+                    SubBlocks = {
+                      {
+                        Function = BBMath,
+                        Params = {
+                          Src1Var = "Cooldown",
+                          Src1Value = 0,
+                          Src2Value = 1,
+                          DestVar = "NewCooldown",
+                          MathOp = MO_SUBTRACT
+                        }
+                      },
+                      {
+                        Function = BBSetSlotSpellCooldownTime,
+                        Params = {
+                          SrcVar = "NewCooldown",
+                          SrcValue = 0,
+                          SpellbookType = SPELLBOOK_CHAMPION,
+                          SlotType = SpellSlots,
+                          SpellSlotValue = 0,
+                          OwnerVar = "Owner"
+                        }
+                      }
                     }
                   }
                 }
@@ -232,12 +269,15 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Gemcraft",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -247,12 +287,15 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -262,12 +305,15 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -279,12 +325,15 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

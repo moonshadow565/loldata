@@ -199,8 +199,8 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.1, OwnerVar = "Owner"}
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.1, OwnerVar = "Owner"}
   },
   {
     Function = BBOverrideAnimation,
@@ -269,10 +269,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1, OwnerVar = "Owner"}
-  },
-  {
     Function = BBClearOverrideAnimation,
     Params = {ToOverrideAnim = "Attack1", OwnerVar = "Owner"}
   },
@@ -287,8 +283,8 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.1, OwnerVar = "Owner"}
+    Function = BBIncScaleSkinCoef,
+    Params = {Scale = 0.1, OwnerVar = "Owner"}
   }
 }
 BuffOnPreDamageBuildingBlocks = {

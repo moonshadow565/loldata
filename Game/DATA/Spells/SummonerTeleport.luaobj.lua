@@ -13,6 +13,14 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
@@ -26,6 +34,14 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
@@ -41,6 +57,14 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
@@ -54,6 +78,14 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
@@ -69,6 +101,14 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
@@ -83,6 +123,14 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
@@ -96,6 +144,14 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Interrupted",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
@@ -118,6 +174,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -137,6 +195,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -297,12 +357,27 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Interrupted",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBGetGameTime,
     Params = {SecondsVar = "CurTime"}
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Interrupted",
+      RequiredVarTable = "InstanceVars"
+    }
   },
   {
     Function = BBMath,
@@ -326,93 +401,119 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "CastPosition",
-          SrcVar = "CastPosition",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBDestroyMissileForTarget,
-        Params = {TargetVar = "Owner"}
-      },
-      {
-        Function = BBTeleportToPosition,
-        Params = {
-          OwnerVar = "Owner",
-          CastPositionName = "CastPosition"
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "summoner_teleportarrive.troy",
-          Flags = 0,
-          EffectIDVar = "akc",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
         Function = BBIf,
         Params = {
-          Src1Var = "SummonerCooldownBonus",
-          Src1VarTable = "AvatarVars",
-          Value2 = 0,
-          CompareOp = CO_NOT_EQUAL
+          Src1Var = "Interrupted",
+          Src1VarTable = "InstanceVars",
+          Value2 = false,
+          CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBSetVarInTable,
             Params = {
-              Src2Var = "SummonerCooldownBonus",
-              Src2VarTable = "AvatarVars",
-              Src1Value = 1,
-              Src2Value = 0,
-              DestVar = "CooldownMultiplier",
-              MathOp = MO_SUBTRACT
+              DestVar = "CastPosition",
+              SrcVar = "CastPosition",
+              SrcVarTable = "InstanceVars"
             }
           },
           {
-            Function = BBMath,
+            Function = BBDestroyMissileForTarget,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBTeleportToPosition,
             Params = {
-              Src2Var = "CooldownMultiplier",
-              Src1Value = 300,
-              Src2Value = 0,
-              DestVar = "BaseCooldown",
-              MathOp = MO_MULTIPLY
+              OwnerVar = "Owner",
+              CastPositionName = "CastPosition"
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "summoner_teleportarrive.troy",
+              Flags = 0,
+              EffectIDVar = "akc",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "SummonerCooldownBonus",
+              Src1VarTable = "AvatarVars",
+              Value2 = 0,
+              CompareOp = CO_NOT_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "SummonerCooldownBonus",
+                  Src2VarTable = "AvatarVars",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "CooldownMultiplier",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "CooldownMultiplier",
+                  Src1Value = 300,
+                  Src2Value = 0,
+                  DestVar = "BaseCooldown",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "TeleportCooldownBonus",
+              Src1VarTable = "AvatarVars",
+              Value2 = 0,
+              CompareOp = CO_NOT_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "BaseCooldown",
+                  Src2Var = "TeleportCooldownBonus",
+                  Src2VarTable = "AvatarVars",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "BaseCooldown",
+                  MathOp = MO_SUBTRACT
+                }
+              }
             }
           }
         }
       },
       {
-        Function = BBIf,
-        Params = {
-          Src1Var = "TeleportCooldownBonus",
-          Src1VarTable = "AvatarVars",
-          Value2 = 0,
-          CompareOp = CO_NOT_EQUAL
-        },
+        Function = BBElse,
+        Params = {},
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "BaseCooldown",
-              Src2Var = "TeleportCooldownBonus",
-              Src2VarTable = "AvatarVars",
-              Src1Value = 0,
-              Src2Value = 0,
               DestVar = "BaseCooldown",
-              MathOp = MO_SUBTRACT
+              SrcValue = 180
             }
           }
         }
@@ -652,7 +753,7 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 0.1,
+          Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationVar = "BuffDuration",
           DurationVarTable = "NextBuffVars",

@@ -34,6 +34,17 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
         Function = BBGetStat,
         Params = {
           Stat = GetFlatMagicDamageMod,
@@ -76,12 +87,57 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "BaseAD"
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {TargetVar = "Owner", DestVar = "TotalAD"}
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TotalAD",
+          Src2Var = "BaseAD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BonusAD",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "BonusAD",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "BonusAD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
           ValueVar = "AttackDamage",
           Index = 1,
           SlotNumber = 2,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "BonusAD",
+          Index = 2,
+          SlotNumber = 0,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
@@ -149,11 +205,11 @@ CharOnPreDealDamageBuildingBlocks = {
             Params = {
               DestVar = "DamagePercent",
               SrcValueByLevel = {
-                1.05,
-                1.05,
-                1.05,
-                1.05,
-                1.05
+                1.06,
+                1.07,
+                1.08,
+                1.09,
+                1.1
               }
             }
           },

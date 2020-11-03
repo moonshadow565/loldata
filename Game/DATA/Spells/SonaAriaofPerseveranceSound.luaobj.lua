@@ -340,23 +340,21 @@ BuffOnPreDamageBuildingBlocks = {
 }
 BuffOnPreDealDamageBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBSpellBuffAdd,
     Params = {
-      Src1Var = "DamageType",
-      Value2 = TRUE_DAMAGE,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0.8,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
-        }
-      }
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaSoundOff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

@@ -17,7 +17,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "APMod",
       Src1Value = 0,
-      Src2Value = 0.35,
+      Src2Value = 0.25,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY
     }
@@ -29,11 +29,11 @@ TargetExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "APMod",
       DeltaByLevel = {
-        35,
-        70,
-        105,
-        140,
-        175
+        25,
+        50,
+        75,
+        100,
+        125
       },
       HealerVar = "Attacker"
     }
@@ -51,7 +51,11 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -61,6 +65,38 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        8,
+        11,
+        14,
+        17,
+        20
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "SonaAriaShield",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -68,6 +104,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "global_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariashield"
     }
   }
 }

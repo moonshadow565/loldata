@@ -7,19 +7,12 @@ CastTime = 0.4
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBShowHealthBar,
-    Params = {UnitVar = "Owner", Show = false}
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "TargetPos",
-      RequiredVarTable = "InstanceVars"
-    }
+    Params = {UnitVar = "Attacker", Show = true}
   },
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = false,
       Status = SetTargetable
     }
@@ -27,7 +20,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetInvulnerable
     }
@@ -35,7 +28,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = false,
       Status = SetCanMove
     }
@@ -43,7 +36,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetIgnoreCallForHelp
     }
@@ -51,7 +44,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetCallForHelpSuppresser
     }
@@ -59,7 +52,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetForceRenderParticles
     }
@@ -67,7 +60,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetNoRender
     }
@@ -75,7 +68,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = true,
       Status = SetSuppressCallForHelp
     }
@@ -83,204 +76,24 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = false,
       Status = SetCanAttack
     }
   },
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBSetStatus,
     Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 100,
-      Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      BuffNameFilter = "CrystallizePush",
-      InclusiveBuffFilter = false
-    },
-    SubBlocks = {
-      {
-        Function = BBGetStatus,
-        Params = {
-          TargetVar = "Unit",
-          DestVar = "ghosted",
-          Status = GetGhosted
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "PushDistance",
-              SrcValue = 110
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "PushDistance",
-              SrcValue = 125
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Owner",
-          Src2Var = "Unit",
-          CompareOp = CO_IS_TARGET_IN_FRONT_OF_ME
-        },
-        SubBlocks = {
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 0,
-              DistanceVar = "PushDistance",
-              OffsetAngle = 0,
-              PositionVar = "TargetPos"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetUnitPosition,
-            Params = {UnitVar = "Unit", PositionVar = "unitPos"}
-          },
-          {
-            Function = BBGetUnitPosition,
-            Params = {UnitVar = "Owner", PositionVar = "ownerPos"}
-          },
-          {
-            Function = BBDistanceBetweenPoints,
-            Params = {
-              DestVar = "distance",
-              Point1Var = "unitPos",
-              Point2Var = "ownerPos"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "distance",
-              Value2 = 60,
-              CompareOp = CO_LESS_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBGetPointByUnitFacingOffset,
-                Params = {
-                  UnitVar = "Owner",
-                  Distance = 0,
-                  DistanceVar = "PushDistance",
-                  OffsetAngle = 0,
-                  PositionVar = "TargetPos"
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBGetPointByUnitFacingOffset,
-                Params = {
-                  UnitVar = "Owner",
-                  Distance = 0,
-                  DistanceVar = "PushDistance",
-                  OffsetAngle = 180,
-                  PositionVar = "TargetPos"
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "TargetPos",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "TargetPos"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "ghosted",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "CrystallizePush",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 76,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Attacker",
-          Src2Var = "Unit",
-          CompareOp = CO_DIFFERENT_TEAM
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageType = TRUE_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_DEFAULT,
-              PercentOfAttack = 0,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      }
+      TargetVar = "Attacker",
+      SrcValue = true,
+      Status = SetGhostProof
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBGetUnitPosition,
-    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+    Params = {UnitVar = "Attacker", PositionVar = "OwnerPos"}
   },
   {
     Function = BBSpellEffectCreate,
@@ -299,33 +112,16 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
   },
   {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "JarvanIVCataclysmSelfCheck"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
-          BuffName = "JarvanIVCataclysmSelfCheck",
-          ResetDuration = 0
-        }
-      }
-    }
-  },
-  {
     Function = BBSetStatus,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SrcValue = false,
       Status = SetInvulnerable
     }
@@ -333,9 +129,9 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBApplyDamage,
     Params = {
-      AttackerVar = "Owner",
+      AttackerVar = "Attacker",
       CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
+      TargetVar = "Attacker",
       Damage = 10000,
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
@@ -347,56 +143,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.25,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Attacker",
-          CenterVar = "Attacker",
-          Range = 600,
-          Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Attacker",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Attacker",
-              AttackerVar = "Attacker",
-              BuffName = "JarvanIVCataclysmSelfCheck"
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Attacker",
-                  BuffName = "JarvanIVCataclysmAttack",
-                  ResetDuration = 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
-CanCastBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -485,12 +231,6 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crystallizepush"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "jarvanwallcrumble.troy"
@@ -499,18 +239,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jarvanivcataclysmselfcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jarvanivcataclysmattack"
-    }
   },
   {
     Function = BBPreloadSpell,

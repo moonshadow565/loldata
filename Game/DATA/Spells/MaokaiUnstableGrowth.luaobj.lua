@@ -128,6 +128,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }

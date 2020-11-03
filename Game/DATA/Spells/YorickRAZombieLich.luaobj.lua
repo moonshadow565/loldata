@@ -355,7 +355,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnPreTakeDamageBuildingBlocks = {
+BuffOnPreMitigationDamageBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {

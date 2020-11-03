@@ -14,7 +14,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaAriaOfPerseverance"
+      BuffName = "SonaAriaOfPerseverance",
+      ResetDuration = 0
     }
   },
   {
@@ -22,7 +23,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongOfDiscord"
+      BuffName = "SonaSongOfDiscord",
+      ResetDuration = 0
     }
   },
   {
@@ -549,7 +551,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.5,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

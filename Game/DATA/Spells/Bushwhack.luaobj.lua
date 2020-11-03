@@ -80,6 +80,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -176,6 +178,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -196,6 +200,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -294,8 +300,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnlyOverrideVar = "TeamID",
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -389,6 +398,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bushwhackdebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "destealth"}
   },
   {
     Function = BBPreloadParticle,

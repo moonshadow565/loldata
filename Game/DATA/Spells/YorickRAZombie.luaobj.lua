@@ -422,7 +422,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnPreTakeDamageBuildingBlocks = {
+BuffOnPreMitigationDamageBuildingBlocks = {
   {
     Function = BBIfHasBuff,
     Params = {

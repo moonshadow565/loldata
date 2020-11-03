@@ -22,17 +22,27 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBIncPAR,
+        Function = BBIf,
         Params = {
-          TargetVar = "Target",
-          Delta = 0,
-          PARType = PAR_MANA,
-          DeltaByLevel = {
-            25,
-            50,
-            75,
-            100,
-            125
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Target",
+              Delta = 0,
+              PARType = PAR_MANA,
+              DeltaByLevel = {
+                25,
+                50,
+                75,
+                100,
+                125
+              }
+            }
           }
         }
       },
@@ -66,7 +76,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -92,7 +103,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -120,7 +132,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.6,
+          SpellDamageRatio = 0.75,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -133,11 +145,11 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           Duration = 0,
           DurationByLevel = {
-            1,
             1.5,
+            1.75,
             2,
-            2.5,
-            3
+            2.25,
+            2.5
           }
         }
       },
@@ -156,7 +168,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

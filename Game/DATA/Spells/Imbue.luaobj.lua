@@ -30,7 +30,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AP",
-      Src1Value = 1.1,
+      Src1Value = 0.6,
       Src2Value = 0,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY
@@ -139,6 +139,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }

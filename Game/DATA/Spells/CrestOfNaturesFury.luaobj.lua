@@ -17,7 +17,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

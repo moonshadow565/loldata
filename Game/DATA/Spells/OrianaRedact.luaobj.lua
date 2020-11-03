@@ -306,6 +306,8 @@ SpellOnMissileEndBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -344,6 +346,8 @@ SpellOnMissileEndBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -384,7 +388,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SelfAP",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.4,
       DestVar = "BonusShield",
       MathOp = MO_MULTIPLY
     }

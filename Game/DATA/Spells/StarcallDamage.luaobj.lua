@@ -5,6 +5,13 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DamageToDeal",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "StarcallShred",
+      RequiredVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -13,7 +20,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "ResistanceMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = -8
+      SrcVar = "StarcallShred",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -25,12 +33,13 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
-      MaxStack = 20,
+      MaxStack = 10,
       NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -45,7 +54,7 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.25,
+      SpellDamageRatio = 0.4,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

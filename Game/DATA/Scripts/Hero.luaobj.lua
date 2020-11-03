@@ -234,7 +234,7 @@ function L0_0()
     if L1_7 ~= nil then
       SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
       return true
-    elseif DistanceBetweenObjectAndTargetPos(me) <= 10 then
+    elseif DistanceBetweenObjectAndTargetPosSq(me) <= 100 then
       NetSetState(AI_STANDING)
       ClearTargetPosInPos()
       return true

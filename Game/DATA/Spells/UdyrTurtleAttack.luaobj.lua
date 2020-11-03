@@ -24,11 +24,11 @@ TargetExecuteBuildingBlocks = {
               DestVar = "DrainPercent",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
+                0.1,
                 0.12,
                 0.14,
                 0.16,
-                0.18,
-                0.2
+                0.18
               }
             }
           },
@@ -37,7 +37,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               Src2Var = "DrainPercent",
               Src2VarTable = "NextBuffVars",
-              Src1Value = 0.75,
+              Src1Value = 0.5,
               Src2Value = 0,
               DestVar = "ManaDrainPercent",
               DestVarTable = "NextBuffVars",
@@ -58,6 +58,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -76,6 +78,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -139,6 +143,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "globalhit_physical.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globaldrainmana"
     }
   }
 }

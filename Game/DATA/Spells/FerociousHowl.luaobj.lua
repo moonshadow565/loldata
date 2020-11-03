@@ -108,9 +108,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReduction",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.75,
-        0.75,
-        0.75
+        0.5,
+        0.6,
+        0.7
       }
     }
   },
@@ -139,9 +139,9 @@ SelfExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        6,
         7,
-        8
+        7,
+        7
       },
       TickRate = 0,
       CanMitigateDuration = false,

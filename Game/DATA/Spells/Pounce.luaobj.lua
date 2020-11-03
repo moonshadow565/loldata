@@ -30,6 +30,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = POSTPONE_CURRENT_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
   },
@@ -40,7 +41,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -131,7 +133,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -147,17 +150,11 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTimeVer2,
-    Params = {
-      Src = 3,
-      SlotNumber = 1,
-      SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -197,7 +194,11 @@ BuffOnMoveSuccessBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -229,7 +230,11 @@ BuffOnMoveSuccessBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
