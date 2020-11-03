@@ -65,7 +65,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "AttackDamage",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.7,
       DestVar = "AttackDamage",
       MathOp = MO_MULTIPLY
     }
@@ -1363,12 +1363,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rivenfengshuiengine"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "exile_q_01_trail_02_ult.troy"
@@ -1414,16 +1408,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "riventricleaveunlock"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "rivensword"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "riventricleavedamage"
     }
   },
   {

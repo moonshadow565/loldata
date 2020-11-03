@@ -506,9 +506,32 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 75,
-          OffsetAngle = 180,
-          PositionVar = "Pos"
+          Distance = 125,
+          OffsetAngle = 0,
+          PositionVar = "CheckPos"
+        }
+      },
+      {
+        Function = BBIsPathable,
+        Params = {DestPosVar = "CheckPos", ResultVar = "Pathable"}
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Pathable",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBGetPointByUnitFacingOffset,
+            Params = {
+              UnitVar = "Owner",
+              Distance = 75,
+              OffsetAngle = 180,
+              PositionVar = "Pos"
+            }
+          }
         }
       }
     }
@@ -887,12 +910,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "riventricleavecooldown"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "riventricleaveunlock"
     }
   },
   {
