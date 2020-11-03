@@ -7,22 +7,22 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = true}
   },
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncAcquisitionRangeMod,
-      TargetVar = "Owner",
-      Delta = -900
-    }
-  },
-  {
     Function = BBCancelAutoAttack,
     Params = {TargetVar = "Owner", Reset = false}
+  },
+  {
+    Function = BBSetAutoAcquireTargets,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetDodgePiercing,
     Params = {TargetVar = "Owner", Value = false}
+  },
+  {
+    Function = BBSetAutoAcquireTargets,
+    Params = {TargetVar = "Owner", Value = true}
   },
   {
     Function = BBSpellBuffRemove,
@@ -125,54 +125,6 @@ OnBuffDeactivateBuildingBlocks = {
           CancelAttack = false
         }
       }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncAcquisitionRangeMod,
-      TargetVar = "Owner",
-      Delta = -900
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonahymnofvalorcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverancecheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscordcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonahymnofvalor"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscord"
     }
   }
 }

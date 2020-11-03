@@ -14,11 +14,11 @@ SpellOnMissileEndBuildingBlocks = {
     Params = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
-        60,
-        85,
-        110,
-        135,
-        160
+        80,
+        105,
+        130,
+        155,
+        180
       }
     }
   },
@@ -92,11 +92,11 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "baseDamageBlock",
           SrcValueByLevel = {
-            60,
-            85,
-            110,
-            135,
-            160
+            80,
+            105,
+            130,
+            155,
+            180
           }
         }
       },

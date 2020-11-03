@@ -190,11 +190,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        90,
-        140,
-        190,
-        240,
-        290
+        80,
+        125,
+        170,
+        215,
+        260
       }
     }
   },
@@ -211,7 +211,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "HPPoolMod",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.18,
       DestVar = "HPPoolMod",
       MathOp = MO_MULTIPLY
     }

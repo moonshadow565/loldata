@@ -32,11 +32,11 @@ OnBuffActivateBuildingBlocks = {
       CallForHelpAttackerVar = "Owner",
       TargetVar = "Attacker",
       DamageByLevel = {
-        65,
-        105,
-        145,
-        185,
-        225
+        70,
+        115,
+        160,
+        205,
+        250
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -72,24 +72,24 @@ BuffOnPreDealDamageBuildingBlocks = {
             Params = {
               DestVar = "percentLeech",
               SrcValueByLevel = {
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3,
-                0.3
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35,
+                0.35
               }
             }
           }
@@ -104,24 +104,24 @@ BuffOnPreDealDamageBuildingBlocks = {
             Params = {
               DestVar = "percentLeech",
               SrcValueByLevel = {
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15,
-                0.15
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175,
+                0.175
               }
             }
           }

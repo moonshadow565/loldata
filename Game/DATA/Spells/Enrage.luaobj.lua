@@ -175,7 +175,6 @@ BuffOnHitUnitBuildingBlocks = {
     }
   }
 }
-BuffOnPreAttackBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,

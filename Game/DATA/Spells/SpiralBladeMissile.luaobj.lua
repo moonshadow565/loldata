@@ -53,20 +53,49 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AP"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "AP",
+      Src1Value = 0.5,
+      Src2Value = 0,
+      DestVar = "APDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src2Var = "APDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageToDeal",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        80,
-        125,
-        170,
-        215,
-        260
+        70,
+        115,
+        160,
+        205,
+        250
       },
       Damage = 0,
-      DamageVar = "BonusDamage",
+      DamageVar = "DamageToDeal",
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,

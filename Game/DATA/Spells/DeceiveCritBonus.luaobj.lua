@@ -20,12 +20,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetDodgePiercing,
-    Params = {TargetVar = "Owner", Value = false}
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -105,5 +99,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "DamageAmount",
       MathOp = MO_MULTIPLY
     }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
