@@ -9,6 +9,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "maokaiunstablegrowtheffects"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "maokaiunstablegrowth"
     }
   },
