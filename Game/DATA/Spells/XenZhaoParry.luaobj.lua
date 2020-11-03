@@ -111,7 +111,7 @@ SelfExecuteBuildingBlocks = {
       EffectName = "xenZiou_ult_cas.troy",
       Flags = 0,
       EffectIDVar = "p3",
-      BoneName = "BUFFBONE_CSTM__WEAPON_1",
+      BoneName = "BUFFBONE_CSTM_WEAPON_1",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -400,7 +400,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -416,7 +417,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

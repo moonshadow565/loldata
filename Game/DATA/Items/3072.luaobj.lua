@@ -19,6 +19,44 @@ UpdateSelfBuffStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "PhysicalDamageBonus",
+      ValueVarTable = "InstanceVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "PercentLifeSteal",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 100,
+      DestVar = "PercentLifeStealTT",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "PercentLifeStealTT",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 ItemOnKillBuildingBlocks = {

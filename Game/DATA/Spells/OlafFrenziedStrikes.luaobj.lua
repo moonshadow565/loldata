@@ -135,11 +135,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthPercent",
       SrcValueByLevel = {
-        0.005,
-        0.005,
-        0.005,
-        0.005,
-        0.005
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
       }
     }
   },
@@ -148,11 +148,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        10,
-        17,
-        24,
-        31,
-        38
+        7,
+        14,
+        21,
+        28,
+        35
       }
     }
   },

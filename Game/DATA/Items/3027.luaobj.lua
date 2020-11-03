@@ -28,6 +28,48 @@ UpdateSelfBuffStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusHealth",
+      ValueVarTable = "InstanceVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusAbilityPower",
+      ValueVarTable = "InstanceVars",
+      Index = 3,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusMana",
+      ValueVarTable = "InstanceVars",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 UpdateSelfBuffActionsBuildingBlocks = {
