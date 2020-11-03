@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretbonus"
+      Name = "turretprebonus"
     }
   },
   {

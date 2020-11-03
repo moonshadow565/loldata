@@ -6,9 +6,30 @@ IsDamagingSpell = true
 BuffTextureName = "VarusPassive.dds"
 BuffName = "VarusPassiveBuffDisplay"
 AutoBuffActivateEffect = "VarusPassive.troy"
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = "enrage_buf.troy"
-AutoBuffActivateAttachBoneName2 = "l_finger"
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateEffect4 = ""
 PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varus-bow-glow-big.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varus-bow-glow-med.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varus-bow-glow-small.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "varuspassivebuffdisplayminion"
+    }
+  }
+}

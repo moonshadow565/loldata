@@ -23,17 +23,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varusw_counter_03.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusw_counter_04.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusw_counter_05.troy"
-    }
   }
 }

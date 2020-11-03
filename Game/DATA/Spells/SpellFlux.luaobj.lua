@@ -33,6 +33,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "spellfluxmissile"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "desperatepower_aoe.troy"

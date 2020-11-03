@@ -5,20 +5,22 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Irelia_TranscendentBladesReady.dds"
 BuffName = "IreliaTranscendentBlades"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "irelia_ult_tar.troy"
+      Name = "irelia_frostblade_ult_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "irelia_ult_tar.troy"
+    }
   },
   {
     Function = BBPreloadSpell,

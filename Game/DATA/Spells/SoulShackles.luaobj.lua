@@ -3,18 +3,43 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_Purgatory.dds"
 BuffName = "Soul Shackles"
-AutoBuffActivateEffect = "SoulShackle_buf.troy"
-AutoBuffActivateEffect2 = "SoulShackle_tar.troy"
+AutoBuffActivateEffect = ""
+AutoBuffActivateEffect2 = ""
 AutoCooldownByLevel = {
   80,
   80,
   80
 }
+PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "soulshackle_beam.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "morgana_blackthorn_soulshackle_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "morgana_blackthorn_soulshackle_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soulshackle_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soulshackle_buf.troy"
     }
   },
   {

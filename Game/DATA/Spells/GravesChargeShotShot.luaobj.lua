@@ -10,7 +10,7 @@ PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "spellbook1"}
+    Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
