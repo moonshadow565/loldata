@@ -1,4 +1,4 @@
-AutoItemActivateEffect = "ZettasManaManipulator_itm.troy"
+AutoItemActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
@@ -33,7 +33,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -50,7 +51,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -67,7 +69,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

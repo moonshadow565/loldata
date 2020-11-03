@@ -88,7 +88,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SelfAP",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.5,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }

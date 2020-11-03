@@ -44,7 +44,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "SkinName",
-      Value2 = "oriana_ball",
+      Value2 = "OriannaBall",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -62,7 +62,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "SkinName",
-      Value2 = "Oriana_Ball",
+      Value2 = "OriannaBall",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -377,7 +377,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "SkinName",
-      Value2 = "Oriana_Ball",
+      Value2 = "OriannaBall",
       CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
@@ -1148,6 +1148,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Invulnerable = true,
                   MagicImmune = true,
                   IgnoreCollision = true,
+                  IsWard = false,
                   Placemarker = true,
                   VisibilitySize = 0,
                   DestVar = "Other3",
@@ -1305,7 +1306,7 @@ BuffOnDeathBuildingBlocks = {
             Function = BBSpawnMinion,
             Params = {
               Name = "TheDoomBall",
-              Skin = "Oriana_Ball",
+              Skin = "OriannaBall",
               AiScript = "idle.lua",
               PosVar = "MissileEndPosition",
               Team = TEAM_ORDER,
@@ -1316,6 +1317,7 @@ BuffOnDeathBuildingBlocks = {
               Invulnerable = true,
               MagicImmune = true,
               IgnoreCollision = true,
+              IsWard = false,
               Placemarker = true,
               VisibilitySize = 0,
               DestVar = "Other3",
@@ -1456,7 +1458,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "oriana_ball"
+      Name = "oriannaball"
     }
   }
 }

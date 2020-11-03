@@ -20,7 +20,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "Armordillo_DBC",
+      SkinName = "RammusDBC",
       TargetVar = "Owner",
       IDVar = "CasterID",
       IDVarTable = "InstanceVars",
@@ -333,9 +333,7 @@ SelfExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "armordillo_dbc"
-    }
+    Params = {Name = "rammusdbc"}
   },
   {
     Function = BBPreloadSpell,

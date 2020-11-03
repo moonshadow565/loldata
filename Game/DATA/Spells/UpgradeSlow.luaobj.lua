@@ -21,13 +21,15 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "H28RedFrost",
+      SkinName = "HeimerTBlue",
       TargetVar = "Owner",
       IDVar = "RedShift",
       IDVarTable = "InstanceVars",
@@ -125,7 +127,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "h28redfrost"
+      Name = "heimertblue"
     }
   },
   {

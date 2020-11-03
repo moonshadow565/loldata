@@ -888,7 +888,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "oriana_ball"
+      Name = "OriannaBall"
     }
   },
   {

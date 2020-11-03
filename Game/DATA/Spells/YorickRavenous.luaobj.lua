@@ -92,11 +92,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DrainPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.5,
-        0.5,
-        0.5,
-        0.5,
-        0.5
+        0.4,
+        0.4,
+        0.4,
+        0.4,
+        0.4
       }
     }
   },

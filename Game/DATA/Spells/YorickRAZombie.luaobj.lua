@@ -601,12 +601,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "undyingrage"

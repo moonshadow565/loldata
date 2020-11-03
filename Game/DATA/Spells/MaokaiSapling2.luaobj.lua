@@ -172,12 +172,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "maokai_sproutling"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "maoki_sapling_detonate.troy"

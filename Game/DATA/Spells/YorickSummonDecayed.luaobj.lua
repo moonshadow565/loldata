@@ -29,113 +29,6 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
-  },
-  {
-    Function = BBForNClosestUnitsInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Attacker",
-      Range = 850,
-      Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit",
-      MaximumUnitsToPick = 1,
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyTaunt,
-        Params = {
-          AttackerVar = "Unit",
-          TargetVar = "Attacker",
-          Duration = 1.5
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "NearbyChampion",
-          SrcValue = true
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "CheckBuilding",
-          SrcValue = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "NearbyChampion",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBForNClosestUnitsInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Attacker",
-          Range = 750,
-          Flags = "AffectEnemies AffectMinions ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyTaunt,
-            Params = {
-              AttackerVar = "Unit",
-              TargetVar = "Attacker",
-              Duration = 1.5
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CheckBuilding",
-              SrcValue = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CheckBuilding",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBForNClosestUnitsInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Attacker",
-          Range = 750,
-          Flags = "AffectEnemies AffectBuildings ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyTaunt,
-            Params = {
-              AttackerVar = "Unit",
-              TargetVar = "Attacker",
-              Duration = 1.5
-            }
-          }
-        }
-      }
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -380,27 +273,9 @@ SelfExecuteBuildingBlocks = {
       IgnoreCollision = false,
       IsWard = false,
       Placemarker = false,
-      VisibilitySize = 500,
+      VisibilitySize = 0,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Other1",
-      AttackerVar = "Other1",
-      BuffName = "YorickGhoulSummonAnim",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
     }
   },
   {
@@ -521,27 +396,6 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "YorickAD",
-      Src1Value = 0,
-      Src2Value = 0.8,
-      DestVar = "YorickAD",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "YorickAD",
-      Src2Var = "BaseDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "DamageToDeal",
-      MathOp = MO_ADD
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "MoveSpeedMod",
@@ -613,11 +467,11 @@ SelfExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Owner",
           TargetVar = "Unit",
           Damage = 0,
-          DamageVar = "DamageToDeal",
+          DamageVar = "BaseDamage",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0,
+          SpellDamageRatio = 1,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -637,12 +491,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "yorickdecayedghoul"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickghoulsummonanim"
     }
   },
   {

@@ -145,7 +145,7 @@ SpellOnMissileEndBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false,
-              IsHiddenOnClient = true
+              IsHiddenOnClient = false
             }
           },
           {
@@ -309,7 +309,7 @@ SpellOnMissileEndBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false,
-              IsHiddenOnClient = true
+              IsHiddenOnClient = false
             }
           },
           {
@@ -592,6 +592,7 @@ TargetExecuteBuildingBlocks = {
           BindObjectVar = "Target",
           EffectName = "Leona_ZenithBlade_sound.troy",
           Flags = 0,
+          EffectIDVar = "temp",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,

@@ -39,7 +39,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -81,7 +82,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "UdyrTigerShred"
+          BuffName = "UdyrTigerShred",
+          ResetDuration = 0
         }
       }
     }
@@ -243,7 +245,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "UdyrBearStance"
+          BuffName = "UdyrBearStance",
+          ResetDuration = 0
         }
       }
     }
@@ -261,7 +264,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "UdyrPhoenixStance"
+          BuffName = "UdyrPhoenixStance",
+          ResetDuration = 0
         }
       }
     }
@@ -279,7 +283,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "UdyrTurtleStance"
+          BuffName = "UdyrTurtleStance",
+          ResetDuration = 0
         }
       }
     }
@@ -490,7 +495,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -564,6 +570,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "udyrtigerpunch"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrtigershred"
     }
   },
   {

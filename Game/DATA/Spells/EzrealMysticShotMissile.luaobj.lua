@@ -267,6 +267,10 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -298,7 +302,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -471,6 +476,10 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -502,7 +511,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -687,6 +697,10 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              },
+              {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
@@ -718,7 +732,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {

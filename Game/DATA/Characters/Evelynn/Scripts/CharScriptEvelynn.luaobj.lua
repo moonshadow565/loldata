@@ -124,9 +124,9 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "MaliceHeal",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            150,
-            225,
-            300
+            350,
+            500,
+            650
           }
         }
       }

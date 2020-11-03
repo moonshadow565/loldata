@@ -47,7 +47,9 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -114,7 +116,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBSpawnMinion,
     Params = {
       Name = "DoABarrelRoll",
-      Skin = "Maokai_Sproutling",
+      Skin = "MaokaiSproutling",
       AiScript = "idle.lua",
       PosVar = "TargetPos",
       Team = TEAM_CASTER,
@@ -125,6 +127,7 @@ TargetExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other1",
@@ -192,7 +195,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "maokai_sproutling"
+      Name = "maokaisproutling"
     }
   },
   {

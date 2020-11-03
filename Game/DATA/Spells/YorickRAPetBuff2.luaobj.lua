@@ -345,9 +345,9 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "ADRatio",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        0.5,
-        0.75,
-        1
+        0.45,
+        0.6,
+        0.75
       }
     }
   }

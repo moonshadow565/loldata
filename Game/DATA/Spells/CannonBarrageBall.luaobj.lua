@@ -358,7 +358,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "pirate"}
+    Params = {Name = "gangplank"}
   },
   {
     Function = BBPreloadParticle,

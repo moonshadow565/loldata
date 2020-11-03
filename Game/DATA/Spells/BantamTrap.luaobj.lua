@@ -219,6 +219,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Activated",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
     Function = BBGetSkinID,
     Params = {
       UnitVar = "Owner",
@@ -487,6 +495,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           TickRate = 0,
           CanMitigateDuration = false,
           IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Activated",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
         }
       }
     }
@@ -792,7 +808,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpawnMinion,
     Params = {
       Name = "Noxious Trap",
-      Skin = "BantamTrap",
+      Skin = "TeemoMushroom",
       AiScript = "idle.lua",
       PosVar = "TargetPos",
       Team = TEAM_UNKNOWN,
@@ -923,12 +939,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "bantamtrap"}
-  },
-  {
     Function = BBPreloadCharacter,
-    Params = {Name = "bantamtrap"}
+    Params = {
+      Name = "teemomushroom"
+    }
   },
   {
     Function = BBPreloadSpell,

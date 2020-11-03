@@ -2,6 +2,20 @@ BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
+      Src1Var = "MaxStack",
+      Value2 = 76,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
       Src1Var = "Type",
       Value2 = BUFF_Snare,
       CompareOp = CO_EQUAL

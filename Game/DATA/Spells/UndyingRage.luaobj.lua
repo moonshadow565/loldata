@@ -4,10 +4,10 @@ BuffTextureName = "DarkChampion_EndlessRage.dds"
 BuffName = "Undying Rage"
 AutoBuffActivateEffect = "UndyingRage_buf.troy"
 AutoBuffActivateAttachBoneName = "head"
-AutoBuffActivateEffect2 = "UndyingRage_glow.troy"
-AutoBuffActivateAttachBoneName2 = "L_calf"
-AutoBuffActivateEffect3 = "UndyingRage_glow.troy"
-AutoBuffActivateAttachBoneName3 = "R_calf"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateEffect4 = "UndyingRageSpine_glow.troy"
 AutoBuffActivateAttachBoneName4 = "spine"
 AutoCooldownByLevel = {
@@ -17,6 +17,62 @@ AutoCooldownByLevel = {
 }
 NonDispellable = true
 OnPreDamagePriority = 2
+SpellFXOverrideSkins = {
+  "TryndamereDemonsword"
+}
+SpellVOOverrideSkins = {
+  "TryndamereDemonsword"
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBOverrideAnimation,
+    Params = {
+      ToOverrideAnim = "run",
+      OverrideAnim = "run2",
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "UndyingRage_glow.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "L_BUFFBONE_GLB_FOOT_LOC",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "UndyingRage_glow.troy",
+      Flags = 0,
+      EffectIDVar = "b",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "R_BUFFBONE_GLB_FOOT_LOC",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  }
+}
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
@@ -84,6 +140,24 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "b",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnPreDamageBuildingBlocks = {
@@ -126,17 +200,6 @@ BuffOnPreDamageBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "NumBloodlusts",
-      SrcValueByLevel = {
-        4,
-        6,
-        8
-      }
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -154,124 +217,24 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {DestVar = "Level", SrcValue = 1}
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        3,
-        3,
-        3,
-        3,
-        3
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "CritDamageMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.015,
-        0.0225,
-        0.03,
-        0.0375,
-        0.045
-      }
-    }
-  },
-  {
-    Function = BBWhile,
-    Params = {
-      Src1Var = "NumBloodlusts",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Bloodlust",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 8,
-          NumberOfStacks = 1,
-          Duration = 15,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "NumBloodlusts",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "NumBloodlusts",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "BloodlustParticle",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 15,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      Delta = 0,
+      PARType = PAR_OTHER,
+      DeltaByLevel = {
+        50,
+        75,
+        100
+      }
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "bloodlust"}
-  },
-  {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "bloodlustparticle"
+      Name = "undyingrage_glow.troy"
     }
   }
 }

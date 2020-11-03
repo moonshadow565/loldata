@@ -272,7 +272,7 @@ SpellOnMissileEndBuildingBlocks = {
             Function = BBSpawnMinion,
             Params = {
               Name = "TheDoomBall",
-              Skin = "Oriana_Ball",
+              Skin = "OriannaBall",
               AiScript = "idle.lua",
               PosVar = "MissileEndPosition",
               Team = TEAM_ORDER,
@@ -283,6 +283,7 @@ SpellOnMissileEndBuildingBlocks = {
               Invulnerable = true,
               MagicImmune = true,
               IgnoreCollision = true,
+              IsWard = false,
               Placemarker = true,
               VisibilitySize = 0,
               DestVar = "Other3",
@@ -626,7 +627,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "oriana_ball"
+      Name = "oriannaball"
     }
   },
   {

@@ -76,7 +76,9 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -108,7 +110,7 @@ TargetExecuteBuildingBlocks = {
               DamageVar = "DamageAmount",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1.6,
+              PercentOfAttack = 1.5,
               SpellDamageRatio = 0.3,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
@@ -149,7 +151,9 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -181,7 +185,7 @@ TargetExecuteBuildingBlocks = {
                   DamageVar = "DamageAmount",
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1.6,
+                  PercentOfAttack = 1.5,
                   SpellDamageRatio = 0.3,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
@@ -234,7 +238,9 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -266,7 +272,7 @@ TargetExecuteBuildingBlocks = {
                       DamageVar = "DamageAmount",
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1.6,
+                      PercentOfAttack = 1.5,
                       SpellDamageRatio = 0.3,
                       PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,

@@ -14,7 +14,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 4,
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
@@ -63,7 +63,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Count",
-      Value2 = 4,
+      Value2 = 3,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {

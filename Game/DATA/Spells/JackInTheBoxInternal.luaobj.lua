@@ -47,7 +47,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpawnMinion,
     Params = {
       Name = "Jack In The Box",
-      Skin = "JackInTheBox",
+      Skin = "ShacoBox",
       AiScript = "turret.lua",
       PosVar = "TargetPos",
       Team = TEAM_CASTER,
@@ -58,6 +58,7 @@ OnBuffDeactivateBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 500,
       DestVar = "Other3",
@@ -94,13 +95,11 @@ OnBuffDeactivateBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jackinthebox"
-    }
+    Function = BBPreloadCharacter,
+    Params = {Name = "shacobox"}
   },
   {
-    Function = BBPreloadCharacter,
+    Function = BBPreloadSpell,
     Params = {
       Name = "jackinthebox"
     }

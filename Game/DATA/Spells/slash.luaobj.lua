@@ -1,6 +1,108 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
+BuffOnCollisionBuildingBlocks = {
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      CasterVar = "Owner",
+      BuffName = "SlashBeenHit"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "SlashBeenHit",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "Damage",
+          DamageVarTable = "InstanceVars",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = true
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BloodSlash.troy",
+          Flags = 0,
+          EffectIDVar = "particle",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBStartTrackingCollisions,
+        Params = {TargetVar = "Owner", Value = true}
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 5,
+              PARType = PAR_OTHER
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 2,
+              PARType = PAR_OTHER
+            }
+          }
+        }
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -46,6 +148,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell3",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true,
+      Blend = false,
+      Lock = true
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Owner",
@@ -57,24 +170,23 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
   },
   {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell2",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = true,
-      Blend = false
-    }
+    Function = BBStartTrackingCollisions,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = false}
+    Params = {OwnerVar = "Owner", Blend = true}
+  },
+  {
+    Function = BBStartTrackingCollisions,
+    Params = {TargetVar = "Owner", Value = true}
   },
   {
     Function = BBIf,
@@ -90,45 +202,6 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetMovementSpeed,
-      TargetVar = "Owner",
-      DestVar = "MoveSpeedVal"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "MoveSpeedVal",
-      Value2 = 300,
-      CompareOp = CO_LESS_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "MoveSpeedVal",
-          Src1Value = 300,
-          Src2Value = 0,
-          DestVar = "MoveSpeedDif",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatMovementSpeedMod,
-          TargetVar = "Owner",
-          DeltaVar = "MoveSpeedDif",
-          Delta = 0
         }
       }
     }
@@ -152,78 +225,92 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 225,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          InclusiveBuffFilter = true
+          BuffNameFilter = "SlashBeenHit",
+          InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
-            Function = BBGetBuffCountFromAll,
+            Function = BBSpellBuffAdd,
             Params = {
-              DestVar = "Count",
               TargetVar = "Unit",
-              BuffName = "SlashBeenHit"
+              AttackerVar = "Attacker",
+              BuffName = "SlashBeenHit",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "Damage",
+              DamageVarTable = "InstanceVars",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = true
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "BloodSlash.troy",
+              Flags = 0,
+              EffectIDVar = "particle",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
             Function = BBIf,
-            Params = {
-              Src1Var = "Count",
-              Value2 = 1,
-              CompareOp = CO_LESS_THAN
-            },
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIncPAR,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "SlashBeenHit",
-                  BuffAddType = BUFF_STACKS_AND_RENEWS,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 2,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  TargetVar = "Owner",
+                  Delta = 0,
+                  PARType = PAR_OTHER
                 }
-              },
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
               {
-                Function = BBBreakSpellShields,
-                Params = {TargetVar = "Unit"}
-              },
-              {
-                Function = BBApplyDamage,
+                Function = BBIncPAR,
                 Params = {
-                  AttackerVar = "Attacker",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Unit",
-                  Damage = 0,
-                  DamageVar = "Damage",
-                  DamageVarTable = "InstanceVars",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 1,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = true
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Unit",
-                  EffectName = "BloodSlash.troy",
-                  Flags = 0,
-                  EffectIDVar = "particle",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  TargetVar = "Owner",
+                  Delta = 0,
+                  PARType = PAR_OTHER
                 }
               }
             }
@@ -255,7 +342,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -332,90 +421,6 @@ CanCastBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthCost",
-      SrcValueByLevel = {
-        40,
-        50,
-        60,
-        70,
-        80
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UndyingRage"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HealthCost",
-          SrcValueByLevel = {
-            0,
-            0,
-            0,
-            0,
-            0
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "Temp1",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealthCost",
-      Src2Var = "Temp1",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Temp1",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "HealthCost",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthCost",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "HealthCost",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthCost",
-      HealerVar = "Owner"
-    }
-  },
-  {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
   },
@@ -430,13 +435,13 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "Damage",
+      DestVar = "baseAbilityDamage",
       SrcValueByLevel = {
-        40,
+        60,
         90,
-        140,
-        185,
-        240
+        120,
+        150,
+        180
       }
     }
   },
@@ -448,20 +453,48 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBGetStat,
     Params = {
-      Src1Var = "totalDamage",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "damageMod",
-      MathOp = MO_MULTIPLY
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "baseDamage"
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "damageMod",
-      Src2Var = "Damage",
+      Src1Var = "totalDamage",
+      Src2Var = "baseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "abilityPower"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "abilityPower",
+      Src2Var = "bonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "baseAbilityDamage",
+      Src2Var = "bonusDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "Damage",
@@ -544,7 +577,8 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -570,11 +604,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {Name = "slash.troy"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "undyingrage"
-    }
   }
 }

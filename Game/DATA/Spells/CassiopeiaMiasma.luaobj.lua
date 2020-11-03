@@ -6,6 +6,10 @@ AutoBuffActivateEffect = "AcidTrail_buf.troy"
 AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "DamagePerTick",
@@ -24,7 +28,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPercentBubbleRadiusMod,
       TargetVar = "Owner",
-      Delta = -1
+      Delta = -0.6
     }
   },
   {
@@ -119,7 +123,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -137,7 +142,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -161,7 +167,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -179,9 +186,24 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
+    }
+  },
+  {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "TeamID",
+      Radius = 250,
+      TargetVar = "Owner",
+      Duration = 7,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
     }
   },
   {
@@ -256,6 +278,10 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBRemoveDebugCircle,
     Params = {
       DebugCircleIDVar = "AreaCircle",
@@ -291,6 +317,13 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBRemovePerceptionBubble,
+    Params = {
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -299,7 +332,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentBubbleRadiusMod,
       TargetVar = "Owner",
-      Delta = -1
+      Delta = -0.6
     }
   }
 }
@@ -416,6 +449,7 @@ SpellOnMissileEndBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",

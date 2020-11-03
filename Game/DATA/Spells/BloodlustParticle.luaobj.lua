@@ -1,16 +1,10 @@
 BuffTextureName = "DarkChampion_Bloodlust.dds"
 BuffName = "Blood Lust"
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "TryndamereDemonsword"
+}
 OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
-    }
-  },
   {
     Function = BBSpellEffectCreate,
     Params = {
@@ -27,45 +21,18 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "Bloodlust"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   }
 }
@@ -75,9 +42,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bloodlust_flame.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "bloodlust"}
   }
 }

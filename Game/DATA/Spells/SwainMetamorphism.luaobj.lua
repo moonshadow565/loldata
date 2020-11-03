@@ -25,7 +25,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "Swain_Raven",
+      SkinName = "SwainRaven",
       TargetVar = "Owner",
       IDVar = "RavenID",
       IDVarTable = "InstanceVars",
@@ -45,7 +45,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -62,7 +64,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -79,7 +83,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -94,12 +100,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "Count", SrcValue = 0}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MaxMissiles",
+      SrcValue = 3
+    }
+  },
+  {
     Function = BBForEachUnitInTargetAreaRandom,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 625,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      Flags = "AffectEnemies AffectHeroes ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 3,
       InclusiveBuffFilter = true
@@ -110,32 +127,121 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           ViewerVar = "Owner",
           TargetVar = "Unit",
-          ResultVar = "CanSee"
+          ResultVar = "Result"
         }
       },
       {
         Function = BBIf,
         Params = {
-          Src1Var = "CanSee",
+          Src1Var = "Result",
           Value2 = true,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSpellCast,
+            Function = BBIf,
             Params = {
-              CasterVar = "Owner",
-              TargetVar = "Unit",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 0,
-              OverrideForceLevelVar = "Level",
-              OverrideCoolDownCheck = false,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
+              Src1Var = "Count",
+              Src2Var = "MaxMissiles",
+              CompareOp = CO_LESS_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Count",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "Count",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  OverrideCastPosition = false,
+                  SlotNumber = 0,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = false,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetAreaRandom,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 625,
+      Flags = "AffectEnemies AffectNeutral AffectMinions ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 3,
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBCanSeeTarget,
+        Params = {
+          ViewerVar = "Owner",
+          TargetVar = "Unit",
+          ResultVar = "Result"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Result",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Src2Var = "MaxMissiles",
+              CompareOp = CO_LESS_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Count",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "Count",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  OverrideCastPosition = false,
+                  SlotNumber = 0,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = false,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              }
             }
           }
         }
@@ -171,7 +277,9 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -200,7 +308,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -270,6 +379,17 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "Count", SrcValue = 0}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MaxMissiles",
+      SrcValue = 3
+    }
+  },
   {
     Function = BBExecutePeriodically,
     Params = {
@@ -360,7 +480,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
           Range = 625,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
           MaximumUnitsToPick = 3,
           InclusiveBuffFilter = true
@@ -371,36 +491,155 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               ViewerVar = "Owner",
               TargetVar = "Unit",
-              ResultVar = "CanSee"
+              ResultVar = "Result"
             }
           },
           {
             Function = BBIf,
             Params = {
-              Src1Var = "CanSee",
+              Src1Var = "Result",
               Value2 = true,
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBSpellCast,
+                Function = BBIf,
                 Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  OverrideCastPosition = false,
-                  SlotNumber = 0,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = false,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false,
-                  UpdateAutoAttackTimer = false
+                  Src1Var = "Count",
+                  Src2Var = "MaxMissiles",
+                  CompareOp = CO_LESS_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "Count",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "Count",
+                      MathOp = MO_ADD
+                    }
+                  },
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      OverrideCastPosition = false,
+                      SlotNumber = 0,
+                      SlotType = ExtraSlots,
+                      OverrideForceLevel = 0,
+                      OverrideForceLevelVar = "Level",
+                      OverrideCoolDownCheck = false,
+                      FireWithoutCasting = true,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = false,
+                      UpdateAutoAttackTimer = false
+                    }
+                  }
                 }
               }
             }
           }
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetAreaRandom,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 625,
+          Flags = "AffectEnemies AffectNeutral AffectMinions ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 3,
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Owner",
+              TargetVar = "Unit",
+              ResultVar = "Result"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Result",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Count",
+                  Src2Var = "MaxMissiles",
+                  CompareOp = CO_LESS_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "Count",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "Count",
+                      MathOp = MO_ADD
+                    }
+                  },
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      OverrideCastPosition = false,
+                      SlotNumber = 0,
+                      SlotType = ExtraSlots,
+                      OverrideForceLevel = 0,
+                      OverrideForceLevelVar = "Level",
+                      OverrideCoolDownCheck = false,
+                      FireWithoutCasting = true,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = false,
+                      UpdateAutoAttackTimer = false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+BuffOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {
+      DestVar = "SpellCastName",
+      Info = GetSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SpellCastName",
+      Value2 = "SwainBeam",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPlayAnimation,
+        Params = {
+          AnimationName = "Spell1",
+          ScaleTime = 0,
+          TargetVar = "Owner",
+          Loop = false,
+          Blend = true,
+          Lock = false
         }
       }
     }
@@ -440,7 +679,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "SwainMetamorphism"
+          BuffName = "SwainMetamorphism",
+          ResetDuration = 0
         }
       }
     }
@@ -491,7 +731,8 @@ SelfExecuteBuildingBlocks = {
             0
           },
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -500,9 +741,7 @@ SelfExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "swain_raven"
-    }
+    Params = {Name = "swainraven"}
   },
   {
     Function = BBPreloadParticle,

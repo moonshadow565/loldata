@@ -394,7 +394,7 @@ function L0()
   L1 = L1(L2, L3)
   botID = L1
   L1 = GetChampionBySkinName
-  L2 = "Yeti"
+  L2 = "Nunu"
   L3 = TEAM_ORDER
   L1 = L1(L2, L3)
   allyID = L1

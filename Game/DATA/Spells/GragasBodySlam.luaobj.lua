@@ -61,7 +61,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBOverrideAnimation,
     Params = {
       ToOverrideAnim = "Run",
-      OverrideAnim = "Spell1",
+      OverrideAnim = "Spell3",
       OwnerVar = "Owner"
     }
   },

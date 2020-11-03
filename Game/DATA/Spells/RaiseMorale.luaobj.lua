@@ -62,7 +62,8 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "RaiseMorale"
+      BuffName = "RaiseMorale",
+      ResetDuration = 0
     }
   },
   {
@@ -71,11 +72,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.1,
         0.14,
         0.18,
         0.22,
-        0.26,
-        0.3
+        0.26
       }
     }
   },
@@ -85,11 +86,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackDmgMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
-        28,
-        36,
-        44,
-        52
+        14,
+        22,
+        30,
+        38,
+        46
       }
     }
   },
@@ -117,11 +118,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.05,
         0.07,
         0.09,
         0.11,
-        0.13,
-        0.15
+        0.13
       }
     }
   },
@@ -131,11 +132,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackDmgMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        10,
-        14,
-        18,
-        22,
-        26
+        7,
+        11,
+        15,
+        19,
+        23
       }
     }
   },

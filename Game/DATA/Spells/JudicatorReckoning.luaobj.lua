@@ -42,11 +42,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.25,
-        -0.25,
-        -0.25,
-        -0.25,
-        -0.25
+        -0.35,
+        -0.35,
+        -0.35,
+        -0.35,
+        -0.35
       }
     }
   },
@@ -67,7 +67,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8,
+      SpellDamageRatio = 1,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

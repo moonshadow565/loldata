@@ -34,7 +34,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -60,7 +61,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -108,7 +110,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -186,7 +189,7 @@ BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBGetChampionBySkinName,
     Params = {
-      Skin = "Jester",
+      Skin = "Shaco",
       Team = TEAM_UNKNOWN,
       TeamVar = "teamID",
       DestVar = "Caster"
@@ -338,7 +341,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "jester"}
+    Params = {Name = "shaco"}
   },
   {
     Function = BBPreloadSpell,

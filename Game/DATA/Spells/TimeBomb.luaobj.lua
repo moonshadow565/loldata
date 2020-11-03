@@ -41,7 +41,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 500,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -59,7 +60,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 500,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -83,7 +85,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -101,7 +104,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -154,7 +158,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeamOverrideVar = "teamID",
           FOWVisibilityRadius = 500,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -212,7 +217,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -366,7 +372,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -421,7 +428,7 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBGetChampionBySkinName,
             Params = {
-              Skin = "Chronokeeper",
+              Skin = "Zilean",
               Team = TEAM_CHAOS,
               DestVar = "Caster"
             }
@@ -435,7 +442,7 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBGetChampionBySkinName,
             Params = {
-              Skin = "Chronokeeper",
+              Skin = "Zilean",
               Team = TEAM_ORDER,
               DestVar = "Caster"
             }
@@ -464,7 +471,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -580,8 +588,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "chronokeeper"
-    }
+    Params = {Name = "zilean"}
   }
 }

@@ -2,7 +2,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "Swain_noBird",
+      SkinName = "SwainNoBird",
       TargetVar = "Owner",
       IDVar = "CasterID",
       IDVarTable = "InstanceVars",
@@ -24,7 +24,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "swain_nobird"
+      Name = "swainnobird"
     }
   }
 }

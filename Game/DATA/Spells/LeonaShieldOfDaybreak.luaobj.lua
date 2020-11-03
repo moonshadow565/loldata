@@ -83,7 +83,7 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       DeltaVar = "RangeIncrease",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Delta = 30
     }
   }
 }
@@ -163,7 +163,7 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       DeltaVar = "RangeIncrease",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Delta = 30
     }
   }
 }

@@ -187,7 +187,8 @@ OnBuffActivateBuildingBlocks = {
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -407,7 +408,7 @@ SelfExecuteBuildingBlocks = {
             Function = BBSpawnMinion,
             Params = {
               Name = "IceBlock",
-              Skin = "IceBlock",
+              Skin = "AniviaIceblock",
               AiScript = "idle.lua",
               PosVar = "Pos",
               Team = TEAM_UNKNOWN,
@@ -418,6 +419,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = true,
               MagicImmune = false,
               IgnoreCollision = true,
+              IsWard = false,
               Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other2",
@@ -444,7 +446,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -479,6 +482,8 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "iceblock"}
+    Params = {
+      Name = "aniviaiceblock"
+    }
   }
 }

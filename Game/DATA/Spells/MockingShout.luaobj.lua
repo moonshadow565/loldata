@@ -66,7 +66,8 @@ CanCastBuildingBlocks = {
           Range = 800,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -99,92 +100,6 @@ CanCastBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthCost",
-      SrcValueByLevel = {
-        25,
-        25,
-        25,
-        25,
-        25
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UndyingRage"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HealthCost",
-          SrcValueByLevel = {
-            0,
-            0,
-            0,
-            0,
-            0
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "Temp1",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealthCost",
-      Src2Var = "Temp1",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Temp1",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "HealthCost",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthCost",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "HealthCost",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthCost",
-      HealerVar = "Owner"
     }
   }
 }
@@ -232,12 +147,15 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "MockingShoutSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -246,12 +164,15 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -303,12 +224,15 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "MockingShoutSlow",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 4,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -317,12 +241,15 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 4,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -351,12 +278,15 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 4,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -365,12 +295,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "undyingrage"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "facingme"}

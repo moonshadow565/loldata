@@ -42,7 +42,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "MyName",
-      Value2 = "Oriana",
+      Value2 = "Orianna",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -102,14 +102,14 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "MyName",
-          Value2 = "Oriana",
+          Value2 = "Orianna",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
             Function = BBPushCharacterData,
             Params = {
-              SkinName = "Oriana_noBall",
+              SkinName = "OriannaNoBall",
               TargetVar = "Owner",
               IDVar = "TempSkin",
               IDVarTable = "CharVars",
@@ -122,14 +122,14 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "MyName",
-          Value2 = "oriana",
+          Value2 = "orianna",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
             Function = BBPushCharacterData,
             Params = {
-              SkinName = "Oriana_noBall",
+              SkinName = "OriannaNoBall",
               TargetVar = "Owner",
               IDVar = "TempSkin",
               IDVarTable = "CharVars",
@@ -205,7 +205,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "oriana_noball"
+      Name = "oriannanoball"
     }
   }
 }

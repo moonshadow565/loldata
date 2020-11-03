@@ -152,7 +152,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpawnPet,
     Params = {
       Name = "Tibbers",
-      Skin = "bear",
+      Skin = "AnnieTibbers",
       Buff = "InfernalGuardian",
       Duration = 45,
       PosVar = "TargetPos",
@@ -409,7 +409,9 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "bear"}
+    Params = {
+      Name = "annietibbers"
+    }
   },
   {
     Function = BBPreloadSpell,

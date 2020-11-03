@@ -15,192 +15,6 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
-  },
-  {
-    Function = BBForNClosestUnitsInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Attacker",
-      Range = 500,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      MaximumUnitsToPick = 1,
-      BuffNameFilter = "YorickRavenousPrimaryTarget",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
-        SubBlocks = {
-          {
-            Function = BBApplyTaunt,
-            Params = {
-              AttackerVar = "Unit",
-              TargetVar = "Attacker",
-              Duration = 1.5
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "YorickRavenousPrimaryTaunt",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Attacker",
-      DestVar = "IsTaunted",
-      Status = GetTaunted
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "IsTaunted",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "NearbyChampion",
-          SrcValue = false
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "CheckBuilding",
-          SrcValue = true
-        }
-      },
-      {
-        Function = BBForNClosestUnitsInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Attacker",
-          Range = 850,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyTaunt,
-            Params = {
-              AttackerVar = "Unit",
-              TargetVar = "Attacker",
-              Duration = 1.5
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "NearbyChampion",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CheckBuilding",
-              SrcValue = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "NearbyChampion",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForNClosestUnitsInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Attacker",
-              Range = 750,
-              Flags = "AffectEnemies AffectMinions ",
-              IteratorVar = "Unit",
-              MaximumUnitsToPick = 1,
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBApplyTaunt,
-                Params = {
-                  AttackerVar = "Unit",
-                  TargetVar = "Attacker",
-                  Duration = 1.5
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "CheckBuilding",
-                  SrcValue = false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CheckBuilding",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForNClosestUnitsInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Attacker",
-              Range = 750,
-              Flags = "AffectEnemies AffectBuildings ",
-              IteratorVar = "Unit",
-              MaximumUnitsToPick = 1,
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBApplyTaunt,
-                Params = {
-                  AttackerVar = "Unit",
-                  TargetVar = "Attacker",
-                  Duration = 1.5
-                }
-              }
-            }
-          }
-        }
-      }
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -503,27 +317,9 @@ SelfExecuteBuildingBlocks = {
       IgnoreCollision = false,
       IsWard = false,
       Placemarker = false,
-      VisibilitySize = 500,
+      VisibilitySize = 0,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Other1",
-      AttackerVar = "Other1",
-      BuffName = "YorickGhoulSummonAnim",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
     }
   },
   {
@@ -566,18 +362,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickravenousprimarytarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickravenousprimarytaunt"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yorickactiveravenous"
     }
   },
@@ -588,15 +372,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "yorickravenousghoul"
+      Name = "yorickravenousprimarytarget"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "yorickghoulsummonanim"
+      Name = "yorickravenousghoul"
     }
   },
   {

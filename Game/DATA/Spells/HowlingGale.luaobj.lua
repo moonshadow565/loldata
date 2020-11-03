@@ -53,7 +53,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -103,6 +105,7 @@ OnBuffDeactivateBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
@@ -185,7 +188,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -233,7 +237,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -281,7 +286,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -324,7 +330,8 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -363,7 +370,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -473,7 +481,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "HowlingGale"
+          BuffName = "HowlingGale",
+          ResetDuration = 0
         }
       }
     }
@@ -482,6 +491,17 @@ SelfExecuteBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBPlayAnimation,
+        Params = {
+          AnimationName = "Spell1",
+          ScaleTime = 0,
+          TargetVar = "Owner",
+          Loop = false,
+          Blend = false,
+          Lock = false
+        }
+      },
       {
         Function = BBGetCastSpellTargetPos,
         Params = {DestVar = "TargetPos"}
@@ -553,7 +573,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

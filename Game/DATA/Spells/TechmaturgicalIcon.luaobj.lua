@@ -187,115 +187,125 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBIfNotHasBuff,
+    Function = BBIf,
     Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "IfHasBuffCheck"
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "IfHasBuffCheck"
+        },
         SubBlocks = {
           {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 1500,
-              Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit",
-              BuffNameFilter = "H28GEvolutionTurret",
-              InclusiveBuffFilter = true
-            },
+            Function = BBIf,
+            Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBIfNotHasBuff,
+                Function = BBForEachUnitInTargetArea,
                 Params = {
-                  OwnerVar = "Unit",
-                  CasterVar = "Nothing",
-                  BuffName = "H28GEvolutionTurretSpell1"
+                  AttackerVar = "Owner",
+                  CenterVar = "Owner",
+                  Range = 1500,
+                  Flags = "AffectFriends AffectMinions ",
+                  IteratorVar = "Unit",
+                  BuffNameFilter = "H28GEvolutionTurret",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
-                    Function = BBSetTriggerUnit,
-                    Params = {TriggerVar = "Attacker"}
-                  },
-                  {
-                    Function = BBDistanceBetweenObjects,
+                    Function = BBIfNotHasBuff,
                     Params = {
-                      DestVar = "Distance",
-                      ObjectVar1 = "Attacker",
-                      ObjectVar2 = "Unit"
-                    }
-                  },
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "Distance",
-                      Value2 = 450,
-                      CompareOp = CO_LESS_THAN_OR_EQUAL
+                      OwnerVar = "Unit",
+                      CasterVar = "Nothing",
+                      BuffName = "H28GEvolutionTurretSpell1"
                     },
                     SubBlocks = {
                       {
-                        Function = BBCancelAutoAttack,
-                        Params = {TargetVar = "Unit", Reset = true}
+                        Function = BBSetTriggerUnit,
+                        Params = {TriggerVar = "Attacker"}
                       },
                       {
-                        Function = BBSpellBuffClear,
+                        Function = BBDistanceBetweenObjects,
                         Params = {
-                          TargetVar = "Unit",
-                          BuffName = "H28GEvolutionTurretSpell2"
+                          DestVar = "Distance",
+                          ObjectVar1 = "Attacker",
+                          ObjectVar2 = "Unit"
                         }
                       },
                       {
-                        Function = BBSpellBuffClear,
+                        Function = BBIf,
                         Params = {
-                          TargetVar = "Unit",
-                          BuffName = "H28GEvolutionTurretSpell3"
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Attacker",
-                          BuffName = "H28GEvolutionTurretSpell1",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 25000,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
+                          Src1Var = "Distance",
+                          Value2 = 450,
+                          CompareOp = CO_LESS_THAN_OR_EQUAL
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBCancelAutoAttack,
+                            Params = {TargetVar = "Unit", Reset = true}
+                          },
+                          {
+                            Function = BBSpellBuffClear,
+                            Params = {
+                              TargetVar = "Unit",
+                              BuffName = "H28GEvolutionTurretSpell2"
+                            }
+                          },
+                          {
+                            Function = BBSpellBuffClear,
+                            Params = {
+                              TargetVar = "Unit",
+                              BuffName = "H28GEvolutionTurretSpell3"
+                            }
+                          },
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Unit",
+                              AttackerVar = "Attacker",
+                              BuffName = "H28GEvolutionTurretSpell1",
+                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 25000,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
+                            }
+                          }
                         }
                       }
                     }
                   }
                 }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "IfHasBuffCheck",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 1,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
               }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "IfHasBuffCheck",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
             }
           }
         }
@@ -802,12 +812,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
     Params = {
       Name = "h28gevolutionturret"
     }

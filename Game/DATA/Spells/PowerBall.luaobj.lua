@@ -42,7 +42,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "Armordillo_PB",
+      SkinName = "RammusPB",
       TargetVar = "Owner",
       IDVar = "CasterID",
       IDVarTable = "InstanceVars",
@@ -146,7 +146,9 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -458,7 +460,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -589,7 +593,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "PowerBall"
+          BuffName = "PowerBall",
+          ResetDuration = 0
         }
       },
       {
@@ -628,7 +633,9 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -721,9 +728,7 @@ SelfExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "armordillo_pb"
-    }
+    Params = {Name = "rammuspb"}
   },
   {
     Function = BBPreloadParticle,

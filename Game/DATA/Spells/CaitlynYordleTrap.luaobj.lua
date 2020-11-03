@@ -92,7 +92,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -110,7 +111,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -134,7 +136,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -152,7 +155,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -208,7 +212,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVar = "AttackerID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -272,7 +277,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -377,14 +383,124 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSetVarInTable,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
+      DestVar = "MaxStacks",
+      SrcValueByLevel = {
+        3,
+        3,
+        3,
+        3,
+        3
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "NumFound", SrcValue = 0}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "minDuration",
+      SrcValue = 240
+    }
+  },
+  {
+    Function = BBSetUnit,
+    Params = {SrcVar = "Owner", DestVar = "Other2"}
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectFriends AffectMinions AffectUntargetable ",
+      IteratorVar = "Unit",
+      BuffNameFilter = "CaitlynYordleTrap",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "NumFound",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "NumFound",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "durationRemaining",
+          TargetVar = "Unit",
+          BuffName = "CaitlynYordleTrap"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "durationRemaining",
+          Src2Var = "minDuration",
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "minDuration",
+              SrcVar = "durationRemaining"
+            }
+          },
+          {
+            Function = BBInvalidateUnit,
+            Params = {TargetVar = "Other2"}
+          },
+          {
+            Function = BBSetUnit,
+            Params = {SrcVar = "Unit", DestVar = "Other2"}
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "NumFound",
+      Src2Var = "MaxStacks",
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Owner",
+          Src2Var = "Other2",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Other2",
+              CallForHelpAttackerVar = "Other2",
+              TargetVar = "Other2",
+              Damage = 10000,
+              DamageType = TRUE_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_INTERNALRAW,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      }
     }
   },
   {
@@ -399,7 +515,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpawnMinion,
     Params = {
       Name = "Noxious Trap",
-      Skin = "Caitlyn_Trap",
+      Skin = "CaitlynTrap",
       AiScript = "idle.lua",
       PosVar = "TargetPos",
       Team = TEAM_UNKNOWN,
@@ -410,6 +526,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = false,
+      IsWard = false,
       Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -436,38 +553,6 @@ SelfExecuteBuildingBlocks = {
       StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 240,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MaxStacks",
-      SrcValueByLevel = {
-        3,
-        3,
-        3,
-        3,
-        3
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Other3",
-      BuffName = "CaitlynYordleTrapCount",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = false,
-      BuffType = BUFF_Internal,
-      MaxStack = 0,
-      MaxStackVar = "MaxStacks",
       NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
@@ -515,15 +600,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "caitlyn_trap"
+      Name = "caitlynyordletrap"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "caitlynyordletrapcount"
+      Name = "caitlyntrap"
     }
   }
 }

@@ -61,11 +61,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        4,
-        10,
-        16,
-        22,
-        28
+        20,
+        30,
+        40,
+        50,
+        60
       }
     }
   },
@@ -73,7 +73,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AbilityPower",
-      Src1Value = 0.3,
+      Src1Value = 0.2,
       Src2Value = 0,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
@@ -123,7 +123,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Target",
-      Range = 200,
+      Range = 300,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes AffectTurrets ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true

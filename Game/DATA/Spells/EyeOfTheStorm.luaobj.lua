@@ -29,7 +29,9 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -201,6 +203,17 @@ BuffOnPreDamageBuildingBlocks = {
   }
 }
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell3",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false,
+      Blend = false,
+      Lock = false
+    }
+  },
   {
     Function = BBGetStat,
     Params = {

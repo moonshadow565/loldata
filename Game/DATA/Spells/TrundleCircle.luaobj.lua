@@ -34,7 +34,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -53,7 +54,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -78,7 +80,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -97,7 +100,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -474,7 +478,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBSpawnMinion,
         Params = {
           Name = "PlagueBlock",
-          Skin = "PlagueBlock",
+          Skin = "TrundleWall",
           AiScript = "idle.lua",
           PosVar = "TargetPos",
           Team = TEAM_UNKNOWN,
@@ -485,6 +489,7 @@ SelfExecuteBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = true,
+          IsWard = false,
           Placemarker = false,
           VisibilitySize = 0,
           DestVar = "Other3",
@@ -560,9 +565,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trundlewall"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "plagueblock"
+      Name = "trundlewall"
     }
   }
 }

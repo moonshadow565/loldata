@@ -19,7 +19,7 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBPushCharacterData,
         Params = {
-          SkinName = "Swain_noBird",
+          SkinName = "SwainNoBird",
           TargetVar = "Owner",
           IDVar = "CasterID",
           IDVarTable = "InstanceVars",
@@ -75,7 +75,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "SwainBeamTransition"
+          BuffName = "SwainBeamTransition",
+          ResetDuration = 0
         }
       }
     }
@@ -85,7 +86,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SwainBeamSelf"
+      BuffName = "SwainBeamSelf",
+      ResetDuration = 0
     }
   }
 }
@@ -140,7 +142,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "swain_nobird"
+      Name = "swainnobird"
     }
   },
   {

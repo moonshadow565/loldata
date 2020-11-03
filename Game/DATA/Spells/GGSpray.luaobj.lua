@@ -64,7 +64,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -77,7 +78,7 @@ TargetExecuteBuildingBlocks = {
           DamageVar = "NewDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 0.25,
+          PercentOfAttack = 0.2,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
@@ -108,7 +109,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -121,7 +123,7 @@ TargetExecuteBuildingBlocks = {
               DamageVar = "NewDamage",
               DamageType = PHYSICAL_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 0.25,
+              PercentOfAttack = 0.2,
               SpellDamageRatio = 0,
               PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -164,7 +166,8 @@ TargetExecuteBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -177,7 +180,7 @@ TargetExecuteBuildingBlocks = {
                   DamageVar = "NewDamage",
                   DamageType = PHYSICAL_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 0.25,
+                  PercentOfAttack = 0.2,
                   SpellDamageRatio = 0,
                   PhysicalDamageRatio = 0,
                   IgnoreDamageIncreaseMods = false,

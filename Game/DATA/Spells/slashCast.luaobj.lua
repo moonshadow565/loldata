@@ -1,6 +1,10 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {}
+SpellVOOverrideSkins = {
+  "TryndamereDemonsword"
+}
 CanCastBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -101,7 +105,8 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

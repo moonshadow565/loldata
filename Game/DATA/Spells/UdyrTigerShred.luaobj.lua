@@ -20,7 +20,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -40,7 +41,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -106,7 +108,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               Src1Var = "TAD",
               Src1Value = 0,
-              Src2Value = 1.7,
+              Src2Value = 1.5,
               DestVar = "DotDamage",
               MathOp = MO_MULTIPLY
             }
@@ -163,7 +165,8 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "UdyrTigerShred"
+              BuffName = "UdyrTigerShred",
+              ResetDuration = 0
             }
           }
         }
@@ -188,6 +191,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "udyrtigerpunchbleed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrtigershred"
     }
   }
 }

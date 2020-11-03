@@ -12,6 +12,9 @@ AutoCooldownByLevel = {
   18,
   14
 }
+SpellFXOverrideSkins = {
+  "TryndamereDemonsword"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -110,35 +113,60 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetBuffCountFromAll,
+    Function = BBGetPAROrHealth,
     Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      BuffName = "Bloodlust"
+      DestVar = "currentFury",
+      OwnerVar = "Owner",
+      Function = GetPAR,
+      PARType = PAR_OTHER
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "HealthPerStack",
+      DestVar = "baseHeal",
       SrcValueByLevel = {
-        10,
-        20,
         30,
         40,
-        50
+        50,
+        60,
+        70
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealthPerFury",
+      SrcValueByLevel = {
+        0.5,
+        0.95,
+        1.4,
+        1.85,
+        2.3
       }
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Count",
-      Src2Var = "HealthPerStack",
+      Src1Var = "currentFury",
+      Src2Var = "HealthPerFury",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "HealthToRestore",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "baseHeal",
+      Src2Var = "HealthToRestore",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "HealthToRestore",
+      MathOp = MO_ADD
     }
   },
   {
@@ -180,27 +208,10 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "BloodlustParticle"
-    }
-  },
-  {
-    Function = BBSpellBuffRemoveStacks,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Bloodlust",
-      NumStacks = 0
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "Global_Heal.troy",
+      EffectName = "Tryndamere_Heal.troy",
       Flags = 0,
       EffectIDVar = "Part",
       TargetObjectVar = "Target",
@@ -209,7 +220,28 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "currentFury",
+      Src1Value = -1,
+      Src2Value = 0,
+      DestVar = "furyToRemove",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPAR,
+    Params = {
+      TargetVar = "Owner",
+      Delta = 0,
+      PARType = PAR_OTHER,
+      DeltaVar = "furyToRemove"
     }
   }
 }
@@ -219,15 +251,9 @@ PreLoadBuildingBlocks = {
     Params = {Name = "bloodlust"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bloodlustparticle"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_heal.troy"
+      Name = "tryndamere_heal.troy"
     }
   }
 }

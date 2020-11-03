@@ -198,6 +198,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBShowHealthBar,
+    Params = {UnitVar = "Owner", Show = false}
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "CurrentCooldown2",
@@ -548,7 +552,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "KogMaw_Dead",
+      SkinName = "KogMawDead",
       TargetVar = "Owner",
       IDVar = "CasterID",
       IDVarTable = "InstanceVars",
@@ -852,9 +856,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "kogmaw_dead"
-    }
+    Params = {Name = "kogmawdead"}
   },
   {
     Function = BBPreloadParticle,

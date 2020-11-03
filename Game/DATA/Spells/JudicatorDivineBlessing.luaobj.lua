@@ -33,11 +33,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12
+        0.15,
+        0.17,
+        0.19,
+        0.21,
+        0.23
       }
     }
   },
@@ -51,7 +51,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 10,
+      Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -82,10 +82,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealLevel",
       SrcValueByLevel = {
-        65,
-        100,
-        135,
-        170,
+        45,
+        85,
+        125,
+        165,
         205
       }
     }
@@ -95,7 +95,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.35,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -126,6 +126,32 @@ TargetExecuteBuildingBlocks = {
       Duration = 10,
       TargetVar = "Target",
       SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KayleDivineBlessingAnim",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kayledivineblessinganim"
     }
   }
 }

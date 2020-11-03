@@ -79,11 +79,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "h28gevolutionturret"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
   }
 }

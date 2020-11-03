@@ -91,7 +91,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPushCharacterData,
     Params = {
-      SkinName = "RebirthEgg",
+      SkinName = "AniviaEgg",
       TargetVar = "Owner",
       IDVar = "SeaHorseID",
       IDVarTable = "InstanceVars",
@@ -121,7 +121,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -264,7 +266,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -309,7 +312,9 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -403,7 +408,7 @@ BuffOnPreDamageBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "rebirthegg"}
+    Params = {Name = "aniviaegg"}
   },
   {
     Function = BBPreloadParticle,

@@ -48,7 +48,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "C_BUFFBONE_GLB_CENTER_LOC",
+      BoneName = "C_BUFFBONE_GLB_CHEST_LOC",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -57,7 +57,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -210,7 +211,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

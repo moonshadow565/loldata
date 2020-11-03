@@ -110,7 +110,9 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -512,7 +514,8 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "HeimerdingerTurretReady"
+      BuffName = "HeimerdingerTurretReady",
+      ResetDuration = 0
     }
   },
   {
@@ -1227,7 +1230,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBSpawnMinion,
         Params = {
           Name = "H-28G Evolution Turret",
-          Skin = "H28GEvolutionTurret",
+          Skin = "HeimerTYellow",
           AiScript = "Minion.lua",
           PosVar = "TargetPos",
           Team = TEAM_CASTER,
@@ -1238,6 +1241,7 @@ SelfExecuteBuildingBlocks = {
           Invulnerable = false,
           MagicImmune = false,
           IgnoreCollision = false,
+          IsWard = false,
           Placemarker = false,
           VisibilitySize = 0,
           DestVar = "Other3",
@@ -1266,7 +1270,7 @@ SelfExecuteBuildingBlocks = {
             Function = BBSpawnMinion,
             Params = {
               Name = "H-28G Evolution Turret",
-              Skin = "H28Green",
+              Skin = "HeimerTGreen",
               AiScript = "Minion.lua",
               PosVar = "TargetPos",
               Team = TEAM_CASTER,
@@ -1277,6 +1281,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = false,
               MagicImmune = false,
               IgnoreCollision = false,
+              IsWard = false,
               Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other3",
@@ -1311,7 +1316,7 @@ SelfExecuteBuildingBlocks = {
             Function = BBSpawnMinion,
             Params = {
               Name = "H-28G Evolution Turret",
-              Skin = "H28Red",
+              Skin = "HeimerTRed",
               AiScript = "Minion.lua",
               PosVar = "TargetPos",
               Team = TEAM_CASTER,
@@ -1322,6 +1327,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = false,
               MagicImmune = false,
               IgnoreCollision = false,
+              IsWard = false,
               Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other3",
@@ -1797,12 +1803,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "markerone"}
   },
@@ -1830,7 +1830,15 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "h28green"}
+    Params = {
+      Name = "heimertyellow"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "heimertgreen"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -1840,7 +1848,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "h28red"}
+    Params = {Name = "heimertred"}
   },
   {
     Function = BBPreloadSpell,

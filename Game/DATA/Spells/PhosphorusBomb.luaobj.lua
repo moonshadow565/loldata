@@ -40,7 +40,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -64,7 +66,9 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -73,7 +77,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBAddPosPerceptionBubble,
     Params = {
       TeamVar = "CasterID",
-      Radius = 525,
+      Radius = 375,
       PosVar = "TargetPos",
       Duration = 4,
       SpecificUnitsClientOnlyVar = "Nothing",
@@ -129,7 +133,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -141,11 +146,11 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        80,
-        130,
-        180,
-        230,
-        280
+        70,
+        120,
+        170,
+        220,
+        270
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -156,23 +161,6 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "PhosphorusBombBlind",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Blind,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -180,12 +168,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "corki_phosphorous_bomb_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "phosphorusbombblind"
     }
   }
 }
