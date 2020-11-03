@@ -591,6 +591,38 @@ ChannelingUpdateActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Owner",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Distance",
+      Value2 = 525,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffClear,
+        Params = {
+          TargetVar = "Owner",
+          BuffName = "OdinShrineBombBuff"
+        }
+      },
+      {
+        Function = BBSpellBuffClear,
+        Params = {
+          TargetVar = "Owner",
+          BuffName = "OdinCaptureChannel"
+        }
+      }
+    }
   }
 }
 ChannelingUpdateStatsBuildingBlocks = {

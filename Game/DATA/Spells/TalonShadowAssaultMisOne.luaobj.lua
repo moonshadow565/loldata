@@ -498,9 +498,9 @@ TargetExecuteBuildingBlocks = {
             Params = {
               DestVar = "BonusDamage",
               SrcValueByLevel = {
-                150,
-                225,
-                300,
+                120,
+                190,
+                260,
                 85,
                 100
               }
@@ -648,9 +648,9 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BonusDamage",
                   SrcValueByLevel = {
-                    150,
-                    225,
-                    300,
+                    120,
+                    190,
+                    260,
                     85,
                     100
                   }
@@ -810,9 +810,9 @@ TargetExecuteBuildingBlocks = {
                     Params = {
                       DestVar = "BonusDamage",
                       SrcValueByLevel = {
-                        150,
-                        225,
-                        300,
+                        120,
+                        190,
+                        260,
                         85,
                         100
                       }
