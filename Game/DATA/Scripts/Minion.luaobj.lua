@@ -1,7 +1,7 @@
 MAX_ENGAGE_DISTANCE = 2500
 FEAR_WANDER_DISTANCE = 500
 DELAY_FIND_ENEMIES = 0.25
-dofile("Data/Scripts/minionLib.luaobj")
+dofile("Data\\Scripts\\minionLib.luaobj")
 function OnTauntBegin()
   if GetState() == AI_HALTED then
     return

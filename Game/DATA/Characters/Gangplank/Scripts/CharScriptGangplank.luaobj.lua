@@ -8,7 +8,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "removescurvy"
+      Name = "piratescurvy"
     }
   },
   {

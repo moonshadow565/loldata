@@ -43,17 +43,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xeratharcanopulseball"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xeratharcanopulsedarkiron"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xeratharcanopulsedamage"
-    }
   }
 }

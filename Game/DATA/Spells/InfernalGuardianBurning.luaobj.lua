@@ -1,6 +1,7 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "Infernal Guardian"
+AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -17,7 +18,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "infernalguardian"
+      Name = "infernalguardiantimer"
     }
   }
 }

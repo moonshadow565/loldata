@@ -1,2 +1,8 @@
-BuffTextureName = "Pirate_RemoveScurvy.dds"
-BuffName = "PirateScurvy"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "piratescurvy"
+    }
+  }
+}

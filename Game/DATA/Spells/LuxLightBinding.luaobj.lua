@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "LuxCrashingBlitz2.dds"
+BuffTextureName = "LuxCrashingBlitzReady.dds"
 BuffName = "LuxLightBindingMis"
 AutoBuffActivateEffect = "LuxLightBinding_tar.troy"
 AutoBuffActivateEffect2 = ""

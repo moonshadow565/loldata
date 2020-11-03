@@ -15,7 +15,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rumbleflamethrowerbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rumbleflamethrowereffect"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumbleflamethrower"
     }
   },
   {
@@ -27,13 +39,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleflamethrowerbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleflamethrower"
+      Name = "rumbledangerzone"
     }
   },
   {

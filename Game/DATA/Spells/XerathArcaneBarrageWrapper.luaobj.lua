@@ -7,18 +7,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xeratharcanebarragedi"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xeratharcanebarrage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "xeratharcanebarragebarrage"
     }
   },

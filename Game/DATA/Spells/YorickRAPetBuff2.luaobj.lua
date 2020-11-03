@@ -29,7 +29,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickreviveallyguide"
+      Name = "leblancpassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickreviveallyself"
     }
   },
   {
@@ -41,7 +47,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickreviveally"
+      Name = "yorickraself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawicathiansurprise"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawicathiansurpriseready"
     }
   }
 }

@@ -1,5 +1,6 @@
 BuffTextureName = "YorickOmenOfDeath.dds"
 BuffName = "YorickOmenReanimated"
+AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = "yorick_ult_04.troy"
 AutoBuffActivateEffect3 = "yorick_ult_revive_tar.troy"
 AutoBuffActivateEffect4 = "yorick_ult_05.troy"
@@ -23,12 +24,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickultstun"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravenrcast"
     }
   }
 }

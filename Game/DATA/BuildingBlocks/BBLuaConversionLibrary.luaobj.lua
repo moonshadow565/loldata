@@ -308,7 +308,7 @@ function L0(A0, A1)
   L2.OwnerVar = "Owner"
   L2.CastPositionName = "Pos"
   perBlockParams = L2
-  L2 = BBTeleportToPositionHelper
+  L2 = BBTeleportToPosition
   L3 = passThroughParams
   L4 = perBlockParams
   L2(L3, L4)

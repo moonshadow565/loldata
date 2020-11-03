@@ -1,5 +1,6 @@
 BuffTextureName = "Tristana_ExplosiveShot.dds"
 BuffName = "Detonating Shot"
+AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
@@ -16,6 +17,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tristana_explosiveshot_unit_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "detonatingshot_target"
     }
   },
   {
