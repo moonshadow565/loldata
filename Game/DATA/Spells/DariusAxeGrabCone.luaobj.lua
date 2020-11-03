@@ -1,3 +1,5 @@
+BuffTextureName = "Darius_Icon_Axe_Grab.dds"
+BuffName = "Stun"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
