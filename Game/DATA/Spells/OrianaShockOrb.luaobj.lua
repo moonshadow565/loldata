@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "Kennen_ElectricalSurge.dds"
+BuffName = "DesperatePower"
+AutoBuffActivateEffect = ""
+SpellToggleSlot = 2
+PersistsThroughDeath = true
