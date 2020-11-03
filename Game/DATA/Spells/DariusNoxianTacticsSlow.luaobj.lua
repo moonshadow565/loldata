@@ -1,0 +1,5 @@
+BuffTextureName = "Darius_Icon_Hamstring.dds"
+BuffName = "DariusSlow"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect2 = "darius_W_tar.troy"
+AutoBuffActivateAttachBoneName2 = "R_BUFFBONE_GLB_FOOT_LOC"

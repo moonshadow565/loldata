@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "chaliceofharmony"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "chaliceofdiscord"
+    }
+  }
+}

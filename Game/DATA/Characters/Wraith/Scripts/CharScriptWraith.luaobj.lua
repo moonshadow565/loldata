@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "regenerationruneaura"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "agitatedidle"
+    }
   }
 }

@@ -5,13 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaDragonsDescent.dds"
 BuffName = "ShyvanaTransform"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -41,6 +34,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "shyvanadragonscales"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_shadow_dragon_idle.troy"
     }
   },
   {

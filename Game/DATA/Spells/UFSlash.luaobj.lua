@@ -1,7 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-AutoBuffActivateEffect = ""
 SpellFXOverrideSkins = {
   "ReefMalphite"
 }

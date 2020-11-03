@@ -13,7 +13,25 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "agitatedidle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "actiontimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "wrathtimer"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "wrathcooldown"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -29,18 +47,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "actiontimer2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "actiontimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "wrathcooldown"
     }
   }
 }

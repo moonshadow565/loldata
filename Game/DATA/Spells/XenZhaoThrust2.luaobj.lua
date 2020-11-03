@@ -12,12 +12,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xenzhaocomboauto"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "xenzhaocomboautofinish"
     }
   }

@@ -5,11 +5,16 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "SwainCarrionRenewal.dds"
 BuffName = "SwainDampeningFieldMana"
-AutoBuffActivateEffect = ""
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_grand_buf.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

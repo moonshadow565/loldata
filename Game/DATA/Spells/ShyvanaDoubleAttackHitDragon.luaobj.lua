@@ -6,15 +6,21 @@ BuffTextureName = "Wolfman_SeverArmor.dds"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "shyvanadoubleattackhitdragon"
+      Name = "shyvana_doubleattack_tar_shadow.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "shyvana_doubleattack_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shyvanadoubleattackhitdragon"
     }
   }
 }

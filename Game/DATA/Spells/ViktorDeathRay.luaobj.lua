@@ -1,10 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
 BuffName = "GalioRighteousGust"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -45,7 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "maokaisproutling"
+      Name = "testcuberender"
     }
   },
   {

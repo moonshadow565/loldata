@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bowmasterfocusdisplay"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "asherunspeed"
+    }
   }
 }

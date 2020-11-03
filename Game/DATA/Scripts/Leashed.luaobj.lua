@@ -20,6 +20,7 @@ REGEN_PERCENT_PER_SECOND = L0_0
 function L0_0(A0_2)
   SetState(AI_ATTACK)
   SetMyLeashedPos()
+  SetMyLeashedOrientation()
   InitTimer("TimerRetreat", 0.5, true)
   InitTimer("TimerAttack", 0, true)
   InitTimer("TimerFeared", 0.5, true)
@@ -291,6 +292,7 @@ function L0_0()
     return
   end
   if GetState() == AI_RETREAT then
+    SetLeashOrientation()
     SetLeashCounter(0)
     SetState(AI_ATTACK)
     SetRoamState(GetOriginalState())

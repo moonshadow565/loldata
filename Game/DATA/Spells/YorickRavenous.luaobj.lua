@@ -3,12 +3,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yoricksummonravenous"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yorickravenousprimarytarget"
     }
   },

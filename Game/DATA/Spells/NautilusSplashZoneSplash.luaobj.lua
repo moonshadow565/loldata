@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nautilussplashzonemarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "nautilussplashzoneslow"
     }
   },

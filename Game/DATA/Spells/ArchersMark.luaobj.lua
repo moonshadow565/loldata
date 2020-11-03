@@ -5,5 +5,5 @@ BuffTextureName = "Bowmaster_ArchersMark.dds"
 BuffName = "Archer's Mark"
 SpellToggleSlot = 3
 PersistsThroughDeath = true
-TriggersSpellCasts = true
 NonDispellable = true
+TriggersSpellCasts = true

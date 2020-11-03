@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "globalmonsterbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "agitatedidle"
+    }
   }
 }

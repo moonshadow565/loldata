@@ -4,7 +4,6 @@ IsDamagingSpell = true
 BuffTextureName = "DrMundo_Sadism.dds"
 BuffName = "Sadism"
 AutoBuffActivateEffect = "dr_mundo_heal.troy"
-AutoBuffActivateAttachBoneName = ""
 AutoCooldownByLevel = {
   90,
   75,
