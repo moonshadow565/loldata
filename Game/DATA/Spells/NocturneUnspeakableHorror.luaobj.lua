@@ -75,6 +75,61 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "NocturneSkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "NocturneUnspeakableHorror_tar_ghost.troy",
+          Flags = 0,
+          EffectIDVar = "TargetParticle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "head",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "NocturneUnspeakableHorror_counter_ghost.troy",
+          Flags = 0,
+          EffectIDVar = "CounterParticle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfAttacker",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
     Function = BBElse,
     Params = {},
     SubBlocks = {
@@ -527,6 +582,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nocturneunspeakablehorror_tar_ghost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturneunspeakablehorror_counter_ghost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nocturneunspeakablehorror_tar.troy"
     }
   },
@@ -556,12 +623,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nocturneunspeakablehorror_fear.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneunspeakablehorror"
     }
   },
   {
