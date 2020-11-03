@@ -1,0 +1,47 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "BlindMonk_FistsOfFury.dds"
+BuffName = "UdyrPassiveBuff"
+PersistsThroughDeath = true
+NonDispellable = true
+BuffOnSpellCastBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "DoesntTriggerSpellCasts",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "UdyrMonkeyAgilityBuff",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 3,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrmonkeyagilitybuff"
+    }
+  }
+}
