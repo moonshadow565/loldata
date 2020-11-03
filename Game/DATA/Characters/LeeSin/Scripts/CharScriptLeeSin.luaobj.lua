@@ -27,10 +27,20 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusAD",
+          Src1Value = 0,
+          Src2Value = 0.9,
+          DestVar = "BonusAD9",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "BonusAD",
+          ValueVar = "BonusAD9",
           Index = 1,
           SlotNumber = 0,
           SlotType = SpellSlots,

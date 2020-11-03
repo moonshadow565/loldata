@@ -64,6 +64,7 @@ OnBuffActivateBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
@@ -81,10 +82,11 @@ OnBuffActivateBuildingBlocks = {
       BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3.5,
+      Duration = 3.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -217,6 +219,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Invulnerable = true,
                   MagicImmune = false,
                   IgnoreCollision = true,
+                  IsWard = false,
                   Placemarker = true,
                   VisibilitySize = 0,
                   DestVar = "Other3",
@@ -237,7 +240,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 3.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -290,6 +294,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = true,
+          IsWard = false,
           Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other3",
@@ -310,7 +315,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 3.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -338,7 +344,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "PoisonTrail"
+          BuffName = "PoisonTrail",
+          ResetDuration = 0
         }
       },
       {
@@ -405,7 +412,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

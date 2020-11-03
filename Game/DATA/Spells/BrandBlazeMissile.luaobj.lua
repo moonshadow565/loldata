@@ -6,6 +6,9 @@ BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 AutoBuffActivateEffect = "DarkBinding_tar.troy"
 AutoBuffActivateEffect2 = ""
+SpellFXOverrideSkins = {
+  "FrostFireBrand"
+}
 PopupMessage1 = "game_floatingtext_Snared"
 TargetExecuteBuildingBlocks = {
   {

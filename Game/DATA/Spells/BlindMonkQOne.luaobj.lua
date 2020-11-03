@@ -60,7 +60,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -78,7 +81,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -97,7 +103,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -136,7 +145,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Owner",
-          BuffName = "BlindMonkQManager"
+          BuffName = "BlindMonkQManager",
+          ResetDuration = 0
         }
       }
     }
@@ -182,6 +192,16 @@ TargetExecuteBuildingBlocks = {
           Stat = GetFlatPhysicalDamageMod,
           TargetVar = "Owner",
           DestVar = "BonusAD"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusAD",
+          Src1Value = 0,
+          Src2Value = 0.9,
+          DestVar = "BonusAD",
+          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -285,7 +305,10 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -351,6 +374,16 @@ TargetExecuteBuildingBlocks = {
               Stat = GetFlatPhysicalDamageMod,
               TargetVar = "Owner",
               DestVar = "BonusAD"
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "BonusAD",
+              Src1Value = 0,
+              Src2Value = 0.9,
+              DestVar = "BonusAD",
+              MathOp = MO_MULTIPLY
             }
           },
           {
@@ -454,7 +487,10 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -532,6 +568,16 @@ TargetExecuteBuildingBlocks = {
                   Stat = GetFlatPhysicalDamageMod,
                   TargetVar = "Owner",
                   DestVar = "BonusAD"
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "BonusAD",
+                  Src1Value = 0,
+                  Src2Value = 0.9,
+                  DestVar = "BonusAD",
+                  MathOp = MO_MULTIPLY
                 }
               },
               {
@@ -635,7 +681,10 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -697,12 +746,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "blindmonkqmanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "blindmonkqonechaos"
     }
   },
@@ -710,6 +753,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_q_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "blindmonkqmanager"
     }
   }
 }

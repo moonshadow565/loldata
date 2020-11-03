@@ -20,6 +20,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DamageMod",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Target",
+      SourceVar = "Attacker"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

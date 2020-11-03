@@ -5,173 +5,6 @@ BuffName = "Insanity Potion"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 TriggersSpellCasts = true
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Stats",
-      RequiredVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Stats",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 100,
-      DestVar = "StatsPercent",
-      MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Stats",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 5,
-      DestVar = "StatsPer5",
-      MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatSpellBlockMod,
-      TargetVar = "Owner",
-      DeltaVar = "Stats",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatMovementSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "Stats",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "Stats",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "Stats",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      DeltaVar = "StatsPer5",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncFlatPARRegenMod,
-    Params = {
-      PARType = PAR_MANA,
-      TargetVar = "Owner",
-      DeltaVar = "StatsPer5",
-      Delta = 0
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Stats",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        35,
-        50,
-        65
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "insanitypotion_buf.troy",
-      Flags = 0,
-      BoneName = "head",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "insanitypotion_steam.troy",
-      Flags = 0,
-      BoneName = "bottletip",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
-    }
-  }
-}
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -190,8 +23,8 @@ BuffOnAllowAddBuildingBlocks = {
       DestVar = "CCreduction",
       SrcValueByLevel = {
         0.9,
-        0.8,
-        0.7
+        0.85,
+        0.8
       }
     }
   },
@@ -350,6 +183,179 @@ BuffOnAllowAddBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Stats",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Stats",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 100,
+      DestVar = "StatsPercent",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Stats",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 5,
+      DestVar = "StatsPer5",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "Stats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "Stats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "Stats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "Stats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatHPRegenMod,
+      TargetVar = "Owner",
+      DeltaVar = "StatsPer5",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncFlatPARRegenMod,
+    Params = {
+      PARType = PAR_MANA,
+      TargetVar = "Owner",
+      DeltaVar = "StatsPer5",
+      Delta = 0
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Stats",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        35,
+        50,
+        65
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "insanitypotion_buf.troy",
+      Flags = 0,
+      BoneName = "head",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "insanitypotion_steam.troy",
+      Flags = 0,
+      BoneName = "bottletip",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

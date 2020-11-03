@@ -390,6 +390,24 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "JarvanIVCataclysmSound",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = true
+        }
+      },
+      {
         Function = BBDistanceBetweenObjects,
         Params = {
           DestVar = "Distance",

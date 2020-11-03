@@ -87,6 +87,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -650,7 +652,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
-      Value2 = 3.5,
+      Value2 = 3.25,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -849,7 +851,9 @@ BuffOnLevelUpSpellBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "defile"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordekeiser_cotg_skin.troy"
+    }
   }
 }

@@ -4,6 +4,7 @@ BuffTextureName = "Teemo_MoveQuick.dds"
 BuffName = "Move Quick2"
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {"SuperTeemo"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffClear,
@@ -17,6 +18,14 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       SkinIDVar = "TeemoSkinID"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CustomRun",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
   },
   {
@@ -43,6 +52,36 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Src1Var = "6", CompareOp = CO_EQUAL},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "MoveQuick_buf2.troy",
+          Flags = 0,
+          EffectIDVar = "MoveQuickParticle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -68,8 +107,36 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CustomRun",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "RunFly",
+          OwnerVar = "Owner"
         }
       }
     }
@@ -106,6 +173,25 @@ OnBuffDeactivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CustomRun",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run",
+          OwnerVar = "Owner"
+        }
+      }
     }
   }
 }
@@ -172,12 +258,6 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomovequickspeed"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "movequick_buf2.troy"
@@ -186,7 +266,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "teemomovequickdebuff"
+      Name = "teemomovequickspeed"
     }
   }
 }

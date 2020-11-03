@@ -70,7 +70,7 @@ sv_OnDeathRatio                         =      0.000 ; Spell Vamp ratio for DAMA
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =     90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =      5.000 ; Interval between ambient gold ticks
-ai_AmbientGoldAmount                    =     30.000 ; Gold granted on ambient gold tick
+ai_AmbientGoldAmount                    =     28.000 ; Gold granted on ambient gold tick
 ai_DisableAmbientGoldWhileDead          =          0 ; Disable ambient gold while dead
 ai_AmbientXPDelay                       =      0.000 ; Delay before first ambient XP tick
 ai_AmbientXPInterval                    =      1.000 ; Interval between ambient XP ticks
@@ -101,7 +101,7 @@ sp_RegenTickInterval                    =      1.000 ; Interval between spawn po
 
 ; Attack Flags
 ca_RevealAttackerRange                  =    400.000 ; The range of reveal for attackers
-ca_RevealAttackerTimeOut                =      1.500 ; The timeout for the reveal for attackers
+ca_RevealAttackerTimeOut                =      4.500 ; The timeout for the reveal for attackers
 hud_targeting_reticle_height            =   -150.000 ; Height of the location circular location casting reticle
 
 ; obj_BarracksDampener variables

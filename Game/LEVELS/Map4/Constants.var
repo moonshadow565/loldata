@@ -135,7 +135,7 @@ cr_MouseScrollSpeed                     =     3900.000 ; Mouse Scroll Speed
 
 ; Attack Flags
 ca_RevealAttackerRange                  =      400.000 ; The range of reveal for attackers
-ca_RevealAttackerTimeOut                =        1.500 ; The timeout for the reveal for attackers
+ca_RevealAttackerTimeOut                =        4.500 ; The timeout for the reveal for attackers
 ca_MinCastRotationSpeed                 =      250.000 ; Whats the minimum speed we will rotate to face a target during a spell cast?
 
 ; obj_AI_Base variables
