@@ -36,7 +36,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "HealAmount",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.6,
       DestVar = "ManaAmount",
       MathOp = MO_MULTIPLY
     }
