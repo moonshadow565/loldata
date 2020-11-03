@@ -41,11 +41,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hecarim_e_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "hecarimtempslashsound.troy"
-    }
   }
 }

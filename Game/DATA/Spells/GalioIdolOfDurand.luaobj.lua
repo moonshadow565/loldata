@@ -4,8 +4,13 @@ DoesntTriggerSpellCasts = false
 ChannelDuration = 2
 BuffTextureName = "Galio_IdolOfDurand.dds"
 BuffName = "GalioIdolOfDurand"
-AutoBuffActivateEffect = ""
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "GatekeeperGalio"
+}
+SpellVOOverrideSkins = {
+  "GatekeeperGalio"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -28,6 +33,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "galio_gatekeeper_ult_eyes_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_gatekeeper_ult_eyes.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "galio_talion_breakout.troy"
     }
   },
@@ -41,6 +58,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_builingstatue_unit_impact_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_gatekeeper_ult_unit_impact_01.troy"
     }
   },
   {
