@@ -15,12 +15,6 @@ AutoBuffActivateEffect4 = ""
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ireliaidleparticle"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "irelia_ult_magic_resist.troy"
@@ -35,13 +29,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ireliatranscendentbladesspell"
+      Name = "ireliaidleparticle"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "ireliatranscendentblades"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ireliatranscendentbladesspell"
     }
   },
   {

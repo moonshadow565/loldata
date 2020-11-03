@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sharedwardbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "shenshadowdashcooldown"
     }
   },
@@ -28,6 +22,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_unit_impact.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shenshadowdashpassive"
     }
   }
 }

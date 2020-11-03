@@ -1,10 +1,4 @@
+BuffTextureName = "Shen_ShadowDash.dds"
+BuffName = "Shen Shadow Dash"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdashcooldown"
-    }
-  }
-}

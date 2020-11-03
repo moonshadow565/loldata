@@ -41,6 +41,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "ziggse_mis_small_scientist_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "ziggse_mis_small_general.troy"
     }
   },

@@ -11,11 +11,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "globalhit_red.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenwayoftheninjaaura"
-    }
   }
 }
