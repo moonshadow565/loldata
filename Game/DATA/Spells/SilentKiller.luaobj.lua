@@ -2,66 +2,75 @@ BuffTextureName = "Evelynn_Stalk.dds"
 BuffName = "Silent Killer"
 PersistsThroughDeath = true
 Nondispellable = true
-BuffOnDealDamageBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 10,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "Level"}
+      },
+      {
+        Function = BBSetVarInTable,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "Malice_marker",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          DestVar = "MaliceDrain",
+          SrcValueByLevel = {
+            125,
+            150,
+            175,
+            200,
+            225,
+            250,
+            275,
+            300,
+            325,
+            350,
+            375,
+            400,
+            425,
+            450,
+            475,
+            500,
+            525,
+            550,
+            550
+          }
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "MaliceDrain",
+          Index = 1
         }
       }
     }
   }
 }
-BuffOnBeingHitBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "AttackerID"}
-  },
+BuffOnKillBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "AttackerID",
-      Value2 = TEAM_NEUTRAL,
-      CompareOp = CO_EQUAL
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_AI},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO}
-      },
-      {
-        Function = BBElseIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_TURRET}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBIncHealth,
             Params = {
-              Src1Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0.5,
-              DestVar = "DamageAmount",
-              MathOp = MO_MULTIPLY
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "MaliceDrain",
+              DeltaVarTable = "CharVars",
+              HealerVar = "Owner"
             }
           }
         }
@@ -69,11 +78,21 @@ BuffOnBeingHitBuildingBlocks = {
     }
   }
 }
-PreLoadBuildingBlocks = {
+BuffOnAssistBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "malice_marker"
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "MaliceDrain",
+          DeltaVarTable = "CharVars",
+          HealerVar = "Owner"
+        }
+      }
     }
   }
 }
