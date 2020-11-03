@@ -69,7 +69,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -215,7 +216,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -290,11 +292,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        60,
-        100,
-        140,
-        180,
-        220
+        50,
+        90,
+        130,
+        170,
+        210
       }
     }
   },
@@ -350,30 +352,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        60,
-        100,
-        140,
-        180,
-        220
-      },
-      Damage = 0,
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.5,
-      PhysicalDamageRatio = 0.5,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -421,7 +401,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -444,6 +425,29 @@ TargetExecuteBuildingBlocks = {
           IsHiddenOnClient = false
         }
       }
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        50,
+        90,
+        130,
+        170,
+        210
+      },
+      Damage = 0,
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.5,
+      PhysicalDamageRatio = 0.5,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

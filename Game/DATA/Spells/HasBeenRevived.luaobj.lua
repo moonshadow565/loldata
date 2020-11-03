@@ -24,23 +24,14 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-TargetExecuteBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSpellBuffRemove,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Target",
-      BuffName = "HasBeenRevived",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 300,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "WillRevive",
+      ResetDuration = 0
     }
   }
 }
@@ -48,11 +39,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "willrevive"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "hasbeenrevived"
-    }
   }
 }

@@ -127,7 +127,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -205,11 +206,11 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           DestVar = "FlatScaling",
           SrcValueByLevel = {
+            20,
             30,
             40,
             50,
-            60,
-            70
+            60
           }
         }
       },

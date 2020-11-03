@@ -472,6 +472,101 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

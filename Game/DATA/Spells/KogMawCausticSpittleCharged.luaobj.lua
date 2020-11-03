@@ -31,6 +31,29 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MagicReduction",
+      SrcValue = 0,
+      SrcValueByLevel = {
+        -5,
+        -10,
+        -15,
+        -20,
+        -25
+      }
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "MagicReduction",
+      Delta = 0
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatArmorMod,

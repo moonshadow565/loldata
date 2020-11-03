@@ -181,6 +181,16 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -242,16 +252,6 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       SpellSlotValue = 0,
       OwnerVar = "Owner"
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
     }
   },
   {

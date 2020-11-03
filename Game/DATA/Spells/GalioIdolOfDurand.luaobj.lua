@@ -249,7 +249,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 520,
+      Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -283,7 +283,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "Taunt"
+          BuffName = "Taunt",
+          ResetDuration = 0
         }
       },
       {
@@ -291,7 +292,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "GalioIdolOfDurandTaunt"
+          BuffName = "GalioIdolOfDurandTaunt",
+          ResetDuration = 0
         }
       },
       {
@@ -491,7 +493,8 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GalioIdolOfDurand"
+      BuffName = "GalioIdolOfDurand",
+      ResetDuration = 0
     }
   },
   {
@@ -499,7 +502,7 @@ ChannelingSuccessStopBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 520,
+      Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -530,7 +533,8 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GalioIdolOfDurand"
+      BuffName = "GalioIdolOfDurand",
+      ResetDuration = 0
     }
   },
   {
@@ -538,7 +542,7 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 520,
+      Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true

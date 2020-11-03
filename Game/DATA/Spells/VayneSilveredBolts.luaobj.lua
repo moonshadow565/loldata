@@ -73,7 +73,35 @@ BuffOnHitUnitBuildingBlocks = {
                           SendIfOnScreenOrDiscard = true,
                           FollowsGroundTilt = false
                         }
-                      },
+                      }
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Attacker",
+                      BuffName = "VayneSilveredDebuff",
+                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
+                      MaxStack = 3,
+                      NumberOfStacks = 1,
+                      Duration = 3.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "Count",
+                      Value2 = 2,
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
                       {
                         Function = BBApplyDamage,
                         Params = {
@@ -98,24 +126,6 @@ BuffOnHitUnitBuildingBlocks = {
                           SrcValue = 0
                         }
                       }
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Target",
-                      AttackerVar = "Attacker",
-                      BuffName = "VayneSilveredDebuff",
-                      BuffAddType = BUFF_STACKS_AND_RENEWS,
-                      StacksExclusive = true,
-                      BuffType = BUFF_CombatDehancer,
-                      MaxStack = 3,
-                      NumberOfStacks = 1,
-                      Duration = 3.5,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false,
-                      IsHiddenOnClient = false
                     }
                   }
                 }

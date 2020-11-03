@@ -83,49 +83,58 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "IreliaTeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "PhysPostMod",
+      Src2Var = "BaseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageToDeal1",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "APPostMod",
+      Src2Var = "DamageToDeal1",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageToDeal2",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageToDeal2",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "PhysPostMod",
-      Src2Var = "APPostMod",
-      CompareOp = CO_GREATER_THAN
-    },
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src1Var = "PhysPostMod",
-          Src2Var = "BaseDamage",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageToDeal",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageToDeal",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageToDeal",
+          Src1Var = "DamageToDeal2",
           Src1Value = 0,
           Src2Value = 0.2,
           DestVar = "HealthGain",
@@ -148,39 +157,11 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BaseDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.4,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
         Function = BBMath,
         Params = {
-          Src1Var = "BaseDamage",
-          Src2Var = "APPostMod",
+          Src1Var = "DamageToDeal2",
           Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamagePlusAP",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamagePlusAP",
-          Src1Value = 0,
-          Src2Value = 0.2,
+          Src2Value = 0.1,
           DestVar = "HealthGain",
           MathOp = MO_MULTIPLY
         }

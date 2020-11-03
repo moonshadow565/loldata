@@ -13,8 +13,8 @@ OnBuffActivateBuildingBlocks = {
     Function = BBGetRandomPointInAreaUnit,
     Params = {
       TargetVar = "Owner",
-      Radius = 100,
-      InnerRadius = 100,
+      Radius = 10,
+      InnerRadius = 10,
       ResultVar = "BouncePos"
     }
   },
@@ -23,13 +23,13 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       TargetVar = "BouncePos",
-      Speed = 100,
+      Speed = 10,
       Gravity = 20,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
       MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-      IdealDistance = 100
+      IdealDistance = 10
     }
   },
   {
@@ -194,7 +194,7 @@ SelfExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.8,
+          SpellDamageRatio = 0.6,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false

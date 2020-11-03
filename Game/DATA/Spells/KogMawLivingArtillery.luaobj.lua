@@ -69,7 +69,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -86,7 +88,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -109,7 +113,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -126,7 +132,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -163,7 +171,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -180,7 +190,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -203,7 +215,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -220,7 +234,9 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -349,7 +365,9 @@ OnBuffDeactivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 100,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -372,7 +390,9 @@ OnBuffDeactivateBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 100,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -556,7 +576,7 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "ADRatio", SrcValue = 0}
+    Params = {DestVar = "ADRatio", SrcValue = 0.5}
   },
   {
     Function = BBGetStat,
@@ -595,7 +615,9 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_ORDER,
       FOWVisibilityRadius = 100,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

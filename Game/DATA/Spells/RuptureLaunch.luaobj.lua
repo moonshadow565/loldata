@@ -22,8 +22,8 @@ OnBuffActivateBuildingBlocks = {
     Function = BBGetRandomPointInAreaUnit,
     Params = {
       TargetVar = "Owner",
-      Radius = 100,
-      InnerRadius = 100,
+      Radius = 10,
+      InnerRadius = 10,
       ResultVar = "BouncePos"
     }
   },
@@ -32,12 +32,13 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       TargetVar = "BouncePos",
-      Speed = 100,
+      Speed = 10,
       Gravity = 20,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 100
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 10
     }
   },
   {
@@ -121,7 +122,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

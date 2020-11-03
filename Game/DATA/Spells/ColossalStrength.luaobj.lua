@@ -129,38 +129,27 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBIf,
+        Function = BBSetBuffToolTipVar,
         Params = {
-          Src1Var = "CurrentDamage",
-          Src2Var = "lastF1",
-          Src2VarTable = "InstanceVars",
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "lastF1",
-              DestVarTable = "InstanceVars",
-              SrcVar = "CurrentDamage"
-            }
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "CurrentDamage",
-              Index = 1
-            }
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "DamageByRank",
-              Index = 2
-            }
-          }
+          Value = 0,
+          ValueVar = "CurrentDamage",
+          Index = 1
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "DamageByRank",
+          Index = 2
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "abilityPowerToAdd",
+          Index = 3
         }
       }
     }

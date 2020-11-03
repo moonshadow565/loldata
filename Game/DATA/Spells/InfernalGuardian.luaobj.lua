@@ -18,28 +18,72 @@ SelfExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "AnnieSkinID"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
+      Src1Var = "AnnieSkinID",
+      Value2 = 5,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "InfernalGuardian_tar.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "infernalguardian_tar_frost.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "infernalguardian_tar_frost.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -49,20 +93,57 @@ SelfExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "InfernalGuardian_tar.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "InfernalGuardian_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "InfernalGuardian_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -73,7 +154,7 @@ SelfExecuteBuildingBlocks = {
       Name = "Tibbers",
       Skin = "bear",
       Buff = "InfernalGuardian",
-      Duration = 60,
+      Duration = 45,
       PosVar = "TargetPos",
       HealthBonus = 0,
       DamageBonus = 0,
@@ -95,13 +176,97 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageAmount",
+      DestVar = "ArmorAmount",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        40,
-        60,
-        80
+        0,
+        20,
+        40
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MRAmount",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0,
+        20,
+        40
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealthAmount",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0,
+        400,
+        800
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcVar = "DamageAmount",
+      SrcValueByLevel = {
+        35,
+        35,
+        35
+      }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APPreMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "APPreMod",
+      Src1Value = 0.2,
+      Src2Value = 0,
+      DestVar = "APPostMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "APPostMod",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "InfernalGuardianTimer",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 45,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -111,12 +276,15 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "InfernalGuardianBurning",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 60,
+      Duration = 45,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -157,7 +325,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Pyromania_particle"
+          BuffName = "Pyromania_particle",
+          ResetDuration = 0
         }
       }
     }
@@ -169,12 +338,15 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Pyromania",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -204,6 +376,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         200,
@@ -214,13 +387,20 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.7,
+      SpellDamageRatio = 0.8,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "infernalguardian_tar_frost.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -235,6 +415,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "infernalguardian"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infernalguardiantimer"
     }
   },
   {

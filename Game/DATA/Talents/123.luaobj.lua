@@ -1,34 +1,37 @@
-UpdateSelfBuffStatsBuildingBlocks = {
+CharOnPreDealDamageBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBIf,
     Params = {
-      DestVar = "Level",
-      SrcVar = "TalentLevel"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HavocDamage",
-      SrcValueByLevel = {0.05, 0.01}
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "HavocDamage",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMagicDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "HavocDamage",
-      Delta = 0
+      Src1Var = "DamageType",
+      Value2 = TRUE_DAMAGE,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level",
+          SrcVar = "TalentLevel"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HavocDamage",
+          SrcValueByLevel = {1.04, 1.08}
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "HavocDamage",
+          Src2Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
+        }
+      }
     }
   }
 }

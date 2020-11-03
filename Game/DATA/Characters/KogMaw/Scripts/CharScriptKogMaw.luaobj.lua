@@ -1,10 +1,72 @@
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBGetStat,
+    Function = BBExecutePeriodically,
     Params = {
-      Stat = GetFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DestVar = "BonusDamage"
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTime2Executed",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "Spell3Display",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "Spell3Display",
+          Index = 1,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      }
     }
   },
   {
@@ -71,7 +133,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -104,36 +167,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {DestVar = "Level", SrcValue = 1}
       }
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArtilleryADRatio",
-      SrcValue = 0.6
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BonusDamage",
-      Src2Var = "ArtilleryADRatio",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "ArtilleryDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "ArtilleryDamage",
-      Index = 1,
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Owner"
-    }
   }
 }
 CharOnActivateBuildingBlocks = {
@@ -151,7 +184,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -168,7 +202,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -185,7 +220,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -208,7 +244,8 @@ CharOnResurrectBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

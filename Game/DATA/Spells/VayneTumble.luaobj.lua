@@ -120,7 +120,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 150,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -163,9 +164,72 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VayneTumbleFailsafe",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 8,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner", Blend = true}
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "VayneTumbleBonus",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0.1,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -262,7 +326,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 150,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -319,11 +384,21 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.1,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   },
   {
@@ -338,63 +413,11 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
     Function = BBCancelAutoAttack,
     Params = {TargetVar = "Owner", Reset = true}
   }
 }
 BuffOnMoveSuccessBuildingBlocks = {
-  {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = true}
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = true}
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "VayneTumbleBonus",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -406,48 +429,6 @@ BuffOnMoveSuccessBuildingBlocks = {
   }
 }
 BuffOnMoveFailureBuildingBlocks = {
-  {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = true}
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = true}
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "VayneTumbleBonus",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -484,6 +465,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vaynetumblefailsafe"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vaynetumblebonus"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "vayne_ult_invis_cas_02.troy"
@@ -493,12 +486,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "vaynetumble"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vaynetumblebonus"
     }
   }
 }

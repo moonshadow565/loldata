@@ -16,9 +16,7 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0,
-  CanHitEnemies = 1,
-  CanHitFriends = 0
+  CanHitSameTargetConsecutively = 0
 }
 OnBuffDeactivateBuildingBlocks = {
   {
@@ -38,7 +36,8 @@ OnBuffDeactivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -54,7 +53,8 @@ OnBuffDeactivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -154,7 +154,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -175,7 +176,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -192,7 +194,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -255,10 +258,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageVar",
       SrcValueByLevel = {
         20,
-        55,
-        90,
-        125,
-        160
+        50,
+        80,
+        110,
+        140
       }
     }
   },
@@ -296,7 +299,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.25,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

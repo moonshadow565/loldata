@@ -26,11 +26,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseHeal",
       SrcValue = 0,
       SrcValueByLevel = {
-        17.5,
-        28.75,
-        40,
-        51.25,
-        62.5
+        15,
+        25,
+        35,
+        45,
+        55
       }
     }
   },
@@ -85,7 +85,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }

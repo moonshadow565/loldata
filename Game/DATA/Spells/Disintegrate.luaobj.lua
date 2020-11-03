@@ -31,6 +31,7 @@ BuffOnDeathBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           Delta = 0,
+          PARType = PAR_MANA,
           DeltaVar = "ManaCost",
           DeltaVarTable = "InstanceVars"
         }
@@ -71,7 +72,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Pyromania_particle"
+          BuffName = "Pyromania_particle",
+          ResetDuration = 0
         }
       }
     }
@@ -97,31 +99,38 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         90,
         130,
         170,
-        215,
-        260
+        210,
+        250
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.6
+      SpellDamageRatio = 0.75,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -131,12 +140,118 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Pyromania",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "AnnieSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "AnnieSkinID",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "DisintegrateHit_tar_frost.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Disintegrate_hit_frost.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "DisintegrateHit_tar.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Disintegrate_hit.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   }
 }
@@ -150,5 +265,29 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "pyromania"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "disintegratehit_tar_frost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "disintegrate_hit_frost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "disintegratehit_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "disintegrate_hit.troy"
+    }
   }
 }

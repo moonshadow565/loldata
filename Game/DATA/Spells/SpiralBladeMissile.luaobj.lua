@@ -46,7 +46,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "BonusDamage",
-      Src1Value = 0.95,
+      Src1Value = 1,
       Src2Value = 0,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
@@ -59,11 +59,11 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        75,
-        120,
-        165,
-        210,
-        255
+        80,
+        125,
+        170,
+        215,
+        260
       },
       Damage = 0,
       DamageVar = "BonusDamage",
@@ -116,7 +116,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   }
 }
