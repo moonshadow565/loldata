@@ -1,159 +1,120 @@
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetUnitPosition,
-    Params = {UnitVar = "Owner", PositionVar = "runePos"}
-  },
-  {
-    Function = BBSpellEffectCreate,
+    Function = BBSetVarInTable,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "runePos",
-      EffectName = "regen_rune_buf.troy",
-      Flags = 0,
-      EffectIDVar = "particle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 500,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
+      DestVar = "bountyActive",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBExecutePeriodically,
     Params = {
-      EffectIDVar = "particle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Owner",
-      TargetVar = "Owner",
-      Damage = 1000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "LifeTime",
-      Value2 = 0.45,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
+      TimeBetweenExecutions = 5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBForNClosestUnitsInTargetArea,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 150,
-          Flags = "AffectEnemies AffectFriends AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          InclusiveBuffFilter = true
+          Src1Var = "LifeTime",
+          Value2 = 45,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBIf,
             Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Unit",
-              BuffName = "RegenerationRuneBuff",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Heal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 4.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBSpellBuffClear,
-            Params = {
-              TargetVar = "Owner",
-              BuffName = "RegenerationRune"
+              Src1Var = "LifeTime",
+              Value2 = 122,
+              CompareOp = CO_LESS_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "bountyActive",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = false,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIncPermanentExpReward,
+                    Params = {TargetVar = "Owner", Delta = 12.5}
+                  },
+                  {
+                    Function = BBIncPermanentGoldReward,
+                    Params = {TargetVar = "Owner", Delta = 2}
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "bountyActive",
+                      DestVarTable = "InstanceVars",
+                      SrcValue = true
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIncPermanentExpReward,
+                    Params = {TargetVar = "Owner", Delta = 1.786}
+                  },
+                  {
+                    Function = BBIncPermanentGoldReward,
+                    Params = {TargetVar = "Owner", Delta = 0.2667}
+                  }
+                }
+              }
             }
           }
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "regen_rune_buf.troy"
-    }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBIf,
     Params = {
-      Name = "regenerationrunebuff"
+      Src1Var = "bountyActive",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "LifeTime",
+          Value2 = 122,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetScaleSkinCoef,
+            Params = {Scale = 1.1, OwnerVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetScaleSkinCoef,
+            Params = {Scale = 1.05, OwnerVar = "Owner"}
+          }
+        }
+      }
     }
   }
 }

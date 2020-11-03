@@ -44,9 +44,9 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "damagePerMinute",
+      DestVar = "areaDmgReduction",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0.5
+      SrcValue = 0.2
     }
   },
   {
@@ -54,7 +54,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "goldPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0.333
+      SrcValue = 0.48
     }
   },
   {
@@ -107,6 +107,18 @@ CharOnActivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIncPermanentExpReward,
+    Params = {TargetVar = "Owner", Delta = 33}
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = 1
     }
   }
 }

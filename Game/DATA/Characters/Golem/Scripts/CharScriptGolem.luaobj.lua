@@ -12,7 +12,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "healthPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 52
+      SrcValue = 37
     }
   },
   {
@@ -26,9 +26,17 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "areaDmgReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.2
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "goldPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0.19
+      SrcValue = 0.38
     }
   },
   {
@@ -36,7 +44,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "expPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1.35
+      SrcValue = 1.55
     }
   },
   {
@@ -82,6 +90,30 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatHPPoolMod,
+      TargetVar = "Owner",
+      Delta = 150
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = 3
+    }
+  },
+  {
+    Function = BBIncPermanentGoldReward,
+    Params = {TargetVar = "Owner", Delta = 8}
+  },
+  {
+    Function = BBIncPermanentExpReward,
+    Params = {TargetVar = "Owner", Delta = 24}
   }
 }
 PreLoadBuildingBlocks = {
@@ -89,6 +121,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "globalmonsterbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "regenerationruneaura"
     }
   }
 }

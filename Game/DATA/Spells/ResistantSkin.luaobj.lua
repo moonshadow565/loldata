@@ -504,6 +504,10 @@ BuffOnDeathBuildingBlocks = {
                   CanMitigateDuration = false,
                   IsHiddenOnClient = false
                 }
+              },
+              {
+                Function = BBIncGold,
+                Params = {TargetVar = "Unit", Delta = 100}
               }
             }
           }
@@ -544,6 +548,10 @@ BuffOnDeathBuildingBlocks = {
                   CanMitigateDuration = false,
                   IsHiddenOnClient = false
                 }
+              },
+              {
+                Function = BBIncGold,
+                Params = {TargetVar = "Unit", Delta = 100}
               }
             }
           }

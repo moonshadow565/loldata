@@ -12,7 +12,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "healthPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 42
+      SrcValue = 25
     }
   },
   {
@@ -72,6 +72,30 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatHPPoolMod,
+      TargetVar = "Owner",
+      Delta = -150
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = -3
+    }
+  },
+  {
+    Function = BBIncPermanentGoldReward,
+    Params = {TargetVar = "Owner", Delta = -8}
+  },
+  {
+    Function = BBIncPermanentExpReward,
+    Params = {TargetVar = "Owner", Delta = -12}
   }
 }
 PreLoadBuildingBlocks = {

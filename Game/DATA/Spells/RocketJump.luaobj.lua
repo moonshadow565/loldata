@@ -54,41 +54,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBPlayAnimation,
     Params = {
-      Src1Var = "OwnerSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = false,
-          Blend = false,
-          Lock = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = false,
-          Blend = false,
-          Lock = true
-        }
-      }
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false,
+      Blend = false,
+      Lock = false
     }
   }
 }
@@ -378,14 +351,6 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
-  },
-  {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = true}
-  },
-  {
-    Function = BBDebugSay,
-    Params = {OwnerVar = "Owner", ToSay = "WIKSY!!!"}
   }
 }
 BuffOnMoveSuccessBuildingBlocks = {
@@ -531,10 +496,6 @@ BuffOnMoveSuccessBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = true}
   }
 }
 PreLoadBuildingBlocks = {

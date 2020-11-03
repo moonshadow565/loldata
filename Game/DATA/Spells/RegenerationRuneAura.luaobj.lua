@@ -28,6 +28,38 @@ OnBuffActivateBuildingBlocks = {
       FollowsGroundTilt = false,
       FacesTarget = false
     }
+  },
+  {
+    Function = BBGetGameTime,
+    Params = {SecondsVar = "gameTime"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "gameTime",
+      Value2 = 210,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "RegenerationRune",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -129,11 +161,72 @@ BuffOnDeathBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "RegenerationRune"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetGameTime,
+            Params = {SecondsVar = "gameTime"}
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "gameTime",
+              Value2 = 210,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "RegenerationRune",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "regen_rune_new_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "regenerationrune"
     }
   },
   {

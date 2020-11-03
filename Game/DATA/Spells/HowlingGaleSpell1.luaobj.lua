@@ -5,33 +5,30 @@ BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 AutoBuffActivateEffect = "DarkBinding_tar.troy"
 AutoBuffActivateEffect2 = ""
-OnBuffActivateBuildingBlocks = {
+TargetExecuteBuildingBlocks = {
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "Speed",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "Speed",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 150
     }
   },
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "Gravity",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "Gravity",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 45
     }
   },
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "IdealDistance",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "IdealDistance",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 100
     }
-  }
-}
-BuffOnSpellHitBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Attacker"}
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -40,7 +37,7 @@ BuffOnSpellHitBuildingBlocks = {
       SpellSlotValue = 0,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
-      OwnerVar = "Attacker",
+      OwnerVar = "Owner",
       Function = GetSlotSpellLevel
     }
   },
@@ -53,118 +50,21 @@ BuffOnSpellHitBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Speed",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "Speed",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Gravity",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "Gravity",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "IdealDistance",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "IdealDistance",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "IsStealthed",
-      Value2 = false,
-      CompareOp = CO_EQUAL
+      Src1Var = "Owner",
+      Src2Var = "Target",
+      CompareOp = CO_DIFFERENT_TEAM
     },
     SubBlocks = {
       {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Attacker"}
-      },
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Target"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            85,
-            115,
-            150,
-            185,
-            220
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.75,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBGetRandomPointInAreaUnit,
-        Params = {
-          TargetVar = "Target",
-          Radius = 100,
-          InnerRadius = 100,
-          ResultVar = "BouncePos"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Position",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "BouncePos"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "Move",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Stun,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        Params = {
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
         SubBlocks = {
-          {
-            Function = BBSetBuffCasterUnit,
-            Params = {CasterVar = "Attacker"}
-          },
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Target"}
@@ -172,7 +72,8 @@ BuffOnSpellHitBuildingBlocks = {
           {
             Function = BBApplyDamage,
             Params = {
-              AttackerVar = "Attacker",
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
                 85,
@@ -212,7 +113,7 @@ BuffOnSpellHitBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
-              AttackerVar = "Attacker",
+              AttackerVar = "Owner",
               BuffName = "Move",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
@@ -222,7 +123,8 @@ BuffOnSpellHitBuildingBlocks = {
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -232,25 +134,9 @@ BuffOnSpellHitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBCanSeeTarget,
-            Params = {
-              ViewerVar = "Owner",
-              TargetVar = "Target",
-              ResultVar = "CanSee"
-            }
-          },
-          {
             Function = BBIf,
-            Params = {
-              Src1Var = "CanSee",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
-              {
-                Function = BBSetBuffCasterUnit,
-                Params = {CasterVar = "Attacker"}
-              },
               {
                 Function = BBBreakSpellShields,
                 Params = {TargetVar = "Target"}
@@ -258,7 +144,8 @@ BuffOnSpellHitBuildingBlocks = {
               {
                 Function = BBApplyDamage,
                 Params = {
-                  AttackerVar = "Attacker",
+                  AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
                     85,
@@ -298,7 +185,7 @@ BuffOnSpellHitBuildingBlocks = {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Target",
-                  AttackerVar = "Attacker",
+                  AttackerVar = "Owner",
                   BuffName = "Move",
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
@@ -308,7 +195,94 @@ BuffOnSpellHitBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBCanSeeTarget,
+                Params = {
+                  ViewerVar = "Owner",
+                  TargetVar = "Target",
+                  ResultVar = "CanSee"
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "CanSee",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBBreakSpellShields,
+                    Params = {TargetVar = "Target"}
+                  },
+                  {
+                    Function = BBApplyDamage,
+                    Params = {
+                      AttackerVar = "Owner",
+                      CallForHelpAttackerVar = "Attacker",
+                      TargetVar = "Target",
+                      DamageByLevel = {
+                        85,
+                        115,
+                        150,
+                        185,
+                        220
+                      },
+                      Damage = 0,
+                      DamageType = MAGIC_DAMAGE,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                      PercentOfAttack = 1,
+                      SpellDamageRatio = 0.75,
+                      PhysicalDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
+                    }
+                  },
+                  {
+                    Function = BBGetRandomPointInAreaUnit,
+                    Params = {
+                      TargetVar = "Target",
+                      Radius = 100,
+                      InnerRadius = 100,
+                      ResultVar = "BouncePos"
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "Position",
+                      DestVarTable = "NextBuffVars",
+                      SrcVar = "BouncePos"
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Owner",
+                      BuffName = "Move",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Stun,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 0.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
                 }
               }
             }

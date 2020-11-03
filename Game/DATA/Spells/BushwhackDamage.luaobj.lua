@@ -1,5 +1,7 @@
 BuffTextureName = "NIdalee_Bushwhack.dds"
 BuffName = "BushwhackDamage"
+AutoBuffActivateEffect = "global_Watched.troy"
+AutoBuffActivateAttachBoneName = "head"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBApplyAssistMarker,
@@ -7,6 +9,46 @@ OnBuffActivateBuildingBlocks = {
       Duration = 10,
       TargetVar = "Owner",
       SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DotCounter",
+      DestVarTable = "InstanceVars",
+      SrcValue = 4
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "Team"}
+  },
+  {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "Team",
+      Radius = 400,
+      TargetVar = "Owner",
+      Duration = 20,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "Team",
+      Radius = 50,
+      TargetVar = "Owner",
+      Duration = 20,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = true,
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
@@ -61,6 +103,22 @@ BuffOnUpdateActionsBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBRemovePerceptionBubble,
+    Params = {
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRemovePerceptionBubble,
+    Params = {
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }

@@ -34,6 +34,14 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "areaDmgReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.2
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "expPerMinute",
       DestVarTable = "NextBuffVars",
       SrcValue = 0.424
