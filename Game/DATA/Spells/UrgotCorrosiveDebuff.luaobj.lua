@@ -1,6 +1,7 @@
 BuffTextureName = "UrgotCorrosiveCharge.dds"
 BuffName = "UrgotCorrosiveDebuff"
 AutoBuffActivateEffect = ""
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

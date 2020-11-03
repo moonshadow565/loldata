@@ -4,6 +4,13 @@ IsDamagingSpell = true
 BuffTextureName = "Vladimir_SanguinePool.dds"
 BuffName = "VladimirSanguinePool"
 AutoBuffActivateEffect = ""
+IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "BloodkingVladimir"
+}
+SpellVOOverrideSkins = {
+  "BloodkingVladimir"
+}
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -101,6 +108,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -277,6 +286,28 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Vlad_Bloodking_Blood_Skin.troy",
+      Flags = 0,
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Nothing",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 200,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -416,6 +447,56 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "Duration",
+          TargetVar = "Owner",
+          BuffName = "VladimirSanguinePool"
+        }
+      },
+      {
+        Function = BBGetSkinID,
+        Params = {UnitVar = "Owner", SkinIDVar = "SkinID"}
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "SkinID",
+          Value2 = 5,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Duration",
+              Value2 = 1,
+              CompareOp = CO_LESS_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "VladimirSanguinePoolParticle",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 1.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Owner",
@@ -487,7 +568,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       BindObjectVar = "Nothing",
       PosVar = "Owner",
-      EffectName = "empty.troy",
+      EffectName = "Vlad_Bloodking_Blood_Skin.troy",
       Flags = 0,
       EffectIDVar = "hi",
       TargetObjectVar = "Owner",
@@ -497,6 +578,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -639,11 +722,19 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vlad_bloodking_blood_skin.troy"
+    }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {Name = "empty.troy"}
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirsanguinepoolparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

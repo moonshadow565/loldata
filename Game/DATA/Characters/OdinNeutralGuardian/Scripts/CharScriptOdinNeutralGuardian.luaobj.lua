@@ -4,7 +4,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       SrcValue = false,
-      Status = SetCanMove
+      Status = SetCanMoveEver
     }
   },
   {

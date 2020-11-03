@@ -1,5 +1,6 @@
 BuffTextureName = "MissFortune_ImpureShots.dds"
 BuffName = "MissFortunePassive"
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -108,7 +109,8 @@ BuffOnHitUnitBuildingBlocks = {
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   },
                   {
@@ -161,7 +163,11 @@ BuffOnHitUnitBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   }
                 }

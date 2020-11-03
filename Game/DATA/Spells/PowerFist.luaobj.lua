@@ -6,6 +6,7 @@ AutoBuffActivateEffect = "Powerfist_buf.troy"
 AutoBuffActivateAttachBoneName = "R_hand"
 AutoBuffActivateEffect2 = "Powerfist_buf.troy"
 AutoBuffActivateAttachBoneName2 = "L_hand"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -31,9 +32,23 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBCancelAutoAttack,
     Params = {TargetVar = "Owner", Reset = true}
+  },
+  {
+    Function = BBOverrideAutoAttack,
+    Params = {
+      SpellSlot = 1,
+      SlotType = ExtraSlots,
+      OwnerVar = "Owner",
+      AutoAttackSpellLevel = 1,
+      CancelAttack = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBRemoveOverrideAutoAttack,
+    Params = {OwnerVar = "Owner", CancelAttack = true}
+  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -210,9 +225,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "powerfistslow"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "powerfist"}
   }
 }

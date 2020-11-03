@@ -276,7 +276,8 @@ CharOnSpellCastBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Owner",
-                      BuffName = "SonaAriaofPerseveranceCheck"
+                      BuffName = "SonaAriaofPerseveranceCheck",
+                      ResetDuration = 0
                     }
                   },
                   {
@@ -312,7 +313,8 @@ CharOnSpellCastBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Owner",
-                      BuffName = "SonaHymnofValorCheck"
+                      BuffName = "SonaHymnofValorCheck",
+                      ResetDuration = 0
                     }
                   },
                   {
@@ -348,7 +350,8 @@ CharOnSpellCastBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Owner",
-                      BuffName = "SonaSongofDiscordCheck"
+                      BuffName = "SonaSongofDiscordCheck",
+                      ResetDuration = 0
                     }
                   },
                   {
@@ -526,11 +529,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "ARMRBoost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            8,
+            7,
+            9,
             11,
-            14,
-            17,
-            20
+            13,
+            15
           }
         }
       },
@@ -658,19 +661,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonahymnofvalor"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sonahymnofvaloraura"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverance"
     }
   },
   {
@@ -682,19 +673,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonasongofdiscord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sonasongofdiscordaura"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasoundoff"
     }
   },
   {
@@ -713,18 +692,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonasongofdiscordsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchord"
     }
   },
   {
@@ -761,6 +728,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonasoundoff"
     }
   },
   {

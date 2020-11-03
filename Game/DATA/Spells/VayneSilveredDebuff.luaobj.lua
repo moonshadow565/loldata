@@ -1,6 +1,7 @@
 DoesntBreakShields = true
 BuffTextureName = "Vayne_SilveredBolts.dds"
 BuffName = "VayneSilverDebuff"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
@@ -127,6 +128,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -325,12 +328,6 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vaynesilvereddebuff"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

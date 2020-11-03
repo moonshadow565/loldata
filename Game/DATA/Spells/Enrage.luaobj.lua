@@ -104,6 +104,77 @@ BuffOnKillBuildingBlocks = {
     }
   }
 }
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Level",
+      Src1Value = 0,
+      Src2Value = -2,
+      DestVar = "HealthOne",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HealthOne",
+      Src1Value = 0,
+      Src2Value = -4,
+      DestVar = "HealthCost",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "CurrentHealth",
+      OwnerVar = "Owner",
+      Function = GetHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentHealth",
+      Value2 = 15,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "HealthCost",
+          HealerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -208,74 +279,23 @@ BuffOnLevelUpSpellBuildingBlocks = {
     }
   }
 }
-BuffOnHitUnitBuildingBlocks = {
+BuffOnPreAttackBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Level",
-      Src1Value = 0,
-      Src2Value = -2,
-      DestVar = "HealthOne",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthOne",
-      Src1Value = 0,
-      Src2Value = -4,
-      DestVar = "HealthCost",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CurrentHealth",
-      Value2 = 15,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "HealthCost",
-          HealerVar = "Owner"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "EnrageDeathRecapFix",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

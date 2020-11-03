@@ -272,74 +272,6 @@ CharOnActivateBuildingBlocks = {
     }
   }
 }
-CharOnResurrectBuildingBlocks = {
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 1,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffClear,
-        Params = {
-          TargetVar = "Owner",
-          BuffName = "TeemoMushrooms"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "TeemoMushrooms",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 3,
-          NumberOfStacks = 2,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "TeemoMushroomCounter",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "MushroomCooldown",
-          DurationVarTable = "CharVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  }
-}
 CharOnLevelUpSpellBuildingBlocks = {
   {
     Function = BBIf,
@@ -376,29 +308,13 @@ CharOnLevelUpSpellBuildingBlocks = {
               BuffName = "TeemoMushrooms",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 3,
-              NumberOfStacks = 1,
-              Duration = 25000,
+              BuffType = BUFF_AmmoStack,
+              MaxStack = 4,
+              NumberOfStacks = 2,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "TeemoMushroomManager",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
+              DurationVar = "MushroomCooldown",
+              DurationVarTable = "CharVars",
               TickRate = 0,
               CanMitigateDuration = false,
               IsHiddenOnClient = false
@@ -503,12 +419,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "teemomushrooms"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomushroomcounter"
     }
   },
   {

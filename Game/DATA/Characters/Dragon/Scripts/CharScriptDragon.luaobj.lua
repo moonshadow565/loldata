@@ -72,7 +72,7 @@ CharOnHitUnitBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Burning",
+      BuffName = "DragonBurning",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Damage,
@@ -115,7 +115,9 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "burning"}
+    Params = {
+      Name = "DragonBurning"
+    }
   },
   {
     Function = BBPreloadSpell,

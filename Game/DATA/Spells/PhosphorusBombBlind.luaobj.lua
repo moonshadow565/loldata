@@ -1,57 +1,34 @@
 IsDamagingSpell = false
 BuffTextureName = "Corki_PhosphorusBomb.dds"
 BuffName = "PhosphorusBomb"
+AutoBuffActivateEffect = "global_Watched.troy"
+AutoBuffActivateAttachBoneName = "head"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatMissChanceMod,
-      TargetVar = "Owner",
-      Delta = 0.35
-    }
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "Team"}
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBAddUnitPerceptionBubble,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "corki_blind_buf.troy",
-      Flags = 0,
-      EffectIDVar = "PBBlindPar",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      TeamVar = "Team",
+      Radius = 400,
+      TargetVar = "Owner",
+      Duration = 6,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBRemovePerceptionBubble,
     Params = {
-      EffectIDVar = "PBBlindPar",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatMissChanceMod,
-      TargetVar = "Owner",
-      Delta = 0.35
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "corki_blind_buf.troy"
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }

@@ -43,6 +43,98 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseCooldown",
+      SrcValue = 70
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "Duration", SrcValue = 4}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "utilityMastery",
+      Src1VarTable = "AvatarVars",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "Duration",
+          Src1Value = 2,
+          Src2Value = 0,
+          DestVar = "Duration",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "Duration",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  }
+}
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -67,33 +159,10 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 55,
+          Src1Value = 70,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ClairvoyanceCooldownBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BaseCooldown",
-          Src2Var = "ClairvoyanceCooldownBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BaseCooldown",
-          MathOp = MO_SUBTRACT
         }
       }
     }
@@ -124,6 +193,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -150,6 +221,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -172,24 +245,22 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "Duration", SrcValue = 6}
+    Params = {DestVar = "Duration", SrcValue = 4}
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "ClairvoyanceDurationBonus",
+      Src1Var = "utilityMastery",
       Src1VarTable = "AvatarVars",
-      Value2 = 4,
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src1Var = "ClairvoyanceDurationBonus",
-          Src1VarTable = "AvatarVars",
           Src2Var = "Duration",
-          Src1Value = 0,
+          Src1Value = 2,
           Src2Value = 0,
           DestVar = "Duration",
           MathOp = MO_ADD

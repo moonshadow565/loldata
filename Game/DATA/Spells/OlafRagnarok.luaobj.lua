@@ -188,6 +188,48 @@ BuffOnAllowAddBuildingBlocks = {
         Params = {SrcValue = false}
       }
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Type",
+      Value2 = BUFF_Blind,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Type",
+      Value2 = BUFF_Silence,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
   }
 }
 OnBuffActivateBuildingBlocks = {
@@ -265,6 +307,10 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

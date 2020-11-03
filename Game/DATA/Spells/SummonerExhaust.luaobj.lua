@@ -1,74 +1,109 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-BuffTextureName = "Summoner_exhaust.dds"
-BuffName = "Exhaust"
-AutoBuffActivateEffect = "Summoner_Banish.troy"
+BuffTextureName = "Summoner_Exhaust.dds"
+BuffName = "ExhaustDebuff"
+AutoBuffActivateEffect = "summoner_banish.troy"
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 PopupMessage1 = "game_floatingtext_Slowed"
-OnBuffActivateBuildingBlocks = {
+BuffOnPreDealDamageBuildingBlocks = {
   {
-    Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = false}
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmorMod",
-      RequiredVarTable = "InstanceVars"
+    Function = BBIf,
+    Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.3,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
+        }
+      }
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ArmorMod",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
+    Function = BBElseIf,
+    Params = {Value1 = DAMAGESOURCE_INTERNALRAW, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
     SubBlocks = {
       {
-        Function = BBApplyAssistMarker,
+        Function = BBIf,
         Params = {
-          Duration = 10,
-          TargetVar = "Owner",
-          SourceVar = "Attacker"
+          Src1Var = "DamageType",
+          Value2 = TRUE_DAMAGE,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0.65,
+              DestVar = "DamageAmount",
+              MathOp = MO_MULTIPLY
+            }
+          }
         }
       }
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseCooldown",
+      SrcValue = 210
+    }
+  },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "ArmorMod",
-      Src1VarTable = "InstanceVars",
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
       Value2 = 0,
       CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIncStat,
+        Function = BBMath,
         Params = {
-          Stat = IncFlatArmorMod,
-          TargetVar = "Owner",
-          DeltaVar = "ArmorMod",
-          DeltaVarTable = "InstanceVars",
-          Delta = 0
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
         }
       },
       {
-        Function = BBIncStat,
+        Function = BBMath,
         Params = {
-          Stat = IncFlatSpellBlockMod,
-          TargetVar = "Owner",
-          DeltaVar = "ArmorMod",
-          DeltaVarTable = "InstanceVars",
-          Delta = 0
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
     }
   }
 }
@@ -91,27 +126,6 @@ AdjustCooldownBuildingBlocks = {
           Src2Value = 0,
           DestVar = "CooldownMultiplier",
           MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "HasRune5378",
-          Src1VarTable = "AvatarVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "CooldownMultiplier",
-              Src1Value = 0,
-              Src2Value = 0.04,
-              DestVar = "CooldownMultiplier",
-              MathOp = MO_SUBTRACT
-            }
-          }
         }
       },
       {
@@ -147,7 +161,11 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -159,26 +177,47 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "DurationBonus",
-      SrcValue = 0
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "ExhaustSlow",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Slow,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "ArmorMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "SummonerExhaust",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "ExhaustArmorMod",
+      Src1Var = "offensiveMastery",
       Src1VarTable = "AvatarVars",
-      Value2 = -10,
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -189,35 +228,6 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = -10
         }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ExhaustDurationBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0.5,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "ExhaustSlow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
       },
       {
         Function = BBSpellBuffAdd,
@@ -230,53 +240,11 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 3.5,
+          Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "ExhaustSlow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "ExhaustDebuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          IsHiddenOnClient = true
         }
       }
     }
@@ -293,6 +261,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "exhaustslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "summonerexhaust"
     }
   },
   {

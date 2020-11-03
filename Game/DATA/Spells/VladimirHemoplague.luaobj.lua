@@ -1,5 +1,11 @@
 BuffTextureName = "Vladimir_HemoplagueImmune.dds"
 BuffName = ""
+SpellFXOverrideSkins = {
+  "BloodKingVladimir"
+}
+SpellVOOverrideSkins = {
+  "BloodkingVladimir"
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
@@ -87,6 +93,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other2",
@@ -126,7 +133,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

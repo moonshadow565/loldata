@@ -73,10 +73,12 @@ function TimerFindEnemies()
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_2)
     ResetAndStartTimer("TimerAntiKite")
   else
+    L1_1 = GetTauntTarget
+    L1_1 = L1_1()
+    tauntTarget = L1_1
     L1_1 = AI_TAUNTED
     if L0_0 == L1_1 then
-      L1_1 = GetTauntTarget
-      L1_1 = L1_1()
+      L1_1 = tauntTarget
       if L1_1 ~= nil then
         L1_1 = IsObjectUseable
         L2_2 = tauntTarget
@@ -88,7 +90,7 @@ function TimerFindEnemies()
         else
           L1_1 = SetStateAndCloseToTarget
           L2_2 = AI_TAUNTED
-          L1_1(L2_2, GetTauntTarget())
+          L1_1(L2_2, tauntTarget)
         end
       end
     end

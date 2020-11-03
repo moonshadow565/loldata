@@ -50,7 +50,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "UrgotDeathParticle"
+                  BuffName = "UrgotDeathParticle",
+                  ResetDuration = 0
                 }
               }
             }
@@ -158,24 +159,6 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UrgotParticleBuff",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
   }
 }
 CharOnDisconnectBuildingBlocks = {
@@ -221,12 +204,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "urgotparticlebuff"
     }
   }
 }

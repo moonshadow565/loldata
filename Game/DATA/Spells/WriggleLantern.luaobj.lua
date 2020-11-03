@@ -84,8 +84,8 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = false,
-      Placemarker = false,
       IsWard = true,
+      Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -143,6 +143,35 @@ SelfExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Scout",
+      Src1VarTable = "AvatarVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Attacker",
+          BuffName = "MasteryScoutBuff",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 180,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
     }
   },
   {
@@ -418,6 +447,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "itemplacementmissile"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masteryscoutbuff"
     }
   }
 }

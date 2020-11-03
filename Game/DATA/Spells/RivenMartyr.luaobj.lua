@@ -9,6 +9,7 @@ AutoCooldownByLevel = {
   10,
   6
 }
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

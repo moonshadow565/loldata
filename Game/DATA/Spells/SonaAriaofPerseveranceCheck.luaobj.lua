@@ -19,7 +19,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "teamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -27,7 +30,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaHymnofValorCheck"
+      BuffName = "SonaHymnofValorCheck",
+      ResetDuration = 0
     }
   },
   {
@@ -35,7 +39,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongofDiscordCheck"
+      BuffName = "SonaSongofDiscordCheck",
+      ResetDuration = 0
     }
   },
   {
@@ -73,18 +78,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "sonapowerchordready_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonahymnofvalorcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscordcheck"
     }
   },
   {

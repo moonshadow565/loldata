@@ -45,7 +45,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -62,7 +66,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -199,7 +207,11 @@ BuffOnBeingHitBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   },
                   {
@@ -246,11 +258,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MotaDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        50,
-        75,
-        100,
-        125,
-        150
+        45,
+        70,
+        95,
+        120,
+        145
       }
     }
   },
@@ -358,12 +370,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "akali_mark_impact_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalitwinap"
     }
   },
   {

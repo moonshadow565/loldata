@@ -5,6 +5,12 @@ IsDamagingSpell = true
 BuffTextureName = "Vladimir_TidesofBlood.dds"
 BuffName = ""
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "BloodkingVladimir"
+}
+SpellVOOverrideSkins = {
+  "BloodkingVladimir"
+}
 TriggersSpellCasts = true
 SelfExecuteBuildingBlocks = {
   {

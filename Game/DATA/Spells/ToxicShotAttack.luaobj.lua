@@ -30,7 +30,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 0.1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

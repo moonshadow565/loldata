@@ -465,24 +465,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonahymnofvalor"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sonaariaofperseverance"
     }
   },

@@ -2,6 +2,7 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
+IsDeathRecapSource = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,

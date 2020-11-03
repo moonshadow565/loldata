@@ -4,7 +4,15 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatMagicDamageMod,
       TargetVar = "Owner",
-      Delta = 10
+      Delta = 5
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = 5
     }
   }
 }

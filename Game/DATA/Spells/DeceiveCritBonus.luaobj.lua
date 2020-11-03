@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetDodgePiercing,
@@ -17,6 +18,12 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "CritDmgBonus",
       RequiredVarTable = "InstanceVars"
     }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -62,11 +69,41 @@ BuffOnHitUnitBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = true
     }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
+  },
   {
-    Function = BBSetDodgePiercing,
-    Params = {TargetVar = "Owner", Value = false}
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeceiveCritBonus",
+      ResetDuration = 0
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageAmount",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = true
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_MULTIPLY
+    }
   }
 }

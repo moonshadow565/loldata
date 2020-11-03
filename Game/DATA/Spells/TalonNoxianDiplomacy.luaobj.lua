@@ -4,6 +4,7 @@ BuffTextureName = "Armsmaster_Empower.dds"
 BuffName = "TalonNoxianDiplomacy"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBOverrideAutoAttack,
@@ -385,6 +386,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "talonbleeddebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "talonnoxiandiplomacybuff"
     }
   },
@@ -392,12 +399,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "talonnoxiandiplomacy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talonbleeddebuff"
     }
   }
 }

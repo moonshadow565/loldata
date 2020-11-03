@@ -26,7 +26,10 @@ BuffOnKillBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -69,7 +72,10 @@ BuffOnKillBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -138,11 +144,20 @@ BuffOnHitUnitBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Owner",
+      TargetOfOrderVar = "Target",
+      Order = AI_ATTACKTO
+    }
+  },
+  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "DetonatingShot"
+      BuffName = "DetonatingShot",
+      ResetDuration = 0
     }
   },
   {
@@ -237,12 +252,6 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "detonatingshot_target"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "detonatingshot_buf.troy"
@@ -257,7 +266,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "detonatingshot"
+      Name = "detonatingshot_target"
     }
   },
   {

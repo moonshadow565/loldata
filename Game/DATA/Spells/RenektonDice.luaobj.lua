@@ -9,6 +9,7 @@ AutoBuffActivateEffect = "Global_Haste.troy"
 AutoBuffActivateAttachBoneName = "lhnd"
 AutoBuffActivateEffect2 = "Global_Haste.troy"
 AutoBuffActivateAttachBoneName2 = "rhnd"
+IsDeathRecapSource = true
 BuffOnCollisionBuildingBlocks = {
   {
     Function = BBIf,
@@ -488,7 +489,10 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -513,7 +517,10 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -540,7 +547,10 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -1824,7 +1834,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "RenektonSliceAndDice"
+      BuffName = "RenektonSliceAndDice",
+      ResetDuration = 0
     }
   }
 }

@@ -187,6 +187,58 @@ BuffOnAllowAddBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "DurationMod",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "DurationMod",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "Duration",
+          Src1Value = 0.3,
+          Src2Value = 0,
+          DestVar = "Duration",
+          MathOp = MO_MAX
+        }
       }
     }
   }
@@ -478,7 +530,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "BurningAgony"
+          BuffName = "BurningAgony",
+          ResetDuration = 0
         }
       }
     }
@@ -500,17 +553,10 @@ SelfExecuteBuildingBlocks = {
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "burningagony"
     }
   }
 }

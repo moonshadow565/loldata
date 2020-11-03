@@ -4,6 +4,7 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffName = "ScurvyStrike"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

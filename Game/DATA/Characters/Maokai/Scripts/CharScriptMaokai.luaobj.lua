@@ -121,13 +121,27 @@ CharOnPreAttackBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBOverrideAutoAttack,
+                    Function = BBOverrideAnimation,
                     Params = {
-                      SpellSlot = 1,
-                      SlotType = ExtraSlots,
-                      OwnerVar = "Owner",
-                      AutoAttackSpellLevel = 1,
-                      CancelAttack = false
+                      ToOverrideAnim = "Attack",
+                      OverrideAnim = "Passive",
+                      OwnerVar = "Owner"
+                    }
+                  },
+                  {
+                    Function = BBOverrideAnimation,
+                    Params = {
+                      ToOverrideAnim = "Attack2",
+                      OverrideAnim = "Passive",
+                      OwnerVar = "Owner"
+                    }
+                  },
+                  {
+                    Function = BBOverrideAnimation,
+                    Params = {
+                      ToOverrideAnim = "Crit",
+                      OverrideAnim = "Passive",
+                      OwnerVar = "Owner"
                     }
                   }
                 }
@@ -137,8 +151,16 @@ CharOnPreAttackBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBRemoveOverrideAutoAttack,
-                    Params = {OwnerVar = "Owner", CancelAttack = true}
+                    Function = BBClearOverrideAnimation,
+                    Params = {ToOverrideAnim = "Attack", OwnerVar = "Owner"}
+                  },
+                  {
+                    Function = BBClearOverrideAnimation,
+                    Params = {ToOverrideAnim = "Attack2", OwnerVar = "Owner"}
+                  },
+                  {
+                    Function = BBClearOverrideAnimation,
+                    Params = {ToOverrideAnim = "Crit", OwnerVar = "Owner"}
                   }
                 }
               }
@@ -149,8 +171,16 @@ CharOnPreAttackBuildingBlocks = {
             Params = {},
             SubBlocks = {
               {
-                Function = BBRemoveOverrideAutoAttack,
-                Params = {OwnerVar = "Owner", CancelAttack = true}
+                Function = BBClearOverrideAnimation,
+                Params = {ToOverrideAnim = "Attack", OwnerVar = "Owner"}
+              },
+              {
+                Function = BBClearOverrideAnimation,
+                Params = {ToOverrideAnim = "Attack2", OwnerVar = "Owner"}
+              },
+              {
+                Function = BBClearOverrideAnimation,
+                Params = {ToOverrideAnim = "Crit", OwnerVar = "Owner"}
               }
             }
           }
@@ -161,8 +191,16 @@ CharOnPreAttackBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBRemoveOverrideAutoAttack,
-            Params = {OwnerVar = "Owner", CancelAttack = true}
+            Function = BBClearOverrideAnimation,
+            Params = {ToOverrideAnim = "Attack", OwnerVar = "Owner"}
+          },
+          {
+            Function = BBClearOverrideAnimation,
+            Params = {ToOverrideAnim = "Attack2", OwnerVar = "Owner"}
+          },
+          {
+            Function = BBClearOverrideAnimation,
+            Params = {ToOverrideAnim = "Crit", OwnerVar = "Owner"}
           }
         }
       }
@@ -173,8 +211,16 @@ CharOnPreAttackBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner", CancelAttack = true}
+        Function = BBClearOverrideAnimation,
+        Params = {ToOverrideAnim = "Attack", OwnerVar = "Owner"}
+      },
+      {
+        Function = BBClearOverrideAnimation,
+        Params = {ToOverrideAnim = "Attack2", OwnerVar = "Owner"}
+      },
+      {
+        Function = BBClearOverrideAnimation,
+        Params = {ToOverrideAnim = "Crit", OwnerVar = "Owner"}
       }
     }
   }
@@ -274,12 +320,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "maokaisapmagicchaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "maokaisapmagicmelee"
     }
   },
   {

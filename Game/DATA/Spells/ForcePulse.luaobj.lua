@@ -71,10 +71,10 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        60,
-        115,
-        170,
-        225,
+        80,
+        130,
+        180,
+        230,
         280
       },
       Damage = 0,

@@ -8,6 +8,9 @@ AutoCooldownByLevel = {
   0,
   0
 }
+SpellFXOverrideSkins = {
+  "BloodkingVladimir"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -86,7 +89,10 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

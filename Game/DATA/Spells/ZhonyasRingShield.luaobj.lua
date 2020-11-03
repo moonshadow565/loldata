@@ -10,6 +10,10 @@ AutoBuffActivateAttachBoneName4 = "head"
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBPauseAnimation,
+    Params = {UnitVar = "Owner", Pause = true}
+  },
+  {
     Function = BBDestroyMissileForTarget,
     Params = {TargetVar = "Owner"}
   },
@@ -102,6 +106,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       State = false
     }
+  },
+  {
+    Function = BBPauseAnimation,
+    Params = {UnitVar = "Owner", Pause = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

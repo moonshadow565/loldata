@@ -144,57 +144,38 @@ CanCastBuildingBlocks = {
     }
   }
 }
-AdjustCastInfoBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "TestFlash",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
+SpellUpdateTooltipBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "FlashRangeBonus",
+      Src1Var = "utilityMastery",
       Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
+      Value2 = 1,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBSetVarInTable,
         Params = {
-          Src2Var = "FlashRangeBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 750,
-          Src2Value = 0,
-          DestVar = "CastRange",
-          MathOp = MO_ADD
+          DestVar = "BaseCooldown",
+          SrcValue = 250
         }
-      },
-      {
-        Function = BBSetSpellCastRange,
-        Params = {NewRange = 0, NewRangeVar = "CastRange"}
-      },
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcVar = "CastRange"}
       }
     }
-  }
-}
-AdjustCooldownBuildingBlocks = {
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValue = 265
+        }
+      }
+    }
+  },
   {
     Function = BBIf,
     Params = {
@@ -218,8 +199,9 @@ AdjustCooldownBuildingBlocks = {
       {
         Function = BBMath,
         Params = {
+          Src1Var = "BaseCooldown",
           Src2Var = "CooldownMultiplier",
-          Src1Value = 255,
+          Src1Value = 0,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -228,24 +210,80 @@ AdjustCooldownBuildingBlocks = {
     }
   },
   {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  }
+}
+AdjustCooldownBuildingBlocks = {
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "FlashCooldownBonus",
+      Src1Var = "utilityMastery",
       Src1VarTable = "AvatarVars",
-      Value2 = 15,
+      Value2 = 1,
       CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValue = 250
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseCooldown",
+          SrcValue = 265
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src1Var = "BaseCooldown",
-          Src2Var = "FlashCooldownBonus",
+          Src2Var = "SummonerCooldownBonus",
           Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "BaseCooldown",
-          MathOp = MO_SUBTRACT
+          MathOp = MO_MULTIPLY
         }
       }
     }
@@ -282,7 +320,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 475,
+      Value2 = 400,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -290,7 +328,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 475,
+          Distance = 400,
           OffsetAngle = 0,
           PositionVar = "CastPos"
         }
@@ -319,7 +357,11 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -336,7 +378,11 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -352,7 +398,11 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

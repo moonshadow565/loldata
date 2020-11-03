@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Cardmaster_RapidToss.dds"
-BuffName = "CardMasterStackInternal"
+BuffName = "CardMasterStack"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
@@ -9,6 +9,7 @@ AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 PersistsThroughDeath = true
 NonDispellable = true
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

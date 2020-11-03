@@ -6,6 +6,7 @@ AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,

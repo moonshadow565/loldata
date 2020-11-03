@@ -100,10 +100,10 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         130,
-        160,
+        150,
+        170,
         190,
-        220,
-        250
+        210
       }
     }
   },

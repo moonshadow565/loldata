@@ -1,6 +1,7 @@
 BuffTextureName = "Udyr_PhoenixStance.dds"
 BuffName = "UdyrPhoenixActivation"
 AutoBuffActivateEffect = ""
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

@@ -1,6 +1,142 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "OwnerLevel",
+      Src1Value = 0,
+      Src2Value = 30,
+      DestVar = "BonusMana",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusMana",
+      Src1Value = 0,
+      Src2Value = 160,
+      DestVar = "TotalMana",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "utilityMastery",
+      Src1VarTable = "AvatarVars",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TotalMana",
+          Src1Value = 0,
+          Src2Value = 1.2,
+          DestVar = "TotalMana",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalMana",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "SecondaryMana",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TotalMana",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "SecondaryMana",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseCooldown",
+      SrcValue = 180
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 3,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  }
+}
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -55,28 +191,16 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
     Function = BBGetLevel,
     Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "ManaBonus", SrcValue = 0}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ManaBonus",
-      Src1VarTable = "AvatarVars",
-      Src2Var = "ManaBonus",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "ManaBonus",
-      MathOp = MO_ADD
-    }
   },
   {
     Function = BBMath,
@@ -99,6 +223,27 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "utilityMastery",
+      Src1VarTable = "AvatarVars",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TotalMana",
+          Src1Value = 0,
+          Src2Value = 1.2,
+          DestVar = "TotalMana",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "TotalMana",
@@ -106,26 +251,6 @@ SelfExecuteBuildingBlocks = {
       Src2Value = 0.5,
       DestVar = "SecondaryMana",
       MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ManaBonus",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "SecondaryMana",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "SecondaryMana",
-          MathOp = MO_MULTIPLY
-        }
-      }
     }
   },
   {
@@ -152,7 +277,11 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
