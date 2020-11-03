@@ -23,11 +23,12 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 0,
+      Src = 0.1,
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
@@ -134,7 +135,8 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
