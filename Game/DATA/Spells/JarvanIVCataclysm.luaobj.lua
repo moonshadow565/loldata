@@ -547,7 +547,6 @@ BuffOnMoveSuccessBuildingBlocks = {
               Range = 100,
               Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes NotAffectSelf ",
               IteratorVar = "Unit",
-              BuffNameFilter = "CrystallizePush",
               InclusiveBuffFilter = false
             },
             SubBlocks = {
@@ -668,11 +667,11 @@ BuffOnMoveSuccessBuildingBlocks = {
                 Params = {
                   TargetVar = "Unit",
                   AttackerVar = "Other2",
-                  BuffName = "CrystallizePush",
+                  BuffName = "GlobalWallPush",
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Internal,
-                  MaxStack = 76,
+                  MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0.25,
                   BuffVarsTable = "NextBuffVars",
@@ -768,12 +767,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "jarvanivcataclysmattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "unstoppableforcemarker"
     }
   },
@@ -781,6 +774,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "jarvanivcataclysmvisibility"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jarvanivcataclysmsound"
     }
   },
   {
@@ -798,7 +797,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "crystallizepush"
+      Name = "jarvanivcataclysmattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalwallpush"
     }
   }
 }

@@ -20,7 +20,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               Range = 800,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
-              InclusiveBuffFilter = true
+              BuffNameFilter = "ParanoiaMissChance",
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
@@ -31,10 +32,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffName = "ParanoiaMissChance",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_Aura,
+                  BuffType = BUFF_Shred,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 1.2,
+                  Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false,

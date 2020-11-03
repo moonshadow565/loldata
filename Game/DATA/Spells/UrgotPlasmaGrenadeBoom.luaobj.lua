@@ -1,3 +1,5 @@
+BuffTextureName = "UrgotCorrosiveCharge.dds"
+BuffName = "UrgotCorrosiveDebuff"
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetUnitPosition,
@@ -47,7 +49,11 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -192,7 +198,26 @@ TargetExecuteBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               DurationVar = "buffDuration",
               TickRate = 0,
-              CanMitigateDuration = true
+              CanMitigateDuration = true,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Shred,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "buffDuration",
+              TickRate = 0,
+              CanMitigateDuration = true,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -232,7 +257,8 @@ TargetExecuteBuildingBlocks = {
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "buffDuration",
                   TickRate = 0,
-                  CanMitigateDuration = true
+                  CanMitigateDuration = true,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -284,7 +310,8 @@ TargetExecuteBuildingBlocks = {
                       BuffVarsTable = "NextBuffVars",
                       DurationVar = "buffDuration",
                       TickRate = 0,
-                      CanMitigateDuration = true
+                      CanMitigateDuration = true,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -293,6 +320,67 @@ TargetExecuteBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "UrgotPlasmaGrenade_hit.troy",
+      Flags = 0,
+      EffectIDVar = "HitParticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "ArmorReduced",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorReduced",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "HitParticle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorReduced",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -307,6 +395,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "urgotcorrosivedebuff"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "urgotplasmagrenade_hit.troy"
     }
   }
 }

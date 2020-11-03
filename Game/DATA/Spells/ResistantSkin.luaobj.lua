@@ -12,8 +12,8 @@ BuffOnAllowAddBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "MaxStack",
-          Value2 = 76,
+          Src1Var = "ScriptName",
+          Value2 = "globalwallpush",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -154,6 +154,20 @@ BuffOnAllowAddBuildingBlocks = {
         Params = {
           Src1Var = "Type",
           Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Shred,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -388,6 +402,35 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "BonusRegen",
       Delta = 0
     }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 300,
+      Flags = "AffectEnemies AffectMinions AffectWards ",
+      IteratorVar = "Unit",
+      BuffNameFilter = "SharedWardBuff",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBMoveAway,
+        Params = {
+          UnitVar = "Unit",
+          AwayFromVar = "Owner",
+          Speed = 1000,
+          Gravity = 50,
+          Distance = 300,
+          DistanceInner = 300,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+          IdealDistance = 300
+        }
+      }
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -510,32 +553,6 @@ BuffOnDeathBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "wrathtimer"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sweeptimer"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "propeltimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "actiontimer2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "actiontimer"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

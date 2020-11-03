@@ -529,7 +529,7 @@ CharOnLevelUpSpellBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "VayneSilveredBoltBuff",
+              BuffName = "VayneSilveredBolts",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
               BuffType = BUFF_Aura,
@@ -577,6 +577,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "vayneinquisition"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "vayneinquisitionspeedpart"
     }
   },
@@ -601,7 +607,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "vaynesilveredboltbuff"
+      Name = "vaynesilveredbolts"
     }
   }
 }

@@ -138,9 +138,7 @@ SelfExecuteBuildingBlocks = {
               EffectNameForOtherTeam = "OrianaDissonance_ally_red.troy",
               Flags = 0,
               EffectIDVar = "Particle",
-              EffectIDVarTable = "NextBuffVars",
               EffectID2Var = "Particle2",
-              EffectID2VarTable = "NextBuffVars",
               TargetObjectVar = "Nothing",
               TargetPosVar = "TargetPos",
               SpecificUnitOnlyVar = "Owner",
@@ -171,9 +169,7 @@ SelfExecuteBuildingBlocks = {
               EffectNameForOtherTeam = "OrianaDissonance_ball_red.troy",
               Flags = 0,
               EffectIDVar = "Particle",
-              EffectIDVarTable = "NextBuffVars",
               EffectID2Var = "Particle2",
-              EffectID2VarTable = "NextBuffVars",
               TargetObjectVar = "Nothing",
               TargetPosVar = "TargetPos",
               SpecificUnitOnlyVar = "Owner",
@@ -232,9 +228,7 @@ SelfExecuteBuildingBlocks = {
           EffectNameForOtherTeam = "OrianaDissonance_cas_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
           EffectID2Var = "Particle2",
-          EffectID2VarTable = "InstanceVars",
           TargetObjectVar = "Nothing",
           TargetPosVar = "TargetPos",
           SpecificUnitOnlyVar = "Owner",
@@ -383,6 +377,22 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "Particle2",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Particle2"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Particle",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Particle"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "targetPos",
       DestVarTable = "NextBuffVars",
       SrcVar = "TargetPos"
@@ -421,12 +431,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghost"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianadissonance_ally_green.troy"
@@ -448,12 +452,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianadissonance_ball_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oriannaballtracker"
     }
   },
   {

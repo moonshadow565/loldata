@@ -2,8 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Sivir_Deadeye.dds"
 BuffName = "On The Hunt"
-AutoBuffActivateEffect = "OntheHunt_buf.troy"
-AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "OntheHuntBase_buf.troy"
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
@@ -31,35 +31,68 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBRequireVar,
     Params = {
-      Src1Var = "Attacker",
-      Src2Var = "Owner",
-      CompareOp = CO_NOT_EQUAL
+      RequiredVar = "AllyAttackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentAttackSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "AttackSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "MoveSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBGetBuffRemainingDuration,
+    Params = {
+      DestVar = "Duration",
+      TargetVar = "Owner",
+      BuffName = "OnTheHunt"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 1000,
+      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBSpellBuffAdd,
         Params = {
-          Src1Var = "MoveSpeedMod",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "MoveSpeedMod",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_DIVIDE
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AttackSpeedMod",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "AttackSpeedMod",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_DIVIDE
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "OnTheHuntAuraBuff",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "InstanceVars",
+          DurationVar = "Duration",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -87,6 +120,69 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBGetBuffRemainingDuration,
+        Params = {
+          DestVar = "Duration",
+          TargetVar = "Owner",
+          BuffName = "OnTheHunt"
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 1000,
+          Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Unit",
+              CasterVar = "Owner",
+              BuffName = "OnTheHuntAuraBuff"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "OnTheHuntAuraBuff",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "InstanceVars",
+                  DurationVar = "Duration",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -101,82 +197,50 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Var = "Target",
-      Src2Var = "Owner",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "AttackSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            0.3,
-            0.6,
-            0.9
-          }
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Haste,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationByLevel = {
-            15,
-            15,
-            15
-          },
-          TickRate = 0
-        }
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.3,
+        0.45,
+        0.6
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "AttackSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            0.1,
-            0.2,
-            0.3
-          }
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "OnTheHuntAuraBuff",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Haste,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationByLevel = {
-            15,
-            15,
-            15
-          },
-          TickRate = 0
-        }
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AllyAttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.15,
+        0.225,
+        0.3
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "OnTheHunt",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Haste,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        15,
+        15,
+        15
+      },
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -186,5 +250,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "onthehuntaurabuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "onthehunt"}
   }
 }

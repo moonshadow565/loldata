@@ -392,6 +392,13 @@ TargetExecuteBuildingBlocks = {
             Params = {TargetVar = "Attacker", DestVar = "TeamID"}
           },
           {
+            Function = BBGetTeamID,
+            Params = {
+              TargetVar = "Target",
+              DestVar = "TeamIDTarget"
+            }
+          },
+          {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Nothing",
@@ -425,24 +432,6 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBGetStat,
-            Params = {
-              Stat = GetFlatMagicDamageMod,
-              TargetVar = "Attacker",
-              DestVar = "AbilityPower"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "AbilityPower",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "BonusMaxHealthDamage",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
             Function = BBSpellBuffClear,
             Params = {
               TargetVar = "Target",
@@ -453,7 +442,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBGetPAROrHealth,
             Params = {
               DestVar = "TarMaxHealth",
-              OwnerVar = "Owner",
+              OwnerVar = "Target",
               Function = GetMaxHealth,
               PARType = PAR_MANA
             }
@@ -482,17 +471,6 @@ TargetExecuteBuildingBlocks = {
                 50,
                 60
               }
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "RankScaling",
-              Src2Var = "BonusMaxHealthDamage",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "RankScaling",
-              MathOp = MO_ADD
             }
           },
           {
@@ -549,7 +527,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -583,27 +561,14 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "VayneSilveredDebuff",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 3,
-          NumberOfStacks = 1,
-          Duration = 3.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      }
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
     }
   },
   {

@@ -87,6 +87,124 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
+  },
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Attacker"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitTarget",
+      Src1VarTable = "InstanceVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBDistanceBetweenObjects,
+        Params = {
+          DestVar = "Distance",
+          ObjectVar1 = "Attacker",
+          ObjectVar2 = "Owner"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Distance",
+          Value2 = 175,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Attacker"}
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Owner",
+              TargetVar = "Attacker",
+              Damage = 0,
+              DamageVar = "DamageDealt",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELL,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.7,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBGetTotalAttackDamage,
+            Params = {TargetVar = "Owner", DestVar = "TotalAD"}
+          },
+          {
+            Function = BBSetDodgePiercing,
+            Params = {TargetVar = "Owner", Value = true}
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Owner",
+              TargetVar = "Attacker",
+              Damage = 0,
+              DamageVar = "TotalAD",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_ATTACK,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "HitTarget",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          },
+          {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "Fizz_PiercingStrike_tar.troy",
+              Flags = 0,
+              EffectIDVar = "targetParticle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Attacker",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSetDodgePiercing,
+            Params = {TargetVar = "Owner", Value = false}
+          }
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -193,6 +311,10 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {TargetVar = "Owner", DestVar = "TotalAD"}
           },
           {
+            Function = BBSetDodgePiercing,
+            Params = {TargetVar = "Owner", Value = true}
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
@@ -242,6 +364,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               FollowsGroundTilt = false,
               FacesTarget = false
             }
+          },
+          {
+            Function = BBSetDodgePiercing,
+            Params = {TargetVar = "Owner", Value = false}
           }
         }
       }
@@ -651,6 +777,10 @@ BuffOnMoveSuccessBuildingBlocks = {
         Params = {TargetVar = "Owner", DestVar = "TotalAD"}
       },
       {
+        Function = BBSetDodgePiercing,
+        Params = {TargetVar = "Owner", Value = true}
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
@@ -692,6 +822,10 @@ BuffOnMoveSuccessBuildingBlocks = {
           FollowsGroundTilt = false,
           FacesTarget = false
         }
+      },
+      {
+        Function = BBSetDodgePiercing,
+        Params = {TargetVar = "Owner", Value = false}
       }
     }
   },

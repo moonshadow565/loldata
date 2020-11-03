@@ -1,7 +1,6 @@
 BuffTextureName = "3050_Rallying_Banner.dds"
 BuffName = "Stark's Fervor Aura"
 AutoBuffActivateEffect = ""
-UpdateSelfBuffStatsBuildingBlocks = {}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -77,7 +76,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -100,7 +100,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -158,7 +159,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                               Duration = 1.2,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -187,7 +189,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -210,9 +213,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 1200,
-              Flags = "AffectEnemies AffectNeutral AffectHeroes ",
+              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
-              InclusiveBuffFilter = true
+              BuffNameFilter = "RallyingBanner",
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
@@ -223,13 +227,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffName = "RallyingBanner",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_Aura,
+                  BuffType = BUFF_Shred,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 1.2,
+                  Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = true,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -254,7 +259,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -279,7 +288,11 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -302,7 +315,11 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }

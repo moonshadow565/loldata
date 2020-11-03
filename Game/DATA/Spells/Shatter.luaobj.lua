@@ -138,7 +138,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.4,
+      SpellDamageRatio = 0.6,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -166,7 +166,7 @@ TargetExecuteBuildingBlocks = {
       BuffName = "Shatter",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Shred,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 4,
@@ -194,12 +194,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shatter_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shatterselfbonus"
     }
   },
   {

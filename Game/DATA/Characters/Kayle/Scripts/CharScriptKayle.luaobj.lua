@@ -159,7 +159,7 @@ CharOnHitUnitBuildingBlocks = {
           BuffName = "JudicatorHolyFervorDebuff",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Shred,
           MaxStack = 5,
           NumberOfStacks = 1,
           Duration = 5,
@@ -310,12 +310,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "judicatorholyfervordebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "judicatorreckoning"
     }
   },
   {

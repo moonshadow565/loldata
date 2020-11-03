@@ -7,62 +7,76 @@ BuffTextureName = "FallenAngel_TormentedSoil.dds"
 BuffName = "TormentedSoilDebuff"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBRequireVar,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
+      RequiredVar = "MRminus",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "MRminus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBIfNotHasBuff,
     Params = {
-      DestVar = "MRDebuff",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        -4,
-        -5,
-        -6,
-        -7,
-        -8
+      OwnerVar = "Attacker",
+      CasterVar = "Attacker",
+      BuffName = "TormentedSoil"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
       }
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MRDebuff",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "MRReset",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatSpellBlockMod,
-      TargetVar = "Owner",
-      DeltaVar = "MRDebuff",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatSpellBlockMod,
-      TargetVar = "Owner",
-      DeltaVar = "MRReset",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBGetUnitPosition,
+        Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+      },
+      {
+        Function = BBDistanceBetweenPoints,
+        Params = {
+          DestVar = "dist",
+          Point1Var = "TargetPos",
+          Point2Var = "OwnerPos"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "dist",
+          Value2 = 308,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      }
     }
   }
 }

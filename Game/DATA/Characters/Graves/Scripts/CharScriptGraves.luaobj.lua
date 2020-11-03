@@ -229,11 +229,21 @@ CharOnPreDealDamageBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRenew,
+    Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "GravesPassiveGrit",
-      ResetDuration = 4
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_AmmoStack,
+      MaxStack = 11,
+      NumberOfStacks = 0,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -257,11 +267,21 @@ CharOnPreDamageBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRenew,
+    Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "GravesPassiveGrit",
-      ResetDuration = 4
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_AmmoStack,
+      MaxStack = 11,
+      NumberOfStacks = 0,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -370,6 +390,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "gravespassivecounter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gravespassivegrit"
     }
   },
   {

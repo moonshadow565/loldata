@@ -1,80 +1,94 @@
-UpdateSelfBuffActionsBuildingBlocks = {
+CharOnActivateBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSetVarInTable,
     Params = {
-      OwnerVar = "Owner",
+      DestVar = "spawnTime",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 101
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "areaDmgReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.2
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "healthPerMinute",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 90
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "damagePerMinute",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 1.825
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "goldPerMinute",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.342
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "expPerMinute",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 2.5
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "upgradeTimer",
+      DestVarTable = "NextBuffVars",
+      SrcValue = true
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "BlessingoftheLizardElder"
+      BuffName = "GlobalMonsterBuff",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "BlessingoftheLizardElder",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 100000
-        }
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
+    Function = BBSpellBuffAdd,
     Params = {
-      OwnerVar = "Owner",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "HPByPlayerLevel"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HPPerLevel",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 175
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "HPByPlayerLevel",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
-    }
-  }
-}
-CharOnHitUnitBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 1.43,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
+      BuffName = "BlessingoftheLizardElder",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 100000,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -82,13 +96,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "blessingofthelizardelder"
+      Name = "globalmonsterbuff"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hpbyplayerlevel"
+      Name = "blessingofthelizardelder"
     }
   }
 }

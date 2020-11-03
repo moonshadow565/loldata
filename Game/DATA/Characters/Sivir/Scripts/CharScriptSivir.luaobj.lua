@@ -50,7 +50,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "bonusDamage",
           Src1Value = 0,
-          Src2Value = 1,
+          Src2Value = 1.1,
           DestVar = "Spell3Display",
           MathOp = MO_MULTIPLY
         }
@@ -66,37 +66,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
         }
-      }
-    }
-  }
-}
-SetVarsByLevelBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DodgeChance",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.15,
-        0.15,
-        0.15,
-        0.15,
-        0.15,
-        0.2,
-        0.2,
-        0.2,
-        0.2,
-        0.2,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25
       }
     }
   }
@@ -130,8 +99,8 @@ CharOnActivateBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "FleetOfFoot",
+      AttackerVar = "Owner",
+      BuffName = "SivirPassive",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Aura,
@@ -205,7 +174,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "fleetoffoot"
+      Name = "sivirpassive"
     }
   },
   {

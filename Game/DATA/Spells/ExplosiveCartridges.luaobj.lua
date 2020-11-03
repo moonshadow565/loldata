@@ -30,7 +30,7 @@ BuffOnSpellHitBuildingBlocks = {
               BuffName = "UrAniumRoundsHit",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
+              BuffType = BUFF_Shred,
               MaxStack = 50,
               NumberOfStacks = 1,
               Duration = 3,
@@ -53,7 +53,11 @@ BuffOnSpellHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -116,12 +120,6 @@ BuffOnSpellHitBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "heimerdinger"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

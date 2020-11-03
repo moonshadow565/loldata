@@ -139,7 +139,7 @@ SelfExecuteBuildingBlocks = {
               BuffName = "JarvanIVDragonStrikeDebuff",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
+              BuffType = BUFF_Shred,
               MaxStack = 100,
               NumberOfStacks = 1,
               Duration = 3,
@@ -188,7 +188,7 @@ SelfExecuteBuildingBlocks = {
                   BuffName = "JarvanIVDragonStrikeDebuff",
                   BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                   StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
+                  BuffType = BUFF_Shred,
                   MaxStack = 100,
                   NumberOfStacks = 1,
                   Duration = 3,
@@ -249,7 +249,7 @@ SelfExecuteBuildingBlocks = {
                       BuffName = "JarvanIVDragonStrikeDebuff",
                       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                       StacksExclusive = true,
-                      BuffType = BUFF_CombatDehancer,
+                      BuffType = BUFF_Shred,
                       MaxStack = 100,
                       NumberOfStacks = 1,
                       Duration = 3,
@@ -272,8 +272,8 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "DamagePoint",
-      HalfWidth = 70,
-      HalfLength = 375,
+      HalfWidth = 150,
+      HalfLength = 425,
       Flags = "AffectEnemies AffectFriends AffectMinions NotAffectSelf ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -339,6 +339,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -370,12 +372,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "jarvanivdragonstrikedebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jarvanivdemacianstandard"
     }
   },
   {

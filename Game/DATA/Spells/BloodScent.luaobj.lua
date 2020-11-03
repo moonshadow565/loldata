@@ -17,6 +17,9 @@ AutoCooldownByLevel = {
   30,
   25
 }
+SpellVOOverrideSkins = {
+  "HyenaWarwick"
+}
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -45,7 +48,11 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -64,7 +71,11 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -83,7 +94,11 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -102,7 +117,36 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 7,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run2",
+          OwnerVar = "Owner"
+        }
+      }
     }
   }
 }
@@ -134,6 +178,39 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Part4",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 7,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBStopCurrentOverrideAnimation,
+        Params = {
+          AnimationName = "Run",
+          TargetVar = "Owner",
+          Blend = false
+        }
+      },
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run",
+          OwnerVar = "Owner"
+        }
+      }
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -162,7 +239,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "BloodScent_internal"
+          BuffName = "BloodScent_internal",
+          ResetDuration = 0
         }
       }
     }
@@ -185,7 +263,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

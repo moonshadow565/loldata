@@ -15,7 +15,7 @@ gcd_PercentEXPBonusMaximum              =        5.000 ; The highest EXPBonus Pe
 ; Damage Ratios
 dr_HeroToHero                           =        1.000 ;  
 dr_BuildingToHero                       =        1.050 ;  
-dr_UnitToHero                           =        0.700 ;  
+dr_UnitToHero                           =        0.600 ;  
 dr_HeroToUnit                           =        1.000 ;  
 dr_BuildingToUnit                       =        1.105 ;  
 dr_UnitToUnit                           =        1.000 ;  
@@ -41,7 +41,7 @@ ai_DrawAttackRadius                     =            0 ; Render Attack Radius
 ai_DrawBoundBox                         =            0 ; Render Bounding Box
 ai_AIToggle                             =            1 ; Enable/disable AI
 ai_DrawActualPosition                   =            0 ; Draws the actual position a unit is at based on its pathfinding position.
-ai_PathIgnoresBuildings                 =          0 ; Should AI pathing ignore buildings and not take them into account in their lane positioning?
+ai_PathIgnoresBuildings                 =            0 ; Should AI pathing ignore buildings and not take them into account in their lane positioning?
 ai_ExpRadius2                           =     1600.000 ; Radius for Experience sharing 
 ai_StartingGold                         =      475.000 ; Gold granted on startup
 ai_DefaultPetReturnRadius               =      200.000 ; Default pet return radius
@@ -66,12 +66,17 @@ sv_PeriodicRatio                        =        0.000 ; Spell Vamp ratio for DA
 sv_ProcRatio                            =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_PROC
 sv_ReactiveRatio                        =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_REACTIVE
 sv_OnDeathRatio                         =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_ONDEATH
+sv_PetRatio                             =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_PET
 
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =       90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =        5.000 ; Interval between ambient gold ticks
-ai_AmbientGoldAmount                    =      6.500 ; Gold granted on ambient gold tick
+ai_AmbientGoldAmount                    =        6.500 ; Gold granted on ambient gold tick
 ai_DisableAmbientGoldWhileDead          =            0 ; Disable ambient gold while dead
+ai_AmbientXPDelay                       =        0.000 ; Delay before first ambient XP tick
+ai_AmbientXPInterval                    =        5.000 ; Interval between ambient XP ticks
+ai_AmbientXPAmount                      =        0.000 ; XP granted on ambient XP tick
+ai_DisableAmbientXPWhileDead            =            0 ; Disable ambient XP while dead
 ai_GoldLostPerLevel                     =        0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                     =        4.000 ; Time in seconds spent dead per level
 ai_GoldHandicapCoefficient              =        0.000 ; Coefficient for gold handicapping
@@ -94,6 +99,11 @@ sp_RegenRadius                          =      600.000 ; The spawn point will he
 sp_HealthRegenPercent                   =        0.085 ; The percentage of max HP a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_ManaRegenPercent                     =        0.085 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_RegenTickInterval                    =        1.000 ; Interval between spawn point regen ticks.
+
+; Attack Flags
+ca_RevealAttackerRange                  =      400.000 ; The range of reveal for attackers
+ca_RevealAttackerTimeOut                =        4.500 ; The timeout for the reveal for attackers
+hud_targeting_reticle_height            =       40.000 ; Height of the location circular location casting reticle
 
 ; obj_BarracksDampener variables
 
@@ -119,7 +129,6 @@ aud_FMODDefeatMusicCueID                =           11 ; FMOD ID for a Defeat mu
 ; HUD variables
 hud_BlinkFrequency                      =         1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
 hud_DefaultBlinkCount                   =            3 ; Sets the default number of pulses a HUD element will blink when highlighted.
-hud_targeting_reticle_height      = 40.0 ; Height of the location circular location casting reticle
 
 ; Camera Variables
 cam_KeyboardOrbitSpeedX                 =      100.000 ; Keyboard Orbit Speed x axis
@@ -134,8 +143,6 @@ cr_SpellCastFlashTime                   =        2.000 ; How long the cursor fla
 cr_MouseScrollSpeed                     =     3900.000 ; Mouse Scroll Speed
 
 ; Attack Flags
-ca_RevealAttackerRange                  =      400.000 ; The range of reveal for attackers
-ca_RevealAttackerTimeOut                =        4.500 ; The timeout for the reveal for attackers
 ca_MinCastRotationSpeed                 =      250.000 ; Whats the minimum speed we will rotate to face a target during a spell cast?
 
 ; obj_AI_Base variables

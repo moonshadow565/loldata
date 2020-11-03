@@ -73,7 +73,8 @@ OnBuffActivateBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -84,13 +85,32 @@ OnBuffActivateBuildingBlocks = {
           BuffName = "WallofPainExtra",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Shred,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "WallofPainMarker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -140,16 +160,21 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 75,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          InclusiveBuffFilter = true
+          BuffNameFilter = "WallofPainTarget",
+          InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
-            Function = BBIfNotHasBuff,
+            Function = BBIfHasBuff,
             Params = {
               OwnerVar = "Unit",
-              CasterVar = "Owner",
-              BuffName = "WallofPainTarget"
-            },
+              AttackerVar = "Attacker",
+              BuffName = "WallOfPainMarker"
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
               {
                 Function = BBSpellBuffAdd,
@@ -165,7 +190,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -176,13 +202,32 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffName = "WallofPainExtra",
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
+                  BuffType = BUFF_Shred,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "WallofPainMarker",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -306,10 +351,11 @@ SelfExecuteBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 50,
           NumberOfStacks = 1,
-          Duration = 7,
+          Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0.1,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -354,6 +400,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 300,
       DestVar = "Other1",
@@ -371,10 +418,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -392,6 +440,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 300,
       DestVar = "Other2",
@@ -409,10 +458,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -426,10 +476,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -451,6 +502,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      IsWard = false,
       Placemarker = true,
       VisibilitySize = 300,
       VisibilitySizeVar = "LineWidth",
@@ -469,10 +521,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -495,6 +548,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "wallofpainextra"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "wallofpainmarker"
     }
   },
   {

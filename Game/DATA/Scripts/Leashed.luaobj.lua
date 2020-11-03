@@ -1,4 +1,6 @@
 local L0_0, L1_1
+L0_0 = 2
+RUN_IN_FEAR = L0_0
 L0_0 = 1
 HOSTILE = L0_0
 L0_0 = 0
@@ -7,9 +9,13 @@ L0_0 = 850
 LEASH_RADIUS = L0_0
 L0_0 = 750
 LEASH_PROTECTION_RADIUS = L0_0
+L0_0 = 750
+INNER_RELEASH_RADIUS = L0_0
+L0_0 = 1150
+RELEASH_RADIUS = L0_0
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
-L0_0 = 0.1
+L0_0 = 0.05
 REGEN_PERCENT_PER_SECOND = L0_0
 function L0_0(A0_2)
   SetState(AI_ATTACK)
@@ -17,7 +23,7 @@ function L0_0(A0_2)
   InitTimer("TimerRetreat", 0.5, true)
   InitTimer("TimerAttack", 0, true)
   InitTimer("TimerFeared", 0.5, true)
-  InitTimer("TimerRegen", 1, true)
+  InitTimer("TimerRegen", 0.5, true)
   InitTimer("TimerTaunt", 0.5, true)
   StopTimer("TimerFeared")
   StopTimer("TimerRegen")
@@ -25,6 +31,7 @@ function L0_0(A0_2)
 end
 OnInit = L0_0
 function L0_0()
+  TimerRegen()
   SetStateAndMoveToLeashedPos(AI_RETREAT)
   ClearValidTargets()
 end
@@ -124,6 +131,11 @@ function L0_0(A0_11, A1_12)
       StopTimer("TimerRegen")
       SetStateAndCloseToTarget(AI_ATTACK, A1_12)
       SetRoamState(HOSTILE)
+    elseif A1_12 ~= nil and GetDistToLeashedPos() <= INNER_RELEASH_RADIUS and L4_15 <= RELEASH_RADIUS and GetLeashCounter() < 2 then
+      SetLeashCounter(GetLeashCounter() + 1)
+      StopTimer("TimerRegen")
+      SetStateAndCloseToTarget(AI_ATTACK, A1_12)
+      SetRoamState(HOSTILE)
     end
   end
 end
@@ -195,7 +207,7 @@ function L0_0()
   end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
-  SetRoamState(INACTIVE)
+  SetRoamState(RUN_IN_FEAR)
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   ResetAndStartTimer("TimerFeared")
 end
@@ -216,7 +228,7 @@ function L0_0()
     return
   end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
-  SetRoamState(INACTIVE)
+  SetRoamState(RUN_IN_FEAR)
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
@@ -225,7 +237,11 @@ function L0_0()
   L0_20 = GetRoamState
   L0_20 = L0_20()
   L1_21 = INACTIVE
-  if L0_20 == L1_21 then
+  if L0_20 ~= L1_21 then
+    L0_20 = GetRoamState
+    L0_20 = L0_20()
+    L1_21 = RUN_IN_FEAR
+  elseif L0_20 == L1_21 then
     return
   end
   L0_20 = GetState
@@ -287,7 +303,11 @@ function L0_0()
   L1_26 = GetRoamState
   L1_26 = L1_26()
   if L1_26 ~= INACTIVE then
-    L1_26 = AI_RETREAT
+    L1_26 = GetRoamState
+    L1_26 = L1_26()
+    if L1_26 ~= RUN_IN_FEAR then
+      L1_26 = AI_RETREAT
+    end
   elseif L0_25 == L1_26 then
     return
   end
@@ -321,9 +341,14 @@ function L0_0()
   L1_28 = L1_28()
   L2_29 = INACTIVE
   if L1_28 ~= L2_29 then
-    L1_28 = GetState
+    L1_28 = GetRoamState
     L1_28 = L1_28()
-    L2_29 = AI_RETREAT
+    L2_29 = RUN_IN_FEAR
+    if L1_28 ~= L2_29 then
+      L1_28 = GetState
+      L1_28 = L1_28()
+      L2_29 = AI_RETREAT
+    end
   elseif L1_28 == L2_29 then
     return
   end

@@ -41,7 +41,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "CasterTeam",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -61,7 +64,7 @@ OnBuffActivateBuildingBlocks = {
       BuffName = "OrianaShred",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Shred,
       MaxStack = 5,
       NumberOfStacks = 1,
       Duration = 3,
@@ -76,11 +79,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yomu_ts_tar.troy"
+      Name = "oriana_ts_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "yomushred"}
+    Params = {
+      Name = "orianashred"
+    }
   }
 }

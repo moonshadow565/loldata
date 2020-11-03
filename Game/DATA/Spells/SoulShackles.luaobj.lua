@@ -50,8 +50,6 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -444,6 +442,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "soulshacklesowner"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshackleslow"
     }
   },
   {

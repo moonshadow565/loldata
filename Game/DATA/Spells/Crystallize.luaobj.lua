@@ -81,10 +81,9 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 150,
+      Range = 100,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      BuffNameFilter = "CrystallizePush",
       InclusiveBuffFilter = false
     },
     SubBlocks = {
@@ -104,7 +103,7 @@ OnBuffActivateBuildingBlocks = {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "PushDistance",
-              SrcValue = 110
+              SrcValue = 120
             }
           }
         }
@@ -127,7 +126,7 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           Src1Var = "Owner",
           Src2Var = "Unit",
-          CompareOp = CO_IS_TARGET_IN_FRONT_OF_ME
+          CompareOp = CO_IS_TARGET_BEHIND_ME
         },
         SubBlocks = {
           {
@@ -136,7 +135,7 @@ OnBuffActivateBuildingBlocks = {
               UnitVar = "Owner",
               Distance = 0,
               DistanceVar = "PushDistance",
-              OffsetAngle = 0,
+              OffsetAngle = 180,
               PositionVar = "TargetPos"
             }
           }
@@ -152,7 +151,7 @@ OnBuffActivateBuildingBlocks = {
               UnitVar = "Owner",
               Distance = 0,
               DistanceVar = "PushDistance",
-              OffsetAngle = 180,
+              OffsetAngle = 0,
               PositionVar = "TargetPos"
             }
           }
@@ -205,11 +204,11 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
-              BuffName = "CrystallizePush",
+              BuffName = "GlobalWallPush",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
-              MaxStack = 76,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
@@ -388,6 +387,19 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
+          DestVar = "halfLength",
+          SrcValueByLevel = {
+            200,
+            250,
+            300,
+            350,
+            400
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
           DestVar = "FoundFirstPos",
           SrcValue = false
         }
@@ -478,13 +490,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "crystallizepush"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crystallize"
+      Name = "globalwallpush"
     }
   },
   {

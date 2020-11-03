@@ -17,8 +17,8 @@ BuffOnAllowAddBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "MaxStack",
-          Value2 = 76,
+          Src1Var = "ScriptName",
+          Value2 = "globalwallpush",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -145,6 +145,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -1071,45 +1073,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "heimerdingerturretmaximum"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturretspell1"
+      Name = "heimertblue"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "upgradeslow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerturretready"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "upgradebuff"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "heimertblue"
     }
   },
   {

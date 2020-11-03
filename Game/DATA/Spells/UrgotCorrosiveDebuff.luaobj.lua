@@ -1,5 +1,5 @@
 BuffTextureName = "UrgotCorrosiveCharge.dds"
-BuffName = "UrgotCorrosiveDebuff"
+BuffName = "UrgotCorrosiveDamage"
 AutoBuffActivateEffect = ""
 IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
@@ -25,48 +25,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "UrgotPlasmaGrenade_hit.troy",
-      Flags = 0,
-      EffectIDVar = "HitParticle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
-    }
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "TickDamage",
       RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmorReduced",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorReduced",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }
@@ -76,25 +38,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle1",
       EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "HitParticle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorReduced",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }
@@ -134,12 +77,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "urgotcorrosivedebuff_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgotplasmagrenade_hit.troy"
     }
   }
 }

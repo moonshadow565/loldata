@@ -10,6 +10,32 @@ AutoBuffActivateAttachBoneName = "C_Mouth_d"
 AutoBuffActivateEffect2 = "KogMawIcathianSurprise_splats.troy"
 PersistsThroughDeath = true
 NonDispellable = true
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Internal,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -43,6 +69,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -62,6 +90,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -81,6 +111,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -100,6 +132,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -119,6 +153,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -395,6 +431,71 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetLevel,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "LevelDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "LevelDamage",
+      Src1Value = 0,
+      Src2Value = 25,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 100,
+      DestVar = "TotalDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 400,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "TotalDamage",
+          DamageType = TRUE_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBForceDead,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -506,6 +607,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -525,69 +628,10 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
-    }
-  },
-  {
-    Function = BBGetLevel,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "LevelDamage"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "LevelDamage",
-      Src1Value = 0,
-      Src2Value = 25,
-      DestVar = "BonusDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BonusDamage",
-      Src1Value = 0,
-      Src2Value = 100,
-      DestVar = "TotalDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 400,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "TotalDamage",
-          DamageType = TRUE_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
     }
   },
   {
@@ -615,10 +659,6 @@ OnBuffDeactivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
-  },
-  {
-    Function = BBForceDead,
-    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBShowHealthBar,

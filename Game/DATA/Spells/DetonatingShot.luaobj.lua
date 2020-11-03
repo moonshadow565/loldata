@@ -3,6 +3,9 @@ BuffName = "Detonating Shot"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "RocketTristana"
+}
 BuffOnKillBuildingBlocks = {
   {
     Function = BBIfHasBuff,

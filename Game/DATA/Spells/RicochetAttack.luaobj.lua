@@ -2,15 +2,17 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 ChainMissileParameters = {
   MaximumHits = {
-    2,
-    3,
-    4,
-    5,
+    6,
+    6,
+    6,
+    6,
     6
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 TargetExecuteBuildingBlocks = {
   {
@@ -23,6 +25,68 @@ TargetExecuteBuildingBlocks = {
       Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
       DestVar = "BaseAttackDamage"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusAD"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseAttackDamage",
+      Src2Var = "BonusAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalAD",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalAD",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "MultipliedAD",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseDamage",
+      SrcValueByLevel = {
+        20,
+        35,
+        50,
+        65,
+        80
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src2Var = "MultipliedAD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageToDeal",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "Ricochet",
+      ResetDuration = 0
     }
   },
   {
@@ -40,12 +104,12 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "BaseAttackDamage",
+          DamageVar = "DamageToDeal",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1,
-          PhysicalDamageRatio = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -104,13 +168,13 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "BaseAttackDamage",
+          DamageVar = "DamageToDeal",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 0,
           PercentOfAttackVar = "DamagePercent",
-          SpellDamageRatio = 1,
-          PhysicalDamageRatio = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
