@@ -21,43 +21,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "udyrtigerpunch"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrtigershred"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "udyrtigerpunchbleed"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "udyrbearstance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrphoenixstance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrturtlestance"
+      Name = "udyrtigerpunch"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "tigerstance.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrtigershred"
     }
   }
 }

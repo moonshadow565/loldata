@@ -8,12 +8,6 @@ BuffName = "Sheen"
 SpellVOOverrideSkins = {"BroOlaf"}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaizuna"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "oriannaball"
@@ -29,12 +23,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaizunadamage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaizunadamaged"
     }
   }
 }

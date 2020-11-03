@@ -1,5 +1,7 @@
-AutoBuffActivateEffect = "LuxLightstrike_mis.troy"
-AutoBuffActivateAttachBoneName = "root"
+BuffTextureName = "LuxLightStrikeKugel.dds"
+BuffName = "LuxEEnd"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

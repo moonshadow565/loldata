@@ -11,29 +11,14 @@ AutoCooldownByLevel = {
   55,
   40
 }
+SpellFXOverrideSkins = {
+  "BattlecastUrgot"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "urgotswapdrip.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "urgotswapmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "urgotswaptarget"
     }
   },
   {
@@ -49,18 +34,20 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "urgotswaptarget_battlecast.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
-    Params = {Name = "urgotswap2"}
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "urgotswaptarget.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   },
   {
     Function = BBPreloadSpell,
@@ -71,7 +58,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "urgotswapmissile"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "urgotswapdef"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "urgotswaptarget"
     }
   }
 }

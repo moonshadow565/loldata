@@ -10,7 +10,6 @@ AutoCooldownByLevel = {
   14
 }
 PersistsThroughDeath = true
-PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

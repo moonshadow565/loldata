@@ -19,6 +19,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nautilusgrandlinestart"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nautilusgrandlinetarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "nautilusfacingfix"
     }
   }

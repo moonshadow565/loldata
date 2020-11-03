@@ -12,3 +12,11 @@ AutoCooldownByLevel = {
   55,
   40
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "urgot_battlecast_swap_beam.troy"
+    }
+  }
+}

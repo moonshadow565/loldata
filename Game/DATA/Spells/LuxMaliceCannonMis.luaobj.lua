@@ -3,12 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "luxilluminatingfraulein"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "luxpassive_tar.troy"
@@ -18,6 +12,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "luxmalicecannon_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "luxilluminatingfraulein"
     }
   }
 }

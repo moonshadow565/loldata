@@ -21,24 +21,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrbearstance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrtigerstance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrturtlestance"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "phoenixstance.troy"

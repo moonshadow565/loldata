@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "malphiteshieldbeenhit"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "malphiteshieldeffect"
     }
   },
@@ -15,6 +9,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "malphitecleave"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "malphiteshieldbeenhit"
     }
   },
   {

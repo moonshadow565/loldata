@@ -1,4 +1,4 @@
-BuffTextureName = "BlindMonk_BlindingStrike.dds"
+BuffTextureName = "Armsmaster_CoupDeGrace.dds"
 BuffName = "JaxRelentlessAttack"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {

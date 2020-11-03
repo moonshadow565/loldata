@@ -53,5 +53,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "luxmalicecannon_beammiddle.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "luxmalicecannon"
+    }
   }
 }

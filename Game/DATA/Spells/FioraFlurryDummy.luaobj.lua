@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+BuffTextureName = "Fiora_BurstofSpeed.dds"
+BuffName = "FioraFlurryMS"
+AutoBuffActivateEffect = "Fiora_Flurry_MS.troy"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+SpellToggleSlot = 3
