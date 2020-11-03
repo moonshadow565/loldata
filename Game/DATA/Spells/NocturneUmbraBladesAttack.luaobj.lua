@@ -357,7 +357,29 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
-  },
+  }
+}
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "NocturneUmbraBladesAttack",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.01,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -378,6 +400,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nocturneumbrabladesattack"
     }
   },
   {

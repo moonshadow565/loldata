@@ -417,7 +417,8 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 1,
       TargetVar = "Other3",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -442,11 +443,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "MaxStacks",
       SrcValueByLevel = {
-        2,
-        2,
-        2,
-        2,
-        2
+        3,
+        3,
+        3,
+        3,
+        3
       }
     }
   },

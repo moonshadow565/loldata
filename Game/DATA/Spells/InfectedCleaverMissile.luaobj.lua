@@ -30,7 +30,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -63,7 +64,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMovementSpeedMod,
+      Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MoveMod",
       Delta = 0
@@ -220,7 +221,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -284,7 +286,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -307,7 +310,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -447,7 +451,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -478,7 +483,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               }
             }
@@ -501,7 +507,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               }
             }
@@ -686,7 +693,8 @@ TargetExecuteBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -717,7 +725,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false
                     }
                   }
                 }
@@ -740,7 +749,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false
                     }
                   }
                 }

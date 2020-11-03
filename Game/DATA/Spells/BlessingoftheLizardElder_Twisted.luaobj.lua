@@ -24,7 +24,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -62,7 +63,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -103,7 +105,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -147,6 +150,22 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnDeathBuildingBlocks = {
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "NewDuration",
+      SrcValue = 90
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ParticlePosition",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "ParticlePosition",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBIf,
     Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
@@ -154,22 +173,6 @@ BuffOnDeathBuildingBlocks = {
         Function = BBIf,
         Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "NewDuration",
-              SrcValue = 90
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "ParticlePosition",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "ParticlePosition",
-              SrcVarTable = "InstanceVars"
-            }
-          },
           {
             Function = BBIfHasBuff,
             Params = {
@@ -233,6 +236,93 @@ BuffOnDeathBuildingBlocks = {
               TickRate = 0,
               CanMitigateDuration = false,
               IsHiddenOnClient = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetPetOwner,
+        Params = {PetVar = "Attacker", DestVar = "Caster"}
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Caster", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Caster",
+                  AttackerVar = "Caster",
+                  BuffName = "MonsterBuffs"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.15,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIfHasBuff,
+                    Params = {
+                      OwnerVar = "Caster",
+                      AttackerVar = "Caster",
+                      BuffName = "MonsterBuffs2"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBMath,
+                        Params = {
+                          Src2Var = "NewDuration",
+                          Src1Value = 1.3,
+                          Src2Value = 0,
+                          DestVar = "NewDuration",
+                          MathOp = MO_MULTIPLY
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Caster",
+                  AttackerVar = "Caster",
+                  BuffName = "BlessingoftheLizardElder_Twisted",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationVar = "NewDuration",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
             }
           }
         }

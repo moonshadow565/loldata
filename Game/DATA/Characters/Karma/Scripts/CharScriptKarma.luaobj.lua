@@ -11,10 +11,33 @@ UpdateSelfBuffActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "Level"}
+      },
+      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "MantraTimerCooldown",
-          SrcValue = 25
+          SrcValueByLevel = {
+            30,
+            30,
+            30,
+            30,
+            30,
+            30,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          }
         }
       },
       {

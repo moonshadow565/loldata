@@ -15,7 +15,8 @@ OnBuffActivateBuildingBlocks = {
       SlotNumber = 1,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }

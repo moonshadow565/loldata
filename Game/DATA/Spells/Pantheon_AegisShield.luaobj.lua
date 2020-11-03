@@ -10,6 +10,14 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = 40
     }
+  },
+  {
+    Function = BBOverrideAnimation,
+    Params = {
+      ToOverrideAnim = "Run",
+      OverrideAnim = "Run2",
+      OwnerVar = "Owner"
+    }
   }
 }
 BuffOnBeingHitBuildingBlocks = {
@@ -108,6 +116,12 @@ BuffOnLevelUpBuildingBlocks = {
         100
       }
     }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

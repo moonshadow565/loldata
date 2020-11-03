@@ -183,11 +183,11 @@ BuffOnHitUnitBuildingBlocks = {
                     Params = {
                       TargetVar = "Target",
                       AttackerVar = "Attacker",
-                      BuffName = "Slow",
-                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                      BuffName = "UrgotSlow",
+                      BuffAddType = BUFF_RENEW_EXISTING,
                       StacksExclusive = true,
                       BuffType = BUFF_Slow,
-                      MaxStack = 100,
+                      MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 1.5,
                       BuffVarsTable = "NextBuffVars",
@@ -408,9 +408,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "urgotterrorcapacitor_buf.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   }
 }

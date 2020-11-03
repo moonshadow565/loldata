@@ -15,11 +15,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        15,
-        45,
-        75,
-        105,
-        135
+        10,
+        40,
+        70,
+        100,
+        130
       }
     }
   },
@@ -115,8 +115,8 @@ TargetExecuteBuildingBlocks = {
             Params = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
-              BuffName = "Slow",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              BuffName = "UrgotSlow",
+              BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 100,
@@ -124,7 +124,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -150,7 +151,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -167,7 +169,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -184,7 +187,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -245,8 +249,8 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
-                  BuffName = "Slow",
-                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  BuffName = "UrgotSlow",
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Slow,
                   MaxStack = 100,
@@ -254,7 +258,8 @@ TargetExecuteBuildingBlocks = {
                   Duration = 1.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -280,7 +285,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -297,7 +303,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -314,7 +321,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -396,7 +404,8 @@ TargetExecuteBuildingBlocks = {
                       Duration = 1.5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -422,7 +431,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -439,7 +449,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -456,7 +467,8 @@ TargetExecuteBuildingBlocks = {
                   Duration = 2.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -475,7 +487,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "slow"}
+    Params = {Name = "urgotslow"}
   },
   {
     Function = BBPreloadParticle,
@@ -494,5 +506,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "urgotentropypassive"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

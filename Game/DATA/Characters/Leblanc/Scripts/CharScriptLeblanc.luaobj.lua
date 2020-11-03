@@ -1,52 +1,52 @@
 CharOnSpellCastBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBIfNotHasBuff,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
       OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
+      CasterVar = "Nothing",
+      BuffName = "LeblancSlideM"
     },
     SubBlocks = {
       {
-        Function = BBIfNotHasBuff,
+        Function = BBGetSlotSpellInfo,
         Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
           OwnerVar = "Owner",
-          CasterVar = "Nothing",
-          BuffName = "LeblancSlideM"
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetCastInfo,
+        Params = {DestVar = "SlotName", Info = GetSpellName}
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Cooldown",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "SlotName",
+          Value2 = "LeblancChaosOrb",
+          CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBGetCastInfo,
-            Params = {DestVar = "SlotName", Info = GetSpellName}
-          },
-          {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Cooldown",
-              SpellSlotValue = 3,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellCooldownTime
-            }
-          },
-          {
             Function = BBIf,
             Params = {
-              Src1Var = "SlotName",
-              Value2 = "LeblancChaosOrb",
-              CompareOp = CO_EQUAL
+              Src1Var = "Level",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
             },
             SubBlocks = {
               {
@@ -67,7 +67,8 @@ CharOnSpellCastBuildingBlocks = {
                   SlotNumber = 3,
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
-                  OwnerVar = "Owner"
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
                 }
               },
               {
@@ -83,23 +84,37 @@ CharOnSpellCastBuildingBlocks = {
             }
           },
           {
-            Function = BBElseIf,
-            Params = {
-              Src1Var = "SlotName",
-              Value2 = "LeblancSlide",
-              CompareOp = CO_EQUAL
-            },
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
               {
-                Function = BBSealSpellSlot,
+                Function = BBSetVarInTable,
                 Params = {
-                  SpellSlot = 3,
-                  SpellbookType = SPELLBOOK_CHAMPION,
-                  SlotType = SpellSlots,
-                  TargetVar = "Owner",
-                  State = false
+                  DestVar = "lastCast",
+                  DestVarTable = "CharVars",
+                  SrcValue = 0
                 }
-              },
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "SlotName",
+          Value2 = "LeblancSlide",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Level",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
               {
                 Function = BBSetSpell,
                 Params = {
@@ -118,19 +133,10 @@ CharOnSpellCastBuildingBlocks = {
                   SlotNumber = 3,
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
-                  OwnerVar = "Owner"
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
                 }
-              }
-            }
-          },
-          {
-            Function = BBElseIf,
-            Params = {
-              Src1Var = "SlotName",
-              Value2 = "LeblancSoulShackle",
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
+              },
               {
                 Function = BBSealSpellSlot,
                 Params = {
@@ -140,7 +146,41 @@ CharOnSpellCastBuildingBlocks = {
                   TargetVar = "Owner",
                   State = false
                 }
-              },
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "lastCast",
+                  DestVarTable = "CharVars",
+                  SrcValue = 1
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "SlotName",
+          Value2 = "LeblancSoulShackle",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Level",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
               {
                 Function = BBSetSpell,
                 Params = {
@@ -152,6 +192,16 @@ CharOnSpellCastBuildingBlocks = {
                 }
               },
               {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Owner",
+                  State = false
+                }
+              },
+              {
                 Function = BBSetSlotSpellCooldownTimeVer2,
                 Params = {
                   Src = 0,
@@ -159,7 +209,22 @@ CharOnSpellCastBuildingBlocks = {
                   SlotNumber = 3,
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
-                  OwnerVar = "Owner"
+                  OwnerVar = "Owner",
+                  BroadcastEvent = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "lastCast",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
                 }
               }
             }
@@ -194,7 +259,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -211,7 +277,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -228,7 +295,16 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "lastCast",
+      DestVarTable = "CharVars",
+      SrcValue = 0
     }
   }
 }
@@ -249,6 +325,122 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "lastCast",
+              Src1VarTable = "CharVars",
+              Value2 = 0,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetSpell,
+                Params = {
+                  SlotNumber = 3,
+                  SlotType = SpellSlots,
+                  SlotBook = SPELLBOOK_CHAMPION,
+                  SpellName = "LeblancChaosOrbM",
+                  TargetVar = "Owner"
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Owner",
+                  State = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {CompareOp = CO_EQUAL},
+            SubBlocks = {
+              {
+                Function = BBSetSpell,
+                Params = {
+                  SlotNumber = 3,
+                  SlotType = SpellSlots,
+                  SlotBook = SPELLBOOK_CHAMPION,
+                  SpellName = "leblancslidem",
+                  TargetVar = "Owner"
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Owner",
+                  State = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetSpell,
+                Params = {
+                  SlotNumber = 3,
+                  SlotType = SpellSlots,
+                  SlotBook = SPELLBOOK_CHAMPION,
+                  SpellName = "LeblancSoulShackleM",
+                  TargetVar = "Owner"
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Owner",
+                  State = false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
