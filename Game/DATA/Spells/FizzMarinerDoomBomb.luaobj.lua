@@ -3,8 +3,8 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FizzMarinerDoom.dds"
 BuffName = "FizzChurnTheWatersCling"
-AutoBuffActivateEffect = "Fizz_UltimateMissile_Orbit.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
@@ -23,6 +23,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "fizzmarinerdoomslow"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fizz_ultimatemissile_orbit_lobster.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fizz_ultimatemissile_orbit.troy"
     }
   },
   {
