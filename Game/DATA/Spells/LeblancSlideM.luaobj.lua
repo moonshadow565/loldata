@@ -28,18 +28,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancslide"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancslidewallfixm"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblanc_displacement_cas_ult.troy"
@@ -49,6 +37,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "leblancslidemovem"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leblancslidewallfixm"
     }
   }
 }

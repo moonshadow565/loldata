@@ -1,6 +1,8 @@
 local L0_0, L1_1
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
+L0_0 = 2000
+FLEE_RUN_DISTANCE = L0_0
 function L0_0()
   checkAttackTimer = 1.6 / (GetPercentAttackSpeedMod() + 1)
   if checkAttackTimer < 0.5 then
@@ -15,7 +17,9 @@ function L0_0()
   InitTimer("TimerDistanceScan", 0.2, true)
   InitTimer("TimerCheckAttack", 0.2, true)
   InitTimer("TimerFeared", 1, true)
+  InitTimer("TimerFlee", 0.5, true)
   StopTimer("TimerFeared")
+  StopTimer("TimerFlee")
   return false
 end
 OnInit = L0_0
@@ -23,7 +27,7 @@ function L0_0(A0_2, A1_3)
   if GetState() == AI_HALTED then
     return false
   end
-  if GetState() == AI_TAUNTED or GetState() == AI_FEARED or GetState() == AI_CHARMED then
+  if GetState() == AI_TAUNTED or GetState() == AI_FEARED or GetState() == AI_FLEEING or GetState() == AI_CHARMED then
     return false
   end
   if A0_2 == ORDER_TAUNT then
@@ -125,6 +129,34 @@ function L0_0()
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+  TurnOffAutoAttack(STOPREASON_MOVING)
+  ResetAndStartTimer("TimerFlee")
+end
+OnFleeBegin = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  StopTimer("TimerFlee")
+  NetSetState(AI_IDLE)
+  TimerDistanceScan()
+  TimerCheckAttack()
+end
+OnFleeEnd = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+end
+TimerFlee = L0_0
 function L0_0()
   if GetState() == AI_HALTED then
     return

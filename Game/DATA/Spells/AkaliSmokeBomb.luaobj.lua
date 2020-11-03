@@ -20,24 +20,14 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "recall"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
-      Name = "akaliholdstealth"
+      Name = "akalismokebombinternal"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "akalisbstealth"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalismokebombinternal"
     }
   },
   {

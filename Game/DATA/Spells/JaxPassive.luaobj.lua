@@ -8,12 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "jaxrelentlessassaultas"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "jaxrelentlessassaultdebuff"
     }
   },
@@ -21,6 +15,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "jaxrelentlessattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jaxrelentlessassaultas"
     }
   }
 }

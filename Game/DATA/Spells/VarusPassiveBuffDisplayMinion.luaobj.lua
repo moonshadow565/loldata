@@ -1,0 +1,14 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = true
+BuffTextureName = "VarusPassive.dds"
+BuffName = "VarusPassiveBuffDisplay"
+AutoBuffActivateEffect = "VarusPassiveMinion.troy"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateEffect4 = ""
+PersistsThroughDeath = true

@@ -2,9 +2,9 @@ BuffTextureName = "SwainDecrepify.dds"
 BuffName = "SwainBeamDamage"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "swainnobird"
+      Name = "swainbeamtransition"
     }
   }
 }

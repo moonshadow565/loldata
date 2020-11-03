@@ -967,6 +967,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
@@ -985,6 +986,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
@@ -997,12 +999,14 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 360
   L0.GroupDelaySpawnTime = 50
+  L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
@@ -1021,6 +1025,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
@@ -1034,6 +1039,7 @@ function L0()
   L0.GroupsRespawnTime = 420
   L0.GroupDelaySpawnTime = 800
   L0.CampLevel = 2
+  L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_NASHOR_KILL"
 end
 NeutralMinionInit = L0
 function L0(A0)

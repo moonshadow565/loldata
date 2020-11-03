@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sejuaniarcticassaultmarker"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "sejuani_arctic_assault_unit_tar_02.troy"

@@ -6,12 +6,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "kennenmarkofstorm"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "kennenparticleholder"
     }
   },
@@ -22,15 +16,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kennenmosdiminish"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "kennen_mos_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenmosdiminish"
     }
   }
 }

@@ -4,7 +4,9 @@ IsDamagingSpell = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
+    Params = {
+      Name = "testcuberender"
+    }
   },
   {
     Function = BBPreloadSpell,

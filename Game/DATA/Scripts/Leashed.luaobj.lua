@@ -25,6 +25,8 @@ function L0_0(A0_2)
   InitTimer("TimerFeared", 0.5, true)
   InitTimer("TimerRegen", 0.5, true)
   InitTimer("TimerTaunt", 0.5, true)
+  InitTimer("TimerFlee", 0.5, true)
+  StopTimer("TimerFlee")
   StopTimer("TimerFeared")
   StopTimer("TimerRegen")
   StopTimer("TimerTaunt")
@@ -75,7 +77,7 @@ function L0_0(A0_10)
     return
   end
   AddValidTarget(A0_10)
-  if GetRoamState() == INACTIVE and GetState() ~= AI_RETREAT and GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED then
+  if GetRoamState() == INACTIVE and GetState() ~= AI_RETREAT and GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
     StopTimer("TimerRegen")
     SetStateAndCloseToTarget(AI_ATTACK, A0_10)
     SetRoamState(HOSTILE)
@@ -103,15 +105,18 @@ function L0_0(A0_11, A1_12)
       if L2_13 ~= L3_14 then
         L3_14 = AI_FEARED
         if L2_13 ~= L3_14 then
-          L3_14 = StopTimer
-          L4_15 = "TimerRegen"
-          L3_14(L4_15)
-          L3_14 = SetStateAndCloseToTarget
-          L4_15 = AI_ATTACK
-          L3_14(L4_15, A1_12)
-          L3_14 = SetRoamState
-          L4_15 = HOSTILE
-          L3_14(L4_15)
+          L3_14 = AI_FLEEING
+          if L2_13 ~= L3_14 then
+            L3_14 = StopTimer
+            L4_15 = "TimerRegen"
+            L3_14(L4_15)
+            L3_14 = SetStateAndCloseToTarget
+            L4_15 = AI_ATTACK
+            L3_14(L4_15, A1_12)
+            L3_14 = SetRoamState
+            L4_15 = HOSTILE
+            L3_14(L4_15)
+          end
         end
       end
     end
@@ -380,3 +385,34 @@ function L0_0()
   NetSetState(AI_HALTED)
 end
 HaltAI = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+  SetRoamState(RUN_IN_FEAR)
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  ResetAndStartTimer("TimerFlee")
+end
+OnFleeBegin = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  StopTimer("TimerFlee")
+  SetRoamState(HOSTILE)
+  NetSetState(AI_ATTACK)
+  TimerRetreat()
+  TimerAttack()
+end
+OnFleeEnd = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetRoamState(RUN_IN_FEAR)
+  SetStateAndMove(AI_FLEEING, fleePoint)
+end
+TimerFlee = L0_0

@@ -5,8 +5,10 @@ function L0_0()
   InitTimer("TimerMoveForward", 0, true)
   InitTimer("TimerAntiKite", 4, false)
   InitTimer("TimerFeared", 1, true)
+  InitTimer("TimerFlee", 0.5, true)
   StopTimer("TimerAntiKite")
   StopTimer("TimerFeared")
+  StopTimer("TimerFlee")
   return false
 end
 OnInit = L0_0
@@ -69,6 +71,32 @@ function L0_0()
   if GetState() == AI_HALTED then
     return
   end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  ResetAndStartTimer("TimerFlee")
+end
+OnFleeBegin = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  StopTimer("TimerFlee")
+  FindTargetOrMove()
+end
+OnFleeEnd = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+end
+TimerFlee = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_IDLE)
   FindTargetOrMove()
 end
@@ -95,7 +123,7 @@ function L0_0(A0_4)
   if GetState() == AI_HALTED then
     return
   end
-  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED then
+  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A0_4)
     return false
   end
@@ -114,12 +142,15 @@ function L0_0(A0_5)
   if L1_6 ~= L2_7 then
     L2_7 = AI_FEARED
     if L1_6 ~= L2_7 then
-      L2_7 = FindTargetInAcR
-      L2_7 = L2_7()
-      if L2_7 ~= nil then
-        SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_7)
+      L2_7 = AI_FLEEING
+      if L1_6 ~= L2_7 then
+        L2_7 = FindTargetInAcR
+        L2_7 = L2_7()
+        if L2_7 ~= nil then
+          SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_7)
+        end
+        return false
       end
-      return false
     end
   end
   L2_7 = true

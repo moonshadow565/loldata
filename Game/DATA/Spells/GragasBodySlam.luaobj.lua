@@ -7,18 +7,6 @@ BuffTextureName = "GragasBodySlam.dds"
 BuffName = "GragasBodySlam"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragasbodyslamholder"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_bodyslam_cas.troy"
@@ -34,6 +22,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_bodyslam_cas_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasbodyslamholder"
     }
   },
   {

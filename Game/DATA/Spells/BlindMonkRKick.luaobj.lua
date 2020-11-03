@@ -8,6 +8,7 @@ AutoBuffActivateEffect = "blindMonk_R_self_mis.troy"
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
+PopupMessage1 = "game_floatingtext_Knockup"
 ChainMissileParameters = {
   MaximumHits = {
     4,

@@ -19,11 +19,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "leonapassive_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leonasunlight"
-    }
   }
 }

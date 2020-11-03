@@ -12,7 +12,9 @@ function L0_0()
   InitTimer("TimerScanDistance", 0.15, true)
   InitTimer("TimerFindEnemies", 0.15, true)
   InitTimer("TimerFeared", 1, true)
+  InitTimer("TimerFlee", 0.5, true)
   StopTimer("TimerFeared")
+  StopTimer("TimerFlee")
   return false
 end
 OnInit = L0_0
@@ -30,7 +32,7 @@ function L0_0()
   if GetState() == AI_HALTED then
     return
   end
-  if GetState() == AI_PET_MOVE or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDRETURN or GetState() == AI_FEARED or GetState() == AI_PET_HARDSTOP then
+  if GetState() == AI_PET_MOVE or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDRETURN or GetState() == AI_FEARED or GetState() == AI_FLEEING or GetState() == AI_PET_HARDSTOP then
     return true
   end
   newTarget = FindTargetInAcR()
@@ -118,6 +120,33 @@ function L0_0()
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  ResetAndStartTimer("TimerFlee")
+end
+OnFleeBegin = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  StopTimer("TimerFlee")
+  NetSetState(AI_PET_IDLE)
+  TimerFindEnemies()
+end
+OnFleeEnd = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+end
+TimerFlee = L0_0
 function L0_0()
   if GetState() == AI_HALTED then
     return

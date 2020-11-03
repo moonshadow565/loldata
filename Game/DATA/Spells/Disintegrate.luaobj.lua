@@ -5,12 +5,6 @@ SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "pyromania_particle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "pyromania"}
   },
   {
