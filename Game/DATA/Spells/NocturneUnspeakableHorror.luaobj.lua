@@ -309,6 +309,49 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "LastTimeExecuted3",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBDistanceBetweenObjects,
+        Params = {
+          DestVar = "Distance",
+          ObjectVar1 = "Owner",
+          ObjectVar2 = "Attacker"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Distance",
+          Value2 = 550,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
       TimeBetweenExecutions = 2,
       TrackTimeVar = "LastTimeExecuted4",
       TrackTimeVarTable = "InstanceVars",
@@ -322,10 +365,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVarTable = "InstanceVars",
           SrcValue = true
         }
-      },
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Owner"}
       },
       {
         Function = BBApplyFear,
@@ -362,49 +401,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Attacker",
           BuffName = "NocturneUnspeakableHorror"
-        }
-      }
-    }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.25,
-      TrackTimeVar = "LastTimeExecuted3",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBDistanceBetweenObjects,
-        Params = {
-          DestVar = "Distance",
-          ObjectVar1 = "Owner",
-          ObjectVar2 = "Attacker"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 600,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
         }
       }
     }
@@ -479,10 +475,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Aura,
+      BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 5,
+      Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

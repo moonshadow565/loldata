@@ -27,7 +27,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -54,6 +55,36 @@ UpdateSelfBuffActionsBuildingBlocks = {
               }
             }
           }
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatPhysicalDamageMod,
+          TargetVar = "Owner",
+          DestVar = "AD"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AD",
+          Src1Value = 0,
+          Src2Value = 0.6,
+          DestVar = "BonusDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "BonusDamage",
+          Index = 1,
+          SlotNumber = 2,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
         }
       }
     }
@@ -82,7 +113,8 @@ CharOnHitUnitBuildingBlocks = {
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -105,7 +137,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -122,7 +155,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -139,7 +173,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -160,38 +195,6 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
-    }
-  }
-}
-UpdateSelfBuffStatsBuildingBlocks = {
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DestVar = "AD"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AD",
-      Src1Value = 0,
-      Src2Value = 0.6,
-      DestVar = "BonusDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "BonusDamage",
-      Index = 1,
-      SlotNumber = 2,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Owner"
     }
   }
 }

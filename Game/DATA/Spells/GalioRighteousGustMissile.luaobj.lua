@@ -106,7 +106,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint"
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = false
         }
       },
       {
@@ -126,7 +127,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint"
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = false
         }
       }
     }
@@ -152,7 +154,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint"
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = false
         }
       },
       {
@@ -172,7 +175,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
-          OrientTowardsVar = "OrientationPoint"
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = false
         }
       }
     }
@@ -346,7 +350,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           Duration = 0.3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       },
                       {
@@ -417,10 +422,10 @@ SpellOnMissileUpdateBuildingBlocks = {
       SrcValue = 0,
       SrcValueByLevel = {
         0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
+        0.28,
+        0.36,
+        0.44,
+        0.52
       }
     }
   },
@@ -462,7 +467,8 @@ SpellOnMissileUpdateBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

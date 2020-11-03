@@ -14,6 +14,14 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Target",
+          SourceVar = "Owner"
+        }
+      },
+      {
         Function = BBIncPAR,
         Params = {
           TargetVar = "Target",
@@ -57,7 +65,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -82,7 +91,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -145,7 +155,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }

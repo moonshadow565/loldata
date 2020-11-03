@@ -1,37 +1,35 @@
+DoesntTriggerSpellCasts = true
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GoldCardPreAttack"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PickACard"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Attacker",
-      DestVar = "baseDamage"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "baseDamage",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
       {
         Function = BBGetSlotSpellInfo,
         Params = {
@@ -41,6 +39,13 @@ TargetExecuteBuildingBlocks = {
           SlotType = SpellSlots,
           OwnerVar = "Owner",
           Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
         }
       },
       {
@@ -57,13 +62,40 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusDamage",
+          Src2Var = "totalDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "GoldCardDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "BonusDamage",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_ATTACK,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "GoldCardDamage",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
@@ -89,10 +121,6 @@ TargetExecuteBuildingBlocks = {
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
         }
-      },
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Target"}
       },
       {
         Function = BBIf,
@@ -122,6 +150,31 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Attacker",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "baseDamage",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_ATTACK,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
         Function = BBGetCastSpellTargetPos,
         Params = {
           DestVar = "TargetPosition"
@@ -146,25 +199,23 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "PickACard"
-    }
   }
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "pickacard_yellow_tar.troy"
+      Name = "goldcardpreattack"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "pickacard"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pickacard_yellow_tar.troy"
+    }
   }
 }

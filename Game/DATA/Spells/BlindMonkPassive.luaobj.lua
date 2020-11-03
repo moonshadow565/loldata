@@ -37,7 +37,7 @@ BuffOnHitUnitBuildingBlocks = {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = 10,
+      Delta = 15,
       PARType = PAR_ENERGY
     }
   },

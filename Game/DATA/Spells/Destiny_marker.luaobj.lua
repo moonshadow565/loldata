@@ -1,3 +1,5 @@
+BuffTextureName = "Destiny_temp.dds"
+BuffName = "Destiny Marker"
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetSpell,
@@ -61,14 +63,15 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
+      Src = 0,
       SrcVar = "NewCooldown",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotNumber = 3,
       SlotType = SpellSlots,
-      SpellSlotValue = 3,
-      OwnerVar = "Owner"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner",
+      BroadcastEvent = true
     }
   }
 }

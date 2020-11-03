@@ -16,10 +16,12 @@ function L0_0(A0_2)
   SetMyLeashedPos()
   InitTimer("TimerRetreat", 0.5, true)
   InitTimer("TimerAttack", 0, true)
-  InitTimer("TimerFeared", 1, true)
+  InitTimer("TimerFeared", 0.5, true)
   InitTimer("TimerRegen", 1, true)
+  InitTimer("TimerTaunt", 0.5, true)
   StopTimer("TimerFeared")
   StopTimer("TimerRegen")
+  StopTimer("TimerTaunt")
 end
 OnInit = L0_0
 function L0_0()
@@ -151,7 +153,7 @@ function L0_0()
     return
   end
   tauntTarget = GetTauntTarget()
-  if tauntTarget ~= nil then
+  if tauntTarget ~= nil and GetState() ~= AI_FEARED then
     StopTimer("TimerRegen")
     SetStateAndCloseToTarget(AI_TAUNTED, tauntTarget)
     SetRoamState(HOSTILE)
@@ -162,8 +164,9 @@ function L0_0()
   if GetState() == AI_HALTED then
     return
   end
+  StopTimer("TimerTaunt")
   tauntTarget = GetTauntTarget()
-  if tauntTarget ~= nil then
+  if tauntTarget ~= nil and GetState() ~= AI_FEARED then
     StopTimer("TimerRegen")
     SetStateAndCloseToTarget(AI_ATTACK, tauntTarget)
     SetRoamState(HOSTILE)
@@ -178,9 +181,21 @@ function L0_0()
   if GetState() == AI_HALTED then
     return
   end
+  tauntTarget = GetTauntTarget()
+  if tauntTarget ~= nil and GetState() ~= AI_FEARED then
+    StopTimer("TimerRegen")
+    SetStateAndCloseToTarget(AI_TAUNTED, tauntTarget)
+    SetRoamState(HOSTILE)
+  end
+end
+TimerTaunt = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
-  RoamState = INACTIVE
+  SetRoamState(INACTIVE)
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   ResetAndStartTimer("TimerFeared")
 end
@@ -201,6 +216,7 @@ function L0_0()
     return
   end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
+  SetRoamState(INACTIVE)
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0

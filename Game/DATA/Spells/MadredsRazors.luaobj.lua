@@ -16,13 +16,19 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
                 SubBlocks = {
                   {
-                    Function = BBMath,
+                    Function = BBApplyDamage,
                     Params = {
-                      Src1Var = "DamageAmount",
-                      Src1Value = 0,
-                      Src2Value = 500,
-                      DestVar = "DamageAmount",
-                      MathOp = MO_ADD
+                      AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
+                      TargetVar = "Target",
+                      Damage = 500,
+                      DamageType = MAGIC_DAMAGE,
+                      SourceDamageType = DAMAGESOURCE_PROC,
+                      PercentOfAttack = 1,
+                      SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }

@@ -20,29 +20,72 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "GragasSkinID"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamofOwner",
-      Value2 = TEAM_ORDER,
+      Src1Var = "GragasSkinID",
+      Value2 = 4,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Target",
-          EffectName = "gragas_caskboom.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamofOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "gragas_caskboom_classy.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "gragas_caskboom_classy.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
+            }
+          }
         }
       }
     }
@@ -52,21 +95,57 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Target",
-          EffectName = "gragas_caskboom.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamofOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "gragas_caskboom.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "gragas_caskboom.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
+            }
+          }
         }
       }
     }
@@ -152,6 +231,24 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "MoveAwayCollision",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Stun,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
         Function = BBIf,
         Params = {
           Src1Var = "TeamofOwner",
@@ -173,7 +270,8 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 100,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -196,26 +294,10 @@ TargetExecuteBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "MoveAwayCollision",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Stun,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
         }
       }
     }
@@ -225,19 +307,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "gragas_caskboom.troy"
+      Name = "gragas_caskboom_classy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "gragas_caskwine_tar.troy"
+      Name = "gragas_caskboom.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "moveawaycollision"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_caskwine_tar.troy"
     }
   }
 }

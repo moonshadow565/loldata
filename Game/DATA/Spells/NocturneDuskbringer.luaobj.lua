@@ -507,11 +507,11 @@ SpellOnMissileUpdateBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        15,
         25,
         35,
         45,
-        55,
-        65
+        55
       }
     }
   },
@@ -616,11 +616,11 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
-        20,
-        30,
-        40,
-        50,
-        60
+        15,
+        25,
+        35,
+        45,
+        55
       }
     }
   },
@@ -696,11 +696,11 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
-            20,
-            30,
-            40,
-            50,
-            60
+            15,
+            25,
+            35,
+            45,
+            55
           }
         }
       },
@@ -881,11 +881,11 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    45,
-                    87.5,
-                    130,
-                    172.5,
-                    215
+                    48.75,
+                    91.25,
+                    133.75,
+                    176.25,
+                    218.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -996,11 +996,11 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    45,
-                    87.5,
-                    130,
-                    172.5,
-                    215
+                    48.75,
+                    91.25,
+                    133.75,
+                    176.25,
+                    218.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -1118,11 +1118,11 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    45,
-                    87.5,
-                    130,
-                    172.5,
-                    215
+                    48.75,
+                    91.25,
+                    133.75,
+                    176.25,
+                    218.75
                   },
                   Damage = 0,
                   DamageVar = "PhysPostMod",
@@ -1249,11 +1249,11 @@ TargetExecuteBuildingBlocks = {
                       CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Target",
                       DamageByLevel = {
-                        45,
-                        87.5,
-                        130,
-                        172.5,
-                        215
+                        48.75,
+                        91.25,
+                        133.75,
+                        176.25,
+                        218.75
                       },
                       Damage = 0,
                       DamageVar = "PhysPostMod",

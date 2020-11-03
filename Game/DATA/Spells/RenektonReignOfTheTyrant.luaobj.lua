@@ -26,7 +26,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -118,7 +119,8 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -323,8 +325,8 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseBurn",
       SrcValueByLevel = {
-        25,
-        37.5,
+        20,
+        35,
         50
       }
     }

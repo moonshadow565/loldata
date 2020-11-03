@@ -13,6 +13,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         70,
@@ -25,7 +26,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -33,7 +37,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 2
+      Duration = 1.5
     }
   }
 }

@@ -92,9 +92,9 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "MushroomCooldown",
           SrcValueByLevel = {
-            30,
-            26,
-            22
+            35,
+            31,
+            27
           }
         }
       },
