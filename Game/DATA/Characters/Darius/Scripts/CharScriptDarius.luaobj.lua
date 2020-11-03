@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "dariusexecutecastsound.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"

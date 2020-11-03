@@ -3,7 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "UrgotPositionReverser.dds"
 BuffName = "UrgotSwapExecute"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   100,
   85,

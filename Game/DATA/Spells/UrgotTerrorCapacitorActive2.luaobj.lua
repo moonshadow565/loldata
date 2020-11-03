@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 BuffTextureName = "UrgotTerrorCapacitor.dds"
 BuffName = "UrgotTerrorCapacitor"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 OnPreDamagePriority = 3
 ChainMissileParameters = {
