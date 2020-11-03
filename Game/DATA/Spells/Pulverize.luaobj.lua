@@ -1,5 +1,7 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Minotaur_Pulverize.dds"
 BuffName = "Pulverize"
@@ -7,13 +9,6 @@ AutoBuffActivateEffect = ""
 SpellDamageRatio = 0.75
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageAmount",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBGetRandomPointInAreaUnit,
     Params = {
@@ -33,6 +28,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 100
     }
   },
@@ -99,7 +95,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 1
+      Duration = 0.5
     }
   }
 }
@@ -129,56 +125,91 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageAmount",
-      SrcValueByLevel = {
-        80,
-        125,
-        170,
-        220,
-        270
-      }
-    }
-  },
+SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Target",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Pulverize",
+      BuffName = "AlistarTrample",
       BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Stun,
+      StacksExclusive = false,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBForEachUnitInTargetArea,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 375,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "Pulverize",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Stun,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          DamageByLevel = {
+            60,
+            105,
+            150,
+            195,
+            240
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alistartrample"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "pulverize"}

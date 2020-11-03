@@ -237,7 +237,7 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 70}
+        Params = {DestVar = "GravityVar", SrcValue = 60}
       },
       {
         Function = BBSetVarInTable,
@@ -255,11 +255,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 80}
+        Params = {DestVar = "GravityVar", SrcValue = 70}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1150}
+        Params = {DestVar = "SpeedVar", SrcValue = 1075}
       }
     }
   },
@@ -273,11 +273,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 100}
+        Params = {DestVar = "GravityVar", SrcValue = 80}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1080}
+        Params = {DestVar = "SpeedVar", SrcValue = 1000}
       }
     }
   },
@@ -291,11 +291,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 120}
+        Params = {DestVar = "GravityVar", SrcValue = 100}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1010}
+        Params = {DestVar = "SpeedVar", SrcValue = 950}
       }
     }
   },
@@ -309,11 +309,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 150}
+        Params = {DestVar = "GravityVar", SrcValue = 120}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 950}
+        Params = {DestVar = "SpeedVar", SrcValue = 900}
       }
     }
   },
@@ -327,11 +327,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 300}
+        Params = {DestVar = "GravityVar", SrcValue = 150}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 900}
+        Params = {DestVar = "SpeedVar", SrcValue = 875}
       }
     }
   },
@@ -345,64 +345,12 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 1000}
+        Params = {DestVar = "GravityVar", SrcValue = 300}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 900}
+        Params = {DestVar = "SpeedVar", SrcValue = 850}
       }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "Distance",
-      Src1Value = 420,
-      Src2Value = 0,
-      DestVar = "factor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "factor",
-      Src1Value = 0,
-      Src2Value = 420,
-      DestVar = "factor",
-      MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "factor",
-      Src1Value = 0.4,
-      Src2Value = 0,
-      DestVar = "factor",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "factor",
-      Src1Value = 0.75,
-      Src2Value = 0,
-      DestVar = "scaletime",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell2",
-      ScaleTime = 0,
-      ScaleTimeVar = "scaletime",
-      TargetVar = "Attacker",
-      Loop = false,
-      Blend = false,
-      Lock = true
     }
   },
   {
@@ -410,76 +358,62 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Distance",
       Src1Value = 0,
-      Src2Value = 150,
-      DestVar = "DistanceCheck",
-      MathOp = MO_SUBTRACT
+      Src2Value = 600,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
     }
   },
   {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMath,
     Params = {
-      UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 0.75,
+      DestVar = "factor",
+      MathOp = MO_MAX
     }
   },
   {
-    Function = BBIsPathable,
+    Function = BBMath,
     Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 1.5,
+      DestVar = "factor",
+      MathOp = MO_MIN
     }
   },
   {
-    Function = BBIf,
+    Function = BBPlayAnimation,
     Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 0,
-          SpeedVar = "SpeedVar",
-          Gravity = 0,
-          GravityVar = "GravityVar",
-          MoveBackBy = 150,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance"
-        }
-      }
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "factor",
+      TargetVar = "Attacker",
+      Loop = false,
+      Blend = false,
+      Lock = true
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 0,
-          SpeedVar = "SpeedVar",
-          Gravity = 0,
-          GravityVar = "GravityVar",
-          MoveBackBy = 0,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance"
-        }
-      }
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "targetPos"}
+  },
+  {
+    Function = BBMove,
+    Params = {
+      UnitVar = "Attacker",
+      TargetVar = "targetPos",
+      Speed = 0,
+      SpeedVar = "SpeedVar",
+      Gravity = 0,
+      GravityVar = "GravityVar",
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance"
     }
   }
 }

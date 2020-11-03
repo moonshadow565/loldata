@@ -276,44 +276,54 @@ SpellOnMissileUpdateBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBIf,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        60,
-        110,
-        160,
-        210,
-        260
+      Src1Var = "Owner",
+      Src2Var = "Target",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            60,
+            110,
+            160,
+            210,
+            260
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.7,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
       },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.7,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "KogMawVoidOoze_tar.troy",
-      Flags = 0,
-      EffectIDVar = "varrr",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "CasterID2",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "KogMawVoidOoze_tar.troy",
+          Flags = 0,
+          EffectIDVar = "varrr",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "CasterID2",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
+        }
+      }
     }
   }
 }

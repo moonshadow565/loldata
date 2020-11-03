@@ -27,25 +27,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Attacker",
+      ObjectVar2 = "Owner"
+    }
+  },
+  {
     Function = BBMoveAway,
     Params = {
       UnitVar = "Owner",
       AwayFromVar = "Attacker",
       Speed = 1200,
       Gravity = 20,
-      Distance = 800,
+      Distance = 700,
+      DistanceVar = "Distance",
       DistanceInner = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = KEEP_CURRENT_FACING,
       IdealDistance = 0
-    }
-  },
-  {
-    Function = BBApplyAssistMarker,
-    Params = {
-      Duration = 10,
-      TargetVar = "Owner",
-      SourceVar = "Attacker"
     }
   }
 }

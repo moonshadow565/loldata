@@ -17,7 +17,7 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Attacker",
       Speed = 1400,
       Gravity = 1,
-      MoveBackBy = 1,
+      MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
       MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
@@ -149,7 +149,8 @@ OnBuffDeactivateBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -215,7 +216,8 @@ OnBuffDeactivateBuildingBlocks = {
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
                       FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      SendIfOnScreenOrDiscard = false,
+                      FollowsGroundTilt = false
                     }
                   },
                   {
@@ -293,7 +295,8 @@ OnBuffDeactivateBuildingBlocks = {
                           UseSpecificUnit = false,
                           FOWTeam = TEAM_UNKNOWN,
                           FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
+                          SendIfOnScreenOrDiscard = false,
+                          FollowsGroundTilt = false
                         }
                       },
                       {
@@ -421,7 +424,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           UseSpecificUnit = false,
                           FOWTeam = TEAM_UNKNOWN,
                           FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
+                          SendIfOnScreenOrDiscard = false,
+                          FollowsGroundTilt = false
                         }
                       },
                       {
@@ -487,7 +491,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                               UseSpecificUnit = false,
                               FOWTeam = TEAM_UNKNOWN,
                               FOWVisibilityRadius = 0,
-                              SendIfOnScreenOrDiscard = false
+                              SendIfOnScreenOrDiscard = false,
+                              FollowsGroundTilt = false
                             }
                           },
                           {
@@ -565,7 +570,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                                   UseSpecificUnit = false,
                                   FOWTeam = TEAM_UNKNOWN,
                                   FOWVisibilityRadius = 0,
-                                  SendIfOnScreenOrDiscard = false
+                                  SendIfOnScreenOrDiscard = false,
+                                  FollowsGroundTilt = false
                                 }
                               },
                               {
@@ -680,7 +686,8 @@ BuffOnMoveEndBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -746,7 +753,8 @@ BuffOnMoveEndBuildingBlocks = {
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
                       FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      SendIfOnScreenOrDiscard = false,
+                      FollowsGroundTilt = false
                     }
                   },
                   {
@@ -824,7 +832,8 @@ BuffOnMoveEndBuildingBlocks = {
                           UseSpecificUnit = false,
                           FOWTeam = TEAM_UNKNOWN,
                           FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
+                          SendIfOnScreenOrDiscard = false,
+                          FollowsGroundTilt = false
                         }
                       },
                       {

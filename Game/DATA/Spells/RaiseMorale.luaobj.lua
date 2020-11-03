@@ -9,6 +9,7 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
+IsPetDurationBuff = true
 PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
@@ -31,11 +32,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        0.02,
+        0.03,
         0.04,
+        0.05,
         0.06,
-        0.08,
-        0.1
+        0.07
       }
     }
   },
@@ -47,54 +48,94 @@ BuffOnUpdateStatsBuildingBlocks = {
       Delta = 0,
       DeltaByLevel = {
         8,
+        10,
         12,
-        16,
-        20,
-        24
+        14,
+        16
       }
     }
   }
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSpellBuffRemove,
     Params = {
-      DestVar = "Level",
-      DestVarTable = "NextBuffVars",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RaiseMorale"
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBSetVarInTable,
     Params = {
-      Stat = IncPercentMovementSpeedMod,
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaByLevel = {
-        0.02,
-        0.04,
-        0.06,
-        0.08,
-        0.1
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.14,
+        0.18,
+        0.22,
+        0.26,
+        0.3
       }
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBSetVarInTable,
     Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaByLevel = {
-        8,
-        12,
-        16,
+      DestVar = "AttackDmgMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
         20,
-        24
+        28,
+        36,
+        44,
+        52
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "RaiseMoraleTeamBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.07,
+        0.09,
+        0.11,
+        0.13,
+        0.15
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackDmgMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        10,
+        14,
+        18,
+        22,
+        26
       }
     }
   },
@@ -103,40 +144,12 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 1000,
-      Flags = "AffectFriends AffectHeroes ",
+      Range = 1500,
+      Flags = "AffectFriends AffectHeroes NotAffectSelf ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },
     SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "MoveSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            0.02,
-            0.04,
-            0.06,
-            0.08,
-            0.1
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "AttackDmgMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            8,
-            12,
-            16,
-            20,
-            24
-          }
-        }
-      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -148,33 +161,23 @@ SelfExecuteBuildingBlocks = {
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 10,
+          Duration = 6,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
   }
 }
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 1000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  }
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "raisemorale"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

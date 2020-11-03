@@ -32,7 +32,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -113,41 +114,8 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 1350,
-          DestVar = "Time",
-          MathOp = MO_DIVIDE
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 80,
-          DestVar = "DistanceCheck",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 0,
-          DistanceVar = "DistanceCheck",
-          OffsetAngle = 0,
-          PositionVar = "PathablePoint"
-        }
-      },
-      {
-        Function = BBIsPathable,
-        Params = {
-          DestPosVar = "PathablePoint",
-          ResultVar = "PathableVar"
-        }
+        Function = BBGetUnitPosition,
+        Params = {UnitVar = "Target", PositionVar = "LandPos"}
       },
       {
         Function = BBSetVarInTable,
@@ -174,49 +142,23 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
-        Function = BBIf,
+        Function = BBMove,
         Params = {
-          Src1Var = "PathableVar",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMove,
-            Params = {
-              UnitVar = "Attacker",
-              TargetVar = "Target",
-              Speed = 1350,
-              Gravity = 5,
-              MoveBackBy = 80,
-              MovementType = FURTHEST_WITHIN_RANGE,
-              MovementOrdersType = CANCEL_ORDER,
-              IdealDistance = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBMove,
-            Params = {
-              UnitVar = "Attacker",
-              TargetVar = "Target",
-              Speed = 1350,
-              Gravity = 5,
-              MoveBackBy = 0,
-              MovementType = FURTHEST_WITHIN_RANGE,
-              MovementOrdersType = CANCEL_ORDER,
-              IdealDistance = 0
-            }
-          }
+          UnitVar = "Attacker",
+          TargetVar = "LandPos",
+          Speed = 1350,
+          Gravity = 5,
+          MoveBackBy = 0,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance"
         }
       },
       {
@@ -232,7 +174,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -281,7 +224,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -309,41 +253,8 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 1350,
-              DestVar = "Time",
-              MathOp = MO_DIVIDE
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Distance",
-              Src1Value = 0,
-              Src2Value = 80,
-              DestVar = "DistanceCheck",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 0,
-              DistanceVar = "DistanceCheck",
-              OffsetAngle = 0,
-              PositionVar = "PathablePoint"
-            }
-          },
-          {
-            Function = BBIsPathable,
-            Params = {
-              DestPosVar = "PathablePoint",
-              ResultVar = "PathableVar"
-            }
+            Function = BBGetUnitPosition,
+            Params = {UnitVar = "Target", PositionVar = "LandPos"}
           },
           {
             Function = BBSetVarInTable,
@@ -370,49 +281,23 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
-            Function = BBIf,
+            Function = BBMove,
             Params = {
-              Src1Var = "PathableVar",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBMove,
-                Params = {
-                  UnitVar = "Attacker",
-                  TargetVar = "Target",
-                  Speed = 1350,
-                  Gravity = 5,
-                  MoveBackBy = 80,
-                  MovementType = FURTHEST_WITHIN_RANGE,
-                  MovementOrdersType = CANCEL_ORDER,
-                  IdealDistance = 0
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBMove,
-                Params = {
-                  UnitVar = "Attacker",
-                  TargetVar = "Target",
-                  Speed = 1350,
-                  Gravity = 5,
-                  MoveBackBy = 0,
-                  MovementType = FURTHEST_WITHIN_RANGE,
-                  MovementOrdersType = CANCEL_ORDER,
-                  IdealDistance = 0
-                }
-              }
+              UnitVar = "Attacker",
+              TargetVar = "LandPos",
+              Speed = 1350,
+              Gravity = 5,
+              MoveBackBy = 0,
+              MovementType = FURTHEST_WITHIN_RANGE,
+              MovementOrdersType = CANCEL_ORDER,
+              MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+              IdealDistance = 0,
+              IdealDistanceVar = "Distance"
             }
           },
           {
@@ -428,7 +313,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -477,7 +363,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -517,41 +404,8 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "Distance",
-                  Src1Value = 0,
-                  Src2Value = 1350,
-                  DestVar = "Time",
-                  MathOp = MO_DIVIDE
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "Distance",
-                  Src1Value = 0,
-                  Src2Value = 80,
-                  DestVar = "DistanceCheck",
-                  MathOp = MO_SUBTRACT
-                }
-              },
-              {
-                Function = BBGetPointByUnitFacingOffset,
-                Params = {
-                  UnitVar = "Owner",
-                  Distance = 0,
-                  DistanceVar = "DistanceCheck",
-                  OffsetAngle = 0,
-                  PositionVar = "PathablePoint"
-                }
-              },
-              {
-                Function = BBIsPathable,
-                Params = {
-                  DestPosVar = "PathablePoint",
-                  ResultVar = "PathableVar"
-                }
+                Function = BBGetUnitPosition,
+                Params = {UnitVar = "Target", PositionVar = "LandPos"}
               },
               {
                 Function = BBSetVarInTable,
@@ -578,49 +432,23 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
-                Function = BBIf,
+                Function = BBMove,
                 Params = {
-                  Src1Var = "PathableVar",
-                  Value2 = true,
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBMove,
-                    Params = {
-                      UnitVar = "Attacker",
-                      TargetVar = "Target",
-                      Speed = 1350,
-                      Gravity = 5,
-                      MoveBackBy = 80,
-                      MovementType = FURTHEST_WITHIN_RANGE,
-                      MovementOrdersType = CANCEL_ORDER,
-                      IdealDistance = 0
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBMove,
-                    Params = {
-                      UnitVar = "Attacker",
-                      TargetVar = "Target",
-                      Speed = 1350,
-                      Gravity = 5,
-                      MoveBackBy = 0,
-                      MovementType = FURTHEST_WITHIN_RANGE,
-                      MovementOrdersType = CANCEL_ORDER,
-                      IdealDistance = 0
-                    }
-                  }
+                  UnitVar = "Attacker",
+                  TargetVar = "LandPos",
+                  Speed = 1350,
+                  Gravity = 5,
+                  MoveBackBy = 0,
+                  MovementType = FURTHEST_WITHIN_RANGE,
+                  MovementOrdersType = CANCEL_ORDER,
+                  MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+                  IdealDistance = 0,
+                  IdealDistanceVar = "Distance"
                 }
               },
               {
@@ -636,7 +464,8 @@ TargetExecuteBuildingBlocks = {
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -685,7 +514,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {

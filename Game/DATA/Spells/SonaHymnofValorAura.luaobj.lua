@@ -15,7 +15,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -46,11 +47,11 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVar = "APADBoost",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        6,
         8,
-        10,
-        12,
-        14
+        11,
+        14,
+        17,
+        20
       }
     }
   },
@@ -88,7 +89,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

@@ -38,6 +38,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "HasDealtDamage",
@@ -54,81 +65,32 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Var = "Distance",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 200,
-      DestVar = "DistanceCheck",
-      MathOp = MO_ADD
+      DestVar = "maxTrackDistance",
+      SrcValueByLevel = {
+        3500,
+        4250,
+        5000
+      }
     }
   },
   {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMoveToUnit,
     Params = {
       UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
-    }
-  },
-  {
-    Function = BBIsPathable,
-    Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Attacker",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MovementOrdersType = CANCEL_ORDER,
-          MoveBackBy = -150,
-          MaxTrackDistance = 5000,
-          IdealDistance = 0,
-          IdealDistanceVar = "DistanceCheck",
-          TimeOverride = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Attacker",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MovementOrdersType = CANCEL_ORDER,
-          MoveBackBy = -150,
-          MaxTrackDistance = 5000,
-          IdealDistance = 0,
-          IdealDistanceVar = "DistanceCheck",
-          TimeOverride = 0
-        }
-      }
+      TargetVar = "Attacker",
+      Speed = 0,
+      SpeedVar = "dashSpeed",
+      SpeedVarTable = "InstanceVars",
+      Gravity = 0,
+      MovementOrdersType = CANCEL_ORDER,
+      MoveBackBy = 0,
+      MaxTrackDistance = 0,
+      MaxTrackDistanceVar = "maxTrackDistance",
+      IdealDistance = 0,
+      IdealDistanceVar = "DistanceCheck",
+      TimeOverride = 0
     }
   },
   {
@@ -146,7 +108,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -171,17 +134,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetGhosted
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
     }
   },
   {
@@ -285,7 +237,8 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -431,7 +384,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {

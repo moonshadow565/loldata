@@ -35,7 +35,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -322,144 +323,29 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBMath,
+        Function = BBMoveToUnit,
         Params = {
-          Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 25,
-          DestVar = "DistanceCheck2",
-          MathOp = MO_SUBTRACT
+          UnitVar = "Attacker",
+          TargetVar = "Target",
+          Speed = 0,
+          Gravity = 150,
+          MovementOrdersType = CANCEL_ORDER,
+          MoveBackBy = 0,
+          MaxTrackDistance = 1500,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance",
+          TimeOverride = 0.4
         }
       },
       {
-        Function = BBMath,
+        Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 150,
-          DestVar = "DistanceCheck",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 0,
-          DistanceVar = "DistanceCheck2",
-          OffsetAngle = 0,
-          PositionVar = "PathablePoint2"
-        }
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 0,
-          DistanceVar = "DistanceCheck",
-          OffsetAngle = 0,
-          PositionVar = "PathablePoint"
-        }
-      },
-      {
-        Function = BBIsPathable,
-        Params = {
-          DestPosVar = "PathablePoint2",
-          ResultVar = "PathableVar2"
-        }
-      },
-      {
-        Function = BBIsPathable,
-        Params = {
-          DestPosVar = "PathablePoint",
-          ResultVar = "PathableVar"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "PathableVar2",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMoveToUnit,
-            Params = {
-              UnitVar = "Attacker",
-              TargetVar = "Target",
-              Speed = 0,
-              Gravity = 150,
-              MovementOrdersType = CANCEL_ORDER,
-              MoveBackBy = 1,
-              MaxTrackDistance = 1500,
-              IdealDistance = 0,
-              IdealDistanceVar = "Distance",
-              TimeOverride = 0.4
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "PathableVar",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBMoveToUnit,
-                Params = {
-                  UnitVar = "Attacker",
-                  TargetVar = "Target",
-                  Speed = 0,
-                  Gravity = 150,
-                  MovementOrdersType = CANCEL_ORDER,
-                  MoveBackBy = 125,
-                  MaxTrackDistance = 1500,
-                  IdealDistance = 0,
-                  IdealDistanceVar = "Distance",
-                  TimeOverride = 0.4
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBMoveToUnit,
-                Params = {
-                  UnitVar = "Attacker",
-                  TargetVar = "Target",
-                  Speed = 0,
-                  Gravity = 150,
-                  MovementOrdersType = CANCEL_ORDER,
-                  MoveBackBy = 1,
-                  MaxTrackDistance = 1500,
-                  IdealDistance = 0,
-                  IdealDistanceVar = "Distance",
-                  TimeOverride = 0.4
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTime,
-        Params = {
-          SrcValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
+          Src = 1,
+          SlotNumber = 3,
           SlotType = SpellSlots,
-          SpellSlotValue = 3,
-          OwnerVar = "Owner"
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }

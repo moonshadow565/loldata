@@ -20,7 +20,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -50,11 +51,11 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       DestVar = "ASAura",
       SrcValueByLevel = {
-        0.15,
         0.2,
         0.25,
         0.3,
-        0.35
+        0.35,
+        0.4
       }
     }
   },

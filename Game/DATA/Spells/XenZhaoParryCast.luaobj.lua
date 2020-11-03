@@ -22,7 +22,8 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -51,6 +52,14 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Count",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -76,6 +85,24 @@ SelfExecuteBuildingBlocks = {
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src2Var = "Count",
+              Src2VarTable = "NextBuffVars",
+              Src1Value = 1,
+              Src2Value = 0,
+              DestVar = "Count",
+              DestVarTable = "NextBuffVars",
+              MathOp = MO_ADD
+            }
+          }
         }
       }
     }

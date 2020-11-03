@@ -38,90 +38,21 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBDistanceBetweenObjects,
-    Params = {
-      DestVar = "Distance",
-      ObjectVar1 = "Attacker",
-      ObjectVar2 = "Owner"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Distance",
-      Src1Value = 0,
-      Src2Value = 50,
-      DestVar = "DistanceCheck",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMove,
     Params = {
       UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
-    }
-  },
-  {
-    Function = BBIsPathable,
-    Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "TargetPos",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MoveBackBy = 50,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "TargetPos",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MoveBackBy = 0,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars"
-        }
-      }
+      TargetVar = "TargetPos",
+      Speed = 0,
+      SpeedVar = "dashSpeed",
+      SpeedVarTable = "InstanceVars",
+      Gravity = 0,
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance",
+      IdealDistanceVarTable = "InstanceVars"
     }
   },
   {
