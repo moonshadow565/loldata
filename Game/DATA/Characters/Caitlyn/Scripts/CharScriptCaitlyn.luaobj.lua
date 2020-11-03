@@ -2,19 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
+      Name = "caitlynheadshotcount"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "caitlynheadshot"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "caitlynheadshotcount"
     }
   },
   {

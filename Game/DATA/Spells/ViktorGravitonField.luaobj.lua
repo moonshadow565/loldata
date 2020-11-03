@@ -7,6 +7,8 @@ BuffTextureName = "Cryophoenix_GlacialStorm.dds"
 BuffName = "GlacialStorm"
 SpellToggleSlot = 4
 IsDeathRecapSource = true
+PersistsThroughDeath = true
+NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -11,12 +11,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "castfrombehind"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "twoshivpoison"
     }
   }

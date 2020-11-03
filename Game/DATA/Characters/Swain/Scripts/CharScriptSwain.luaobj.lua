@@ -1,17 +1,5 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swaintorment"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainmetamorphism"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "swain_disintegrationbeam_cas.troy"

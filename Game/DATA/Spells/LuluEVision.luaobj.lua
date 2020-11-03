@@ -1,0 +1,6 @@
+BuffTextureName = "Lulu_CommandPix.dds"
+BuffName = "LuluEBurn"
+AutoBuffActivateEffect = "global_Watched.troy"
+AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect2 = "Lulu_E_tar_pix_vision.troy"
+AutoBuffActivateAttachBoneName2 = ""

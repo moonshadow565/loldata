@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "championchampiondelta"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jarvanivmartialcadence"
+    }
   }
 }

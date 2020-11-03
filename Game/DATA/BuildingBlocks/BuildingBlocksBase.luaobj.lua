@@ -917,6 +917,46 @@ function L0(A0, A1)
 end
 GetNumber = L0
 function L0(A0, A1)
+  local L2, L3, L4
+  L2 = VectorAdd
+  L3 = A0
+  L4 = A1
+  return L2(L3, L4)
+end
+VEC_ADD = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = VectorSubtract
+  L3 = A0
+  L4 = A1
+  return L2(L3, L4)
+end
+VEC_SUBTRACT = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = VectorScalarMultiply
+  L3 = A0
+  L4 = A1
+  return L2(L3, L4)
+end
+VEC_SCALAR_MULTIPLY = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = VectorScalarDivide
+  L3 = A0
+  L4 = A1
+  return L2(L3, L4)
+end
+VEC_SCALAR_DIVIDE = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = BBMath
+  L3 = A0
+  L4 = A1
+  L2(L3, L4)
+end
+BBVectorMath = L0
+function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8
   L2 = A0.InstanceVars
   L3 = L2.InterpDelta

@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "ahriidlecheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "ahriidleparticle"
     }
   },

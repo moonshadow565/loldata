@@ -8,6 +8,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "alzaharvoidlingdetonation"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharsummonvoidling"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "championchampiondelta"
     }
   },
@@ -15,18 +27,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alzaharvoidlingdetonation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alzaharcallr"
     }
   }
 }

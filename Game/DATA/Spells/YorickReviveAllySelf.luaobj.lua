@@ -26,6 +26,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "deathdefied"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawicathiansurpriseready"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yorickultpetactive"
     }
   },
@@ -46,5 +58,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yorickradelay"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "luluq"}
   }
 }

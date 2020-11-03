@@ -22,11 +22,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xenzhaobattlecrypassive"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaobattlecryph"
-    }
   }
 }

@@ -20,11 +20,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "luxilluminationpassive"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "luxdeathparticle"
-    }
   }
 }
