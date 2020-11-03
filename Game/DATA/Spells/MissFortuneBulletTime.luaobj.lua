@@ -522,7 +522,8 @@ ChannelingUpdateActionsBuildingBlocks = {
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -562,6 +563,13 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MissFortuneBulletSound"
     }
+  },
+  {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "MissFortuneWaves"
+    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -571,6 +579,13 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "MissFortuneBulletSound"
+    }
+  },
+  {
+    Function = BBSpellBuffClear,
+    Params = {
+      TargetVar = "Owner",
+      BuffName = "MissFortuneWaves"
     }
   }
 }

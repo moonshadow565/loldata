@@ -315,11 +315,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        14,
         13,
         12,
         11,
-        10
+        10,
+        9
       }
     }
   },

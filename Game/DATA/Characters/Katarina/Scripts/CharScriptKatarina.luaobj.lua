@@ -61,7 +61,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "bonusDamage",
           Src1Value = 0,
-          Src2Value = 0.55,
+          Src2Value = 0.5,
           DestVar = "dlBonusDamage",
           MathOp = MO_MULTIPLY
         }
@@ -96,7 +96,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -113,7 +114,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -140,7 +142,8 @@ CharOnLevelUpSpellBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

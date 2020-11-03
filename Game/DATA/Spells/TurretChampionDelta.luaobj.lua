@@ -95,7 +95,8 @@ BuffOnUpdateStatsBuildingBlocks = {
               Duration = 21,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -130,7 +131,8 @@ BuffOnUpdateStatsBuildingBlocks = {
               Duration = 21,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -169,13 +171,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "PositiveTurretDelta"
+      Name = "negativeturretdelta"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "NegativeTurretDelta"
+      Name = "positivechampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "positiveturretdelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "negativechampiondelta"
     }
   }
 }

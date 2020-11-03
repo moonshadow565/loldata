@@ -31,17 +31,18 @@ TargetExecuteBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
-      AttackerVar = "Attacker",
+      AttackerVar = "Owner",
       BuffName = "Suppression",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
       BuffType = BUFF_Suppression,
-      MaxStack = 1,
+      MaxStack = 100,
       NumberOfStacks = 1,
-      Duration = 1.7,
+      Duration = 1.8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -65,7 +66,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

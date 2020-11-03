@@ -203,6 +203,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "caitlynaceintheholevisibility"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "caitlynaceinthehole"
     }
   },

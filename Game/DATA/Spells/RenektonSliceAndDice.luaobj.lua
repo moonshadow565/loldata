@@ -314,7 +314,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -1720,11 +1721,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "ArmorShred",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -10,
-        -15,
-        -20,
-        -25,
-        -30
+        -0.15,
+        -0.175,
+        -0.2,
+        -0.225,
+        -0.25
       }
     }
   },

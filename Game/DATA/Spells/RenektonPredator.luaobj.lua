@@ -290,7 +290,7 @@ BuffOnUpdateStatsBuildingBlocks = {
             Function = BBIncPAR,
             Params = {
               TargetVar = "Owner",
-              Delta = -2.5,
+              Delta = -2,
               PARType = PAR_OTHER
             }
           }
@@ -344,83 +344,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       OwnerVar = "Owner",
       Function = GetPAR,
       PARType = PAR_OTHER
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "HealthPercent",
-      OwnerVar = "Owner",
-      Function = GetHealthPercent,
-      PARType = PAR_OTHER
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealthPercent",
-      Value2 = 0.4,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetLevel,
-        Params = {TargetVar = "Owner", DestVar = "Level"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "OffensivePercent",
-          SrcValueByLevel = {
-            0.05,
-            0.05,
-            0.05,
-            0.05,
-            0.05,
-            0.05,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.1,
-            0.15,
-            0.15,
-            0.15,
-            0.15,
-            0.15,
-            0.15,
-            0.15
-          }
-        }
-      },
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "WeaponDamage"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "OffensivePercent",
-          Src2Var = "WeaponDamage",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BonusDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncFlatPhysicalDamageMod,
-          TargetVar = "Owner",
-          DeltaVar = "BonusDamage",
-          Delta = 0
-        }
-      }
     }
   },
   {

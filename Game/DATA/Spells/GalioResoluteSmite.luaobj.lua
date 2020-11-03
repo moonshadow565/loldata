@@ -113,7 +113,7 @@ SpellOnMissileEndBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "MissileEndPosition",
-      Range = 220,
+      Range = 230,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = false
@@ -194,7 +194,8 @@ SpellOnMissileEndBuildingBlocks = {
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = true
+          CanMitigateDuration = true,
+          IsHiddenOnClient = false
         }
       }
     }

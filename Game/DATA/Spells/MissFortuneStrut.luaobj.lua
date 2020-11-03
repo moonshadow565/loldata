@@ -32,7 +32,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -59,7 +60,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -86,7 +88,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -113,7 +116,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -140,7 +144,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -167,7 +172,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -194,7 +200,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -221,7 +228,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -248,7 +256,8 @@ BuffOnAllowAddBuildingBlocks = {
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -257,6 +266,14 @@ BuffOnAllowAddBuildingBlocks = {
   }
 }
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -290,6 +307,14 @@ OnBuffActivateBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WillRemove",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
@@ -308,20 +333,6 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillRemove",
-          DestVarTable = "InstanceVars",
-          SrcValue = true
-        }
-      }
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -335,7 +346,7 @@ OnBuffDeactivateBuildingBlocks = {
       Src1Var = "WillRemove",
       Src1VarTable = "InstanceVars",
       Value2 = true,
-      CompareOp = CO_NOT_EQUAL
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -350,54 +361,30 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBIncStat,
     Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "MissFortuneStrutDebuff",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = false,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 6,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
+      Stat = IncFlatMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "MoveSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
     SubBlocks = {
       {
-        Function = BBIncStat,
+        Function = BBIfNotHasBuff,
         Params = {
-          Stat = IncFlatMovementSpeedMod,
-          TargetVar = "Owner",
-          DeltaVar = "MoveSpeedMod",
-          DeltaVarTable = "InstanceVars",
-          Delta = 0
-        }
-      },
-      {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 1,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "MissFortuneWaves"
         },
         SubBlocks = {
           {
@@ -423,6 +410,51 @@ BuffOnUpdateStatsBuildingBlocks = {
               DestVarTable = "InstanceVars",
               MathOp = MO_MIN
             }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "WillRemove",
+              Src1VarTable = "InstanceVars",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBOverrideAnimation,
+                Params = {
+                  ToOverrideAnim = "Run",
+                  OverrideAnim = "Run2",
+                  OwnerVar = "Owner"
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "WillRemove",
+                  DestVarTable = "InstanceVars",
+                  SrcValue = true
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "missFortune_passive_buf.troy",
+                  Flags = 0,
+                  EffectIDVar = "running",
+                  EffectIDVarTable = "InstanceVars",
+                  BoneName = "root",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Nothing",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
+            }
           }
         }
       }
@@ -444,7 +476,8 @@ BuffOnTakeDamageBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

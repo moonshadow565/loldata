@@ -53,6 +53,10 @@ BuffOnAllowAddBuildingBlocks = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -121,10 +125,6 @@ OnBuffActivateBuildingBlocks = {
       InclusiveBuffFilter = true
     },
     SubBlocks = {
-      {
-        Function = BBCancelAutoAttack,
-        Params = {TargetVar = "Owner", Reset = true}
-      },
       {
         Function = BBIf,
         Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},

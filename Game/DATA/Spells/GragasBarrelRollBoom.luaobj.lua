@@ -227,7 +227,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
             100,
@@ -267,7 +267,8 @@ OnBuffDeactivateBuildingBlocks = {
             3
           },
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

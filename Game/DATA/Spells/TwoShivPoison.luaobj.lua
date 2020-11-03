@@ -197,7 +197,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffName = "TwoShivPoison",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
@@ -205,7 +205,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

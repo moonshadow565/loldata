@@ -90,33 +90,6 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillPumpAP",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "RallyAPMod",
-      Src1VarTable = "AvatarVars",
-      Value2 = 70,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillPumpAP",
-          DestVarTable = "NextBuffVars",
-          SrcValue = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
     Params = {DestVar = "Duration", SrcValue = 15}
   },
   {
@@ -197,7 +170,6 @@ TargetExecuteBuildingBlocks = {
       Src1Value = 0,
       Src2Value = 25,
       DestVar = "BonusHealth",
-      DestVarTable = "NextBuffVars",
       MathOp = MO_MULTIPLY
     }
   },
@@ -223,21 +195,66 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Other3",
-      AttackerVar = "Owner",
-      BuffName = "BeaconAura",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationVar = "Duration",
-      TickRate = 0,
-      CanMitigateDuration = false
+      DestVar = "BonusHealth",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "BonusHealth"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "RallyAPMod",
+      Src1VarTable = "AvatarVars",
+      Value2 = 70,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Owner",
+          BuffName = "BeaconAuraAP",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationVar = "Duration",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Owner",
+          BuffName = "BeaconAura",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationVar = "Duration",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
     }
   }
 }
