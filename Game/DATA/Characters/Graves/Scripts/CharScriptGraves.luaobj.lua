@@ -114,6 +114,8 @@ SetVarsByLevelBuildingBlocks = {
         1,
         1,
         1,
+        1,
+        2,
         2,
         2,
         2,
@@ -124,9 +126,7 @@ SetVarsByLevelBuildingBlocks = {
         3,
         3,
         3,
-        4,
-        4,
-        4
+        3
       }
     }
   }
@@ -221,7 +221,7 @@ CharOnPreDealDamageBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -239,7 +239,7 @@ CharOnPreDealDamageBuildingBlocks = {
       BuffType = BUFF_AmmoStack,
       MaxStack = 11,
       NumberOfStacks = 0,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -259,7 +259,7 @@ CharOnPreDamageBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -277,7 +277,7 @@ CharOnPreDamageBuildingBlocks = {
       BuffType = BUFF_AmmoStack,
       MaxStack = 11,
       NumberOfStacks = 0,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

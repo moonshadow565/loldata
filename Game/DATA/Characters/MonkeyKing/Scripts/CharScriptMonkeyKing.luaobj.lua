@@ -2,7 +2,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -62,6 +62,32 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Attacker"
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {TargetVar = "Owner", DestVar = "AD"}
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AD",
+          Src1Value = 0,
+          Src2Value = 1.1,
+          DestVar = "AD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "AD",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
         }
       }
     }

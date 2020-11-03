@@ -28,6 +28,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "shacoDamageTaken",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -163,21 +170,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Other1",
-      AttackerVar = "Owner",
-      BuffName = "Backstab",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      DestVar = "shacoDamageTaken",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "shacoDamageTaken",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -225,6 +223,24 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other1",
+      AttackerVar = "Owner",
+      BuffName = "Backstab",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
@@ -311,10 +327,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "backstab"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "hallucinatefull"
     }
@@ -330,5 +342,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "championchampiondelta"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "backstab"}
   }
 }

@@ -44,6 +44,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -63,6 +65,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -127,11 +131,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedVar",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.2,
-        0.25,
         0.3,
         0.35,
-        0.4
+        0.4,
+        0.45,
+        0.5
       }
     }
   },
@@ -431,12 +435,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "monkeykingnimbuskick"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingdecoystealth"
     }
   },
   {

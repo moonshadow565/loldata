@@ -17,6 +17,14 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = true,
       Status = SetStealthed
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhosted
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -26,6 +34,14 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetStealthed
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetGhosted
     }
   },
   {
@@ -44,6 +60,14 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetStealthed
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhosted
     }
   }
 }

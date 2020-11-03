@@ -408,7 +408,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               AttackerVar = "Attacker",
               CenterVar = "Owner",
-              Range = 350,
+              Range = 300,
               Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
               IteratorVar = "Unit",
               MaximumUnitsToPick = 1,
@@ -779,6 +779,49 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnPreMitigationDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Stealth"
+        },
+        SubBlocks = {
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Attacker",
+              TargetVar = "Owner",
+              ResultVar = "canSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "canSee",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageAmount",
+                  SrcValue = 0
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -839,49 +882,6 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnPreMitigationDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Stealth"
-        },
-        SubBlocks = {
-          {
-            Function = BBCanSeeTarget,
-            Params = {
-              ViewerVar = "Attacker",
-              TargetVar = "Owner",
-              ResultVar = "canSee"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "canSee",
-              Value2 = false,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamageAmount",
-                  SrcValue = 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -891,11 +891,23 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "stealth"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jackintheboxdamagesensor"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "endkill"}
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "stealth"}
+    Params = {
+      Name = "jackintheboxsoftlock"
+    }
   },
   {
     Function = BBPreloadSpell,

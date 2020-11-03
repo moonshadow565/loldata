@@ -221,6 +221,45 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "TotalAD"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalAD",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "BonusADRatio",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusADRatio",
+      Src2Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Critical,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
@@ -237,23 +276,6 @@ BuffOnHitUnitBuildingBlocks = {
               Src2Value = 0,
               DestVar = "DamageToDeal",
               MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
             }
           },
           {
@@ -318,23 +340,6 @@ BuffOnHitUnitBuildingBlocks = {
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Target"}
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
           },
           {
             Function = BBSpellBuffAdd,
@@ -402,23 +407,6 @@ BuffOnHitUnitBuildingBlocks = {
         }
       },
       {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageToDeal",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_DEFAULT,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
         Function = BBSpellBuffRemove,
         Params = {
           TargetVar = "Owner",
@@ -433,10 +421,11 @@ BuffOnHitUnitBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "DamageAmount",
+      Src2Var = "BonusDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
+      MathOp = MO_ADD
     }
   }
 }

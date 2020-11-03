@@ -45,7 +45,8 @@ BuffOnSpellCastBuildingBlocks = {
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -99,7 +100,11 @@ BuffOnHitUnitBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -147,7 +152,11 @@ BuffOnHitUnitBuildingBlocks = {
                           UseSpecificUnit = false,
                           FOWTeam = TEAM_UNKNOWN,
                           FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
+                          SendIfOnScreenOrDiscard = false,
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       }
                     }
@@ -157,13 +166,26 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "teamID"}
+          },
+          {
+            Function = BBGetChampionBySkinName,
+            Params = {
+              Skin = "Shaco",
+              Team = TEAM_UNKNOWN,
+              TeamVar = "teamID",
+              DestVar = "Attacker"
+            }
+          },
+          {
             Function = BBGetSlotSpellInfo,
             Params = {
               DestVar = "Level",
               SpellSlotValue = 2,
               SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
-              OwnerVar = "Owner",
+              OwnerVar = "Attacker",
               Function = GetSlotSpellLevel
             }
           },
@@ -174,7 +196,7 @@ BuffOnHitUnitBuildingBlocks = {
               SpellSlotValue = 2,
               SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
-              OwnerVar = "Owner",
+              OwnerVar = "Attacker",
               Function = GetSlotSpellCooldownTime
             }
           },
@@ -242,7 +264,7 @@ BuffOnHitUnitBuildingBlocks = {
                             Function = BBSpellBuffAdd,
                             Params = {
                               TargetVar = "Target",
-                              AttackerVar = "Owner",
+                              AttackerVar = "Attacker",
                               BuffName = "TwoShivPoison",
                               BuffAddType = BUFF_RENEW_EXISTING,
                               StacksExclusive = true,
@@ -252,7 +274,8 @@ BuffOnHitUnitBuildingBlocks = {
                               Duration = 2,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -307,7 +330,8 @@ BuffOnPreAttackBuildingBlocks = {
                       Duration = 0.75,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -327,10 +351,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "frombehind"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "absolutezero_tar.troy"
@@ -341,5 +361,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "twoshivpoison"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "frombehind"}
   }
 }

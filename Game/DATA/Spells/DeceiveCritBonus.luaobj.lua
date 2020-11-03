@@ -1,5 +1,9 @@
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "HasHit",
@@ -27,6 +31,14 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatCritChanceMod,
+      TargetVar = "Owner",
+      Delta = 1
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "HasHit",
@@ -50,5 +62,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = true
     }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }

@@ -315,6 +315,56 @@ BuffOnHitUnitBuildingBlocks = {
     }
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "LastTimeExecutedGarrison",
+      TrackTimeVarTable = "AvatarVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CanCastGarrison",
+          DestVarTable = "AvatarVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 1250,
+          Flags = "AffectEnemies AffectFriends AffectMinions NotAffectSelf AffectUseable AffectWards ",
+          IteratorVar = "Unit",
+          BuffNameFilter = "OdinGuardianBuff",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "CanCastGarrison",
+              DestVarTable = "AvatarVars",
+              SrcValue = true
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetReturnValue,
+    Params = {
+      SrcVar = "CanCastGarrison",
+      SrcVarTable = "AvatarVars"
+    }
+  }
+}
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -375,87 +425,35 @@ SelfExecuteBuildingBlocks = {
       FollowsGroundTilt = false,
       FacesTarget = false
     }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FortifySplashDamage",
-      Src1VarTable = "AvatarVars",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Splash",
-          DestVarTable = "NextBuffVars",
-          SrcValue = true
-        }
-      }
-    }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Splash",
-          DestVarTable = "NextBuffVars",
-          SrcValue = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetTeamID,
+    Function = BBForNClosestUnitsInTargetArea,
     Params = {
-      TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
-    }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {
-      TargetVar = "Target",
-      DestVar = "TeamOfTarget"
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Target",
-      AttackerVar = "Target",
-      BuffName = "OdinGuardianBuff"
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 1800,
+      Flags = "AffectEnemies AffectFriends AffectMinions AffectTurrets AffectUseable AffectWards ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 1,
+      BuffNameFilter = "OdinGuardianBuff",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "TeamOfOwner",
-          Src2Var = "TeamOfTarget",
+          Src1Var = "FortifySplashDamage",
+          Src1VarTable = "AvatarVars",
+          Value2 = 1,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBSetVarInTable,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Invulnerability,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 8,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+              DestVar = "Splash",
+              DestVarTable = "NextBuffVars",
+              SrcValue = true
             }
           }
         }
@@ -465,74 +463,139 @@ TargetExecuteBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBSetVarInTable,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "SummonerOdinGarrisonDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Invulnerability,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 8,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+              DestVar = "Splash",
+              DestVarTable = "NextBuffVars",
+              SrcValue = false
             }
           }
         }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
+      },
       {
-        Function = BBGetSlotSpellInfo,
+        Function = BBGetTeamID,
         Params = {
-          DestVar = "SlotName",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_SUMMONER,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellName
+          TargetVar = "Owner",
+          DestVar = "TeamOfOwner"
         }
       },
       {
-        Function = BBIf,
+        Function = BBGetTeamID,
         Params = {
-          Src1Var = "SlotName",
-          Value2 = "SummonerOdinGarrison",
-          CompareOp = CO_EQUAL
+          TargetVar = "Unit",
+          DestVar = "TeamOfTarget"
+        }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Unit",
+          AttackerVar = "Unit",
+          BuffName = "OdinGuardianBuff"
         },
         SubBlocks = {
           {
-            Function = BBSetSlotSpellCooldownTime,
+            Function = BBIf,
             Params = {
-              SrcValue = 1,
-              SpellbookType = SPELLBOOK_SUMMONER,
-              SlotType = SpellSlots,
+              Src1Var = "TeamOfOwner",
+              Src2Var = "TeamOfTarget",
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Invulnerability,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 8,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "SummonerOdinGarrisonDebuff",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Invulnerability,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 8,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "SlotName",
               SpellSlotValue = 0,
-              OwnerVar = "Owner"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 1,
               SpellbookType = SPELLBOOK_SUMMONER,
               SlotType = SpellSlots,
-              SpellSlotValue = 1,
-              OwnerVar = "Owner"
+              OwnerVar = "Owner",
+              Function = GetSlotSpellName
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "SlotName",
+              Value2 = "SummonerOdinGarrison",
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetSlotSpellCooldownTime,
+                Params = {
+                  SrcValue = 1,
+                  SpellbookType = SPELLBOOK_SUMMONER,
+                  SlotType = SpellSlots,
+                  SpellSlotValue = 0,
+                  OwnerVar = "Owner"
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetSlotSpellCooldownTime,
+                Params = {
+                  SrcValue = 1,
+                  SpellbookType = SPELLBOOK_SUMMONER,
+                  SlotType = SpellSlots,
+                  SpellSlotValue = 1,
+                  OwnerVar = "Owner"
+                }
+              }
             }
           }
         }
@@ -560,12 +623,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odincapturechannel"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_essenceflux_tar.troy"
@@ -576,21 +633,9 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "summonerodingarrison"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinguardianbuff"
     }
   },
   {

@@ -29,10 +29,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "Dmg",
       SrcValueByLevel = {
         35,
-        55,
-        75,
-        95,
-        115
+        50,
+        65,
+        80,
+        95
       }
     }
   },
@@ -47,16 +47,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.25,
+      SpellDamageRatio = 0.2,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "shaco"}
   }
 }

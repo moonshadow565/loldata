@@ -17,14 +17,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanAttack
     }
@@ -66,6 +58,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -93,14 +87,32 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
       }
     }
+  },
+  {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Owner",
+      TargetOfOrderVar = "Owner",
+      Order = AI_HOLD
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -124,7 +136,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
-      TargetVar = "Target",
+      TargetVar = "Owner",
       OverrideCastPosition = false,
       SlotNumber = 1,
       SlotType = ExtraSlots,

@@ -67,7 +67,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentArmorPenetrationMod,
       TargetVar = "Owner",
-      Delta = 0.15
+      Delta = 0.12
     }
   },
   {
