@@ -55,9 +55,9 @@ OnBuffDeactivateBuildingBlocks = {
           DestVar = "NewCd",
           DestVarTable = "InstanceVars",
           SrcValueByLevel = {
+            90,
             80,
             70,
-            60,
             0,
             0
           }

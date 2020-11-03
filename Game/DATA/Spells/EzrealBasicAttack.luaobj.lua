@@ -1,6 +1,9 @@
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
+SpellVOOverrideSkins = {
+  "CyberEzreal"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetStat,

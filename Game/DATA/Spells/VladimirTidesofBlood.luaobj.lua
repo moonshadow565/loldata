@@ -34,7 +34,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.25,
       DestVar = "Multiplier",
       MathOp = MO_MULTIPLY
     }

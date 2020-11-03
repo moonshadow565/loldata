@@ -17,25 +17,6 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurrentHealth",
-      Src1Value = 0,
-      Src2Value = -0.15,
-      DestVar = "HealthCost",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthCost",
-      HealerVar = "Owner"
-    }
-  },
-  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },

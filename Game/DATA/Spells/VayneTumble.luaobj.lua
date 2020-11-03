@@ -120,6 +120,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 150,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -146,6 +148,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -298,6 +302,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 150,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -407,7 +413,7 @@ SelfExecuteBuildingBlocks = {
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1.5,
+          Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
@@ -447,12 +453,6 @@ BuffOnMoveEndBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vayneinquisition"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

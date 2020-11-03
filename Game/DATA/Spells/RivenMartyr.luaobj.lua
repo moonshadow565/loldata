@@ -138,10 +138,10 @@ OnBuffActivateBuildingBlocks = {
               TargetVar = "Unit",
               DamageByLevel = {
                 50,
-                90,
-                130,
-                170,
-                210
+                80,
+                110,
+                140,
+                170
               },
               Damage = 0,
               DamageType = PHYSICAL_DAMAGE,
@@ -262,10 +262,10 @@ OnBuffActivateBuildingBlocks = {
               TargetVar = "Unit",
               DamageByLevel = {
                 50,
-                90,
-                130,
-                170,
-                210
+                80,
+                110,
+                140,
+                170
               },
               Damage = 0,
               DamageType = PHYSICAL_DAMAGE,

@@ -23,11 +23,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "scalingDamage",
       SrcValueByLevel = {
+        0.3,
+        0.35,
         0.4,
         0.45,
-        0.5,
-        0.55,
-        0.6
+        0.5
       }
     }
   },
@@ -198,6 +198,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_NEUTRAL,
               FOWVisibilityRadius = 200,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -230,18 +232,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "vayne_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vaynetumblebonus"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vaynetumblefade"
     }
   }
 }

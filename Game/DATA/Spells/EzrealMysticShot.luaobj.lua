@@ -5,6 +5,9 @@ BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
+SpellFXOverrideSkins = {
+  "CyberEzreal"
+}
 PopupMessage1 = "game_floatingtext_Snared"
 SelfExecuteBuildingBlocks = {
   {
@@ -47,22 +50,64 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellCast,
+    Function = BBGetSkinID,
     Params = {
-      CasterVar = "Owner",
-      TargetVar = "Nothing",
-      PosVar = "TargetPos",
-      EndPosVar = "TargetPos",
-      OverrideCastPosition = false,
-      SlotNumber = 0,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 0,
-      OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Nothing",
+          PosVar = "TargetPos",
+          EndPosVar = "TargetPos",
+          OverrideCastPosition = false,
+          SlotNumber = 3,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = false,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Nothing",
+          PosVar = "TargetPos",
+          EndPosVar = "TargetPos",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = false,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
     }
   }
 }

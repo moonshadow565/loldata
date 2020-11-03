@@ -160,6 +160,14 @@ BuffOnUpdateStatsBuildingBlocks = {
           BuffName = "VolibearQSpeedPart",
           ResetDuration = 0
         }
+      },
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncPercentMovementSpeedMod,
+          TargetVar = "Owner",
+          Delta = 0.15
+        }
       }
     }
   }

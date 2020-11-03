@@ -13,10 +13,6 @@ AutoCooldownByLevel = {
 TriggersSpellCasts = true
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBStopMove,
-    Params = {TargetVar = "Attacker"}
-  },
-  {
     Function = BBGetPointByUnitFacingOffset,
     Params = {
       UnitVar = "Owner",

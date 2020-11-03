@@ -683,11 +683,11 @@ SelfExecuteBuildingBlocks = {
           DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            0.025,
-            0.025,
-            0.025,
-            0.025,
-            0.025
+            0.03,
+            0.03,
+            0.03,
+            0.03,
+            0.03
           }
         }
       },
@@ -710,7 +710,7 @@ SelfExecuteBuildingBlocks = {
           BuffType = BUFF_Haste,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 8,
+          Duration = 7,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
@@ -731,12 +731,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "defensiveballcurl"
-    }
-  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "rammuspb"}

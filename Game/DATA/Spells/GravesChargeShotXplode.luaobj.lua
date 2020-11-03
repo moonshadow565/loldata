@@ -28,9 +28,9 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "BaseDmg",
           SrcValueByLevel = {
-            150,
-            275,
-            400
+            140,
+            250,
+            360
           }
         }
       },

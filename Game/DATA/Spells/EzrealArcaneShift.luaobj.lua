@@ -6,8 +6,18 @@ IsDamagingSpell = true
 BuffTextureName = "Voidwalker_Riftwalk.dds"
 BuffName = "RiftWalk"
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "CyberEzreal"
+}
 AutoBuffActivateEvent = ""
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "CastPos"}
@@ -58,27 +68,107 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "teamID",
-      Value2 = TEAM_ORDER,
+      Src1Var = "OwnerSkinID",
+      Value2 = 5,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "Ezreal_arcaneshift_cas.troy",
-          Flags = 0,
-          EffectIDVar = "p3",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          Src1Var = "teamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "OwnerPos",
+              EffectName = "Ezreal_arcaneshift_cas_pulsefire.troy",
+              Flags = 0,
+              EffectIDVar = "p3",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "Ezreal_arcaneshift_flash_pulsefire.troy",
+              Flags = 0,
+              EffectIDVar = "ar1",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "OwnerPos",
+              EffectName = "Ezreal_arcaneshift_cas_pulsefire.troy",
+              Flags = 0,
+              EffectIDVar = "p3",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "Ezreal_arcaneshift_flash_pulsefire.troy",
+              Flags = 0,
+              EffectIDVar = "ar1",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -88,21 +178,101 @@ SelfExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "Ezreal_arcaneshift_cas.troy",
-          Flags = 0,
-          EffectIDVar = "p3",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          Src1Var = "teamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "OwnerPos",
+              EffectName = "Ezreal_arcaneshift_cas.troy",
+              Flags = 0,
+              EffectIDVar = "p3",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "Ezreal_arcaneshift_flash.troy",
+              Flags = 0,
+              EffectIDVar = "ar1",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "OwnerPos",
+              EffectName = "Ezreal_arcaneshift_cas.troy",
+              Flags = 0,
+              EffectIDVar = "p3",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "Ezreal_arcaneshift_flash.troy",
+              Flags = 0,
+              EffectIDVar = "ar1",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 225,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -314,59 +484,21 @@ SelfExecuteBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "teamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Ezreal_arcaneshift_flash.troy",
-          Flags = 0,
-          EffectIDVar = "ar1",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "Ezreal_arcaneshift_flash.troy",
-          Flags = 0,
-          EffectIDVar = "ar1",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_arcaneshift_cas_pulsefire.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_arcaneshift_flash_pulsefire.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

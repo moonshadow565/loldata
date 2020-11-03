@@ -355,6 +355,22 @@ end
 CO_IS_NOT_HERO = L0
 function L0(A0)
   local L1, L2
+  L1 = IsClone
+  L2 = A0
+  return L1(L2)
+end
+CO_IS_CLONE = L0
+function L0(A0)
+  local L1, L2
+  L1 = IsClone
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_NOT_CLONE = L0
+function L0(A0)
+  local L1, L2
   L1 = IsMelee
   L2 = A0
   return L1(L2)

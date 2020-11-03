@@ -211,7 +211,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "HPPoolMod",
       Src1Value = 0,
-      Src2Value = 0.18,
+      Src2Value = 0.15,
       DestVar = "HPPoolMod",
       MathOp = MO_MULTIPLY
     }

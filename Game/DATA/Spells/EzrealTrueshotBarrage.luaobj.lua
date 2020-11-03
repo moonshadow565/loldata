@@ -1,6 +1,12 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "CyberEzreal"
+}
+SpellVOOverrideSkins = {
+  "CyberEzreal"
+}
 SpellUpdateTooltipBuildingBlocks = {
   {
     Function = BBGetTotalAttackDamage,
@@ -49,6 +55,76 @@ SpellUpdateTooltipBuildingBlocks = {
       SlotType = SpellSlots,
       SlotBook = SPELLBOOK_CHAMPION,
       TargetVar = "Owner"
+    }
+  }
+}
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "OwnerTeamID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Ezreal_PulseFire_Ult_Thrusters.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          BoneName = "BUFFBONE_Vent_Low_R",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "OwnerTeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Ezreal_PulseFire_Ult_Thrusters.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          BoneName = "BUFFBONE_Vent_Low_L",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "OwnerTeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   }
 }
@@ -233,6 +309,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_ult_thrusters.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

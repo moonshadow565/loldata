@@ -141,10 +141,10 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             -20,
-            -40,
-            -60,
-            -80,
-            -100
+            -35,
+            -50,
+            -65,
+            -80
           }
         }
       },
@@ -218,10 +218,10 @@ TargetExecuteBuildingBlocks = {
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
                 -20,
-                -40,
-                -60,
-                -80,
-                -100
+                -35,
+                -50,
+                -65,
+                -80
               }
             }
           },
@@ -273,10 +273,10 @@ TargetExecuteBuildingBlocks = {
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
                 -20,
-                -40,
-                -60,
-                -80,
-                -100
+                -35,
+                -50,
+                -65,
+                -80
               }
             }
           },
@@ -303,10 +303,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "facingme"}
-  },
   {
     Function = BBPreloadSpell,
     Params = {
