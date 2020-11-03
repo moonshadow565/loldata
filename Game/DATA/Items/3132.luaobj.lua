@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "heartofgold"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "goldpertencounter"
+    }
   }
 }

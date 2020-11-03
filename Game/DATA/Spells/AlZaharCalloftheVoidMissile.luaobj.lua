@@ -7,6 +7,12 @@ TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharcallofthevoidmissile"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "silence"}
   }
 }

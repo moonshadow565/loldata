@@ -1,7 +1,6 @@
 BuffTextureName = "YorickOmenOfDeath.dds"
 BuffName = "YorickOmenPreDeath"
 AutoBuffActivateEffect = "yorick_ult_revive_tar.troy"
-AutoBuffActivateEffect2 = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

@@ -4,11 +4,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lightningrodapplicator"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lightningrodchain"
-    }
   }
 }

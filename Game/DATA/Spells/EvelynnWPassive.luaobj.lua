@@ -1,0 +1,32 @@
+BuffTextureName = "Evelynn_ReadyToBetray.dds"
+BuffName = "EvelynnWPassive"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelynn_w_passive_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelynn_w_passive_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelynn_w_passive_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelynn_w_passive_04.troy"
+    }
+  }
+}

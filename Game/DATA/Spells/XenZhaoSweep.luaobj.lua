@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaointimidate"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "slow"}
   }
 }

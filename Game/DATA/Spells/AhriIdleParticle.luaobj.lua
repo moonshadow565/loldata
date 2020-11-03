@@ -1,5 +1,3 @@
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {

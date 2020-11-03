@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Vladimir_SanguinePool.dds"
 BuffName = "VladimirSanguinePool"
-AutoBuffActivateEffect = ""
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "BloodkingVladimir"

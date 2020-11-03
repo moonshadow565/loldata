@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Nocturne_Paranoia.dds"
 BuffName = "NocturneParanoia"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 4
 PreLoadBuildingBlocks = {
   {

@@ -7,9 +7,6 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
 AutoBuffActivateEffect2 = "nocturne_shroudofDarkness_shield_cas_02.troy"
 AutoBuffActivateAttachBoneName2 = "Head"
 AutoBuffActivateEffect3 = "nocturne_shroudofDarkness_shield_cas_ground.troy"
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
-AutoBuffActivateAttachBoneName4 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -21,12 +18,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "nocturneshroudofdarknessbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneshroudofdarkness"
     }
   },
   {

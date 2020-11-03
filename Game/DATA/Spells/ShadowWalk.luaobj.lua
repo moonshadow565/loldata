@@ -1,31 +1,35 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-CastingBreaksStealth = false
+CastingBreaksStealth = true
+CastTime = 0.5
 BuffTextureName = "Evelynn_ReadyToBetray.dds"
 BuffName = "ShadowWalk"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
+PersistsThroughDeath = true
+NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "wasstealthed"
+      Name = "evelynnwarning"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "shadowwalk"}
+    Params = {
+      Name = "evelynnstealthmarker"
+    }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shadowwalk_internal"
+      Name = "evelynnstealthring"
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "evelyn_invis_cas.troy"
+      Name = "evelynnstealth"
     }
   }
 }

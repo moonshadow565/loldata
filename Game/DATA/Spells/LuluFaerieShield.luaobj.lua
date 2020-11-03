@@ -6,6 +6,5 @@ IsDamagingSpell = false
 BuffTextureName = "Lulu_CommandPix.dds"
 BuffName = "LuluEShield"
 AutoBuffActivateEffect = "Lulu_E_shield_01.troy"
-AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true

@@ -7,29 +7,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "alzaharvoidling"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "alzaharrecentvis"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "malzahar"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharmaleficvisions"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ifhasbuffcheck"
     }
   },
   {

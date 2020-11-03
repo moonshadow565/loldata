@@ -1,4 +1,4 @@
-BuffTextureName = "Twitch_DeadlyVenom_temp.dds"
+BuffTextureName = "Twitch_DeadlyVenom.dds"
 BuffName = "Deadly Venom"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""

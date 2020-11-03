@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Voidwalker_Riftwalk.dds"
 BuffName = "RiftWalk"
-AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
   {
