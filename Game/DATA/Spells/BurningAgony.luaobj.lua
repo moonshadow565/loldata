@@ -4,6 +4,5 @@ IsDamagingSpell = true
 BuffTextureName = "DrMundo_BurningAgony.dds"
 BuffName = "BurningAgony"
 AutoBuffActivateEffect = "dr_mundo_burning_agony_cas_02.troy"
-AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = "root"
 SpellToggleSlot = 2

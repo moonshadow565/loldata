@@ -6,10 +6,6 @@ OnPreDamagePriority = 8
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "willrevive"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "rebirth"}
   }
 }

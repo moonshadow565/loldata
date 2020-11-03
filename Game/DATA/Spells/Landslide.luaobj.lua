@@ -3,18 +3,21 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 SpellFXOverrideSkins = {
-  "ReefMalphite"
+  "ReefMalphite",
+  "GlacialMalphite"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "landslide_blue_nova.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "malphite_glacial_landslide.troy"
     }
   },
   {

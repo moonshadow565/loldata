@@ -2,10 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_KeepingthePeace.dds"
 BuffName = "GarenBladestorm"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

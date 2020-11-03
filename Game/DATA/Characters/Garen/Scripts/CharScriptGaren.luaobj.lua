@@ -2,7 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "garendetector"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "garenjusticeprecast"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garensunfirecloakvodelay"
     }
   },
   {
@@ -21,6 +33,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "garenrecouperateon"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenbrushcheck"
     }
   },
   {

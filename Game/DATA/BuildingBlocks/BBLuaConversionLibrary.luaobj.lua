@@ -50,22 +50,23 @@ function L0(A0, A1, A2)
   L3(L4, L5)
 end
 ApplyDamage = L0
-function L0(A0, A1)
-  local L2, L3, L4
-  L2 = {}
-  L3 = GetHashedGameObjName
-  L4 = "Target"
-  L3 = L3(L4)
-  L2[L3] = A0
-  passThroughParams = L2
-  L2 = {}
-  L2.UnitVar = "Target"
-  L2.ItemID = A1
-  perBlockParams = L2
-  L2 = BBCreateItem
-  L3 = passThroughParams
-  L4 = perBlockParams
-  L2(L3, L4)
+function L0(A0, A1, A2)
+  local L3, L4, L5
+  L3 = {}
+  L4 = GetHashedGameObjName
+  L5 = "Target"
+  L4 = L4(L5)
+  L3[L4] = A0
+  passThroughParams = L3
+  L3 = {}
+  L3.UnitVar = "Target"
+  L3.CreatedItemID = A1
+  L3.CheckRange = A2
+  perBlockParams = L3
+  L3 = BBCreateItem
+  L4 = passThroughParams
+  L5 = perBlockParams
+  L3(L4, L5)
 end
 CreateItem = L0
 function L0(A0, A1)

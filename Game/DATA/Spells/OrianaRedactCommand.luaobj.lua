@@ -10,12 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "orianaglobalcooldown"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "unlockanimation"
     }
   },
@@ -47,6 +41,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaredact"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaglobalcooldown"
     }
   }
 }

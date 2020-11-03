@@ -2,10 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "LeonaSolarBarrier.dds"
 BuffName = "LeonaSolarBarrier"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 SpellToggleSlot = 2
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
@@ -46,12 +42,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leonasolarbarrier"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leona_solarbarrier_nova.troy"
@@ -64,15 +54,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leonasolarbarriertracker"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leona_solarbarrier_nova_whiff.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leonasolarbarrier"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leonasolarbarriertracker"
     }
   }
 }

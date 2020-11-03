@@ -1,6 +1,5 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

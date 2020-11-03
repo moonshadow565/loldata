@@ -1,7 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Yeti_Consume.dds"
-BuffName = ""
 AutoBuffActivateEffect = "Consume_buf.troy"
 AutoCooldownByLevel = {
   35,
@@ -16,12 +15,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "meditate_eff.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "resistantskin"
     }
   }
 }
