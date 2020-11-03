@@ -25,5 +25,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varusrimmune"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "varusrtooltip"
+    }
   }
 }

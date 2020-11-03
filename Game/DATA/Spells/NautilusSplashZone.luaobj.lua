@@ -3,17 +3,20 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 SpellFXOverrideSkins = {
-  "ReefMalphite"
+  "ReefMalphite",
+  "NautilusAstronaut"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_astro_e_impact.troy"
+    }
   },
   {
     Function = BBPreloadParticle,

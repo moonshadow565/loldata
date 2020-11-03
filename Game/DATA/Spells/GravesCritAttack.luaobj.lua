@@ -1,3 +1,4 @@
 SpellFXOverrideSkins = {
-  "MafiaGraves"
+  "MafiaGraves",
+  "RiotGraves"
 }

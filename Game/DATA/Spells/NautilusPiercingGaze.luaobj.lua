@@ -1,5 +1,6 @@
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "NautilusAstronaut"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

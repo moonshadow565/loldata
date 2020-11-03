@@ -2,12 +2,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "ziggse_mis_mineopen_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "ziggse_mis_mineopen.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "ziggsemine"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsemine_pool.troy"
+    }
   },
   {
     Function = BBPreloadParticle,

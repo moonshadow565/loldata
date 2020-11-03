@@ -1,7 +1,9 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "voracity"}
+    Params = {
+      Name = "katarinapassive"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -13,12 +15,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "killerinstinctbuff"
     }
   }
 }

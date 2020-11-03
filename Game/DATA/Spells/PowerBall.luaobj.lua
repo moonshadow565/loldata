@@ -8,6 +8,10 @@ BuffName = "PowerBall"
 AutoBuffActivateEffect = "ArmordilloSpin.troy"
 AutoBuffActivateEffect2 = "Powerball_buf.troy"
 SpellToggleSlot = 1
+SpellFXOverrideSkins = {
+  "MetalRammus",
+  "RoboRammus"
+}
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
   {

@@ -1,10 +1,18 @@
 BuffTextureName = "Nautilus_StaggeringBlow.dds"
 BuffName = "NautilusPassiveRoot"
-AutoBuffActivateEffect = "Nautilus_passive_root.troy"
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = "Nautilus_passive_root_02.troy"
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
-PersistsThroughDeath = true
 PopupMessage1 = "game_floatingtext_Snared"
+PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_astro_passive_root.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_passive_root_02.troy"
+    }
+  }
+}

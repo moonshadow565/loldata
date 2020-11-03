@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "VarusW.dds"
 BuffName = "VarusW"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 IsDeathRecapSource = true
 PersistsThroughDeath = true

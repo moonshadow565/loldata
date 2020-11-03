@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   14
 }
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "NautilusAstronaut"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -25,6 +28,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nautilus_q_mis_tar_terranian.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_q_mis_tar_astro.troy"
     }
   },
   {
@@ -67,6 +76,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nautilus_q_impact_miss_submarine.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_q_impact_miss_astro.troy"
     }
   },
   {

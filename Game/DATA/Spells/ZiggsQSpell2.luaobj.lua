@@ -1,5 +1,6 @@
 SpellFXOverrideSkins = {
-  "ZiggsMadScientist"
+  "ZiggsMadScientist",
+  "ZiggsPoolParty"
 }
 PreLoadBuildingBlocks = {
   {
@@ -11,7 +12,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "ziggsqexplosion_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "ziggsqexplosion.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsq_tar_pool.troy"
     }
   },
   {
@@ -30,6 +43,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsqbounce_pool.troy"
     }
   },
   {

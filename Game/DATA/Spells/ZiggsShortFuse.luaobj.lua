@@ -12,5 +12,6 @@ AutoBuffActivateAttachBoneName2 = "Bomb_b"
 SpellToggleSlot = 2
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "ZiggsMadScientist"
+  "ZiggsMadScientist",
+  "ZiggsPoolParty"
 }

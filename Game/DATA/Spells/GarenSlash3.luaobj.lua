@@ -2,11 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_DecisiveStrike.dds"
 BuffName = "GarenSlash"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
