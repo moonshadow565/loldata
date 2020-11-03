@@ -4,7 +4,7 @@ TUTORIAL_START_TIME = L0
 L0 = 100
 DEFAULT_PROXIMITY_DISTANCE = L0
 L0 = Make3DPoint
-L1 = 12083.7
+L1 = 10473.7
 L2 = 9.04187
 L3 = 7691.42
 L0 = L0(L1, L2, L3)
@@ -192,14 +192,14 @@ L0[7] = L7
 eventMinionAttackChaosWizardSpawnPoints = L0
 L0 = {}
 L1 = Make3DPoint
-L2 = 12737.9
+L2 = 10737.9
 L3 = 57.0709
-L4 = 12587.1
+L4 = 10587.1
 L1 = L1(L2, L3, L4)
 L2 = Make3DPoint
-L3 = 13115.2
+L3 = 11115.2
 L4 = 57.071
-L5 = 12171.3
+L5 = 10171.3
 L2, L3, L4, L5, L6, L7 = L2(L3, L4, L5)
 L0[1] = L1
 L0[2] = L2
@@ -211,24 +211,24 @@ L0[7] = L7
 chaosWizardSpawnPoints = L0
 L0 = {}
 L1 = Make3DPoint
-L2 = 12669.4
+L2 = 10669.4
 L3 = 57.071
-L4 = 11639.3
+L4 = 9639.3
 L1 = L1(L2, L3, L4)
 L2 = Make3DPoint
-L3 = 12959
+L3 = 10959
 L4 = 57.071
-L5 = 11841.3
+L5 = 9841.3
 L2 = L2(L3, L4, L5)
 L3 = Make3DPoint
-L4 = 12034.9
+L4 = 10034.9
 L5 = 57.071
-L6 = 12239.1
+L6 = 10239.1
 L3 = L3(L4, L5, L6)
 L4 = Make3DPoint
-L5 = 12351.6
+L5 = 10351.6
 L6 = 57.071
-L7 = 12530
+L7 = 10530
 L4, L5, L6, L7 = L4(L5, L6, L7)
 L0[1] = L1
 L0[2] = L2
@@ -239,31 +239,31 @@ L0[6] = L6
 L0[7] = L7
 chaosBasicSpawnPoints = L0
 L0 = Make3DPoint
-L1 = 7373.83
+L1 = 6373.83
 L2 = 1.15527
-L3 = 7166.6
+L3 = 6166.6
 L0 = L0(L1, L2, L3)
 singedGetsOwnedPos = L0
 L0 = {}
 L1 = Make3DPoint
-L2 = 13540.6
+L2 = 11540.6
 L3 = 57.0709
-L4 = 11980.2
+L4 = 9980.2
 L1 = L1(L2, L3, L4)
 L2 = Make3DPoint
-L3 = 13508.3
+L3 = 11508.3
 L4 = 57.071
-L5 = 12381
+L5 = 10381
 L2 = L2(L3, L4, L5)
 L3 = Make3DPoint
-L4 = 13041
+L4 = 11041
 L5 = 57.071
-L6 = 12949.2
+L6 = 10949.2
 L3 = L3(L4, L5, L6)
 L4 = Make3DPoint
-L5 = 12911.6
+L5 = 10911.6
 L6 = 57.0711
-L7 = 12078
+L7 = 10078
 L4, L5, L6, L7 = L4(L5, L6, L7)
 L0[1] = L1
 L0[2] = L2
@@ -275,24 +275,24 @@ L0[7] = L7
 chaosWizardFinalPoints = L0
 L0 = {}
 L1 = Make3DPoint
-L2 = 12183.3
+L2 = 10183.3
 L3 = 57.0709
-L4 = 12891.9
+L4 = 10891.9
 L1 = L1(L2, L3, L4)
 L2 = Make3DPoint
-L3 = 12660.4
+L3 = 10660.4
 L4 = 57.0709
-L5 = 12809.8
+L5 = 10809.8
 L2 = L2(L3, L4, L5)
 L3 = Make3DPoint
-L4 = 13283.6
+L4 = 11283.6
 L5 = 57.071
-L6 = 12085.6
+L6 = 10085.6
 L3 = L3(L4, L5, L6)
 L4 = Make3DPoint
-L5 = 13320.5
+L5 = 11320.5
 L6 = 57.0709
-L7 = 11765.5
+L7 = 9765.5
 L4, L5, L6, L7 = L4(L5, L6, L7)
 L0[1] = L1
 L0[2] = L2
@@ -410,13 +410,13 @@ function L0()
   L1 = GetTurret
   L2 = TEAM_ORDER
   L3 = CENTER_LANE
-  L4 = BACK_TOWER
+  L4 = MID_TOWER
   L1 = L1(L2, L3, L4)
   secondOrderTurret = L1
   L1 = GetTurret
   L2 = TEAM_CHAOS
   L3 = CENTER_LANE
-  L4 = BACK_TOWER
+  L4 = MID_TOWER
   L1 = L1(L2, L3, L4)
   firstChaosTurret = L1
   L1 = GetDampener
@@ -500,71 +500,13 @@ function L0()
   L3 = 2000
   L1(L2, L3)
   L1 = LogTutorial
-  L2 = "Incrementing Ally Exp"
+  L2 = "Setting up timer to increase bot levels"
   L1(L2)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 90000
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
+  L1 = InitTimer
+  L2 = "SetBotLevels"
   L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = allyID
-  L3 = 1
-  L1(L2, L3)
-  L1 = LogTutorial
-  L2 = "Incrementing Bot Exp"
-  L1(L2)
-  L1 = IncExp
-  L2 = botID
-  L3 = 30000
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = botID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = botID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = botID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = botID
-  L3 = 1
-  L1(L2, L3)
-  L1 = IncExp
-  L2 = botID
-  L3 = 1
-  L1(L2, L3)
+  L4 = false
+  L1(L2, L3, L4)
   L1 = LogTutorial
   L2 = "Locking player input"
   L1(L2)
@@ -690,6 +632,76 @@ function L0()
   L1(L2, L3)
 end
 OnTutorialInit = L0
+function L0()
+  local L0, L1, L2
+  L0 = LogTutorial
+  L1 = "Incrementing Ally Exp"
+  L0(L1)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 90000
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = allyID
+  L2 = 1
+  L0(L1, L2)
+  L0 = LogTutorial
+  L1 = "Incrementing Bot Exp"
+  L0(L1)
+  L0 = IncExp
+  L1 = botID
+  L2 = 30000
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = botID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = botID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = botID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = botID
+  L2 = 1
+  L0(L1, L2)
+  L0 = IncExp
+  L1 = botID
+  L2 = 1
+  L0(L1, L2)
+end
+SetBotLevels = L0
 function L0(A0)
   local L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
   for L4 = L1, L2, L3 do
@@ -713,9 +725,9 @@ function L0()
   L4 = "Dragon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 11162
+  L7 = 9260
   L8 = 57.0709
-  L9 = 10783.8
+  L9 = 8990
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -731,9 +743,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 10400
+  L7 = 9055
   L8 = 58
-  L9 = 10781.6
+  L9 = 8330.6
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -749,9 +761,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 10729.7
+  L7 = 8763.7
   L8 = 58
-  L9 = 10374.9
+  L9 = 8644.9
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -767,9 +779,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 11165.2
+  L7 = 8564.2
   L8 = 58
-  L9 = 10207
+  L9 = 8854
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -785,27 +797,9 @@ function L0()
   L4 = "Red_Minion_Wizard"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 9419.97
-  L8 = 1.15515
-  L9 = 9180.32
-  L6 = L6(L7, L8, L9)
-  L7 = TEAM_CHAOS
-  L8 = false
-  L9 = false
-  L10 = false
-  L11 = false
-  L12 = false
-  L13 = false
-  L14 = nil
-  L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
-  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
-  L3 = "Walker"
-  L4 = "Red_Minion_Wizard"
-  L5 = "minion.lua"
-  L6 = Make3DPoint
-  L7 = 9101.92
+  L7 = 8193.92
   L8 = 1.15503
-  L9 = 8860.48
+  L9 = 8008.48
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -821,9 +815,9 @@ function L0()
   L4 = "Red_Minion_Wizard"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8822.82
+  L7 = 7993.82
   L8 = 1.15503
-  L9 = 8625.21
+  L9 = 7808.21
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -839,9 +833,9 @@ function L0()
   L4 = "Red_Minion_Basic"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8614.79
+  L7 = 7793.79
   L8 = 1.15527
-  L9 = 8427.57
+  L9 = 7608.57
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -857,9 +851,9 @@ function L0()
   L4 = "Red_Minion_Basic"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8373.37
+  L7 = 7593.37
   L8 = 1.15515
-  L9 = 8259.46
+  L9 = 7408.46
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -875,29 +869,11 @@ function L0()
   L4 = "Red_Minion_Basic"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8133
+  L7 = 7393
   L8 = 1.15
-  L9 = 8059
+  L9 = 7208
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
-  L8 = false
-  L9 = false
-  L10 = false
-  L11 = false
-  L12 = false
-  L13 = false
-  L14 = nil
-  L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
-  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
-  L3 = "OrderMinion"
-  L4 = "Blue_Minion_Wizard"
-  L5 = "minion.lua"
-  L6 = Make3DPoint
-  L7 = 891.72
-  L8 = 51.8984
-  L9 = 1620.71
-  L6 = L6(L7, L8, L9)
-  L7 = TEAM_ORDER
   L8 = false
   L9 = false
   L10 = false

@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "brandpassivesound"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "arampassivebonuses"
+    }
   }
 }

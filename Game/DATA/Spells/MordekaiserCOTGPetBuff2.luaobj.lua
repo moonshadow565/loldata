@@ -29,6 +29,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "mordekaisercotgguide"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaiserchildrenofthegrave"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "mordekaisercotgpetdmg"
     }
   }
