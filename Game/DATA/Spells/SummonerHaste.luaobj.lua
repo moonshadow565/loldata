@@ -111,7 +111,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "MoveSpeedMod",
-      SrcValue = 0.32
+      SrcValue = 0.27
     }
   },
   {
@@ -123,7 +123,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "GhostMovementBonus",
       Src1VarTable = "AvatarVars",
-      Value2 = 0.08,
+      Value2 = 0.06,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -178,13 +178,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Haste,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

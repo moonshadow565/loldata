@@ -1,3 +1,6 @@
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -78,7 +81,8 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = false,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {

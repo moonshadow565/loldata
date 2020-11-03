@@ -131,6 +131,59 @@ OnBuffDeactivateBuildingBlocks = {
       Cost = 0,
       PARType = PAR_MANA
     }
+  },
+  {
+    Function = BBGetTime,
+    Params = {DestVar = "CurTime"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CurTime",
+      Src2Var = "InitialTime",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TimeSinceLast",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TimeSinceLast",
+      Src1Value = 0,
+      Src2Value = 10,
+      DestVar = "TimeSinceLast",
+      MathOp = MO_MIN
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "AttackSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HideInShadowsBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      DurationVar = "TimeSinceLast",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -142,6 +195,28 @@ BuffOnUpdateStatsBuildingBlocks = {
       Status = SetStealthed
     }
   },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "HideInShadowsBuff"
+    },
+    SubBlocks = {
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncPercentAttackSpeedMod,
+          TargetVar = "Owner",
+          DeltaVar = "AttackSpeedMod",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
@@ -187,6 +262,10 @@ BuffOnSpellCastBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = true
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -215,6 +294,10 @@ BuffOnSpellCastBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = true
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -243,19 +326,11 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBGetStatus,
+    Function = BBIfHasBuff,
     Params = {
-      TargetVar = "Owner",
-      DestVar = "temp",
-      Status = GetStealthed
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "temp",
-      Value2 = true,
-      CompareOp = CO_EQUAL
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HideInShadows"
     },
     SubBlocks = {
       {
@@ -372,60 +447,17 @@ TargetExecuteBuildingBlocks = {
 }
 BuffOnLaunchAttackBuildingBlocks = {
   {
-    Function = BBGetTime,
-    Params = {DestVar = "CurTime"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurTime",
-      Src2Var = "InitialTime",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TimeSinceLast",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "TimeSinceLast",
-      Src1Value = 0,
-      Src2Value = 10,
-      DestVar = "TimeSinceLast",
-      MathOp = MO_MIN
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "AttackSpeedMod",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "HideInShadowsBuff",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      DurationVar = "TimeSinceLast",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hideinshadowsbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -442,12 +474,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_invis_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "hideinshadowsbuff"
     }
   }
 }

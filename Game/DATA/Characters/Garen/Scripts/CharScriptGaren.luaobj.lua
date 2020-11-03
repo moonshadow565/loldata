@@ -1,27 +1,3 @@
-UpdateSelfBuffStatsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 2,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      }
-    }
-  }
-}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -192,13 +168,6 @@ CharOnActivateBuildingBlocks = {
       DestVarTable = "CharVars",
       SrcValue = 0
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "GarenDamageVar",
-      DestVarTable = "InstanceVars"
-    }
   }
 }
 CharOnLevelUpSpellBuildingBlocks = {
@@ -309,6 +278,39 @@ CharOnLevelUpSpellBuildingBlocks = {
     }
   }
 }
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "name", Info = GetSpellName}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name",
+      Value2 = "garenjustice",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GarenJusticePreCast",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -332,6 +334,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "garencommandkill"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenjusticeprecast"
     }
   }
 }

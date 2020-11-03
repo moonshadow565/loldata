@@ -1,3 +1,5 @@
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -144,6 +146,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
             200,

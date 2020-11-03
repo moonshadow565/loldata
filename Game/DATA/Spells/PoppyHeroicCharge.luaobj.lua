@@ -349,7 +349,7 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnMoveEndBuildingBlocks = {
+BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
@@ -525,14 +525,6 @@ BuffOnMoveEndBuildingBlocks = {
                         }
                       },
                       {
-                        Function = BBApplySilence,
-                        Params = {
-                          AttackerVar = "Owner",
-                          TargetVar = "Unit",
-                          Duration = 0.01
-                        }
-                      },
-                      {
                         Function = BBGetPointByUnitFacingOffset,
                         Params = {
                           UnitVar = "Owner",
@@ -595,7 +587,7 @@ BuffOnMoveEndBuildingBlocks = {
                           BuffType = BUFF_Stun,
                           MaxStack = 1,
                           NumberOfStacks = 1,
-                          Duration = 2,
+                          Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
                           CanMitigateDuration = false

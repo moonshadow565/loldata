@@ -5,17 +5,11 @@ SpellDamageRatio = 1
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "DamageAmount",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "HasHitGround",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "HasHitGround",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
   },
   {
@@ -57,7 +51,7 @@ OnBuffActivateBuildingBlocks = {
       UnitVar = "Owner",
       TargetVar = "LandPos",
       Speed = 1000,
-      Gravity = 40,
+      Gravity = 60,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
@@ -119,31 +113,6 @@ OnBuffDeactivateBuildingBlocks = {
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true
     }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HasHitGround",
-      DestVarTable = "InstanceVars",
-      SrcVar = "true"
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -174,28 +143,6 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageAmount",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        100,
-        150,
-        200,
-        250,
-        300
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HasHitGround",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
-  },
-  {
     Function = BBGetUnitPosition,
     Params = {UnitVar = "Target", PositionVar = "TargetPos"}
   },
@@ -224,6 +171,29 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 1160,
       DestVar = "DelayTimer",
       MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        100,
+        150,
+        200,
+        250,
+        300
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

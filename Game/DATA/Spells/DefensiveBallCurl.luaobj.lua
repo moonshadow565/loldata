@@ -28,11 +28,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DefensiveBallCurlCancel",
+      TargetVar = "Owner"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
       EffectName = "DefensiveBallCurl_buf",
       Flags = 0,
+      EffectIDVar = "particle",
+      EffectIDVarTable = "InstanceVars",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -46,9 +58,20 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0.5,
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
     }
   }
 }
@@ -80,9 +103,82 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "baseCD", SrcValue = 15}
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentCooldownMod,
+      TargetVar = "Owner",
+      DestVar = "CooldownStat"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "CooldownStat",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "Multiplier",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Multiplier",
+      Src2Var = "baseCD",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "NewCooldown",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "NewCooldown",
+      Src2Var = "LifeTime",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalCooldown",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DefensiveBallCurl",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "FinalCooldown",
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "particle",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -121,6 +217,7 @@ BuffOnBeingHitBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Attacker",
           Damage = 0,
           DamageVar = "DamageReturn",
@@ -129,6 +226,7 @@ BuffOnBeingHitBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.25,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -153,78 +251,48 @@ BuffOnBeingHitBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSetVarInTable,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "DefensiveBallCurl"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "DefensiveBallCurl"
-        }
+      DestVar = "ArmorAmount",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        50,
+        75,
+        100,
+        125,
+        150
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorAmount",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            50,
-            75,
-            100,
-            125,
-            150
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageReturn",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            26,
-            32,
-            38,
-            44,
-            50
-          }
-        }
-      },
-      {
-        Function = BBGetTeamID,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "CasterID",
-          DestVarTable = "NextBuffVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
-          BuffName = "DefensiveBallCurl",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 6,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageReturn",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        26,
+        32,
+        38,
+        44,
+        50
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "DefensiveBallCurl",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -236,21 +304,27 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "defensiveballcurlcancel"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "dbc_out.troy"
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "thornmail_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "defensiveballcurl"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thornmail_tar.troy"
     }
   }
 }

@@ -35,28 +35,6 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           }
         }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIncHealth,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 13,
-              HealerVar = "Attacker"
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 5,
-              PARType = PAR_MANA
-            }
-          }
-        }
       }
     }
   }

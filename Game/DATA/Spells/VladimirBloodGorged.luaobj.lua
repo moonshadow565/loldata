@@ -32,22 +32,13 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBSetBuffToolTipVar,
+    Function = BBIncMaxHealth,
     Params = {
-      Value = 0,
-      ValueVar = "APMod",
-      ValueVarTable = "InstanceVars",
-      Index = 1
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
+      Delta = 0,
       DeltaVar = "HPMod",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      IncCurrentHealth = false
     }
   },
   {
@@ -57,6 +48,15 @@ BuffOnUpdateStatsBuildingBlocks = {
       ValueVar = "HPMod",
       ValueVarTable = "InstanceVars",
       Index = 2
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "APMod",
+      ValueVarTable = "InstanceVars",
+      Index = 1
     }
   }
 }

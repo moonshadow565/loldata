@@ -2,6 +2,14 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Target",
+      SourceVar = "Attacker"
+    }
+  },
+  {
     Function = BBApplyFear,
     Params = {
       AttackerVar = "Attacker",
