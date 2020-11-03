@@ -241,7 +241,8 @@ OnBuffActivateBuildingBlocks = {
               Duration = 0.75,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -326,55 +327,6 @@ BuffOnUpdateStatsBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.25,
-      TrackTimeVar = "HostileTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 700,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "MoveSpeedMod",
-              DestVarTable = "NextBuffVars",
-              SrcValue = -0.3
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "Slow",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-              StacksExclusive = true,
-              BuffType = BUFF_Slow,
-              MaxStack = 100,
-              NumberOfStacks = 1,
-              Duration = 0.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      }
-    }
   }
 }
 ChannelingStartBuildingBlocks = {
@@ -439,7 +391,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.25,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -479,10 +432,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "moveaway"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,

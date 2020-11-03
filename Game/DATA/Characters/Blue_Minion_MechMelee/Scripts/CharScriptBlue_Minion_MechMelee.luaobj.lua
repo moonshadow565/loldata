@@ -11,7 +11,7 @@ CharOnBeingHitBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "DamageAmount",
-              Src1Value = 0.5,
+              Src1Value = 0.35,
               Src2Value = 0,
               DestVar = "DamageAmount",
               MathOp = MO_MULTIPLY
@@ -52,7 +52,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -69,7 +70,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

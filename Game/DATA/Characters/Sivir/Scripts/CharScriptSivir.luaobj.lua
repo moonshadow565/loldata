@@ -1,75 +1,3 @@
-UpdateSelfBuffStatsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTime2Executed",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "totalDamage"
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetBaseAttackDamage,
-          TargetVar = "Owner",
-          DestVar = "baseDamage"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "totalDamage",
-          Src2Var = "baseDamage",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "bonusDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "bonusDamage",
-          Src1Value = 0,
-          Src2Value = 0.95,
-          DestVar = "Spell3Display",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "Spell3Display",
-          Index = 1,
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
-        }
-      }
-    }
-  }
-}
 SetVarsByLevelBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -198,6 +126,78 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
+    }
+  }
+}
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTime2Executed",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0.95,
+          DestVar = "Spell3Display",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "Spell3Display",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
     }
   }
 }

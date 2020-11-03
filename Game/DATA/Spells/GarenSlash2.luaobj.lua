@@ -42,7 +42,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SupremeDmg",
       Src1Value = 0,
-      Src2Value = 1.2,
+      Src2Value = 1.5,
       DestVar = "scalingDamage",
       MathOp = MO_MULTIPLY
     }

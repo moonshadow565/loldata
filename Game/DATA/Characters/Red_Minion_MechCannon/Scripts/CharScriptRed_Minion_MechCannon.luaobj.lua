@@ -18,12 +18,15 @@ UpdateSelfBuffStatsBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "TurretShield",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -60,7 +63,7 @@ CharOnBeingHitBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "DamageAmount",
-              Src1Value = 0.5,
+              Src1Value = 0.35,
               Src2Value = 0,
               DestVar = "DamageAmount",
               MathOp = MO_MULTIPLY
@@ -72,6 +75,7 @@ CharOnBeingHitBuildingBlocks = {
               BindObjectVar = "Owner",
               EffectName = "FeelNoPain_eff.troy",
               Flags = 0,
+              EffectIDVar = "ar",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,

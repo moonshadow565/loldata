@@ -158,7 +158,8 @@ BuffOnHitUnitBuildingBlocks = {
           Duration = 0.2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -263,7 +264,7 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {
           Src1Var = "abilityPower",
           Src1Value = 0,
-          Src2Value = 0.2,
+          Src2Value = 0.4,
           DestVar = "bonusAPDamage",
           MathOp = MO_MULTIPLY
         }
@@ -463,7 +464,8 @@ BuffOnHitUnitBuildingBlocks = {
           Duration = 0.001,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -558,7 +560,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

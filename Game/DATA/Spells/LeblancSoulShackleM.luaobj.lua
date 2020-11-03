@@ -488,7 +488,8 @@ OnBuffDeactivateBuildingBlocks = {
           DurationVar = "BreakStun",
           DurationVarTable = "InstanceVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -522,7 +523,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.44,
+              SpellDamageRatio = 0.55,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -550,7 +551,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5,
+              SpellDamageRatio = 0.625,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -574,7 +575,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.56,
+              SpellDamageRatio = 0.7,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -746,7 +747,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.44,
+          SpellDamageRatio = 0.55,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -799,7 +800,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.5,
+          SpellDamageRatio = 0.625,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -848,7 +849,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.56,
+          SpellDamageRatio = 0.7,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -893,7 +894,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -925,7 +927,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

@@ -30,6 +30,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = KEEP_CURRENT_FACING,
       IdealDistance = 0
     }
   },
