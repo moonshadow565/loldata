@@ -178,6 +178,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhostProof
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
@@ -241,13 +249,29 @@ OnBuffActivateBuildingBlocks = {
           BuffName = "TrundleWallPush",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 76,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageType = TRUE_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          PercentOfAttack = 0,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

@@ -62,7 +62,7 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           CenterVar = "TargetPos",
           Range = 350,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          Flags = "AffectEnemies AffectNeutral AffectHeroes ",
           IteratorVar = "Unit",
           MaximumUnitsToPick = 1,
           BuffNameFilter = "UrgotCorrosiveDebuff",
@@ -126,6 +126,90 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Homed",
+          Value2 = 0,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBForNClosestUnitsInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "TargetPos",
+              Range = 350,
+              Flags = "AffectEnemies AffectNeutral AffectMinions ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              BuffNameFilter = "UrgotCorrosiveDebuff",
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Nothing",
+                  PosVar = "TargetPos",
+                  EffectName = "UrgotHeatseekingIndicator.troy",
+                  Flags = 0,
+                  EffectIDVar = "hit",
+                  TargetObjectVar = "Nothing",
+                  TargetPosVar = "TargetPos",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = true,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "Homed", SrcValue = 1}
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  PosVar = "Owner",
+                  EndPosVar = "Owner",
+                  OverrideCastPosition = false,
+                  SlotNumber = 1,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = false,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Unit",
+                  EffectName = "UrgotTargetIndicator.troy",
+                  Flags = 0,
+                  EffectIDVar = "hit",
+                  TargetObjectVar = "Unit",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              }
             }
           }
         }

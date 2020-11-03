@@ -15,7 +15,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -90,59 +92,69 @@ BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "HitResult",
-      Value2 = HIT_Dodge,
-      CompareOp = CO_NOT_EQUAL
+      Src1Var = "Target",
+      Value2 = true,
+      CompareOp = CO_IS_NOT_DEAD
     },
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
           Src1Var = "HitResult",
-          Value2 = HIT_Miss,
+          Value2 = HIT_Dodge,
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBGetSlotSpellInfo,
+            Function = BBIf,
             Params = {
-              DestVar = "Level",
-              SpellSlotValue = 1,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Attacker",
-              Function = GetSlotSpellLevel
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "MoveSpeedMod",
-              DestVarTable = "NextBuffVars",
-              SrcValueByLevel = {
-                -0.2,
-                -0.22,
-                -0.24,
-                -0.26,
-                -0.28
+              Src1Var = "HitResult",
+              Value2 = HIT_Miss,
+              CompareOp = CO_NOT_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Attacker",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "MoveSpeedMod",
+                  DestVarTable = "NextBuffVars",
+                  SrcValueByLevel = {
+                    -0.2,
+                    -0.22,
+                    -0.24,
+                    -0.26,
+                    -0.28
+                  }
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "Slow",
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Slow,
+                  MaxStack = 100,
+                  NumberOfStacks = 1,
+                  Duration = 1.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
               }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "Slow",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-              StacksExclusive = true,
-              BuffType = BUFF_Slow,
-              MaxStack = 100,
-              NumberOfStacks = 1,
-              Duration = 1.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
             }
           }
         }
@@ -240,10 +252,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "ShieldAmount",
       SrcValueByLevel = {
         80,
-        120,
-        160,
+        140,
         200,
-        240
+        260,
+        320
       }
     }
   },

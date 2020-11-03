@@ -27,10 +27,41 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnDealDamageBuildingBlocks = {
   {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "percentLeech",
+      SrcValueByLevel = {
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      }
+    }
+  },
+  {
     Function = BBMath,
     Params = {
+      Src1Var = "percentLeech",
       Src2Var = "DamageAmount",
-      Src1Value = 0.3,
+      Src1Value = 0,
       Src2Value = 0,
       DestVar = "ShieldAmount",
       MathOp = MO_MULTIPLY

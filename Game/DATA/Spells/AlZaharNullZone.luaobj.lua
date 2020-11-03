@@ -229,25 +229,13 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBMath,
-            Params = {
-              Src1Var = "HealthFlat",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "DamagePerTick",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageToDeal",
-              MathOp = MO_MAX
-            }
-          },
-          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
-              DamageVar = "DamageToDeal",
+              DamageVar = "DamagePerTick",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
@@ -302,25 +290,13 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBMath,
-            Params = {
-              Src1Var = "HealthFlat",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "DamagePerTick",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageToDeal",
-              MathOp = MO_MAX
-            }
-          },
-          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
-              DamageVar = "DamageToDeal",
+              DamageVar = "DamagePerTick",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
@@ -353,7 +329,7 @@ SelfExecuteBuildingBlocks = {
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 4,
+          MaxStack = 3,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
@@ -384,11 +360,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthPercent",
       SrcValueByLevel = {
-        0.04,
         0.05,
         0.06,
         0.07,
-        0.08
+        0.08,
+        0.09
       }
     }
   },

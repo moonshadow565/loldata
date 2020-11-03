@@ -18,39 +18,26 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
-      TickTimeVar = "0",
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
     },
     SubBlocks = {
       {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "DotDamage",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0.33,
-          Src2Value = 0,
-          DestVar = "DamageToDeal",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Caster",
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
-          DamageVar = "DamageToDeal",
+          DamageVar = "DotDamage",
+          DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0,
+          SpellDamageRatio = 0.15,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

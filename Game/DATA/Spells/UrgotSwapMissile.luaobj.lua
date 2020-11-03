@@ -55,23 +55,6 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other2",
-          AttackerVar = "Attacker",
-          BuffName = "ExpirationTimer",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 2,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other2",
           AttackerVar = "Owner",
           BuffName = "UrgotSwapMarker",
           BuffAddType = BUFF_REPLACE_EXISTING,
@@ -147,23 +130,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           Distance = 80,
           OffsetAngle = 90,
           PositionVar = "OwnerOffset"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Attacker",
-          BuffName = "ExpirationTimer",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 2,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
         }
       },
       {
@@ -297,12 +263,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "expirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "urgotswapmarker"
     }
   },
@@ -316,6 +276,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "urgotswapmissile2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
     }
   }
 }

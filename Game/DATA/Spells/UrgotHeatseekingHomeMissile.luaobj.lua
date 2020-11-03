@@ -26,11 +26,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        30,
-        60,
-        90,
-        120,
-        150
+        15,
+        45,
+        75,
+        105,
+        135
       }
     }
   },
@@ -43,16 +43,7 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {
-      DestVar = "scaling",
-      SrcValueByLevel = {
-        0.7,
-        0.7,
-        0.7,
-        0.7,
-        0.7
-      }
-    }
+    Params = {DestVar = "scaling", SrcValue = 0.85}
   },
   {
     Function = BBMath,

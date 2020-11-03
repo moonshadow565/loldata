@@ -864,10 +864,10 @@ TargetExecuteBuildingBlocks = {
       SrcValue = 0,
       SrcValueByLevel = {
         1,
-        1.25,
-        1.5,
-        1.75,
-        2
+        1.3,
+        1.6,
+        1.9,
+        2.2
       }
     }
   },

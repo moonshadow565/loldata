@@ -69,33 +69,51 @@ CharOnNearbyDeathBuildingBlocks = {
             Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
             SubBlocks = {
               {
-                Function = BBGetPAROrHealth,
+                Function = BBGetStatus,
                 Params = {
-                  DestVar = "HPPre",
-                  OwnerVar = "Target",
-                  Function = GetMaxHealth,
-                  PARType = PAR_MANA
+                  TargetVar = "Target",
+                  DestVar = "noRender",
+                  Status = GetNoRender
                 }
               },
               {
-                Function = BBMath,
+                Function = BBIf,
                 Params = {
-                  Src1Var = "HPPre",
-                  Src2Var = "RegenValue",
-                  Src2VarTable = "CharVars",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "HealVar",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBIncHealth,
-                Params = {
-                  TargetVar = "Owner",
-                  Delta = 0,
-                  DeltaVar = "HealVar",
-                  HealerVar = "Owner"
+                  Src1Var = "noRender",
+                  Value2 = false,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBGetPAROrHealth,
+                    Params = {
+                      DestVar = "HPPre",
+                      OwnerVar = "Target",
+                      Function = GetMaxHealth,
+                      PARType = PAR_MANA
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "HPPre",
+                      Src2Var = "RegenValue",
+                      Src2VarTable = "CharVars",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "HealVar",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBIncHealth,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 0,
+                      DeltaVar = "HealVar",
+                      HealerVar = "Owner"
+                    }
+                  }
                 }
               }
             }

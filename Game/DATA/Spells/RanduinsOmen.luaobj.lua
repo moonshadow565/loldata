@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.15
+      Delta = -0.08
     }
   }
 }
@@ -18,7 +18,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = 0.15
+      Delta = 0.08
     }
   }
 }

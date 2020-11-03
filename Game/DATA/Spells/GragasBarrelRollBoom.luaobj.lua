@@ -12,6 +12,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "SkinID",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Lifetime",
@@ -54,21 +61,56 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Attacker",
-          EffectName = "gragas_barrelfoam.troy",
-          Flags = 0,
-          EffectIDVar = "TroyVar",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "bottom",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "SkinID",
+          Src1VarTable = "InstanceVars",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "gragas_giftbarrelfoam.troy",
+              Flags = 0,
+              EffectIDVar = "TroyVar",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "bottom",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "gragas_barrelfoam.troy",
+              Flags = 0,
+              EffectIDVar = "TroyVar",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "bottom",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
         }
       }
     }
@@ -78,21 +120,56 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Attacker",
-          EffectName = "gragas_barrelfoam.troy",
-          Flags = 0,
-          EffectIDVar = "TroyVar",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "bottom",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "SkinID",
+          Src1VarTable = "InstanceVars",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "gragas_barrelfoam.troy",
+              Flags = 0,
+              EffectIDVar = "TroyVar",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "bottom",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "gragas_barrelfoam.troy",
+              Flags = 0,
+              EffectIDVar = "TroyVar",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "bottom",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
         }
       }
     }
@@ -386,6 +463,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "gragasbarrelrolltoggle"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_giftbarrelfoam.troy"
     }
   },
   {

@@ -126,7 +126,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 325,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -137,19 +138,21 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                15,
-                25,
-                35,
-                45,
-                55
+                10,
+                18,
+                26,
+                34,
+                42
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.25,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

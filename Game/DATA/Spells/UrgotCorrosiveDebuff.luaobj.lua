@@ -35,6 +35,74 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TickDamage",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "ArmorReduced",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetArmor,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "SubjectArmor"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SubjectArmor",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ArmorReduced",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "SubjectArmor",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "ArmorReduced",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncFlatArmorMod,
+          TargetVar = "Owner",
+          DeltaVar = "ArmorReduced",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "ArmorReduced",
+          DestVarTable = "InstanceVars",
+          SrcValue = 0
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -84,11 +152,11 @@ BuffOnUpdateActionsBuildingBlocks = {
           Damage = 0,
           DamageVar = "TickDamage",
           DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
+          DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
