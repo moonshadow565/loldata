@@ -17,12 +17,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_bushwhack_trigger_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "nidalee_bushwhack_trigger_01.troy"
     }
   },
