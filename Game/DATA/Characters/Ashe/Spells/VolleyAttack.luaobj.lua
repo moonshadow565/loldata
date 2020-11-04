@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "bowmaster_basicattack_tar.troy"
+      Name = "ashe_base_w_tar.troy"
     }
   },
   {

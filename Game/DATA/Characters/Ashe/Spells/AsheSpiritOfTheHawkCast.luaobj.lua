@@ -8,13 +8,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "bowmaster_frosthawk_terminate.troy"
+      Name = "Ashe_Base_E_tar_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "bowmaster_frosthawk_terminate_02.troy"
+      Name = "Ashe_Base_E_tar_02.troy"
     }
   }
 }

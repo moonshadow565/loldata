@@ -1,6 +1,8 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
+BuffTextureName = "Yasuo_R.dds"
+BuffName = "YasuoRKnockUpCombo"
 AutoCooldownByLevel = {
   22,
   18,
@@ -56,6 +58,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "yasuorstun"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorknockupcombotar"
+    }
   },
   {
     Function = BBPreloadCharacter,
