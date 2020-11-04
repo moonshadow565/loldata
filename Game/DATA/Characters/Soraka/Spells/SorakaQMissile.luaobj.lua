@@ -19,18 +19,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "sorakaq"}
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "soraka_base_q_tar_crit.troy"
