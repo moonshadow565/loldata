@@ -6,3 +6,6 @@ SpellFXOverrideSkins = {
   "CyberEzreal",
   "VarusAscended"
 }
+SpellVOOverrideSkins = {
+  "VarusAscended"
+}

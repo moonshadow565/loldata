@@ -23,6 +23,9 @@ ChainMissileParameters = {
 SpellFXOverrideSkins = {
   "VarusAscended"
 }
+SpellVOOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
