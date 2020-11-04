@@ -1,5 +1,3 @@
-BuffTextureName = "122_Frozen_Heart.dds"
-BuffName = "Chilled"
 AutoBuffActivateEffect = "Global_Slow.troy"
 AutoBuffActivateEffect2 = "Viktor_Catalyst_buf.troy"
 AutoBuffActivateAttachBoneName2 = ""

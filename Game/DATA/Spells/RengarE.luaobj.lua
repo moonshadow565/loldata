@@ -12,6 +12,7 @@ AutoCooldownByLevel = {
   9,
   8
 }
+IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "HunterRengar"
 }

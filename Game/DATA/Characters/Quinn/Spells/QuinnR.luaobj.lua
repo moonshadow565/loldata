@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 IsDeathRecapSource = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "PhoenixQuinn"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -26,12 +29,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "quinnvalor_r_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "quinnrmulticast"
     }
   },
   {

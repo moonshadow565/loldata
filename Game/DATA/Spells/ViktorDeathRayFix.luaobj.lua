@@ -1,7 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffName = "GalioRighteousGust"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
