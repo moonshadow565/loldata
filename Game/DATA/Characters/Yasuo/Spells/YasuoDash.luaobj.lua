@@ -6,6 +6,12 @@ IsDamagingSpell = true
 BuffName = "XenZhaoSweep"
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoq3wautosmartcast"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_skin01_e_dash.troy"
@@ -26,6 +32,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yasuodashghosted"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "yasuoq3w"}
   },
   {
     Function = BBPreloadSpell,

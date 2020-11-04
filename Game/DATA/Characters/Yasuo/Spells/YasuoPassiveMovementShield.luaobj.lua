@@ -3,12 +3,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuopassivemsshieldon"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yasuopassivemscharge"
     }
   },
@@ -28,6 +22,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tempitemshank_1.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuopassivemsshieldon"
     }
   }
 }

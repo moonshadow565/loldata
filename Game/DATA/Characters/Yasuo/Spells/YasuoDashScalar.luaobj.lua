@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = "FizzPiercingStrike.dds"
+BuffTextureName = "Yasuo_E.dds"
 BuffName = "YasuoDashScalar"
 AutoCooldownByLevel = {
   0,

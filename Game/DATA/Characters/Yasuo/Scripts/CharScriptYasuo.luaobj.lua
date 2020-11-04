@@ -44,6 +44,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuobasicattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuocritattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuoravailabletest"
     }
   },
@@ -69,30 +81,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuowtruecast"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuobasicattack5"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuocritattack5"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuobasicattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuocritattack"
     }
   },
   {

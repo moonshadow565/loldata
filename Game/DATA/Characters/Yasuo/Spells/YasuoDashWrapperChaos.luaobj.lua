@@ -3,7 +3,8 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffName = "XenZhaoSweep"
+BuffTextureName = "Yasuo_E.dds"
+BuffName = "YasuoDashWrapperChaos"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

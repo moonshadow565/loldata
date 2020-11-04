@@ -1,9 +1,7 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "itemminionshred"
-    }
+    Params = {Name = "itementrap"}
   },
   {
     Function = BBPreloadSpell,
