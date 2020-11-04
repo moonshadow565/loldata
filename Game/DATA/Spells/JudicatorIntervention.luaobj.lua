@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Judicator_EyeforanEye.dds"
+BuffTextureName = "Kayle_R.dds"
 BuffName = "JudicatorIntervention"
 AutoCooldownByLevel = {
   90,

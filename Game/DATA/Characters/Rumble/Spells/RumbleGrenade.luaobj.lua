@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rumblegrenademissilemechbase"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rumbleoverheat"
     }
   },

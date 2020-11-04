@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Judicator_AngelicEmbrace.dds"
+BuffTextureName = "Kayle_W.dds"
 BuffName = "JudicatorDivineBlessing"
 AutoBuffActivateEffect = "InterventionHeal_buf.troy"
 AutoBuffActivateEffect2 = "Interventionspeed_buf.troy"

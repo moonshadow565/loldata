@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Judicator_Reckoning.dds"
+BuffTextureName = "Kayle_Q.dds"
 BuffName = "JudicatorReckoning"
 AutoBuffActivateEffect = "Global_Slow.troy"
 PopupMessage1 = "game_floatingtext_Slowed"

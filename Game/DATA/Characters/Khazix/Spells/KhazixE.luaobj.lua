@@ -18,7 +18,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_E_WeaponTrails.troy"
+      Name = "khazix_base_e_weapontrails.troy"
     }
   },
   {
@@ -38,13 +38,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_E_Land.troy"
+      Name = "khazix_base_e_land.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_E_Tar.troy"
+      Name = "khazix_base_e_tar.troy"
     }
   }
 }

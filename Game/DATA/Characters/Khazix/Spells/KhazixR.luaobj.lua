@@ -38,19 +38,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_R_Evo2_Invisible_Cas.troy"
+      Name = "khazix_base_r_evo2_invisible_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_R_Cas.troy"
+      Name = "khazix_base_r_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_R_Invisible.troy"
+      Name = "khazix_base_r_invisible.troy"
     }
   },
   {

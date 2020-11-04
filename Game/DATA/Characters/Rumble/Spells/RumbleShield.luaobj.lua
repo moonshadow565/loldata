@@ -5,10 +5,26 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Rumble_Scrap Shield.dds"
 BuffName = "RumbleShield"
-AutoBuffActivateEffect = "rumble_shield_01.troy"
-AutoBuffActivateAttachBoneName = "robot_root"
 OnPreDamagePriority = 3
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_w_energy_shield_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_w_energy_shield_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_shield_01.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
