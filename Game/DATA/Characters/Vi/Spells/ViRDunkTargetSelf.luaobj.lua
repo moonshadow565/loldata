@@ -1,4 +1,4 @@
-BuffTextureName = "Minotaur_Headbutt.dds"
+BuffTextureName = "ViR.dds"
 BuffName = "ViR"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {

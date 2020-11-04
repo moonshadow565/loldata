@@ -903,3 +903,18 @@ end
 function IncreaseCannonMinionSpawnRate()
   CASTER_MINION_SPAWN_FREQUENCY = 2
 end
+function PostGameSetup(_ARG_0_)
+  POST_GAME_EVENTS = {}
+end
+function PostGameUpdate(_ARG_0_, _ARG_1_)
+  for _FORV_5_, _FORV_6_ in pairs(POST_GAME_EVENTS) do
+    if _ARG_0_ > _FORV_6_.delay then
+      ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_6_.cameraLocation, _FORV_6_.travelTime)
+      if _FORV_6_.soundFile then
+        ClientSide_PlaySoundFile(_FORV_6_.soundFile)
+      end
+      table.remove(POST_GAME_EVENTS, _FORV_5_)
+      break
+    end
+  end
+end

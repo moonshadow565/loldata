@@ -80,5 +80,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zedtauntemote"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedwpassivebuff"
+    }
   }
 }

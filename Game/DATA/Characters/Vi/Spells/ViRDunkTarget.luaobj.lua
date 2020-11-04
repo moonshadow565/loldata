@@ -1,5 +1,5 @@
 BuffTextureName = "ViR.dds"
-BuffName = "ViR"
+BuffName = "ViRTarget"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {"ViRacer"}
 PreLoadBuildingBlocks = {

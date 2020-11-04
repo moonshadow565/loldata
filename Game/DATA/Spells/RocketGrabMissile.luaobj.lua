@@ -7,7 +7,14 @@ AutoCooldownByLevel = {
   16,
   14
 }
+SpellFXOverrideSkins = {"iBlitz"}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fistreturn_iblitz_mis.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

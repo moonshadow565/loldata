@@ -5,6 +5,8 @@ L0_0 = 2000
 TELEPORT_DISTANCE = L0_0
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
+L0_0 = 0
+PET_COMMAND_BUFF_TYPE = L0_0
 function L0_0()
   SetState(AI_PET_IDLE)
   InitTimer("TimerScanDistance", 0.15, true)
@@ -35,29 +37,29 @@ function L0_0(A0_2, A1_3)
     end
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_ATTACK, A1_3)
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     return true
   end
   if A0_2 == ORDER_MOVETO then
     if DistanceBetweenObjectAndInPosSq(me) > FAR_MOVMEMENT_DISTANCE * FAR_MOVMEMENT_DISTANCE or GetState() == AI_PET_HOLDPOSITION or GetState() == AI_PET_HOLDPOSITION_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_MOVE, owner)
-      SpellBuffRemoveType(me, 21)
+      AIScriptSpellBuffRemove(me, "PetCommandParticle")
     end
     return true
   end
   if A0_2 == ORDER_ATTACKMOVE then
     SetStateAndCloseToTarget(AI_PET_ATTACKMOVE, owner)
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     return true
   end
   if A0_2 == ORDER_STOP then
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     return true
   end
   if A0_2 == ORDER_PETHARDSTOP then
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_HARDSTOP, me)
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     return true
   end
   if A0_2 == ORDER_PETHARDATTACK then
@@ -66,21 +68,21 @@ function L0_0(A0_2, A1_3)
     end
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_HARDATTACK, A1_3)
-    AIScriptSpellBuffAdd(A1_3, me, "PetCommandParticle", 21, 45)
+    AIScriptSpellBuffAdd(A1_3, me, "PetCommandParticle", PET_COMMAND_BUFF_TYPE, 45)
     return true
   end
   if A0_2 == ORDER_PETHARDMOVE then
     SetStateAndMoveInPos(AI_PET_HARDMOVE)
-    AIScriptSpellBuffAdd(me, me, "PetCommandParticle", 21, 45)
+    AIScriptSpellBuffAdd(me, me, "PetCommandParticle", PET_COMMAND_BUFF_TYPE, 45)
     return true
   end
   if A0_2 == ORDER_PETHARDRETURN then
     SetStateAndCloseToTarget(AI_PET_HARDRETURN, owner)
-    AIScriptSpellBuffAdd(owner, me, "PetCommandParticle", 21, 45)
+    AIScriptSpellBuffAdd(owner, me, "PetCommandParticle", PET_COMMAND_BUFF_TYPE, 45)
     return true
   end
   if A0_2 == ORDER_HOLD then
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     SetStateAndCloseToTarget(AI_PET_HOLDPOSITION, me)
     return true
   end
@@ -218,7 +220,7 @@ function L0_0()
   distanceToOwner = DistanceBetweenObjectBounds(me, tempOwner)
   if distanceToOwner > TELEPORT_DISTANCE then
     SetActorPositionFromObject(me, tempOwner)
-    SpellBuffRemoveType(me, 21)
+    AIScriptSpellBuffRemove(me, "PetCommandParticle")
     NetSetState(AI_PET_IDLE)
     return
   end
@@ -267,7 +269,7 @@ function L0_0()
       return
     end
     if L0_5 ~= AI_PET_HARDATTACK and L0_5 ~= AI_PET_HARDMOVE and L0_5 ~= AI_PET_HARDIDLE and L0_5 ~= AI_PET_HARDIDLE_ATTACKING and L0_5 ~= AI_PET_HARDRETURN then
-      SpellBuffRemoveType(me, 21)
+      AIScriptSpellBuffRemove(me, "PetCommandParticle")
     end
     if L0_5 == AI_PET_IDLE then
       SetStateAndCloseToTarget(AI_PET_ATTACK, newTarget)

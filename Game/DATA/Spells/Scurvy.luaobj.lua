@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Pirate_GrogSoakedBlade.dds"
 BuffName = "Scurvy"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

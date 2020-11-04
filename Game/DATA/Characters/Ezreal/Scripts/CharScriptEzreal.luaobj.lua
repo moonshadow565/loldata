@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "ezrealcyberskinsound2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "ezrealrecalloverride"
     }
   },
