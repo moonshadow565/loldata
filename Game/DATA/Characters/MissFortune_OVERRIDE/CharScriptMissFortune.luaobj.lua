@@ -2,25 +2,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "missfortunebulletsound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "apbonusdamagetotowers"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleheatsystem"
+      Name = "missfortunestrut"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleheatpunchtt"
+      Name = "ispiratehunter"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globalruncyclemanager"
+      Name = "missfortunepassive"
     }
   }
 }

@@ -2,6 +2,12 @@ BuffTextureName = "Teemo_EagleEye.dds"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "netherblade"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "forcepulse"}
   },
   {
@@ -12,12 +18,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "netherbladebuff"
     }
   }
 }
