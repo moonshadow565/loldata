@@ -38,11 +38,11 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        1.5,
-        2.25,
-        3,
-        3.75,
-        4.5
+        1.6,
+        2.2,
+        2.8,
+        3.4,
+        4
       },
       TickRate = 0
     }
@@ -63,7 +63,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1,
+      SpellDamageRatio = 0.8,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

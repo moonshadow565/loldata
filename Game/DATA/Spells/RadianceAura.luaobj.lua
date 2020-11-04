@@ -31,15 +31,28 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  },
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBExecutePeriodically,
     Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      DeltaVar = "RegenIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "RegenIncrease",
+          DeltaVarTable = "InstanceVars",
+          HealerVar = "Attacker"
+        }
+      }
     }
   }
 }

@@ -55,50 +55,6 @@ CanCastBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
-        Params = {
-          DestVar = "Temp1",
-          OwnerVar = "Owner",
-          Function = GetHealth
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HealthCost",
-          SrcValueByLevel = {
-            20,
-            30,
-            40,
-            50,
-            60
-          }
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "UndyingRage"
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "HealthCost",
-              SrcValueByLevel = {
-                0,
-                0,
-                0,
-                0,
-                0
-              }
-            }
-          }
-        }
-      },
-      {
         Function = BBSetVarInTable,
         Params = {DestVar = "temp", SrcValue = false}
       },
@@ -122,34 +78,14 @@ CanCastBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "Temp1",
-          Src2Var = "HealthCost",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
+          Src1Var = "temp",
+          Value2 = true,
+          CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {
-              Src1Var = "temp",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSetReturnValue,
-                Params = {SrcValue = true}
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSetReturnValue,
-                Params = {SrcValue = false}
-              }
-            }
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
           }
         }
       },
@@ -172,11 +108,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        20,
-        30,
-        40,
-        50,
-        60
+        25,
+        25,
+        25,
+        25,
+        25
       }
     }
   },
@@ -267,7 +203,7 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             -0.3,
-            -0.275,
+            -0.375,
             -0.45,
             -0.525,
             -0.6
@@ -301,20 +237,6 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            -20,
-            -40,
-            -60,
-            -80,
-            -100
-          }
         }
       },
       {
@@ -386,20 +308,6 @@ TargetExecuteBuildingBlocks = {
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageMod",
-              DestVarTable = "NextBuffVars",
-              SrcValueByLevel = {
-                -20,
-                -40,
-                -60,
-                -80,
-                -100
-              }
             }
           },
           {

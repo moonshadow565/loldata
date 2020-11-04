@@ -1,68 +1,75 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
 BuffTextureName = "Ryze_DesperatePower.dds"
-BuffName = "Powerful"
+BuffName = "DesperatePower"
 AutoBuffActivateEffect = "ManaLeach_tar2.troy"
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "AddSpellDamage",
+      RequiredVar = "BonusAP",
       RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBIncPermanentStat,
+    Function = BBIncStat,
     Params = {
-      Stat = IncPermanentFlatMagicDamageMod,
+      Stat = IncFlatMagicDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "AddSpellDamage",
+      DeltaVar = "BonusAP",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "AddSpellDamage",
-      Src2VarTable = "InstanceVars",
-      Src1Value = -1,
-      Src2Value = 0,
-      DestVar = "AddSpellDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "AddSpellDamage",
       Delta = 0
     }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBIncStat,
     Params = {
-      DestVar = "HealthPercent",
-      OwnerVar = "Owner",
-      Function = GetHealthPercent
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusAP",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BonusAP",
+      SrcValueByLevel = {
+        60,
+        100,
+        140
+      }
     }
   },
   {
-    Function = BBIf,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Var = "HealthPercent",
-      Value2 = 0.4,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
+      DestVar = "BonusAP",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "BonusAP"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 8,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }

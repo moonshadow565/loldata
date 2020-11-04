@@ -33,7 +33,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 5,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }
@@ -55,7 +55,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 10,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }
@@ -77,7 +77,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 15,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }
@@ -99,7 +99,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 20,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }
@@ -121,7 +121,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 25,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }
@@ -143,7 +143,7 @@ BuffOnBeingHitBuildingBlocks = {
               TargetVar = "Owner",
               Damage = 30,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }

@@ -13,7 +13,7 @@ ItemOnHitUnitBuildingBlocks = {
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 8,
+          Duration = 12,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

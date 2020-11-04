@@ -23,7 +23,8 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 1,
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
-          AutoAttackSpellLevel = 1
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
         }
       }
     }
@@ -69,7 +70,8 @@ OnBuffDeactivateBuildingBlocks = {
           SpellSlot = 2,
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
-          AutoAttackSpellLevel = 1
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
         }
       }
     }
@@ -80,7 +82,7 @@ OnBuffDeactivateBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner"}
+        Params = {OwnerVar = "Owner", CancelAttack = false}
       }
     }
   },
@@ -110,7 +112,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffName = "EmpowerCleave",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 4,
+          MaxStack = 3,
           NumberStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
@@ -172,7 +174,7 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       Src1Var = "DamageAmount",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.6,
       DestVar = "AoEDamage",
       MathOp = MO_MULTIPLY
     }
@@ -204,9 +206,11 @@ BuffOnHitUnitBuildingBlocks = {
               Damage = 0,
               DamageVar = "AoEDamage",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -223,7 +227,9 @@ BuffOnHitUnitBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -251,11 +257,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamagePerStack",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
         25,
-        30,
         35,
-        40
+        45,
+        55,
+        65
       }
     }
   },
@@ -268,7 +274,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 10,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

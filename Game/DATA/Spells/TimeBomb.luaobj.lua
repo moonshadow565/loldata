@@ -7,13 +7,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "Counter",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "DamageLevel",
       RequiredVarTable = "InstanceVars"
     }
@@ -35,6 +28,13 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBGetGameTime,
+    Params = {
+      SecondsVar = "ActivateTime",
+      SecondsVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -46,81 +46,130 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetGameTime,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "TimeBombExplo.troy",
-      Flags = 0,
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SecondsVar = "DeactivateTime"
     }
   },
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBMath,
     Params = {
-      AttackerVar = "Attacker",
-      CenterVar = "Owner",
-      Range = 350,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      Src1Var = "DeactivateTime",
+      Src2Var = "ActivateTime",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BuffDuration",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BuffDuration",
+      Value2 = 4,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBApplyDamage,
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "TimeBombExplo.troy",
+          Flags = 0,
+          EffectIDVar = "par",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "DamageLevel",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 1.1
+          CenterVar = "Owner",
+          Range = 350,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DamageLevel",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1.1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       }
     }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
+  },
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBElseIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src2Var = "Counter",
-          Src2VarTable = "InstanceVars",
-          Src1Value = -1,
-          Src2Value = 0,
-          DestVar = "Counter",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
+          BindObjectVar = "Nothing",
+          PosVar = "Owner",
+          EffectName = "TimeBombExplo.troy",
+          Flags = 0,
+          EffectIDVar = "par",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "Owner",
+          Range = 350,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DamageLevel",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1.1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       }
     }
   }
 }
 TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Counter",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 4
-    }
-  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -136,12 +185,66 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "TimeBomb"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "TimeBombExplo.troy",
+          Flags = 0,
+          EffectIDVar = "par",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "Target",
+          Range = 350,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DamageLevel",
+              DamageVarTable = "NextBuffVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1.1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 4,
@@ -162,5 +265,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "timebombexplo.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "timebomb"}
   }
 }

@@ -6,7 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "RebirthCooldown"
 PersistsThroughDeath = true
-Nondispellable = true
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,

@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
 AutoBuffActivateEffect = "GuinsoosRodofOblivion_buf.troy"
 OnBuffDeactivateBuildingBlocks = {
   {
@@ -52,7 +55,7 @@ AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "BoostCooldownBonus",
+      Src1Var = "ClairvoyanceCooldownBonus",
       Src1VarTable = "AvatarVars",
       Value2 = 0,
       CompareOp = CO_NOT_EQUAL
@@ -62,7 +65,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "BaseCooldown",
-          Src2Var = "BoostCooldownBonus",
+          Src2Var = "ClairvoyanceCooldownBonus",
           Src2VarTable = "AvatarVars",
           Src1Value = 0,
           Src2Value = 0,

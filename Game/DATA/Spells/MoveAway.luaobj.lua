@@ -6,6 +6,7 @@ IsDamagingSpell = false
 BuffName = "MoveAway"
 Nondispellable = true
 PopupMessage1 = "game_floatingtext_Knockup"
+BuffTextureName = "Minotaur_TriumphantRoar.dds"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -59,9 +60,5 @@ OnBuffActivateBuildingBlocks = {
       GravityVarTable = "InstanceVars",
       DistanceInner = 0
     }
-  },
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   }
 }

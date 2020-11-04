@@ -54,14 +54,12 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
         4.5,
-        6.5,
-        8.5
+        5.5,
+        6.5
       },
       TickRate = 0
     }
-  }
-}
-TargetExecuteBuildingBlocks = {
+  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -79,45 +77,58 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBForEachUnitInTargetArea,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        3.5,
-        5.5,
-        7.5
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectEnemies AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "DestinySlow",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Slow,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationByLevel = {
+            4,
+            5,
+            6
+          },
+          TickRate = 0
+        }
       },
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "DestinySlow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        4,
-        6,
-        8
-      },
-      TickRate = 0
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Slow,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationByLevel = {
+            4,
+            5,
+            6
+          },
+          TickRate = 0
+        }
+      }
     }
   }
 }
+TargetExecuteBuildingBlocks = {}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

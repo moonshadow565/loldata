@@ -108,6 +108,34 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 600,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -133,7 +161,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -155,7 +183,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "DamageAmount",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.2,
               IgnoreDamageIncreaseMods = false,

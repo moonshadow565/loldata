@@ -187,6 +187,84 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -20,
+        -25,
+        -30,
+        -35,
+        -40
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Owner",
+      Range = 400,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Damage",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 6,
+          DestVar = "TotalDamage",
+          MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "TotalDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "SpiritFireArmorReduction",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 1.25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -266,7 +344,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.95,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -298,7 +376,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               Damage = 0,
               DamageVar = "TotalDamage",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.2,
               IgnoreDamageIncreaseMods = false,

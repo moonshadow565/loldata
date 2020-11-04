@@ -50,77 +50,89 @@ BuffOnUpdateStatsBuildingBlocks = {
 BuffOnDealDamageBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {
-          Src1Var = "Target",
-          Src2Var = "Owner",
-          CompareOp = CO_DIFFERENT_TEAM
-        },
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "EternalThirst_buf.troy",
-              Flags = 0,
-              EffectIDVar = "Particle",
-              TargetObjectVar = "Owner",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "HealPercent",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "HealAmount",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 350,
-              Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-              IteratorVar = "Unit"
-            },
+            Function = BBIf,
+            Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
             SubBlocks = {
               {
-                Function = BBIncHealth,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  Delta = 0,
-                  DeltaVar = "HealAmount",
-                  HealerVar = "Owner"
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Unit",
-                  EffectName = "EternalThirst_buf.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle2",
-                  TargetObjectVar = "Unit",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  Src1Var = "Target",
+                  Src2Var = "Owner",
+                  CompareOp = CO_DIFFERENT_TEAM
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "EternalThirst_buf.troy",
+                      Flags = 0,
+                      EffectIDVar = "Particle",
+                      TargetObjectVar = "Owner",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src2Var = "HealPercent",
+                      Src2VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "HealAmount",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBForEachUnitInTargetArea,
+                    Params = {
+                      AttackerVar = "Owner",
+                      CenterVar = "Owner",
+                      Range = 350,
+                      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
+                      IteratorVar = "Unit"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBIncHealth,
+                        Params = {
+                          TargetVar = "Unit",
+                          Delta = 0,
+                          DeltaVar = "HealAmount",
+                          HealerVar = "Owner"
+                        }
+                      },
+                      {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Unit",
+                          EffectName = "EternalThirst_buf.troy",
+                          Flags = 0,
+                          EffectIDVar = "Particle2",
+                          TargetObjectVar = "Unit",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWVisibilityRadius = 0,
+                          SendIfOnScreenOrDiscard = false
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -130,7 +142,6 @@ BuffOnDealDamageBuildingBlocks = {
     }
   }
 }
-BuffOnHitUnitBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,

@@ -11,19 +11,11 @@ BuffOnHitUnitBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO}
-          },
-          {
-            Function = BBElse,
-            Params = {},
+            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
             SubBlocks = {
               {
                 Function = BBMath,

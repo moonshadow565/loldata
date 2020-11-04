@@ -1,5 +1,5 @@
 BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
-BuffName = "ResistantSkin"
+BuffName = "Resistant Skin"
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
@@ -205,18 +205,24 @@ BuffOnDeathBuildingBlocks = {
         Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "ExaltedWithBaronNashor",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Heal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 240,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "ExaltedWithBaronNashor",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  BuffType = BUFF_Heal,
+                  MaxStack = 1,
+                  NumberStacks = 1,
+                  Duration = 240,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }
@@ -232,18 +238,24 @@ BuffOnDeathBuildingBlocks = {
         Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "ExaltedWithBaronNashor",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Heal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 240,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "ExaltedWithBaronNashor",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  BuffType = BUFF_Heal,
+                  MaxStack = 1,
+                  NumberStacks = 1,
+                  Duration = 240,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }

@@ -6,6 +6,8 @@ AutoCooldownByLevel = {
   140,
   120
 }
+PersistsThroughDeath = true
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -174,7 +176,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 0,

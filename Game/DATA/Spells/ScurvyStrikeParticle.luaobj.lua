@@ -32,7 +32,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -44,7 +46,7 @@ BuffOnHealBuildingBlocks = {
     Params = {
       Src1Var = "Health",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.35,
       DestVar = "EffectiveHeal",
       MathOp = MO_MULTIPLY
     }

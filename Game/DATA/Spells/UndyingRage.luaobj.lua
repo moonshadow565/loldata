@@ -16,6 +16,72 @@ AutoCooldownByLevel = {
   100
 }
 NonDispellable = true
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBGetManaOrHealth,
+    Params = {
+      DestVar = "healthPercent",
+      OwnerVar = "Owner",
+      Function = GetHealthPercent
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "healthPercent",
+      Value2 = 0.05,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetManaOrHealth,
+        Params = {
+          DestVar = "health",
+          OwnerVar = "Owner",
+          Function = GetHealth
+        }
+      },
+      {
+        Function = BBGetManaOrHealth,
+        Params = {
+          DestVar = "maxHealth",
+          OwnerVar = "Owner",
+          Function = GetMaxHealth
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "maxHealth",
+          Src1Value = 0,
+          Src2Value = 0.05,
+          DestVar = "healthFactor",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "healthFactor",
+          Src2Var = "health",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "healthToInc",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "healthToInc",
+          HealerVar = "Owner"
+        }
+      }
+    }
+  }
+}
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBGetManaOrHealth,
@@ -59,9 +125,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "NumBloodlusts",
       SrcValueByLevel = {
-        3,
+        4,
         6,
-        9
+        8
       }
     }
   },
@@ -107,17 +173,29 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "AttackSpeedMod",
+      DestVar = "DamageMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0.08
+      SrcValueByLevel = {
+        4,
+        4,
+        4,
+        4,
+        4
+      }
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "CriticalChanceMod",
+      DestVar = "CritDamageMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0.04
+      SrcValueByLevel = {
+        0.015,
+        0.0225,
+        0.03,
+        0.0375,
+        0.045
+      }
     }
   },
   {
@@ -136,7 +214,7 @@ TargetExecuteBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 9,
+          MaxStack = 8,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",

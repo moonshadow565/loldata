@@ -34,6 +34,29 @@ AdjustCooldownBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HealCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 30,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "HealCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_SUBTRACT
+        }
+      }
+    }
+  },
+  {
     Function = BBSetReturnValue,
     Params = {
       SrcVar = "BaseCooldown"
@@ -81,29 +104,6 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 140,
       DestVar = "TotalHeal",
       MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "TotalHeal",
-          Src2Var = "HealBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "TotalHeal",
-          MathOp = MO_ADD
-        }
-      }
     }
   },
   {

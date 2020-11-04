@@ -4,6 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Minotaur_Pulverize.dds"
 BuffName = "Propelled"
 SpellDamageRatio = 0.75
+PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -57,7 +58,7 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       Damage = 300,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1
     }

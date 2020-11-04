@@ -1,26 +1,52 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
 BuffTextureName = "Summoner_boost.dds"
-BuffName = "Spell Shield"
-AutoBuffActivateEffect = "SpellBlock_eff.troy"
+BuffName = "Cleanse"
+AutoBuffActivateEffect = ""
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
     },
+    SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_BlackShield_immune"
+        }
+      },
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "Owner",
-          Src2Var = "Attacker",
-          CompareOp = CO_DIFFERENT_TEAM
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
         },
         SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
           {
             Function = BBSetReturnValue,
             Params = {SrcValue = false}
@@ -34,226 +60,6 @@ BuffOnAllowAddBuildingBlocks = {
           {
             Function = BBSetReturnValue,
             Params = {SrcValue = true}
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Duration",
-          Value2 = 37037,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "SpellEffect_proc.troy",
-              Flags = 0,
-              EffectIDVar = "ar",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "WillRemove",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageAmount",
-          SrcValue = 0
-        }
-      }
-    }
-  }
-}
-BuffOnBeingSpellHitBuildingBlocks = {
-  {
-    Function = BBSetTriggerUnit,
-    Params = {TriggerVar = "Attacker"}
-  },
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Owner"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_DIFFERENT_TEAM
-    },
-    SubBlocks = {
-      {
-        Function = BBGetCastInfo,
-        Params = {DestVar = "IsAttack", Info = GetIsAttackOverride}
-      },
-      {
-        Function = BBDebugSay,
-        Params = {
-          OwnerVar = "Attacker",
-          ToSay = "IsAttack: ",
-          SrcVar = "IsAttack"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "IsAttack",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBDebugSay,
-            Params = {
-              OwnerVar = "Attacker",
-              ToSay = "DoesntBreakShields: ",
-              SrcVar = "DoesntBreakShields",
-              SrcVarTable = "SpellVars"
-            }
-          },
-          {
-            Function = BBDebugSay,
-            Params = {
-              OwnerVar = "Attacker",
-              ToSay = "DoesntTriggerSpellCasts: ",
-              SrcVar = "DoesntTriggerSpellCasts",
-              SrcVarTable = "SpellVars"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "DoesntBreakShields",
-              Src1VarTable = "SpellVars",
-              Value2 = false,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "WillRemove",
-                  DestVarTable = "InstanceVars",
-                  SrcValue = true
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "SpellEffect_proc.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              }
-            }
-          },
-          {
-            Function = BBElseIf,
-            Params = {
-              Src1Var = "DoesntBreakShields",
-              Src1VarTable = "SpellVars",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            }
-          },
-          {
-            Function = BBElseIf,
-            Params = {
-              Src1Var = "DoesntTriggerSpellCasts",
-              Src1VarTable = "SpellVars",
-              Value2 = true,
-              CompareOp = CO_NOT_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "WillRemove",
-                  DestVarTable = "InstanceVars",
-                  SrcValue = true
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "SpellEffect_proc.troy",
-                  Flags = 0,
-                  EffectIDVar = "ar",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              }
-            }
           }
         }
       }
@@ -343,15 +149,23 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBDispellNegativeBuffs,
     Params = {AttackerVar = "Owner"}
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spelleffect_proc.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

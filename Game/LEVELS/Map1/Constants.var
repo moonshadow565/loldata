@@ -60,8 +60,8 @@ ai_TargetMaxNumAttackers                =          5 ; Maximun number of attacke
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =     90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =      5.000 ; Interval between ambient gold ticks
-ai_AmbientGoldAmount                    =      7.000 ; Gold granted on ambient gold tick
-ai_DisableAmbientGoldWhileDead          =          1 ; Disable ambient gold while dead
+ai_AmbientGoldAmount                    =      6.500 ; Gold granted on ambient gold tick
+ai_DisableAmbientGoldWhileDead          =          0 ; Disable ambient gold while dead
 ai_GoldLostPerLevel                     =      0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                     =      4.000 ; Time in seconds spent dead per level
 ai_GoldHandicapCoefficient              =      0.000 ; Coefficient for gold handicapping

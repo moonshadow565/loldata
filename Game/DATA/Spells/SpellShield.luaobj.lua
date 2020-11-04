@@ -3,13 +3,6 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Sivir_SpellBlock.dds"
 BuffName = "Spell Shield"
 AutoBuffActivateEffect = "SpellBlock_eff.troy"
-AutoCooldownByLevel = {
-  44,
-  38,
-  30,
-  22,
-  14
-}
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
@@ -95,6 +88,10 @@ BuffOnUpdateStatsBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBIncMana,
+        Params = {TargetVar = "Owner", Delta = 150}
+      },
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
@@ -253,7 +250,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 8,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

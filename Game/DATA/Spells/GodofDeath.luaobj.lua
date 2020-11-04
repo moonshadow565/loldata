@@ -45,6 +45,130 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetScaleSkinCoef,
     Params = {Scale = 1.3, OwnerVar = "Owner"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageCap",
+      SrcVar = "DamageCap",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamagePerc",
+      SrcVar = "DamagePerc",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 375,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetManaOrHealth,
+        Params = {
+          DestVar = "Temp1",
+          OwnerVar = "Unit",
+          Function = GetMaxHealth
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "AbilityPowerMod"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AbilityPowerMod",
+          Src1Value = 0,
+          Src2Value = 1.0E-4,
+          DestVar = "AbilityPowerBonus",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamagePerc",
+          Src2Var = "AbilityPowerBonus",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamagePerc",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamagePerc",
+          Src2Var = "Temp1",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "HToDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "HToDamage",
+          Src1Value = 0,
+          Src2Value = 240,
+          DestVar = "HToDamage",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "HToDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "HToDamage",
+          Src1Value = 0.05,
+          Src2Value = 0,
+          DestVar = "HToDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "CurrentDamageTotal",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "HToDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "CurrentDamageTotal",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -107,7 +231,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -186,7 +310,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               Damage = 0,
               DamageVar = "HToDamage",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,

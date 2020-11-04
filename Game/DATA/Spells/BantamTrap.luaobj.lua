@@ -62,7 +62,9 @@ OnBuffDeactivateBuildingBlocks = {
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_INTERNALRAW,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -237,7 +239,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberStacks = 1,
-                  Duration = 5,
+                  Duration = 4,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
                 }
@@ -275,7 +277,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = TRUE_DAMAGE,
               SourceDamageType = DAMAGESOURCE_INTERNALRAW,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1
+              SpellDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -318,9 +322,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamagePerTick",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        70,
-        100,
-        130
+        87.5,
+        125,
+        162.5
       }
     }
   },

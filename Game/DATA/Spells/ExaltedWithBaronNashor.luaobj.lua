@@ -6,7 +6,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatMPRegenMod,
       TargetVar = "Owner",
-      Delta = 3.5
+      Delta = 3
     }
   },
   {
@@ -28,7 +28,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusAttack",
       Src1Value = 0,
-      Src2Value = 10,
+      Src2Value = 15,
       DestVar = "BonusAttack",
       MathOp = MO_SUBTRACT
     }
@@ -38,7 +38,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusAttack",
       Src1Value = 0,
-      Src2Value = 60,
+      Src2Value = 50,
       DestVar = "BonusAttack",
       MathOp = MO_MIN
     }
@@ -103,7 +103,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatMPRegenMod,
       TargetVar = "Owner",
-      Delta = -3.5
+      Delta = -3
     }
   },
   {
@@ -166,7 +166,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           Src1Var = "Health",
           Src1Value = 0,
-          Src2Value = 0.035,
+          Src2Value = 0.03,
           DestVar = "HealthInc",
           MathOp = MO_MULTIPLY
         }

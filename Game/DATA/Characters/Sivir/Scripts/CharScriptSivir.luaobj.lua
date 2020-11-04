@@ -59,13 +59,37 @@ SetVarsByLevelBuildingBlocks = {
     }
   }
 }
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "SpellName", Info = GetSpellName}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SpellName",
+      Value2 = "SpiralBlade",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "percentOfAttack",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "FleetofFoot",
+      BuffName = "FleetOfFoot",
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
@@ -103,14 +127,6 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "lastLevel",
-      DestVarTable = "CharVars",
-      SrcValue = 1
     }
   }
 }

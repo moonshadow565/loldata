@@ -185,9 +185,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DamageVar = "Damage",
                   DamageVarTable = "InstanceVars",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 1
+                  SpellDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = true
                 }
               },
               {
@@ -279,11 +281,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        30,
+        40,
+        50,
         60,
-        90,
-        120,
-        150
+        70,
+        80
       }
     }
   },
@@ -373,14 +375,42 @@ SelfExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Damage",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        110,
-        160,
-        210,
-        270,
-        330
+        60,
+        105,
+        150,
+        195,
+        240
       }
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalDamage",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "damageMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "damageMod",
+      Src2Var = "Damage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "Damage",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
     }
   },
   {

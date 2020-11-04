@@ -64,7 +64,7 @@ OnBuffDeactivateBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1
     }

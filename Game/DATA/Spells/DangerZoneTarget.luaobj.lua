@@ -19,9 +19,11 @@ OnBuffActivateBuildingBlocks = {
       DamageVar = "DamagePerTick",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
+      SourceDamageType = DAMAGESOURCE_PERIODIC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

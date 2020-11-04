@@ -137,7 +137,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "StunDuration",
       Src1Value = 0,
-      Src2Value = 4.5,
+      Src2Value = 3.5,
       DestVar = "StunDuration",
       MathOp = MO_MIN
     }
@@ -166,9 +166,9 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                300,
-                500,
-                700
+                250,
+                425,
+                600
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
@@ -231,9 +231,9 @@ TargetExecuteBuildingBlocks = {
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
-                3,
-                4,
-                5
+                3.5,
+                3.5,
+                3.5
               },
               TickRate = 0
             }
@@ -254,13 +254,13 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                175,
-                275,
-                375
+                125,
+                212,
+                300
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.5,
               IgnoreDamageIncreaseMods = false,
@@ -304,9 +304,9 @@ TargetExecuteBuildingBlocks = {
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
-                3,
-                4,
-                5
+                3.5,
+                3.5,
+                3.5
               },
               TickRate = 0
             }

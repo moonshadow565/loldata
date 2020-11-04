@@ -27,21 +27,13 @@ UpdateSelfBuffActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "AttackSpeedIncrease",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 0.1
-                }
-              },
-              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Unit",
                   AttackerVar = "Owner",
                   BuffName = "HolyFervorAuraNoParticle",
                   BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Aura,
+                  BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberStacks = 1,
                   Duration = 1.1,
@@ -85,14 +77,6 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedIncrease",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0.1
     }
   },
   {

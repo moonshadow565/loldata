@@ -77,7 +77,7 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.6
     }

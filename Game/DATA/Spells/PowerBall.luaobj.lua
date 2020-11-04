@@ -45,7 +45,8 @@ OnBuffActivateBuildingBlocks = {
       SkinName = "Armordillo_PB",
       TargetVar = "Owner",
       IDVar = "CasterID",
-      IDVarTable = "InstanceVars"
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
     }
   },
   {
@@ -288,6 +289,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "PowerballHit.troy",
+                      Flags = 0,
+                      EffectIDVar = "A",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
                     Function = BBBreakSpellShields,
                     Params = {TargetVar = "Other1"}
                   },
@@ -309,9 +326,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageVar = "AoEDamage",
                       DamageVarTable = "InstanceVars",
                       DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 1
+                      SpellDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   },
                   {
@@ -383,6 +402,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Owner",
+                          EffectName = "PowerballHit.troy",
+                          Flags = 0,
+                          EffectIDVar = "A",
+                          TargetObjectVar = "Target",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWVisibilityRadius = 0,
+                          SendIfOnScreenOrDiscard = false
+                        }
+                      },
+                      {
                         Function = BBBreakSpellShields,
                         Params = {TargetVar = "Other1"}
                       },
@@ -404,9 +439,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                           DamageVar = "AoEDamage",
                           DamageVarTable = "InstanceVars",
                           DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELL,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1,
-                          SpellDamageRatio = 1
+                          SpellDamageRatio = 1,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
                         }
                       },
                       {
@@ -490,6 +527,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                         },
                         SubBlocks = {
                           {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Owner",
+                              EffectName = "PowerballHit.troy",
+                              Flags = 0,
+                              EffectIDVar = "A",
+                              TargetObjectVar = "Target",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWVisibilityRadius = 0,
+                              SendIfOnScreenOrDiscard = false
+                            }
+                          },
+                          {
                             Function = BBBreakSpellShields,
                             Params = {TargetVar = "Other1"}
                           },
@@ -511,9 +564,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                               DamageVar = "AoEDamage",
                               DamageVarTable = "InstanceVars",
                               DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELL,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
                               PercentOfAttack = 1,
-                              SpellDamageRatio = 1
+                              SpellDamageRatio = 1,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
                             }
                           },
                           {
@@ -610,6 +665,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "PowerballHit.troy",
+                      Flags = 0,
+                      EffectIDVar = "A",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
                     Function = BBBreakSpellShields,
                     Params = {TargetVar = "Other1"}
                   },
@@ -631,9 +702,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageVar = "AoEDamage",
                       DamageVarTable = "InstanceVars",
                       DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 1
+                      SpellDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   },
                   {
@@ -705,6 +778,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Owner",
+                          EffectName = "PowerballHit.troy",
+                          Flags = 0,
+                          EffectIDVar = "A",
+                          TargetObjectVar = "Target",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWVisibilityRadius = 0,
+                          SendIfOnScreenOrDiscard = false
+                        }
+                      },
+                      {
                         Function = BBBreakSpellShields,
                         Params = {TargetVar = "Other1"}
                       },
@@ -726,9 +815,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                           DamageVar = "AoEDamage",
                           DamageVarTable = "InstanceVars",
                           DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELL,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1,
-                          SpellDamageRatio = 1
+                          SpellDamageRatio = 1,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
                         }
                       },
                       {
@@ -812,6 +903,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                         },
                         SubBlocks = {
                           {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Owner",
+                              EffectName = "PowerballHit.troy",
+                              Flags = 0,
+                              EffectIDVar = "A",
+                              TargetObjectVar = "Target",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWVisibilityRadius = 0,
+                              SendIfOnScreenOrDiscard = false
+                            }
+                          },
+                          {
                             Function = BBBreakSpellShields,
                             Params = {TargetVar = "Other1"}
                           },
@@ -833,9 +940,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                               DamageVar = "AoEDamage",
                               DamageVarTable = "InstanceVars",
                               DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELL,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
                               PercentOfAttack = 1,
-                              SpellDamageRatio = 1
+                              SpellDamageRatio = 1,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
                             }
                           },
                           {
@@ -1067,6 +1176,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "powerballstop.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "powerballhit.troy"
     }
   },
   {

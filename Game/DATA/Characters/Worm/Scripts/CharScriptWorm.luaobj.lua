@@ -76,7 +76,7 @@ CharOnPreDamageBuildingBlocks = {
                     Function = BBIf,
                     Params = {
                       Src1Var = "Distance",
-                      Value2 = 700,
+                      Value2 = 950,
                       CompareOp = CO_LESS_THAN_OR_EQUAL
                     },
                     SubBlocks = {
@@ -259,6 +259,25 @@ CharOnSpellCastBuildingBlocks = {
     }
   }
 }
+CharOnActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "teamID", SrcValue = TEAM_NEUTRAL}
+  },
+  {
+    Function = BBAddPosPerceptionBubble,
+    Params = {
+      TeamVar = "teamID",
+      Radius = 1600,
+      PosVar = "Owner",
+      Duration = 25000,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "Bubble",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  }
+}
 CharOnDisconnectBuildingBlocks = {
   {
     Function = BBSpellCast,
@@ -276,7 +295,6 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
-CharOnActivateBuildingBlocks = {}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

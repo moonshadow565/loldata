@@ -1,6 +1,5 @@
 BuffTextureName = "Blitzcrank_RocketGrab.dds"
 BuffName = "RocketGrab"
-PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetUnitPosition,
@@ -13,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "LandPos",
       Speed = 1350,
       Gravity = 5,
-      MoveBackBy = 100
+      MoveBackBy = 0
     }
   }
 }
