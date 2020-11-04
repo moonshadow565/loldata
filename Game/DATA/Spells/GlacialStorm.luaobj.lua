@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Cryophoenix_GlacialStorm.dds"
