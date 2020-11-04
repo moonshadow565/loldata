@@ -1,2 +1,0 @@
-BuffTextureName = "Chronokeeper_Timestop.dds"
-BuffName = "Slow"

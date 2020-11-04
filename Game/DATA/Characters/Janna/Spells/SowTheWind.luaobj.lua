@@ -7,23 +7,17 @@ BuffTextureName = "Janna_Zephyr.dds"
 BuffName = "Zephyr"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellDamageRatio = 1
-SpellFXOverrideSkins = {
-  "JannaForecast"
-}
-SpellVOOverrideSkins = {
-  "JannaForecast"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sowthewind_buf.troy"
+      Name = "sowthewind_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sowthewind_tar.troy"
+      Name = "sowthewind_buf.troy"
     }
   },
   {

@@ -37,6 +37,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaointimidate"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "heroiccharge_tar.troy"

@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itembansheesveilregen"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "bansheesveiltimer"
     }
   }

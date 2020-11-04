@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nasus_skin05_w_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "nassus_wither_tar.troy"
     }
   }

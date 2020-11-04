@@ -1,16 +1,9 @@
-BuffTextureName = "066_Sindoran_Shielding_Amulet.dds"
-BuffName = "ItemSpectreCowlRegen"
+AutoBuffActivateEffect = "GuardianAngel_tar.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "bansheesveil"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itembansheesveilregen"
     }
   }
 }

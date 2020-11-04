@@ -1,3 +1,0 @@
-SpellFXOverrideSkins = {
-  "LucianSkin01"
-}

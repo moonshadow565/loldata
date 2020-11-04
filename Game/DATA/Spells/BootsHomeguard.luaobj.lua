@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Summoner_haste.dds"
 BuffName = "BootsHomeguard"
+AutoBuffActivateEffect = "Boots_Homeguard.troy"
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
   {

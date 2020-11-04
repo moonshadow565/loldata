@@ -3,9 +3,6 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Janna_HowlingGale.dds"
 BuffName = "Howling Gale"
 SpellToggleSlot = 1
-SpellVOOverrideSkins = {
-  "JannaForecast"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

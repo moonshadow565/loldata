@@ -6,12 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 4
 BuffTextureName = "Janna_ReapTheWhirlwind.dds"
 BuffName = "Reap The Whirlwind"
-SpellFXOverrideSkins = {
-  "JannaForecast"
-}
-SpellVOOverrideSkins = {
-  "JannaForecast"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

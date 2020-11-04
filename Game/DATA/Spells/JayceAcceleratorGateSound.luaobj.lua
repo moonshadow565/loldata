@@ -1,3 +1,4 @@
+AutoBuffActivateEffect = "Jayce_Wall_Accel_Buf.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

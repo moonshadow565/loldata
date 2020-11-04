@@ -1,6 +1,0 @@
-SpellFXOverrideSkins = {
-  "JannaForecast"
-}
-SpellVOOverrideSkins = {
-  "JannaForecast"
-}
