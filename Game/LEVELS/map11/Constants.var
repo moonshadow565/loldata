@@ -183,6 +183,13 @@ bar_Armor                                          =            0 ; armor
 bar_MaxHP                                          =         4000 ; max hp
 bar_MaxHPTutorial                                  =         7000 ; max hp for tutorial mode
 
+; Minion vs Minion Advantage Variables
+mvm_UpdateInterval                                 =        1.000 ; Seconds between updating stats donated to minions
+mvm_StartTime                                      =      210.000 ; Time when we start updating donated minion stats
+mvm_PercentDamageToOtherMinionsBase                =        0.050 ; Percentage increase of minions with an advantage damage to other minions
+mvm_PercentDamageToOtherMinionsByTowerAdvantage    =        0.050 ; Percentage increase of minions with an advantage damage to other minions per turret up
+mvm_FlatDRFromOtherMinionsBase                     =        1.000 ; Bonus damage reduction from minions when a barracks has an advantage
+
 ; Inhibitor (BarracksDampener) variables
 inhib_UseDeathAndRespawnAnimations                 =            1 ; Flag to tell the Inhib to use its death and respawn animations
 
