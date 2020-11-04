@@ -793,6 +793,15 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.MinimapIcon = ""
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.LeashRadius = 800
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L5 = CampSpawnPoints
+    L5 = L5[L3]
+    L5 = L5[1]
+    L4.LeashCenter = L5
   end
   L1[1] = L2
   L0.Groups = L1

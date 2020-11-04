@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="braumparticleholder"}}, 
-{Function=BBPreloadSpell, Params={Name="braummark"}}, 
 {Function=BBPreloadParticle, Params={Name="braum_base_p_stun_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="braumstundebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="braummarkstunreduction"}}, 

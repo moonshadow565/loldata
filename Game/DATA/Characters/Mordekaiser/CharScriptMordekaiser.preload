@@ -13,4 +13,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgdanceoverride"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisersyphonparticle"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaiserelasthitcheatapply"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaisercotgdragondebuff"}}, 
 }

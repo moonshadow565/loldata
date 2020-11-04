@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_q_mini_nova.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_q_mini_nova_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_q_buf.troy"}}, 
