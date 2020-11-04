@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "missfortunewaves"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "missfortune_passive_buf.troy"
