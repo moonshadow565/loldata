@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="odinneutralguardian_Blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="odinneutralguardian_blue.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="odinneutralguardian_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="odinneutralguardian_stone.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="odinminiontaunt"}}, 

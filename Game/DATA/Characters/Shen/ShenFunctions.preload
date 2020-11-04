@@ -29,7 +29,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="shen_base_p_sword_enemy.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="shen_base_q_mis_trail_yellow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="shen_base_q_mis_trail.troy"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="shenpassivethingarrowmarkerlife"}}, 
 {Function=BBPreloadParticle, Params={Name="shen_base_p_indicator_ally.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="shen_base_p_indicator_enemy.troy"}}, 

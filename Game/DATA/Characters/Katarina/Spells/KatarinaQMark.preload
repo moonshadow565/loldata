@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="katarina_base_daggered.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="katarinaq"}}, 
 {Function=BBPreloadParticle, Params={Name="katarina_base_q_tar_enhanced.troy"}}, 
 }

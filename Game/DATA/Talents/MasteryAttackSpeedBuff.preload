@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ag_warlordsbloodlust_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ag_warlordsbloodlust_swirlup.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ag_warlordsbloodlust_buff.troy"}}, 
 }

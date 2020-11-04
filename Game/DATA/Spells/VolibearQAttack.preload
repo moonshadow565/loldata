@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="volibearq"}}, 
 {Function=BBPreloadParticle, Params={Name="volibear_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="volibearqextra"}}, 
-{Function=BBPreloadSpell, Params={Name="volibearq"}}, 
 }
