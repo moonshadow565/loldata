@@ -1,2 +1,2 @@
-BuffTextureName = "MissFortune_BulletTime.dds"
+BuffTextureName = "MissFortune_R.dds"
 BuffName = "MissFortuneBulletSound"

@@ -1,3 +1,3 @@
 DoesntBreakShields = true
-BuffTextureName = "Vayne_SilveredBolts.dds"
+BuffTextureName = "3611_Razorfin.dds"
 BuffName = "BilgewaterMercenary11Ring"
