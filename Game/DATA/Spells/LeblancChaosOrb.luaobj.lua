@@ -50,11 +50,11 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        80,
-        125,
-        170,
-        215,
-        260
+        70,
+        110,
+        150,
+        190,
+        230
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -127,17 +127,17 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
-                24,
-                48,
-                72,
-                96,
-                120
+                22,
+                44,
+                66,
+                88,
+                110
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.36,
+              SpellDamageRatio = 0.33,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -171,17 +171,17 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
-                26,
-                52,
-                78,
-                104,
-                130
+                25,
+                50,
+                75,
+                100,
+                125
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.39,
+              SpellDamageRatio = 0.375,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
