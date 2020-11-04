@@ -21,33 +21,3 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 SpellVOOverrideSkins = {"AhriSkin04"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ahrispiritrushreadymanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "ahritumble"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ahri_spiritrush_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ahri_orb_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ahritumblekick"
-    }
-  }
-}

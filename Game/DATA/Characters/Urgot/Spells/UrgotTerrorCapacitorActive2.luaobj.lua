@@ -20,15 +20,3 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgotterrorcapacitor_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "urgotslow"}
-  }
-}

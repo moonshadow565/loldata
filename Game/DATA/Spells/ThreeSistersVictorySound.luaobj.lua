@@ -1,15 +1,1 @@
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threesistersvictory"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threesistersdefeat"
-    }
-  }
-}

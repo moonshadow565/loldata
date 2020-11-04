@@ -8,23 +8,3 @@ PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_mysticshot_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_mysticshot_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ezrealrisingspellforce"
-    }
-  }
-}

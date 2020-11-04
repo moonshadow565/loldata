@@ -12,17 +12,3 @@ AutoCooldownByLevel = {
   4
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgotheatseekingindicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgottargetindicator.troy"
-    }
-  }
-}

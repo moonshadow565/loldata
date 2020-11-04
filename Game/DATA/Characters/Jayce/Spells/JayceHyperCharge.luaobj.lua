@@ -28,35 +28,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycepassiverangedattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycepassivemeleeattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycehypercharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycehyperchargevfx"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycehyperchargerangedattack"
-    }
-  }
-}

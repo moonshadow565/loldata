@@ -8,17 +8,3 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 4
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nickoftime_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "chronorevive"
-    }
-  }
-}

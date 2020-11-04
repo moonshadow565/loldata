@@ -8,33 +8,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fioradance"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancestatus"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancetarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancerepeat"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancevisibility"
-    }
-  }
-}

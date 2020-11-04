@@ -22,23 +22,3 @@ ChainMissileParameters = {
 SpellVOOverrideSkins = {
   "Jayce_Sentinel"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jayce_model_swap2.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycestancegun"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycepassivehaste"
-    }
-  }
-}

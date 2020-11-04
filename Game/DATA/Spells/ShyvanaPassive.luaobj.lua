@@ -7,11 +7,3 @@ BuffTextureName = "ShyvanaReinforcedScales.dds"
 BuffName = "ShyvanaPassive"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballdragon2"
-    }
-  }
-}

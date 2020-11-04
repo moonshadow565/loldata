@@ -9,17 +9,3 @@ AutoCooldownByLevel = {
   4
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerrcd"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "heimerdinger_base_r_cast.troy"
-    }
-  }
-}

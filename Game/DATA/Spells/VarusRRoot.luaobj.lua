@@ -8,23 +8,3 @@ PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "VarusAscended"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusrhit.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varusexpirationtimer"
-    }
-  }
-}

@@ -6,11 +6,3 @@ AutoBuffActivateEffect = "ElixirSight_aura_02.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 NonDispellable = true
 PermeatesThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_oracleelixirring.troy"
-    }
-  }
-}

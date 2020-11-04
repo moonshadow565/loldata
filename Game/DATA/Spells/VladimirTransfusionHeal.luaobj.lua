@@ -12,11 +12,3 @@ SpellFXOverrideSkins = {
   "BloodkingVladimir",
   "VladimirSkin06"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "vladimir_base_q_heal_tar.troy"
-    }
-  }
-}

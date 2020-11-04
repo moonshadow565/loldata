@@ -4,29 +4,3 @@ IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "LucianSkin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lucianwdebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lucianwmarker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lucian_skin01_w_blowup.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lucian_w_blowup.troy"
-    }
-  }
-}

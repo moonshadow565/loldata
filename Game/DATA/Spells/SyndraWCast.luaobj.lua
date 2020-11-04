@@ -13,27 +13,3 @@ SpellFXOverrideSkins = {
   "RocketTristana",
   "SyndraSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndrawdebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndrawfailsafe"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "syndraw"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndrawmana"
-    }
-  }
-}

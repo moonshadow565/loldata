@@ -1,8 +1,0 @@
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "swainnobird"
-    }
-  }
-}

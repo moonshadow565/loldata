@@ -3,60 +3,10 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "Skarner_E.dds"
 BuffName = "SkarnerFractureMissile"
-TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_base_e_unit_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_fracture_tar_consume.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_fracture_heal.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnerfracture"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnervirulentslashslow"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "luxpassive_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_base_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnerfractureslow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnerpassivebuff"
-    }
-  }
+SpellFXOverrideSkins = {
+  "SkarnerSkin03"
 }
+SpellVOOverrideSkins = {
+  "SkarnerSkin03"
+}
+TriggersSpellCasts = true

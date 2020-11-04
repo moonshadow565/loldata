@@ -24,31 +24,3 @@ SpellFXOverrideSkins = {
   "Zyra_hellvine",
   "ZyraSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "zyraseed"}
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "zyraseed"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotzyraseedbuff"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_w_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_w_cas_02.troy"
-    }
-  }
-}

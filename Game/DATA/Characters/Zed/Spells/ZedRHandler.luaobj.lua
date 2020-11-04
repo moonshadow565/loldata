@@ -10,13 +10,3 @@ SpellFXOverrideSkins = {
   "ReefMalphite",
   "GlacialMalphite"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "zedr2"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "zedult"}
-  }
-}

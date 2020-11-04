@@ -13,11 +13,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "BattlecastChogath"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vorpalspikes"
-    }
-  }
-}

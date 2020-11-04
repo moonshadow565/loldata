@@ -6,13 +6,3 @@ BuffName = "EzrealEssenceFluxDebuff"
 AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
 SpellFXOverrideSkins = {"luluSkin04"}
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "luluqslow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "luluqhit"}
-  }
-}

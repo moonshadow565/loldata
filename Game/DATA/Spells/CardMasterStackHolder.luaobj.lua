@@ -5,11 +5,3 @@ NonDispellable = true
 SpellFXOverrideSkins = {
   "UnderworldTwistedFate"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "cardmasterstackparticle"
-    }
-  }
-}

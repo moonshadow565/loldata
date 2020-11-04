@@ -1,2 +1,2 @@
-BuffTextureName = "Trundle_Q.dds"
-BuffName = "TrundleQDebuff"
+BuffTextureName = "Chronokeeper_Timestop.dds"
+BuffName = "TalonESlow"

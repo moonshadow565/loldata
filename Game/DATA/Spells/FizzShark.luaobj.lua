@@ -8,11 +8,3 @@ BuffName = ""
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "caitlyn_yordleTrap_set.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  }
-}

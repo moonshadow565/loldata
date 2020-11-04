@@ -9,33 +9,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Braum_w_knockback.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Braumslash_tar_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Braumslash_tar_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gragas_caskboom.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "moveaway"}
-  }
-}

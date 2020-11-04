@@ -13,23 +13,3 @@ SpellFXOverrideSkins = {
   "ZedStormNinja"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedshurikenmisone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedshurikenmistwo"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedshurikenmisthree"
-    }
-  }
-}

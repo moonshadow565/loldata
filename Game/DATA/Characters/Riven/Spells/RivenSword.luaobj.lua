@@ -5,11 +5,3 @@ BuffTextureName = "AkaliCrescentSlash.dds"
 BuffName = "RenekthonCleaveReady"
 SpellToggleSlot = 1
 SpellDamageRatio = 0.5
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "marthswordblue.troy"
-    }
-  }
-}

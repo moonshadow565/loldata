@@ -1,16 +1,2 @@
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "heimerdinger_skin05_q_turret_charged_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "heimerdinger_base_q_turret_charged_tar.troy"
-    }
-  }
-}

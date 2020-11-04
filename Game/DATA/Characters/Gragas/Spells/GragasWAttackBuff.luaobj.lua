@@ -13,11 +13,3 @@ AutoCooldownByLevel = {
   50,
   50
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gragas_base_w_tar.troy"
-    }
-  }
-}

@@ -20,7 +20,7 @@ function L0(A0)
   L3 = "InitBonusAmbientXP"
   L1(L2, L3)
 end
-SetBonusAmbientXPOnInit = L0
+OnInitServer = L0
 function L0(A0)
   local L1, L2, L3, L4, L5, L6
   L1 = ApplyPersistentBuff

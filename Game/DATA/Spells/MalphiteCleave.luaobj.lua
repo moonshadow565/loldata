@@ -7,23 +7,3 @@ BuffName = "MalphiteCleave"
 PersistsThroughDeath = true
 NonDispellable = true
 IsDeathRecapSource = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Malphite_Base_CleaveEnragedHit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Malphite_Base_CleaveHit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "globalhit_physical.troy"
-    }
-  }
-}

@@ -11,29 +11,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "NasusSkin05"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nasus_skin05_q_hit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nasus_skin05_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nasus_base_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "siphoningstrike"
-    }
-  }
-}

@@ -15,11 +15,3 @@ SpellVOOverrideSkins = {
   "KarmaClassic"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "karma_base_e_speed_buf.troy"
-    }
-  }
-}

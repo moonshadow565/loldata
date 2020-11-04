@@ -9,11 +9,3 @@ AutoCooldownByLevel = {
   135,
   120
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengarrskin.troy"
-    }
-  }
-}

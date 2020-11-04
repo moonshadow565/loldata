@@ -9,11 +9,3 @@ AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "fiora_heal2_buf.troy"
-    }
-  }
-}

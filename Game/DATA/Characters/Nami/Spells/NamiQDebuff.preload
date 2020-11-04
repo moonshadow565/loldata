@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="globalisairborne"}},
+{Function=BBPreloadParticle, Params={Name="Nami_Base_Q_pop.troy"}},
+{Function=BBPreloadParticle, Params={Name="nami_base_q_debuff.troy"}},
+{Function=BBPreloadParticle, Params={Name="nami_base_q_pop.troy"}},
+{Function=BBPreloadSpell, Params={Name="namibubblemarker"}},
+}

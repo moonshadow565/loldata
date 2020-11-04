@@ -5,15 +5,3 @@ NonDispellable = true
 SpellFXOverrideSkins = {
   "FireworksCorki"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "mbcheck2"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "corkimissilebarragenc"
-    }
-  }
-}

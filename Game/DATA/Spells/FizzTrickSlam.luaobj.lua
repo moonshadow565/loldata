@@ -2,37 +2,3 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "fizz_playfultrickster_flip_sound.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "fizz_trickslam.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "fizz_trickslam_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fizzwslow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
-  }
-}

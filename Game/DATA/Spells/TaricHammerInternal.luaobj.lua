@@ -8,11 +8,3 @@ BuffName = "TaricHammerInternal"
 AutoBuffActivateEffect = "Taric_HammerInternal.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 SpellFXOverrideSkins = {""}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "taric_hammerinternal.troy"
-    }
-  }
-}

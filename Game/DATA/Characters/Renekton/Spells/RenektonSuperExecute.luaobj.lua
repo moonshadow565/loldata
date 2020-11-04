@@ -1,22 +1,2 @@
 DoesntBreakShields = true
 IsDamagingSpell = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonunlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonrageready"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonweaponglowfade"
-    }
-  }
-}

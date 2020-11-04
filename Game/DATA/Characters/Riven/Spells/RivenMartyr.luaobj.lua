@@ -13,35 +13,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "RivenSkin05"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_base_w_ult_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_w_cast_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_w_weapon_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_base_w_ult_cas_ground.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_base_w_cast.troy"
-    }
-  }
-}

@@ -1,8 +1,0 @@
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varuseaoemini.troy"
-    }
-  }
-}

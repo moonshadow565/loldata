@@ -13,11 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "TryndamereDemonsword"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tryndamere_heal.troy"
-    }
-  }
-}

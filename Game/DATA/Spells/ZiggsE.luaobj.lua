@@ -5,21 +5,3 @@ SpellFXOverrideSkins = {
   "ZiggsPoolParty",
   "ZiggsSnowday"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "ziggse2"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  }
-}

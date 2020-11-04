@@ -1,16 +1,2 @@
 BuffTextureName = "Galio_RighteousGust.dds"
 BuffName = "GalioRighteousGustHaste"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "galio_windtunnel_speed_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "galio_windTunnel_speed_buf_team_red.troy"
-    }
-  }
-}

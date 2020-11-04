@@ -6,27 +6,3 @@ AutoBuffActivateAttachBoneName3 = "l_hand"
 AutoBuffActivateEffect4 = "Lulu_W_buf_hand_cas.troy"
 AutoBuffActivateAttachBoneName4 = "r_hand"
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lulu_w_buf_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lulu_w_buf_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lulupassiverun"
-    }
-  }
-}

@@ -12,23 +12,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "BadSantaVeigar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "permission_ability_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotveigarqmarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotveigarq"
-    }
-  }
-}

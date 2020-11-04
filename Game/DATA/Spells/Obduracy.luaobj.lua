@@ -7,11 +7,3 @@ SpellFXOverrideSkins = {
   "GlacialMalphite",
   "MalphiteSkin06"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "obduracybuff"
-    }
-  }
-}

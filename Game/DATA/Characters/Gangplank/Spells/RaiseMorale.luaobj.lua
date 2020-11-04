@@ -9,11 +9,3 @@ IsPetDurationBuff = true
 PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "raisemoraleteambuff"
-    }
-  }
-}

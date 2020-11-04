@@ -12,11 +12,3 @@ AutoBuffActivateAttachBoneName4 = "R_BUFFBONE_GLB_HAND_LOC"
 SpellFXOverrideSkins = {
   "HeadhunterNidalee"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nidalee_base_e_tar.troy"
-    }
-  }
-}

@@ -1,33 +1,3 @@
 BuffName = "OdinShamanAura"
 PersistsThroughDeath = true
 Nondispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tt_speedplat_well.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tt_speedshrine_flash.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "tt_speedshrine_buff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "tt_speedshrine_renew"
-    }
-  }
-}

@@ -14,21 +14,3 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "itemmuramana_activate.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "muramana"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "itemmuramana.troy"
-    }
-  }
-}

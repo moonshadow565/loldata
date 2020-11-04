@@ -4,11 +4,3 @@ IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "MakerViktor"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktoreaugmissile"
-    }
-  }
-}

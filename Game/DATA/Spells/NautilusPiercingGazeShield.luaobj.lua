@@ -16,17 +16,3 @@ SpellFXOverrideSkins = {
   "NautilusAstronaut"
 }
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nautilus_w_shield_deactive.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spelleffect_proc.troy"
-    }
-  }
-}

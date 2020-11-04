@@ -7,17 +7,3 @@ BuffTextureName = "Pirate_GrogSoakedBlade.dds"
 BuffName = "Scurvy"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "scurvystrikeparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "scurvystrike"
-    }
-  }
-}

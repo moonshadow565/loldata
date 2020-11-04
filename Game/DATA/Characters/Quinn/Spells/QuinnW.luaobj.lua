@@ -12,17 +12,3 @@ SpellFXOverrideSkins = {
 }
 DoOnPreDamageInExpirationOrder = true
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "quinnwvision"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "quinn_base_w_cas_nova.troy"
-    }
-  }
-}

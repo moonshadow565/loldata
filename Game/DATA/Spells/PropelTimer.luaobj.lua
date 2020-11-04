@@ -1,19 +1,1 @@
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "propelspellcaster"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "propelbubbles.troy"
-    }
-  }
-}

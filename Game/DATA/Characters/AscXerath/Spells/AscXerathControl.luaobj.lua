@@ -1,28 +1,2 @@
 BuffTextureName = "Xerath_Passive1.dds"
 BuffName = "AscXerathControl"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ascshuffledetector"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xerath_base_w_aoe_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xerath_base_q_cas_charge.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ascxerath_base_r_buf.troy"
-    }
-  }
-}

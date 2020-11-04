@@ -9,21 +9,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumwdummyspell"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "braumwdash"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumwpassivestatsdoubler"
-    }
-  }
-}

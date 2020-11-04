@@ -11,17 +11,3 @@ AutoBuffActivateAttachBoneName3 = "BUFFBONE_CSTM_sword3_loc"
 AutoBuffActivateEffect4 = "MasterYi_Base_E_Sword4_buf.troy"
 AutoBuffActivateAttachBoneName4 = "BUFFBONE_CSTM_sword4_loc"
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "wujustylevisual"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "wujustylesupercharged"
-    }
-  }
-}

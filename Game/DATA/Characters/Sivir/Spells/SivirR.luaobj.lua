@@ -10,21 +10,3 @@ AutoCooldownByLevel = {
   90
 }
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sivir_base_r_boost.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sivirraurabuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sivirr"}
-  }
-}

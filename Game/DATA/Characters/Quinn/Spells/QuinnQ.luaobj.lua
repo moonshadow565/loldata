@@ -8,23 +8,3 @@ SpellFXOverrideSkins = {
   "CyberEzreal",
   "PhoenixQuinn"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "quinnsuppressq"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Quinn_Base_Q_Tar_Blind.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Quinn_Base_Q_Tar_Blind_Minion.troy"
-    }
-  }
-}

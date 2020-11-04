@@ -13,17 +13,3 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 PopupMessage1 = "game_floatingtext_Slowed"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_slow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Quinn_Base_E_Tar.troy"
-    }
-  }
-}

@@ -10,9 +10,3 @@ PopupMessage1 = "game_floatingtext_Suppressed"
 SpellFXOverrideSkins = {
   "SyndraJusticar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "syndraw"}
-  }
-}

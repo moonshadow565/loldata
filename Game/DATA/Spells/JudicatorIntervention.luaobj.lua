@@ -15,23 +15,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "MetalWingedJudicator"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "eyeforaneye_self.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "eyeforaneye_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kayleinterventionanim"
-    }
-  }
-}

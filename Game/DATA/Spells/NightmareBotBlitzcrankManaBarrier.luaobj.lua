@@ -11,17 +11,3 @@ AutoCooldownByLevel = {
 }
 NonDispellable = true
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "steamgolemshield.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "steamgolemshield_hit.troy"
-    }
-  }
-}

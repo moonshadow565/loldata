@@ -18,23 +18,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyparagonstats"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyparagonparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyparagonspeed"
-    }
-  }
-}

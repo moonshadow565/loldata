@@ -6,17 +6,3 @@ SpellFXOverrideSkins = {
   "SingedSkin06"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "insanitypotion_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "insanitypotion_steam.troy"
-    }
-  }
-}

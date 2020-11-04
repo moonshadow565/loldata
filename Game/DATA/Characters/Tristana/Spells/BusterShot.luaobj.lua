@@ -8,11 +8,3 @@ SpellFXOverrideSkins = {
   "RocketTristana"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tristana_bustershot_unit_impact.troy"
-    }
-  }
-}

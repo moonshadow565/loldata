@@ -15,27 +15,3 @@ AutoCooldownByLevel = {
   90,
   90
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_battlecry_obd.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_cast.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "summonerbattlecry"
-    }
-  }
-}

@@ -6,33 +6,3 @@ SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "SingedSkin06"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "acidtrail_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "acidtrail_buf_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poisontrailapplicator"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poisontrail"
-    }
-  }
-}

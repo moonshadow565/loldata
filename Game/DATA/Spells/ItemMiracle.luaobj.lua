@@ -8,17 +8,3 @@ BuffName = "SummonerReviveSpeedBoost"
 SpellToggleSlot = 1
 PersistsThroughDeath = true
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemmiracleboost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemmiraclepermanentblessing"
-    }
-  }
-}

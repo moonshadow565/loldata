@@ -16,11 +16,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "HunterRengar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarferocitymanagerincombat"
-    }
-  }
-}

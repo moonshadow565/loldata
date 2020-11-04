@@ -99,7 +99,7 @@ function L0_0()
   if Active == false then
     return
   end
-  if SearchForTargets == true and (SearchIgnoresAzirMovement == true or TargetIsMoving(L0_6) == false and IsAutoAcquireTargetEnabled()) and FindTargetInAcR() ~= nil then
+  if SearchForTargets == true and (SearchIgnoresAzirMovement == true or TargetIsMoving(L0_6) == false and TargetIsAutoAcquireTargetEnabled(L0_6)) and FindTargetInAcR() ~= nil then
     IssueOrder(L0_6, ORDER_PETHARDMOVE, GetPos(L0_6))
   end
 end

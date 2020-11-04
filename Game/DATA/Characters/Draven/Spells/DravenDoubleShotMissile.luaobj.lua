@@ -9,23 +9,3 @@ SpellFXOverrideSkins = {
   "Draven_Gladiator",
   "DravenSkin03"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravendoubleshotmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravendoubleshot"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_base_e_tar.troy"
-    }
-  }
-}

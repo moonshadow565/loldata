@@ -9,11 +9,3 @@ SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "HunterRengar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengarreffect.troy"
-    }
-  }
-}

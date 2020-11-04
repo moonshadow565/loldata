@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Destiny_temp.dds"
 BuffName = "Destiny"
 AutoBuffActivateEffect = "DestinyEye.troy"
-AutoBuffActivateAttachBoneName = "c_buffbone_glb_layout_loc"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_OVERHEAD_LOC"
 SpellDamageRatio = 0.75
 AutoCooldownByLevel = {
   150,
@@ -12,16 +12,4 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "UnderworldTwistedFate"
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "destiny_marker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "gate"}
-  }
 }

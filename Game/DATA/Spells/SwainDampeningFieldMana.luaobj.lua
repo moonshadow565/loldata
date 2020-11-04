@@ -8,17 +8,3 @@ BuffName = "SwainDampeningFieldMana"
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "swain_grand_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "neutralmonster_buf.troy"
-    }
-  }
-}

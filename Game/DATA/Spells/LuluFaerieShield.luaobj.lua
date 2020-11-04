@@ -8,11 +8,3 @@ BuffName = "LuluEShield"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {"luluSkin04"}
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lulu_e_shield_01.troy"
-    }
-  }
-}

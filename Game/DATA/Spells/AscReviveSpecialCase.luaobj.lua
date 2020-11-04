@@ -15,11 +15,3 @@ SpellFXOverrideSkins = {
   "SightWardLantern",
   "SightWardBanner"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ascbufftransfer"
-    }
-  }
-}

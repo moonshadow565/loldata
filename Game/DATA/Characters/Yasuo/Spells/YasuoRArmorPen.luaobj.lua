@@ -1,16 +1,2 @@
 BuffTextureName = "Yasuo_R.dds"
 BuffName = "YasuoRArmorPen"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin01_r_swordglow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_r_swordglow.troy"
-    }
-  }
-}

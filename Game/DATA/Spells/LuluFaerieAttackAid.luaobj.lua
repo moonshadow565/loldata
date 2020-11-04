@@ -9,11 +9,3 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lulufaeriemultishot"
-    }
-  }
-}

@@ -16,23 +16,3 @@ PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "HunterRengar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarefinalmax"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengareslow"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengar_base_e_max_tar.troy"
-    }
-  }
-}

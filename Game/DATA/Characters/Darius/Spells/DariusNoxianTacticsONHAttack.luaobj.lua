@@ -2,12 +2,10 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Wolfman_SeverArmor.dds"
-TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dariusnoxiantacticsslow"
-    }
-  }
+SpellFXOverrideSkins = {
+  "DariusSkin04"
 }
+SpellVOOverrideSkins = {
+  "DariusSkin04"
+}
+TriggersSpellCasts = true

@@ -9,11 +9,3 @@ PopupMessage1 = "game_floatingtext_Stunned"
 SpellFXOverrideSkins = {
   "VelkozSkin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "velkoz_base_e_stun_tar.troy"
-    }
-  }
-}

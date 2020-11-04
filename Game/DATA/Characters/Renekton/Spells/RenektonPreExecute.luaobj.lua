@@ -9,17 +9,3 @@ SpellToggleSlot = 2
 SpellFXOverrideSkins = {
   "RenektonSkin06"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "renekton_ruthlesspredator_obd-sound.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonunlockanimation"
-    }
-  }
-}

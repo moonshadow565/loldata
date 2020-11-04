@@ -25,35 +25,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "MonkeyKingSkin04"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "monkeyking_q_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingnimbuskick"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "monkeykingclone"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "monkeykingflying"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingnimbuskickclone"
-    }
-  }
-}

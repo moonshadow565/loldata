@@ -2,27 +2,3 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "TalonNoxianDiplomacy.dds"
 BuffName = "Bleed"
 IsDeathRecapSource = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "talon_q_bleed_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "talon_q_bleed.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  }
-}

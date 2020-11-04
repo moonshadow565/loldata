@@ -7,11 +7,3 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ReefMalphite"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "QuinnWpassiveready"
-    }
-  }
-}

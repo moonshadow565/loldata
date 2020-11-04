@@ -8,11 +8,3 @@ BuffName = "EzrealEssenceFluxBuff"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_bow_yellow.troy"
-    }
-  }
-}

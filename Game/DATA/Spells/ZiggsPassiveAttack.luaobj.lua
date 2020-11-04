@@ -12,11 +12,3 @@ SpellFXOverrideSkins = {
   "ZiggsPoolParty",
   "ZiggsSnowday"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ziggspassive_tar.troy"
-    }
-  }
-}

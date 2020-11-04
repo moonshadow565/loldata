@@ -12,11 +12,3 @@ SpellVOOverrideSkins = {
 }
 DoOnPreDamageInExpirationOrder = true
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Braumbubbleshield_buf.troy"
-    }
-  }
-}

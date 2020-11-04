@@ -4,11 +4,3 @@ SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "ZhaoYunXinZhao"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xenziou_chainattack_indicator.troy"
-    }
-  }
-}

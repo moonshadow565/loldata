@@ -10,11 +10,3 @@ AutoCooldownByLevel = {
   4
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talonrakemissileone"
-    }
-  }
-}

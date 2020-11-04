@@ -16,17 +16,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "VeigarSkin08"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "veigar_base_q_powerup.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "veigar_skin08_q_minionkill.troy"
-    }
-  }
-}

@@ -1,9 +1,1 @@
 AutoBuffActivateEffect = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kennen_mos1.troy"
-    }
-  }
-}

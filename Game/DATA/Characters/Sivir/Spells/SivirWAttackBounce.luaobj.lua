@@ -15,17 +15,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sivirpassivespeed"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "globalhit_bloodslash.troy"
-    }
-  }
-}

@@ -7,9 +7,3 @@ ChannelDuration = 6
 BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
 BuffName = "Drain"
 AutoBuffActivateEffect = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "draincheck"}
-  }
-}

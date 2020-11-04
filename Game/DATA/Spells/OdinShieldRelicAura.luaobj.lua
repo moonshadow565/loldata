@@ -2,29 +2,3 @@ BuffTextureName = ""
 BuffName = ""
 PersistsThroughDeath = true
 Nondispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "odin_heal_rune.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinshieldrelicaura"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinshieldrelicbuffheal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinscoresmallrelic"
-    }
-  }
-}

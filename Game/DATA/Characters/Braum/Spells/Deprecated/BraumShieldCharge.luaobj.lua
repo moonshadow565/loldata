@@ -11,17 +11,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "SejuaniClassic"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuaniunlockanimationknockup"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "Braumshieldcharge"
-    }
-  }
-}

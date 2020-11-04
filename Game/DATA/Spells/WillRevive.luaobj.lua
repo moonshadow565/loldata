@@ -5,11 +5,3 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 6
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "guardianangel"
-    }
-  }
-}

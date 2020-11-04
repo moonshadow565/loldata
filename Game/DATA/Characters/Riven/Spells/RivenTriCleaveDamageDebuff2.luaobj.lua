@@ -9,35 +9,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_s2_q_tar_03.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_s2_q_tar_04.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_tar_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_tar_03.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_tar_04.troy"
-    }
-  }
-}

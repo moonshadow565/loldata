@@ -1,33 +1,3 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "3184_Entropy.dds"
 BuffName = "OdinEntropicClaymore"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "neutralmonster_buf_red_offense.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "entropyburning"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "internal_30slow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "itemslow"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spectral_fury_cas.troy"
-    }
-  }
-}

@@ -10,21 +10,3 @@ SpellToggleSlot = 3
 SpellFXOverrideSkins = {
   "BraumSkin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "braume"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumeshieldbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumemsboost"
-    }
-  }
-}

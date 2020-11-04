@@ -6,15 +6,3 @@ IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "BadSantaVeigar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nightmarebotashefrostpatches_frost2.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  }
-}

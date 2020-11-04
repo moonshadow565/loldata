@@ -13,11 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "RocketTristana"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gnar_base_transform_warning_yellow.troy"
-    }
-  }
-}

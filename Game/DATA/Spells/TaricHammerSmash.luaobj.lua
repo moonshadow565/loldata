@@ -4,27 +4,3 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {""}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tarichammersmash_shatter.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tarichammersmash_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "taric_gemstorm_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "radiance"}
-  }
-}

@@ -4,11 +4,3 @@ IsDamagingSpell = true
 SpellDamageRatio = 0.5
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ashespiritofthehawkbubble"
-    }
-  }
-}

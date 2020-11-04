@@ -6,17 +6,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "BloodkingVladimir"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  }
-}

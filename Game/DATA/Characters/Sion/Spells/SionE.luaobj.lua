@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+IsDamagingSpell = true
+BuffTextureName = "Sion_E.dds"
+BuffName = "Death's Caress"
+OnPreDamagePriority = 3
+DoOnPreDamageInExpirationOrder = true
+AutoBuffActivateEvent = "DeathsCaress_buf.troy"

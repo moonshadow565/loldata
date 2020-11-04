@@ -1,9 +1,1 @@
 AutoBuffActivateEffect = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "vayne_passive_speed_buf.troy"
-    }
-  }
-}

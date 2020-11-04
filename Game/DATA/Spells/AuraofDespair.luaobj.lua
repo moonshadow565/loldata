@@ -9,11 +9,3 @@ SpellToggleSlot = 2
 SpellFXOverrideSkins = {
   "BadrobotAmumu"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "auraofdespair"
-    }
-  }
-}

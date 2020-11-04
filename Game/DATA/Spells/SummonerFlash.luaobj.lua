@@ -1,29 +1,3 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_ss_flash.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_cast.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_ss_flash_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "summonerflashhaste"
-    }
-  }
-}

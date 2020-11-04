@@ -12,23 +12,3 @@ AutoBuffActivateAttachBoneName4 = "C_BUFFBONE_GLB_CENTER_LOC"
 SpellFXOverrideSkins = {
   "CyberNocturne"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nocturne_shroud_deactivatetrigger.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneshroudofdarknessbuff"
-    }
-  }
-}

@@ -10,21 +10,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "namiwmissileally"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Nami_Base_W_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "namiw"}
-  }
-}

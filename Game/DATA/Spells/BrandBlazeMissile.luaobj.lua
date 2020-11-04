@@ -9,17 +9,3 @@ PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "FrostFireBrand"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandsearparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandablaze"
-    }
-  }
-}

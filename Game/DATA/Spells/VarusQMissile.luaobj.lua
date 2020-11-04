@@ -8,33 +8,3 @@ SpellFXOverrideSkins = {
   "VarusSkin03"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "varusqhit"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varusqspellshieldcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varuswdetonate"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusqhit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusqhitminion.troy"
-    }
-  }
-}

@@ -263,6 +263,34 @@ function L0(A0, A1, A2, A3, A4, A5)
   return L6
 end
 SpellEffectCreate = L0
+function L0(A0)
+  local L1, L2, L3, L4, L5, L6
+  L1[L2] = L3
+  L1[L2] = L3
+  L1[L2] = L3
+  L1[L2] = L3
+  L1[L2] = L3
+  L1.Pos = L2
+  L1.TargetPos = L2
+  L1.OrientTowards = L2
+  passThroughParams = L1
+  L1.BindObjectVar = "BindObject"
+  L1.TargetObjectVar = "TargetObject"
+  L1.SpecificUnitOnlyVar = "SpecificUnitOnly"
+  L1.SpecificUnitToExcludeVar = "SpecificUnitToExclude"
+  L1.KeywordObjectVar = "KeywordObject"
+  L1.PosVar = "Pos"
+  L1.TargetPosVar = "TargetPos"
+  L1.OrientTowardsVar = "OrientTowards"
+  perBlockParams = L1
+  for L4, L5 in L1, L2, L3 do
+    L6 = perBlockParams
+    L6[L4] = L5
+  end
+  outEffectID = L1
+  return L1
+end
+SpellEffectCreateFromTable = L0
 function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
   local L12, L13, L14
   L12 = {}
@@ -315,6 +343,28 @@ function L0(A0, A1)
   L2(L3, L4)
 end
 TeleportToPosition = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = {}
+  L3 = GetHashedGameObjName
+  L4 = "Unit1"
+  L3 = L3(L4)
+  L2[L3] = A0
+  L3 = GetHashedGameObjName
+  L4 = "Unit2"
+  L3 = L3(L4)
+  L2[L3] = A1
+  passThroughParams = L2
+  L2 = {}
+  L2.Unit1Var = "Unit1"
+  L2.Unit2Var = "Unit2"
+  perBlockParams = L2
+  L2 = BBLinkVisibility
+  L3 = passThroughParams
+  L4 = perBlockParams
+  L2(L3, L4)
+end
+LinkVisibility = L0
 function L0(A0, A1, A2, A3, A4, A5)
   local L6, L7, L8
   L6 = {}

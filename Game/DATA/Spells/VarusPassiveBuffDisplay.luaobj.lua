@@ -10,29 +10,3 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "VarusAscended"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varus-bow-glow-big.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varus-bow-glow-med.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varus-bow-glow-small.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varuspassivebuffdisplayminion"
-    }
-  }
-}

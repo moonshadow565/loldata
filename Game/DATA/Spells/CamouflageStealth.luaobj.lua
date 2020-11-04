@@ -1,28 +1,2 @@
 BuffTextureName = "Teemo_Camouflage.dds"
 BuffName = "CamouflageStealth"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "camouflagebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "globalstealthscreentint"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "camouflagecheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemocamouflagestealthtt"
-    }
-  }
-}

@@ -14,23 +14,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "RocketTristana"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Aatrox_Base_Q_Land.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Aatrox_Base_Q_Hit.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxqknockup"
-    }
-  }
-}

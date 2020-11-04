@@ -19,11 +19,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "poppy_devastatingblow_tar.troy"
-    }
-  }
-}

@@ -1,8 +1,0 @@
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darius_r_refresh_01.troy"
-    }
-  }
-}

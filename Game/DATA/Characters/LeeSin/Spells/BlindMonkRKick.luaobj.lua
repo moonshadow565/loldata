@@ -21,23 +21,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkrmarker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "blind_monk_ult_unit_impact.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkrdamage"
-    }
-  }
-}

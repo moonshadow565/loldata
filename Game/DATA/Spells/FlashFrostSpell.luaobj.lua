@@ -9,9 +9,3 @@ SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "BlackIceAnivia"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
-  }
-}

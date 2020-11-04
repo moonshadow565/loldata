@@ -8,29 +8,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "fiora_dance_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancetarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancevisibility"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioradancerepeat"
-    }
-  }
-}

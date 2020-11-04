@@ -11,17 +11,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "RocketTristana"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gnartransformsoon"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gnarfuryhigh"
-    }
-  }
-}

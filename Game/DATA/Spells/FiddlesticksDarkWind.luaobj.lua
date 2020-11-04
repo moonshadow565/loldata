@@ -12,27 +12,3 @@ SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
   "CandyCaneFiddlesticks"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fiddlesticksdarkwindmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "darkwind"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "party_darkwind_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darkwind_tar.troy"
-    }
-  }
-}

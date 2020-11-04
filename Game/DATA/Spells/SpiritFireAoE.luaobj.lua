@@ -1,29 +1,3 @@
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nassus_spiritfire_afterburn.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nassus_spiritfire_tar_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nassus_spiritfire_tar_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "spiritfirearmorreduction"
-    }
-  }
-}

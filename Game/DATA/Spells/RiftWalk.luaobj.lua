@@ -6,15 +6,3 @@ IsDamagingSpell = true
 BuffTextureName = "Voidwalker_Riftwalk.dds"
 BuffName = "RiftWalk"
 AutoBuffActivateEvent = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kassadin_base_r_appear.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "riftwalk"}
-  }
-}

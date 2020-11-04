@@ -7,11 +7,3 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "Zyra_hellvine"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "Yasuowindwallfake"
-    }
-  }
-}

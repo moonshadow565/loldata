@@ -13,11 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "BloodkingVladimir"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "thresh_soul_eat_buf.troy"
-    }
-  }
-}

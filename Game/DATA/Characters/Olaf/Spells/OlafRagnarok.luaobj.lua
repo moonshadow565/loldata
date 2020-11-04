@@ -15,23 +15,3 @@ AutoCooldownByLevel = {
   120
 }
 SpellVOOverrideSkins = {"BroOlaf"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "olaf_ragnorok_enraged.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "olafragnarokpassivebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "olafragnarok"
-    }
-  }
-}

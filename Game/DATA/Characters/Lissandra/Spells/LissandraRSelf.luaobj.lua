@@ -11,23 +11,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "ZombieBrand"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_base_r_iceblock_lulu.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_base_r_iceblock.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_base_r_skin.troy"
-    }
-  }
-}
