@@ -117,64 +117,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Attacker"
         }
-      },
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "totalDamage"
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetBaseAttackDamage,
-          TargetVar = "Owner",
-          DestVar = "BaseAD"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "totalDamage",
-          Src2Var = "BaseAD",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BonusDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "BonusDamage",
-          Src1Value = 0.2,
-          Src2Value = 0,
-          DestVar = "BonusDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "BonusDamage",
-          Src1Value = 2,
-          Src2Value = 0,
-          DestVar = "BonusDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "BonusDamage",
-          Index = 1,
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
       }
     }
   }

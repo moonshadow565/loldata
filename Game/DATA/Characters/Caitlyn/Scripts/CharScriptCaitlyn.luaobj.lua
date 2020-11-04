@@ -1,109 +1,32 @@
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBGetStat,
     Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTime2Executed",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "TotalDamage"
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetBaseAttackDamage,
-          TargetVar = "Owner",
-          DestVar = "BonusAD"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "TotalDamage",
-          Src2Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "FinalDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "FinalDamage",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "FinalDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "FinalDamage",
-          Index = 1,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      },
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "TotalDamage"
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetBaseAttackDamage,
-          TargetVar = "Owner",
-          DestVar = "BonusAD"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "TotalDamage",
-          Src2Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "FinalDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "FinalDamage",
-          Src1Value = 0,
-          Src2Value = 1.5,
-          DestVar = "FinalDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "FinalDamage",
-          Index = 1,
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      }
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusAD"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusAD",
+      Src1Value = 0,
+      Src2Value = 2,
+      DestVar = "BonusAD",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusAD",
+      Index = 1,
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }
@@ -464,13 +387,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "caitlynheadshotcount"
+      Name = "ifhasbuffcheck"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "caitlynheadshot"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "caitlynheadshotcount"
     }
   },
   {

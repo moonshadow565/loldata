@@ -20,11 +20,7 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -110,8 +106,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -131,8 +126,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -152,8 +146,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -173,8 +166,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -194,8 +186,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -215,8 +206,7 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner",
-          BroadcastEvent = false
+          OwnerVar = "Owner"
         }
       }
     }
@@ -253,18 +243,7 @@ TargetExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentSpellVampMod,
-      TargetVar = "Owner",
-      Delta = 0.2
+      ForceCastingOrChannelling = false
     }
   }
 }

@@ -31,53 +31,8 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BaseDamage",
-      SrcValueByLevel = {
-        10,
-        16,
-        22,
-        28,
-        34
-      }
-    }
-  },
-  {
     Function = BBGetTotalAttackDamage,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "totalDamage"
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Owner",
-      DestVar = "BaseAD"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "totalDamage",
-      Src2Var = "BaseAD",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusDamage",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "BonusDamage",
-      Src1Value = 0.2,
-      Src2Value = 0,
-      DestVar = "BonusDamage",
-      MathOp = MO_MULTIPLY
-    }
+    Params = {TargetVar = "Owner", DestVar = "NewDamage"}
   },
   {
     Function = BBGetStatus,
@@ -119,18 +74,11 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
-          DamageByLevel = {
-            10,
-            16,
-            22,
-            28,
-            34
-          },
           Damage = 0,
-          DamageVar = "BonusDamage",
+          DamageVar = "NewDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
+          PercentOfAttack = 0.2,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
@@ -171,18 +119,11 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Owner",
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
-              DamageByLevel = {
-                10,
-                16,
-                22,
-                28,
-                34
-              },
               Damage = 0,
-              DamageVar = "BonusDamage",
+              DamageVar = "NewDamage",
               DamageType = PHYSICAL_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
+              PercentOfAttack = 0.2,
               SpellDamageRatio = 0,
               PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -235,18 +176,11 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Owner",
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
-                  DamageByLevel = {
-                    10,
-                    16,
-                    22,
-                    28,
-                    34
-                  },
                   Damage = 0,
-                  DamageVar = "BonusDamage",
+                  DamageVar = "NewDamage",
                   DamageType = PHYSICAL_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
+                  PercentOfAttack = 0.2,
                   SpellDamageRatio = 0,
                   PhysicalDamageRatio = 0,
                   IgnoreDamageIncreaseMods = false,

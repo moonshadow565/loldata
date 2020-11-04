@@ -72,11 +72,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.08,
-        0.11,
+        0.1,
         0.14,
-        0.17,
-        0.2
+        0.18,
+        0.22,
+        0.26
       }
     }
   },
@@ -86,11 +86,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackDmgMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        12,
-        19,
-        26,
-        33,
-        40
+        14,
+        22,
+        30,
+        38,
+        46
       }
     }
   },
@@ -118,11 +118,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.04,
-        0.055,
+        0.05,
         0.07,
-        0.085,
-        0.1
+        0.09,
+        0.11,
+        0.13
       }
     }
   },
@@ -132,11 +132,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "AttackDmgMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        6,
-        9.5,
-        13,
-        16.5,
-        20
+        7,
+        11,
+        15,
+        19,
+        23
       }
     }
   },
@@ -173,6 +173,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "raisemorale"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
