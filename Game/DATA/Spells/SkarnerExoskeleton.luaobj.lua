@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "SkarnerExoskeleton.dds"
+BuffTextureName = "Skarner_W.dds"
 BuffName = "SkarnerExoskeleton"
 AutoBuffActivateAttachBoneName3 = "chest"
 PreLoadBuildingBlocks = {

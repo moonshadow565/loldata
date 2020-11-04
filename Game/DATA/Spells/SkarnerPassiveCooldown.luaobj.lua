@@ -1,2 +1,2 @@
-BuffTextureName = "SkarnerEnergize.dds"
+BuffTextureName = "Skarner_Passive.dds"
 BuffName = "SkarnerPassiveCooldown"

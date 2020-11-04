@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "SkarnerVirulentSlash.dds"
+BuffTextureName = "Skarner_Q.dds"
 BuffName = "SkarnerVirulentSlash"
 SpellFXOverrideSkins = {
   "ReefMalphite"
@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "skarner_crystal_slash_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnerpassivebuff"
     }
   },
   {

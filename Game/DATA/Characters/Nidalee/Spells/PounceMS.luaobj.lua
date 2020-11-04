@@ -1,9 +1,3 @@
-BuffTextureName = "Nidalee_Pounce.dds"
+BuffTextureName = "Nidalee_W2.dds"
 BuffName = "PounceMS"
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "prowl"}
-  }
-}

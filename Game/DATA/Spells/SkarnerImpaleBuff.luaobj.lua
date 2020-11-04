@@ -1,10 +1,2 @@
-BuffTextureName = "SkarnerImpale.dds"
+BuffTextureName = "Skarner_R.dds"
 BuffName = "SkarnerImpaleBuff"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnerimpale"
-    }
-  }
-}

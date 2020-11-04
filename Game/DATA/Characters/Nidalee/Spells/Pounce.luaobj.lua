@@ -36,6 +36,10 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "pouncems"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "pounceblocker"
     }

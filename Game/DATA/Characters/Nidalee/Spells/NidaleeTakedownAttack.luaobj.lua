@@ -1,3 +1,5 @@
+BuffTextureName = "Nidalee_Q2.dds"
+IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

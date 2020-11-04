@@ -6,3 +6,4 @@ AutoBuffActivateEffect = "Nidalee_Base_Cougar_Q_Buf.troy"
 AutoBuffActivateAttachBoneName = "R_hand"
 AutoBuffActivateEffect2 = "Nidalee_Base_Cougar_Q_Buf.troy"
 AutoBuffActivateAttachBoneName2 = "L_hand"
+IsDeathRecapSource = true
