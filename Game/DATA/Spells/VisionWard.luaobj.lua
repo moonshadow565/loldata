@@ -176,6 +176,24 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
+      BuffName = "SharedWardBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 180,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
+      AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Invisibility,
@@ -184,7 +202,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 180,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -201,7 +220,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

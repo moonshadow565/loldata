@@ -35,7 +35,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -54,8 +55,13 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -84,6 +90,10 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "RightHand",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 PreLoadBuildingBlocks = {

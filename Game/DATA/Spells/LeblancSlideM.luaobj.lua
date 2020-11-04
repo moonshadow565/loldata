@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 BuffTextureName = "LeblancDisplacementReturnM.dds"
 BuffName = "LeblancDisplacementM"
 SpellToggleSlot = 4
@@ -62,7 +63,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -86,7 +88,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -151,7 +154,8 @@ OnBuffDeactivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "CasterID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -173,7 +177,8 @@ OnBuffDeactivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "CasterID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -192,7 +197,8 @@ OnBuffDeactivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "CasterID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -405,7 +411,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "CasterID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -597,7 +604,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -614,7 +622,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -631,7 +640,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

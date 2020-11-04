@@ -37,10 +37,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
-  },
-  {
     Function = BBGetTotalAttackDamage,
     Params = {
       TargetVar = "Owner",
@@ -100,17 +96,11 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "SonaPowerChord"
-        }
-      }
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaPowerChord"
     }
   }
 }

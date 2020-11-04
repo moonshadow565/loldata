@@ -170,31 +170,8 @@ CharOnHitUnitBuildingBlocks = {
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_NEUTRAL,
                       FOWVisibilityRadius = 900,
-                      SendIfOnScreenOrDiscard = true
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBIf,
-                    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-                    SubBlocks = {
-                      {
-                        Function = BBSpellBuffRemove,
-                        Params = {
-                          TargetVar = "Attacker",
-                          AttackerVar = "Attacker",
-                          BuffName = "NocturneUmbraBlades"
-                        }
-                      }
+                      SendIfOnScreenOrDiscard = true,
+                      FollowsGroundTilt = false
                     }
                   }
                 }
@@ -320,7 +297,8 @@ CharOnSpellCastBuildingBlocks = {
           SlotNumber = 3,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       },
       {
@@ -476,24 +454,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "NocturneParanoiaTargetOrderVO"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "NocturneParanoiaTargetChaosVO"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "NocturneParanoiaVO"
     }
   }
 }

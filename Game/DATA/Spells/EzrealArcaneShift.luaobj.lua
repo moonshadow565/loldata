@@ -77,7 +77,8 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -100,7 +101,8 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -121,6 +123,10 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "fired", SrcValue = false}
+  },
+  {
     Function = BBForNClosestUnitsInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -128,44 +134,183 @@ SelfExecuteBuildingBlocks = {
       Range = 750,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1,
+      MaximumUnitsToPick = 5,
       InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBAddUnitPerceptionBubble,
+        Function = BBIf,
         Params = {
-          TeamVar = "CasterID",
-          Radius = 100,
-          TargetVar = "Unit",
-          Duration = 1,
-          SpecificUnitsClientOnlyVar = "Nothing",
-          RevealSpecificUnitOnlyVar = "Nothing",
-          RevealSteath = false,
-          BubbleIDVar = "BubbleID",
-          BubbleIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBFaceDirection,
-        Params = {TargetVar = "Attacker", LocationVar = "Unit"}
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Unit",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          OverrideCastPosition = false,
-          SlotNumber = 1,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          Src1Var = "fired",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBGetStatus,
+            Params = {
+              TargetVar = "Unit",
+              DestVar = "IsStealthed",
+              Status = GetStealthed
+            }
+          },
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Owner",
+              TargetVar = "Unit",
+              ResultVar = "CanSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "IsStealthed",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBAddUnitPerceptionBubble,
+                Params = {
+                  TeamVar = "CasterID",
+                  Radius = 100,
+                  TargetVar = "Unit",
+                  Duration = 1,
+                  SpecificUnitsClientOnlyVar = "Nothing",
+                  RevealSpecificUnitOnlyVar = "Nothing",
+                  RevealSteath = false,
+                  BubbleIDVar = "BubbleID",
+                  BubbleIDVarTable = "InstanceVars"
+                }
+              },
+              {
+                Function = BBFaceDirection,
+                Params = {TargetVar = "Attacker", LocationVar = "Unit"}
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  PosVar = "Owner",
+                  EndPosVar = "Owner",
+                  OverrideCastPosition = false,
+                  SlotNumber = 1,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "fired", SrcValue = true}
+              }
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBAddUnitPerceptionBubble,
+                Params = {
+                  TeamVar = "CasterID",
+                  Radius = 100,
+                  TargetVar = "Unit",
+                  Duration = 1,
+                  SpecificUnitsClientOnlyVar = "Nothing",
+                  RevealSpecificUnitOnlyVar = "Nothing",
+                  RevealSteath = false,
+                  BubbleIDVar = "BubbleID",
+                  BubbleIDVarTable = "InstanceVars"
+                }
+              },
+              {
+                Function = BBFaceDirection,
+                Params = {TargetVar = "Attacker", LocationVar = "Unit"}
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  PosVar = "Owner",
+                  EndPosVar = "Owner",
+                  OverrideCastPosition = false,
+                  SlotNumber = 1,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "fired", SrcValue = true}
+              }
+            }
+          },
+          {
+            Function = BBElseIf,
+            Params = {
+              Src1Var = "CanSee",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBAddUnitPerceptionBubble,
+                Params = {
+                  TeamVar = "CasterID",
+                  Radius = 100,
+                  TargetVar = "Unit",
+                  Duration = 1,
+                  SpecificUnitsClientOnlyVar = "Nothing",
+                  RevealSpecificUnitOnlyVar = "Nothing",
+                  RevealSteath = false,
+                  BubbleIDVar = "BubbleID",
+                  BubbleIDVarTable = "InstanceVars"
+                }
+              },
+              {
+                Function = BBFaceDirection,
+                Params = {TargetVar = "Attacker", LocationVar = "Unit"}
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  PosVar = "Owner",
+                  EndPosVar = "Owner",
+                  OverrideCastPosition = false,
+                  SlotNumber = 1,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "fired", SrcValue = true}
+              }
+            }
+          }
         }
       }
     }
@@ -191,7 +336,8 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -213,7 +359,8 @@ SelfExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 225,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }

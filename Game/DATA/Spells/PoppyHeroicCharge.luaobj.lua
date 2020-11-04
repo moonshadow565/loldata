@@ -77,6 +77,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0
     }
   },
@@ -95,7 +96,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -105,7 +107,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -328,7 +331,8 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -345,7 +349,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -368,7 +373,8 @@ BuffOnMoveSuccessBuildingBlocks = {
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -453,7 +459,8 @@ BuffOnMoveSuccessBuildingBlocks = {
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -476,7 +483,8 @@ BuffOnMoveSuccessBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -506,6 +514,10 @@ BuffOnMoveSuccessBuildingBlocks = {
                       CompareOp = CO_DIFFERENT_TEAM
                     },
                     SubBlocks = {
+                      {
+                        Function = BBBreakSpellShields,
+                        Params = {TargetVar = "Unit"}
+                      },
                       {
                         Function = BBApplyDamage,
                         Params = {
@@ -562,23 +574,6 @@ BuffOnMoveSuccessBuildingBlocks = {
                       {
                         Function = BBSpellBuffAdd,
                         Params = {
-                          TargetVar = "Owner",
-                          AttackerVar = "Owner",
-                          BuffName = "PoppyHeroicChargePart2",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 2,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
                           TargetVar = "Unit",
                           AttackerVar = "Owner",
                           BuffName = "PoppyHeroicChargePart2",
@@ -590,7 +585,36 @@ BuffOnMoveSuccessBuildingBlocks = {
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
+                        }
+                      },
+                      {
+                        Function = BBIfHasBuff,
+                        Params = {
+                          OwnerVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "PoppyHeroicChargePart2"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Owner",
+                              AttackerVar = "Owner",
+                              BuffName = "PoppyHeroicChargePart2",
+                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 2,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
+                            }
+                          }
                         }
                       }
                     }
@@ -613,7 +637,8 @@ BuffOnMoveSuccessBuildingBlocks = {
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

@@ -50,7 +50,8 @@ BuffOnCollisionBuildingBlocks = {
                       DurationVar = "tauntDuration",
                       DurationVarTable = "InstanceVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   },
                   {
@@ -177,6 +178,7 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = POSTPONE_CURRENT_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
       IdealDistance = 0,
       IdealDistanceVar = "Distance",
       IdealDistanceVarTable = "InstanceVars"
@@ -197,7 +199,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -211,7 +214,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   }
 }
@@ -430,7 +434,8 @@ SelfExecuteBuildingBlocks = {
               DurationVar = "tauntDuration",
               DurationVarTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -461,7 +466,8 @@ SelfExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -520,10 +526,11 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.1,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -567,7 +574,8 @@ BuffOnMoveEndBuildingBlocks = {
               DurationVar = "tauntDuration",
               DurationVarTable = "InstanceVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -598,7 +606,8 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           },
           {

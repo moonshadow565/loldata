@@ -14,7 +14,7 @@ gcd_PercentEXPBonusMaximum              =      5.000 ; The highest EXPBonus Perc
 
 ; Damage Ratios
 dr_HeroToHero                           =      1.000 ;  
-dr_BuildingToHero                       =      1.000 ;  
+dr_BuildingToHero                       =      1.050 ;  
 dr_UnitToHero                           =      0.700 ;  
 dr_HeroToUnit                           =      1.000 ;  
 dr_BuildingToUnit                       =      1.105 ;  
