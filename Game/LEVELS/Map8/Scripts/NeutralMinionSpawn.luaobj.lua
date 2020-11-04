@@ -798,6 +798,9 @@ function L0()
     L4.LeashRadius = 800
     L4 = NeutralMinionCamps
     L4 = L4[L3]
+    L4.StopSpawnTime = 25000
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
     L5 = CampSpawnPoints
     L5 = L5[L3]
     L5 = L5[1]
@@ -961,7 +964,11 @@ function L0(A0)
         L11 = L11.GroupDelaySpawnTime
         L12 = 0
         L13 = false
-        L8(L9, L10, L11, L12, L13)
+        L14 = NeutralMinionCamps
+        L15 = MinionsCamp
+        L14 = L14[L15]
+        L14 = L14.StopSpawnTime
+        L8(L9, L10, L11, L12, L13, L14)
       else
         if L1 <= L8 and L3 == false then
           L3 = true
@@ -1053,7 +1060,7 @@ function L0(A0, A1, A2)
       L8 = NeutralMinionCamps
       L8 = L8[L4]
       L8 = L8.GroupsRespawnTime
-      L5(L6, L7, L8, L9, L10)
+      L5(L6, L7, L8, L9, L10, L11)
     end
   end
 end
