@@ -1,3 +1,95 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 2,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {DestVar = "Level", SrcValue = 1}
+          }
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "AbilityPower"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamage",
+          SrcValueByLevel = {
+            4,
+            10,
+            16,
+            22,
+            28
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "AbilityPower",
+          Src1Value = 0.3,
+          Src2Value = 0,
+          DestVar = "AbilityPower",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusDamage",
+          Src2Var = "AbilityPower",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageToApply",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "DamageToApply",
+          Index = 1,
+          SlotNumber = 2,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
+    }
+  }
+}
 CharOnPreDealDamageBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -123,7 +215,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

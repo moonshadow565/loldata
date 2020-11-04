@@ -219,8 +219,18 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "SpellBaseDamage",
       Src2Var = "BaseDamage",
+      Src1Value = 1.2,
+      Src2Value = 0,
+      DestVar = "AttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "SpellBaseDamage",
+      Src2Var = "AttackDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DamageVar",
@@ -252,7 +262,7 @@ TargetExecuteBuildingBlocks = {
           DamageVar = "DamageVar",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1.2,
+          PercentOfAttack = 1,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
