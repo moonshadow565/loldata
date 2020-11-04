@@ -1,2 +1,3 @@
 BuffTextureName = "Malphite_SeismicShard.dds"
 BuffName = "SeismicShard"
+PopupMessage1 = "game_floatingtext_Slowed"

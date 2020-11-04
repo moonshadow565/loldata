@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+BuffTextureName = "Katarina_Voracity.dds"
+BuffName = "Voracity"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+PersistsThroughDeath = true
+Nondispellable = true

@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+ChannelDuration = 3
+BuffTextureName = ""
+BuffName = ""
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+TriggersSpellCasts = true

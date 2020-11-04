@@ -1,1 +1,1 @@
-AutoItemActivateEffect = "ZettasManaManipulator_itm.troy"
+AutoItemActivateEffect = ""

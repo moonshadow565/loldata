@@ -5,5 +5,3 @@ BuffName = "Elixer of Brilliance"
 AutoBuffActivateEffect = "PotionofBrilliance_itm.troy"
 PersistsThroughDeath = true
 NonDispellable = true
-NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = true

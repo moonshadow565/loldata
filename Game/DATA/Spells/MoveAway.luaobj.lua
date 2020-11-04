@@ -5,3 +5,4 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffName = "MoveAway"
 Nondispellable = true
+PopupMessage1 = "game_floatingtext_Knockup"

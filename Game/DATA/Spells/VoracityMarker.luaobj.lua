@@ -1,0 +1,3 @@
+BuffTextureName = ""
+BuffName = ""
+Nondispellable = true

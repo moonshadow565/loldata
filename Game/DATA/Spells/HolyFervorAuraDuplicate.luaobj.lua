@@ -1,0 +1,6 @@
+BuffTextureName = "Judicator_DivineBlessing.dds"
+BuffName = "Holy Fervor"
+AutoBuffActivateEffect = "HolyFervor_buf.troy"
+AutoBuffActivateAttachBoneName = "spine"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""

@@ -22,9 +22,6 @@ dr_UnitToUnit                           =      1.000 ;
 dr_HeroToBuilding                       =      1.000 ;  
 dr_BuildingToBuilding                   =      1.000 ;  
 dr_UnitToBuilding                       =      0.400 ;  
-DamageScreenFlashThresholdPercentage    =      0.600 
-DamageScreenFlashDuration               =      1.200 
-DamageScreenOpacityStrength             =      0.800 
 
 ; Call For Help variables
 cfh_Delay                               =      1.000 ; How often a unit will issue a Call For Help
@@ -51,10 +48,6 @@ ai_DefaultPetReturnRadius               =    200.000 ; Default pet return radius
 ; Attack Range variables
 ar_StopAttackRangeModifier              =    100.000 ;  
 ar_AICharmedAcquisitionRange            =   1000.000 ; The acquisition range for charmed units.
-
-; Server Culling
-ser_LineOfSightCulling                  =          1 ; Toggles line of sight checking for visiblity
-ser_LineOfSightMaxDistance              =   3000.000 ; Distances less than this number automatically are in LoS
 
 ; AI Attack target selection variables
 ai_TargetDistanceFactorPerNeightbor     =      0.600 ; Impact of each neighbor on the cost to selecting this target 
@@ -109,6 +102,8 @@ tut_TutorialModeOn                      =          0 ; Flag to turn TutorialMode
 ; Audio variables
 aud_FMODMusicCueID                      =          3 ; FMOD ID for a music cue for the map's music.
 aud_FMODAmbientEvent                    = map_forest ; FMOD event name for the map's ambient track.
+aud_FMODVictoryMusicCueID               =          0 ; FMOD ID for a Victory music cue for the map's music.
+aud_FMODDefeatMusicCueID                =          0 ; FMOD ID for a Defeat music cue for the map's music.
 
 ; Camera Variables
 cam_GameFOV                             =     53.000 ; Camera field of view
@@ -116,6 +111,8 @@ cam_BillAngle                           =     56.000 ; Vertical Angle
 cam_BillRotate                          =    180.000 ; Rotation Angle
 cam_KeyboardOrbitSpeedX                 =    100.000 ; Keyboard Orbit Speed x axis
 cam_KeyboardOrbitSpeedY                 =     50.000 ; Keyboard Orbit Speed y axis
+cam_MinZoomDistance                     =   1000.000 ; Minimum camera zoom distance
+cam_MaxZoomDistance                     =   2100.000 ; Maximum camera zoom distance
 
 ; Cursor variables
 cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flashes when you cast a targeted spell
@@ -129,6 +126,10 @@ ca_MinCastRotationSpeed                 =    250.000 ; Whats the minimum speed w
 
 ; obj_AI_Base variables
 ai_ShowSelection                        =          0 ; Shows selection bubble around the unit
+
+; Server Culling
+ser_LineOfSightCulling                  =          1 ; Toggles line of sight checking for visiblity
+ser_LineOfSightMaxDistance              =   3000.000 ; Distances less than this number automatically are in LoS
 
 ; Item and Inventory variables
 it_UseExplicitItemInclusion             =          0 ; Only the items explicitly listed in LEVELS\[MapName]\Items.ini will be in the store.

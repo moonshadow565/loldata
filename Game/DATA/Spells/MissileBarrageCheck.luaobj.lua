@@ -1,0 +1,2 @@
+BuffName = "MissileBarrageCheck"
+PersistsThroughDeath = true

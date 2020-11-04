@@ -6,4 +6,5 @@ BuffName = "Enchanted Crystal Arrow"
 AutoBuffActivateEffect = "Iceblock_buf.troy"
 AutoBuffActivateEffect2 = "Stun_glb.troy"
 SpellDamageRatio = 0.5
+PopupMessage1 = "game_floatingtext_Stunned"
 TriggersSpellCasts = true
