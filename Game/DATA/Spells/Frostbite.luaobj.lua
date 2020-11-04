@@ -7,7 +7,8 @@ SpellFXOverrideSkins = {
   "BlackIceAnivia"
 }
 SpellVOOverrideSkins = {
-  "BlackIceAnivia"
+  "BlackIceAnivia",
+  "BirdCryophoenix"
 }
 PreLoadBuildingBlocks = {
   {

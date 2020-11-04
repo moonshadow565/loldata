@@ -12,6 +12,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchdeadlyvenomchaos"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchdeadlyvenominternalchaos"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_spiritguard_audio_ward.troy"
