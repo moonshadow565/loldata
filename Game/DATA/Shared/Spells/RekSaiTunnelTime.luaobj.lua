@@ -3,8 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Irelia_Bladesurge.dds"
-BuffName = "IreliaGatotsu"
+BuffName = "RekSaiTunnelTime"
 ChainMissileParameters = {
   MaximumHits = {
     10,

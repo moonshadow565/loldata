@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadCharacter, Params={Name="voidspawn"}}, 
-{Function=BBPreloadSpell, Params={Name="itemvoidgatespawn"}}, 
-{Function=BBPreloadCharacter, Params={Name="voidspawntracer"}}, 
-}

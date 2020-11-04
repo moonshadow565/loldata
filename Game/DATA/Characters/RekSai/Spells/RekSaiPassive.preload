@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="reksaiwbubblemarker"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaiecooldown"}}, 
 {Function=BBPreloadSpell, Params={Name="reksaiincombat"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_p_full_stack.troy"}}, 
 }

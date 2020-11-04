@@ -1,6 +1,9 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Thresh_Skin03_soul_enemy.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Thresh_Base_Soul.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_skin03_soul_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_skin03_soul.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_base_soul_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_base_soul.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="Thresh_Base_Soul_Giant.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_skin03_soul_giant.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="thresh_base_soul_giant.troy"}}, 
 }
