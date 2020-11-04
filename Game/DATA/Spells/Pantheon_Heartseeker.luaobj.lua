@@ -241,7 +241,7 @@ ChannelingStartBuildingBlocks = {
             Function = BBIf,
             Params = {
               Src1Var = "Count",
-              Value2 = 5,
+              Value2 = 4,
               CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {

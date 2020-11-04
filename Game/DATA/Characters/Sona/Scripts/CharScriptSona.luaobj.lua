@@ -34,7 +34,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -61,7 +62,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -88,7 +90,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -123,7 +126,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -150,7 +154,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -177,7 +182,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -200,49 +206,167 @@ CharOnSpellCastBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "DoesntTriggerSpellCasts",
-          Src1VarTable = "SpellVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
+          OwnerVar = "Attacker",
+          CasterVar = "Attacker",
+          BuffName = "IfHasBuffCheck"
+        },
         SubBlocks = {
           {
             Function = BBIfNotHasBuff,
             Params = {
               OwnerVar = "Attacker",
               CasterVar = "Attacker",
-              BuffName = "IfHasBuffCheck"
+              BuffName = "SonaPowerChord"
             },
             SubBlocks = {
               {
-                Function = BBIfNotHasBuff,
+                Function = BBSpellBuffAdd,
                 Params = {
-                  OwnerVar = "Attacker",
-                  CasterVar = "Attacker",
-                  BuffName = "SonaPowerChord"
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "SonaPowerChordCount",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 3,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBGetCastInfo,
+        Params = {DestVar = "slotNumber", Info = GetSpellSlot}
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "slotNumber",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "SonaPowerChord"
+            },
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "SonaAriaofPerseverance"
                 },
                 SubBlocks = {
                   {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaAriaofPerseveranceCheck"
+                    }
+                  },
+                  {
                     Function = BBSpellBuffAdd,
                     Params = {
-                      TargetVar = "Attacker",
-                      AttackerVar = "Attacker",
-                      BuffName = "SonaPowerChordCount",
-                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaAriaofPerseveranceCheck",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
                       StacksExclusive = true,
-                      BuffType = BUFF_CombatEnchancer,
-                      MaxStack = 3,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 25000,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
-                      CanMitigateDuration = false
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "SonaHymnofValor"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaHymnofValorCheck"
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaHymnofValorCheck",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "SonaSongofDiscord"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaSongofDiscordCheck"
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "SonaSongofDiscordCheck",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
@@ -269,7 +393,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -286,7 +411,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -303,7 +429,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -366,7 +493,8 @@ CharOnLevelUpSpellBuildingBlocks = {
               Duration = 1.2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -431,7 +559,8 @@ CharOnLevelUpSpellBuildingBlocks = {
               Duration = 1.2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -496,7 +625,8 @@ CharOnLevelUpSpellBuildingBlocks = {
               Duration = 1.2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -601,6 +731,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonapowerchordcount"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseverancecheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvalorcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonasongofdiscordcheck"
     }
   },
   {

@@ -28,7 +28,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -69,7 +70,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -93,7 +95,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -134,7 +137,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -171,7 +175,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -186,7 +191,7 @@ SelfExecuteBuildingBlocks = {
             Function = BBIf,
             Params = {
               Src1Var = "Count",
-              Value2 = 5,
+              Value2 = 4,
               CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {
@@ -204,7 +209,8 @@ SelfExecuteBuildingBlocks = {
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -308,7 +314,8 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -334,7 +341,8 @@ ChannelingSuccessStopBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -374,7 +382,8 @@ ChannelingSuccessStopBuildingBlocks = {
           SlotNumber = 0,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_SUMMONER,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -394,7 +403,8 @@ ChannelingSuccessStopBuildingBlocks = {
           SlotNumber = 1,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_SUMMONER,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -408,7 +418,8 @@ ChannelingCancelStopBuildingBlocks = {
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {

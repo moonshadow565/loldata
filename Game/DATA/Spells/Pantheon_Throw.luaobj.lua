@@ -29,7 +29,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -44,7 +45,7 @@ SelfExecuteBuildingBlocks = {
             Function = BBIf,
             Params = {
               Src1Var = "Count",
-              Value2 = 5,
+              Value2 = 4,
               CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {
@@ -62,7 +63,8 @@ SelfExecuteBuildingBlocks = {
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {

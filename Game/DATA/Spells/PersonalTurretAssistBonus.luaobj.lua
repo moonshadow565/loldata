@@ -4,7 +4,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentAttackSpeedMod,
       TargetVar = "Attacker",
-      Delta = 0.2
+      Delta = 0.3
     }
   },
   {
@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Attacker",
-      Delta = 15
+      Delta = 25
     }
   },
   {
@@ -20,7 +20,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Attacker",
-      Delta = 15
+      Delta = 25
     }
   }
 }

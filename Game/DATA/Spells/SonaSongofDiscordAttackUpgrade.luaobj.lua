@@ -27,10 +27,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
-  },
-  {
     Function = BBGetTotalAttackDamage,
     Params = {
       TargetVar = "Owner",
@@ -47,23 +43,6 @@ TargetExecuteBuildingBlocks = {
       DamageVar = "AttackDamage",
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "TotalDamage",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 0,
@@ -91,48 +70,69 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "MoveSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValue = -0.25
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Owner",
-          BuffName = "Slow",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-          StacksExclusive = true,
-          BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 2,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.25
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "Slow",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
         }
       }
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "SonaPowerChord"
-        }
-      }
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "TotalDamage",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaPowerChord"
     }
   }
 }

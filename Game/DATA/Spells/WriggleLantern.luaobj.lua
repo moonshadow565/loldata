@@ -78,6 +78,24 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Other3",
+      AttackerVar = "Attacker",
+      BuffName = "SharedWardBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 180,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
       AttackerVar = "Owner",
       BuffName = "WriggleLanternWard",
       BuffAddType = BUFF_REPLACE_EXISTING,
@@ -88,7 +106,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 180,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -105,7 +124,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -229,7 +249,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -250,7 +271,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -271,7 +293,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -292,7 +315,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -313,7 +337,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }
@@ -334,7 +359,8 @@ SelfExecuteBuildingBlocks = {
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Owner"
+          OwnerVar = "Owner",
+          BroadcastEvent = false
         }
       }
     }

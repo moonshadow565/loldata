@@ -56,7 +56,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -142,11 +143,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReduction",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.1,
-        0.15,
         0.2,
-        0.25,
-        0.3
+        0.24,
+        0.28,
+        0.32,
+        0.36
       }
     }
   },
@@ -208,7 +209,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -225,7 +227,8 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "BuffDuration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

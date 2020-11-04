@@ -49,7 +49,15 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
+      SrcValue = true,
+      Status = SetForceRenderParticles
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
       Status = SetNoRender
     }
   },

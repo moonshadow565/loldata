@@ -120,7 +120,7 @@ function L0(A0, A1)
   L6 = A1.SpellSlotVarTable
   L7 = false
   L4 = L4(L5, L6, L7)
-  L5 = A1.SrcVar
+  L5 = A1.SpellSlotVar
   if L5 ~= nil and L4 ~= nil then
     L5 = A1.SpellSlotVar
     L3 = L4[L5]
@@ -785,6 +785,54 @@ function L0(A0, A1)
   return L2
 end
 MO_MODULO = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.floor
+  L2 = A0 + 0.5
+  return L1(L2)
+end
+MO_ROUND = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.ceil
+  L2 = A0
+  return L1(L2)
+end
+MO_ROUNDUP = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.floor
+  L2 = A0
+  return L1(L2)
+end
+MO_ROUNDDOWN = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.sin
+  L2 = A0
+  return L1(L2)
+end
+MO_SIN = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.cos
+  L2 = A0
+  return L1(L2)
+end
+MO_COSINE = L0
+function L0(A0)
+  local L1, L2
+  L1 = math
+  L1 = L1.tan
+  L2 = A0
+  return L1(L2)
+end
+MO_TANGENT = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8
   L2 = GetMathNumber
