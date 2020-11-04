@@ -2,8 +2,8 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
-BuffTextureName = "3154_WriggleLantern.dds"
-BuffName = "WriggleLantern"
+BuffTextureName = "1020_Glowing_Orb.dds"
+BuffName = "SightWard"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -21,12 +21,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sharedwardbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "wrigglelanternward"
     }
   },
   {

@@ -4,7 +4,8 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 SpellFXOverrideSkins = {
-  "GlacialMalphite"
+  "GlacialMalphite",
+  "MalphiteSkin06"
 }
 PreLoadBuildingBlocks = {
   {

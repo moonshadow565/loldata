@@ -31,6 +31,24 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_vo_trophy3.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_vo_trophy4.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_vo_trophy5.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"

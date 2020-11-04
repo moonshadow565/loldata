@@ -8,13 +8,14 @@ AutoBuffActivateEffect = "global_slow.troy"
 IsDeathRecapSource = true
 PopupMessage1 = "game_floatingtext_Slowed"
 SpellFXOverrideSkins = {
-  "FrostShyvana"
+  "FrostShyvana",
+  "AatroxSkin02"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_e_slow.troy"
+      Name = "aatrox_base_e_slow.troy"
     }
   },
   {

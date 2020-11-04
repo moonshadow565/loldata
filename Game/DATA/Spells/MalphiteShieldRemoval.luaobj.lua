@@ -5,7 +5,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "obduracy_off.troy"
+      Name = "Malphite_Base_obduracy_off.troy"
     }
   },
   {

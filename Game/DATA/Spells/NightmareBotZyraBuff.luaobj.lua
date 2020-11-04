@@ -19,5 +19,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nightmarebotzyrabramblezonesplash"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotzyraseedcast"
+    }
   }
 }

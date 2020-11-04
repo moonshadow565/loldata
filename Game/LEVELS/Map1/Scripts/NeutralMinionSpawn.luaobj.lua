@@ -1096,6 +1096,9 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.MinimapIcon = ""
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.MinimapIcon = "LesserCamp"
   end
   L3 = CAMPTYPE_BLUEBUFF
   L1[1] = L2
@@ -1106,6 +1109,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.TimerType = "Order Blue"
+  L0.MinimapIcon = "Camp"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
   L0.Groups = L1
@@ -1131,6 +1135,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.TimerType = "Order Red"
+  L0.MinimapIcon = "Camp"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
   L0.Groups = L1
@@ -1160,6 +1165,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.TimerType = "Chaos Blue"
+  L0.MinimapIcon = "Camp"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
   L0.Groups = L1
@@ -1185,6 +1191,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.TimerType = "Chaos Red"
+  L0.MinimapIcon = "Camp"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
   L0.Groups = L1
@@ -1315,12 +1322,6 @@ function L0(A0)
           L12 = L12.AliveTracker
           L12[L11] = true
         end
-        L11 = NeutralMinionCamps
-        L11 = L11[A0]
-        L11 = L11.GroupDelaySpawnTime
-        L12 = 0
-        L13 = false
-        L8(L9, L10, L11, L12, L13)
       else
         if L1 <= L8 and L3 == false then
           L3 = true

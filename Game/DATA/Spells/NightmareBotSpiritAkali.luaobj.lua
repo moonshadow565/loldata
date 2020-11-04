@@ -5,5 +5,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nightmarebotspiritakalismokebomb"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "akali"}
   }
 }

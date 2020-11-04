@@ -5,7 +5,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_idle_vo_01.troy"
+      Name = "Aatrox_Base_idle_vo_01.troy"
     }
   }
 }

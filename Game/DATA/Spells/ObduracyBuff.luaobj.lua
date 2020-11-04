@@ -5,13 +5,14 @@ IsDamagingSpell = false
 BuffTextureName = "Malphite_BrutalStrikes.dds"
 BuffName = "MalphiteDamageBuff"
 SpellFXOverrideSkins = {
-  "GlacialMalphite"
+  "GlacialMalphite",
+  "MalphiteSkin06"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "malphite_enrage_glow.troy"
+      Name = "malphite_base_enrage_glow.troy"
     }
   },
   {
@@ -21,7 +22,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "malphite_enrage_buf.troy"
+      Name = "malphite_base_enrage_buf.troy"
     }
   }
 }

@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "apbonusdamagetotowers"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ferocioushowl"
+    }
   }
 }

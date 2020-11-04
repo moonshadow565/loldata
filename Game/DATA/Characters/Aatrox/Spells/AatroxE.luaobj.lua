@@ -4,13 +4,14 @@ IsDamagingSpell = true
 IsDeathRecapSource = true
 PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
-  "FrostShyvana"
+  "FrostShyvana",
+  "AatroxSkin02"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_e_glow.troy"
+      Name = "aatrox_base_e_glow.troy"
     }
   }
 }

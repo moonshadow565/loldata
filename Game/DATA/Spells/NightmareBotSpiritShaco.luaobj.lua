@@ -2,15 +2,13 @@ BuffTextureName = "NightmareBotSpiritShaco_HallucinogenBomb.dds"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotspiritshacoapplicator"
-    }
+    Function = BBPreloadCharacter,
+    Params = {Name = "shaco"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotspiritshacopassivecooldown"
+      Name = "nightmarebotspiritshacosource"
     }
   }
 }

@@ -5,6 +5,9 @@ BuffName = "AatroxWPower"
 SpellToggleSlot = 2
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "AatroxSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -28,12 +31,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "aatroxwonhpower"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "aatrox_basic_hit_effect_03.troy"
     }
   }
 }

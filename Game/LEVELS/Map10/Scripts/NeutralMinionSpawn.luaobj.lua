@@ -703,12 +703,6 @@ function L0(A0)
           L12 = L12.AliveTracker
           L12[L11] = true
         end
-        L11 = NeutralMinionCamps
-        L11 = L11[A0]
-        L11 = L11.GroupDelaySpawnTime
-        L12 = 0
-        L13 = false
-        L8(L9, L10, L11, L12, L13)
       else
         if L1 <= L8 and L3 == false then
           L3 = true

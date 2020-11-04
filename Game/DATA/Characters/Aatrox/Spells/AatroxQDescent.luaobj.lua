@@ -18,13 +18,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatroxq_land.troy"
+      Name = "Aatrox_Base_Q_Land.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatroxq_hit.troy"
+      Name = "Aatrox_Base_Q_Hit.troy"
     }
   },
   {

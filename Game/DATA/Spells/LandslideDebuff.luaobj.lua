@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "landslide_buf.troy"
+      Name = "Malphite_Base_Landslide_buf.troy"
     }
   }
 }

@@ -63,7 +63,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotezrealrvision"
+      Name = "nightmarebotezrealr1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotezrealrvision1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotezrealr2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotezrealrvision2"
     }
   }
 }

@@ -2,7 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "soulsightlantern"
+      Name = "itemminionshred"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightbringer"
     }
   }
 }

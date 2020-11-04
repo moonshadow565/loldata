@@ -11,7 +11,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "unstoppableforce_stun.troy"
+      Name = "malphite_base_unstoppableforce_stun.troy"
     }
   }
 }

@@ -5,13 +5,17 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "ReefMalphite",
-  "GlacialMalphite"
+  "GlacialMalphite",
+  "MalphiteSkin06"
+}
+SpellVOOverrideSkins = {
+  "MalphiteSkin06"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "landslide_blue_nova.troy"
+      Name = "malphite_base_landslide_blue_nova.troy"
     }
   },
   {
@@ -23,7 +27,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "landslide_nova.troy"
+      Name = "malphite_base_landslide_nova.troy"
     }
   },
   {

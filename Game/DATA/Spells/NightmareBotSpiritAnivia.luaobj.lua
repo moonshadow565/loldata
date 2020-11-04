@@ -2,6 +2,10 @@ BuffTextureName = "Cryophoenix_Rebirth.dds"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "anivia"}
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "nightmarebotspiritaniviacooldown"

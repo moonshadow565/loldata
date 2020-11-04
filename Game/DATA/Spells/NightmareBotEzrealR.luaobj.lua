@@ -12,12 +12,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotezrealr"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "ezrealrisingspellforce"
     }
   },
