@@ -18,6 +18,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "shacoboxsnare"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "fleeslow"}
   }
 }
