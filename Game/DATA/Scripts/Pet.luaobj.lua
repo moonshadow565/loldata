@@ -215,7 +215,7 @@ function L0_0()
     Die(me, DAMAGESOURCE_INTERNALRAW)
     return
   end
-  distanceToOwner = DistanceBetweenObjects(me, tempOwner)
+  distanceToOwner = DistanceBetweenObjectBounds(me, tempOwner)
   if distanceToOwner > TELEPORT_DISTANCE then
     SetActorPositionFromObject(me, tempOwner)
     SpellBuffRemoveType(me, 21)

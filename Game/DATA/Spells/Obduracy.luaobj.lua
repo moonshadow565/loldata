@@ -3,8 +3,9 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = ""
-BuffName = ""
+SpellFXOverrideSkins = {
+  "GlacialMalphite"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

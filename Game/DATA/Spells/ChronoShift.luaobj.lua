@@ -1,6 +1,5 @@
 BuffTextureName = "Chronokeeper_Timetwister.dds"
 BuffName = "Chrono Shift"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   160,
   140,

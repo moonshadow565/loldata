@@ -1,0 +1,46 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceacceleratorchampionbuff"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceexptimeraccel"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceacceleratordetector"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceacceleratorgatesound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceacceleratorbeam"
+    }
+  }
+}

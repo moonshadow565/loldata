@@ -1,4 +1,3 @@
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

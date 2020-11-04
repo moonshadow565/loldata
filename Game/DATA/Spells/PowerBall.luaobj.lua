@@ -29,6 +29,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "powerballstunself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "powerballslow"
     }
   },

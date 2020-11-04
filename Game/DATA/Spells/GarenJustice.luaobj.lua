@@ -3,8 +3,6 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
 AutoBuffActivateEffect = "RendingShot_buf.troy"
 PreLoadBuildingBlocks = {
   {
@@ -23,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "garen_damacianjustice_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garendemacianjusticevomarker"
     }
   }
 }

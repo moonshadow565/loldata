@@ -5,6 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "InfernalGuardianTimer"
-AutoBuffActivateEffect = ""
+SpellToggleSlot = 4
 PersistsThroughDeath = true
 NonDispellable = true

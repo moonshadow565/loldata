@@ -176,7 +176,7 @@ function L0_0()
     return
   end
   canMove = GetCanMove(me)
-  distanceToOwner = DistanceBetweenObjects(me, tempOwner)
+  distanceToOwner = DistanceBetweenObjectBounds(me, tempOwner)
   if canMove and distanceToOwner > TELEPORT_DISTANCE then
     SetActorPositionFromObject(me, tempOwner)
     NetSetState(AI_PET_IDLE)

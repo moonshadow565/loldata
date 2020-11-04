@@ -4,6 +4,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Malphite_BrutalStrikes.dds"
 BuffName = "MalphiteDamageBuff"
+SpellFXOverrideSkins = {
+  "GlacialMalphite"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

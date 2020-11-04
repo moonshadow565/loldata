@@ -8,24 +8,6 @@ BuffName = "Malady"
 SpellVOOverrideSkins = {"BroOlaf"}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaredact"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghostself"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianna_ball_flash.troy"
@@ -36,6 +18,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaghostself"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianna_ball_flash_reverse.troy"
@@ -44,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "orianaredacttarget"
+      Name = "orianaghost"
     }
   },
   {

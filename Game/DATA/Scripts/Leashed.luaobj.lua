@@ -130,7 +130,7 @@ function L0_0(A0_11, A1_12)
     L3_14 = L3_14()
     L4_15 = 9001
     if A1_12 ~= nil then
-      L4_15 = DistanceBetweenObjectAndPoint(A1_12, L3_14)
+      L4_15 = DistanceBetweenObjectCenterAndPoint(A1_12, L3_14)
     end
     if A1_12 ~= nil and L4_15 <= LEASH_RADIUS and GetLeashCounter() < 2 then
       SetLeashCounter(GetLeashCounter() + 1)
@@ -265,7 +265,7 @@ function L0_0()
   L4_24 = LEASH_RADIUS
   L4_24 = L4_24 + 1
   if L2_22 ~= nil then
-    L4_24 = DistanceBetweenObjectAndPoint(L2_22, L3_23)
+    L4_24 = DistanceBetweenObjectCenterAndPoint(L2_22, L3_23)
   end
   if L1_21 > LEASH_PROTECTION_RADIUS and L1_21 < LEASH_RADIUS and L4_24 > LEASH_RADIUS and L0_20 ~= AI_RETREAT and GetLeashCounter() < 2 then
     FindNewTarget()
@@ -367,7 +367,7 @@ function L0_0()
   L3_30 = LEASH_RADIUS
   L3_30 = L3_30 + 1
   if L2_29 ~= nil then
-    L3_30 = DistanceBetweenObjectAndPoint(L2_29, L1_28)
+    L3_30 = DistanceBetweenObjectCenterAndPoint(L2_29, L1_28)
   end
   if L2_29 ~= nil and L3_30 <= LEASH_RADIUS then
     StopTimer("TimerRegen")

@@ -7,7 +7,6 @@ ChannelDuration = 3
 BuffTextureName = "Yeti_Shatter.dds"
 BuffName = "Absolute Zero"
 AutoBuffActivateEffect = "AbsoluteZero3_cas.troy"
-AutoBuffActivateAttachBoneName = ""
 SpellFXOverrideSkins = {"NunuBot"}
 SpellVOOverrideSkins = {""}
 PreLoadBuildingBlocks = {

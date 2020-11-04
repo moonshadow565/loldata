@@ -1017,11 +1017,13 @@ function L0()
   L0 = CreateItem
   L1 = playerID
   L2 = 1029
-  L0(L1, L2)
+  L3 = false
+  L0(L1, L2, L3)
   L0 = CreateItem
   L1 = playerID
   L2 = 1031
-  L0(L1, L2)
+  L3 = false
+  L0(L1, L2, L3)
   L0 = LogTutorial
   L1 = "Setting up Welcome event."
   L0(L1)

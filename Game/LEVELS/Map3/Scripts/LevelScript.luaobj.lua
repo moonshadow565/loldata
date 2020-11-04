@@ -1315,46 +1315,50 @@ end
 UpgradeMinionTimer = L0_0
 function L0_0(A0_25, A1_26, A2_27)
   local L3_28, L4_29
-  L4_29 = TEAM_ORDER
-  if A0_25 == L4_29 then
-    L3_28 = OrderBuildingStatus
-  else
-    L3_28 = ChaosBuildingStatus
-  end
-  L4_29 = FRONT_TOWER
-  if A2_27 == L4_29 then
-    L3_28.Turret4 = false
-    L4_29 = GetTurret
-    L4_29 = L4_29(A0_25, A1_26, MID_TOWER)
-    SetInvulnerable(L4_29, false)
-    SetTargetable(L4_29, true)
-  else
-    L4_29 = MID_TOWER
+  L4_29 = GetGameMode
+  L4_29 = L4_29()
+  if L4_29 ~= "TUTORIAL" then
+    L4_29 = TEAM_ORDER
+    if A0_25 == L4_29 then
+      L3_28 = OrderBuildingStatus
+    else
+      L3_28 = ChaosBuildingStatus
+    end
+    L4_29 = FRONT_TOWER
     if A2_27 == L4_29 then
-      L3_28.Turret3 = false
-      L4_29 = GetDampener
-      L4_29 = L4_29(A0_25, A1_26)
+      L3_28.Turret4 = false
+      L4_29 = GetTurret
+      L4_29 = L4_29(A0_25, A1_26, MID_TOWER)
       SetInvulnerable(L4_29, false)
       SetTargetable(L4_29, true)
     else
-      L4_29 = BACK_TOWER
-      if A2_27 ~= L4_29 then
-        L4_29 = BACK_TOWER2
-      elseif A2_27 == L4_29 then
+      L4_29 = MID_TOWER
+      if A2_27 == L4_29 then
+        L3_28.Turret3 = false
+        L4_29 = GetDampener
+        L4_29 = L4_29(A0_25, A1_26)
+        SetInvulnerable(L4_29, false)
+        SetTargetable(L4_29, true)
+      else
         L4_29 = BACK_TOWER
-        if A2_27 == L4_29 then
-          L3_28.Turret2 = false
-        else
-          L3_28.Turret1 = false
-        end
-        L4_29 = L3_28.Turret1
-        if L4_29 == false then
-          L4_29 = L3_28.Turret2
+        if A2_27 ~= L4_29 then
+          L4_29 = BACK_TOWER2
+        elseif A2_27 == L4_29 then
+          L4_29 = BACK_TOWER
+          if A2_27 == L4_29 then
+            L3_28.Turret2 = false
+          else
+            L3_28.Turret1 = false
+          end
+          L4_29 = L3_28.Turret1
           if L4_29 == false then
-            L4_29 = GetHQ
-            L4_29 = L4_29(A0_25)
-            SetInvulnerable(L4_29, false)
-            SetTargetable(L4_29, true)
+            L4_29 = L3_28.Turret2
+            if L4_29 == false then
+              L4_29 = GetHQ
+              L4_29 = L4_29(A0_25)
+              SetInvulnerable(L4_29, false)
+              SetTargetable(L4_29, true)
+            end
           end
         end
       end

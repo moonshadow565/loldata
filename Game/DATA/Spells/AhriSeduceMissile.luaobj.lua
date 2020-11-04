@@ -1,8 +1,4 @@
 NotSingleTargetSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
