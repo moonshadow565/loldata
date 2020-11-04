@@ -1387,7 +1387,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
-  L0.LeashRadius = 700
+  L0.LeashRadius = 650
   L0.Name = "Order Wraiths"
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1464,7 +1464,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
-  L0.LeashRadius = 700
+  L0.LeashRadius = 650
   L0.Name = "Chaos Wraiths"
   L3 = CAMPTYPE_WRAITHS2
   L1[1] = L2
