@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_z_tentacletrail.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_z_relicglow.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoidance"}}, 
 }

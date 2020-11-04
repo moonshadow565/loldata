@@ -1459,7 +1459,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 900
+  L0.LeashRadius = 1000
   L0.Name = "Order Wolves"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
@@ -1470,7 +1470,6 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
-  L0.LeashRadius = 650
   L0.Name = "Order Wraiths"
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1496,7 +1495,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 900
+  L0.LeashRadius = 1000
   L0.Name = "Order Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
@@ -1536,7 +1535,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 1200
+  L0.LeashRadius = 1000
   L0.Name = "Chaos Wolves"
   L3 = CAMPTYPE_WOLVES2
   L1[1] = L2
@@ -1547,7 +1546,6 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
-  L0.LeashRadius = 650
   L0.Name = "Chaos Wraiths"
   L3 = CAMPTYPE_WRAITHS2
   L1[1] = L2
@@ -1570,7 +1568,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 900
+  L0.LeashRadius = 1000
   L0.Name = "Chaos Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS2
   L1[1] = L2
@@ -1654,7 +1652,7 @@ function L0()
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_RIFTHERALD_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
-  L0.SpawnDuration = 2.2
+  L0.SpawnDuration = 3.2
   L0.LeashRadius = 500
   L0.MinimapIcon = "SRU_RiftHerald"
   L0.EmptyVisibilityToAll = true

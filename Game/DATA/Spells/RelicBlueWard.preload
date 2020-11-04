@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="global_trinket_blue_death.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="s5test_wardcorpse"}}, 
+{Function=BBPreloadSpell, Params={Name="wardcorpsebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="item_warddeath_blue_pop.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="item_warddeath_blue_pop_enemy.troy"}}, 
 }
