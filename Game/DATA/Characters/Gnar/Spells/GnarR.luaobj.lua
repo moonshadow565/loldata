@@ -11,6 +11,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gnarrknockbackcc"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "gnar_base_r_land.troy"
