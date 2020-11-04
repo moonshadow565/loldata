@@ -22,94 +22,6 @@ CanCastBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HealthCost",
-          SrcValueByLevel = {
-            30,
-            60,
-            90,
-            120,
-            150
-          }
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "UndyingRage"
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "HealthCost",
-              SrcValueByLevel = {
-                0,
-                0,
-                0,
-                0,
-                0
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBGetManaOrHealth,
-        Params = {
-          DestVar = "Temp1",
-          OwnerVar = "Owner",
-          Function = GetHealth
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Temp1",
-          Src2Var = "HealthCost",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = true}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "HealthCost",
-          Src2Var = "Temp1",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Temp1",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "HealthCost",
-              MathOp = MO_SUBTRACT
-            }
-          }
-        }
-      },
-      {
         Function = BBGetStatus,
         Params = {
           TargetVar = "Owner",
@@ -159,7 +71,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 925,
+      Value2 = 550,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -167,7 +79,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 1000,
+          Distance = 575,
           OffsetAngle = 0,
           PositionVar = "TargetPos"
         }
@@ -188,14 +100,6 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "undyingrage"
     }
   }
 }

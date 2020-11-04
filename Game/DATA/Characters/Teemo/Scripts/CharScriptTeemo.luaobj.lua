@@ -37,7 +37,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "ToxicShot",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberStacks = 1,
@@ -86,14 +86,14 @@ CharOnActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "Trailblazer",
+      BuffName = "Camouflage",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 1
+      TickRate = 0.1
     }
   },
   {
@@ -160,9 +160,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "trailblazer"
-    }
+    Params = {Name = "camouflage"}
   },
   {
     Function = BBPreloadSpell,

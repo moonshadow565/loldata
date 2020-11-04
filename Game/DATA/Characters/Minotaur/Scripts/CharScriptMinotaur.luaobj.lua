@@ -67,24 +67,42 @@ CharOnNearbyDeathBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBGetStatus,
             Params = {
-              Src1Var = "Cooldown",
-              Src1Value = 0,
-              Src2Value = 4,
-              DestVar = "NewCooldown",
-              MathOp = MO_SUBTRACT
+              TargetVar = "Target",
+              DestVar = "noRender",
+              Status = GetNoRender
             }
           },
           {
-            Function = BBSetSlotSpellCooldownTime,
+            Function = BBIf,
             Params = {
-              SrcVar = "NewCooldown",
-              SrcValue = 0,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              SpellSlotValue = 2,
-              OwnerVar = "Owner"
+              Src1Var = "noRender",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Cooldown",
+                  Src1Value = 0,
+                  Src2Value = 4,
+                  DestVar = "NewCooldown",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTime,
+                Params = {
+                  SrcVar = "NewCooldown",
+                  SrcValue = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  SpellSlotValue = 2,
+                  OwnerVar = "Owner"
+                }
+              }
             }
           }
         }
@@ -136,23 +154,6 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false
     }
   }
 }

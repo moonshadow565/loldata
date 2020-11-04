@@ -1,74 +1,223 @@
-NotSingleTargetSpell = true
+NotSingleTargetSpell = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Ryze_SpellStrike.dds"
 BuffName = "Arcane Mastery"
-SpellToggleSlot = 2
 PersistsThroughDeath = true
 Nondispellable = true
-TriggersSpellCasts = false
-OnBuffActivateBuildingBlocks = {
+BuffOnSpellCastBuildingBlocks = {
   {
-    Function = BBOverrideAutoAttack,
+    Function = BBGetCastInfo,
+    Params = {DestVar = "slot", Info = GetSpellSlot}
+  },
+  {
+    Function = BBIf,
     Params = {
-      SpellSlot = 0,
-      SlotType = ExtraSlots,
-      OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ArcaneMastery"
+      Src1Var = "slot",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBGetSlotSpellInfo,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "ArcaneMastery"
+          DestVar = "cooldown",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown",
+              SlotNumber = 0,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner"
+            }
+          }
         }
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBIf,
+    Params = {
+      Src1Var = "slot",
+      Value2 = 1,
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
+        Function = BBGetSlotSpellInfo,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 20000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          DestVar = "cooldown",
+          SpellSlotValue = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown",
+              SlotNumber = 1,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner"
+            }
+          }
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
+  },
   {
-    Function = BBPreloadSpell,
+    Function = BBIf,
     Params = {
-      Name = "arcanemastery"
+      Src1Var = "slot",
+      Value2 = 2,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "cooldown",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown",
+              SlotNumber = 2,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "slot",
+      Value2 = 3,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "cooldown",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "cooldown",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "cooldown",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "newCooldown",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBSetSlotSpellCooldownTimeVer2,
+            Params = {
+              Src = 0,
+              SrcVar = "newCooldown",
+              SlotNumber = 3,
+              SlotType = SpellSlots,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      }
     }
   }
 }

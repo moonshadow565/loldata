@@ -2,6 +2,80 @@ BuffTextureName = "Minotaur_ColossalStrength.dds"
 BuffName = "APBonusDamageToTowers"
 PersistsThroughDeath = true
 Nondispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "ForitfyCheck",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ForitfyCheck",
+      Value2 = "SummonerFortify",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "FortifyCheck",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 3
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "ForitfyCheck2",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ForitfyCheck2",
+      Value2 = "SummonerFortify",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "FortifyCheck",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 3
+        }
+      }
+    }
+  }
+}
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -36,6 +110,14 @@ BuffOnHitUnitBuildingBlocks = {
           MathOp = MO_ADD
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fortifycheck"
     }
   }
 }

@@ -31,18 +31,23 @@ OnBuffActivateBuildingBlocks = {
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
       AutoAttackSpellLevel = 0,
-      AutoAttackSpellLevelVar = "Level"
+      AutoAttackSpellLevelVar = "Level",
+      CancelAttack = false
     }
   },
   {
     Function = BBSetBuffToolTipVar,
-    Params = {Value = 1, Index = 1}
+    Params = {
+      Value = 0,
+      ValueVar = "Level",
+      Index = 1
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -73,7 +78,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
           AutoAttackSpellLevel = 0,
-          AutoAttackSpellLevelVar = "Level"
+          AutoAttackSpellLevelVar = "Level",
+          CancelAttack = false
         }
       },
       {
@@ -132,10 +138,10 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
+          BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 20000,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

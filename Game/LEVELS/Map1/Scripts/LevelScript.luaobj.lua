@@ -15,29 +15,37 @@ INITIAL_TIME_TO_SPAWN = 90
 CASTER_MINION_SPAWN_FREQUENCY = 3
 MINION_HEALTH_DENIAL_PERCENT = 0
 MELEE_EXP_GIVEN = 64
-MELEE_GOLD_GIVEN = 20
+MELEE_GOLD_GIVEN = 22
 ARCHER_EXP_GIVEN = 32
-ARCHER_GOLD_GIVEN = 14
+ARCHER_GOLD_GIVEN = 16
 CASTER_EXP_GIVEN = 100
-CASTER_GOLD_GIVEN = 25
+CASTER_GOLD_GIVEN = 27
 SUPER_EXP_GIVEN = 100
-SUPER_GOLD_GIVEN = 25
+SUPER_GOLD_GIVEN = 27
 MELEE_HEALTH_UPGRADE = 20
 MELEE_DAMAGE_UPGRADE = 1
 MELEE_GOLD_UPGRADE = 0.5
 MELEE_EXP_UPGRADE = 4
+MELEE_ARMOR_UPGRADE = 2
+MELEE_MR_UPGRADE = 0.5
 ARCHER_HEALTH_UPGRADE = 15
 ARCHER_DAMAGE_UPGRADE = 2
 ARCHER_GOLD_UPGRADE = 0.5
 ARCHER_EXP_UPGRADE = 2
+ARCHER_ARMOR_UPGRADE = 0.5
+ARCHER_MR_UPGRADE = 2
 CASTER_HEALTH_UPGRADE = 27
 CASTER_DAMAGE_UPGRADE = 3
 CASTER_GOLD_UPGRADE = 1
 CASTER_EXP_UPGRADE = 6
+CASTER_ARMOR_UPGRADE = 2
+CASTER_MR_UPGRADE = 2
 SUPER_HEALTH_UPGRADE = 200
 SUPER_DAMAGE_UPGRADE = 10
 SUPER_GOLD_UPGRADE = 0
 SUPER_EXP_UPGRADE = 0
+SUPER_ARMOR_UPGRADE = 0
+SUPER_MR_UPGRADE = 0
 MAXIMUM_MELEE_GOLD_BONUS = 10
 MAXIMUM_ARCHER_GOLD_BONUS = 10
 MAXIMUM_CASTER_GOLD_BONUS = 20
@@ -423,6 +431,8 @@ function UpgradeMinionTimer()
     OrderBarracksBonuses[_FORV_3_].MeleeHPBonus = OrderBarracksBonuses[_FORV_3_].MeleeHPBonus + MELEE_HEALTH_UPGRADE
     OrderBarracksBonuses[_FORV_3_].MeleeDamageBonus = OrderBarracksBonuses[_FORV_3_].MeleeDamageBonus + MELEE_DAMAGE_UPGRADE
     OrderBarracksBonuses[_FORV_3_].MeleeGoldBonus = OrderBarracksBonuses[_FORV_3_].MeleeGoldBonus + MELEE_GOLD_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].MeleeMinionArmor = OrderBarracksBonuses[_FORV_3_].MeleeMinionArmor + MELEE_ARMOR_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].MeleeMinionMagicResistance = OrderBarracksBonuses[_FORV_3_].MeleeMinionMagicResistance + MELEE_MR_UPGRADE
     if OrderBarracksBonuses[_FORV_3_].MeleeGoldBonus > MAXIMUM_MELEE_GOLD_BONUS then
       OrderBarracksBonuses[_FORV_3_].MeleeGoldBonus = MAXIMUM_MELEE_GOLD_BONUS
     end
@@ -432,6 +442,8 @@ function UpgradeMinionTimer()
     OrderBarracksBonuses[_FORV_3_].ArcherHPBonus = OrderBarracksBonuses[_FORV_3_].ArcherHPBonus + ARCHER_HEALTH_UPGRADE
     OrderBarracksBonuses[_FORV_3_].ArcherDamageBonus = OrderBarracksBonuses[_FORV_3_].ArcherDamageBonus + ARCHER_DAMAGE_UPGRADE
     OrderBarracksBonuses[_FORV_3_].ArcherGoldBonus = OrderBarracksBonuses[_FORV_3_].ArcherGoldBonus + ARCHER_GOLD_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].ArcherMinionArmor = OrderBarracksBonuses[_FORV_3_].ArcherMinionArmor + ARCHER_ARMOR_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].ArcherMinionMagicResistance = OrderBarracksBonuses[_FORV_3_].ArcherMinionMagicResistance + ARCHER_MR_UPGRADE
     if OrderBarracksBonuses[_FORV_3_].ArcherGoldBonus > MAXIMUM_ARCHER_GOLD_BONUS then
       OrderBarracksBonuses[_FORV_3_].ArcherGoldBonus = MAXIMUM_ARCHER_GOLD_BONUS
     end
@@ -441,6 +453,8 @@ function UpgradeMinionTimer()
     OrderBarracksBonuses[_FORV_3_].CasterHPBonus = OrderBarracksBonuses[_FORV_3_].CasterHPBonus + CASTER_HEALTH_UPGRADE
     OrderBarracksBonuses[_FORV_3_].CasterDamageBonus = OrderBarracksBonuses[_FORV_3_].CasterDamageBonus + CASTER_DAMAGE_UPGRADE
     OrderBarracksBonuses[_FORV_3_].CasterGoldBonus = OrderBarracksBonuses[_FORV_3_].CasterGoldBonus + CASTER_GOLD_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].CasterMinionArmor = OrderBarracksBonuses[_FORV_3_].CasterMinionArmor + CASTER_ARMOR_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].CasterMinionMagicResistance = OrderBarracksBonuses[_FORV_3_].CasterMinionMagicResistance + CASTER_MR_UPGRADE
     if OrderBarracksBonuses[_FORV_3_].CasterGoldBonus > MAXIMUM_CASTER_GOLD_BONUS then
       OrderBarracksBonuses[_FORV_3_].CasterGoldBonus = MAXIMUM_CASTER_GOLD_BONUS
     end
@@ -450,6 +464,8 @@ function UpgradeMinionTimer()
     OrderBarracksBonuses[_FORV_3_].SuperHPBonus = OrderBarracksBonuses[_FORV_3_].SuperHPBonus + SUPER_HEALTH_UPGRADE
     OrderBarracksBonuses[_FORV_3_].SuperDamageBonus = OrderBarracksBonuses[_FORV_3_].SuperDamageBonus + SUPER_DAMAGE_UPGRADE
     OrderBarracksBonuses[_FORV_3_].SuperGoldBonus = OrderBarracksBonuses[_FORV_3_].SuperGoldBonus + SUPER_GOLD_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].SuperMinionArmor = OrderBarracksBonuses[_FORV_3_].SuperMinionArmor + SUPER_ARMOR_UPGRADE
+    OrderBarracksBonuses[_FORV_3_].SuperMinionMagicResistance = OrderBarracksBonuses[_FORV_3_].SuperMinionMagicResistance + SUPER_MR_UPGRADE
     if OrderBarracksBonuses[_FORV_3_].SuperGoldBonus > MAXIMUM_SUPER_GOLD_BONUS then
       OrderBarracksBonuses[_FORV_3_].SuperGoldBonus = MAXIMUM_SUPER_GOLD_BONUS
     end
@@ -459,6 +475,8 @@ function UpgradeMinionTimer()
     ChaosBarracksBonuses[_FORV_3_].MeleeHPBonus = ChaosBarracksBonuses[_FORV_3_].MeleeHPBonus + MELEE_HEALTH_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].MeleeDamageBonus = ChaosBarracksBonuses[_FORV_3_].MeleeDamageBonus + MELEE_DAMAGE_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].MeleeGoldBonus = ChaosBarracksBonuses[_FORV_3_].MeleeGoldBonus + MELEE_GOLD_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].MeleeMinionArmor = ChaosBarracksBonuses[_FORV_3_].MeleeMinionArmor + MELEE_ARMOR_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].MeleeMinionMagicResistance = ChaosBarracksBonuses[_FORV_3_].MeleeMinionMagicResistance + MELEE_MR_UPGRADE
     if ChaosBarracksBonuses[_FORV_3_].MeleeGoldBonus > MAXIMUM_MELEE_GOLD_BONUS then
       ChaosBarracksBonuses[_FORV_3_].MeleeGoldBonus = MAXIMUM_MELEE_GOLD_BONUS
     end
@@ -468,6 +486,8 @@ function UpgradeMinionTimer()
     ChaosBarracksBonuses[_FORV_3_].ArcherHPBonus = ChaosBarracksBonuses[_FORV_3_].ArcherHPBonus + ARCHER_HEALTH_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].ArcherDamageBonus = ChaosBarracksBonuses[_FORV_3_].ArcherDamageBonus + ARCHER_DAMAGE_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].ArcherGoldBonus = ChaosBarracksBonuses[_FORV_3_].ArcherGoldBonus + ARCHER_GOLD_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].ArcherMinionArmor = ChaosBarracksBonuses[_FORV_3_].ArcherMinionArmor + ARCHER_ARMOR_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].ArcherMinionMagicResistance = ChaosBarracksBonuses[_FORV_3_].ArcherMinionMagicResistance + ARCHER_MR_UPGRADE
     if ChaosBarracksBonuses[_FORV_3_].ArcherGoldBonus > MAXIMUM_ARCHER_GOLD_BONUS then
       ChaosBarracksBonuses[_FORV_3_].ArcherGoldBonus = MAXIMUM_ARCHER_GOLD_BONUS
     end
@@ -477,6 +497,8 @@ function UpgradeMinionTimer()
     ChaosBarracksBonuses[_FORV_3_].CasterHPBonus = ChaosBarracksBonuses[_FORV_3_].CasterHPBonus + CASTER_HEALTH_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].CasterDamageBonus = ChaosBarracksBonuses[_FORV_3_].CasterDamageBonus + CASTER_DAMAGE_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].CasterGoldBonus = ChaosBarracksBonuses[_FORV_3_].CasterGoldBonus + CASTER_GOLD_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].CasterMinionArmor = ChaosBarracksBonuses[_FORV_3_].CasterMinionArmor + CASTER_ARMOR_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].CasterMinionMagicResistance = ChaosBarracksBonuses[_FORV_3_].CasterMinionMagicResistance + CASTER_MR_UPGRADE
     if ChaosBarracksBonuses[_FORV_3_].CasterGoldBonus > MAXIMUM_CASTER_GOLD_BONUS then
       ChaosBarracksBonuses[_FORV_3_].CasterGoldBonus = MAXIMUM_CASTER_GOLD_BONUS
     end
@@ -486,6 +508,8 @@ function UpgradeMinionTimer()
     ChaosBarracksBonuses[_FORV_3_].SuperHPBonus = ChaosBarracksBonuses[_FORV_3_].SuperHPBonus + SUPER_HEALTH_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].SuperDamageBonus = ChaosBarracksBonuses[_FORV_3_].SuperDamageBonus + SUPER_DAMAGE_UPGRADE
     ChaosBarracksBonuses[_FORV_3_].SuperGoldBonus = ChaosBarracksBonuses[_FORV_3_].SuperGoldBonus + SUPER_GOLD_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].SuperMinionArmor = ChaosBarracksBonuses[_FORV_3_].SuperMinionArmor + SUPER_ARMOR_UPGRADE
+    ChaosBarracksBonuses[_FORV_3_].SuperMinionMagicResistance = ChaosBarracksBonuses[_FORV_3_].SuperMinionMagicResistance + SUPER_MR_UPGRADE
     if ChaosBarracksBonuses[_FORV_3_].SuperGoldBonus > MAXIMUM_SUPER_GOLD_BONUS then
       ChaosBarracksBonuses[_FORV_3_].SuperGoldBonus = MAXIMUM_SUPER_GOLD_BONUS
     end

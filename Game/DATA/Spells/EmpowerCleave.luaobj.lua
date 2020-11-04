@@ -6,7 +6,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSilenceSpellSlot,
     Params = {
-      SpellSlot = 0,
+      SpellSlot = 1,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -17,7 +17,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSilenceSpellSlot,
     Params = {
-      SpellSlot = 0,
+      SpellSlot = 1,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false

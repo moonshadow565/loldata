@@ -1,33 +1,17 @@
 SetVarsByLevelBuildingBlocks = {
   {
-    Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "Level"}
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcVar = "TalentLevel"
+    }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "HealBonus",
+      DestVar = "HealCooldownBonus",
       DestVarTable = "AvatarVars",
-      SrcValueByLevel = {
-        10,
-        20,
-        30,
-        40,
-        50,
-        60,
-        70,
-        80,
-        90,
-        100,
-        110,
-        120,
-        130,
-        140,
-        150,
-        160,
-        170,
-        180
-      }
+      SrcValueByLevel = {30, 30}
     }
   }
 }

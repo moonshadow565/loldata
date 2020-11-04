@@ -340,7 +340,7 @@ ChannelingSuccessStopBuildingBlocks = {
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 2.5
         }
@@ -409,7 +409,7 @@ ChannelingCancelStopBuildingBlocks = {
           Damage = 0,
           DamageVar = "SecondDamage",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 0,
           PercentOfAttackVar = "TotalTime",
           SpellDamageRatio = 2.5

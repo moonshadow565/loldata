@@ -65,6 +65,10 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBTeleportToPosition,
+    Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -141,6 +145,21 @@ CanCastBuildingBlocks = {
 }
 AdjustCastInfoBuildingBlocks = {
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TestFlash",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "FlashRangeBonus",
@@ -196,7 +215,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 360,
+          Src1Value = 180,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -236,6 +255,10 @@ AdjustCooldownBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
+    Function = BBDestroyMissileForTarget,
+    Params = {TargetVar = "Owner"}
+  },
+  {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "CastPos"}
   },
@@ -259,7 +282,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 800,
+      Value2 = 450,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -267,7 +290,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 700,
+          Distance = 450,
           OffsetAngle = 0,
           PositionVar = "CastPos"
         }
@@ -333,8 +356,46 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBTeleportToPosition,
-    Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "FlashBeenHit"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CastPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "CastPos"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBTeleportToPosition,
+        Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -354,6 +415,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_flash.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "flashbeenhit"
     }
   }
 }

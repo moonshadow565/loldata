@@ -1,4 +1,6 @@
-PopupMessage1 = "game_floatingtext_Stunned"
+BuffTextureName = "Malphite_UnstoppableForce.dds"
+BuffName = "UnstoppableForceStun"
+PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
@@ -8,7 +10,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "UnstoppableForce_tar.troy",
+      EffectName = "UnstoppableForce_stun.troy",
       Flags = 0,
       EffectIDVar = "TargetParticle",
       TargetObjectVar = "Target",
@@ -21,87 +23,40 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBGetRandomPointInAreaUnit,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "StunDuration",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Level",
-      SrcVar = "Level",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
       TargetVar = "Owner",
-      Duration = 0,
-      DurationVar = "StunDuration",
-      DurationVarTable = "InstanceVars"
+      Radius = 125,
+      InnerRadius = 75,
+      ResultVar = "Position"
     }
   },
   {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMove,
     Params = {
       UnitVar = "Owner",
-      Distance = 100,
-      OffsetAngle = 180,
-      PositionVar = "OwnerPos"
+      TargetVar = "Position",
+      Speed = 100,
+      Gravity = 20,
+      MoveBackBy = 0
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Position",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "OwnerPos"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Speed",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 100
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Gravity",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 20
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
+    Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "Move",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 1.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      SrcValue = true,
+      Status = SetStunned
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetStunned
     }
   }
 }
@@ -109,11 +64,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "unstoppableforce_tar.troy"
+      Name = "unstoppableforce_stun.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "move"}
   }
 }

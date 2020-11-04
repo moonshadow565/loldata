@@ -147,6 +147,21 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
@@ -174,6 +189,21 @@ OnBuffDeactivateBuildingBlocks = {
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell1",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
       {
         Function = BBSpellCast,
         Params = {
@@ -203,6 +233,21 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell2",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
@@ -225,6 +270,21 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell3",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
       {
         Function = BBSpellCast,
         Params = {
@@ -450,6 +510,30 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell3"
     }
   },
   {

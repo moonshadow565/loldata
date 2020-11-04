@@ -72,7 +72,7 @@ BuffOnHitUnitBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageAmount2",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0
             }

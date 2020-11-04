@@ -23,7 +23,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "ReinforceBonus",
+      RequiredVar = "Splash",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -43,41 +43,6 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetMagicImmune
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ReinforceBonus",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorMod",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "ReinforceBonus",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
-          BuffName = "Reinforce",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 6,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
     }
   }
 }
@@ -109,46 +74,57 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIf,
     Params = {
-      Src1Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "newDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Target",
-      Range = 250,
-      Flags = "AffectEnemies AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      Src1Var = "Splash",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBMath,
         Params = {
-          Src1Var = "Unit",
-          Src2Var = "Target",
-          CompareOp = CO_NOT_EQUAL
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "newDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Target",
+          Range = 250,
+          Flags = "AffectEnemies AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
         },
         SubBlocks = {
           {
-            Function = BBApplyDamage,
+            Function = BBIf,
             Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "newDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+              Src1Var = "Unit",
+              Src2Var = "Target",
+              CompareOp = CO_NOT_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "newDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
           }
         }
@@ -234,47 +210,20 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "Duration", SrcValue = 6}
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "FortifyDurationBonus",
+      Src1Var = "FortifySplashDamage",
       Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Duration",
-          Src2Var = "FortifyDurationBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "Duration",
-          MathOp = MO_ADD
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FortifyReinforceBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 25,
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "ReinforceBonus",
+          DestVar = "Splash",
           DestVarTable = "NextBuffVars",
-          SrcValue = 25
+          SrcValue = true
         }
       }
     }
@@ -286,9 +235,9 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "ReinforceBonus",
+          DestVar = "Splash",
           DestVarTable = "NextBuffVars",
-          SrcValue = 0
+          SrcValue = false
         }
       }
     }
@@ -306,9 +255,8 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_Invulnerability,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 0,
+          Duration = 6,
           BuffVarsTable = "NextBuffVars",
-          DurationVar = "Duration",
           TickRate = 0
         }
       }
@@ -316,10 +264,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "reinforce"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {

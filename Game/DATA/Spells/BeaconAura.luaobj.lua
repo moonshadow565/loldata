@@ -123,57 +123,48 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetArea,
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageIncrease",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "DamageIncrease",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MagicDamageIncrease",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MagicDamageIncrease",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "FinalHPRegen",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "FinalHPRegen",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetAreaAddBuff,
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
           Range = 850,
           Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-          IteratorVar = "Unit"
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "DamageIncrease",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "MagicDamageIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "MagicDamageIncrease",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "FinalHPRegen",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "FinalHPRegen",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "BeaconAuraNoParticle",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 1.1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
+          BuffAttackerVar = "Attacker",
+          BuffName = "BeaconAuraNoParticle",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Aura,
+          BuffMaxStack = 1,
+          BuffNumberStacks = 1,
+          BuffDuration = 1.1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
     }

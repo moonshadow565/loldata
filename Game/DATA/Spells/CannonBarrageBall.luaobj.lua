@@ -147,7 +147,7 @@ OnBuffDeactivateBuildingBlocks = {
           DamageVar = "DamageAmount",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.2
         }
@@ -186,7 +186,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8
+      SpellDamageRatio = 0.8,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -238,9 +240,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageAmount",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        160,
-        220,
-        280
+        140,
+        200,
+        260
       }
     }
   },
@@ -251,8 +253,8 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         -0.4,
-        -0.55,
-        -0.7,
+        -0.5,
+        -0.6,
         -0.7,
         -0.8
       }

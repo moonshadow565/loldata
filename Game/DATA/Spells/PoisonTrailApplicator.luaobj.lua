@@ -67,7 +67,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -135,7 +137,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           {
             Function = BBSpellBuffAdd,
             Params = {
-              TargetVar = "Target",
+              TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "PoisonTrailMarker",
               BuffAddType = BUFF_REPLACE_EXISTING,

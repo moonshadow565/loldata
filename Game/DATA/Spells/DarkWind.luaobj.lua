@@ -94,7 +94,21 @@ TargetExecuteBuildingBlocks = {
           DurationVar = "DarkWindDuration",
           TickRate = 0
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TargetNum",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
@@ -104,7 +118,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.35
+          SpellDamageRatio = 0.35,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -120,9 +136,11 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           Damage = 100,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.35
+          SpellDamageRatio = 0.35,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

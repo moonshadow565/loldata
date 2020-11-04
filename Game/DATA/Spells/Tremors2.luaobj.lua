@@ -30,6 +30,34 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 400,
+      Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "TremDamage",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.3,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -43,20 +71,12 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TremDamage",
-      SrcVar = "TremDamage",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -76,6 +96,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "TremDamage",
+              DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,

@@ -124,7 +124,8 @@ OnBuffActivateBuildingBlocks = {
       SkinName = "RebirthEgg",
       TargetVar = "Owner",
       IDVar = "SeaHorseID",
-      IDVarTable = "InstanceVars"
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
     }
   },
   {
@@ -279,16 +280,19 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "TempEggHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RebirthCooldown",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 240,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
-  },
-  {
-    Function = BBPopAllCharacterData,
-    Params = {TargetVar = "Owner"}
   },
   {
     Function = BBSetStatus,
@@ -340,20 +344,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "EggTimer",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
         Function = BBSpellEffectCreate,
@@ -374,19 +365,15 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSpellEffectRemove,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "RebirthCooldown",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 240,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      EffectIDVar = "EggTimer",
+      EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBPopAllCharacterData,
+    Params = {TargetVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -471,15 +458,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rebirth_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "rebirthcooldown"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rebirth_cas.troy"
     }
   }
 }

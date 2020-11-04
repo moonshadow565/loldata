@@ -1,17 +1,10 @@
-UpdateSelfBuffActionsBuildingBlocks = {
+UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIncStat,
     Params = {
-      TimeBetweenExecutions = 10,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBIncGold,
-        Params = {TargetVar = "Owner", Delta = 1}
-      }
+      Stat = IncFlatGoldPer10Mod,
+      TargetVar = "Owner",
+      Delta = 1
     }
   }
 }

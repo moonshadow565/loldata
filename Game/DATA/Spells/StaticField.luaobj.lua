@@ -64,7 +64,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  SourceDamageType = DAMAGESOURCE_PROC,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.2
                 }
@@ -129,7 +129,7 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1
     }

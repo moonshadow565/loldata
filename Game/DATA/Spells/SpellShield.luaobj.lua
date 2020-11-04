@@ -3,13 +3,6 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Sivir_SpellBlock.dds"
 BuffName = "Spell Shield"
 AutoBuffActivateEffect = "SpellBlock_eff.troy"
-AutoCooldownByLevel = {
-  44,
-  38,
-  30,
-  22,
-  14
-}
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
@@ -253,9 +246,17 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 8,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "EnhancedRegen"
     }
   }
 }
@@ -264,6 +265,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "spelleffect_proc.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "enhancedregen"
     }
   }
 }

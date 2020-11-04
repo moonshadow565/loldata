@@ -5,7 +5,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
-      SpellSlotValue = 1,
+      SpellSlotValue = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       OwnerVar = "Owner",
@@ -38,7 +38,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.1
+          SpellDamageRatio = 0.3,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -61,53 +63,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BaseDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.3
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BaseDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.4
+          SpellDamageRatio = 0.4,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -126,7 +84,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.5
+          SpellDamageRatio = 0.5,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

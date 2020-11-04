@@ -4,11 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellDamageRatio = 1
-function UpdateBuffs(A0_0, A1_1, A2_2, A3_3)
-  if A2_2 < 1 then
-    SetScaleSkinCoef(A2_2, A1_1)
-  end
-end
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -191,7 +186,7 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.5
     }
@@ -206,7 +201,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

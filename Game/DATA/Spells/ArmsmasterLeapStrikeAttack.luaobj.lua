@@ -12,7 +12,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
-      SpellSlotValue = 1,
+      SpellSlotValue = 0,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       OwnerVar = "Owner",
@@ -58,11 +58,11 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "DamagePerStack",
           SrcValueByLevel = {
-            20,
             25,
-            30,
             35,
-            40
+            45,
+            55,
+            65
           }
         }
       },
@@ -92,7 +92,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "AttackDamage",
           Src1Value = 0,
-          Src2Value = 0.5,
+          Src2Value = 0.6,
           DestVar = "AoEDamage",
           MathOp = MO_MULTIPLY
         }
@@ -126,7 +126,9 @@ TargetExecuteBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_PROC,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0
+                  SpellDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }
@@ -160,7 +162,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -199,7 +203,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

@@ -126,18 +126,53 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBApplyDamage,
+        Function = BBGetCastInfo,
+        Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
+      },
+      {
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageVar",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          Src1Var = "TargetNum",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageVar",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELL,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageVar",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       },
       {
@@ -213,7 +248,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -248,7 +283,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -283,7 +318,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -318,7 +353,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -353,7 +388,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,

@@ -87,7 +87,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "DamageToDeal",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.25
             }
@@ -164,7 +164,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ResistanceMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = -10
+      SrcValue = -8
     }
   },
   {

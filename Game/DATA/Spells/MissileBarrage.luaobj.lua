@@ -174,6 +174,41 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBDistanceBetweenPoints,
+    Params = {
+      DestVar = "Distance",
+      Point1Var = "OwnerPos",
+      Point2Var = "Pos"
+    }
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "Pos"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Distance",
+      Value2 = 1200,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 1150,
+          OffsetAngle = 0,
+          PositionVar = "Pos"
+        }
+      }
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
