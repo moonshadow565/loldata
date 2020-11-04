@@ -4,7 +4,8 @@ IsDamagingSpell = true
 BuffTextureName = "Draven_TwinAxe.dds"
 BuffName = "DravenDoubleBump"
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 SpellVOOverrideSkins = {
   "Draven_SoulReaper"

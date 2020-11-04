@@ -1,7 +1,8 @@
 BuffTextureName = "3071_The_Black_Cleaver.dds"
 BuffName = "DravenSpinning"
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 SpellVOOverrideSkins = {
   "Draven_SoulReaper"
@@ -22,13 +23,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_tar_shadow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_q_tar.troy"
+      Name = "draven_base_q_tar.troy"
     }
   },
   {

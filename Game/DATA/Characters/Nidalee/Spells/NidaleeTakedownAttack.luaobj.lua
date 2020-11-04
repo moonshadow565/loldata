@@ -1,8 +1,22 @@
+BuffTextureName = "Nidalee_Q2.dds"
+IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_cougar_takedown_tar.troy"
+      Name = "nidalee_base_cougar_q_tar_marked.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "takedownblocker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_cougar_q_tar.troy"
     }
   }
 }

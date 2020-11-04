@@ -10,7 +10,8 @@ AutoCooldownByLevel = {
   40
 }
 SpellFXOverrideSkins = {
-  "UnderworldTwistedFate"
+  "UnderworldTwistedFate",
+  "TwistedFateSkin08"
 }
 PreLoadBuildingBlocks = {
   {

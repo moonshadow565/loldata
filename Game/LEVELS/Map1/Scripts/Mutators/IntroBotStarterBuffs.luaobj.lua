@@ -29,5 +29,6 @@ function L0()
       L5(L6, L7, L8, L9, L10)
     end
   end
+  L0(L1, L2)
 end
 IntroBotStarterBuffsOnInit = L0

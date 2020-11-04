@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_cougar_w_buf_circle.troy"
+    }
+  }
+}

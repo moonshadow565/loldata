@@ -10,12 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "learningquestsspellcaster"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "learningquestsinplatform"
     }
   },
@@ -35,6 +29,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "learningquestsinenemybase"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "learningquestsspellcaster"
     }
   },
   {

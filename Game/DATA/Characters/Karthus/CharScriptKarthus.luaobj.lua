@@ -36,12 +36,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karthusdefilesounddummy2"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_q_ring.troy"

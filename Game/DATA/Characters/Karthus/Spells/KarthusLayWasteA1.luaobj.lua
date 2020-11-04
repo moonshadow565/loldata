@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "karthus_base_q_explosion_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "karthus_base_q_tar.troy"
     }
   },
@@ -49,12 +55,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
-    }
   },
   {
     Function = BBPreloadParticle,

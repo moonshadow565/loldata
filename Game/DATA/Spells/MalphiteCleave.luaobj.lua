@@ -4,9 +4,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Malphite_BrutalStrikes.dds"
 BuffName = "MalphiteCleave"
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
-IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

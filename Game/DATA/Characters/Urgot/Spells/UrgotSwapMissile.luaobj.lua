@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = "SwapArrow_green.troy"
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {

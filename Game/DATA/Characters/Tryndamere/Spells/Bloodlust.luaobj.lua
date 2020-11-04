@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "DarkChampion_Bloodlust.dds"
+BuffTextureName = "Tryndamere_Q.dds"
 BuffName = "Bloodlust"
 SpellToggleSlot = 1
 AutoCooldownByLevel = {

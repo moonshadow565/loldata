@@ -44,9 +44,15 @@ function L0(A0, A1)
     L7 = innerTurret
     L8 = "ModTurretDamageToHumans"
     L9 = false
-    L10 = A1
-    L11 = 100
+    L10 = 1
+    L11 = 1
     L6(L7, L8, L9, L10, L11)
+    L6 = AddBuffCounter
+    L7 = innerTurret
+    L8 = "ModTurretDamageToHumans"
+    L9 = A1
+    L10 = 100
+    L6(L7, L8, L9, L10)
   end
 end
 SetBuffOnTeamTurrets = L0

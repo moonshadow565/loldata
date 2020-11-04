@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "SkarnerImpale.dds"
+BuffTextureName = "Skarner_E.dds"
 BuffName = "SkarnerImpale"
 PopupMessage1 = "game_floatingtext_Suppressed"
 PreLoadBuildingBlocks = {
@@ -53,6 +53,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "skarnerimpalebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnerpassivecooldown"
     }
   },
   {

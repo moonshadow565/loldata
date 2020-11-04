@@ -11,19 +11,37 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_bushwhack_set_02.troy"
+      Name = "nidalee_base_w_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_bushwhack_trigger_01.troy"
+      Name = "nidalee_extra_trap_particle.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "bushwhackdebuff"
+      Name = "nidalee_base_w_tc_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_w_tc_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_bushwhack_trigger_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_w_tar.troy"
     }
   },
   {
@@ -33,14 +51,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "nidalee_trap_team_id_green.troy"
+      Name = "nidaleepassivehunted"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {Name = "empty.troy"}
   },
   {
     Function = BBPreloadSpell,

@@ -21,12 +21,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gemknightbasicattack_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "itempromotecd"

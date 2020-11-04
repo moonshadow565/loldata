@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "48thSlave_Pacify.dds"
+BuffTextureName = "Tryndamere_W.dds"
 BuffName = "Mocking Shout"
 PreLoadBuildingBlocks = {
   {
