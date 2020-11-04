@@ -27,6 +27,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "karthus_base_e_defile_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "karthus_base_e_defile_cas.troy"
     }
   }

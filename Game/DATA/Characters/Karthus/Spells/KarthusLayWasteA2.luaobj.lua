@@ -19,5 +19,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "karthus_base_q_ring.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karthus_base_q_ring_red.troy"
+    }
   }
 }
