@@ -82,8 +82,8 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSpawnMinion,
     Params = {
-      Name = "SightWard",
-      Skin = "SightWard",
+      Name = "WriggleLantern",
+      Skin = "WriggleLantern",
       AiScript = "idle.lua",
       PosVar = "TargetPos",
       Team = TEAM_UNKNOWN,
@@ -375,11 +375,9 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "sightward"}
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "sightward"}
+    Params = {
+      Name = "wrigglelantern"
+    }
   },
   {
     Function = BBPreloadSpell,

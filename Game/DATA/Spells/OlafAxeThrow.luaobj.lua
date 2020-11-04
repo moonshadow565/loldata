@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = ""
 BuffName = ""
+SpellVOOverrideSkins = {"BroOlaf"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

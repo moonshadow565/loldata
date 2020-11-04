@@ -16,6 +16,14 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "numTideStacks",
+      DestVarTable = "CharVars",
+      SrcVar = "Count"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "Count",
@@ -195,10 +203,10 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffName = "VladimirTidesofBloodNuke",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",

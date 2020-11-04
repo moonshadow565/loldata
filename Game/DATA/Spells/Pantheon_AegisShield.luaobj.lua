@@ -1,12 +1,15 @@
 BuffTextureName = "Pantheon_AOZ.dds"
 BuffName = "PantheonAegisShield"
 AutoBuffActivateEffect = "pantheon_aoz_passive.troy"
-AutoBuffActivateAttachBoneName = "waist"
-OnBuffActivateBuildingBlocks = {}
-OnBuffDeactivateBuildingBlocks = {
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
+OnBuffActivateBuildingBlocks = {
   {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "damageThreshold",
+      DestVarTable = "InstanceVars",
+      SrcValue = 40
+    }
   }
 }
 BuffOnBeingHitBuildingBlocks = {
@@ -29,11 +32,19 @@ BuffOnBeingHitBuildingBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "DamageAmount",
-              Value2 = 40,
-              CompareOp = CO_GREATER_THAN_OR_EQUAL
+              Src1Var = "damageThreshold",
+              Src1VarTable = "InstanceVars",
+              Src2Var = "DamageAmount",
+              CompareOp = CO_LESS_THAN_OR_EQUAL
             },
             SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageAmount",
+                  SrcValue = 0
+                }
+              },
               {
                 Function = BBSay,
                 Params = {
@@ -49,20 +60,61 @@ BuffOnBeingHitBuildingBlocks = {
                 }
               },
               {
-                Function = BBSetVarInTable,
+                Function = BBSpellBuffRemove,
                 Params = {
-                  DestVar = "DamageAmount",
-                  SrcValue = 0
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "Pantheon_AegisShield"
                 }
-              },
-              {
-                Function = BBSpellBuffRemoveCurrent,
-                Params = {TargetVar = "Owner"}
               }
             }
           }
         }
       }
+    }
+  }
+}
+BuffOnLevelUpBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "damageThreshold",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        40,
+        43,
+        46,
+        49,
+        52,
+        55,
+        58,
+        61,
+        64,
+        67,
+        70,
+        73,
+        76,
+        79,
+        82,
+        85,
+        88,
+        91,
+        94,
+        97,
+        100
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_aegisshield"
     }
   }
 }

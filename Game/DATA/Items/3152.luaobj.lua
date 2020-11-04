@@ -74,69 +74,15 @@ UpdateSelfBuffActionsBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "WillOfTheAncientsFriendly",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 1200,
-              Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBGetPetOwner,
-                Params = {PetVar = "Owner", DestVar = "Caster"}
-              },
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "Unit",
-                  Src2Var = "Owner",
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBIfNotHasBuff,
-                    Params = {
-                      OwnerVar = "Owner",
-                      CasterVar = "Caster",
-                      BuffName = "WillOfTheAncientsFriendly"
-                    },
+                    Function = BBIf,
+                    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
                     SubBlocks = {
                       {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Unit",
                           AttackerVar = "Owner",
-                          BuffName = "WillOfTheAncientsSelf",
+                          BuffName = "WillOfTheAncientsFriendly",
                           BuffAddType = BUFF_RENEW_EXISTING,
                           StacksExclusive = true,
                           BuffType = BUFF_Aura,
@@ -151,38 +97,104 @@ UpdateSelfBuffActionsBuildingBlocks = {
                     }
                   }
                 }
-              },
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
               {
-                Function = BBIf,
+                Function = BBForEachUnitInTargetArea,
                 Params = {
-                  Src1Var = "Unit",
-                  Src2Var = "Owner",
-                  CompareOp = CO_EQUAL
-                }
-              },
-              {
-                Function = BBElseIf,
-                Params = {
-                  Src1Var = "Unit",
-                  Src2Var = "Caster",
-                  CompareOp = CO_NOT_EQUAL
+                  AttackerVar = "Owner",
+                  CenterVar = "Owner",
+                  Range = 1200,
+                  Flags = "AffectFriends AffectHeroes ",
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
+                    Function = BBGetPetOwner,
+                    Params = {PetVar = "Owner", DestVar = "Caster"}
+                  },
+                  {
+                    Function = BBIf,
                     Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "WillOfTheAncientsFriendly",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
+                      Src1Var = "Unit",
+                      Src2Var = "Owner",
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBIfNotHasBuff,
+                        Params = {
+                          OwnerVar = "Owner",
+                          CasterVar = "Caster",
+                          BuffName = "WillOfTheAncientsFriendly"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Unit",
+                              AttackerVar = "Owner",
+                              BuffName = "WillOfTheAncientsSelf",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Aura,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 1,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "Unit",
+                      Src2Var = "Owner",
+                      CompareOp = CO_EQUAL
+                    }
+                  },
+                  {
+                    Function = BBElseIf,
+                    Params = {
+                      Src1Var = "Unit",
+                      Src2Var = "Caster",
+                      CompareOp = CO_NOT_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "WillOfTheAncientsFriendly",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
                     }
                   }
                 }

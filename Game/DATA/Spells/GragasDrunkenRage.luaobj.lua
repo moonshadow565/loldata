@@ -4,9 +4,9 @@ ChannelDuration = 1
 BuffTextureName = "GragasDrunkenRage.dds"
 BuffName = "GragasDrunkenRage"
 AutoBuffActivateEffect = "gragas_drunkenRage_attack_buf.troy"
-AutoBuffActivateAttachBoneName = "L_hand"
+AutoBuffActivateAttachBoneName = "L_BUFFBONE_GLB_HAND_LOC"
 AutoBuffActivateEffect2 = "gragas_drunkenRage_attack_buf.troy"
-AutoBuffActivateAttachBoneName2 = "R_hand"
+AutoBuffActivateAttachBoneName2 = "R_BUFFBONE_GLB_HAND_LOC"
 AutoCooldownByLevel = {
   50,
   50,
@@ -27,6 +27,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaTick",
       DeltaVarTable = "InstanceVars"
     }
@@ -38,6 +39,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaTick",
       DeltaVarTable = "InstanceVars"
     }
@@ -90,12 +92,14 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Heal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -135,12 +139,14 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "GragasDrunkenRageSelf",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

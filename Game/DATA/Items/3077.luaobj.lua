@@ -24,24 +24,7 @@ ItemOnHitUnitBuildingBlocks = {
           },
           {
             Function = BBIf,
-            Params = {Src1Var = "Owner", CompareOp = CO_IS_MELEE},
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src2Var = "DamageAmount",
-                  Src1Value = 0.5,
-                  Src2Value = 0,
-                  DestVar = "ThirdDA",
-                  DestVarTable = "TempTable1",
-                  MathOp = MO_MULTIPLY
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_RANGED},
             SubBlocks = {
               {
                 Function = BBMath,
@@ -57,13 +40,58 @@ ItemOnHitUnitBuildingBlocks = {
             }
           },
           {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Nothing",
+                  BuffName = "JudicatorRighteousFury"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "DamageAmount",
+                      Src1Value = 0.35,
+                      Src2Value = 0,
+                      DestVar = "ThirdDA",
+                      DestVarTable = "TempTable1",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "DamageAmount",
+                      Src1Value = 0.5,
+                      Src2Value = 0,
+                      DestVar = "ThirdDA",
+                      DestVarTable = "TempTable1",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Owner",
               CenterVar = "Target",
               Range = 210,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -86,6 +114,7 @@ ItemOnHitUnitBuildingBlocks = {
                         Function = BBApplyDamage,
                         Params = {
                           AttackerVar = "Owner",
+                          CallForHelpAttackerVar = "Attacker",
                           TargetVar = "Unit",
                           Damage = 0,
                           DamageVar = "ThirdDA",
@@ -94,6 +123,7 @@ ItemOnHitUnitBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_DEFAULT,
                           PercentOfAttack = 1,
                           SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 1,
                           IgnoreDamageIncreaseMods = true,
                           IgnoreDamageCrit = true
                         }
@@ -112,6 +142,7 @@ ItemOnHitUnitBuildingBlocks = {
                         Function = BBApplyDamage,
                         Params = {
                           AttackerVar = "Owner",
+                          CallForHelpAttackerVar = "Attacker",
                           TargetVar = "Unit",
                           Damage = 0,
                           DamageVar = "ThirdDA",
@@ -120,6 +151,7 @@ ItemOnHitUnitBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_DEFAULT,
                           PercentOfAttack = 1,
                           SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 1,
                           IgnoreDamageIncreaseMods = true,
                           IgnoreDamageCrit = true
                         }
@@ -134,6 +166,7 @@ ItemOnHitUnitBuildingBlocks = {
                         Function = BBApplyDamage,
                         Params = {
                           AttackerVar = "Owner",
+                          CallForHelpAttackerVar = "Attacker",
                           TargetVar = "Unit",
                           Damage = 0,
                           DamageVar = "ThirdDA",
@@ -142,6 +175,7 @@ ItemOnHitUnitBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_DEFAULT,
                           PercentOfAttack = 1,
                           SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 1,
                           IgnoreDamageIncreaseMods = true,
                           IgnoreDamageCrit = true
                         }
@@ -162,6 +196,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tiamatmelee_itm.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "judicatorrighteousfury"
     }
   }
 }

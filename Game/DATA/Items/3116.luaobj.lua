@@ -23,7 +23,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -39,7 +39,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -61,7 +61,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -77,7 +77,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -99,7 +99,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -115,7 +115,7 @@ ItemOnPreDealDamageBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
