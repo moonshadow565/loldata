@@ -424,6 +424,50 @@ function L0()
   L3 = CENTER_LANE
   L1 = L1(L2, L3)
   chaosDampener = L1
+  L1 = SetInvulnerable
+  L2 = secondOrderTurret
+  L3 = true
+  L1(L2, L3)
+  L1 = SetTargetable
+  L2 = secondOrderTurret
+  L3 = false
+  L1(L2, L3)
+  L1 = SetInvulnerable
+  L2 = firstOrderTurret
+  L3 = false
+  L1(L2, L3)
+  L1 = SetTargetable
+  L2 = firstOrderTurret
+  L3 = true
+  L1(L2, L3)
+  L1 = SetInvulnerable
+  L2 = firstChaosTurret
+  L3 = true
+  L1(L2, L3)
+  L1 = SetTargetable
+  L2 = firstChaosTurret
+  L3 = false
+  L1(L2, L3)
+  L1 = SetInvulnerable
+  L2 = chaosDampener
+  L3 = true
+  L1(L2, L3)
+  L1 = SetTargetable
+  L2 = chaosDampener
+  L3 = false
+  L1(L2, L3)
+  L1 = SetInvulnerable
+  L2 = GetHQ
+  L3 = TEAM_CHAOS
+  L2 = L2(L3)
+  L3 = true
+  L1(L2, L3)
+  L1 = SetTargetable
+  L2 = GetHQ
+  L3 = TEAM_CHAOS
+  L2 = L2(L3)
+  L3 = false
+  L1(L2, L3)
   L1 = TutorialSpellBuffAdd
   L2 = playerID
   L3 = firstOrderTurret
@@ -473,6 +517,38 @@ function L0()
   L2 = allyID
   L3 = 90000
   L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = allyID
+  L3 = 1
+  L1(L2, L3)
   L1 = LogTutorial
   L2 = "Incrementing Bot Exp"
   L1(L2)
@@ -480,12 +556,32 @@ function L0()
   L2 = botID
   L3 = 30000
   L1(L2, L3)
+  L1 = IncExp
+  L2 = botID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = botID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = botID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = botID
+  L3 = 1
+  L1(L2, L3)
+  L1 = IncExp
+  L2 = botID
+  L3 = 1
+  L1(L2, L3)
   L1 = LogTutorial
   L2 = "Locking player input"
   L1(L2)
   L1 = SetInputLockingFlag
   L2 = INPUT_CAMERALOCKING
-  L3 = false
+  L3 = true
   L1(L2, L3)
   L1 = SetInputLockingFlag
   L2 = INPUT_CAMERAMOVEMENT
@@ -515,6 +611,18 @@ function L0()
   L2 = playerID
   L3 = botID
   L4 = "Stun"
+  L5 = BUFF_RENEW_EXISTING
+  L6 = BUFF_Internal
+  L7 = 1
+  L8 = 1
+  L9 = 25000
+  L10 = buffVarsTable
+  L11 = 0
+  L1(L2, L3, L4, L5, L6, L7, L8, L9, L10, L11)
+  L1 = TutorialSpellBuffAdd
+  L2 = playerID
+  L3 = botID
+  L4 = "SetNoRender"
   L5 = BUFF_RENEW_EXISTING
   L6 = BUFF_Internal
   L7 = 1
@@ -1044,46 +1152,6 @@ function L0()
   L0()
   L0 = ToggleFogOfWar
   L0()
-  L0 = SetInvulnerable
-  L1 = secondOrderTurret
-  L2 = true
-  L0(L1, L2)
-  L0 = SetTargetable
-  L1 = secondOrderTurret
-  L2 = true
-  L0(L1, L2)
-  L0 = SetTargetable
-  L1 = firstOrderTurret
-  L2 = true
-  L0(L1, L2)
-  L0 = SetInvulnerable
-  L1 = firstChaosTurret
-  L2 = true
-  L0(L1, L2)
-  L0 = SetTargetable
-  L1 = firstChaosTurret
-  L2 = true
-  L0(L1, L2)
-  L0 = SetInvulnerable
-  L1 = chaosDampener
-  L2 = true
-  L0(L1, L2)
-  L0 = SetTargetable
-  L1 = chaosDampener
-  L2 = true
-  L0(L1, L2)
-  L0 = SetInvulnerable
-  L1 = GetHQ
-  L2 = TEAM_CHAOS
-  L1 = L1(L2)
-  L2 = true
-  L0(L1, L2)
-  L0 = SetTargetable
-  L1 = GetHQ
-  L2 = TEAM_CHAOS
-  L1 = L1(L2)
-  L2 = true
-  L0(L1, L2)
   L0 = CreateUnitHighlight
   L1 = playerID
   L0(L1)
@@ -1104,6 +1172,10 @@ function L0()
   L0 = LockCamera
   L1 = true
   L0(L1)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERALOCKING
+  L2 = true
+  L0(L1, L2)
   L0 = LogTutorial
   L1 = "Freeing player movement"
   L0(L1)
@@ -1187,6 +1259,21 @@ function L0()
   L3 = 300
   L0(L1, L2, L3)
   L0 = LogTutorial
+  L1 = "Locking movement"
+  L0(L1)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERALOCKING
+  L2 = true
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_MOVEMENT
+  L2 = true
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_MINIMAPMOVEMENT
+  L2 = true
+  L0(L1, L2)
+  L0 = LogTutorial
   L1 = "Remove waypoint1 with expiration timer"
   L0(L1)
   L0 = TutorialSpellBuffAdd
@@ -1242,15 +1329,6 @@ function L0()
   L9 = buffVarsTable
   L10 = 0
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
-  L0 = LogTutorial
-  L1 = "Locking movement"
-  L0(L1)
-  L0 = ToggleInputLockingFlag
-  L1 = INPUT_MOVEMENT
-  L0(L1)
-  L0 = ToggleInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
-  L0(L1)
 end
 Event2ndWaypoint = L0
 function L0()
@@ -1310,12 +1388,18 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking movement"
   L0(L1)
-  L0 = ToggleInputLockingFlag
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERALOCKING
+  L2 = true
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
   L1 = INPUT_MOVEMENT
-  L0(L1)
-  L0 = ToggleInputLockingFlag
+  L2 = false
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
   L1 = INPUT_MINIMAPMOVEMENT
-  L0(L1)
+  L2 = false
+  L0(L1, L2)
   L0 = LogTutorial
   L1 = "Setting up event trigger"
   L0(L1)
@@ -2127,9 +2211,24 @@ function L0()
   L1 = firstChaosTurret
   L2 = false
   L0(L1, L2)
+  L0 = SetTargetable
+  L1 = firstChaosTurret
+  L2 = true
+  L0(L1, L2)
   L0 = SetInvulnerable
-  L1 = secondOrderTurret
+  L1 = firstOrderTurret
   L2 = false
+  L0(L1, L2)
+  L0 = LockCamera
+  L1 = false
+  L0(L1)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERALOCKING
+  L2 = true
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERAMOVEMENT
+  L2 = true
   L0(L1, L2)
   L0 = MoveCameraFromCurrentPositionToPoint
   L1 = playerID
@@ -2164,57 +2263,8 @@ function L0()
   L2 = 0.5
   L3 = "EnemyMinionSetup"
   L0(L1, L2, L3)
-  L0 = RegisterOnUnitKilledCallback
-  L1 = allyID
-  L2 = "PostDeathBubble"
-  L0(L1, L2)
 end
 EventOhNo = L0
-function L0()
-  local L0, L1, L2, L3, L4, L5
-  L0 = UnRegisterOnUnitKilledCallback
-  L1 = allyID
-  L0(L1)
-  L0 = AddPosPerceptionBubble
-  L1 = GetPosition
-  L2 = firstChaosTurret
-  L1 = L1(L2)
-  L2 = 1000
-  L3 = 4
-  L4 = false
-  L5 = TEAM_ORDER
-  L0(L1, L2, L3, L4, L5)
-  L0 = InitTimer
-  L1 = "CleanupInAisle"
-  L2 = 4
-  L3 = false
-  L0(L1, L2, L3)
-end
-PostDeathBubble = L0
-function L0()
-  local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
-  L0 = TutorialSpellBuffAdd
-  L1 = playerID
-  L2 = allyID
-  L3 = "SetNoRender"
-  L4 = BUFF_RENEW_EXISTING
-  L5 = BUFF_Internal
-  L6 = 1
-  L7 = 1
-  L8 = 25000
-  L9 = buffVarsTable
-  L10 = 0
-  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
-  L0 = TeleportToPosition
-  L1 = allyID
-  L2 = GetPosition
-  L3 = GetHQ
-  L4 = TEAM_ORDER
-  L3, L4, L5, L6, L7, L8, L9, L10 = L3(L4)
-  L2, L3, L4, L5, L6, L7, L8, L9, L10 = L2(L3, L4, L5, L6, L7, L8, L9, L10)
-  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
-end
-CleanupInAisle = L0
 function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16
   L0(L1)
@@ -2265,8 +2315,74 @@ function L0()
     L6 = "ReplaceWizardChaosMinion"
     L4(L5, L6)
   end
+  L0(L1, L2)
 end
 EnemyMinionSetup = L0
+function L0()
+  local L0, L1, L2, L3, L4, L5
+  L0 = UnRegisterOnUnitKilledCallback
+  L1 = allyID
+  L0(L1)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERALOCKING
+  L2 = false
+  L0(L1, L2)
+  L0 = SetInputLockingFlag
+  L1 = INPUT_CAMERAMOVEMENT
+  L2 = false
+  L0(L1, L2)
+  L0 = AddPosPerceptionBubble
+  L1 = GetPosition
+  L2 = firstChaosTurret
+  L1 = L1(L2)
+  L2 = 1000
+  L3 = 4
+  L4 = false
+  L5 = TEAM_ORDER
+  L0(L1, L2, L3, L4, L5)
+  L0 = InitTimer
+  L1 = "CleanupInAisle"
+  L2 = 4
+  L3 = false
+  L0(L1, L2, L3)
+end
+PostDeathBubble = L0
+function L0()
+  local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
+  L0 = TutorialSpellBuffAdd
+  L1 = playerID
+  L2 = allyID
+  L3 = "SetNoRender"
+  L4 = BUFF_RENEW_EXISTING
+  L5 = BUFF_Internal
+  L6 = 1
+  L7 = 1
+  L8 = 25000
+  L9 = buffVarsTable
+  L10 = 0
+  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
+  L0 = TutorialSpellBuffAdd
+  L1 = playerID
+  L2 = allyID
+  L3 = "Stun"
+  L4 = BUFF_RENEW_EXISTING
+  L5 = BUFF_Internal
+  L6 = 1
+  L7 = 1
+  L8 = 25000
+  L9 = buffVarsTable
+  L10 = 0
+  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
+  L0 = TeleportToPosition
+  L1 = allyID
+  L2 = GetPosition
+  L3 = GetHQ
+  L4 = TEAM_ORDER
+  L3, L4, L5, L6, L7, L8, L9, L10 = L3(L4)
+  L2, L3, L4, L5, L6, L7, L8, L9, L10 = L2(L3, L4, L5, L6, L7, L8, L9, L10)
+  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
+end
+CleanupInAisle = L0
 function L0()
   local L0, L1, L2
   L0 = PlayTutorialAudioEvent
@@ -2309,6 +2425,14 @@ function L0()
   L0(L1, L2)
   L0 = SetInputLockingFlag
   L1 = INPUT_MINIMAPMOVEMENT
+  L2 = false
+  L0(L1, L2)
+  L0 = SetInvulnerable
+  L1 = firstChaosTurret
+  L2 = true
+  L0(L1, L2)
+  L0 = SetTargetable
+  L1 = firstChaosTurret
   L2 = false
   L0(L1, L2)
   L0 = GetPosition
@@ -2634,6 +2758,14 @@ function L0()
   L2 = firstOrderTurret
   L3 = 20000
   L0(L1, L2, L3)
+  L0 = SetInvulnerable
+  L1 = secondOrderTurret
+  L2 = false
+  L0(L1, L2)
+  L0 = SetTargetable
+  L1 = secondOrderTurret
+  L2 = true
+  L0(L1, L2)
   L0 = false
   turretAlive = L0
   L0 = LogTutorial
@@ -2657,6 +2789,14 @@ function L0()
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_turret_push"
   L0(L1)
+  L0 = SetInvulnerable
+  L1 = firstChaosTurret
+  L2 = false
+  L0(L1, L2)
+  L0 = SetTargetable
+  L1 = firstChaosTurret
+  L2 = true
+  L0(L1, L2)
   L0 = UnRegisterOnLastMinionKilledCallback
   L1 = TEAM_CHAOS
   L0(L1)
@@ -2694,10 +2834,6 @@ function L0()
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_champion_setup"
   L0(L1)
-  L0 = SetInvulnerable
-  L1 = chaosDampener
-  L2 = false
-  L0(L1, L2)
   L0 = LogTutorial
   L1 = "Unstunning champion"
   L0(L1)
@@ -2705,6 +2841,11 @@ function L0()
   L1 = playerID
   L2 = botID
   L3 = "Stun"
+  L0(L1, L2, L3)
+  L0 = SpellBuffRemove
+  L1 = playerID
+  L2 = botID
+  L3 = "SetNoRender"
   L0(L1, L2, L3)
   L0 = LogTutorial
   L1 = "Spawning Chaos Minions"
@@ -2797,6 +2938,14 @@ function L0()
   L0()
   L0 = HideAuxiliaryText
   L0()
+  L0 = SetInvulnerable
+  L1 = chaosDampener
+  L2 = false
+  L0(L1, L2)
+  L0 = SetTargetable
+  L1 = chaosDampener
+  L2 = true
+  L0(L1, L2)
   L0 = LogTutorial
   L1 = "Unregistering callback"
   L0(L1)
@@ -2885,6 +3034,12 @@ function L0()
   L2 = TEAM_CHAOS
   L1 = L1(L2)
   L2 = false
+  L0(L1, L2)
+  L0 = SetTargetable
+  L1 = GetHQ
+  L2 = TEAM_CHAOS
+  L1 = L1(L2)
+  L2 = true
   L0(L1, L2)
   L0 = CreateUnitHighlight
   L1 = super
@@ -2981,7 +3136,7 @@ function L0()
   L1 = GetHQ
   L2 = TEAM_CHAOS
   L1 = L1(L2)
-  L2 = "EventSucceededCombined"
+  L2 = "EventSucceedDelay"
   L0(L1, L2)
 end
 EventAlmostThere = L0
@@ -2997,17 +3152,40 @@ function L0()
 end
 EventFinishOff = L0
 function L0()
+  local L0, L1, L2, L3
+  L0 = InitTimer
+  L1 = "EventSucceededCombined"
+  L2 = 6
+  L3 = false
+  L0(L1, L2, L3)
+end
+EventSucceedDelay = L0
+function L0()
   local L0, L1, L2
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_SucceededCombined"
-  L2 = "EventEndGame"
+  L2 = ""
   L0(L1, L2)
   L0 = HideObjectiveText
   L0()
   L0 = HideAuxiliaryText
   L0()
-  L0 = PauseGame
-  L0()
+  L0 = MuteVolumeCategory
+  L1 = VOLUME_MUSIC
+  L2 = true
+  L0(L1, L2)
+  L0 = MuteVolumeCategory
+  L1 = VOLUME_SFX
+  L2 = true
+  L0(L1, L2)
+  L0 = MuteVolumeCategory
+  L1 = VOLUME_ANNOUNCER
+  L2 = true
+  L0(L1, L2)
+  L0 = MuteVolumeCategory
+  L1 = VOLUME_UNIT_RESPONSES
+  L2 = true
+  L0(L1, L2)
 end
 EventSucceededCombined = L0
 function L0()

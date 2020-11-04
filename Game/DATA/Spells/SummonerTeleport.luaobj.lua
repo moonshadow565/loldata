@@ -347,6 +347,21 @@ AdjustCooldownBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Target",
+      BuffName = "Teleport_DeathRemoval",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Interal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",

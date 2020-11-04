@@ -28,21 +28,28 @@ ItemOnHitUnitBuildingBlocks = {
                     Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
                     SubBlocks = {
                       {
-                        Function = BBSetVarInTable,
+                        Function = BBSpellBuffAdd,
                         Params = {
-                          DestVar = "MoveSpeedMod",
-                          DestVarTable = "NextBuffVars",
-                          SrcValue = -0.4
+                          TargetVar = "Target",
+                          AttackerVar = "Owner",
+                          BuffName = "ItemSlow",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          BuffType = BUFF_Slow,
+                          MaxStack = 1,
+                          NumberStacks = 1,
+                          Duration = 2.5,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0
                         }
                       },
                       {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Target",
-                          AttackerVar = "Owner",
-                          BuffName = "Hamstring",
+                          AttackerVar = "Target",
+                          BuffName = "Internal_40Slow",
                           BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Slow,
+                          BuffType = BUFF_Internal,
                           MaxStack = 1,
                           NumberStacks = 1,
                           Duration = 2.5,
@@ -59,11 +66,5 @@ ItemOnHitUnitBuildingBlocks = {
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "hamstring"}
   }
 }

@@ -15,11 +15,13 @@ function L0_0()
 end
 OnInit = L0_0
 function L0_0(A0_2, A1_3)
-  aiState = GetState()
-  if aiState == AI_TAUNTED or aiState == AI_FEARED then
+  if GetState() == AI_HALTED then
     return
   end
-  if (aiState == AI_PET_HARDATTACK or aiState == AI_PET_HARDMOVE or aiState == AI_PET_HARDIDLE or aiState == AI_PET_HARDIDLE_ATTACKING or aiState == AI_PET_HARDRETURN) and (A0_2 == ORDER_ATTACKTO or A0_2 == ORDER_MOVETO or A0_2 == ORDER_ATTACKMOVE) then
+  if GetState() == AI_TAUNTED or GetState() == AI_FEARED then
+    return
+  end
+  if (GetState() == AI_PET_HARDATTACK or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDIDLE or GetState() == AI_PET_HARDIDLE_ATTACKING or GetState() == AI_PET_HARDRETURN) and (A0_2 == ORDER_ATTACKTO or A0_2 == ORDER_MOVETO or A0_2 == ORDER_ATTACKMOVE) then
     return true
   end
   owner = GetOwner()
@@ -66,8 +68,10 @@ function L0_0(A0_2, A1_3)
 end
 OnOrder = L0_0
 function L0_0()
-  aiState = GetState()
-  if aiState == AI_PET_MOVE or aiState == AI_PET_HARDMOVE or aiState == AI_PET_HARDRETURN or aiState == AI_FEARED then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if GetState() == AI_PET_MOVE or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDRETURN or GetState() == AI_FEARED then
     return true
   end
   newTarget = FindTargetInAcR()
@@ -77,27 +81,27 @@ function L0_0()
       Die(me, DAMAGESOURCE_INTERNALRAW)
       return false
     end
-    if aiState == AI_PET_HARDIDLE_ATTACKING then
+    if GetState() == AI_PET_HARDIDLE_ATTACKING then
       NetSetState(AI_PET_HARDIDLE)
       return true
-    elseif aiState == AI_PET_RETURN_ATTACKING then
+    elseif GetState() == AI_PET_RETURN_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_RETURN, owner)
       return true
-    elseif aiState == AI_PET_ATTACKMOVE_ATTACKING then
+    elseif GetState() == AI_PET_ATTACKMOVE_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_ATTACKMOVE, owner)
       return true
     end
-  elseif aiState == AI_PET_HARDATTACK or aiState == AI_PET_ATTACK or aiState == AI_TAUNTED then
+  elseif GetState() == AI_PET_HARDATTACK or GetState() == AI_PET_ATTACK or GetState() == AI_TAUNTED then
     SetStateAndCloseToTarget(AI_PET_ATTACK, newTarget)
     return true
-  elseif aiState == AI_PET_HARDIDLE_ATTACKING then
+  elseif GetState() == AI_PET_HARDIDLE_ATTACKING then
     NetSetState(AI_PET_HARDIDLE_ATTACKING)
     SetTarget(newTarget)
     return true
-  elseif aiState == AI_PET_RETURN_ATTACKING then
+  elseif GetState() == AI_PET_RETURN_ATTACKING then
     SetStateAndCloseToTarget(AI_PET_RETURN_ATTACKING, newTarget)
     return true
-  elseif aiState == AI_PET_ATTACKMOVE_ATTACKING then
+  elseif GetState() == AI_PET_ATTACKMOVE_ATTACKING then
     SetStateAndCloseToTarget(AI_PET_ATTACKMOVE_ATTACKING, newTarget)
     return true
   end
@@ -106,6 +110,9 @@ function L0_0()
 end
 OnTargetLost = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     SetStateAndCloseToTarget(AI_TAUNTED, tauntTarget)
@@ -113,6 +120,9 @@ function L0_0()
 end
 OnTauntBegin = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     SetStateAndCloseToTarget(AI_PET_ATTACK, tauntTarget)
@@ -123,6 +133,9 @@ function L0_0()
 end
 OnTauntEnd = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
@@ -130,27 +143,45 @@ function L0_0()
 end
 OnFearBegin = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   StopTimer("TimerFeared")
   NetSetState(AI_PET_IDLE)
   TimerFindEnemies()
 end
 OnFearEnd = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_PET_IDLE)
   TimerFindEnemies()
 end
 OnCanMove = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_PET_IDLE)
   TimerFindEnemies()
 end
 OnCanAttack = L0_0
 function L0_0()
+  local L0_4
+  L0_4 = GetState
+  L0_4 = L0_4()
+  if L0_4 == AI_HALTED then
+    return
+  end
   tempOwner = GetOwner()
   if tempOwner == nil then
     Die(me, DAMAGESOURCE_INTERNALRAW)
@@ -162,56 +193,62 @@ function L0_0()
     NetSetState(AI_PET_IDLE)
     return
   end
-  aiState = GetState()
+  L0_4 = GetState()
   bNoEnemiesNear = FindTargetInAcR() == nil
-  if aiState == AI_PET_IDLE and distanceToOwner > GetPetReturnRadius(me) and bNoEnemiesNear then
+  if L0_4 == AI_PET_IDLE and distanceToOwner > GetPetReturnRadius(me) and bNoEnemiesNear then
     SetStateAndCloseToTarget(AI_PET_RETURN, tempOwner)
     return
   end
-  if (aiState == AI_PET_RETURN or aiState == AI_PET_HARDRETURN) and distanceToOwner <= GetPetReturnRadius(me) then
+  if (L0_4 == AI_PET_RETURN or L0_4 == AI_PET_HARDRETURN) and distanceToOwner <= GetPetReturnRadius(me) then
     NetSetState(AI_PET_IDLE)
     return
   end
-  if not OwnerIsMoving() and (aiState == AI_PET_MOVE or aiState == AI_PET_ATTACKMOVE and bNoEnemiesNear) then
+  if not OwnerIsMoving() and (L0_4 == AI_PET_MOVE or L0_4 == AI_PET_ATTACKMOVE and bNoEnemiesNear) then
     NetSetState(AI_PET_IDLE)
     return
   end
-  if not IsMoving() and aiState == AI_PET_HARDMOVE then
+  if not IsMoving() and L0_4 == AI_PET_HARDMOVE then
     NetSetState(AI_PET_HARDIDLE)
     return
   end
-  if aiState == AI_PET_SPAWNING and IsNetworkLocal() then
+  if L0_4 == AI_PET_SPAWNING and IsNetworkLocal() then
     NetSetState(AI_PET_IDLE)
   end
 end
 TimerScanDistance = L0_0
 function L0_0()
+  local L0_5
+  L0_5 = GetState
+  L0_5 = L0_5()
+  if L0_5 == AI_HALTED then
+    return
+  end
   if GetOwner() == nil then
     Die(me, DAMAGESOURCE_INTERNALRAW)
     return
   end
-  aiState = GetState()
-  if aiState == AI_PET_MOVE or aiState == AI_PET_HARDMOVE then
+  L0_5 = GetState()
+  if L0_5 == AI_PET_MOVE or L0_5 == AI_PET_HARDMOVE then
     return
   end
-  if aiState == AI_PET_IDLE or aiState == AI_PET_RETURN or aiState == AI_PET_ATTACKMOVE or aiState == AI_PET_HARDIDLE then
+  if L0_5 == AI_PET_IDLE or L0_5 == AI_PET_RETURN or L0_5 == AI_PET_ATTACKMOVE or L0_5 == AI_PET_HARDIDLE then
     newTarget = FindTargetInAcR()
     if newTarget == nil then
       TurnOffAutoAttack(STOPREASON_TARGET_LOST)
       return
     end
-    if aiState == AI_PET_IDLE then
+    if L0_5 == AI_PET_IDLE then
       SetStateAndCloseToTarget(AI_PET_ATTACK, newTarget)
-    elseif aiState == AI_PET_RETURN then
+    elseif L0_5 == AI_PET_RETURN then
       SetStateAndCloseToTarget(AI_PET_RETURN_ATTACKING, newTarget)
-    elseif aiState == AI_PET_ATTACKMOVE then
+    elseif L0_5 == AI_PET_ATTACKMOVE then
       SetStateAndCloseToTarget(AI_PET_ATTACKMOVE_ATTACKING, newTarget)
-    elseif aiState == AI_PET_HARDIDLE then
+    elseif L0_5 == AI_PET_HARDIDLE then
       NetSetState(AI_PET_HARDIDLE_ATTACKING)
       SetTarget(newTarget)
     end
   end
-  if aiState == AI_PET_ATTACK or aiState == AI_PET_HARDATTACK or aiState == AI_PET_RETURN_ATTACKING or aiState == AI_PET_ATTACKMOVE_ATTACKING or aiState == AI_PET_HARDIDLE_ATTACKING or aiState == AI_TAUNTED then
+  if L0_5 == AI_PET_ATTACK or L0_5 == AI_PET_HARDATTACK or L0_5 == AI_PET_RETURN_ATTACKING or L0_5 == AI_PET_ATTACKMOVE_ATTACKING or L0_5 == AI_PET_HARDIDLE_ATTACKING or L0_5 == AI_TAUNTED then
     if TargetInAttackRange() then
       TurnOnAutoAttack(GetTarget())
     elseif TargetInCancelAttackRange() == false then
@@ -221,3 +258,11 @@ function L0_0()
   end
 end
 TimerFindEnemies = L0_0
+function L0_0()
+  StopTimer("TimerScanDistance")
+  StopTimer("TimerFindEnemies")
+  StopTimer("TimerFeared")
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  NetSetState(AI_HALTED)
+end
+HaltAI = L0_0

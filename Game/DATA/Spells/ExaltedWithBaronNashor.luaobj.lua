@@ -78,6 +78,23 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "BonusAttack",
       Delta = 0
     }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "nashor_rune_buf.troy",
+      Flags = 0,
+      EffectIDVar = "buffParticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -116,6 +133,13 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       DeltaVar = "BonusAttack",
       Delta = 0
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "buffParticle",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -176,6 +200,12 @@ BuffOnUpdateStatsBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nashor_rune_buf.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

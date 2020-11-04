@@ -2,74 +2,80 @@ AutoBuffActivateEffect = ""
 AutoItemActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.9,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBExecutePeriodically,
         Params = {
-          DestVar = "ManaRegenBonus",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 1.44
-        }
-      },
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 800,
-          Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Unit"
+          TimeBetweenExecutions = 0.9,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = false
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "Unit",
-              Src2Var = "Owner",
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "ManaManipulatorAuraSelf",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
+              DestVar = "ManaRegenBonus",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 1.44
             }
           },
           {
-            Function = BBElse,
-            Params = {},
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 800,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit"
+            },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "ManaManipulatorAuraFriend",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ManaManipulatorAuraSelf",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ManaManipulatorAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
               }
             }

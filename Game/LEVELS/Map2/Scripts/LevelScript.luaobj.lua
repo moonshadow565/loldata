@@ -92,23 +92,31 @@ SpawnTable = {
 }
 ChaosBarrack0 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -125,23 +133,31 @@ ChaosBarrack0 = {
 }
 ChaosBarrack1 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -158,23 +174,31 @@ ChaosBarrack1 = {
 }
 ChaosBarrack2 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -191,23 +215,31 @@ ChaosBarrack2 = {
 }
 OrderBarrack0 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -224,23 +256,31 @@ OrderBarrack0 = {
 }
 OrderBarrack1 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -257,23 +297,31 @@ OrderBarrack1 = {
 }
 OrderBarrack2 = {
   IsDestroyed = false,
+  MeleeMinionArmor = 0,
+  MeleeMinionMagicResistance = 0,
   MeleeHPBonus = 0,
   MeleeDamageBonus = 0,
   MeleeGoldBonus = 0,
   MeleeExpBonus = 0,
   MeleeExpGiven = MELEE_EXP_GIVEN,
   MeleeGoldGiven = MELEE_GOLD_GIVEN,
+  ArcherMinionArmor = 0,
+  ArcherMinionMagicResistance = 0,
   ArcherHPBonus = 0,
   ArcherDamageBonus = 0,
   ArcherGoldBonus = 0,
   ArcherExpBonus = 0,
   ArcherExpGiven = ARCHER_EXP_GIVEN,
   ArcherGoldGiven = ARCHER_GOLD_GIVEN,
+  CasterMinionArmor = 0,
+  CasterMinionMagicResistance = 0,
   CasterHPBonus = 0,
   CasterDamageBonus = 0,
   CasterGoldBonus = 0,
   CasterExpBonus = 0,
   CasterExpGiven = CASTER_EXP_GIVEN,
+  SuperMinionArmor = 0,
+  SuperMinionMagicResistance = 0,
   SuperHPBonus = 0,
   SuperDamageBonus = 0,
   SuperGoldBonus = 0,
@@ -542,18 +590,26 @@ function GetMinionSpawnInfo(_ARG_0_, _ARG_1_, _ARG_2_, _ARG_3_, _ARG_4_)
     CasterMinionName = ChaosBarracksBonuses[_ARG_0_ + 1].CasterMinionName,
     SuperMinionName = ChaosBarracksBonuses[_ARG_0_ + 1].SuperMinionName,
     IsDestroyed = ChaosBarracksBonuses[_ARG_0_ + 1].IsDestroyed,
+    MeleeMinionArmor = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeMinionArmor,
+    MeleeMinionMagicResistance = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeMinionMagicResistance,
     MeleeHPBonus = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeHPBonus,
     MeleeDamageBonus = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeDamageBonus,
     MeleeExpGiven = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeExpGiven,
     MeleeGoldGiven = ChaosBarracksBonuses[_ARG_0_ + 1].MeleeGoldGiven,
+    ArcherMinionArmor = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherMinionArmor,
+    ArcherMinionMagicResistance = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherMinionMagicResistance,
     ArcherHPBonus = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherHPBonus,
     ArcherDamageBonus = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherDamageBonus,
     ArcherExpGiven = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherExpGiven,
     ArcherGoldGiven = ChaosBarracksBonuses[_ARG_0_ + 1].ArcherGoldGiven,
+    CasterMinionArmor = ChaosBarracksBonuses[_ARG_0_ + 1].CasterMinionArmor,
+    CasterMinionMagicResistance = ChaosBarracksBonuses[_ARG_0_ + 1].CasterMinionMagicResistance,
     CasterHPBonus = ChaosBarracksBonuses[_ARG_0_ + 1].CasterHPBonus,
     CasterDamageBonus = ChaosBarracksBonuses[_ARG_0_ + 1].CasterDamageBonus,
     CasterExpGiven = ChaosBarracksBonuses[_ARG_0_ + 1].CasterExpGiven,
     CasterGoldGiven = ChaosBarracksBonuses[_ARG_0_ + 1].CasterGoldGiven,
+    SuperMinionArmor = ChaosBarracksBonuses[_ARG_0_ + 1].SuperMinionArmor,
+    SuperMinionMagicResistance = ChaosBarracksBonuses[_ARG_0_ + 1].SuperMinionMagicResistance,
     SuperHPBonus = ChaosBarracksBonuses[_ARG_0_ + 1].SuperHPBonus,
     SuperDamageBonus = ChaosBarracksBonuses[_ARG_0_ + 1].SuperDamageBonus,
     SuperExpGiven = ChaosBarracksBonuses[_ARG_0_ + 1].SuperExpGiven,
@@ -719,9 +775,9 @@ function HandleDestroyedObject(_ARG_0_)
   HQType = GetHQType(_ARG_0_)
   if HQType == ORDER_HQ or HQType == CHAOS_HQ then
     if HQType == CHAOS_HQ then
-      EndGame(TEAM_ORDER)
+      EndOfGameCeremony(TEAM_ORDER, _ARG_0_)
     else
-      EndGame(TEAM_CHAOS)
+      EndOfGameCeremony(TEAM_CHAOS, _ARG_0_)
     end
     return
   end
@@ -766,4 +822,115 @@ function HandleDestroyedObject(_ARG_0_)
     Log("Could not find Linking barracks!")
   end
   return true
+end
+TEAM_UNKNOWN = 0
+EOG_PAN_TO_NEXUS_TIME = 3
+EOG_NEXUS_EXPLOSION_TIME = EOG_PAN_TO_NEXUS_TIME + 0.5
+EOG_SCOREBOARD_PHASE_DELAY_TIME = 3
+EOG_NEXUS_REVIVE_TIME = 5
+EOG_ALIVE_NEXUS_SKIN = 0
+EOG_DESTROYED_NEXUS_SKIN = 1
+function EndOfGameCeremony(_ARG_0_, _ARG_1_)
+  winningTeam = _ARG_0_
+  if winningTeam == TEAM_ORDER then
+    losingTeam = TEAM_CHAOS
+  else
+    losingTeam = TEAM_ORDER
+  end
+  losingHQPosition = GetPosition(_ARG_1_)
+  orderHQ = GetHQ(TEAM_ORDER)
+  SetInvulnerable(orderHQ, true)
+  SetTargetable(orderHQ, false)
+  SetBuildingHealthRegenEnabled(orderHQ, false)
+  chaosHQ = GetHQ(TEAM_CHAOS)
+  SetInvulnerable(chaosHQ, true)
+  SetTargetable(chaosHQ, false)
+  SetBuildingHealthRegenEnabled(chaosHQ, false)
+  SetInputLockingFlag(INPUT_CAMERALOCKING, true)
+  SetInputLockingFlag(INPUT_CAMERAMOVEMENT, true)
+  SetInputLockingFlag(INPUT_ABILITIES, true)
+  SetInputLockingFlag(INPUT_SUMMONERSPELLS, true)
+  SetInputLockingFlag(INPUT_MOVEMENT, true)
+  SetInputLockingFlag(INPUT_SHOP, true)
+  SetInputLockingFlag(INPUT_CHAT, true)
+  SetInputLockingFlag(INPUT_MINIMAPMOVEMENT, true)
+  DisableHUDForEndOfGame()
+  ToggleBarracks()
+  CloseShop()
+  HaltAllAI()
+  LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
+  InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
+end
+function ChampionEoGCeremony(_ARG_0_)
+  MoveCameraFromCurrentPositionToPoint(_ARG_0_, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
+  SetGreyscaleEnabledWhenDead(_ARG_0_, false)
+end
+function DestroyNexusPhase()
+  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
+  InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
+end
+function ScoreboardPhase()
+  EndGame(winningTeam)
+end
+function TestReviveNexus()
+  SetHQCurrentSkin(losingTeam, EOG_ALIVE_NEXUS_SKIN)
+end
+TEAM_UNKNOWN = 0
+EOG_PAN_TO_NEXUS_TIME = 3
+EOG_NEXUS_EXPLOSION_TIME = EOG_PAN_TO_NEXUS_TIME + 0.5
+EOG_SCOREBOARD_PHASE_DELAY_TIME = 5
+EOG_NEXUS_REVIVE_TIME = 10
+EOG_ALIVE_NEXUS_SKIN = 0
+EOG_DESTROYED_NEXUS_SKIN = 1
+EOG_MINION_FADE_AMOUNT = 0
+EOG_MINION_FADE_TIME = 2
+function EndOfGameCeremony(_ARG_0_, _ARG_1_)
+  winningTeam = _ARG_0_
+  if winningTeam == TEAM_ORDER then
+    losingTeam = TEAM_CHAOS
+  else
+    losingTeam = TEAM_ORDER
+  end
+  losingHQPosition = GetPosition(_ARG_1_)
+  orderHQ = GetHQ(TEAM_ORDER)
+  SetInvulnerable(orderHQ, true)
+  SetTargetable(orderHQ, false)
+  SetBuildingHealthRegenEnabled(orderHQ, false)
+  chaosHQ = GetHQ(TEAM_CHAOS)
+  SetInvulnerable(chaosHQ, true)
+  SetTargetable(chaosHQ, false)
+  SetBuildingHealthRegenEnabled(chaosHQ, false)
+  SetInputLockingFlag(INPUT_CAMERALOCKING, true)
+  SetInputLockingFlag(INPUT_CAMERAMOVEMENT, true)
+  SetInputLockingFlag(INPUT_ABILITIES, true)
+  SetInputLockingFlag(INPUT_SUMMONERSPELLS, true)
+  SetInputLockingFlag(INPUT_MOVEMENT, true)
+  SetInputLockingFlag(INPUT_SHOP, true)
+  SetInputLockingFlag(INPUT_MINIMAPMOVEMENT, true)
+  DisableHUDForEndOfGame()
+  SetBarracksSpawnEnabled(false)
+  CloseShop()
+  HaltAllAI()
+  LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
+  InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
+end
+function ChampionEoGCeremony(_ARG_0_)
+  MoveCameraFromCurrentPositionToPoint(_ARG_0_, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
+  SetGreyscaleEnabledWhenDead(_ARG_0_, false)
+end
+function DestroyNexusPhase()
+  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
+  FadeMinions(losingTeam, EOG_MINION_FADE_AMOUNT, EOG_MINION_FADE_TIME)
+  InitTimer("StopRenderingMinionsPhase", EOG_MINION_FADE_TIME, false)
+  InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
+end
+function StopRenderingMinionsPhase()
+  SetMinionsNoRender(losingTeam, true)
+end
+function ScoreboardPhase()
+  SetInputLockingFlag(INPUT_CHAT, true)
+  EndGame(winningTeam)
+end
+function TestReviveNexus()
+  SetHQCurrentSkin(losingTeam, EOG_ALIVE_NEXUS_SKIN)
 end

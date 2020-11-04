@@ -6,14 +6,16 @@ function L0_0()
 end
 OnInit = L0_0
 function L0_0()
-  aiState = GetState()
+  if GetState() == AI_HALTED then
+    return
+  end
   newTarget = FindTargetInAcR()
   if newTarget == nil then
-    if aiState == AI_HARDIDLE_ATTACKING or aiState == AI_TAUNTED then
+    if GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then
       NetSetState(AI_HARDIDLE)
       return true
     end
-  elseif aiState == AI_HARDIDLE_ATTACKING or aiState == AI_TAUNTED then
+  elseif GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then
     NetSetState(AI_HARDIDLE_ATTACKING)
     SetTarget(newTarget)
     return true
@@ -23,14 +25,19 @@ function L0_0()
 end
 OnTargetLost = L0_0
 function L0_0(A0_2, A1_3)
-  aiState = GetState()
-  if A1_3 and (aiState == AI_HARDIDLE or aiState == AI_HARDIDLE_ATTACKING) then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if A1_3 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
     NetSetState(AI_HARDIDLE_ATTACKING)
     SetTarget(A1_3)
   end
 end
 OnCallForHelp = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     NetSetState(AI_TAUNTED)
@@ -39,6 +46,9 @@ function L0_0()
 end
 OnTauntBegin = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     NetSetState(AI_HARDIDLE_ATTACKING)
@@ -50,29 +60,37 @@ function L0_0()
 end
 OnTauntEnd = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_HARDIDLE)
   TimerFindEnemies()
 end
 OnCanMove = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_HARDIDLE)
   TimerFindEnemies()
 end
 OnCanAttack = L0_0
 function L0_0()
-  aiState = GetState()
-  if aiState == AI_HARDIDLE then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if GetState() == AI_HARDIDLE then
     newTarget = FindTargetInAcR()
     if newTarget == nil then
       TurnOffAutoAttack(STOPREASON_TARGET_LOST)
       return
     end
-    if aiState == AI_HARDIDLE then
+    if GetState() == AI_HARDIDLE then
       NetSetState(AI_HARDIDLE_ATTACKING)
       SetTarget(newTarget)
     end
   end
-  if aiState == AI_HARDIDLE_ATTACKING or aiState == AI_TAUNTED then
+  if GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then
     if TargetInAttackRange() then
       TurnOnAutoAttack(GetTarget())
     else
@@ -82,3 +100,9 @@ function L0_0()
   end
 end
 TimerFindEnemies = L0_0
+function L0_0()
+  StopTimer("TimerFindEnemies")
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  NetSetState(AI_HALTED)
+end
+HaltAI = L0_0

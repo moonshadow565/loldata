@@ -71,35 +71,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   }
 }
-SetVarsByLevelBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DoubleStrikeChance",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12,
-        0.12
-      }
-    }
-  }
-}
 CharOnSpellCastBuildingBlocks = {
   {
     Function = BBGetCastInfo,

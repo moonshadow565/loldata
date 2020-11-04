@@ -1,66 +1,72 @@
 AutoBuffActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.85,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetArea,
+        Function = BBExecutePeriodically,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 1200,
-          Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Unit"
+          TimeBetweenExecutions = 0.85,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = false
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBForEachUnitInTargetArea,
             Params = {
-              Src1Var = "Owner",
-              Src2Var = "Unit",
-              CompareOp = CO_EQUAL
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 1200,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit"
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "EmblemOfValorParticle",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  Src1Var = "Owner",
+                  Src2Var = "Unit",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "EmblemOfValorParticle",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
+              },
               {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "EmblemOfValor",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "EmblemOfValor",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
               }
             }

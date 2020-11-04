@@ -105,11 +105,20 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Damage = 155,
+      DamageByLevel = {
+        115,
+        130,
+        145,
+        160,
+        175
+      },
+      Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.5
+      SpellDamageRatio = 0.5,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

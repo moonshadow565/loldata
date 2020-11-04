@@ -37,3 +37,7 @@ function L0()
   local L0, L1
 end
 TimerFindEnemies = L0
+function L0()
+  local L0, L1
+end
+HaltAI = L0

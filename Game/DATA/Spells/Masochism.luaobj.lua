@@ -183,11 +183,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        -20,
-        -35,
-        -50,
-        -65,
-        -80
+        -15,
+        -30,
+        -45,
+        -60,
+        -75
       }
     }
   },
@@ -211,11 +211,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BaseIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        50,
-        65,
-        80,
-        95,
-        110
+        40,
+        55,
+        70,
+        85,
+        100
       }
     }
   },

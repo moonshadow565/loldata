@@ -41,9 +41,9 @@ SelfExecuteBuildingBlocks = {
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeam = TEAM_NEUTRAL,
+      FOWVisibilityRadius = 900,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -138,6 +138,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
+          PosVar = "TargetPos",
           EffectName = "katarina_shadowStep_tar.troy",
           Flags = 0,
           EffectIDVar = "PH",
@@ -147,7 +148,7 @@ TargetExecuteBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -160,7 +161,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.8
+          SpellDamageRatio = 0.8,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

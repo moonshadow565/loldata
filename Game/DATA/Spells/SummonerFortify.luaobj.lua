@@ -107,6 +107,55 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "newDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Target",
+      Range = 250,
+      Flags = "AffectEnemies AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Unit",
+          Src2Var = "Target",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "newDamage",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      }
+    }
+  }
+}
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -186,7 +235,7 @@ SelfExecuteBuildingBlocks = {
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "Duration", SrcValue = 7}
+    Params = {DestVar = "Duration", SrcValue = 6}
   },
   {
     Function = BBIf,
@@ -261,43 +310,6 @@ TargetExecuteBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           DurationVar = "Duration",
           TickRate = 0
-        }
-      }
-    }
-  }
-}
-BuffOnHitUnitBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "newDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Target",
-      Range = 250,
-      Flags = "AffectEnemies AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "newDamage",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 1
         }
       }
     }

@@ -12,28 +12,37 @@ function L0_0()
 end
 OnInit = L0_0
 function L0_0()
-  aiState = GetState()
-  if aiState == AI_ATTACKMOVE_ATTACKING or aiState == AI_TAUNTED then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if GetState() == AI_ATTACKMOVE_ATTACKING or GetState() == AI_TAUNTED then
     FindTargetOrMove()
   end
 end
 OnTargetLost = L0_0
 function L0_0()
-  aiState = GetState()
-  if aiState == AI_ATTACKMOVE_ATTACKING then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if GetState() == AI_ATTACKMOVE_ATTACKING then
     AddToIgnore(0.1)
     FindTargetOrMove()
   end
 end
 OnPathToTargetBlocked = L0_0
 function L0_0(A0_2, A1_3)
-  aiState = GetState()
-  if A1_3 and (aiState == AI_ATTACKMOVESTATE or aiState == AI_ATTACKMOVE_ATTACKING or aiState == AI_IDLE) then
+  if GetState() == AI_HALTED then
+    return
+  end
+  if A1_3 and (GetState() == AI_ATTACKMOVESTATE or GetState() == AI_ATTACKMOVE_ATTACKING or GetState() == AI_IDLE) then
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A1_3)
   end
 end
 OnCallForHelp = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     SetStateAndCloseToTarget(AI_TAUNTED, tauntTarget)
@@ -41,6 +50,9 @@ function L0_0()
 end
 OnTauntBegin = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   tauntTarget = GetTauntTarget()
   if tauntTarget ~= nil then
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, tauntTarget)
@@ -50,6 +62,9 @@ function L0_0()
 end
 OnTauntEnd = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
@@ -57,26 +72,41 @@ function L0_0()
 end
 OnFearBegin = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   StopTimer("TimerFeared")
   FindTargetOrMove()
 end
 OnFearEnd = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_IDLE)
   FindTargetOrMove()
 end
 OnCanMove = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_IDLE)
   FindTargetOrMove()
 end
 OnCanAttack = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   if GetState() == AI_IDLE then
     FindTargetOrMove()
   elseif GetState() == AI_ATTACKMOVESTATE then
@@ -88,6 +118,10 @@ function L0_0()
   local L0_4, L1_5
   L0_4 = GetState
   L0_4 = L0_4()
+  L1_5 = AI_HALTED
+  if L0_4 == L1_5 then
+    return
+  end
   L1_5 = AI_ATTACKMOVESTATE
   if L0_4 == L1_5 then
     L1_5 = FindTargetInAcR
@@ -128,6 +162,9 @@ function L0_0()
 end
 TimerFindEnemies = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   if GetState() == AI_ATTACKMOVE_ATTACKING and IsMoving() then
     AddToIgnore(0.1)
     FindTargetOrMove()
@@ -135,49 +172,74 @@ function L0_0()
 end
 TimerAntiKite = L0_0
 function L0_0()
-  local L0_6
-  L0_6 = FindTargetInAcR
+  local L0_6, L1_7
+  L0_6 = GetState
   L0_6 = L0_6()
-  if L0_6 then
+  L1_7 = AI_HALTED
+  if L0_6 == L1_7 then
+    return
+  end
+  L1_7 = FindTargetInAcR
+  L1_7 = L1_7()
+  if L1_7 then
     if LastAutoAttackFinished() == false then
       InitTimer("TimerFindEnemies", 0.1, true)
       return
     end
-    SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L0_6)
+    SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_7)
   else
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
   end
 end
 FindTargetOrMove = L0_0
-function L0_0(A0_7)
-  if aiState ~= AI_TAUNTED and aiState ~= AI_FEARED then
-    SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A0_7)
+function L0_0(A0_8)
+  if GetState() == AI_HALTED then
+    return
+  end
+  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED then
+    SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A0_8)
     return false
   end
   return true
 end
 OnCollisionEnemy = L0_0
-function L0_0(A0_8)
-  local L1_9
-  L1_9 = aiState
-  if L1_9 ~= AI_TAUNTED then
-    L1_9 = aiState
-    if L1_9 ~= AI_FEARED then
-      L1_9 = FindTargetInAcR
-      L1_9 = L1_9()
-      if L1_9 ~= nil then
-        SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_9)
+function L0_0(A0_9)
+  local L1_10, L2_11
+  L1_10 = GetState
+  L1_10 = L1_10()
+  L2_11 = AI_HALTED
+  if L1_10 == L2_11 then
+    return
+  end
+  L2_11 = AI_TAUNTED
+  if L1_10 ~= L2_11 then
+    L2_11 = AI_FEARED
+    if L1_10 ~= L2_11 then
+      L2_11 = FindTargetInAcR
+      L2_11 = L2_11()
+      if L2_11 ~= nil then
+        SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_11)
       end
       return false
     end
   end
-  L1_9 = true
-  return L1_9
+  L2_11 = true
+  return L2_11
 end
 OnCollisionOther = L0_0
 function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
   NetSetState(AI_IDLE)
   TimerDistanceScan()
   TimerCheckAttack()
 end
 OnReachedDestinationForGoingToLastLocation = L0_0
+function L0_0()
+  StopTimer("TimerFindEnemies")
+  StopTimer("TimerFeared")
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  NetSetState(AI_HALTED)
+end
+HaltAI = L0_0

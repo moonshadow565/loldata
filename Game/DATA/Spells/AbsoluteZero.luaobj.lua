@@ -257,9 +257,9 @@ ChannelingStartBuildingBlocks = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.45,
-        -0.45,
-        -0.45
+        -0.49,
+        -0.49,
+        -0.49
       }
     }
   },
@@ -334,9 +334,9 @@ ChannelingSuccessStopBuildingBlocks = {
           AttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
-            375,
-            550,
-            750
+            400,
+            600,
+            800
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
@@ -354,9 +354,9 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       DestVar = "SecondDamage",
       SrcValueByLevel = {
-        375,
-        550,
-        750
+        400,
+        600,
+        800
       }
     }
   },

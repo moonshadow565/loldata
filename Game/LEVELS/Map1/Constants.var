@@ -102,8 +102,8 @@ tut_TutorialModeOn                      =          0 ; Flag to turn TutorialMode
 ; Audio variables
 aud_FMODMusicCueID                      =          3 ; FMOD ID for a music cue for the map's music.
 aud_FMODAmbientEvent                    = map_forest ; FMOD event name for the map's ambient track.
-aud_FMODVictoryMusicCueID               =          0 ; FMOD ID for a Victory music cue for the map's music.
-aud_FMODDefeatMusicCueID                =          0 ; FMOD ID for a Defeat music cue for the map's music.
+aud_FMODVictoryMusicCueID               =         10 ; FMOD ID for a Victory music cue for the map's music.
+aud_FMODDefeatMusicCueID                =         11 ; FMOD ID for a Defeat music cue for the map's music.
 
 ; HUD variables
 hud_BlinkFrequency                      =       1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.

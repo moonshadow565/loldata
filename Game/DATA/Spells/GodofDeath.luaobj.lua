@@ -43,13 +43,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "BonusAttackSpeed",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetScaleSkinCoef,
     Params = {Scale = 1.3, OwnerVar = "Owner"}
   }
@@ -79,6 +72,16 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBSetScaleSkinCoef,
     Params = {Scale = 1.3, OwnerVar = "Owner"}
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatHPPoolMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusHealth",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -126,13 +129,32 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBGetStat,
+            Params = {
+              Stat = GetFlatMagicDamageMod,
+              TargetVar = "Owner",
+              DestVar = "AbilityPowerMod"
+            }
+          },
+          {
             Function = BBMath,
             Params = {
-              Src1Var = "Temp1",
+              Src1Var = "AbilityPowerMod",
               Src1Value = 0,
-              Src2Value = 4000,
-              DestVar = "Temp1",
-              MathOp = MO_MIN
+              Src2Value = 1.0E-4,
+              DestVar = "AbilityPowerBonus",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamagePerc",
+              Src2Var = "AbilityPowerBonus",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamagePerc",
+              MathOp = MO_ADD
             }
           },
           {
@@ -147,6 +169,16 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "HToDamage",
+              Src1Value = 0,
+              Src2Value = 240,
+              DestVar = "HToDamage",
+              MathOp = MO_MIN
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -156,7 +188,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -219,16 +253,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPPoolMod,
-      TargetVar = "Owner",
-      DeltaVar = "BonusHealth",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
   }
 }
 SelfExecuteBuildingBlocks = {
@@ -275,22 +299,8 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         300,
-        400,
-        500,
-        0,
-        0
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BonusAttackSpeed",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.4,
-        0.5,
-        0.6,
+        450,
+        600,
         0,
         0
       }

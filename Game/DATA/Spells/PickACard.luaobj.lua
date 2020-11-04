@@ -22,7 +22,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Counter",
       Src1VarTable = "InstanceVars",
-      Value2 = 5,
+      Value2 = 6,
       CompareOp = CO_LESS_THAN
     },
     SubBlocks = {
@@ -100,16 +100,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcValue = 0.5,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 1,
-      OwnerVar = "Owner"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Frozen",
@@ -131,14 +121,30 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "LockedBlue",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LaunchedBlue",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "ManaCostInc",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        -20,
-        -30,
         -40,
         -50,
-        -60
+        -60,
+        -70,
+        -80
       }
     }
   },
@@ -175,7 +181,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 3
+      SrcValue = 5
     }
   },
   {
@@ -220,18 +226,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "ManaCostInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = -1,
-      Src2Value = 0,
-      DestVar = "NewManaCostInc",
-      MathOp = MO_MULTIPLY
-    }
+    Params = {OwnerVar = "Owner", CancelAttack = true}
   },
   {
     Function = BBSetManaCostInc,
@@ -239,8 +234,7 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = 0,
-      CostVar = "NewManaCostInc"
+      Cost = 0
     }
   }
 }
@@ -342,8 +336,8 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "Counter",
           Src1VarTable = "InstanceVars",
-          Value2 = 10,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
+          Value2 = 9,
+          CompareOp = CO_GREATER_THAN
         },
         SubBlocks = {
           {
@@ -424,36 +418,11 @@ BuffOnSpellCastBuildingBlocks = {
             }
           },
           {
-            Function = BBIf,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "Counter",
-              Src1VarTable = "InstanceVars",
-              Value2 = 6,
-              CompareOp = CO_GREATER_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "Frozen",
-                  DestVarTable = "InstanceVars",
-                  SrcValue = 1
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "Frozen",
-                  DestVarTable = "InstanceVars",
-                  SrcValue = 2
-                }
-              }
+              DestVar = "Frozen",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
             }
           },
           {
@@ -466,12 +435,21 @@ BuffOnSpellCastBuildingBlocks = {
             },
             SubBlocks = {
               {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "LockedBlue",
+                  DestVarTable = "InstanceVars",
+                  SrcValue = true
+                }
+              },
+              {
                 Function = BBOverrideAutoAttack,
                 Params = {
                   SpellSlot = 0,
                   SlotType = ExtraSlots,
                   OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1
+                  AutoAttackSpellLevel = 1,
+                  CancelAttack = true
                 }
               }
             }
@@ -491,7 +469,8 @@ BuffOnSpellCastBuildingBlocks = {
                   SpellSlot = 2,
                   SlotType = ExtraSlots,
                   OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1
+                  AutoAttackSpellLevel = 1,
+                  CancelAttack = true
                 }
               }
             }
@@ -511,7 +490,8 @@ BuffOnSpellCastBuildingBlocks = {
                   SpellSlot = 3,
                   SlotType = ExtraSlots,
                   OwnerVar = "Owner",
-                  AutoAttackSpellLevel = 1
+                  AutoAttackSpellLevel = 1,
+                  CancelAttack = true
                 }
               }
             }
@@ -521,85 +501,44 @@ BuffOnSpellCastBuildingBlocks = {
     }
   }
 }
-BuffOnPreAttackBuildingBlocks = {
+BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "Frozen",
+      Src1Var = "LaunchedBlue",
       Src1VarTable = "InstanceVars",
-      Value2 = 0,
+      Value2 = true,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner"}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Frozen",
-      Src1VarTable = "InstanceVars",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
+        Function = BBSetVarInTable,
         Params = {
-          Src1Var = "Counter",
-          Src1VarTable = "InstanceVars",
-          Value2 = 8,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBOverrideAutoAttack,
-            Params = {
-              SpellSlot = 2,
-              SlotType = ExtraSlots,
-              OwnerVar = "Owner",
-              AutoAttackSpellLevel = 1
-            }
-          }
+          DestVar = "Frozen",
+          DestVarTable = "InstanceVars",
+          SrcValue = 0
         }
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBOverrideAutoAttack,
-            Params = {
-              SpellSlot = 3,
-              SlotType = ExtraSlots,
-              OwnerVar = "Owner",
-              AutoAttackSpellLevel = 1
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Frozen",
-      Src1VarTable = "InstanceVars",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBOverrideAutoAttack,
+        Function = BBSilenceSpellSlot,
         Params = {
-          SpellSlot = 0,
-          SlotType = ExtraSlots,
-          OwnerVar = "Owner",
-          AutoAttackSpellLevel = 1
+          SpellSlot = 1,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
         }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "LaunchedBlue",
+          DestVarTable = "InstanceVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBRemoveOverrideAutoAttack,
+        Params = {OwnerVar = "Owner", CancelAttack = true}
       }
     }
   }
@@ -800,7 +739,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Owner",
+          TargetVar = "Target",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_CombatEnchancer,
@@ -810,6 +749,16 @@ TargetExecuteBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
+        }
       }
     }
   },
@@ -818,9 +767,18 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSilenceSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
-          SrcValue = 0.5,
+          SrcValue = 0,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
           SpellSlotValue = 1,
@@ -830,103 +788,30 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnLaunchAttackBuildingBlocks = {
+BuffOnLaunchMissileBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "Frozen",
+      Src1Var = "LockedBlue",
       Src1VarTable = "InstanceVars",
-      Value2 = 1,
+      Value2 = true,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "WillRemove",
+          DestVar = "LockedBlue",
+          DestVarTable = "InstanceVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "LaunchedBlue",
           DestVarTable = "InstanceVars",
           SrcValue = true
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "LifeTime",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 15,
-          Src2Value = 0,
-          DestVar = "TimeRemaining",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "TimeRemaining",
-          Value2 = 0.75,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "PickACard",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 0.75,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner"}
-      },
-      {
-        Function = BBSilenceSpellSlot,
-        Params = {
-          SpellSlot = 1,
-          SlotType = SpellSlots,
-          TargetVar = "Owner",
-          State = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Frozen",
-      Src1VarTable = "InstanceVars",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Frozen",
-          DestVarTable = "InstanceVars",
-          SrcValue = 0
-        }
-      },
-      {
-        Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner"}
-      },
-      {
-        Function = BBSilenceSpellSlot,
-        Params = {
-          SpellSlot = 1,
-          SlotType = SpellSlots,
-          TargetVar = "Owner",
-          State = false
         }
       }
     }

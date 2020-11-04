@@ -23,8 +23,8 @@ BuffOnUpdateStatsBuildingBlocks = {
       SrcValue = 0,
       SrcValueByLevel = {
         -0.1,
-        -0.175,
-        -0.25
+        -0.15,
+        -0.2
       }
     }
   },

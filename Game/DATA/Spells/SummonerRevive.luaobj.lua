@@ -47,7 +47,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 540,
+          Src1Value = 510,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -89,7 +89,7 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Nothing",
+      BindObjectVar = "Owner",
       PosVar = "Owner",
       EffectName = "summoner_cast.troy",
       Flags = 0,

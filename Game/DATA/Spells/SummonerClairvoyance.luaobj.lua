@@ -138,7 +138,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "ClairvoyanceDurationBonus",
       Src1VarTable = "AvatarVars",
-      Value2 = 3,
+      Value2 = 4,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {

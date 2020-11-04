@@ -48,7 +48,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -121,13 +123,17 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 180,
+      Duration = 210,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "sightward"}
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "sightward"}

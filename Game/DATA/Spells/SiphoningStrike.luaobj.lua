@@ -50,11 +50,11 @@ BuffOnDeathBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
-            1,
-            1.5,
             2,
-            2.5,
-            3
+            2,
+            2,
+            2,
+            2
           }
         }
       },
@@ -144,7 +144,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

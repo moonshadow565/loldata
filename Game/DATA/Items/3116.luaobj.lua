@@ -29,14 +29,6 @@ ItemOnSpellHitBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "AttackSpeedMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 0
-                }
-              },
-              {
                 Function = BBIf,
                 Params = {
                   Src1Var = "NotSingleTargetSpell",
@@ -46,11 +38,18 @@ ItemOnSpellHitBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBSetVarInTable,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      DestVar = "MovementSpeedMod",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = -0.15
+                      TargetVar = "Target",
+                      AttackerVar = "Target",
+                      BuffName = "Internal_15Slow",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
                     }
                   }
                 }
@@ -60,11 +59,18 @@ ItemOnSpellHitBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBSetVarInTable,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      DestVar = "MovementSpeedMod",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = -0.35
+                      TargetVar = "Target",
+                      AttackerVar = "Target",
+                      BuffName = "Internal_35Slow",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
                     }
                   }
                 }
@@ -74,8 +80,8 @@ ItemOnSpellHitBuildingBlocks = {
                 Params = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
-                  BuffName = "Chilled",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffName = "ItemSlow",
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberStacks = 1,
@@ -89,11 +95,5 @@ ItemOnSpellHitBuildingBlocks = {
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
   }
 }

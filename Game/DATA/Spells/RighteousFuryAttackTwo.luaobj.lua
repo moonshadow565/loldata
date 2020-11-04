@@ -13,8 +13,12 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
   },
   {
     Function = BBGetStat,
@@ -50,7 +54,7 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BaseDamage",
+      Src1Var = "BonusDamage",
       Src2Var = "AbilityPower",
       Src1Value = 0,
       Src2Value = 0,
@@ -61,8 +65,8 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BonusDamage",
-      Src2Var = "DamageToApply",
+      Src1Var = "DamageToApply",
+      Src2Var = "BaseDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DamageToApply",

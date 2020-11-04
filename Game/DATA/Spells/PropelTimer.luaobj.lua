@@ -61,7 +61,7 @@ OnBuffDeactivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Nothing",
+          BindObjectVar = "Other1",
           PosVar = "PropelPos",
           EffectName = "PropelBubbles.troy",
           Flags = 0,
@@ -70,9 +70,9 @@ OnBuffDeactivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 600,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }

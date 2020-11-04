@@ -33,11 +33,18 @@ ItemOnHitUnitBuildingBlocks = {
                     Params = {Src1Var = "Owner", CompareOp = CO_IS_MELEE},
                     SubBlocks = {
                       {
-                        Function = BBSetVarInTable,
+                        Function = BBSpellBuffAdd,
                         Params = {
-                          DestVar = "MovementSpeedMod",
-                          DestVarTable = "NextBuffVars",
-                          SrcValue = -0.4
+                          TargetVar = "Target",
+                          AttackerVar = "Target",
+                          BuffName = "Internal_40Slow",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberStacks = 1,
+                          Duration = 2.5,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0
                         }
                       }
                     }
@@ -47,21 +54,20 @@ ItemOnHitUnitBuildingBlocks = {
                     Params = {},
                     SubBlocks = {
                       {
-                        Function = BBSetVarInTable,
+                        Function = BBSpellBuffAdd,
                         Params = {
-                          DestVar = "MovementSpeedMod",
-                          DestVarTable = "NextBuffVars",
-                          SrcValue = -0.3
+                          TargetVar = "Target",
+                          AttackerVar = "Target",
+                          BuffName = "Internal_30Slow",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberStacks = 1,
+                          Duration = 2.5,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0
                         }
                       }
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "AttackSpeedMod",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = 0
                     }
                   },
                   {
@@ -69,7 +75,7 @@ ItemOnHitUnitBuildingBlocks = {
                     Params = {
                       TargetVar = "Target",
                       AttackerVar = "Owner",
-                      BuffName = "FrozenMalletSlow",
+                      BuffName = "ItemSlow",
                       BuffAddType = BUFF_RENEW_EXISTING,
                       BuffType = BUFF_Slow,
                       MaxStack = 1,
@@ -85,14 +91,6 @@ ItemOnHitUnitBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "frozenmalletslow"
     }
   }
 }

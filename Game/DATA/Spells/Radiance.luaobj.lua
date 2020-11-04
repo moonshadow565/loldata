@@ -184,60 +184,61 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBForEachUnitInTargetArea,
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageIncrease",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DamageIncrease",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageIncrease",
+      Src1VarTable = "NextBuffVars",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "DamageIncrease",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "RegenIncrease",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "RegenIncrease",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetAreaAddBuff,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 850,
       Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-      IteratorVar = "Unit"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageIncrease",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "DamageIncrease",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageIncrease",
-          Src1VarTable = "NextBuffVars",
-          Src1Value = 0,
-          Src2Value = 0.5,
-          DestVar = "DamageIncrease",
-          DestVarTable = "NextBuffVars",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "RegenIncrease",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "RegenIncrease",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "RadianceAura",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 1.1,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
+      BuffAttackerVar = "Attacker",
+      BuffName = "RadianceAura",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Aura,
+      BuffMaxStack = 1,
+      BuffNumberStacks = 1,
+      BuffDuration = 1.1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBIncHealth,
+    Params = {
+      TargetVar = "Owner",
+      Delta = 0,
+      DeltaVar = "RegenIncrease",
+      DeltaVarTable = "InstanceVars",
+      HealerVar = "Attacker"
     }
   }
 }
@@ -306,16 +307,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      DeltaVar = "RegenIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -328,6 +319,16 @@ BuffOnUpdateActionsBuildingBlocks = {
       ExecuteImmediately = false
     },
     SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "RegenIncrease",
+          DeltaVarTable = "InstanceVars",
+          HealerVar = "Attacker"
+        }
+      },
       {
         Function = BBGetManaOrHealth,
         Params = {
@@ -379,6 +380,36 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamageIncrease",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "DamageIncrease",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageIncrease",
+              Src1VarTable = "NextBuffVars",
+              Src1Value = 0,
+              Src2Value = 0.5,
+              DestVar = "DamageIncrease",
+              DestVarTable = "NextBuffVars",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "RegenIncrease",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "RegenIncrease",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Owner",
@@ -388,36 +419,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               IteratorVar = "Unit"
             },
             SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamageIncrease",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "DamageIncrease",
-                  SrcVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "DamageIncrease",
-                  Src1VarTable = "NextBuffVars",
-                  Src1Value = 0,
-                  Src2Value = 0.5,
-                  DestVar = "DamageIncrease",
-                  DestVarTable = "NextBuffVars",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "RegenIncrease",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "RegenIncrease",
-                  SrcVarTable = "InstanceVars"
-                }
-              },
               {
                 Function = BBSpellBuffAdd,
                 Params = {
@@ -442,8 +443,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Radiance"
+            }
           }
         }
       }
@@ -520,7 +525,7 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Radiance",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
+          BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberStacks = 1,
           Duration = 25000,

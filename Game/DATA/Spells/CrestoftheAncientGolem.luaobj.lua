@@ -31,11 +31,35 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.25
+      Delta = 0,
+      DeltaByLevel = {
+        -0.165,
+        -0.17,
+        -0.175,
+        -0.18,
+        -0.185,
+        -0.19,
+        -0.195,
+        -0.2,
+        -0.205,
+        -0.21,
+        -0.215,
+        -0.22,
+        -0.225,
+        -0.23,
+        -0.235,
+        -0.24,
+        -0.245,
+        -0.25
+      }
     }
   },
   {
@@ -72,23 +96,28 @@ BuffOnDeathBuildingBlocks = {
     Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 150,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberStacks = 1,
+              Duration = 150,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
         }
       }
     }
   }
 }
-BuffOnPreDamageBuildingBlocks = {}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

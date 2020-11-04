@@ -89,11 +89,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ParBaseDamage",
       SrcValueByLevel = {
-        40,
-        80,
+        30,
+        60,
+        90,
         120,
-        160,
-        200
+        150
       }
     }
   },
@@ -105,7 +105,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "BaseDamage",
-      Src1Value = 0.65,
+      Src1Value = 0.8,
       Src2Value = 0,
       DestVar = "BaseDamage",
       MathOp = MO_MULTIPLY
@@ -132,7 +132,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

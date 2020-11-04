@@ -302,7 +302,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Nothing",
+      BindObjectVar = "Owner",
       PosVar = "Owner",
       EffectName = "summoner_cast.troy",
       Flags = 0,

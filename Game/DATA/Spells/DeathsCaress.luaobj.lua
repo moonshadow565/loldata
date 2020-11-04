@@ -22,7 +22,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTime,
     Params = {
-      SrcValue = 2,
+      SrcValue = 4,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       SpellSlotValue = 1,
@@ -45,10 +45,10 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "ManaCostInc",
       SrcValueByLevel = {
-        -50,
-        -65,
+        -70,
         -80,
-        -95,
+        -90,
+        -100,
         -110
       }
     }
@@ -115,7 +115,9 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_DEFAULT,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }

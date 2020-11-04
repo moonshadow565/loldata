@@ -137,6 +137,25 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "BonusHealth",
       Delta = 0
     }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "GameTime",
+      Src1Value = 0,
+      Src2Value = 0.00625,
+      DestVar = "BonusRegen",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatHPRegenMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusRegen",
+      Delta = 0
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -155,6 +174,14 @@ BuffOnUpdateStatsBuildingBlocks = {
           Stat = IncPermanentFlatHPPoolMod,
           TargetVar = "Owner",
           Delta = 125
+        }
+      },
+      {
+        Function = BBIncPermanentStat,
+        Params = {
+          Stat = IncPermanentFlatHPRegenMod,
+          TargetVar = "Owner",
+          Delta = 0.375
         }
       }
     }

@@ -2,90 +2,96 @@ AutoBuffActivateEffect = ""
 AutoItemActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.9,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBExecutePeriodically,
         Params = {
-          DestVar = "MagicResistBonus",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 40
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorBonus",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 35
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageBonus",
-          DestVarTable = "NextBuffVars",
-          SrcValue = 8
-        }
-      },
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 800,
-          Flags = "AffectFriends AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          TimeBetweenExecutions = 0.9,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = false
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "Unit",
-              Src2Var = "Owner",
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "AegisoftheLegionAuraSelf",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
+              DestVar = "MagicResistBonus",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 40
             }
           },
           {
-            Function = BBElse,
-            Params = {},
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "ArmorBonus",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 35
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamageBonus",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 8
+            }
+          },
+          {
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 800,
+              Flags = "AffectFriends AffectMinions AffectHeroes ",
+              IteratorVar = "Unit"
+            },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "AegisoftheLegionAuraFriend",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "AegisoftheLegionAuraSelf",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "AegisoftheLegionAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
               }
             }

@@ -1,61 +1,67 @@
 AutoItemActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.9,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Function = BBExecutePeriodically,
+        Params = {
+          TimeBetweenExecutions = 0.9,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = false
+        },
         SubBlocks = {
           {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 1000,
-              Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit"
-            },
+            Function = BBIf,
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
+          },
+          {
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
               {
-                Function = BBSetVarInTable,
+                Function = BBForEachUnitInTargetArea,
                 Params = {
-                  DestVar = "CooldownReduction",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = -0.15
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "ManaRegenMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 2.4
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
                   AttackerVar = "Owner",
-                  BuffName = "Apocalypse",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  CenterVar = "Owner",
+                  Range = 1000,
+                  Flags = "AffectFriends AffectHeroes ",
+                  IteratorVar = "Unit"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "CooldownReduction",
+                      DestVarTable = "NextBuffVars",
+                      SrcValue = -0.15
+                    }
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "ManaRegenMod",
+                      DestVarTable = "NextBuffVars",
+                      SrcValue = 2.4
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "Apocalypse",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
               }
             }

@@ -84,7 +84,7 @@ ChannelingUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.3,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {

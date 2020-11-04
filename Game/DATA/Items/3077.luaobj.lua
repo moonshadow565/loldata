@@ -94,10 +94,12 @@ ItemOnHitUnitBuildingBlocks = {
                           Damage = 0,
                           DamageVar = "ThirdDA",
                           DamageVarTable = "TempTable1",
-                          DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_PROC,
+                          DamageType = PHYSICAL_DAMAGE,
+                          SourceDamageType = DAMAGESOURCE_DEFAULT,
                           PercentOfAttack = 1,
-                          SpellDamageRatio = 0
+                          SpellDamageRatio = 0,
+                          IgnoreDamageIncreaseMods = true,
+                          IgnoreDamageCrit = true
                         }
                       }
                     }

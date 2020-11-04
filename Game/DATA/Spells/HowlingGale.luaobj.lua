@@ -51,8 +51,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeam = TEAM_NEUTRAL,
+      FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = false
     }
   }
@@ -63,6 +63,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       SlotNumber = 0,
       SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Location,
       TargetVar = "Owner"
     }
@@ -426,6 +427,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           SlotNumber = 0,
           SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
           TargetType = TTYPE_Self,
           TargetVar = "Owner"
         }

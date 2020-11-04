@@ -49,7 +49,8 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           SkinName = "Summoner_Rider_Order",
           TargetVar = "Owner",
-          IDVar = "SkinName2"
+          IDVar = "SkinName2",
+          OverrideSpells = true
         }
       }
     }
@@ -63,7 +64,8 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           SkinName = "Summoner_Rider_Chaos",
           TargetVar = "Owner",
-          IDVar = "SkinName2"
+          IDVar = "SkinName2",
+          OverrideSpells = false
         }
       }
     }
@@ -682,6 +684,63 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "SkinName",
+      Value2 = "H28GEvolutionTurret",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "SlotName",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellName
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "SlotName",
+          Value2 = "SummonerPromote",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 1,
+              SpellbookType = SPELLBOOK_SUMMONER,
+              SlotType = SpellSlots,
+              SpellSlotValue = 0,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 1,
+              SpellbookType = SPELLBOOK_SUMMONER,
+              SlotType = SpellSlots,
+              SpellSlotValue = 1,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     Function = BBElse,
     Params = {},
     SubBlocks = {
@@ -745,7 +804,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "OwnerLevel",
           Src1Value = 0,
-          Src2Value = 150,
+          Src2Value = 160,
           DestVar = "BonusHealth",
           MathOp = MO_MULTIPLY
         }

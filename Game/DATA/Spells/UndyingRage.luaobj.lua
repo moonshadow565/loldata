@@ -74,25 +74,9 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 7,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "CriticalChanceMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0.04
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0.07
     }
   },
   {
@@ -107,32 +91,44 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MaxStacks",
-      SrcValueByLevel = {
-        2,
-        4,
-        6,
-        8,
-        10
-      }
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "MaxStacks",
-      Src2Var = "NumBloodlusts",
-      CompareOp = CO_LESS_THAN
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {
-          DestVar = "MaxStacks",
-          SrcVar = "NumBloodlusts"
-        }
+        Params = {DestVar = "Level", SrcValue = 1}
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CriticalDamageMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.04,
+        0.06,
+        0.08,
+        0.1,
+        0.12
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "moveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.02,
+        0.03,
+        0.04,
+        0.05,
+        0.06
       }
     }
   },
@@ -152,8 +148,7 @@ TargetExecuteBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 0,
-          MaxStackVar = "MaxStacks",
+          MaxStack = 9,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",

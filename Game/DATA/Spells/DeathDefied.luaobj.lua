@@ -57,6 +57,32 @@ BuffOnDeathBuildingBlocks = {
     }
   },
   {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Owner",
+      StopCondition = ChannelingStopCondition_Cancel,
+      StopSource = ChannelingStopSource_Die
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Defile"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Defile"
+        }
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Other1",
@@ -76,12 +102,27 @@ BuffOnDeathBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Other1",
-      BuffName = "FallenOne",
+      BuffName = "DeathDefiedSelf",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 8,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "FallenOneTimer",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -94,12 +135,24 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "defile"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "deathdefiedspirit"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "fallenone"}
+    Params = {
+      Name = "deathdefiedself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fallenonetimer"
+    }
   }
 }

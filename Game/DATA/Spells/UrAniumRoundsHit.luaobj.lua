@@ -6,7 +6,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = -2
+      Delta = -1
     }
   },
   {
@@ -14,7 +14,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      Delta = -2
+      Delta = -1
     }
   }
 }

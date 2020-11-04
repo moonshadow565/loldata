@@ -35,17 +35,23 @@ BuffOnDeathBuildingBlocks = {
     Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 150,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberStacks = 1,
+              Duration = 150,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
         }
       }
     }

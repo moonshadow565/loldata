@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = ""
 BuffName = ""
-SpellToggleSlot = 1
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastInfo,
@@ -58,8 +57,8 @@ SelfExecuteBuildingBlocks = {
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
+      OverrideCoolDownCheck = false,
+      FireWithoutCasting = true,
       UseAutoAttackSpell = false
     }
   },

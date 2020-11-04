@@ -266,10 +266,10 @@ TargetExecuteBuildingBlocks = {
           DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            -0.2,
             -0.3,
-            -0.4,
-            -0.5,
+            -0.275,
+            -0.45,
+            -0.525,
             -0.6
           }
         }
@@ -351,10 +351,10 @@ TargetExecuteBuildingBlocks = {
               DestVar = "MoveSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.2,
                 -0.3,
-                -0.4,
-                -0.5,
+                -0.375,
+                -0.45,
+                -0.525,
                 -0.6
               }
             }

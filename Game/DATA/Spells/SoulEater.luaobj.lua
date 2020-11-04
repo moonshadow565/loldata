@@ -1,5 +1,17 @@
 BuffTextureName = "Nasus_SoulEater.dds"
 BuffName = "SoulEater"
+PersistsThroughDeath = true
+Nondispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LastLifesteal",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -64,19 +76,18 @@ BuffOnUpdateActionsBuildingBlocks = {
               ValueVar = "CurrentLifesteal",
               Index = 1
             }
+          },
+          {
+            Function = BBSetBuffToolTipVar,
+            Params = {
+              Value = 0,
+              ValueVar = "DamageBonus",
+              ValueVarTable = "CharVars",
+              Index = 3
+            }
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LastLifesteal",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
     }
   }
 }

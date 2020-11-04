@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Cryophoenix_FrigidOrb.dds"
 BuffName = ""
-SpellToggleSlot = 1
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -40,7 +39,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Target",
-      Range = 300,
+      Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
       IteratorVar = "Unit"
     },
@@ -56,16 +55,18 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Unit",
           DamageByLevel = {
             80,
-            140,
-            200,
-            260,
-            320
+            135,
+            190,
+            245,
+            300
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.75
+          SpellDamageRatio = 0.7,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

@@ -4,7 +4,8 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 3
-SelfExecuteBuildingBlocks = {}
+PersistsThroughDeath = true
+Nondispellable = true
 ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBForEachUnitInTargetArea,
@@ -34,7 +35,9 @@ ChannelingSuccessStopBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.7
+          SpellDamageRatio = 0.7,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

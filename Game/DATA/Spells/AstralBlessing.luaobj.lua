@@ -12,25 +12,13 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthToRestore",
-      DeltaVarTable = "InstanceVars",
-      HealerVar = "Attacker"
-    }
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 30
+      Delta = 35
     }
   }
 }
@@ -71,11 +59,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthToRestore",
       SrcValueByLevel = {
-        7,
         11,
-        15,
-        19,
-        23
+        18,
+        25,
+        32,
+        39
       }
     }
   },
@@ -84,7 +72,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "TempAbilityPower",
       Src1Value = 0,
-      Src2Value = 0.085,
+      Src2Value = 0.11,
       DestVar = "HealingBonus",
       MathOp = MO_MULTIPLY
     }
@@ -117,7 +105,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Heal,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 12.1,
+      Duration = 9.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

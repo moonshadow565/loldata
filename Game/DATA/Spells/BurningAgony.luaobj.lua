@@ -218,10 +218,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVar = "HealthCost",
           SrcValueByLevel = {
             20,
-            30,
-            40,
-            50,
-            60
+            27.5,
+            35,
+            42.5,
+            50
           }
         }
       },
@@ -303,7 +303,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2
+                  SpellDamageRatio = 0.2,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }

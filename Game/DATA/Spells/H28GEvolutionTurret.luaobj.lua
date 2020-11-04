@@ -120,16 +120,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "BonusArmor",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -195,7 +185,7 @@ BuffOnSpellHitBuildingBlocks = {
               Src1Var = "BonusDamage",
               Src1VarTable = "InstanceVars",
               Src1Value = 0,
-              Src2Value = 0.166,
+              Src2Value = 0.143,
               DestVar = "BonusDamage",
               DestVarTable = "InstanceVars",
               MathOp = MO_ADD
@@ -207,7 +197,7 @@ BuffOnSpellHitBuildingBlocks = {
               Src1Var = "BonusArmor",
               Src1VarTable = "InstanceVars",
               Src1Value = 0,
-              Src2Value = 0.166,
+              Src2Value = 0.143,
               DestVar = "BonusArmor",
               DestVarTable = "InstanceVars",
               MathOp = MO_ADD
@@ -388,7 +378,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -433,7 +425,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -478,7 +472,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -523,7 +519,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -568,7 +566,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -608,7 +608,9 @@ SelfExecuteBuildingBlocks = {
                       DamageType = TRUE_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0
+                      SpellDamageRatio = 0,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   }
                 }
@@ -640,7 +642,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.25,
       DestVar = "AbilityPowerBonus",
       MathOp = MO_MULTIPLY
     }
@@ -650,11 +652,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        24,
-        30,
-        36,
-        42,
-        48
+        20,
+        26,
+        32,
+        38,
+        44
       }
     }
   },
@@ -686,7 +688,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Level",
       Src1Value = 0,
-      Src2Value = 11,
+      Src2Value = 14,
       DestVar = "BonusHealth",
       DestVarTable = "NextBuffVars",
       MathOp = MO_MULTIPLY

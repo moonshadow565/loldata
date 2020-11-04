@@ -26,7 +26,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -65,7 +67,7 @@ TargetExecuteBuildingBlocks = {
                   BuffName = "UrAniumRoundsHit",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
                   BuffType = BUFF_CombatDehancer,
-                  MaxStack = 30,
+                  MaxStack = 50,
                   NumberStacks = 1,
                   Duration = 3,
                   BuffVarsTable = "NextBuffVars",
@@ -149,7 +151,9 @@ TargetExecuteBuildingBlocks = {
                               DamageType = MAGIC_DAMAGE,
                               SourceDamageType = DAMAGESOURCE_PROC,
                               PercentOfAttack = 1,
-                              SpellDamageRatio = 0
+                              SpellDamageRatio = 0,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
                             }
                           }
                         }

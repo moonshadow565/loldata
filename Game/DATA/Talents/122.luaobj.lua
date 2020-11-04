@@ -11,7 +11,7 @@ SetVarsByLevelBuildingBlocks = {
     Params = {
       DestVar = "ClairvoyanceDurationBonus",
       DestVarTable = "AvatarVars",
-      SrcValue = 3
+      SrcValue = 4
     }
   },
   {

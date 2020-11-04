@@ -82,7 +82,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
-      Src2Value = 15,
+      Src2Value = 25,
       DestVar = "BonusMana",
       MathOp = MO_MULTIPLY
     }

@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Nasus_SiphoningStrike.dds"
 BuffName = "SiphoningStrike"
 AutoBuffActivateEffect = "nassus_siphonStrike_buf.troy"
-AutoBuffActivateAttachBoneName = "R_hand"
+AutoBuffActivateAttachBoneName = "weapon_b"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -54,6 +54,24 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifestealAmount",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        0.1,
+        0.15,
+        0.2,
+        0,
+        0
+      }
     }
   }
 }
@@ -119,21 +137,6 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "SiphoningStrike",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -195,8 +198,10 @@ BuffOnHitUnitBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
+              Src1Var = "LifestealAmount",
+              Src1VarTable = "InstanceVars",
               Src2Var = "DamageAmount",
-              Src1Value = 0.2,
+              Src1Value = 0,
               Src2Value = 0,
               DestVar = "Lifesteal",
               MathOp = MO_MULTIPLY
@@ -224,6 +229,21 @@ BuffOnHitUnitBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "SiphoningStrike",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberStacks = 1,
+              Duration = 1,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           }
         }
@@ -294,15 +314,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "siphoningstrike"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nassus_siphonstrike_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "siphoningstrike"
     }
   },
   {

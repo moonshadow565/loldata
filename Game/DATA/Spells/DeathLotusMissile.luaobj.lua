@@ -28,7 +28,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "DamageTotal",
-      Src1Value = 0.15,
+      Src1Value = 0.65,
       Src2Value = 0,
       DestVar = "DamageVar",
       MathOp = MO_MULTIPLY
@@ -46,7 +46,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "APTotal",
-      Src1Value = 0.2,
+      Src1Value = 0.5,
       Src2Value = 0,
       DestVar = "APVar",
       MathOp = MO_MULTIPLY
@@ -65,9 +65,9 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "DaggerBase",
           SrcValueByLevel = {
-            60,
-            90,
-            120
+            30,
+            45,
+            60
           }
         }
       },
@@ -99,7 +99,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -114,17 +116,19 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           TargetVar = "Target",
           DamageByLevel = {
+            30,
+            45,
             60,
-            90,
-            120,
-            100,
-            125
+            0,
+            0
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2
+          SpellDamageRatio = 0.5,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
