@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sonapowerchord_hymnofvalor_tar.troy"
+      Name = "sona_base_q_powerchord_tar.troy"
     }
   },
   {
