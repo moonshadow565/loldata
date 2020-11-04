@@ -1,3 +1,3 @@
 BuffTextureName = "Minotaur_TriumphantRoar.dds"
 BuffName = "Pacified"
-AutoBuffActivateEffect = "LOC_Stun.troy"
+AutoBuffActivateEffect = "Stun_glb.troy"

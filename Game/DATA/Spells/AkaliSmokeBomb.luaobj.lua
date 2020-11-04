@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 SpellDamageRatio = 1
 IsDeathRecapSource = true
-PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

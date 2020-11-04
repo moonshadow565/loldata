@@ -1,5 +1,0 @@
-BuffTextureName = "GSB_stun.dds"
-BuffName = "Stun"
-AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "head"
-PopupMessage1 = "game_floatingtext_Stunned"

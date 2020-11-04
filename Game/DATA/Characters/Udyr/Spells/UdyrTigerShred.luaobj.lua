@@ -1,17 +1,4 @@
-SpellFXOverrideSkins = {"SpiritUdyr"}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_spirit_tiger_shred_buf_max_r.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_spirit_tiger_shred_buf_r.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -22,12 +9,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_tiger_buf_r.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_spirit_tiger_attack.troy"
     }
   },
   {

@@ -37,10 +37,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "quinnebump"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "quinneroot"}
   }
 }

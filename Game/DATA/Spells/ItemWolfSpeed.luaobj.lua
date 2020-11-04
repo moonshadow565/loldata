@@ -1,1 +1,1 @@
-AutoBuffActivateEffect = "Global_Haste.troy"
+AutoBuffActivateEffect = "Sivir_PassiveHaste.troy"

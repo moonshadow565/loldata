@@ -31,7 +31,12 @@ function L0(A0)
   L2 = 0
   L3 = 3
   L1 = L1(L2, L3)
-  return
+  L2 = CanUseSpell
+  L3 = L1
+  L2 = L2(L3)
+  if L2 == 0 then
+    return
+  end
 end
 Tick = L0
 function L0()

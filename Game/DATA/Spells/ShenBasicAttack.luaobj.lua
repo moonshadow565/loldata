@@ -1,1 +1,0 @@
-SpellFXOverrideSkins = {"TPAShen"}

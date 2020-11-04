@@ -18,12 +18,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "dr_mundo_tpamundo_infected_cleaver_tar_sound.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "dr_mundo_as_mundo_infected_cleaver_tar.troy"
     }
   },

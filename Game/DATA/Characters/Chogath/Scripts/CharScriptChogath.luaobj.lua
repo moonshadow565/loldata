@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "championchampiondelta"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "chogath_battlecast_audio_revive.troy"

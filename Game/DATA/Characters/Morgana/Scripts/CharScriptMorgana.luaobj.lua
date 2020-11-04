@@ -10,13 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "apbonusdamagetotowers"
+      Name = "championchampiondelta"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "crestbigmarker"
+      Name = "apbonusdamagetotowers"
     }
   }
 }

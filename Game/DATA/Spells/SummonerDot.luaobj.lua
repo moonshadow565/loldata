@@ -1,4 +1,3 @@
-DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 BuffTextureName = "SummonerIgnite.dds"

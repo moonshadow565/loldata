@@ -1,4 +1,4 @@
-BuffTextureName = "Khazix_RengarHunt.dds"
+BuffTextureName = "RengarUlt.dds"
 BuffName = "KhazixHuntVictoryR"
 PersistsThroughDeath = true
 NonDispellable = true

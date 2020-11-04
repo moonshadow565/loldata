@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+AutoBuffActivateEffect = ""
 SpellFXOverrideSkins = {
   "UrfRiderCorki"
 }

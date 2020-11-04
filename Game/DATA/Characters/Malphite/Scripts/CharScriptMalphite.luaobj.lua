@@ -28,5 +28,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "malphiteshield"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "championchampiondelta"
+    }
   }
 }

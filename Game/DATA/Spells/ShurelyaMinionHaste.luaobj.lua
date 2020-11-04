@@ -1,4 +1,4 @@
 BuffTextureName = "Chronokeeper_Recall.dds"
 BuffName = "Haste"
-AutoBuffActivateEffect = "Global_Haste.troy"
+AutoBuffActivateEffect = "OntheHunt_buf.troy"
 AutoBuffActivateAttachBoneName = "root"

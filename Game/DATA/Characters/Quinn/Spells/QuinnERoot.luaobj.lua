@@ -25,5 +25,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "quinn_e_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "quinnebump"}
   }
 }
