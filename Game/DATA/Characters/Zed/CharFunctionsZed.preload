@@ -11,7 +11,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zed_base_e_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_skin01_e_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_e_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="zedeslow"}}, 
 {Function=BBPreloadSpell, Params={Name="zedemarker"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_r_dash.troy"}}, 
 }
