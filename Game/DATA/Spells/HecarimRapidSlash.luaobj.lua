@@ -11,7 +11,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "hecarim_q.troy "
+      Name = "hecarim_q.troy"
     }
   },
   {

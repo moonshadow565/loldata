@@ -20,5 +20,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "threshqpassive3"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "threshqpassive4"
+    }
   }
 }
