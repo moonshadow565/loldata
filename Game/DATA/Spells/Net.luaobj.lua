@@ -1,2 +1,2 @@
 BuffName = "Net"
-AutoBuffActivateEffect = "Stun_glb.troy"
+AutoBuffActivateEffect = "LOC_Stun.troy"

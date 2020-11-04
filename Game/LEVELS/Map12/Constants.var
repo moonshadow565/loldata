@@ -164,7 +164,7 @@ ann_AutoWelcome                         =                 1 ; Do we automaticall
 shopvo_GlobalCooldown                   =             1.000 ; Minimum time between VO events
 shopvo_RichPlayer                       =          4000.000 ; How much gold the player needs to be considered rich
 shopvo_OpenVOChance                     =             0.000 ; Percentage chance(0->1) to play VO when the shop becomes open for business
-shopvo_OpenVOInitialDelay               =            60.000 ; How long to wait until before the Shop Open VO can play
+shopvo_OpenVOInitialDelay               =           600.000 ; How long to wait until before the Shop Open VO can play
 shopvo_BrowsingVOInterval               =            22.000 ; How long to wait to check to see to play VO while browsing the shop
 shopvo_BrowsingVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player is browsing the shop
 shopvo_AmbientVOInterval                =            28.000 ; How long to wait to check to see to play VO while not opening the shop but in range
@@ -173,7 +173,7 @@ shopvo_MenuOpenVOChance                 =             1.000 ; Percentage chance(
 shopvo_MenuCloseVOChance                =             1.000 ; Percentage chance(0->1) to play VO when the player closes the shop menu
 shopvo_PurchaseVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player purchases an item more expensive than shovo_PurchaseMinimumGold
 shovo_PurchaseMinimumGold               =               300 ; The minimum amount of gold an item has to cost to get VO
-shopvo_MultiMenuOpen                    =                 5 ; Number of times the menu has to be opened before leaving the shop area in which the VO will be played
+shopvo_MultiMenuOpen                    =                 7 ; Number of times the menu has to be opened before leaving the shop area in which the VO will be played
 
 ; Audio variables
 aud_FMODMusicCueID                      =                47 ; FMOD ID for a music cue for the map's music.

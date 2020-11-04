@@ -1,3 +1,4 @@
 BuffTextureName = "LuxCrashingBlitz2.dds"
 BuffName = "Root"
-AutoBuffActivateEffect = ""
+AutoBuffActivateEffect = "LOC_Root.troy"
+AutoBuffActivateAttachBoneName = "head"

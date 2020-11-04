@@ -1,4 +1,5 @@
 BuffTextureName = "GSB_Blind.dds"
 BuffName = "Suppression"
-AutoBuffActivateEffect = ""
+AutoBuffActivateEffect = "LOC_Suppress.troy"
+AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Suppressed"

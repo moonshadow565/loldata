@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Fiddlesticks_DarkWind.dds"
 BuffName = "Silence"
-AutoBuffActivateEffect = "Global_Silence.troy"
+AutoBuffActivateEffect = "LOC_Silence.troy"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",

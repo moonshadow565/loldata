@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "shen_tpashen_vorpalstar_tar_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "shen_vorpalstar_tar.troy"
     }
   },
