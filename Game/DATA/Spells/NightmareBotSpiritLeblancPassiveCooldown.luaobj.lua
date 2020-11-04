@@ -1,4 +1,3 @@
 BuffTextureName = "LeblancMirrorImage_Charging.dds"
-BuffName = "LeblancPassiveCooldown"
-PersistsThroughDeath = true
+BuffName = "NightmareBotSpiritLeblancPassiveCooldown"
 NonDispellable = true

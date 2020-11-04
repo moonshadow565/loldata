@@ -7,6 +7,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacwignorecollison"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zac_w_tar.troy"
