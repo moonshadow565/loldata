@@ -2,22 +2,14 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Cardmaster_RapidToss.dds"
 BuffName = "CardMasterStack"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
-SpellFXOverrideSkins = {
-  "UnderworldTwistedFate"
-}
-IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "cardmasterstackparticle"
+      Name = "underworldcardmasterstackattack_tar.troy"
     }
   },
   {

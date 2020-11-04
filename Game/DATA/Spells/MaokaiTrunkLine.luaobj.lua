@@ -5,6 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "GemKnight_Shatter.dds"
 BuffName = "MaokaiTrunkSmash"
+AutoBuffActivateEffect = ""
+AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

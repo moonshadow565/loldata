@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "ttspiderdancemanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hpbyplayerlevel"
     }
   },

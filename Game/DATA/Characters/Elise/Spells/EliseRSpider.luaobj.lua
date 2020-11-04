@@ -5,6 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "SwainRavenousFlock.dds"
 BuffName = "SwainMetamorphism"
-SpellToggleSlot = 2
+SpellToggleSlot = 4
 PersistsThroughDeath = true
 NonDispellable = true
