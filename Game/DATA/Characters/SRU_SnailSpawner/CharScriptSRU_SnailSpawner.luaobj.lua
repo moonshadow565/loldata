@@ -1,0 +1,10 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "poro"}
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "sru_snail"}
+  }
+}
