@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Armordillo_ShellBash.dds"
 BuffName = "DefensiveBallCurl"
-AutoBuffActivateEffect = ""
+SpellToggleSlot = 2
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "defensiveballcurlcancel"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "defensiveballcurl_buf.troy"
     }
   },
   {
