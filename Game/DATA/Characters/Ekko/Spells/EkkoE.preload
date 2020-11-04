@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="ekkoeattackbuff"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_e_roll_blur.troy"}}, 
+}

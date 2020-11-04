@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="ekkostacks"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkoparticleholder"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkopassivespellshieldcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkopassiveslow"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkostunmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkopassivespeed"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_proc.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_detonate.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkowstun"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkowshield"}}, 
+}

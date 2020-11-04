@@ -1889,6 +1889,7 @@ function L0_0(A0_535, A1_536)
 end
 BBGetTotalGold = L0_0
 function L0_0(A0_537, A1_538)
+  A0_537.CharVars.TeleportTargetPosition = GetTable(A0_537, A1_538.CastPositionNameTable)[A1_538.CastPositionName]
   SpellBuffAdd(A0_537[A1_538.OwnerVar], A0_537[A1_538.OwnerVar], "TeleportMarker", 0, 1, 25000, A0_537.NextBuffVars)
   BBTeleportToPositionHelper(A0_537, A1_538)
 end

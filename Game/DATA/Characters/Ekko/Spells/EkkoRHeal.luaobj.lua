@@ -1,0 +1,2 @@
+IsDeathRecapSource = true
+PersistsThroughDeath = true

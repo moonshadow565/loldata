@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_shield.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_shield_hitdodge.troy"}}, 
+}

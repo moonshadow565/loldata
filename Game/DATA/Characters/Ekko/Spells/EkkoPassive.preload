@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Ekko.EkkoFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_crit_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkobasicattacktower"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkobasicattackp3"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkobasicattackp2"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkobasicattackp1"}}, 
+}

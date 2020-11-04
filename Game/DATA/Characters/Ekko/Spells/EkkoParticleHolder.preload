@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_stack1.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_stack1_minion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_stack2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_stack3_warning.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_p_stack2_minion.troy"}}, 
+}
