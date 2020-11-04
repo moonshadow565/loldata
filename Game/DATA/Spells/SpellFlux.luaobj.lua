@@ -29,7 +29,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "ResistanceMod",
       DestVarTable = "InstanceVars",
-      SrcValue = -12
+      SrcValue = -15
     }
   },
   {
@@ -40,45 +40,6 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "ResistanceMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  },
-  {
-    Function = BBGetBuffCountFromCaster,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      CasterVar = "Attacker",
-      BuffName = "SpellFlux"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Count",
-      Src2Var = "ResistanceMod",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "MR",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MR",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "MR",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "MR",
-      Index = 1
     }
   }
 }
@@ -154,13 +115,15 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
-          MaxStack = 4,
+          MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -246,7 +209,8 @@ TargetExecuteBuildingBlocks = {
               CenterVar = "Target",
               Range = 300,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -299,10 +263,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "spellflux"}
-  },
   {
     Function = BBPreloadSpell,
     Params = {

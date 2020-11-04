@@ -51,19 +51,53 @@ UpdateSelfBuffStatsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "RallyingBannerAura",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "RallyingBannerAuraSelf",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "RallyingBannerAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
                 }
               }
             }
@@ -100,7 +134,8 @@ UpdateSelfBuffStatsBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -192,7 +227,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rallyingbanneraura"
+      Name = "rallyingbannerauraself"
     }
   },
   {

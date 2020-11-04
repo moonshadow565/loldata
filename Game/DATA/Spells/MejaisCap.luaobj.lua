@@ -1,6 +1,6 @@
 BuffTextureName = ""
 BuffName = ""
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,

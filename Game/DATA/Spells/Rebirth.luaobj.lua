@@ -6,7 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "Rebirth"
 NonDispellable = true
-Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

@@ -64,6 +64,7 @@ OnBuffActivateBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -76,12 +77,14 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "PoisonTrailApplicator",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -165,6 +168,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "NegManaCost"
             }
           },
@@ -213,6 +217,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Invulnerable = true,
                   MagicImmune = false,
                   IgnoreCollision = true,
+                  Placemarker = true,
                   VisibilitySize = 0,
                   DestVar = "Other3",
                   GoldRedirectTargetVar = "Attacker"
@@ -225,12 +230,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "PoisonTrailApplicator",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Damage,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 3.5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -283,6 +290,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = true,
+          Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other3",
           GoldRedirectTargetVar = "Attacker"
@@ -295,12 +303,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "PoisonTrailApplicator",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Damage,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -388,12 +398,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "PoisonTrail",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

@@ -37,19 +37,71 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "executionersCalling_cas.troy",
+      Flags = 0,
+      EffectIDVar = "part1",
+      BoneName = "root",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "executionersCalling_tar.troy",
+      Flags = 0,
+      EffectIDVar = "part1",
+      BoneName = "head",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ExecutionersCalling",
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "Internal_50MS",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 10,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "GrievousWound",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 8,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -129,7 +181,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -149,7 +201,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -169,7 +221,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -189,7 +241,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -209,7 +261,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -229,7 +281,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 60,
+          Src = 20,
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -241,9 +293,31 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "executionerscalling_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "executionerscalling_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "executionerscalling"
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   }
 }

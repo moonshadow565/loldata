@@ -1,7 +1,7 @@
 BuffTextureName = "Poppy_DiplomaticImmunity.dds"
 BuffName = "PoppyDITarget"
 AutoBuffActivateEffect = "DiplomaticImmunity_tar.troy"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,

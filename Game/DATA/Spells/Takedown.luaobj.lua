@@ -18,7 +18,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,
@@ -92,7 +92,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {OwnerVar = "Owner", CancelAttack = true}
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,

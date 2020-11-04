@@ -1,6 +1,6 @@
 BuffTextureName = "WaterWizard_Typhoon.dds"
 BuffName = "Crest Of Flowing Water"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

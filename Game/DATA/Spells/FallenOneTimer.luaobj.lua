@@ -1,7 +1,7 @@
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
       SlotType = SpellSlots,
@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
       SlotType = SpellSlots,

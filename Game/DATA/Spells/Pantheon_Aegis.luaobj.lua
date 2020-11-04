@@ -1,6 +1,6 @@
 BuffName = "Pantheon Aegis"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,

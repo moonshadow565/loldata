@@ -308,27 +308,6 @@ TargetExecuteBuildingBlocks = {
       BuffName = "PoppyDITarget",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        6,
-        7,
-        8
-      },
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "PoppyDITargetDmg",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -339,7 +318,30 @@ TargetExecuteBuildingBlocks = {
         7,
         8
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyDITargetDmg",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        6,
+        7,
+        8
+      },
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -192,12 +192,14 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "WasStealthed",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -234,12 +236,14 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "WasStealthed",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -327,20 +331,14 @@ BuffOnPreAttackBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "WasStealthed",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -466,12 +464,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "ShadowWalk_internal",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

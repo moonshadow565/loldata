@@ -10,13 +10,6 @@ AutoBuffActivateAttachBoneName = "head"
 SpellDamageRatio = 1
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "MovementSpeedMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -87,12 +80,35 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MovementSpeedMod",
+      SrcValueByLevel = {
+        0.08,
+        0.1,
+        0.12,
+        0.14,
+        0.16
+      }
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncPercentMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MovementSpeedMod",
-      DeltaVarTable = "InstanceVars",
       Delta = 0
     }
   },
@@ -137,6 +153,14 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
@@ -146,14 +170,6 @@ TargetExecuteBuildingBlocks = {
         -0.42,
         -0.48
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
     }
   },
   {
@@ -191,7 +207,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

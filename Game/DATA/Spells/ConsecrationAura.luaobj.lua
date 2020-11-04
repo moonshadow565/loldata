@@ -1,9 +1,9 @@
 BuffTextureName = "Soraka_Consecration.dds"
-BuffName = "Consecration"
+BuffName = "Consecration Self"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,

@@ -1,7 +1,7 @@
 BuffTextureName = "Armordillo_ScavengeArmor.dds"
 BuffName = "Spiked Shell"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetArmor,

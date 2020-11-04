@@ -2,7 +2,7 @@ BuffTextureName = "DarkChampion_Bloodlust.dds"
 BuffName = "Blood Lust"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnKillBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -50,12 +50,14 @@ BuffOnKillBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "BloodlustParticle",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -73,12 +75,14 @@ BuffOnKillBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 8,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -94,12 +98,14 @@ BuffOnKillBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 8,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -109,12 +115,14 @@ BuffOnKillBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 8,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -175,12 +183,14 @@ BuffOnHitUnitBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "BloodlustParticle",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -198,12 +208,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 8,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -219,12 +231,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 8,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -234,12 +248,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 8,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

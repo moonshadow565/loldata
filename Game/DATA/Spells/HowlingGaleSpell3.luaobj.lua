@@ -54,10 +54,10 @@ BuffOnSpellHitBuildingBlocks = {
           TargetVar = "Target",
           DamageByLevel = {
             135,
-            185,
-            235,
+            175,
+            230,
             285,
-            335
+            340
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
@@ -115,7 +115,8 @@ BuffOnSpellHitBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -143,10 +144,10 @@ BuffOnSpellHitBuildingBlocks = {
               TargetVar = "Target",
               DamageByLevel = {
                 135,
-                185,
-                235,
+                175,
+                230,
                 285,
-                335
+                340
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
@@ -204,7 +205,8 @@ BuffOnSpellHitBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -244,10 +246,10 @@ BuffOnSpellHitBuildingBlocks = {
                   TargetVar = "Target",
                   DamageByLevel = {
                     135,
-                    185,
-                    235,
+                    175,
+                    230,
                     285,
-                    335
+                    340
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
@@ -305,7 +307,8 @@ BuffOnSpellHitBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 1.5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }

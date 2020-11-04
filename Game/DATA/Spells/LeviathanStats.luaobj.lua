@@ -1,7 +1,7 @@
 BuffTextureName = "3138_Leviathan.dds"
 BuffName = "LeviathanCap"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,

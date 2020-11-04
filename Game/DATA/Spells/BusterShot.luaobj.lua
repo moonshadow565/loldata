@@ -209,6 +209,22 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "tristana_bustershot_unit_impact.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
@@ -251,5 +267,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "drawabead"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tristana_bustershot_unit_impact.troy"
+    }
   }
 }

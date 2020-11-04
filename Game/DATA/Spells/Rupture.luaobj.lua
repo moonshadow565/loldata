@@ -2,6 +2,9 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellVOOverrideSkins = {
+  "DandyChogath"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -182,15 +185,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageAmount",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "DamageAmount",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcVar = "MoveSpeedMod",
@@ -198,39 +192,54 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBForEachUnitInTargetAreaAddBuff,
+    Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
       CenterVar = "Owner",
       Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      BuffAttackerVar = "Attacker",
-      BuffName = "SpellShieldMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      BuffMaxStack = 1,
-      BuffNumberOfStacks = 1,
-      BuffDuration = 37037,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetAreaAddBuff,
-    Params = {
-      AttackerVar = "Attacker",
-      CenterVar = "Owner",
-      Range = 250,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      BuffAttackerVar = "Attacker",
-      BuffName = "RuptureLaunch",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Stun,
-      BuffMaxStack = 1,
-      BuffNumberOfStacks = 1,
-      BuffDuration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "RuptureLaunch",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Stun,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = true
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   },
   {
@@ -251,6 +260,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -283,6 +293,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -322,12 +333,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -342,12 +355,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "rupture_cas_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "spellshieldmarker"
     }
   },
   {

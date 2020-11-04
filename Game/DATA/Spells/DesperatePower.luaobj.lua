@@ -6,7 +6,7 @@ IsDamagingSpell = false
 BuffTextureName = "Ryze_DesperatePower.dds"
 BuffName = "DesperatePower"
 AutoBuffActivateEffect = "ManaLeach_tar2.troy"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

@@ -7,7 +7,7 @@ BuffTextureName = "Nidalee_AspectOfTheCougar.dds"
 BuffName = "AspectOfTheCougar"
 SpellToggleSlot = 4
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

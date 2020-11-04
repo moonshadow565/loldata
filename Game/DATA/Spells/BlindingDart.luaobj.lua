@@ -32,19 +32,21 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 100,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        1.6,
-        2.2,
-        2.8,
-        3.4,
-        4
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

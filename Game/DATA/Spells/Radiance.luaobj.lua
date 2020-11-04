@@ -10,7 +10,7 @@ AutoBuffActivateAttachBoneName = "weapon"
 AutoBuffActivateEffect2 = "Radiance_cas2.troy"
 AutoBuffActivateAttachBoneName2 = "spine"
 SpellToggleSlot = 4
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

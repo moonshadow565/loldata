@@ -4,7 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "SadMummy_Tantrum.dds"
 BuffName = "Tantrum"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

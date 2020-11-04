@@ -1,4 +1,4 @@
-Nondispellable = true
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,

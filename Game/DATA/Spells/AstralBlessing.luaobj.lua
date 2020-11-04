@@ -3,13 +3,32 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Soraka_Bless.dds"
 BuffName = "Astral Blessing"
 AutoBuffActivateEffect = "soraka_astralBless_buf.troy"
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AstralArmor",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 35
+      DeltaVar = "AstralArmor",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -32,6 +51,20 @@ TargetExecuteBuildingBlocks = {
         190,
         245,
         300
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AstralArmor",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        15,
+        20,
+        25,
+        30,
+        35
       }
     }
   },
@@ -68,7 +101,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 9,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -78,16 +112,6 @@ TargetExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "HealthToRestore",
       HealerVar = "Owner"
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBApplyAssistMarker,
-    Params = {
-      Duration = 10,
-      TargetVar = "Owner",
-      SourceVar = "Attacker"
     }
   }
 }

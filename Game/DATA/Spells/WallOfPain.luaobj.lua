@@ -55,7 +55,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Pos",
       Range = 75,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -65,12 +66,14 @@ OnBuffActivateBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "WallofPainTarget",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -119,7 +122,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Pos",
           Range = 75,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -137,12 +141,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "WallofPainTarget",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -262,12 +268,14 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 50,
           NumberOfStacks = 1,
           Duration = 7,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0.1
+          TickRate = 0.1,
+          CanMitigateDuration = false
         }
       },
       {
@@ -312,6 +320,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 300,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
@@ -324,12 +333,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Other1",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -347,6 +358,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 300,
       DestVar = "Other2",
       GoldRedirectTargetVar = "Owner"
@@ -359,12 +371,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Other2",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -374,12 +388,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Other1",
       BuffName = "WallOfPainBeam",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -401,6 +417,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 300,
       VisibilitySizeVar = "LineWidth",
       DestVar = "Other3",
@@ -414,12 +431,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Other3",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

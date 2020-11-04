@@ -7,7 +7,7 @@ AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,

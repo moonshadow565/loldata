@@ -3,7 +3,7 @@ BuffName = "Blood Lust"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,
@@ -33,7 +33,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,

@@ -1,6 +1,6 @@
 BuffTextureName = "WaterWizard_Vortex.dds"
 BuffName = "Crest Of Crushing Wrath"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

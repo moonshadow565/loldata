@@ -81,63 +81,63 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliAP",
+      DestVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AkaliAP",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 20,
+      DestVar = "AkaliAP",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AkaliAP",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 500,
+      DestVar = "AddBonusDmgPerc",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDmgPerc",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "AddBonusDmgPerc",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DmgMult",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
+    }
+  },
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0,
+      TimeBetweenExecutions = 2,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
     },
     SubBlocks = {
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AkaliAP",
-          DestVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AkaliAP",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 20,
-          DestVar = "AkaliAP",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AkaliAP",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 500,
-          DestVar = "AddBonusDmgPerc",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_DIVIDE
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusDmgPerc",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "AddBonusDmgPerc",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DmgMult",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
-        }
-      },
       {
         Function = BBMath,
         Params = {

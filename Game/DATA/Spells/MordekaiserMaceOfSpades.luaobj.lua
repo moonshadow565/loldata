@@ -10,7 +10,7 @@ AutoBuffActivateAttachBoneName2 = "BUFFBONE_WEAPON_1"
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateEffect4 = ""
-Nondispellable = true
+NonDispellable = true
 ChainMissileParameters = {
   MaximumHits = {
     4,
@@ -32,7 +32,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,
@@ -92,7 +92,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,

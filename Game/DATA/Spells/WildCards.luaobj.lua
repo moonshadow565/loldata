@@ -30,12 +30,14 @@ BuffOnSpellHitBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "SealFateMissile",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -69,7 +71,7 @@ BuffOnSpellHitBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.5,
+          SpellDamageRatio = 0.65,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -124,6 +126,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
@@ -207,12 +210,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other1",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 6
+      TickRate = 6,
+      CanMitigateDuration = false
     }
   },
   {
@@ -222,12 +227,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 6
+      TickRate = 6,
+      CanMitigateDuration = false
     }
   }
 }

@@ -34,7 +34,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,
@@ -250,7 +250,7 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,

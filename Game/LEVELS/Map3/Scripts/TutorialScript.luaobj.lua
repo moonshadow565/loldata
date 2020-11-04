@@ -647,7 +647,7 @@ function L0()
   L1 = TutorialSpellBuffAdd
   L2 = playerID
   L3 = allyID
-  L4 = "Intervention"
+  L4 = "JudicatorIntervention"
   L5 = BUFF_RENEW_EXISTING
   L6 = BUFF_Internal
   L7 = 1
@@ -2251,7 +2251,7 @@ function L0()
   L0 = SpellBuffRemove
   L1 = playerID
   L2 = allyID
-  L3 = "Intervention"
+  L3 = "JudicatorIntervention"
   L0(L1, L2, L3)
   L0 = SpellBuffRemove
   L1 = playerID

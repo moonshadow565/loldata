@@ -1,6 +1,6 @@
 BuffTextureName = "Blitzcrank_PowerFist.dds"
 BuffName = "PowerFistSlow"
-AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {

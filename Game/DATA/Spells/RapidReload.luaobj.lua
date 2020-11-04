@@ -2,7 +2,7 @@ BuffTextureName = "Corki_RapidReload.dds"
 BuffName = "RapidReload"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
-Nondispellable = true
+NonDispellable = true
 NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
   {

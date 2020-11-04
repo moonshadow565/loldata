@@ -176,7 +176,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 60,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -288,11 +289,20 @@ BuffOnUpdateActionsBuildingBlocks = {
                         },
                         SubBlocks = {
                           {
-                            Function = BBApplyTaunt,
+                            Function = BBSpellBuffAdd,
                             Params = {
-                              AttackerVar = "Unit",
                               TargetVar = "Owner",
-                              Duration = 5
+                              AttackerVar = "Unit",
+                              BuffName = "TauntNoParticle",
+                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 5,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
                             }
                           }
                         }
@@ -362,7 +372,8 @@ BuffOnPreAttackBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -449,7 +460,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -467,6 +479,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "taunt"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tauntnoparticle"
+    }
   },
   {
     Function = BBPreloadSpell,

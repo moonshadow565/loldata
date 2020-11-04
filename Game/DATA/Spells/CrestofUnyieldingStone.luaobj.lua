@@ -1,6 +1,6 @@
 BuffTextureName = "PlantKing_AnimateEntangler.dds"
 BuffName = "Crest Of Unyielding Stone"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

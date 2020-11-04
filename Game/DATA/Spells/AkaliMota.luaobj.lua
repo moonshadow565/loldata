@@ -123,86 +123,106 @@ BuffOnBeingHitBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "DoOnce",
-          Src1VarTable = "InstanceVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
+          Src1Var = "HitResult",
+          Value2 = HIT_Dodge,
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSetVarInTable,
+            Function = BBIf,
             Params = {
-              DestVar = "DoOnce",
-              DestVarTable = "InstanceVars",
-              SrcValue = false
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Owner",
-              Damage = 0,
-              DamageVar = "MotaDamage",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.4,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Attacker",
-              Delta = 0,
-              PARType = PAR_ENERGY,
-              DeltaVar = "EnergyReturn",
-              DeltaVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "akali_mark_impact_tar.troy",
-              Flags = 0,
-              EffectIDVar = "MotaExplosion",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Attacker",
-              AttackerVar = "Attacker",
-              BuffName = "AkaliTwinAP"
+              Src1Var = "HitResult",
+              Value2 = HIT_Miss,
+              CompareOp = CO_NOT_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
-                  BuffName = "AkaliShadowSwipeHealingParticle",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 0.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  Src1Var = "DoOnce",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "DoOnce",
+                      DestVarTable = "InstanceVars",
+                      SrcValue = false
+                    }
+                  },
+                  {
+                    Function = BBApplyDamage,
+                    Params = {
+                      AttackerVar = "Attacker",
+                      TargetVar = "Owner",
+                      Damage = 0,
+                      DamageVar = "MotaDamage",
+                      DamageVarTable = "InstanceVars",
+                      DamageType = MAGIC_DAMAGE,
+                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      PercentOfAttack = 1,
+                      SpellDamageRatio = 0.4,
+                      PhysicalDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
+                    }
+                  },
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Attacker",
+                      Delta = 0,
+                      PARType = PAR_ENERGY,
+                      DeltaVar = "EnergyReturn",
+                      DeltaVarTable = "InstanceVars"
+                    }
+                  },
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "akali_mark_impact_tar.troy",
+                      Flags = 0,
+                      EffectIDVar = "MotaExplosion",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = true
+                    }
+                  },
+                  {
+                    Function = BBIfHasBuff,
+                    Params = {
+                      OwnerVar = "Attacker",
+                      AttackerVar = "Attacker",
+                      BuffName = "AkaliTwinAP"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Attacker",
+                          AttackerVar = "Attacker",
+                          BuffName = "AkaliShadowSwipeHealingParticle",
+                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 0.1,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }

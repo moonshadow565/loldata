@@ -1,7 +1,7 @@
 BuffTextureName = "GreenTerror_TailSpike.dds"
 BuffName = "Carnivore"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -160,7 +160,25 @@ BuffOnKillBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaAmount"
     }
+  }
+}
+BuffOnDeathBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveStacks,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Feast",
+      NumStacks = 3
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "feast"}
   }
 }

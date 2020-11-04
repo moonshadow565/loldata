@@ -8,7 +8,7 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -138,7 +138,7 @@ BuffOnHitUnitBuildingBlocks = {
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELL,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0.3,
+                      SpellDamageRatio = 0.4,
                       PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
@@ -190,7 +190,8 @@ BuffOnHitUnitBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 25000,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -208,7 +209,8 @@ BuffOnHitUnitBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }

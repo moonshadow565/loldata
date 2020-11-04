@@ -9,7 +9,7 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 SpellToggleSlot = 3
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

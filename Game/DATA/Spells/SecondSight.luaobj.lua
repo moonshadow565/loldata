@@ -2,7 +2,7 @@ BuffTextureName = "Cardmaster_SealFate.dds"
 BuffName = "Second Sight"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 UpdateBuffsBuildingBlocks = {
   {
     Function = BBIncStat,

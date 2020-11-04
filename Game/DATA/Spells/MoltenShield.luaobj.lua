@@ -134,12 +134,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -157,12 +159,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Pyromania",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
-          BuffType = BUFF_Internal,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
           MaxStack = 5,
           NumberOfStacks = 1,
-          Duration = 3600,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

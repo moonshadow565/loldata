@@ -12,7 +12,7 @@ AutoCooldownByLevel = {
   120
 }
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 SelfExecuteBuildingBlocks = {
   {
     Function = BBForEachUnitInTargetArea,

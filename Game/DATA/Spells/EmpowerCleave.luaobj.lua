@@ -4,7 +4,7 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,
@@ -15,7 +15,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,

@@ -250,7 +250,7 @@ CharOnSpellCastBuildingBlocks = {
 }
 CharOnActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,

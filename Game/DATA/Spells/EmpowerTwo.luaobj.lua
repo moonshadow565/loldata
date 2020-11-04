@@ -59,7 +59,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,
@@ -126,7 +126,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,

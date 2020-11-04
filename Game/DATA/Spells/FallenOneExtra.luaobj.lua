@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 3
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBForEachUnitInTargetArea,

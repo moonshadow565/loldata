@@ -52,20 +52,57 @@ SelfExecuteBuildingBlocks = {
     Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "OwnerPos",
-      EffectName = "Ezreal_arcaneshift_cas.troy",
-      Flags = 0,
-      EffectIDVar = "p3",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = true
+      Src1Var = "teamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "Ezreal_arcaneshift_cas.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "Ezreal_arcaneshift_cas.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {
@@ -91,7 +128,8 @@ SelfExecuteBuildingBlocks = {
       Range = 750,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -119,6 +157,7 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Unit",
           PosVar = "Owner",
           EndPosVar = "Owner",
+          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
@@ -132,19 +171,51 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Ezreal_arcaneshift_flash.troy",
-      Flags = 0,
-      EffectIDVar = "ar1",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "teamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Ezreal_arcaneshift_flash.troy",
+          Flags = 0,
+          EffectIDVar = "ar1",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Ezreal_arcaneshift_flash.troy",
+          Flags = 0,
+          EffectIDVar = "ar1",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   }
 }

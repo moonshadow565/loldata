@@ -141,11 +141,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ArmorAmount",
       SrcValueByLevel = {
-        100,
-        150,
+        80,
+        120,
+        160,
         200,
-        250,
-        300
+        240
       }
     }
   },
@@ -154,7 +154,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.8,
+      Src2Value = 0.9,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -184,11 +184,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageBonus",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        24,
-        30,
-        36,
-        42,
-        48
+        14,
+        23,
+        32,
+        41,
+        50
       }
     }
   },
@@ -204,7 +204,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -220,7 +221,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
