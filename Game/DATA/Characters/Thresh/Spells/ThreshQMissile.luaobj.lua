@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thresh_q_whip_break_beam.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "threshq"}
   },

@@ -3,8 +3,6 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Armordillo_Powerball.dds"
-BuffName = "PowerBall"
 SpellFXOverrideSkins = {
   "HecarimArcade"
 }
