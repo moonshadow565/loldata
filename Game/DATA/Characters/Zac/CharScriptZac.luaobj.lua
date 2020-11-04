@@ -1,0 +1,48 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "zacrebirth"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacpassivechunkdrop"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacsizescale"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalruncyclemanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacrebirthready"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacrespawnanimation"
+    }
+  }
+}

@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacrebirthstacks"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zacrebirthsetkiller"
+    }
+  }
+}

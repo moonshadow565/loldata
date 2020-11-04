@@ -11,10 +11,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "iceblock"}
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "aniviaiceblock"

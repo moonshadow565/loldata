@@ -7,12 +7,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "forcepulsecancast"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "forcepulsecounter"
     }
   },

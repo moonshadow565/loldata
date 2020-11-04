@@ -3,7 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-AutoBuffActivateEffect = ""
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
