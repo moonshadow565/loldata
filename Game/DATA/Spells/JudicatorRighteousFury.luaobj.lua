@@ -7,12 +7,40 @@ BuffTextureName = "Kayle_E.dds"
 BuffName = "JudicatorRighteousFury"
 AutoBuffActivateEffect = "Flamesword.troy"
 AutoBuffActivateAttachBoneName = "weapon"
-AutoBuffActivateEffect2 = "RighteousFuryHalo_buf.troy"
-AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellFXOverrideSkins = {
   "MetalWingedJudicator"
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_skin07_e_light_lwing.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_skin07_e_light_rwing.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_skin07_e_light_lshoulder.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_skin07_e_light_rshoulder.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "righteousfuryhalo_buf.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

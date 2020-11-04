@@ -7,7 +7,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Aatrox_Base_basic_hit_effect_03.troy"
+      Name = "aatrox_base_basic_hit_effect_03.troy"
     }
   }
 }

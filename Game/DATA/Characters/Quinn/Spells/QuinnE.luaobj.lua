@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "quinnedoublequinndebug"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "quinnetarget"
     }
   },

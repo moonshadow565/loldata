@@ -4,36 +4,32 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 2.2
-BuffName = ""
+SpellFXOverrideSkins = {
+  "MissFortuneSkin07"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "MissFortune_Base_R_MuzzleFlash_Cas.troy"
+      Name = "missfortune_base_r_muzzleflash_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "MissFortune_Base_R_cas_left.troy"
+      Name = "missfortune_base_r_cas_left.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "MissFortune_Base_R_cas.troy"
+      Name = "missfortune_base_r_cas.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "missfortunewaves"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "missfortunebulletsound"
     }
   }
 }

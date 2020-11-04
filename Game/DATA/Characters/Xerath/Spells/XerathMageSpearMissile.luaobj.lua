@@ -6,9 +6,6 @@ IsDamagingSpell = true
 BuffTextureName = "Xerath_E.dds"
 BuffName = "XerathMageSpear"
 SpellToggleSlot = 1
-SpellFXOverrideSkins = {
-  "IronForgeXerath"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

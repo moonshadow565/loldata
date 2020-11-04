@@ -27,11 +27,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "ezreal_essenceflux_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "powerballhit.troy"
-    }
   }
 }

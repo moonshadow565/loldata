@@ -47,7 +47,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "elisespidereinitial"
+      Name = "elisespidereground"
     }
   },
   {
@@ -84,6 +84,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "elisespidereinitial"
     }
   },
   {
