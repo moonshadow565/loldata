@@ -14,7 +14,6 @@ AutoCooldownByLevel = {
   120,
   120
 }
-NonDispellable = true
 SpellVOOverrideSkins = {"BroOlaf"}
 PreLoadBuildingBlocks = {
   {
