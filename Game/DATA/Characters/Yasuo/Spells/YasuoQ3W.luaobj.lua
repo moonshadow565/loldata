@@ -20,11 +20,17 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
+SpellVOOverrideSkins = {
+  "YasuoSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q_wind_ready_buff.troy"
+      Name = "yasuo_base_q_wind_ready_buff.troy"
     }
   },
   {
@@ -40,19 +46,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q3_indicator_ring_alt.troy"
+      Name = "yasuo_base_q3_indicator_ring_alt.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q_ready_sound.troy"
+      Name = "yasuo_base_q_ready_sound.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q3_indicator_ring.troy"
+      Name = "yasuo_base_q3_indicator_ring.troy"
     }
   },
   {

@@ -1,11 +1,8 @@
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuowindwalltracker"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

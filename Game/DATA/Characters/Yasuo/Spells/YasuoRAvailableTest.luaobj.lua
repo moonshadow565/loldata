@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q_wind_hit_tar.troy"
+      Name = "Yasuo_Base_Q_wind_hit_tar.troy"
     }
   },
   {

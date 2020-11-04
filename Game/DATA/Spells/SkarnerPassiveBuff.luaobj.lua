@@ -24,5 +24,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "skarner_base_passive_stack_3_sound.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_base_passive_stack_3_sound_2.troy"
+    }
   }
 }
