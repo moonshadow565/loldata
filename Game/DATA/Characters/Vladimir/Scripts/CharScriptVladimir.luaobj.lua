@@ -12,7 +12,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Src1Var = "BonusHealth",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.125,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }

@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = true
-ChannelDuration = 1.9
+ChannelDuration = 2.1
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
 BuffName = "Infinite Duress"
 ChannelingStartBuildingBlocks = {
@@ -81,18 +81,18 @@ ChannelingUpdateActionsBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBGetBuffCountFromAll,
+            Function = BBGetStatus,
             Params = {
-              DestVar = "Count",
               TargetVar = "Target",
-              BuffName = "Suppression"
+              DestVar = "canMove",
+              Status = GetCanMove
             }
           },
           {
             Function = BBIf,
             Params = {
-              Src1Var = "Count",
-              Value2 = 0,
+              Src1Var = "canMove",
+              Value2 = true,
               CompareOp = CO_EQUAL
             },
             SubBlocks = {
@@ -151,7 +151,6 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Owner",
-                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -260,14 +259,6 @@ ChannelingCancelStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressSound"
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "Suppression"
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -275,12 +266,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "infiniteduresssound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
     }
   },
   {

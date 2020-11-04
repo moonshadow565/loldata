@@ -105,27 +105,41 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnSpellCastBuildingBlocks = {
   {
-    Function = BBGetCastInfo,
-    Params = {
-      DestVar = "BeingCasted",
-      Info = GetSpellName
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "BeingCasted",
-      Value2 = "TwoShivPoison",
+      Src1Var = "CastingBreaksStealth",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Deceive"
-        }
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "CastingBreaksStealth",
+      Src1VarTable = "SpellVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "DoesntTriggerSpellCasts",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
       }
     }
   }

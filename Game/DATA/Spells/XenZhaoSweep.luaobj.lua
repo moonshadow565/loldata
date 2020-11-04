@@ -253,6 +253,14 @@ TargetExecuteBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
+  {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
   },
@@ -361,7 +369,7 @@ BuffOnMoveEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0,
+              SpellDamageRatio = 0.4,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false

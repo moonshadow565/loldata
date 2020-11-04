@@ -450,6 +450,10 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
+    Function = BBDestroyMissileForTarget,
+    Params = {TargetVar = "Owner"}
+  },
+  {
     Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurrentHealth",
@@ -534,7 +538,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Health",
       Src1Value = 0,
-      Src2Value = 0.03,
+      Src2Value = 0.025,
       DestVar = "HealthMod",
       MathOp = MO_MULTIPLY
     }
@@ -566,10 +570,6 @@ SelfExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
-  },
-  {
-    Function = BBDestroyMissileForTarget,
-    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

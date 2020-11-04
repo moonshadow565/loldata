@@ -21,10 +21,15 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   },
   {
     Function = BBOverrideAutoAttack,
@@ -88,6 +93,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
+  },
+  {
     Function = BBRemoveOverrideAutoAttack,
     Params = {OwnerVar = "Owner", CancelAttack = true}
   },
@@ -95,6 +104,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -122,12 +132,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

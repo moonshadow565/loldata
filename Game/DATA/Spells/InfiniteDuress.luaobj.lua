@@ -28,20 +28,11 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
+    Function = BBApplyStun,
     Params = {
-      TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Suppression",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Suppression,
-      MaxStack = 100,
-      NumberOfStacks = 1,
-      Duration = 1.9,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TargetVar = "Target",
+      Duration = 1.7
     }
   },
   {
@@ -116,8 +107,7 @@ TargetExecuteBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = true,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = true
         }
       }
     }
@@ -134,14 +124,6 @@ TargetExecuteBuildingBlocks = {
           Order = AI_ATTACKTO
         }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
     }
   }
 }

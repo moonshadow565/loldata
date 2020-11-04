@@ -25,11 +25,10 @@ ChainMissileParameters = {
 }
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBRequireVar,
     Params = {
-      DestVar = "ResistanceMod",
-      DestVarTable = "InstanceVars",
-      SrcValue = -15
+      RequiredVar = "ResistanceMod",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -57,8 +56,33 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ResistanceMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -12,
+        -15,
+        -18,
+        -21,
+        -24
+      }
+    }
   },
   {
     Function = BBSetVarInTable,
@@ -74,25 +98,11 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "AoEDamage",
-      SrcValueByLevel = {
-        0.65,
-        0.65,
-        0.65
-      }
+      SrcValue = 0.65,
+      SrcValueByLevel = {}
     }
   },
   {

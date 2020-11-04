@@ -1,0 +1,524 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+ChannelDuration = 2.5
+BuffTextureName = "Galio_IdolOfDurand.dds"
+BuffName = "GalioIdolOfDurand"
+AutoBuffActivateEffect = ""
+NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseDamage",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        200,
+        310,
+        420
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorBonus",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        75,
+        100,
+        125
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HitCount",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "galio_beguilingStatue_taunt_indicator_team_green.troy",
+          Flags = 0,
+          EffectIDVar = "AreaVFXAlly",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "galio_beguilingStatue_taunt_indicator_team_red.troy",
+          Flags = 0,
+          EffectIDVar = "AreaVFXEnemy",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "galio_beguilingStatue_taunt_indicator_team_green.troy",
+          Flags = 0,
+          EffectIDVar = "AreaVFXAlly",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "galio_beguilingStatue_taunt_indicator_team_red.troy",
+          Flags = 0,
+          EffectIDVar = "AreaVFXEnemy",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "galio_talion_channel.troy",
+      Flags = 0,
+      EffectIDVar = "ChannelVFX",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "ChannelVFX",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "AreaVFXAlly",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "AreaVFXEnemy",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "galio_talion_breakout.troy",
+      Flags = 0,
+      EffectIDVar = "ExplosionVFX",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "galio_builingStatue_impact_01.troy",
+      Flags = 0,
+      EffectIDVar = "ExplosionVFX",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HitCount",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 8,
+      DestVar = "HitCount",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HitCount",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "BonusDmgPercent",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "BonusDmgPercent",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "Damage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 500,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "Damage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "Taunt"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "galio_builingStatue_unit_impact_01.troy",
+          Flags = 0,
+          EffectIDVar = "TargetVFX",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 500,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Unit",
+              SourceVar = "Owner"
+            }
+          },
+          {
+            Function = BBApplyTaunt,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Unit",
+              Duration = 1
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "GalioIdolOfDurandTaunt",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Taunt,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      }
+    }
+  }
+}
+BuffOnBeingHitBuildingBlocks = {
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HitCount",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "HitCount",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBApplyTaunt,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      Duration = 1
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "GalioIdolOfDurandTaunt",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+ChannelingStartBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+ChannelingSuccessStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GalioIdolOfDurand"
+    }
+  }
+}
+ChannelingCancelStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GalioIdolOfDurand"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_beguilingstatue_taunt_indicator_team_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_beguilingstatue_taunt_indicator_team_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_talion_channel.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_talion_breakout.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_builingstatue_impact_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "taunt"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_builingstatue_unit_impact_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galioidolofdurandtaunt"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galioidolofdurand"
+    }
+  }
+}

@@ -8,6 +8,8 @@ AutoCooldownByLevel = {
   10,
   8
 }
+PersistsThroughDeath = true
+NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
@@ -207,6 +209,46 @@ TargetExecuteBuildingBlocks = {
             }
           }
         }
+      }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentCooldownMod,
+      TargetVar = "Owner",
+      DeltaVar = "CooldownBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CooldownBonus",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0,
+      SrcValueByLevel = {
+        -0.04,
+        -0.07,
+        -0.1,
+        -0.13,
+        -0.16
       }
     }
   }
