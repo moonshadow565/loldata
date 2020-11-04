@@ -1,2 +1,2 @@
-BuffTextureName = "Twitch_DeadlyVenom.dds"
+BuffTextureName = "Twitch_Passive.dds"
 BuffName = "TwitchDeadlyVenom"

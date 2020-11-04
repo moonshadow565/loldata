@@ -22,6 +22,7 @@ gcd_AttackMinDelay                          =                                   
 gcd_PercentAttackSpeedModMinimum            =                                        -0.950 ; The lowest Attack Speed Percent Mod penalty can go
 gcd_AttackMaxDelay                          =                                         5.000 ; Attack max delay
 gcd_CooldownMinimum                         =                                         0.000 ; Minimum cooldown time for a spell.
+gcd_PercentCooldownModMinimum               =                                        -0.400 ; The lowest Cooldown Percent Mod bonus can go.
 gcd_PercentRespawnTimeModMinimum            =                                        -0.950 ; The lowest RespawnTime Percent Mod bonus can go.
 gcd_PercentGoldLostOnDeathModMinimum        =                                        -0.950 ; The lowest GoldLostOnDeath Percent Mod bonus can go.
 gcd_PercentEXPBonusMinimum                  =                                        -1.000 ; The lowest EXPBonus Percent Mod penalty can go.

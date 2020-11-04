@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Twitch_SprayAndPray.dds"
+BuffTextureName = "Twitch_R.dds"
 BuffName = "TwitchUlt"
 AutoBuffActivateEffect = "Twitch_Base_R_Weapon_Glow.troy"
 AutoBuffActivateAttachBoneName = "arrow"

@@ -1,4 +1,4 @@
-BuffTextureName = "Twitch_Stealth.dds"
+BuffTextureName = "Twitch_Q_Buff.dds"
 BuffName = "TwitchAmbushBuff"
 AutoBuffActivateEffect = "Twitch_Base_Q_Buff_Hands.troy"
 AutoBuffActivateAttachBoneName = "R_Hand"

@@ -28,7 +28,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_q_tar_double.troy"
+      Name = "zed_stormninja_q_tar_double.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zed_stormninja_q_tar.troy"
     }
   },
   {
@@ -40,7 +46,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_stormninja_q_tar_double.troy"
+      Name = "zed_q_tar_double.troy"
     }
   },
   {
