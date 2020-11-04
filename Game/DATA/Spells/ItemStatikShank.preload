@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="item_statikkshiv_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_rapidfirecannon_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_energyshard_ready.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemstatikshankcharge"}}, 
-{Function=BBPreloadSpell, Params={Name="itemstatikshankchain"}}, 
-{Function=BBPreloadParticle, Params={Name="tempitemshank_3.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="tempitemshank_2.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="tempitemshank_1.troy"}}, 
 }

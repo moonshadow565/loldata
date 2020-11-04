@@ -5,4 +5,3 @@ IsDamagingSpell = false
 BuffTextureName = "Twitch_Q.dds"
 BuffName = "TwitchHideInShadows"
 AutoBuffActivateEffect2 = "Twitch_Base_Q_Invisible.troy"
-SpellToggleSlot = 1

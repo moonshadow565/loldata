@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="missfortune_base_w_mark_faded.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="missfortune_base_w_mark.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="missfortunewmark"}}, 
-}

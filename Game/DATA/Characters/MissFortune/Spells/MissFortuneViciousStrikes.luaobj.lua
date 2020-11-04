@@ -1,4 +1,4 @@
-BuffTextureName = "MissFortune_W.dds"
+BuffTextureName = "MissFortune_W_Active.dds"
 BuffName = "MissFortuneViciousStrikes"
 NonDispellable = true
 SpellFXOverrideSkins = {

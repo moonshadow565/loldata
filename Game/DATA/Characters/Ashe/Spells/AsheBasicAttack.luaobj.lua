@@ -3,4 +3,4 @@ BuffName = "AsheBasicAttack"
 AutoBuffActivateEffect = "Global_Freeze.troy"
 IsDeathRecapSource = true
 PopupMessage1 = "game_floatingtext_Slowed"
-SpellFXOverrideSkins = {""}
+SpellFXOverrideSkins = {"AsheSkin06"}

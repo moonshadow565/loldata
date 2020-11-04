@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="hexdrinker"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinkertimer"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinkertomawreset"}}, 
+{Function=BBPreloadSpell, Params={Name="hexdrinkertimercd"}}, 
 }

@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="monkeyking_base_w_copy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadModule, Params={Name="Global.ClonePet"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingkillclonew"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingdecoy"}}, 
 }

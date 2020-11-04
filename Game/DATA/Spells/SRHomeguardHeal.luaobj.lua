@@ -1,0 +1,2 @@
+AutoBuffActivateEffect = "Boots_HomeguardHeal.troy"
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

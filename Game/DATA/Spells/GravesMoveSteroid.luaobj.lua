@@ -1,9 +1,0 @@
-NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
-BuffTextureName = "GravesQuickDraw.dds"
-BuffName = "GravesSteroid"
-AutoBuffActivateEffect = "Graves_Move_WeaponsFX.troy"
-AutoBuffActivateAttachBoneName = "buffbone_cstm_barrela2"
-AutoBuffActivateEffect2 = "Graves_Move_WeaponsFX.troy"
-AutoBuffActivateAttachBoneName2 = "buffbone_cstm_barrelb2"
-TriggersSpellCasts = true

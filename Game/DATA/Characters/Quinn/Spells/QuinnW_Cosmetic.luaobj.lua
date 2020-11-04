@@ -1,2 +1,0 @@
-BuffTextureName = "Quinn_Passive.dds"
-BuffName = "QuinnW_Cosmetic"

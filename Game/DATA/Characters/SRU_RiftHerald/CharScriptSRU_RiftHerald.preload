@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
+{Function=BBPreloadSpell, Params={Name="resistantskinminibaron"}}, 
+{Function=BBPreloadSpell, Params={Name="sru_riftheralddance"}}, 
+{Function=BBPreloadSpell, Params={Name="exaltedwithminibaronnashor"}}, 
+{Function=BBPreloadSpell, Params={Name="crestoftheancientgolemlines"}}, 
+{Function=BBPreloadSpell, Params={Name="minibaronincombat"}}, 
+}

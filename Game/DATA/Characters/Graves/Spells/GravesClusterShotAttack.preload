@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="graves_clustershot_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesclustershot"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesclustershotricochet"}}, 
+}

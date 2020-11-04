@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="caitlyn_base_ba_yasuo_base_q3_indicator_ring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_impact_debuf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="caitlyn_lrheadshottarget_beam.troy"}}, 
+}

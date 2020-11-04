@@ -49,7 +49,7 @@ ai_DrawActualPosition                              =            0 ; Draws the ac
 ai_PathIgnoresBuildings                            =            1 ; Should AI pathing ignore buildings and not take them into account in their lane positioning?
 ai_ExpRadius2                                      =     1600.000 ; Radius for Experience sharing 
 ai_GoldRadius2                                     =     1000.000 ; Radius for Gold sharing 
-ai_StartingGold                                    =     1375.000 ; Gold granted on startup
+ai_StartingGold                                    =     1400.000 ; Gold granted on startup
 ai_DefaultPetReturnRadius                          =      200.000 ; Default pet return radius
 ai_AmbientGoldDelay                                =       90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldDelayFirstBlood                      =       30.000 ; Delay before first ambient gold tick on First Blood
@@ -127,6 +127,10 @@ ai_DisableAmbientXPWhileDead                       =            0 ; Disable ambi
 ai_GoldLostPerLevel                                =        0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                                =        4.000 ; Time in seconds spent dead per level
 ai_GoldHandicapCoefficient                         =        0.000 ; Coefficient for gold handicapping
+
+; Variables related to events during level up
+ai_levelUp_healthGainPercentMissingPenalty         =        0.700 ; How much we penalize you based off how much health you are missing
+ai_levelUp_healthGainNetGain                       =        1.100 ; Net Gain that you get, after taking into account of PercentOfMissing
 
 ; AIHero variables
 events_TimeForMultiKill                            =       10.000 ; Amount of time for something to be considered a multikill (double kill etc...)

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="quinn_base_r_cas_finale.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_r_finale_cas_02.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_r2_tar.troy"}}, 
+}

@@ -8,6 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="trundlewallbounce"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="trundlecircleslow"}}, 
-{Function=BBPreloadSpell, Params={Name="trundlecircle"}}, 
 {Function=BBPreloadCharacter, Params={Name="trundlewall"}}, 
 }

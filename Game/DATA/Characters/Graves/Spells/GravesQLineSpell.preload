@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="gravesclustershotsoundmissile"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesqlinemis"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesqreturn"}}, 
+}

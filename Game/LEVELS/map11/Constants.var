@@ -49,9 +49,9 @@ ai_DrawActualPosition                              =            0 ; Draws the ac
 ai_PathIgnoresBuildings                            =            0 ; Should AI pathing ignore buildings and not take them into account in their lane positioning?
 ai_ExpRadius2                                      =     1600.000 ; Radius for Experience sharing 
 ai_GoldRadius2                                     =     1000.000 ; Radius for Gold sharing 
-ai_StartingGold                                    =      475.000 ; Gold granted on startup
+ai_StartingGold                                    =      500.000 ; Gold granted on startup
 ai_DefaultPetReturnRadius                          =      200.000 ; Default pet return radius
-ai_AmbientGoldDelay                                =       90.000 ; Delay before first ambient gold tick
+ai_AmbientGoldDelay                                =      120.000 ; Delay before first ambient gold tick
 ai_AmbientGoldDelayFirstBlood                      =       30.000 ; Delay before first ambient gold tick on First Blood
 ai_PostAvoidanceFilterDuration                     =        0.300 ; After movement change due to avoidance calc, how long to filter rotation setting
 
@@ -86,21 +86,21 @@ ca_RevealAttackerTimeOut                           =        4.500 ; The timeout 
 ; Minion exp mods
 
 ; This changes XP gained based on how many levels BELOW the target you are
-aiExp_bonusExpPercentPerNeutralMinionLevel         =        0.500 ; Bonus Experience Percentage per neutral minion level ahead
-aiExp_bonusExpPercentPerLaneMinionLevel            =        0.750 ; Bonus Experience Percentage per lane minion level ahead
-aiExp_bonusExpLevelDeltaCap                        =            5 ; The maximum delta in minion levels where XP can be granted.
+aiExp_bonusExpPercentPerNeutralMinionLevel         =        0.400 ; Bonus Experience Percentage per neutral minion level ahead
+aiExp_bonusExpPercentPerLaneMinionLevel            =        0.400 ; Bonus Experience Percentage per lane minion level ahead
+aiExp_bonusExpLevelDeltaCap                        =            6 ; The maximum delta in minion levels where XP can be granted.
 aiExp_bonusExpNeutralLevelDeltaMin                 =            0 ; Minimum level difference before you get bonus jungle XP
 aiExp_bonusExpNeutralLevelDeltaOffset              =            0 ; After we've reached the minimal difference, offset the delta by this amount
 aiExp_bonusExpLaneLevelStart                       =            5 ; Minimum level of lane minion before XP kicks in (to avoid lane starvation strategies)
-aiExp_bonusExpLaneLevelDeltaMin                    =            1 ; Minimum level difference before you get bonus lane XP
+aiExp_bonusExpLaneLevelDeltaMin                    =            3 ; Minimum level difference before you get bonus lane XP
 
 ; This is the same as above except in the negative.
 
 ; This changes XP gained based on how many levels ABOVE the target you are
-aiExp_bonusExpNegativePercentPerNeutralMinionLevel =       -0.100 ; Bonus Experience Percentage per neutral minion level behind, negative in order to diminish farming the jungle
+aiExp_bonusExpNegativePercentPerNeutralMinionLevel =       -0.050 ; Bonus Experience Percentage per neutral minion level behind, negative in order to diminish farming the jungle
 aiExp_bonusExpNegativePercentPerLaneMinionLevel    =        0.000 ; Bonus Experience Percentage per lane minion level behind
 aiExp_bonusExpNegativeLevelDeltaCap                =            5 ; The maximum delta in minion levels where XP can be granted.
-aiExp_bonusExpNegativeNeutralLevelDeltaMin         =            2 ; Minimum level difference before you get bonus jungle XP
+aiExp_bonusExpNegativeNeutralLevelDeltaMin         =            1 ; Minimum level difference before you get bonus jungle XP
 aiExp_bonusExpNegativeNeutralLevelDeltaOffset      =           -1 ; After we've reached the minimal difference, offset the delta by this amount
 aiExp_bonusExpNegativeLaneLevelStart               =          100 ; Minimum level of lane minion before XP kicks in
 aiExp_bonusExpNegativeLaneLevelDeltaMin            =          100 ; Minimum level difference before you get bonus lane XP
@@ -111,7 +111,7 @@ ai_PostAvoidanceRotFilterStrengthAccel             =        0.125 ; After moveme
 gcd_PercentCooldownModMinimum                      =       -0.400 ; The lowest Cooldown Percent Mod bonus can go.
 
 ; AIHero variables
-ai_AmbientGoldAmount                               =        9.500 ; Gold granted on ambient gold tick
+ai_AmbientGoldAmount                               =       10.200 ; Gold granted on ambient gold tick
 
 ; lane default stats for gold sharing
 defaultstats_LocalGold                             =            1 ; Enables the local gold system.
@@ -127,6 +127,10 @@ ai_DisableAmbientXPWhileDead                       =            0 ; Disable ambi
 ai_GoldLostPerLevel                                =        0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                                =        4.000 ; Time in seconds spent dead per level
 ai_GoldHandicapCoefficient                         =        0.000 ; Coefficient for gold handicapping
+
+; Variables related to events during level up
+ai_levelUp_healthGainPercentMissingPenalty         =        0.000 ; How much we penalize you based off how much health you are missing
+ai_levelUp_healthGainNetGain                       =        1.000 ; Net Gain that you get, after taking into account of PercentOfMissing
 
 ; AIHero variables
 events_TimeForMultiKill                            =       10.000 ; Amount of time for something to be considered a multikill (double kill etc...)
@@ -189,7 +193,7 @@ events_TimerForBuildingKillCredit                  =       30.000 ; Amount of ti
 sp_RegenRadius                                     =     1100.000 ; The spawn point will heal units in this radius.
 sp_HealthRegenPercent                              =        0.021 ; The percentage of max HP a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_HealthRegenPercentARAM                          =        0.000 ; Same as above, for ARAM. Needed because we use the same map for ARAM as we do the tutorial
-sp_HPMaxPenaltyRegenPercent                        =        0.021 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
+sp_HPMaxPenaltyRegenPercent                        =        0.080 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
 sp_ManaRegenPercent                                =        0.021 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_RegenTickInterval                               =        0.250 ; Interval between spawn point regen ticks.
 

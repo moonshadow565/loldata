@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ashe_base_q_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ashe_base_q_buf_bow.troy"}}, 
-}

@@ -1,4 +1,1 @@
-SpellFXOverrideSkins = {
-  "MafiaMissFortune",
-  "MissFortuneSkin07"
-}
+SpellFXOverrideSkins = {""}

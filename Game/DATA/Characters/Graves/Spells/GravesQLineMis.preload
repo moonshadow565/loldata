@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="graves_base_q_tar.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
+{Function=BBPreloadCharacter, Params={Name="spellbook1"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesqzonetimer"}}, 
+}

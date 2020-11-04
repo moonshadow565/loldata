@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="asheqcastready"}}, 
 {Function=BBPreloadSpell, Params={Name="ashepassiveneutraldebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="ashepassiveslow"}}, 
+{Function=BBPreloadSpell, Params={Name="asheqcastready"}}, 
+{Function=BBPreloadSpell, Params={Name="asheq"}}, 
 }

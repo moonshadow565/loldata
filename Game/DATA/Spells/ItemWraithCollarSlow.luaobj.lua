@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-BuffTextureName = "3023_Wraith_Collar.dds"
+BuffTextureName = "122_Frozen_Heart.dds"
 BuffName = "ItemWraithCollar"
 PopupMessage1 = "game_floatingtext_Slowed"

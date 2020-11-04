@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="corki_base_loadup_startsound.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="corkibomb"}}, 
+{Function=BBPreloadParticle, Params={Name="corkibomb_base_bomb_base.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="corkibombally"}}, 
+{Function=BBPreloadSpell, Params={Name="corkiloaded"}}, 
+}

@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="item_phantomdancer_debuff_looping.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_phantomdancer_buff_looping.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_phantomdancer_debuff_burst.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_phantomdancer_buff_on_hit.troy"}}, 
+}

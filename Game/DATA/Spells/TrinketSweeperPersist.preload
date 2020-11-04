@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="itemblackout"}}, 
+{Function=BBPreloadSpell, Params={Name="trinketsweeperpersistvfx"}}, 
+}

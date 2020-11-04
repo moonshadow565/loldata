@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="missfortune_base_w_mis_augment.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
-}

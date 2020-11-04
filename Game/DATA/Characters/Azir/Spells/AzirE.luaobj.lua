@@ -1,2 +1,2 @@
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 SpellFXOverrideSkins = {"AzirSkin01"}

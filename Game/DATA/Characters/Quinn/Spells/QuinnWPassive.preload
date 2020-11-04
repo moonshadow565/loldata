@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="quinnwpassiveready"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnpassive"}}, 
-}

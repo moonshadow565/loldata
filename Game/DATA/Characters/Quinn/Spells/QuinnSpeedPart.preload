@@ -1,3 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="quinn_base_r_buf_passive_speed.troy"}}, 
-}

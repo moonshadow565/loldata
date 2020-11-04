@@ -1,4 +1,8 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="urgotswapdef_battlecastdouble.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="urgotswapdefdouble.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="urgotswapdef_battlecast.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="urgotswapdef.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="urgotswapdef_battlecastdouble_nointro.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="urgotswapdef_battlecast_nointro.troy"}}, 
 }

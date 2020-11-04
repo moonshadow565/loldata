@@ -1,2 +1,0 @@
-AutoBuffActivateEffect = "Quinn_Base_P_Buff.troy"
-AutoBuffActivateAttachBoneName = "Weapon_Top"

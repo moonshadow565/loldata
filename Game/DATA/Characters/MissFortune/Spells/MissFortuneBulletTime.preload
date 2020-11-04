@@ -1,6 +1,9 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="missfortune_base_r_indicator.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_r_indicator_enemy.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="missfortunewaves"}}, 
+{Function=BBPreloadSpell, Params={Name="missfortunebulletscrit"}}, 
+{Function=BBPreloadSpell, Params={Name="missfortunebullets"}}, 
+{Function=BBPreloadSpell, Params={Name="missfortunebulletsclonecrit"}}, 
+{Function=BBPreloadSpell, Params={Name="missfortunebulletsclone"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_r_cas_smoke.troy"}}, 
 }

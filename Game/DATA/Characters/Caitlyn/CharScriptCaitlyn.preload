@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="caitlynptrappedtarget"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynheadshotcount"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynheadshot"}}, 
-{Function=BBPreloadSpell, Params={Name="cantattack"}}, 
-{Function=BBPreloadSpell, Params={Name="caitlynaceinthehole"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynheadshotpassive"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynsyntheticattackorder"}}, 
 }
