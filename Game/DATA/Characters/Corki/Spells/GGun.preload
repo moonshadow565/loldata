@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="corki_gatlin_cas.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="ggun"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_base_e_cas.troy"}}, 
 }

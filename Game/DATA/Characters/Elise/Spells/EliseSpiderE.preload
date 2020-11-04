@@ -12,5 +12,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespideredescenttrigger"}}, 
+{Function=BBPreloadSpell, Params={Name="elisespidereenhancement"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespidereindicator"}}, 
 }

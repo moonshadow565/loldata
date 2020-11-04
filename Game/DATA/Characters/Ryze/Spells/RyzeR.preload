@@ -5,7 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ryzee"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzeemissile"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzeemissilereturn"}}, 
-{Function=BBPreloadSpell, Params={Name="ryzer"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_avatar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_scroll.troy"}}, 

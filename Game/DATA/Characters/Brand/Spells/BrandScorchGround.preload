@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="brandphscorchground.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Brand_Base_PHScorchGround.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="brandablaze"}}, 
 }

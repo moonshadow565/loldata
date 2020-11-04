@@ -2,6 +2,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="galio_base_r_indicator_blue.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="galio_base_r_indicator_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="galio_base_r_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="galio_skin04_r_eye_cas2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="galio_skin04_r_eye_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="galio_base_r_explo_self.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="galio_base_r_explo.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="galioidolofdurandmarker"}}, 

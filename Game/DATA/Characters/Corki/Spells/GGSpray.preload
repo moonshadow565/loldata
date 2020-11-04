@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gatlingdebuff"}}, 
-{Function=BBPreloadSpell, Params={Name="ggspray"}}, 
 }

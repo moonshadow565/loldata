@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="raisemoraleteambuff"}}, 
-{Function=BBPreloadSpell, Params={Name="raisemorale"}}, 
 }

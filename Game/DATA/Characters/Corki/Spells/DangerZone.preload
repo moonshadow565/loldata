@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="corki_skin06_w_cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="corki_valkrie_impact_cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="corki_fire_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_skin06_w_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_base_w_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_base_w_tar_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dangerzonetarget"}}, 
-{Function=BBPreloadSpell, Params={Name="carpetbomb"}}, 
 }

@@ -6,6 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ha_summonersnowball_notrail.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_poro_throw_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_poro_throw_explosion_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bw_summoner_snowball_explosion_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="summoner_snowball_explosion_sound.troy"}}, 
