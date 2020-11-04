@@ -11,6 +11,10 @@ L0 = 1
 CENTER_LANE = L0
 L0 = 2
 LEFT_LANE = L0
+function L0()
+  local L0, L1
+end
+OnInitClient = L0
 function L0(A0)
   local L1, L2, L3
   L1 = math
@@ -30,7 +34,7 @@ function L0(A0)
   L3 = modifier
   L1(L2, L3)
 end
-HumanInnerTurretDamageModOnInit = L0
+OnInitServer = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8, L9, L10, L11
   for L5 = L2, L3, L4 do

@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "threshpassivesoulsroot"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "threshpassivesoulsmarker"
     }
   },

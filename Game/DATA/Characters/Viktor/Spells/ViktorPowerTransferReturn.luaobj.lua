@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Viktor_Q2.dds"
+BuffTextureName = "Viktor_Q_Buff.dds"
 BuffName = "ViktorPowerTransferReturn"
 AutoCooldownByLevel = {
   16,

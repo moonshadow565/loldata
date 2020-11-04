@@ -22,12 +22,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "evelyn_invis_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sightwardstealth"

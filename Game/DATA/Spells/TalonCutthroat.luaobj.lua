@@ -23,6 +23,10 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "taloneslow"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "talondamageamp"
     }

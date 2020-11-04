@@ -1,5 +1,7 @@
 BuffTextureName = "Soraka_E.dds"
 BuffName = "SorakaEPacify"
+AutoBuffActivateEffect = "LOC_Silence.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 PopupMessage1 = "game_floatingtext_Silenced"
 PreLoadBuildingBlocks = {
   {
@@ -9,7 +11,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_silence.troy"
+      Name = "loc_silence.troy"
     }
   },
   {

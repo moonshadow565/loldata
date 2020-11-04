@@ -1,4 +1,16 @@
-function NightmareBotsDebugOnInit()
-  PreloadSpell("NightmareBotSpiritDebug")
-  ApplyPersistentBuffToAllChampions("NightmareBotSpiritDebug", false)
+local L0, L1
+function L0()
+  local L0, L1
 end
+OnInitClient = L0
+function L0()
+  local L0, L1, L2
+  L0 = PreloadSpell
+  L1 = "NightmareBotSpiritDebug"
+  L0(L1)
+  L0 = ApplyPersistentBuffToAllChampions
+  L1 = "NightmareBotSpiritDebug"
+  L2 = false
+  L0(L1, L2)
+end
+OnInitServer = L0
