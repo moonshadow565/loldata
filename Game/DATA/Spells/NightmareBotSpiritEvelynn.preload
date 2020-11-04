@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadCharacter, Params={Name="evelynn"}}, 
 {Function=BBPreloadSpell, Params={Name="nightmarebotspiritevelynnrevealed"}}, 
 }

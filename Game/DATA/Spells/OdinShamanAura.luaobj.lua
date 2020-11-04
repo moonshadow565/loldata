@@ -5,5 +5,4 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sona_SongofDiscordGold.dds"
 BuffName = "OdinShamanAura"
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true

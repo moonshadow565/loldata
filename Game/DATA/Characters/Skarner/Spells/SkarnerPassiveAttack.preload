@@ -3,5 +3,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="skarner_base_passive_impact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerpassivestun"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerpassivecooldown"}}, 
-{Function=BBPreloadParticle, Params={Name="skarner_fracture_heal.troy"}}, 
 }

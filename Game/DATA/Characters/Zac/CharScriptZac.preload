@@ -5,5 +5,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="zacsizescale"}}, 
 {Function=BBPreloadSpell, Params={Name="globalruncyclemanager"}}, 
 {Function=BBPreloadSpell, Params={Name="zacrebirthready"}}, 
-{Function=BBPreloadSpell, Params={Name="zacrespawnanimation"}}, 
 }

@@ -5,7 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="quinn_base_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnspeedpart"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnspeedpartremove"}}, 
-{Function=BBPreloadParticle, Params={Name="shen_shadowdash_unit_impact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnrspeeddebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_base_r_cas_finale.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_r_finale_cas_02.troy"}}, 

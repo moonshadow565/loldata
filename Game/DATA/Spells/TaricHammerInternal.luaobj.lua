@@ -3,7 +3,6 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
 BuffName = "TaricHammerInternal"
 AutoBuffActivateEffect = "Taric_HammerInternal.troy"
 AutoBuffActivateAttachBoneName = "weapon"

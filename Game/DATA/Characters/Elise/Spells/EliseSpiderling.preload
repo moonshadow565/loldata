@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="EliseSpiderling_Base_R_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="elisespiderling_base_r_cas.troy"}}, 
 }

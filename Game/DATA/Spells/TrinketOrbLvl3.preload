@@ -4,4 +4,10 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="global_trinket_itemclairvoyance.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="global_trinket_itemclairvoyance_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="trinketorbsight"}}, 
+{Function=BBPreloadSpell, Params={Name="sightward"}}, 
+{Function=BBPreloadCharacter, Params={Name="sightward"}}, 
+{Function=BBPreloadCharacter, Params={Name="bluetrinket"}}, 
+{Function=BBPreloadSpell, Params={Name="wardbounty"}}, 
+{Function=BBPreloadSpell, Params={Name="relicblueward"}}, 
+{Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 
 }

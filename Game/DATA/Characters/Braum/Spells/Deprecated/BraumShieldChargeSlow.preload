@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="olaf_waterlog_slow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="olaf_waterlog_debuf.troy"}}, 
-}

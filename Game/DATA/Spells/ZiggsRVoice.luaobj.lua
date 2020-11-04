@@ -1,5 +1,2 @@
 BuffTextureName = "OriannaPassive.dds"
 BuffName = "OrianaGhost"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""

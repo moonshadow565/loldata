@@ -5,7 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "AkaliMota.dds"
 BuffName = "AkaliMota"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 Nondispellable = true
 TriggersSpellCasts = true

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kalistaexpungemarker"}}, 
 {Function=BBPreloadParticle, Params={Name="ezreal_mysticshot_tar.troy"}}, 
 }

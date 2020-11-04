@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kalista_base_ba_crit_hit.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="sonahymnofvalor_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="kalistapowerattackhitvfx.troy"}}, 
 }

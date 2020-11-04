@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="sonadjaudiomanagergenre01"}}, 
+{Function=BBPreloadSpell, Params={Name="sonadjaudiomanagergenre02"}}, 
+{Function=BBPreloadSpell, Params={Name="sonadjaudiomanagergenre03"}}, 
+}

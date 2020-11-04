@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="Braumpoweroftwooffensivebuff"}}, 
-{Function=BBPreloadParticle, Params={Name="temp_Braum_w_ring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="temp_braum_w_ring.troy"}}, 
 }

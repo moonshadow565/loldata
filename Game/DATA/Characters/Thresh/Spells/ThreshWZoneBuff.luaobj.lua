@@ -1,9 +1,0 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = false
-IsDamagingSpell = false
-BuffTextureName = "FallenAngel_TormentedSoil.dds"
-BuffName = "ThreshWZoneBuff"
-AutoBuffActivateAttachBoneName3 = "R_hand"
-PersistsThroughDeath = true

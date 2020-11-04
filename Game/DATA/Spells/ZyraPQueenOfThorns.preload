@@ -10,7 +10,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="zyraexpirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="zyrapassivedeathmanagerfire"}}, 
 {Function=BBPreloadSpell, Params={Name="zyrapassivedeathmanager"}}, 
-{Function=BBPreloadSpell, Params={Name="zyrapqueenofthorns"}}, 
 {Function=BBPreloadSpell, Params={Name="zyraqfissure"}}, 
 {Function=BBPreloadSpell, Params={Name="zyragraspingroots"}}, 
 {Function=BBPreloadSpell, Params={Name="zyrabramblezone"}}, 

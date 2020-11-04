@@ -9,8 +9,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="elise_spider_e_land_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="elisespider_base_e_dragline_drop.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="elise_spider_e_peak_sound.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="elisespideredescenttrigger"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="elisespideredescenttrigger"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespidereindicator"}}, 
 }

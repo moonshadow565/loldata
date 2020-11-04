@@ -3,9 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuopassive"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuopassivemovementshield"}}, 
-{Function=BBPreloadSpell, Params={Name="yasuocritmod"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuointeractionsriven"}}, 
-{Function=BBPreloadSpell, Params={Name="yasuointeractionsninja"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuobasicattack"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuocritattack"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoisaclone"}}, 
@@ -26,7 +24,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="yasuocritattack4"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoisemoting"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuonotincombat"}}, 
-{Function=BBPreloadSpell, Params={Name="yasuotauntvoriven"}}, 
-{Function=BBPreloadSpell, Params={Name="yasuotauntvoninja"}}, 
-{Function=BBPreloadSpell, Params={Name="yasuotauntvobase"}}, 
 }

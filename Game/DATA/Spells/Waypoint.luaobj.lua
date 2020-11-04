@@ -4,5 +4,3 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffName = "WaypointBuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""

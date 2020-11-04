@@ -1,9 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
 ChainMissileParameters = {
   MaximumHits = {
     4,

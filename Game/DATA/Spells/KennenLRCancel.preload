@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="kennenlightningrush"}}, 
-{Function=BBPreloadSpell, Params={Name="kennenlightningrushdamage"}}, 
-}

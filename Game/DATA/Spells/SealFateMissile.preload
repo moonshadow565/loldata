@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sealfatemissile"}}, 
-{Function=BBPreloadParticle, Params={Name="roulette_hit.troy"}}, 
 }

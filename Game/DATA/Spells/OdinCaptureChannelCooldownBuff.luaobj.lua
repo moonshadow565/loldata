@@ -5,7 +5,5 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Odin_Interrupted.dds"
 BuffName = "OdinCaptureChannelCooldownBuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true

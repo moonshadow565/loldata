@@ -6,5 +6,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="anivia_skn5_wallburst_3.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="anivia_skn5_wallburst_4.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="anivia_skn5_wallburst_5.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="aniviaiceblock"}}, 
 {Function=BBPreloadParticle, Params={Name="cryo_crystalize.troy"}}, 
 }

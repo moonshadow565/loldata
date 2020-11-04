@@ -8,5 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="varusrmissileend"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="varuswdetonate"}}, 
-{Function=BBPreloadParticle, Params={Name="varusrhitflash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_r_hit_flash.troy"}}, 
 }

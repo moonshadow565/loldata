@@ -2,5 +2,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="spirit_animal_core.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="spirit_animal_agro_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="evelynn-yikes.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="spirit_animal_skin.troy"}}, 
 }

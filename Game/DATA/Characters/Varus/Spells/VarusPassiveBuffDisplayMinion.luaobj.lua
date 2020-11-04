@@ -5,7 +5,7 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "VarusPassive.dds"
 BuffName = "VarusPassiveBuffDisplay"
-AutoBuffActivateEffect = "VarusPassiveMinion.troy"
+AutoBuffActivateEffect = "Varus_Base_Passive_Minion.troy"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "VarusAscended"

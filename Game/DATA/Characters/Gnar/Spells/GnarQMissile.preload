@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gnar_base_q_target.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="gnar_base_q_target_all.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarqslow"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarqmissile"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarwproc"}}, 

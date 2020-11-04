@@ -1,7 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="elise_base_w_detonate.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="elise_human_volatile_detonate_skin01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="elise_human_volatile_detonate_skin02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderlingsready"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderlingsheal"}}, 
 {Function=BBPreloadSpell, Params={Name="elisermidshift"}}, 

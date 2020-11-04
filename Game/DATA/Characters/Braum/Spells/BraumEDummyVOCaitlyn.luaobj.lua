@@ -18,5 +18,5 @@ AutoCooldownByLevel = {
 }
 NonDispellable = true
 SpellVOOverrideSkins = {
-  "RumbleSkin03"
+  "BraumSkin02"
 }

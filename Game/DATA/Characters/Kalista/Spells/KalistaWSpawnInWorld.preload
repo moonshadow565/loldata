@@ -6,8 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistawsight"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistawseesenemy"}}, 
-{Function=BBPreloadParticle, Params={Name="temp_kalista_w_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="kalista_ally_arrow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="temp_kalista_w_tar_self.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistawseen"}}, 
 }

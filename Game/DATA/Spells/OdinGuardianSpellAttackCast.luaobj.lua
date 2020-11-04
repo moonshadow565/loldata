@@ -1,2 +1,2 @@
-DoesntTriggerSpellCasts = true
 DoesntBreakShields = true
+DoesntTriggerSpellCasts = true

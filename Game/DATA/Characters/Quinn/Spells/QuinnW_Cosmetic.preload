@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Quinn_Base_W_Vulnerable.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Quinn_Base_W_Vulnerable_Enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_vulnerable.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_vulnerable_enemy.troy"}}, 
 }

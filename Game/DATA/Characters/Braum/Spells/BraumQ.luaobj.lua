@@ -5,3 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "GemKnight_Shatter.dds"
 BuffName = "MaokaiTrunkSmash"
+SpellVOOverrideSkins = {
+  "BraumSkin02"
+}

@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="zedpbaoe"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Base_E_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_e_cas.troy"}}, 
 }

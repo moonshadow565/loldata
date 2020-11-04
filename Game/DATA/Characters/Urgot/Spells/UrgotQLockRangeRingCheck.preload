@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
-	{Function=BBPreloadSpell,
-		Params={Name="urgotqlockrangeringrender"}
-	}, 
+{Function=BBPreloadSpell, Params={Name="urgotqlockrangeringrender"}}, 
 }

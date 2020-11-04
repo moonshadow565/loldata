@@ -5,6 +5,7 @@ BuffTextureName = "KogMaw_VoidOoze.dds"
 BuffName = "EzrealEssenceFluxDebuff"
 SpellFXOverrideSkins = {
   "VarusAscended",
-  "VarusSkin03"
+  "VarusSkin03",
+  "VarusSkin04"
 }
 TriggersSpellCasts = true

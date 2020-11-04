@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="summonersmiteinitializer"}}, 
 {Function=BBPreloadSpell, Params={Name="smitedamagetracker"}}, 
 {Function=BBPreloadSpell, Params={Name="smitten"}}, 
 }

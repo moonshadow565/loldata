@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="Threshq"}}, 
+{Function=BBPreloadSpell, Params={Name="threshq"}}, 
 {Function=BBPreloadParticle, Params={Name="maoki_trunksmash_unit_tar_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="maoki_trunksmash_unit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 

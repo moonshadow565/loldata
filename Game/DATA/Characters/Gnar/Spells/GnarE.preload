@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="gnar_e_bounce_self.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gnareattackspeed"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarbige"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_base_e_bounce_enemy.troy"}}, 

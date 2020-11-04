@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Jinx_Base_E_Fire_Tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="firefeet_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jinx_base_e_fire_tar.troy"}}, 
 }

@@ -1,7 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-AutoBuffActivateEffect = ""
-SpellFXOverrideSkins = {}
+SpellFXOverrideSkins = {""}
 SpellVOOverrideSkins = {
   "TryndamereDemonsword"
 }

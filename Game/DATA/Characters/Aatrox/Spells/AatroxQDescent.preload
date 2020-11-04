@@ -1,10 +1,5 @@
 PreLoadBuildingBlocks = {
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_Q_Land.troy"}}, 
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_Q_Hit.troy"}}, 
-
+{Function=BBPreloadParticle, Params={Name="aatrox_base_q_land.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="aatrox_base_q_hit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="aatroxqknockup"}}, 
-
 }
-

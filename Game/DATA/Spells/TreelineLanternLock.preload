@@ -25,6 +25,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="tt_vo_r_generic2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="treelinelanternlockparticle2"}}, 
 {Function=BBPreloadSpell, Params={Name="treelinelanternlockparticle1"}}, 
-{Function=BBPreloadParticle, Params={Name="tt_altar_chara_blue.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="tt_altar_chara_purple.troy"}}, 
 }

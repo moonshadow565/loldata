@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Braum_r_udyrsound.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="Braummark"}}, 
-{Function=BBPreloadSpell, Params={Name="Braummarkcounter"}}, 
+{Function=BBPreloadParticle, Params={Name="braum_r_udyrsound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="braummark"}}, 
+{Function=BBPreloadSpell, Params={Name="braummarkcounter"}}, 
 }

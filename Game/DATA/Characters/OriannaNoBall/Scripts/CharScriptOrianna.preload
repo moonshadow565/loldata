@@ -1,6 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="yomuspellsword"}}, 
-{Function=BBPreloadSpell, Params={Name="yomughostself"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
-{Function=BBPreloadSpell, Params={Name="yomushockorb"}}, 
 }

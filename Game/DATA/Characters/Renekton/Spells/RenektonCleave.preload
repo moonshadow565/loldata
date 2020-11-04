@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="renektonunlockanimationcleave"}}, 
 {Function=BBPreloadParticle, Params={Name="renekton_base_q_cas_rage.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="renektoncleavedrain"}}, 
 {Function=BBPreloadSpell, Params={Name="renektonbloodsplattertarget"}}, 
 {Function=BBPreloadParticle, Params={Name="renekton_base_q_cas.troy"}}, 
 }

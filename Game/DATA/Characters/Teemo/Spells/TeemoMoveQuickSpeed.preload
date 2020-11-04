@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="Teemo_Base_W_buf.troy"}}, 
+}
