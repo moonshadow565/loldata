@@ -15,12 +15,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "riftwalkdamage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "riftwalk"}
   },
   {
