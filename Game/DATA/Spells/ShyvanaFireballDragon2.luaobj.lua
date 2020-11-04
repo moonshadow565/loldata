@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "anniewmissile"
+      Name = "shyvanafireballdragonfxmissile"
     }
   }
 }
