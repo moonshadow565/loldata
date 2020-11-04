@@ -32,13 +32,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimdefilelifeleech"
+      Name = "hecarimdefilelifeleechminion"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimdefilelifeleechminion"
+      Name = "hecarimdefilelifeleech"
     }
   },
   {

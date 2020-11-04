@@ -32,15 +32,15 @@ PreLoadBuildingBlocks = {
     Params = {Name = "spellbook1"}
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "expirationtimer"
+      Name = "hecarim_skn4_r.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimskn4extravfx"
+      Name = "expirationtimer"
     }
   },
   {
