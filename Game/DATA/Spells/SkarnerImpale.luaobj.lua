@@ -870,7 +870,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "SuppressionDuration",
-      SrcValue = 1.75
+      SrcValue = 1.5
     }
   },
   {
@@ -1027,12 +1027,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_ult_tar_03.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "suppression"
@@ -1042,6 +1036,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "skarnerimpale"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_ult_tar_03.troy"
     }
   },
   {

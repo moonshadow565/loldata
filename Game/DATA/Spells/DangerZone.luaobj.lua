@@ -82,14 +82,12 @@ OnBuffActivateBuildingBlocks = {
       EffectIDVarTable = "InstanceVars",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Nothing",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
+      SpecificTeamOnly = TEAM_CHAOS,
+      UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -173,8 +171,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
-              PersistsThroughReconnect = false,
-              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
