@@ -490,17 +490,9 @@ function L0_0()
   else
     InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
     InitTimer("AllowDamageOnBuildings", 10, false)
-    if GetGameMode() == "ARAM" then
-      InitTimer("ApplyAramBuffs", 1, false)
-    end
   end
 end
 OnLevelInitServer = L0_0
-function L0_0()
-  ApplyPersistentBuffToAllChampions("HowlingAbyssAura", true)
-  ApplyPersistentBuffToAllChampions("AramShopDisableNoParticle", false)
-end
-ApplyAramBuffs = L0_0
 function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua")
   if GetGameMode() == "TUTORIAL" then
@@ -1075,7 +1067,7 @@ function L0_0(A0_119)
   local L1_120, L2_121, L3_122, L4_123, L5_124
   L1_120 = GetGameMode
   L1_120 = L1_120()
-  if L1_120 == "TUTORIAL" then
+  if L1_120 ~= "ARAM" then
     return
   end
   L2_121 = Make3DPoint

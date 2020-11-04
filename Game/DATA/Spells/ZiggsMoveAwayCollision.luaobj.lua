@@ -1,2 +1,2 @@
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "ZiggsW.dds"
 BuffName = "MoveAway"

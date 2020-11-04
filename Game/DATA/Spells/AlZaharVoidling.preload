@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="voidlingflash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malzahar_base_p_flash.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidlingphase2"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidlingphase3"}}, 
 }

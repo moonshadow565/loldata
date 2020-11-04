@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="reksai_base_w_tar_tremorsense_champion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaitsactive"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_w_tar_tremorsense_minion.troy"}}, 
+}

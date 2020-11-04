@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "139_Strygwyrs_Reaver.dds"
+BuffTextureName = "Buff_Devourer.dds"
 BuffName = "Enchantment_Slayer_Stacks"
 PersistsThroughDeath = true

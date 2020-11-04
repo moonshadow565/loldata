@@ -29,5 +29,8 @@ SpellFXOverrideSkins = {
   "S4ConqueringWard",
   "S4VictoriousWard",
   "S4TriumphantWard",
-  "SightWardBattleCast"
+  "SightWardBattleCast",
+  "SightwardPoro2014",
+  "SightwardAstroPoro",
+  "SightwardGentlemanPoro"
 }

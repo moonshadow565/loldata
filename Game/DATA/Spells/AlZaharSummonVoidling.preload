@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="malzahar_base_p_ready_buf.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="malzaharvoidling"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidling"}}, 
 {Function=BBPreloadSpell, Params={Name="ifhasbuffcheck"}}, 

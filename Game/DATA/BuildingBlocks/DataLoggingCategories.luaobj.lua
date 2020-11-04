@@ -125,7 +125,7 @@ function L0(A0, A1)
   if L2 == nil then
     L2 = DataLoggingErroredCategories
     L2[A0] = 1
-    L2 = PrintToChat
+    L2 = DebugPrintToChat
     L3 = "DataLogging category "
     L4 = A0
     L5 = ": "
@@ -136,7 +136,7 @@ function L0(A0, A1)
 end
 DataLoggingCategoryError = L0
 function L0(A0)
-  local L1, L2, L3, L4, L5
+  local L1, L2, L3, L4, L5, L6
   L1 = DataLoggingCategories
   L1 = L1[A0]
   if L1 ~= nil then
@@ -149,11 +149,13 @@ function L0(A0)
       L3 = L1.Expiration
     end
     if L2 > L3 then
-      L1 = nil
       L3 = DataLoggingCategoryError
       L4 = A0
-      L5 = "Expired Category"
+      L5 = "Expired Category owned by "
+      L6 = L1.Creator
+      L5 = L5 .. L6
       L3(L4, L5)
+      L1 = nil
     end
   else
     L2 = DataLoggingCategoryError

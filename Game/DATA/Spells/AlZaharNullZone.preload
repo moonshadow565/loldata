@@ -1,7 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="alzaharnullzoneflash.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="alzaharvoidportal_flat_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="alzaharvoidportal_flat_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Malzahar_Base_W_flash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Malzahar_Base_W_aoe_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Malzahar_Base_W_aoe_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharsummonvoidling"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidlingcount"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharnullzone"}}, 

@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="shenstandunitedlock"}}, 
 {Function=BBPreloadSpell, Params={Name="shenstandunitedshield"}}, 
 {Function=BBPreloadSpell, Params={Name="shenstandunitedtarget"}}, 
+{Function=BBPreloadSpell, Params={Name="shenreksaiultinteraction"}}, 
 }

@@ -5,3 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "AlZahar_SummonVoidling.dds"
 BuffName = "AlZaharVoidling"
+SpellFXOverrideSkins = {
+  "MalzaharSkin05"
+}

@@ -1,9 +1,10 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="malzahar_base_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharsummonvoidling"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidlingcount"}}, 
 {Function=BBPreloadSpell, Params={Name="katarinaqmarkspellshieldcheck"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharnethergraspsound"}}, 
-{Function=BBPreloadParticle, Params={Name="alzaharnethergrasp_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malzahar_base_r_beam.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharnethergrasp"}}, 
 {Function=BBPreloadSpell, Params={Name="suppression"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharnethergraspsoftlock"}}, 

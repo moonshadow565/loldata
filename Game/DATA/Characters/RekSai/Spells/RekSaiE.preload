@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="reksai_base_e_hit_tar_full.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_e_hit_tar.troy"}}, 
+}

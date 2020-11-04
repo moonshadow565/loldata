@@ -433,3 +433,16 @@ function L0(A0, A1, A2, A3, A4)
   L5(L6, L7)
 end
 ModifyDebugObjectColor = L0
+function L0(A0)
+  local L1, L2, L3
+  L1 = {}
+  passThroughParams = L1
+  L1 = {}
+  L1.ToSay = A0
+  perBlockParams = L1
+  L1 = BBDebugPrintToChat
+  L2 = passThroughParams
+  L3 = perBlockParams
+  L1(L2, L3)
+end
+DebugPrintToChat = L0

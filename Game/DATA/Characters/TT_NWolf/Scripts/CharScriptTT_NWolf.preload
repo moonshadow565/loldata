@@ -1,4 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="agitatedidle"}}, 
 {Function=BBPreloadSpell, Params={Name="regenerationruneaura"}}, 
+{Function=BBPreloadParticle, Params={Name="tt_junglebuff_wolf_marker.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="crestoftheancientgolemlines"}}, 
+{Function=BBPreloadSpell, Params={Name="s5junglemushroomarmor"}}, 
 }

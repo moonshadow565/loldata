@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_e_tunnel_destroying.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_e_tunnel_destroying2.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaitunnelkiller"}}, 
+}

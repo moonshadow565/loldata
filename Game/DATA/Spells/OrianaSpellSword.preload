@@ -1,9 +1,9 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="orianavacuumindicator_ally.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="orianavacuumindicatorselfnoring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="orianna_base_r_vacuumindicator_ally.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="orianna_base_r_vacuumindicatorselfnoring.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="orianavacuumindicatorselfring.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="orianavacuumindicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="orianna_base_r_vacuumindicatorselfring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="orianna_base_r_vacuumindicator.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="orianapowerdagger"}}, 
 {Function=BBPreloadSpell, Params={Name="orianapowerdaggerdisplay"}}, 
 }

@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = true
-BuffTextureName = "FallenAngel_BlackShield.dds"
-BuffName = "Black Shield"
+BuffTextureName = "3060_Banner_of_Command.dds"
+BuffName = "ItemPromote"
 AutoBuffActivateEffect = "Global_Item_BoC_Buf.troy"
 AutoBuffActivateAttachBoneName = "scroll"
 AutoBuffActivateEffect2 = "Global_Item_BoC_Buf.troy"

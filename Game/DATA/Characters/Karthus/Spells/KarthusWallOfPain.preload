@@ -1,8 +1,9 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="karthuswallofpaintarget"}}, 
+{Function=BBPreloadSpell, Params={Name="karthuswallofpainextra"}}, 
+{Function=BBPreloadSpell, Params={Name="karthuswallofpainmarker"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
-{Function=BBPreloadParticle, Params={Name="Karthus_Base_W_Post.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Karthus_Base_W_Wall.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Karthus_Base_W_Post_Red.troy"}},
-{Function=BBPreloadParticle, Params={Name="Karthus_Base_W_Wall_Red.troy"}},
+{Function=BBPreloadSpell, Params={Name="karthuswallofpainbeam"}}, 
+{Function=BBPreloadSpell, Params={Name="karthuswallofpainsounddummy"}}, 
 }

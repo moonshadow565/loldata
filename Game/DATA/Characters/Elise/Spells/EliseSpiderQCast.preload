@@ -6,5 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="elisespiderlingleap"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderlingleapboom"}}, 
 {Function=BBPreloadSpell, Params={Name="elisehumanwboom"}}, 
-{Function=BBPreloadParticle, Params={Name="elise_spider_q_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="EliseSpider_Base_Q_tar.troy"}}, 
 }

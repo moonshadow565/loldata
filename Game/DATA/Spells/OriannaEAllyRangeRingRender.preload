@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
-	{Function=BBPreloadParticle,
-		Params={Name="OriannaEAllyRangeRing.troy"}
-	}, 
+{Function=BBPreloadParticle, Params={Name="orianna_base_e_allyrangering.troy"}}, 
 }

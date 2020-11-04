@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="elisespider"}}, 
-{Function=BBPreloadParticle, Params={Name="elise_spider_transform.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Elise_Base_R_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderqcast"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespidereinitial"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderw"}}, 
@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="elisespider3"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespider4"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespider5"}}, 
-{Function=BBPreloadParticle, Params={Name="elise_human_transform.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="EliseSpider_Base_R_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderlingfadeout"}}, 
 {Function=BBPreloadSpell, Params={Name="elisespiderlingsready"}}, 
 {Function=BBPreloadSpell, Params={Name="elisehumanq"}}, 
