@@ -2,9 +2,6 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "FallenAngel_DarkBinding.dds"
-BuffName = "Dark Binding"
-PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

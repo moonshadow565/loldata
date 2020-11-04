@@ -30,11 +30,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "jaycestaticstormshock.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "manaleach_tar.troy"
-    }
   }
 }
