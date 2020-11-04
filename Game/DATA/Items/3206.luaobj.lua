@@ -2,13 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemmonsterdamageamp"
+      Name = "itemspiritstonewraithupgrade"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemspiritstonewraithupgrade"
+      Name = "itemmonsterdamageamp"
     }
   }
 }

@@ -5,6 +5,9 @@ BuffTextureName = "VarusR.dds"
 BuffName = "VarusRRoot"
 AutoBuffActivateEffect = "VarusRMissileEnd.troy"
 PopupMessage1 = "game_floatingtext_Snared"
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

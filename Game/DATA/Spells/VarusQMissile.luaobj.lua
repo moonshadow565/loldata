@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "KogMaw_VoidOoze.dds"
 BuffName = "EzrealEssenceFluxDebuff"
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -18,21 +21,13 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusqhit_amber.troy"
-    }
+    Function = BBPreloadSpell,
+    Params = {Name = "varusqhit"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "varusqhit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varusqhitminion_amber.troy"
     }
   },
   {

@@ -7,6 +7,9 @@ BuffTextureName = "VarusPassive.dds"
 BuffName = "VarusPassiveBuffDisplay"
 AutoBuffActivateEffect = "VarusPassive.troy"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

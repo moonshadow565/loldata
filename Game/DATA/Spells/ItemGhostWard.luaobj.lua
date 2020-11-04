@@ -2,11 +2,13 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "2049_Sightstone.dds"
 BuffName = "ItemGhostWard"
-AutoBuffActivateEffect = "ICU.troy"
+AutoBuffActivateEffect = "Ward_Sight_Idle.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "stealth"}
+    Params = {
+      Name = "sightwardstealth"
+    }
   },
   {
     Function = BBPreloadSpell,

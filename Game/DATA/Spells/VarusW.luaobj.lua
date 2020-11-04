@@ -5,22 +5,39 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "VarusW.dds"
 BuffName = "VarusW"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 IsDeathRecapSource = true
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {""}
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "varuswdebuff"
+      Name = "varusw_counter_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varusw_counter_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "varuswhit.troy"
+      Name = "varusw_counter_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "varuswdebuff"
     }
   }
 }

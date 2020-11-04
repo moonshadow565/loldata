@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "varus_varusascended_wdetonate3.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "varuswdetonate3.troy"
     }
   }

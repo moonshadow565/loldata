@@ -2,7 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bootsofmobilitydebuff"
+      Name = "ionianbootsoflucidity"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bootshomeguard"
     }
   }
 }
