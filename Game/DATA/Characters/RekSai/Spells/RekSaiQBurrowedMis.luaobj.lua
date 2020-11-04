@@ -6,3 +6,6 @@ SpellDamageRatio = 1
 SpellFXOverrideSkins = {
   "RekSaiSkin01"
 }
+SpellVOOverrideSkins = {
+  "RekSaiSkin01"
+}

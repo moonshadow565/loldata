@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="reksai_base_tunnel_movethroughsound.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="reksaitunnelcooldown"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_tunnel_burrowed_endsound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaitunnelcooldown"}}, 
 }
