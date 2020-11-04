@@ -3,6 +3,7 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "ViktorPowerTransfer.dds"
 BuffName = "ViktorShield"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 AutoCooldownByLevel = {
   16,
   14,

@@ -24,10 +24,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_skin02_w_atomic_mist_02.troy"

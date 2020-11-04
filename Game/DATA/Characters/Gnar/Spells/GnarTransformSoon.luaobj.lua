@@ -34,6 +34,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "gnar_base_transform_warning_blue.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gnar_skin01_transform_warning_white.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gnar_skin01_p_eyes_white.troy "
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "gnar_base_p_eye_glow.troy"
     }
   },

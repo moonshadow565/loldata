@@ -32,10 +32,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_chaosstorm_damage_sound.troy"

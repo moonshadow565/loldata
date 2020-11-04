@@ -19,10 +19,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nautilus_q_mis_tar_terranian.troy"

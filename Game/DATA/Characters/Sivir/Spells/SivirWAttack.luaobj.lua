@@ -26,9 +26,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "globalhit_bloodslash.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   }
 }
