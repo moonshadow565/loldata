@@ -2,5 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="graves_move_onbuffactivate.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gravesbasicattackammo2"}}, 
 {Function=BBPreloadSpell, Params={Name="gravesbasicattackammo1"}}, 
+{Function=BBPreloadParticle, Params={Name="gravestruegrit4.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gravesegrit"}}, 
 }
