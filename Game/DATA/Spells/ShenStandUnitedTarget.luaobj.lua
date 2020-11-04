@@ -1,6 +1,5 @@
 BuffTextureName = "Shen_StandUnited.dds"
 BuffName = "Shen Stand United Target"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -429,7 +429,7 @@ function OnLevelInit()
   PreloadSpell("monsterbuffs2")
   PreloadSpell("lifestealattack")
   math.randomseed(os.time())
-  LoadScriptIntoScript("Data\\Scripts\\EndOfGame.lua")
+  LoadLevelScriptIntoScript("EndOfGame.lua", 8)
   SpawnTable.WaveSpawnRate = 30000
   SpawnTable.NumOfMeleeMinionsPerWave = 3
   SpawnTable.NumOfArcherMinionsPerWave = 3
@@ -438,7 +438,7 @@ function OnLevelInit()
   InitTimer("AllowDamageOnBuildings", 1, false)
 end
 function OnPostLevelLoad()
-  LoadScriptIntoScript("CreateLevelProps.lua")
+  LoadLevelScriptIntoScript("CreateLevelProps.lua", 8)
   CreateLevelProps()
 end
 function OppositeTeam(_ARG_0_)

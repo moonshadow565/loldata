@@ -21,7 +21,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "renektoncleave_trail_rage.troy "
+      Name = "renektoncleave_trail_rage.troy"
     }
   },
   {
@@ -45,7 +45,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "renektoncleave_trail.troy "
+      Name = "renektoncleave_trail.troy"
     }
   }
 }

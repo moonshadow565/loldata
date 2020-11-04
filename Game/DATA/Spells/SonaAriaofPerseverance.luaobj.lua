@@ -6,7 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
 SpellToggleSlot = 4
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {"GuqinSona"}
+SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -23,7 +23,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_heal.troy"
+      Name = "sona_ariaheal_tar.troy"
     }
   },
   {

@@ -1,6 +1,6 @@
 BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
 BuffName = "SonaAriaofPerseveranceAura"
-AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {"PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

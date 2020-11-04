@@ -5,8 +5,6 @@ IsDamagingSpell = false
 CastTime = 0.115
 BuffTextureName = "JarvanIV_DemacianStandard.dds"
 BuffName = "JarvanIVDemacianStandard"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

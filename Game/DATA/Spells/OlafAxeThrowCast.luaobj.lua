@@ -1,8 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
 SpellVOOverrideSkins = {"BroOlaf"}

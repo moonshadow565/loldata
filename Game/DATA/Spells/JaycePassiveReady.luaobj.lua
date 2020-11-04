@@ -3,7 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 CastTime = 0.115
-BuffTextureName = "ApolloManOfTomorrow2.dds"
 BuffName = "ApolloPassiveActive"
 AutoBuffActivateEffect = "JaycePassiveReady.troy"
 AutoBuffActivateAttachBoneName = "BUFFBONE_CSTM_WEAPON_1"

@@ -1,5 +1,6 @@
 BuffTextureName = "Sona_SongofDiscordGold.dds"
 BuffName = "SonaSongofDiscordAura"
+SpellFXOverrideSkins = {"PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -1,2 +1,2 @@
 IsDeathRecapSource = true
-SpellFXOverrideSkins = {"GuqinSona"}
+SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}

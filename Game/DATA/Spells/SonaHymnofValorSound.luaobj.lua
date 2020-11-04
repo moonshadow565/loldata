@@ -1,14 +1,9 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = ""
 BuffName = "SonaHymnofValorSound"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {"PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

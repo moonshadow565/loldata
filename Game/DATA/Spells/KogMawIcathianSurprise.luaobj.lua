@@ -8,6 +8,7 @@ BuffName = "KogMawIcathianSurprise"
 AutoBuffActivateEffect = "KogMawIcathianSurprise_foam.troy"
 AutoBuffActivateAttachBoneName = "C_Mouth_d"
 AutoBuffActivateEffect2 = "KogMawIcathianSurprise_splats.troy"
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

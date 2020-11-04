@@ -484,7 +484,8 @@ function L0_0()
     L1_2(L2_3)
     L1_2.NumOfMeleeMinionsPerWave = 3
     L1_2.NumOfArcherMinionsPerWave = 3
-    L1_2(L2_3)
+    L3_4 = 3
+    L1_2(L2_3, L3_4)
     L1_2()
     L3_4 = UPGRADE_MINION_TIMER
     L4_5 = true
@@ -502,7 +503,7 @@ function L0_0()
 end
 OnLevelInit = L0_0
 function L0_0()
-  LoadScriptIntoScript("CreateLevelProps.lua")
+  LoadLevelScriptIntoScript("CreateLevelProps.lua", 3)
   if GetGameMode() == "TUTORIAL" then
     CreateLevelPropsTutorial()
   else

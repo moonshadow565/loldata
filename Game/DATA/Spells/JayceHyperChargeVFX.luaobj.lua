@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
-BuffTextureName = "ApolloManOfTomorrow2.dds"
 BuffName = "ApolloWRbuff"
 AutoBuffActivateEffect = "Jayce_Hex_Buff_Ready.troy"
 AutoBuffActivateAttachBoneName = "Buffbone_CSTM_Exhaust_4"

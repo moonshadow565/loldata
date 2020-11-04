@@ -8,12 +8,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dianamoonlightmissile"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "vladtransfusionheal_mis.troy"
@@ -23,12 +17,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "temp_diana_max_moon.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dianamoonlightready"
     }
   }
 }

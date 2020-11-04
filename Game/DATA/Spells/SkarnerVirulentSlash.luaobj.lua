@@ -5,12 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "SkarnerVirulentSlash.dds"
 BuffName = "SkarnerVirulentSlash"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
 SpellFXOverrideSkins = {
   "ReefMalphite"
 }

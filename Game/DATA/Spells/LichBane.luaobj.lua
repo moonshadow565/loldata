@@ -7,14 +7,6 @@ AutoBuffActivateAttachBoneName2 = "r_hand"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "sheen"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "sheendelay"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "lichbane"}
   }
 }

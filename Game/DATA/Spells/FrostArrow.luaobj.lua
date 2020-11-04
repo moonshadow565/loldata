@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "3022_Frozen_Heart.dds"
+BuffTextureName = "122_Frozen_Heart.dds"
 BuffName = "Frost Arrow"
 AutoBuffActivateEffect = "Global_Freeze.troy"
 IsDeathRecapSource = true

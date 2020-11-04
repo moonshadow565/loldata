@@ -1,4 +1,12 @@
 BuffTextureName = "Sona_SongofDiscord.dds"
 BuffName = "SonaSongofDiscordHaste"
 AutoBuffActivateEffect = "Global_Haste.troy"
-AutoBuffActivateEffect2 = "SonaSongofDiscord_tarB.troy"
+SpellFXOverrideSkins = {"PaxSona"}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sonasongofdiscord_tarb.troy"
+    }
+  }
+}

@@ -6,8 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 2.5
 BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGrasp"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
 PreLoadBuildingBlocks = {
@@ -49,6 +47,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharnethergraspsoftlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharnethergraspon"
     }
   }
 }

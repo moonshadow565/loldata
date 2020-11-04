@@ -1,4 +1,11 @@
 BuffTextureName = "ZyraR.dds"
 BuffName = "ZyraBrambleZoneKnockUp"
-AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Knockup"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_stun.troy"
+    }
+  }
+}

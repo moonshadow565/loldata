@@ -15,6 +15,40 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "darius_q_impact_spray.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "renektonunlockanimationcleave"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "dariushemo"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariuscleaveclosetarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariushemointernal"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariushemovisual"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "darius_q_tar_inner.troy"
     }
   },
@@ -22,6 +56,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_q_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariuscleave"
     }
   }
 }

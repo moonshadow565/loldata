@@ -1,5 +1,3 @@
 BuffTextureName = "Sona_SongofDiscord.dds"
 BuffName = "SonaSongofDiscordAuraB"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
+SpellFXOverrideSkins = {"PaxSona"}

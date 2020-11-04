@@ -1,4 +1,3 @@
-BuffTextureName = "FizzPassive.dds"
 BuffName = "FizzPassive"
 PersistsThroughDeath = true
 NonDispellable = true
