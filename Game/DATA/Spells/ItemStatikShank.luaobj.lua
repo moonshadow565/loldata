@@ -1,2 +1,2 @@
-BuffTextureName = "3087_Statikk_Shiv.dds"
+BuffTextureName = "2015_Kircheis_Shard.dds"
 BuffName = "ItemStatikkShank"

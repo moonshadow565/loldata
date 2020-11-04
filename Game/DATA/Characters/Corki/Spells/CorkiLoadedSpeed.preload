@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="corki_base_w_buff_speed.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="corkiloadedspeedcd"}}, 
+}

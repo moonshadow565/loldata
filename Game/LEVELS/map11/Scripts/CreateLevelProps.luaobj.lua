@@ -20,7 +20,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T1_C_07"
-  L2 = "SRUAP_Turret_Order3_Test"
+  L2 = "SRUAP_Turret_Order3"
   L3 = TEAM_ORDER
   L4 = 1
   L5 = 0
@@ -41,7 +41,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T2_R_01"
-  L2 = "SRUAP_Turret_Chaos3_Test"
+  L2 = "SRUAP_Turret_Chaos3"
   L3 = TEAM_CHAOS
   L4 = 1
   L5 = 0
@@ -62,7 +62,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T1_C_03"
-  L2 = "SRUAP_Turret_Order3_Test"
+  L2 = "SRUAP_Turret_Order3"
   L3 = TEAM_ORDER
   L4 = 1
   L5 = 1
@@ -97,7 +97,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T2_C_03"
-  L2 = "SRUAP_Turret_Chaos3_Test"
+  L2 = "SRUAP_Turret_Chaos3"
   L3 = TEAM_CHAOS
   L4 = 1
   L5 = 1
@@ -146,7 +146,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T1_C_06"
-  L2 = "SRUAP_Turret_Order3_Test"
+  L2 = "SRUAP_Turret_Order3"
   L3 = TEAM_ORDER
   L4 = 1
   L5 = 2
@@ -167,7 +167,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = SpawnTurret
   L1 = "Turret_T2_L_01"
-  L2 = "SRUAP_Turret_Chaos3_Test"
+  L2 = "SRUAP_Turret_Chaos3"
   L3 = TEAM_CHAOS
   L4 = 1
   L5 = 2

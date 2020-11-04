@@ -1,9 +1,13 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="quinnwpassive"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnwrecentattack"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnrreturntoquinn"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnr"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnpassivetargettracker"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_tar_valor.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_tar_enemy_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnwtimingmissile"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_base_respawn.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnmissileinflight"}}, 
-{Function=BBPreloadParticle, Params={Name="quinn_base_w_cas_passive.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnbasicattacktarget"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnwinflight"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_cas_passive.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnpassiveammo"}}, 
 }

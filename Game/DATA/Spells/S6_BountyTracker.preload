@@ -1,0 +1,17 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="tempbountybuff5enemy"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff4enemy"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff3enemy"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff2enemy"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff1enemy"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff5ally"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff4ally"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff3ally"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff2ally"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff1ally"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff5self"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff4self"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff3self"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff2self"}}, 
+{Function=BBPreloadSpell, Params={Name="tempbountybuff1self"}}, 
+}

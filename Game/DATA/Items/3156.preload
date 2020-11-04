@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="hextech_dmg_shield_onhit_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinker"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinkertimer"}}, 
-{Function=BBPreloadSpell, Params={Name="phasebladebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="mawenrage"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinkertimerundo"}}, 
 {Function=BBPreloadSpell, Params={Name="hexdrinkertimercd"}}, 
 }

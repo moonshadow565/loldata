@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="blessingofthelizardelderforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="crestoftheancientgolemforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="exaltedwithbaronnashorforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="exaltedwithminibaronnashorforclones"}}, 
+}

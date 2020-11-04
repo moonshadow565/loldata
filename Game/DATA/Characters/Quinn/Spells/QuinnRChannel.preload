@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="quinn_base_r_channel.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnrreturntoquinn"}}, 
+}

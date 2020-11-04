@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="lastwhisper"}}, 
+{Function=BBPreloadParticle, Params={Name="executionerscalling_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="grievouswound"}}, 
+}

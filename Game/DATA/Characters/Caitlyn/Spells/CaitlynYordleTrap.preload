@@ -1,10 +1,14 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_idle_green_inbrush.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_idle_red_inbrush.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_idle_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_idle_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_set.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_trigger_02.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="caitlynyordletrapdebuff"}}, 
-{Function=BBPreloadSpell, Params={Name="caitlynyordletrapsight"}}, 
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_trigger_sound.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="caitlyntrap"}}, 
+{Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_trigger_02.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynyordletrapdebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynyordletrapinternal"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynyordletrapprotect"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynyordletrapsight"}}, 
 }

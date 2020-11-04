@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="itemhurricaneattack"}}, 
 {Function=BBPreloadParticle, Params={Name="jinx_base_q_rocket_hurricane_tar_unit.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="jinx_base_q_rocket_hurricane_tar.troy"}}, 
 }

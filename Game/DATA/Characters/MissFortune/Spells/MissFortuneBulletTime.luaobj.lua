@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 2.2
+ChannelDuration = 3
 SpellFXOverrideSkins = {
   "MissFortuneSkin07"
 }

@@ -6,7 +6,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sharedwardbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="trinkettotemlvl1audio"}}, 
 {Function=BBPreloadSpell, Params={Name="relicyellowward"}}, 
-{Function=BBPreloadSpell, Params={Name="itemplacementmissile"}}, 
-{Function=BBPreloadSpell, Params={Name="masteryscoutbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 
+{Function=BBPreloadSpell, Params={Name="masteryscoutbuff"}}, 
 }

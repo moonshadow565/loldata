@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadCharacter, Params={Name="lesserwraith"}}, 
-{Function=BBPreloadSpell, Params={Name="itemwraithcollar"}}, 
+{Function=BBPreloadCharacter, Params={Name="item_twinshadow"}}, 
 {Function=BBPreloadParticle, Params={Name="wraith_trail_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="wraith_trail_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 

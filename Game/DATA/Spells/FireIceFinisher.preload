@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="as_fire_finisher.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="globalnorenderifdead"}}, 
+{Function=BBPreloadParticle, Params={Name="as_ice_finisher.troy"}}, 
+}

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="evadebuffmarker"}}, 
 {Function=BBPreloadParticle, Params={Name="pantheon_base_p_buf.troy"}}, 
 }

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="srhomeguardheal"}}, 
+{Function=BBPreloadSpell, Params={Name="srhomeguardspeed"}}, 
+{Function=BBPreloadSpell, Params={Name="srhomeguardcounter"}}, 
+}

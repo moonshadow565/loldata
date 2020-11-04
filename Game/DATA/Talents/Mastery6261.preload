@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="to_graspoftheundying_ready_handglow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="to_graspoftheundying_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="to_masteryring_flash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="to_graspoftheundying_swirlup.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
+{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+}

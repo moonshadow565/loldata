@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="zileanq"}}, 
 {Function=BBPreloadSpell, Params={Name="heightenedlearning"}}, 
 {Function=BBPreloadSpell, Params={Name="zileanpammo"}}, 
+{Function=BBPreloadSpell, Params={Name="zileanpassivechannel"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_skin05_q_timebombfixgreen.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_skin05_q_timebombfixred.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_timebombfixgreen.troy"}}, 

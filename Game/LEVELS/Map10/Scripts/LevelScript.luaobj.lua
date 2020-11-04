@@ -435,16 +435,15 @@ function OnLevelInit()
   L2_28.GoldRadius = L3_29
 end
 function OnLevelInitServer()
-  local L0_33
-  L0_33 = InitTimer
-  L0_33("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
-  L0_33 = InitTimer
-  L0_33("IncreaseCannonMinionSpawnRate", INCREASE_CANNON_RATE_TIMER, false)
-  L0_33 = InitTimer
-  L0_33("AllowDamageOnBuildings", 10, false)
-  L0_33 = GetMutatorParameterString
-  L0_33 = L0_33("BountyMode")
-  LoadLevelScriptIntoScript(L0_33)
+  InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
+  InitTimer("IncreaseCannonMinionSpawnRate", INCREASE_CANNON_RATE_TIMER, false)
+  InitTimer("AllowDamageOnBuildings", 10, false)
+end
+function OnGameStartup()
+  LuaForEachChampion(TEAM_UNKNOWN, "ApplyBountyTrackerBuff")
+end
+function ApplyBountyTrackerBuff(A0_33)
+  ApplyPersistentBuff(A0_33, "S6_BountyTracker", false, 1, 1)
 end
 function OnPostLevelLoad()
   LoadLevelScriptIntoScript("CreateLevelProps.lua")

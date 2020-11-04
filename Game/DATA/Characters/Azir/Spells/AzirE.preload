@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="azirdummyspell"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_e_selfdusttrail.troy"}}, 
 {Function=BBPreloadModule, Params={Name="Azir.AzirFunctionModule"}}, 
 }

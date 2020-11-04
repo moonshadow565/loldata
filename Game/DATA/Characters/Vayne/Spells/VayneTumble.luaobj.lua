@@ -5,7 +5,3 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Renekton_SliceAndDice.dds"
 BuffName = "VayneTumble"
-AutoBuffActivateEffect = "Global_Haste.troy"
-AutoBuffActivateAttachBoneName = "l_hnd"
-AutoBuffActivateEffect2 = "Global_Haste.troy"
-AutoBuffActivateAttachBoneName2 = "r_hnd"

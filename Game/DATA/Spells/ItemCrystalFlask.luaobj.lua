@@ -1,6 +1,5 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "2041_Crystalline_Flask.dds"
+BuffTextureName = "2031_Refillable_Potion.dds"
 BuffName = "ItemCrystalFlask"
-AutoBuffActivateEffect = "GLOBAL_Item_ManaPotion.troy"
-AutoBuffActivateEffect2 = "GLOBAL_Item_HealthPotion.troy"
+AutoBuffActivateEffect = "GLOBAL_Item_HealthPotion.troy"

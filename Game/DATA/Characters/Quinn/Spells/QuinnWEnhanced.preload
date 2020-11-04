@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="quinnwdamage"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnpassive"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_tar_enhanced.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="quinn_base_w_tar_enhanced_minion.troy"}}, 
 }

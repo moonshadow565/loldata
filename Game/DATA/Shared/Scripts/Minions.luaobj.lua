@@ -32,6 +32,7 @@ function L0_0()
   StopTimer("TimerAntiKite")
   StopTimer("TimerFeared")
   StopTimer("TimerFlee")
+  OnPostInit()
   return false
 end
 OnInit = L0_0

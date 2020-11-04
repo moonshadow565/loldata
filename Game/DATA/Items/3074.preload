@@ -1,3 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="itembloodyhydra"}}, 
+{Function=BBPreloadParticle, Params={Name="tiamatmelee_itm_hydra.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="globalhit_physical.troy"}}, 
 }

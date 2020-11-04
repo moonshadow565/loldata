@@ -1,0 +1,3 @@
+BuffTextureName = "Icon_Mastery_O_Fury_01.dds"
+BuffName = "MasteryOnKillAssister"
+PersistsThroughDeath = true

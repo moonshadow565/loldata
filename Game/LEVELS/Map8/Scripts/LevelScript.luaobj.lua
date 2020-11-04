@@ -441,12 +441,13 @@ function OnLevelInit()
   L0_2.DidPowerGroup = false
 end
 function OnLevelInitServer()
-  local L0_7
-  L0_7 = InitTimer
-  L0_7("AllowDamageOnBuildings", 1, false)
-  L0_7 = GetMutatorParameterString
-  L0_7 = L0_7("BountyMode")
-  LoadLevelScriptIntoScript(L0_7)
+  InitTimer("AllowDamageOnBuildings", 1, false)
+end
+function OnGameStartup()
+  LuaForEachChampion(TEAM_UNKNOWN, "ApplyBountyTrackerBuff")
+end
+function ApplyBountyTrackerBuff(A0_7)
+  ApplyPersistentBuff(A0_7, "S6_BountyTracker", false, 1, 1)
 end
 function OnPostLevelLoad()
   LoadLevelScriptIntoScript("CreateLevelProps.lua")

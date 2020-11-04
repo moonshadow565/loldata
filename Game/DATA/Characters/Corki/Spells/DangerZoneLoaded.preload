@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="corki_base_w_aoe_ground.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_base_w_aoe_ground_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="dangerzoneloadedtarget"}}, 
+{Function=BBPreloadSpell, Params={Name="carpetbomb"}}, 
+{Function=BBPreloadSpell, Params={Name="slow"}}, 
+}

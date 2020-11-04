@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="quinnrtimeoutsupp"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnr"}}, 
-{Function=BBPreloadSpell, Params={Name="itemtiamatlock"}}, 
-}

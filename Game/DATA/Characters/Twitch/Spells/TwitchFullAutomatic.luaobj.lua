@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
 BuffTextureName = "Twitch_R.dds"
 BuffName = "TwitchUlt"
 AutoBuffActivateEffect = "Twitch_Base_R_Weapon_Glow.troy"

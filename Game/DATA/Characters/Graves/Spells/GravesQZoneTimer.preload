@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="graves_base_q_gangplank_base_e_timer2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="graves_base_q_bomb.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="graves_base_q_explosion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gravesqlineprotect"}}, 
+{Function=BBPreloadParticle, Params={Name="graves_base_q_tar.troy"}}, 
+}

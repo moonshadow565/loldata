@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tristana_base_r_tar_adjacent.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_r_tar_dust.troy"}}, 
+}

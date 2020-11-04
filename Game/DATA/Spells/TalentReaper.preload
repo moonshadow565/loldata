@@ -11,4 +11,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="global_item_fom_charge04_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="talentreaperdisplay"}}, 
 {Function=BBPreloadParticle, Params={Name="global_item_fom_execute.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="talentreapermarker"}}, 
 }

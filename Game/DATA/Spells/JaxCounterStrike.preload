@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="evadebuffmarker"}}, 
 {Function=BBPreloadParticle, Params={Name="counterstrike_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="counterstrike_tar.troy"}}, 
 }

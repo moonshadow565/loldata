@@ -1,0 +1,2 @@
+PersistsThroughDeath = true
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
