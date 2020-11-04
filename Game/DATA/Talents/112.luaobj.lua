@@ -7,11 +7,12 @@ UpdateSelfBuffStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxMana",
       OwnerVar = "Target",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {

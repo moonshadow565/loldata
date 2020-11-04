@@ -18,21 +18,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "MagicDamageIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmorMod",
+      RequiredVar = "WillPumpAP",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -70,7 +56,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -81,16 +69,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
       DeltaVar = "BonusHealth",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -123,57 +101,39 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetArea,
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WillPumpAP",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "WillPumpAP",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "FinalHPRegen",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "FinalHPRegen",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetAreaAddBuff,
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
           Range = 850,
           Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-          IteratorVar = "Unit"
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "DamageIncrease",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "MagicDamageIncrease",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "MagicDamageIncrease",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "FinalHPRegen",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "FinalHPRegen",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "BeaconAuraNoParticle",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 1.1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
+          BuffAttackerVar = "Attacker",
+          BuffName = "BeaconAuraNoParticle",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Aura,
+          BuffMaxStack = 1,
+          BuffNumberOfStacks = 1,
+          BuffDuration = 1.1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
     }

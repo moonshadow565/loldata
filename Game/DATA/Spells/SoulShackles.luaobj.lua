@@ -10,6 +10,7 @@ AutoCooldownByLevel = {
   80,
   80
 }
+PopupMessage1 = "game_floatingtext_Slowed"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -50,6 +51,13 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBGetGameTime,
+    Params = {
+      SecondsVar = "ActivateTime",
+      SecondsVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -70,39 +78,60 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBApplyDamage,
+        Function = BBGetGameTime,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Owner",
-          Damage = 0,
-          DamageVar = "BreakDamage",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SecondsVar = "DeactivateTime"
         }
       },
       {
-        Function = BBApplyStun,
+        Function = BBMath,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Owner",
-          Duration = 0,
-          DurationVar = "BreakStun",
-          DurationVarTable = "InstanceVars"
+          Src1Var = "DeactivateTime",
+          Src2Var = "ActivateTime",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TimeElapsed",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "TimeElapsed",
+          Value2 = 4,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Damage = 0,
+              DamageVar = "BreakDamage",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 0,
+              DurationVar = "BreakStun",
+              DurationVarTable = "InstanceVars"
+            }
+          }
         }
       }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Owner",
-      Delta = -0.2
     }
   }
 }
@@ -117,6 +146,32 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "SoulShacklesOwner"
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Broken",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
         Function = BBIf,
         Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
         SubBlocks = {
@@ -126,6 +181,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               DestVar = "Broken",
               DestVarTable = "InstanceVars",
               SrcValue = true
+            }
+          },
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "SoulShackleSlow"
             }
           },
           {
@@ -148,6 +211,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DestVar = "Broken",
                   DestVarTable = "InstanceVars",
                   SrcValue = true
+                }
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "SoulShackleSlow"
                 }
               },
               {
@@ -182,6 +253,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DestVar = "Broken",
                       DestVarTable = "InstanceVars",
                       SrcValue = true
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Attacker",
+                      BuffName = "SoulShackleSlow"
                     }
                   },
                   {
@@ -220,6 +299,23 @@ CanCastBuildingBlocks = {
     }
   }
 }
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SoulShacklesOwner",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -240,9 +336,9 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        1.5,
         2,
-        2.5,
-        3
+        2.5
       }
     }
   },
@@ -259,10 +355,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
+      BuffName = "SoulShackles",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -277,9 +374,43 @@ TargetExecuteBuildingBlocks = {
       DamageVar = "BreakDamage",
       DamageVarTable = "NextBuffVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = -0.2
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Slow",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffType = BUFF_Slow,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }
@@ -289,5 +420,27 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "soulshackle_beam.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshacklesowner"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshackleslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshackles"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

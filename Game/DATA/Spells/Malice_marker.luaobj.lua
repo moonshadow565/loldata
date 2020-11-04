@@ -1,3 +1,5 @@
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 BuffOnDeathBuildingBlocks = {
@@ -65,11 +67,12 @@ BuffOnDeathBuildingBlocks = {
                 }
               },
               {
-                Function = BBGetManaOrHealth,
+                Function = BBGetPAROrHealth,
                 Params = {
                   DestVar = "Temp1",
                   OwnerVar = "Owner",
-                  Function = GetMaxHealth
+                  Function = GetMaxHealth,
+                  PARType = PAR_MANA
                 }
               },
               {
@@ -91,6 +94,22 @@ BuffOnDeathBuildingBlocks = {
                   DeltaVar = "HealthToRestore",
                   HealerVar = "Unit"
                 }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Unit",
+                  EffectName = "evelyn_heal_trigger.troy",
+                  Flags = 0,
+                  EffectIDVar = "b",
+                  TargetObjectVar = "Unit",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = true
+                }
               }
             }
           }
@@ -110,6 +129,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "maliceandspitecancast"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelyn_heal_trigger.troy"
     }
   }
 }

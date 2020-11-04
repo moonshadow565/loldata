@@ -1,38 +1,36 @@
-OnBuffActivateBuildingBlocks = {
+BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "LastWhisper_itm.troy",
-      Flags = 0,
-      EffectIDVar = "ar",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 500,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lastwhisper_itm.troy"
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src1Value = 0,
+                      Src2Value = 500,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

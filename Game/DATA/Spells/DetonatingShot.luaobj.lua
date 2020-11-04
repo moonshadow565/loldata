@@ -58,17 +58,19 @@ BuffOnKillBuildingBlocks = {
               AttackerVar = "Owner",
               TargetVar = "Unit",
               DamageByLevel = {
-                30,
                 50,
-                70,
-                90,
-                110
+                75,
+                100,
+                125,
+                150
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.25
+              SpellDamageRatio = 0.25,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -98,7 +100,7 @@ BuffOnHitUnitBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0.1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -123,7 +125,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DamageAmount",
       DestVarTable = "NextBuffVars",
-      SrcValue = 12.5
+      SrcValue = 25
     }
   },
   {
@@ -135,7 +137,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
@@ -145,7 +147,51 @@ TargetExecuteBuildingBlocks = {
         7,
         8
       },
-      TickRate = 0.5
+      TickRate = 1
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "Internal_50MS",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        4,
+        5,
+        6,
+        7,
+        8
+      },
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "GrievousWound",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        4,
+        5,
+        6,
+        7,
+        8
+      },
+      TickRate = 0
     }
   }
 }
@@ -172,6 +218,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "explosiveshotdebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   }
 }

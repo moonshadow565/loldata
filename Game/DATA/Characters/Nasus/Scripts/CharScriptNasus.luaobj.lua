@@ -52,6 +52,40 @@ UpdateSelfBuffStatsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "DamageBonus",
+          Src2VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageBonus",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "DamageBonus",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
+    }
   }
 }
 CharOnHitUnitBuildingBlocks = {

@@ -2,7 +2,11 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Twitch_Clone.dds"
 BuffName = "Full Automatic"
-AutoBuffActivateEffect = "Enrage_buf.troy"
+AutoBuffActivateEffect = "twitch_ambush_buf.troy"
+AutoBuffActivateAttachBoneName = "R_hand"
+AutoBuffActivateEffect2 = "twitch_ambush_buf.troy"
+AutoBuffActivateAttachBoneName2 = "L_hand"
+AutoBuffActivateEffect3 = "twitch_ambush_buf_02.troy"
 AutoCooldownByLevel = {
   90,
   75,
@@ -20,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -29,7 +33,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatAttackRangeMod,
       TargetVar = "Owner",
-      Delta = 525
+      Delta = 375
     }
   },
   {
@@ -50,9 +54,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.4,
         0.6,
-        1,
-        1.4
+        0.8
       }
     }
   },
@@ -63,7 +67,8 @@ TargetExecuteBuildingBlocks = {
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
       AutoAttackSpellLevel = 0,
-      AutoAttackSpellLevelVar = "Level"
+      AutoAttackSpellLevelVar = "Level",
+      CancelAttack = false
     }
   },
   {
@@ -74,7 +79,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

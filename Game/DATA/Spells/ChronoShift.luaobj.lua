@@ -6,6 +6,8 @@ AutoCooldownByLevel = {
   140,
   120
 }
+PersistsThroughDeath = true
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -41,11 +43,12 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -174,7 +177,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 0,

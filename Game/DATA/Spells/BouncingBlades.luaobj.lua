@@ -64,7 +64,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -103,13 +103,28 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
+          AttackerVar = "Target",
+          BuffName = "Internal_50MS",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffName = "BouncingBladeMS",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffName = "GrievousWound",
+          BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 7,
+          NumberOfStacks = 1,
+          Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -126,16 +141,53 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBApplyDamage,
+        Function = BBGetCastInfo,
+        Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
+      },
+      {
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageVar",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          Src1Var = "TargetNum",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageVar",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageVar",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       },
       {
@@ -147,7 +199,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -179,7 +231,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -198,7 +250,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               Src1Var = "DamageVar",
               Src1Value = 0,
-              Src2Value = 0.25,
+              Src2Value = 0.5,
               DestVar = "DamageVar",
               MathOp = MO_MULTIPLY
             }
@@ -211,9 +263,11 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -231,7 +285,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               Src1Var = "DamageVar",
               Src1Value = 0,
-              Src2Value = 0.4,
+              Src2Value = 0.6,
               DestVar = "DamageVar",
               MathOp = MO_MULTIPLY
             }
@@ -244,9 +298,11 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -256,39 +312,6 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "BBCounter",
           Value2 = 4,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageVar",
-              Src1Value = 0,
-              Src2Value = 0.55,
-              DestVar = "DamageVar",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageVar",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "BBCounter",
-          Value2 = 3,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -310,9 +333,46 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "BBCounter",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src1Value = 0,
+              Src2Value = 0.8,
+              DestVar = "DamageVar",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageVar",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -330,7 +390,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               Src1Var = "DamageVar",
               Src1Value = 0,
-              Src2Value = 0.85,
+              Src2Value = 0.9,
               DestVar = "DamageVar",
               MathOp = MO_MULTIPLY
             }
@@ -343,9 +403,11 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -362,9 +424,11 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageVar",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -388,7 +452,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bouncingbladems"
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   },
   {

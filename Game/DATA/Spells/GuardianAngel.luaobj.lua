@@ -28,8 +28,12 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
-    Params = {TargetVar = "Owner", Delta = -10000}
+    Function = BBIncPAR,
+    Params = {
+      TargetVar = "Owner",
+      Delta = -10000,
+      PARType = PAR_MANA
+    }
   },
   {
     Function = BBSetStatus,
@@ -94,10 +98,6 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetTargetable
     }
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
   },
   {
     Function = BBSpellBuffRemoveType,
@@ -170,30 +170,94 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCooldown",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCooldown2",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentCooldown",
+      Value2 = 4,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 4,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentCooldown2",
+      Value2 = 4,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 4,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMaxHealth",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {
     Function = BBMath,
     Params = {
       Src2Var = "TempMaxHealth",
-      Src1Value = 0.5,
+      Src1Value = 0.4,
       Src2Value = 0,
       DestVar = "HealthNeeded",
       MathOp = MO_MULTIPLY
@@ -220,26 +284,28 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMana",
       OwnerVar = "Owner",
-      Function = GetMana
+      Function = GetPAR,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMaxMana",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
     Function = BBMath,
     Params = {
       Src2Var = "TempMaxMana",
-      Src1Value = 0.5,
+      Src1Value = 0.4,
       Src2Value = 0,
       DestVar = "ManaNeeded",
       MathOp = MO_MULTIPLY
@@ -257,10 +323,11 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaToInc"
     }
   },
@@ -329,6 +396,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "idle1",
@@ -336,6 +407,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       Loop = false
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellEffectCreate,
@@ -370,7 +445,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -451,9 +526,9 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -100
     }

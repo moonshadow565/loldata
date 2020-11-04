@@ -41,11 +41,12 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Health",
       OwnerVar = "Owner",
-      Function = GetHealthPercent
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
     }
   },
   {
@@ -132,11 +133,12 @@ CanCastBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Owner",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {

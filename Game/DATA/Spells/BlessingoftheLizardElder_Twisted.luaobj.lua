@@ -1,6 +1,7 @@
 BuffTextureName = "48thSlave_WaveOfLoathing.dds"
 BuffName = "BlessingoftheLizardElder"
 AutoBuffActivateEffect = ""
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -70,7 +71,7 @@ OnBuffActivateBuildingBlocks = {
           TeamVar = "teamID",
           Radius = 2200,
           PosVar = "ParticlePosition",
-          Duration = 90,
+          Duration = 180,
           SpecificUnitsClientOnlyVar = "Nothing",
           RevealSteath = false,
           BubbleIDVar = "Bubble",
@@ -111,7 +112,7 @@ OnBuffActivateBuildingBlocks = {
           TeamVar = "teamID",
           Radius = 2200,
           PosVar = "ParticlePosition",
-          Duration = 90,
+          Duration = 180,
           SpecificUnitsClientOnlyVar = "Nothing",
           RevealSteath = false,
           BubbleIDVar = "Bubble",
@@ -156,10 +157,63 @@ BuffOnDeathBuildingBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {
+              DestVar = "NewDuration",
+              SrcValue = 90
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
               DestVar = "ParticlePosition",
               DestVarTable = "NextBuffVars",
               SrcVar = "ParticlePosition",
               SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "MonsterBuffs"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "NewDuration",
+                  Src1Value = 1.15,
+                  Src2Value = 0,
+                  DestVar = "NewDuration",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "MonsterBuffs2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.3,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
             }
           },
           {
@@ -171,9 +225,10 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 90,
+              NumberOfStacks = 1,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "NewDuration",
               TickRate = 0
             }
           }
@@ -256,7 +311,7 @@ BuffOnHitUnitBuildingBlocks = {
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Damage,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 1
@@ -324,10 +379,10 @@ BuffOnHitUnitBuildingBlocks = {
                           TargetVar = "Target",
                           AttackerVar = "Attacker",
                           BuffName = "Slow",
-                          BuffAddType = BUFF_RENEW_EXISTING,
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                           BuffType = BUFF_Slow,
-                          MaxStack = 1,
-                          NumberStacks = 1,
+                          MaxStack = 100,
+                          NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -355,6 +410,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "clairvoyanceeyelong.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs2"
     }
   },
   {

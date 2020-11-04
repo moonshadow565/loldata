@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
@@ -54,7 +55,19 @@ OnBuffActivateBuildingBlocks = {
       SpeedVar = "SlashSpeed",
       SpeedVarTable = "InstanceVars",
       Gravity = 0,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell4",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   },
   {
@@ -77,59 +90,14 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "RunUlt", TargetVar = "Owner"}
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "SelfParticle",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillMove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "RunUlt",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillMove",
-          DestVarTable = "InstanceVars",
-          SrcValue = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   }
 }
@@ -167,11 +135,12 @@ CanCastBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Owner",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -334,8 +303,8 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         1.5,
-        2,
-        2.5
+        1.75,
+        2
       }
     }
   },
@@ -347,7 +316,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
@@ -356,15 +325,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 BuffOnMoveEndBuildingBlocks = {
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Attack3",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = false
-    }
-  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -413,9 +373,11 @@ BuffOnMoveEndBuildingBlocks = {
           DamageVar = "Damage",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -425,15 +387,19 @@ BuffOnMoveEndBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "UnstoppableForceStun",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
+          BuffType = BUFF_Stun,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
       }
     }
+  },
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

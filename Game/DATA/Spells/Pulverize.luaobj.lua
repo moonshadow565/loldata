@@ -29,7 +29,10 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "BouncePos",
       Speed = 100,
       Gravity = 20,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 100
     }
   },
   {
@@ -67,9 +70,12 @@ OnBuffDeactivateBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PERIODIC,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -101,7 +107,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 1.5
+      Duration = 1
     }
   }
 }
@@ -155,7 +161,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Stun,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

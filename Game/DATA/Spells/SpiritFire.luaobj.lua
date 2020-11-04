@@ -5,6 +5,58 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_warning.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_warning.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -163,6 +215,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nassus_spiritfire_warning.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

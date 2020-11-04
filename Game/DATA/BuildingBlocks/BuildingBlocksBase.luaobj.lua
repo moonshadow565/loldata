@@ -7,24 +7,28 @@ function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8, L9, L10
   if A0 ~= nil then
     L2 = gCurrentBuildingBlockString
+    A1.___BreakExecution___ = false
     for L6 = L3, L4, L5 do
-      gCurrentBuildingBlockNumber = L6
-      L7 = L2
-      L8 = "."
-      L9 = gCurrentBuildingBlockNumber
-      L7 = L7 .. L8 .. L9
-      gCurrentBuildingBlockString = L7
-      L7 = gCurrentBuildingBlockNumber
-      L7 = A0[L7]
-      gCurrentBuildingBlock = L7
-      L7 = gCurrentBuildingBlock
-      L7 = L7.Function
-      L8 = A1
-      L9 = gCurrentBuildingBlock
-      L9 = L9.Params
-      L10 = gCurrentBuildingBlock
-      L10 = L10.SubBlocks
-      L7(L8, L9, L10)
+      L7 = A1.___BreakExecution___
+      if false == L7 then
+        gCurrentBuildingBlockNumber = L6
+        L7 = L2
+        L8 = "."
+        L9 = gCurrentBuildingBlockNumber
+        L7 = L7 .. L8 .. L9
+        gCurrentBuildingBlockString = L7
+        L7 = gCurrentBuildingBlockNumber
+        L7 = A0[L7]
+        gCurrentBuildingBlock = L7
+        L7 = gCurrentBuildingBlock
+        L7 = L7.Function
+        L8 = A1
+        L9 = gCurrentBuildingBlock
+        L9 = L9.Params
+        L10 = gCurrentBuildingBlock
+        L10 = L10.SubBlocks
+        L7(L8, L9, L10)
+      end
     end
     gCurrentBuildingBlockString = L2
     gCurrentBuildingBlockNumber = L3
@@ -532,6 +536,10 @@ function L0(A0, A1, A2)
   end
 end
 BBIfHasBuff = L0
+function L0(A0, A1)
+  A0.___BreakExecution___ = true
+end
+BBBreakExecution = L0
 function L0(A0, A1, A2)
   local L3, L4, L5, L6, L7, L8
   L5 = A1.OwnerVar
@@ -950,6 +958,28 @@ function L0(A0, A1)
   L3 = A1.TargetVar
   if L3 ~= nil then
     L4 = A1.DestVar
+    L5 = GetSpellBlock
+    L6 = A0[L3]
+    L5 = L5(L6)
+    L2[L4] = L5
+  else
+    L4 = A1.DestVar
+    L5 = GetSpellBlock
+    L5 = L5()
+    L2[L4] = L5
+  end
+end
+BBGetSpellBlock = L0
+function L0(A0, A1)
+  local L2, L3, L4, L5, L6
+  L2 = GetTable
+  L3 = A0
+  L4 = A1.DestVarTable
+  L5 = false
+  L2 = L2(L3, L4, L5)
+  L3 = A1.TargetVar
+  if L3 ~= nil then
+    L4 = A1.DestVar
     L5 = GetTeamID
     L6 = A0[L3]
     L5 = L5(L6)
@@ -1087,6 +1117,17 @@ function L0(A0, A1, A2)
   end
 end
 BBExecutePeriodically = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5, L6
+  L3 = GetTable
+  L4 = A0
+  L5 = A1.TrackTimeVarTable
+  L6 = false
+  L3 = L3(L4, L5, L6)
+  L4 = A1.TrackTimeVar
+  L3[L4] = nil
+end
+BBExecutePeriodicallyReset = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6
   L2 = A1.SrcValue
@@ -1240,7 +1281,7 @@ function L0(A0, A1)
 end
 BBReincarnateHero = L0
 function L0(A0, A1)
-  local L2, L3, L4, L5
+  local L2, L3, L4, L5, L6
   L2 = GetTable
   L3 = A0
   L4 = A1.DestVarTable
@@ -1250,10 +1291,11 @@ function L0(A0, A1)
   L4 = A1.Function
   L5 = A1.OwnerVar
   L5 = A0[L5]
-  L4 = L4(L5)
+  L6 = A1.PARType
+  L4 = L4(L5, L6)
   L2[L3] = L4
 end
-BBGetManaOrHealth = L0
+BBGetPAROrHealth = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8
   L2 = A1.WhomToOrderVar

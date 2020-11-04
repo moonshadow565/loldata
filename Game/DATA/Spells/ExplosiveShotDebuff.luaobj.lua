@@ -4,11 +4,19 @@ AutoBuffActivateEffect = "ExplosiveShot_buf.troy"
 AutoBuffActivateAttachBoneName = "head"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBIncPermanentStat,
+    Function = BBApplyDamage,
     Params = {
-      Stat = IncPermanentPercentHPRegenMod,
+      AttackerVar = "Attacker",
       TargetVar = "Owner",
-      Delta = -0.5
+      Damage = 0,
+      DamageVar = "DamageAmount",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -16,16 +24,6 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "DamageAmount",
       RequiredVarTable = "InstanceVars"
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentPercentHPRegenMod,
-      TargetVar = "Owner",
-      Delta = 0.5
     }
   }
 }
@@ -39,27 +37,11 @@ BuffOnUpdateActionsBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PERIODIC,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.05
-    }
-  }
-}
-BuffOnHealBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Health",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "EffectiveHeal",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetReturnValue,
-    Params = {
-      SrcVar = "EffectiveHeal"
+      SpellDamageRatio = 0.1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

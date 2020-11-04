@@ -42,7 +42,9 @@ TargetExecuteBuildingBlocks = {
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -59,9 +61,11 @@ TargetExecuteBuildingBlocks = {
           Damage = 0,
           DamageVar = "BaseDamage",
           DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

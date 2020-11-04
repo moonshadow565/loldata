@@ -2,23 +2,6 @@ BuffTextureName = "Jester_ManiacalCloak2.dds"
 BuffName = "Deceive"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStealthed
-    }
-  },
-  {
-    Function = BBPushCharacterFade,
-    Params = {
-      TargetVar = "Owner",
-      FadeAmount = 0.2,
-      fadeTime = 0,
-      IDVar = "ID"
-    }
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "CastPos",
@@ -33,43 +16,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DCooldown",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBPushCharacterFade,
+    Params = {
+      TargetVar = "Owner",
+      FadeAmount = 0.2,
+      fadeTime = 0,
+      IDVar = "ID"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Teleported",
       DestVarTable = "InstanceVars",
       SrcValue = false
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatCritChanceMod,
-      TargetVar = "Owner",
-      Delta = 1
     }
   }
 }
@@ -91,15 +58,65 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncPermanentStat,
+    Function = BBSilenceSpellSlot,
     Params = {
-      Stat = IncPermanentFlatCritChanceMod,
+      SpellSlot = 0,
+      SlotType = SpellSlots,
       TargetVar = "Owner",
-      Delta = -1
+      State = false
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentCooldownMod,
+      TargetVar = "Owner",
+      DestVar = "CooldownStat"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "CooldownStat",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "Multiplier",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Multiplier",
+      Src2Var = "DCooldown",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "NewCooldown",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "NewCooldown",
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
     }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatCritChanceMod,
+      TargetVar = "Owner",
+      Delta = 1
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -144,31 +161,34 @@ BuffOnUpdateStatsBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = true
             }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanAttack
-            }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanCast
-            }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanMove
-            }
           }
+        }
+      }
+    }
+  }
+}
+BuffOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {
+      DestVar = "BeingCasted",
+      Info = GetSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BeingCasted",
+      Value2 = "TwoShivPoison",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Deceive"
         }
       }
     }
@@ -191,16 +211,31 @@ BuffOnPreAttackBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "DeceiveCritBonus",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 1,
+      NumberOfStacks = 1,
+      Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 1
+      TickRate = 0
     }
   }
 }
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DCooldown",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        8.5,
+        8.5,
+        8.5,
+        8.5,
+        8.5
+      }
+    }
+  },
   {
     Function = BBSpellEffectCreate,
     Params = {
@@ -238,7 +273,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 575,
+      Value2 = 500,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -250,7 +285,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 575,
+          Distance = 500,
           OffsetAngle = 0,
           PositionVar = "CastPos"
         }
@@ -271,11 +306,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "CritDmgBonus",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.5,
-        -0.3,
-        -0.1,
-        0.1,
-        0.3
+        -0.6,
+        -0.4,
+        -0.2,
+        0,
+        0.2
       }
     }
   },
@@ -285,16 +320,40 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 5.5,
+      NumberOfStacks = 1,
+      Duration = 4.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
+    }
+  },
+  {
+    Function = BBSilenceSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "deceive"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

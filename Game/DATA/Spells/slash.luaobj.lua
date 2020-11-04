@@ -54,14 +54,26 @@ OnBuffActivateBuildingBlocks = {
       SpeedVar = "SlashSpeed",
       SpeedVarTable = "InstanceVars",
       Gravity = 0,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "Spell2", TargetVar = "Owner"}
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBIf,
@@ -166,7 +178,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -185,9 +197,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DamageVar = "Damage",
                   DamageVarTable = "InstanceVars",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 1
+                  SpellDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = true
                 }
               },
               {
@@ -239,15 +253,6 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
-        }
-      },
-      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "WillMove",
@@ -279,11 +284,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        30,
+        40,
+        50,
         60,
-        90,
-        120,
-        150
+        70,
+        80
       }
     }
   },
@@ -311,11 +316,12 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Temp1",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -373,14 +379,42 @@ SelfExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Damage",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        110,
-        160,
-        210,
-        270,
-        330
+        40,
+        90,
+        140,
+        185,
+        240
       }
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalDamage",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "damageMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "damageMod",
+      Src2Var = "Damage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "Damage",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
     }
   },
   {
@@ -466,12 +500,18 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0
     }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

@@ -12,19 +12,19 @@ UpdateSelfBuffStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatMPPoolMod,
+      Stat = IncFlatMagicDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusMana",
+      DeltaVar = "BonusAbilityPower",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARPoolMod,
     Params = {
-      Stat = IncFlatMagicDamageMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
-      DeltaVar = "BonusAbilityPower",
+      DeltaVar = "BonusMana",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -46,7 +46,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Src1Var = "BonusHealth",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 20,
+          Src2Value = 18,
           DestVar = "BonusHealth",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
@@ -82,7 +82,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Src1Var = "BonusHealth",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 300,
+          Src2Value = 270,
           DestVar = "BonusHealth",
           DestVarTable = "InstanceVars",
           MathOp = MO_MIN

@@ -4,7 +4,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Owner",
-      Delta = -250
+      Delta = -150
     }
   },
   {
@@ -12,14 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = -250
-    }
-  },
-  {
-    Function = BBDebugSay,
-    Params = {
-      OwnerVar = "Owner",
-      ToSay = "Backdoor Bonus Activated"
+      Delta = -150
     }
   }
 }
@@ -29,7 +22,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 250
+      Delta = 150
     }
   },
   {
@@ -37,7 +30,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = 250
+      Delta = 150
     }
   }
 }

@@ -591,7 +591,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 0
+  L0.GroupDelaySpawnTime = 15
   L3 = PredefinedCamps
   L3 = L3[5]
   L1[1] = L2
@@ -614,7 +614,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 0
+  L0.GroupDelaySpawnTime = 15
   L3 = PredefinedCamps
   L3 = L3[2]
   L1[1] = L2
@@ -630,14 +630,14 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 0
+  L0.GroupsRespawnTime = 360
+  L0.GroupDelaySpawnTime = 50
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 0
+  L0.GroupDelaySpawnTime = 15
   L3 = PredefinedCamps
   L3 = L3[2]
   L1[1] = L2
@@ -660,7 +660,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 0
+  L0.GroupDelaySpawnTime = 15
   L3 = PredefinedCamps
   L3 = L3[5]
   L1[1] = L2
@@ -677,7 +677,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 420
-  L0.GroupDelaySpawnTime = 380
+  L0.GroupDelaySpawnTime = 800
 end
 NeutralMinionInit = L0
 function L0(A0)

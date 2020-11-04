@@ -27,6 +27,68 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCooldown",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCooldown2",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentCooldown",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 3,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentCooldown2",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 3,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "Death",
@@ -98,10 +160,6 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetTargetable
     }
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
   },
   {
     Function = BBSpellBuffRemoveType,
@@ -260,15 +318,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "idle1",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = false
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -283,6 +332,23 @@ OnBuffDeactivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "idle1",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false
+    }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

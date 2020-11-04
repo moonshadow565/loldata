@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = true
 BuffTextureName = "Sion_DeathsCaress.dds"
 BuffName = "Death's Caress"
 AutoBuffActivateEffect = "DeathsCaress_buf.troy"
@@ -17,6 +20,16 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "FinalArmorAmount",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DeathsCaress",
+      TargetVar = "Owner"
     }
   },
   {
@@ -54,7 +67,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
@@ -113,7 +126,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageVar = "FinalArmorAmount",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_DEFAULT,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
@@ -122,6 +135,16 @@ OnBuffDeactivateBuildingBlocks = {
           }
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DeathsCaressFull",
+      TargetVar = "Owner"
     }
   },
   {
@@ -164,7 +187,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
@@ -325,6 +348,12 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deathscaress"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "deathscaress_nova.prt"
@@ -333,7 +362,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "deathscaress"
+      Name = "deathscaressfull"
     }
   }
 }

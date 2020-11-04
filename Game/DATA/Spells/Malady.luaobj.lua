@@ -21,11 +21,7 @@ BuffOnHitUnitBuildingBlocks = {
             SubBlocks = {
               {
                 Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-              },
-              {
-                Function = BBElse,
-                Params = {},
+                Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
                 SubBlocks = {
                   {
                     Function = BBSpellBuffAdd,
@@ -49,7 +45,7 @@ BuffOnHitUnitBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "MaladySpell",
                       BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_CombatDehancer,
+                      BuffType = BUFF_Internal,
                       MaxStack = 1,
                       NumberStacks = 1,
                       Duration = 8,

@@ -19,6 +19,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -82,37 +89,54 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "StunDuration",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "StunDuration",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "Owner",
-      Range = 500,
+      CenterVar = "TargetPos",
+      Range = 800,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "StunDuration",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "StunDuration",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
-          AttackerVar = "Owner",
+          AttackerVar = "Attacker",
           BuffName = "RevileMarker",
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0.2
+          TickRate = 0.25
         }
       }
     }
@@ -235,6 +259,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -242,11 +267,19 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "Owner",
-      Range = 455,
+      CenterVar = "TargetPos",
+      Range = 800,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -255,7 +288,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIfNotHasBuff,
         Params = {
           OwnerVar = "Unit",
-          CasterVar = "Owner",
+          CasterVar = "Attacker",
           BuffName = "RevileMarker"
         },
         SubBlocks = {
@@ -263,7 +296,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBIfNotHasBuff,
             Params = {
               OwnerVar = "Unit",
-              CasterVar = "Owner",
+              CasterVar = "Attacker",
               BuffName = "RevilePrevent"
             },
             SubBlocks = {
@@ -287,19 +320,28 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               },
               {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "TargetPos",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "TargetPos",
+                  SrcVarTable = "InstanceVars"
+                }
+              },
+              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Unit",
-                  AttackerVar = "Owner",
+                  AttackerVar = "Attacker",
                   BuffName = "RevileMarker",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 0,
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "Duration",
-                  TickRate = 0.2
+                  TickRate = 0.25
                 }
               }
             }
@@ -313,6 +355,14 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
+    }
   },
   {
     Function = BBGetTeamID,
@@ -359,14 +409,14 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Other3",
-      AttackerVar = "Attacker",
+      AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0.1
     }
   }
 }

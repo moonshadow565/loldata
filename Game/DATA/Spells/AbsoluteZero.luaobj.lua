@@ -119,7 +119,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 525,
+      Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -151,7 +151,7 @@ OnBuffActivateBuildingBlocks = {
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_Slow,
           MaxStack = 10,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -199,7 +199,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 525,
+          Range = 575,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit"
         },
@@ -227,11 +227,11 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "AbsoluteZero_Slow",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              BuffName = "Chilled",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
-              MaxStack = 10,
-              NumberStacks = 1,
+              MaxStack = 100,
+              NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -269,9 +269,9 @@ ChannelingStartBuildingBlocks = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.15,
-        -0.15,
-        -0.15
+        -0.25,
+        -0.25,
+        -0.25
       }
     }
   },
@@ -283,7 +283,7 @@ ChannelingStartBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 10,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -334,15 +334,18 @@ ChannelingSuccessStopBuildingBlocks = {
           AttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
-            400,
-            600,
-            800
+            625,
+            875,
+            1125
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 2.5
+          SpellDamageRatio = 2.5,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -354,9 +357,9 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       DestVar = "SecondDamage",
       SrcValueByLevel = {
-        400,
-        600,
-        800
+        625,
+        875,
+        1125
       }
     }
   },
@@ -364,7 +367,7 @@ ChannelingCancelStopBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "LifeTime",
-      Src2VarTable = "InstanceVars",
+      Src2VarTable = "CharVars",
       Src1Value = 0.25,
       Src2Value = 0,
       DestVar = "TotalTime",
@@ -409,10 +412,13 @@ ChannelingCancelStopBuildingBlocks = {
           Damage = 0,
           DamageVar = "SecondDamage",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 0,
           PercentOfAttackVar = "TotalTime",
-          SpellDamageRatio = 2.5
+          SpellDamageRatio = 2.5,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -444,6 +450,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "absolutezero_slow"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "chilled"}
   },
   {
     Function = BBPreloadSpell,

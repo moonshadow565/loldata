@@ -3,10 +3,12 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = false
 BuffTextureName = "Evelynn_Drink.dds"
 BuffName = "Malice And Spite"
-AutoBuffActivateEffect = "Malice_buf.troy"
+AutoBuffActivateEffect = "evelyn_maliceSpite_buf.troy"
 AutoBuffActivateAttachBoneName = "l_hand"
-AutoBuffActivateEffect2 = "Malice_buf.troy"
+AutoBuffActivateEffect2 = "evelyn_maliceSpite_buf.troy"
 AutoBuffActivateAttachBoneName2 = "r_hand"
+AutoBuffActivateEffect3 = "evelyn_maliceSpite_speed_buf.troy"
+AutoBuffActivateAttachBoneName3 = ""
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

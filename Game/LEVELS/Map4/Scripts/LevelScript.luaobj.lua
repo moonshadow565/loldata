@@ -33,19 +33,19 @@ L0_0 = 0
 MINION_HEALTH_DENIAL_PERCENT = L0_0
 L0_0 = 64
 MELEE_EXP_GIVEN = L0_0
-L0_0 = 22
+L0_0 = 26
 MELEE_GOLD_GIVEN = L0_0
 L0_0 = 32
 ARCHER_EXP_GIVEN = L0_0
-L0_0 = 17
+L0_0 = 19
 ARCHER_GOLD_GIVEN = L0_0
 L0_0 = 100
 CASTER_EXP_GIVEN = L0_0
-L0_0 = 30
+L0_0 = 32
 CASTER_GOLD_GIVEN = L0_0
 L0_0 = 100
 SUPER_EXP_GIVEN = L0_0
-L0_0 = 30
+L0_0 = 32
 SUPER_GOLD_GIVEN = L0_0
 L0_0 = 20
 MELEE_HEALTH_UPGRADE = L0_0
@@ -53,24 +53,36 @@ L0_0 = 1
 MELEE_DAMAGE_UPGRADE = L0_0
 L0_0 = 0.5
 MELEE_GOLD_UPGRADE = L0_0
-L0_0 = 4
+L0_0 = 5
 MELEE_EXP_UPGRADE = L0_0
+L0_0 = 2
+MELEE_ARMOR_UPGRADE = L0_0
+L0_0 = 0.5
+MELEE_MR_UPGRADE = L0_0
 L0_0 = 15
 ARCHER_HEALTH_UPGRADE = L0_0
 L0_0 = 2
 ARCHER_DAMAGE_UPGRADE = L0_0
 L0_0 = 0.5
 ARCHER_GOLD_UPGRADE = L0_0
-L0_0 = 2
+L0_0 = 3
 ARCHER_EXP_UPGRADE = L0_0
-L0_0 = 25
+L0_0 = 0.5
+ARCHER_ARMOR_UPGRADE = L0_0
+L0_0 = 2
+ARCHER_MR_UPGRADE = L0_0
+L0_0 = 27
 CASTER_HEALTH_UPGRADE = L0_0
 L0_0 = 3
 CASTER_DAMAGE_UPGRADE = L0_0
 L0_0 = 1
 CASTER_GOLD_UPGRADE = L0_0
-L0_0 = 6
+L0_0 = 7
 CASTER_EXP_UPGRADE = L0_0
+L0_0 = 2
+CASTER_ARMOR_UPGRADE = L0_0
+L0_0 = 2
+CASTER_MR_UPGRADE = L0_0
 L0_0 = 66
 SUPER_HEALTH_UPGRADE = L0_0
 L0_0 = 2
@@ -79,6 +91,10 @@ L0_0 = 0
 SUPER_GOLD_UPGRADE = L0_0
 L0_0 = 0
 SUPER_EXP_UPGRADE = L0_0
+L0_0 = 0
+SUPER_ARMOR_UPGRADE = L0_0
+L0_0 = 0
+SUPER_MR_UPGRADE = L0_0
 L0_0 = 10
 MAXIMUM_MELEE_GOLD_BONUS = L0_0
 L0_0 = 10
@@ -185,8 +201,8 @@ L0_0.CasterExpBonus = 0
 L0_0.CasterExpGiven = CASTER_EXP_GIVEN
 L0_0.SuperMinionArmor = 0
 L0_0.SuperMinionMagicResistance = 0
-L0_0.SuperHPBonus = -500
-L0_0.SuperDamageBonus = -60
+L0_0.SuperHPBonus = -300
+L0_0.SuperDamageBonus = -40
 L0_0.SuperGoldBonus = 0
 L0_0.SuperExpBonus = 0
 L0_0.SuperExpGiven = SUPER_EXP_GIVEN
@@ -474,6 +490,7 @@ function L0_0()
   L0_3(L1_4)
   L0_3(L1_4)
   L0_3(L1_4)
+  L0_3(L1_4)
   L4_7 = L1_4()
   L0_3(L1_4, L2_5, L3_6, L4_7, L1_4())
   L0_3(L1_4)
@@ -530,6 +547,22 @@ function L0_0()
     L6_15 = MELEE_GOLD_UPGRADE
     L5_14 = L5_14 + L6_15
     L4_13.MeleeGoldBonus = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.MeleeMinionArmor
+    L6_15 = MELEE_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.MeleeMinionArmor = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.MeleeMinionMagicResistance
+    L6_15 = MELEE_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.MeleeMinionMagicResistance = L5_14
     L4_13 = OrderBarracksBonuses
     L4_13 = L4_13[L3_12]
     L4_13 = L4_13.MeleeGoldBonus
@@ -590,6 +623,22 @@ function L0_0()
     L4_13.ArcherGoldBonus = L5_14
     L4_13 = OrderBarracksBonuses
     L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.ArcherMinionArmor
+    L6_15 = ARCHER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.ArcherMinionArmor = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.ArcherMinionMagicResistance
+    L6_15 = ARCHER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.ArcherMinionMagicResistance = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
     L4_13 = L4_13.ArcherGoldBonus
     L5_14 = MAXIMUM_ARCHER_GOLD_BONUS
     if L4_13 > L5_14 then
@@ -648,6 +697,22 @@ function L0_0()
     L4_13.CasterGoldBonus = L5_14
     L4_13 = OrderBarracksBonuses
     L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.CasterMinionArmor
+    L6_15 = CASTER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.CasterMinionArmor = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.CasterMinionMagicResistance
+    L6_15 = CASTER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.CasterMinionMagicResistance = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
     L4_13 = L4_13.CasterGoldBonus
     L5_14 = MAXIMUM_CASTER_GOLD_BONUS
     if L4_13 > L5_14 then
@@ -704,6 +769,22 @@ function L0_0()
     L6_15 = SUPER_GOLD_UPGRADE
     L5_14 = L5_14 + L6_15
     L4_13.SuperGoldBonus = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.SuperMinionArmor
+    L6_15 = SUPER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.SuperMinionArmor = L5_14
+    L4_13 = OrderBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = OrderBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.SuperMinionMagicResistance
+    L6_15 = SUPER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.SuperMinionMagicResistance = L5_14
     L4_13 = OrderBarracksBonuses
     L4_13 = L4_13[L3_12]
     L4_13 = L4_13.SuperGoldBonus
@@ -764,6 +845,22 @@ function L0_0()
     L4_13.MeleeGoldBonus = L5_14
     L4_13 = ChaosBarracksBonuses
     L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.MeleeMinionArmor
+    L6_15 = MELEE_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.MeleeMinionArmor = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.MeleeMinionMagicResistance
+    L6_15 = MELEE_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.MeleeMinionMagicResistance = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
     L4_13 = L4_13.MeleeGoldBonus
     L5_14 = MAXIMUM_MELEE_GOLD_BONUS
     if L4_13 > L5_14 then
@@ -820,6 +917,22 @@ function L0_0()
     L6_15 = ARCHER_GOLD_UPGRADE
     L5_14 = L5_14 + L6_15
     L4_13.ArcherGoldBonus = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.ArcherMinionArmor
+    L6_15 = ARCHER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.ArcherMinionArmor = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.ArcherMinionMagicResistance
+    L6_15 = ARCHER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.ArcherMinionMagicResistance = L5_14
     L4_13 = ChaosBarracksBonuses
     L4_13 = L4_13[L3_12]
     L4_13 = L4_13.ArcherGoldBonus
@@ -880,6 +993,22 @@ function L0_0()
     L4_13.CasterGoldBonus = L5_14
     L4_13 = ChaosBarracksBonuses
     L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.CasterMinionArmor
+    L6_15 = CASTER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.CasterMinionArmor = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.CasterMinionMagicResistance
+    L6_15 = CASTER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.CasterMinionMagicResistance = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
     L4_13 = L4_13.CasterGoldBonus
     L5_14 = MAXIMUM_CASTER_GOLD_BONUS
     if L4_13 > L5_14 then
@@ -936,6 +1065,22 @@ function L0_0()
     L6_15 = SUPER_GOLD_UPGRADE
     L5_14 = L5_14 + L6_15
     L4_13.SuperGoldBonus = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.SuperMinionArmor
+    L6_15 = SUPER_ARMOR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.SuperMinionArmor = L5_14
+    L4_13 = ChaosBarracksBonuses
+    L4_13 = L4_13[L3_12]
+    L5_14 = ChaosBarracksBonuses
+    L5_14 = L5_14[L3_12]
+    L5_14 = L5_14.SuperMinionMagicResistance
+    L6_15 = SUPER_MR_UPGRADE
+    L5_14 = L5_14 + L6_15
+    L4_13.SuperMinionMagicResistance = L5_14
     L4_13 = ChaosBarracksBonuses
     L4_13 = L4_13[L3_12]
     L4_13 = L4_13.SuperGoldBonus
@@ -1232,25 +1377,10 @@ function L0_0(A0_27, A1_28, A2_29)
         L4_31 = HQ_TOWER2
         if A2_29 == L4_31 then
           L3_30.HQTower2 = false
-          L4_31 = L3_30.HQTower1
-          if L4_31 == false then
-            L4_31 = GetHQ
-            L4_31 = L4_31(A0_27)
-            SetInvulnerable(L4_31, false)
-            SetTargetable(L4_31, true)
-          end
-        else
-          L4_31 = HQ_TOWER1
-          if A2_29 == L4_31 then
-            L3_30.HQTower1 = false
-            L4_31 = L3_30.HQTower2
-            if L4_31 == false then
-              L4_31 = GetHQ
-              L4_31 = L4_31(A0_27)
-              SetInvulnerable(L4_31, false)
-              SetTargetable(L4_31, true)
-            end
-          end
+          L4_31 = GetHQ
+          L4_31 = L4_31(A0_27)
+          SetInvulnerable(L4_31, false)
+          SetTargetable(L4_31, true)
         end
       end
     end
@@ -1879,7 +2009,7 @@ BarrackReactiveEvent = L0_0
 L0_0 = 0
 DisactivatedCounter = L0_0
 function L0_0(A0_62)
-  local L1_63, L2_64, L3_65, L4_66, L5_67, L6_68
+  local L1_63, L2_64, L3_65, L4_66, L5_67
   HQType = L1_63
   if L1_63 ~= L2_64 then
   elseif L1_63 == L2_64 then
@@ -1901,18 +2031,10 @@ function L0_0(A0_62)
     DisactivatedCounter = L1_63
     for L4_66 = RIGHT_LANE, LEFT_LANE do
       L5_67 = GetTurret
-      L6_68 = barrackTeam
-      L5_67 = L5_67(L6_68, L4_66, HQ_TOWER1)
-      L6_68 = GetTurret
-      L6_68 = L6_68(barrackTeam, L4_66, HQ_TOWER2)
+      L5_67 = L5_67(barrackTeam, L4_66, HQ_TOWER2)
       if L5_67 ~= Nil then
         SetInvulnerable(L5_67, false)
         SetTargetable(L5_67, true)
-      else
-      end
-      if L6_68 ~= Nil then
-        SetInvulnerable(L6_68, false)
-        SetTargetable(L6_68, true)
       else
       end
     end
@@ -1927,31 +2049,19 @@ function L0_0(A0_62)
     L4_66 = A0_62
     L4_66 = DeactivateCorrectStructure
     L5_67 = L1_63
-    L6_68 = L2_64
-    L4_66(L5_67, L6_68, L3_65)
+    L4_66(L5_67, L2_64, L3_65)
     return
   end
   if L1_63 > -1 then
     L4_66 = TEAM_CHAOS
     L5_67 = TEAM_CHAOS
     L5_67 = L1_63 % L5_67
-    L6_68 = RIGHT_LANE
-    if L5_67 >= L6_68 then
-      L6_68 = LEFT_LANE
-      if L5_67 <= L6_68 then
-        L6_68 = ChaosBarracksBonuses
-        L6_68 = ChaosBuildingStatus
-        L6_68 = L6_68[L5_67 + 1]
-        L6_68.Barracks = false
-      end
+    if L5_67 >= RIGHT_LANE and L5_67 <= LEFT_LANE then
+      ChaosBuildingStatus[L5_67 + 1].Barracks = false
     else
-      L6_68 = TEAM_ORDER
-      L5_67 = L5_67 - L6_68
+      L5_67 = L5_67 - TEAM_ORDER
       L4_66 = TEAM_ORDER
-      L6_68 = OrderBarracksBonuses
-      L6_68 = OrderBuildingStatus
-      L6_68 = L6_68[L5_67 + 1]
-      L6_68.Barracks = false
+      OrderBuildingStatus[L5_67 + 1].Barracks = false
     end
   else
     L2_64(L3_65)

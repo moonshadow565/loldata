@@ -19,7 +19,8 @@ OnBuffActivateBuildingBlocks = {
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
       AutoAttackSpellLevel = 0,
-      AutoAttackSpellLevelVar = "Level"
+      AutoAttackSpellLevelVar = "Level",
+      CancelAttack = false
     }
   },
   {
@@ -46,7 +47,8 @@ OnBuffDeactivateBuildingBlocks = {
           SpellSlot = 1,
           SlotType = ExtraSlots,
           OwnerVar = "Owner",
-          AutoAttackSpellLevel = 1
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
         }
       }
     }
@@ -57,7 +59,7 @@ OnBuffDeactivateBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner"}
+        Params = {OwnerVar = "Owner", CancelAttack = false}
       }
     }
   }
@@ -83,40 +85,20 @@ BuffOnHitUnitBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellBuffRemove,
         Params = {
-          Src1Var = "HitResult",
-          Value2 = HIT_Dodge,
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "HitResult",
-              Value2 = HIT_Miss,
-              CompareOp = CO_NOT_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "RelentlessAssaultMarker"
-                }
-              },
-              {
-                Function = BBSpellBuffRemoveStacks,
-                Params = {
-                  TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
-                  BuffName = "RelentlessAssaultDebuff",
-                  NumStacks = 0
-                }
-              }
-            }
-          }
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "RelentlessAssaultMarker"
+        }
+      },
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "RelentlessAssaultDebuff",
+          NumStacks = 0
         }
       }
     }

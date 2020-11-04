@@ -1,10 +1,11 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "PercentMana",
       OwnerVar = "Owner",
-      Function = GetManaPercent
+      Function = GetPARPercent,
+      PARType = PAR_MANA
     }
   },
   {
@@ -18,9 +19,9 @@ UpdateSelfBuffStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncPercentPARRegenMod,
     Params = {
-      Stat = IncPercentMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "PercentMissing",
       Delta = 0

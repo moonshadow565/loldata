@@ -16,14 +16,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "AttackSpeedMod",
+      RequiredVar = "DamageMod",
       RequiredVarTable = "InstanceVars"
     }
   },
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "CriticalChanceMod",
+      RequiredVar = "CritDamageMod",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -39,11 +39,11 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "Count",
-      Src2Var = "AttackSpeedMod",
+      Src2Var = "DamageMod",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "TotalAttackSpeed",
+      DestVar = "TotalDamage",
       MathOp = MO_MULTIPLY
     }
   },
@@ -51,31 +51,21 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "Count",
-      Src2Var = "CriticalChanceMod",
+      Src2Var = "CritDamageMod",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "TotalCritChance",
+      DestVar = "TotalCritDamage",
       MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src2Var = "TotalAttackSpeed",
+      Src2Var = "TotalCritDamage",
       Src1Value = 100,
       Src2Value = 0,
-      DestVar = "TotalAttackSpeed",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "TotalCritChance",
-      Src1Value = 100,
-      Src2Value = 0,
-      DestVar = "TotalCritChance",
+      DestVar = "TotalCritDamage",
       MathOp = MO_MULTIPLY
     }
   },
@@ -83,7 +73,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetBuffToolTipVar,
     Params = {
       Value = 0,
-      ValueVar = "TotalAttackSpeed",
+      ValueVar = "TotalDamage",
       Index = 1
     }
   },
@@ -91,7 +81,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetBuffToolTipVar,
     Params = {
       Value = 0,
-      ValueVar = "TotalCritChance",
+      ValueVar = "TotalCritDamage",
       Index = 2
     }
   }
@@ -100,9 +90,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentAttackSpeedMod,
+      Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
+      DeltaVar = "DamageMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -110,9 +100,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatCritChanceMod,
+      Stat = IncFlatCritDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "CriticalChanceMod",
+      DeltaVar = "CritDamageMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -128,33 +118,27 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Value = 0,
-      Src2Value = 65,
-      DestVar = "HealthToRestore",
-      MathOp = MO_ADD
+      DestVar = "HealthPerStack",
+      SrcValueByLevel = {
+        10,
+        20,
+        30,
+        40,
+        50
+      }
     }
   },
   {
     Function = BBMath,
     Params = {
       Src1Var = "Count",
-      Src1Value = 0,
-      Src2Value = 65,
-      DestVar = "HealthToRestoreM",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthToRestore",
-      Src2Var = "HealthToRestoreM",
+      Src2Var = "HealthPerStack",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "HealthToRestore",
-      MathOp = MO_ADD
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -168,21 +152,10 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "SpellPower",
-      Src1Value = 0,
-      Src2Value = 0.2,
-      DestVar = "SpellPowerEach",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SpellPowerEach",
-      Src2Var = "Count",
-      Src1Value = 0,
+      Src2Var = "SpellPower",
+      Src1Value = 1.5,
       Src2Value = 0,
-      DestVar = "BonusHeals",
+      DestVar = "AbilityPowerMod",
       MathOp = MO_MULTIPLY
     }
   },
@@ -190,7 +163,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "HealthToRestore",
-      Src2Var = "BonusHeals",
+      Src2Var = "AbilityPowerMod",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "HealthToRestore",

@@ -18,9 +18,9 @@ UpdateSelfBuffStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "ManaMod",
       Delta = 0

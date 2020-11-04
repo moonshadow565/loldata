@@ -687,6 +687,63 @@ TargetExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "SkinName",
+      Value2 = "JackintheBox",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "SlotName",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellName
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "SlotName",
+          Value2 = "SummonerPromote",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 1,
+              SpellbookType = SPELLBOOK_SUMMONER,
+              SlotType = SpellSlots,
+              SpellSlotValue = 0,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 1,
+              SpellbookType = SPELLBOOK_SUMMONER,
+              SlotType = SpellSlots,
+              SpellSlotValue = 1,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "SkinName",
       Value2 = "H28GEvolutionTurret",
       CompareOp = CO_EQUAL
     },

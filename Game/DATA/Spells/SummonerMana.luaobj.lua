@@ -25,7 +25,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 240,
+          Src1Value = 180,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -82,7 +82,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
-      Src2Value = 25,
+      Src2Value = 30,
       DestVar = "BonusMana",
       MathOp = MO_MULTIPLY
     }
@@ -92,7 +92,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "BonusMana",
       Src1Value = 0,
-      Src2Value = 100,
+      Src2Value = 160,
       DestVar = "TotalMana",
       MathOp = MO_ADD
     }
@@ -162,10 +162,11 @@ SelfExecuteBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Unit",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "TotalMana"
             }
           }
@@ -176,10 +177,11 @@ SelfExecuteBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Unit",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "SecondaryMana"
             }
           }

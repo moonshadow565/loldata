@@ -91,24 +91,12 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.25,
-        0.5,
-        0.75
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.35,
-        0.35,
-        0.35
+        0.25,
+        0.25,
+        0.25
       }
     }
   },
@@ -121,6 +109,18 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.25,
+            0.45,
+            0.65
+          }
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
@@ -128,7 +128,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Haste,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
@@ -146,6 +146,18 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.125,
+            0.225,
+            0.325
+          }
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
@@ -154,13 +166,13 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Haste,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
-            18,
-            18,
-            18
+            15,
+            15,
+            15
           },
           TickRate = 0
         }

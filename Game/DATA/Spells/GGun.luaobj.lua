@@ -11,15 +11,6 @@ AutoCooldownByLevel = {
   4
 }
 TriggersSpellCasts = true
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "GatlingEffect",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,

@@ -120,19 +120,6 @@ BuffOnSpellCastBuildingBlocks = {
           {
             Function = BBFaceDirection,
             Params = {TargetVar = "Caster", LocationVar = "Pos"}
-          },
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Caster",
-              TargetVar = "Caster",
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = false,
-              UseAutoAttackSpell = false
-            }
           }
         }
       },
@@ -156,19 +143,6 @@ BuffOnSpellCastBuildingBlocks = {
           {
             Function = BBFaceDirection,
             Params = {TargetVar = "Caster", LocationVar = "Pos"}
-          },
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Caster",
-              TargetVar = "Caster",
-              SlotNumber = 1,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = false,
-              UseAutoAttackSpell = false
-            }
           }
         }
       },

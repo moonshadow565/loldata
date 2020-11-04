@@ -113,6 +113,37 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "AttackDamage"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BonusDamage",
+      SrcValueByLevel = {
+        20,
+        25,
+        30,
+        35,
+        40
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AttackDamage",
+      Src2Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "RedCardDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
@@ -154,11 +185,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.4,
-        -0.4,
-        -0.4,
-        -0.4,
-        -0.4
+        0,
+        0,
+        0,
+        0,
+        0
       }
     }
   },
@@ -169,7 +200,8 @@ BuffOnHitUnitBuildingBlocks = {
       CenterVar = "Target",
       Range = 275,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -182,11 +214,12 @@ BuffOnHitUnitBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "Slow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 1,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -197,17 +230,21 @@ BuffOnHitUnitBuildingBlocks = {
           AttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
-            25,
-            50,
-            75,
-            100,
-            125
+            0,
+            0,
+            0,
+            0,
+            0
           },
           Damage = 0,
+          DamageVar = "RedCardDamage",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -218,6 +255,16 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "WillRemove",
       DestVarTable = "InstanceVars",
       SrcValue = true
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_MULTIPLY
     }
   }
 }

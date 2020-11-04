@@ -1,44 +1,36 @@
-ItemOnHitUnitBuildingBlocks = {
+UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 9,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO}
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBMath,
-                    Params = {
-                      Src1Var = "DamageAmount",
-                      Src1Value = 0,
-                      Src2Value = 500,
-                      DestVar = "DamageAmount",
-                      MathOp = MO_ADD
-                    }
-                  }
-                }
-              }
-            }
-          }
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MadredsRazors",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "madredsrazors"
     }
   }
 }

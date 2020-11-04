@@ -1,6 +1,8 @@
 BuffTextureName = "Cardmaster_SealFate.dds"
 BuffName = "Second Sight"
 AutoBuffActivateEffect = ""
+PersistsThroughDeath = true
+Nondispellable = true
 UpdateBuffsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -23,43 +25,9 @@ UpdateBuffsBuildingBlocks = {
     }
   }
 }
-OnBuffActivateBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "CritChanceMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "CritChanceMod",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 100,
-      Src2Value = 0,
-      DestVar = "TooltipCritChance",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "TooltipCritChance",
-      Index = 1
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatCritChanceMod,
-      TargetVar = "Owner",
-      DeltaVar = "CritChanceMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
+    Function = BBIncGold,
+    Params = {TargetVar = "Owner", Delta = 2}
   }
 }

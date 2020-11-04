@@ -74,7 +74,7 @@ BuffOnDealDamageBuildingBlocks = {
 }
 BuffOnKillBuildingBlocks = {
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,
@@ -101,11 +101,12 @@ BuffOnKillBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Mana",
       OwnerVar = "Target",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -113,8 +114,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "TotalDamage",
       SrcValueByLevel = {
-        100,
-        250,
+        200,
+        300,
         400
       }
     }

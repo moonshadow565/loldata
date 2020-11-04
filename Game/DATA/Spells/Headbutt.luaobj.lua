@@ -20,6 +20,16 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation"
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
@@ -36,25 +46,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVar = "Distance",
           ObjectVar1 = "Owner",
           ObjectVar2 = "Attacker"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 650,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "Spell2",
-              ScaleTime = 1,
-              TargetVar = "Owner",
-              Loop = false
-            }
-          }
         }
       },
       {
@@ -86,9 +77,12 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "Damage",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_DEFAULT,
+              SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1
+              SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -108,7 +102,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Stun,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -154,10 +148,83 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Attacker",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Distance",
+      Src1Value = 420,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 600,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.45,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.75,
+      Src2Value = 0,
+      DestVar = "scaletime",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "scaletime",
+      TargetVar = "Attacker",
+      Loop = false
     }
   },
   {
@@ -167,11 +234,20 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       Speed = 1500,
       Gravity = 2,
-      MoveBackBy = 150
+      MoveBackBy = 150,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "unlockanimation"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

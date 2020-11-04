@@ -43,7 +43,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       SlotNumber = 3,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Self,
       TargetVar = "Owner"
     }
@@ -84,8 +84,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -102,8 +102,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -126,8 +126,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -144,8 +144,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -170,9 +170,12 @@ OnBuffActivateBuildingBlocks = {
           DamageVar = "DamagePerLevel",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.125
+          SpellDamageRatio = 0.125,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -197,11 +200,11 @@ OnBuffActivateBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "Chilled",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 3,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -254,7 +257,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       SlotNumber = 3,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Area,
       TargetVar = "Owner"
     }
@@ -326,11 +329,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "CurMana",
           OwnerVar = "Owner",
-          Function = GetMana
+          Function = GetPAR,
+          PARType = PAR_MANA
         }
       },
       {
@@ -390,10 +394,11 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "NegMana"
             }
           }
@@ -418,9 +423,12 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "DamagePerLevel",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.125
+              SpellDamageRatio = 0.125,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -445,11 +453,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "Chilled",
-              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 3,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -547,7 +555,7 @@ SelfExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

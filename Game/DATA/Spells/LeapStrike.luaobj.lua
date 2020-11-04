@@ -46,38 +46,44 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellCast,
+            Function = BBIf,
             Params = {
-              CasterVar = "Owner",
-              TargetVar = "Attacker",
-              PosVar = "Attacker",
-              EndPosVar = "Attacker",
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = false,
-              UseAutoAttackSpell = false
+              Src1Var = "Attacker",
+              Src2Var = "Owner",
+              CompareOp = CO_SAME_TEAM
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Attacker",
-              BuffName = "LeapStrikeSpeed",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 0.75,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Attacker",
+                  PosVar = "Attacker",
+                  EndPosVar = "Attacker",
+                  SlotNumber = 0,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 1,
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = false,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
             }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -93,7 +99,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -122,6 +128,10 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {DestVar = "SpeedVar", SrcValue = 1150}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Distance", SrcValue = 600}
       }
     }
   },
@@ -242,15 +252,11 @@ TargetExecuteBuildingBlocks = {
       SpeedVar = "SpeedVar",
       Gravity = 0,
       GravityVar = "GravityVar",
-      MoveBackBy = 100
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leapstrikespeed"
+      MoveBackBy = 100,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance"
     }
   }
 }

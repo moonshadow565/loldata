@@ -31,12 +31,13 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxMana",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   }
 }

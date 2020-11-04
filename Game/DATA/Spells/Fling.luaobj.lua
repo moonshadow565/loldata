@@ -58,7 +58,10 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "LandPos",
       Speed = 1000,
       Gravity = 40,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 420
     }
   }
 }
@@ -217,7 +220,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Stun,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "DelayTimer",

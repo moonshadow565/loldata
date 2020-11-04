@@ -43,39 +43,18 @@ UpdateSelfBuffActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetSlotSpellInfo,
+            Function = BBSpellBuffAdd,
             Params = {
-              DestVar = "Time",
-              SpellSlotValue = 2,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellCooldownTime
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Time",
-              Value2 = 0,
-              CompareOp = CO_LESS_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "DetonatingShot",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 25000,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "DetonatingShot",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           }
         }

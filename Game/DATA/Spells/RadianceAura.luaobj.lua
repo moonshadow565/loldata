@@ -19,27 +19,58 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "RegenIncrease",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_HERO},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageIncrease",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 3,
+          DestVar = "DamageIncrease",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_DIVIDE
+        }
+      }
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentPhysicalDamageMod,
+      Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
       DeltaVar = "DamageIncrease",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  },
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBExecutePeriodically,
     Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      DeltaVar = "RegenIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "RegenIncrease",
+          DeltaVarTable = "InstanceVars",
+          HealerVar = "Attacker"
+        }
+      }
     }
   }
 }

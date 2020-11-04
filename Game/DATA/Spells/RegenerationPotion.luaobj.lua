@@ -5,19 +5,21 @@ BuffName = "Health Potion"
 AutoBuffActivateEffect = "Regenerationpotion_itm.troy"
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxHealth",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -29,20 +31,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       Src2Value = 0,
       DestVar = "PercentHealth",
       MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PercentHealth",
-      Value2 = 0.99,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   },
   {
@@ -67,19 +55,21 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealth",
       OwnerVar = "Target",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxHealth",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -127,7 +117,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Heal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

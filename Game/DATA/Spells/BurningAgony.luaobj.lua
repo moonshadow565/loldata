@@ -25,11 +25,11 @@ BuffOnAllowAddBuildingBlocks = {
       DestVar = "DurationMod",
       SrcValue = 0,
       SrcValueByLevel = {
-        0.8,
         0.75,
         0.7,
         0.65,
-        0.6
+        0.6,
+        0.55
       }
     }
   },
@@ -191,6 +191,59 @@ BuffOnAllowAddBuildingBlocks = {
     }
   }
 }
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageToDeal",
+      SrcValueByLevel = {
+        40,
+        55,
+        70,
+        85,
+        100
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 325,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "DamageToDeal",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -198,7 +251,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -226,11 +279,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Health",
           OwnerVar = "Owner",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -288,7 +342,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
-              Range = 300,
+              Range = 325,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit"
             },
@@ -301,7 +355,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Damage = 0,
                   DamageVar = "DamageToDeal",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.2,
                   IgnoreDamageIncreaseMods = false,
@@ -317,11 +371,12 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Health1",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {

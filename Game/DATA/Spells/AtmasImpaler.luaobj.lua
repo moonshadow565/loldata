@@ -2,12 +2,13 @@ BuffTextureName = "3005_Atmas_Impaler.dds"
 BuffName = "Atma's Impaler"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "OwnerHealth",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   }
 }
@@ -35,12 +36,13 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "OwnerHealth",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   }
 }

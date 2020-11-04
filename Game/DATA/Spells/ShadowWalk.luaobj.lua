@@ -39,12 +39,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = -60
+      Cost = -60,
+      PARType = PAR_MANA
     }
   }
 }
@@ -119,12 +120,13 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -192,7 +194,7 @@ BuffOnSpellCastBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -234,7 +236,7 @@ BuffOnSpellCastBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -327,7 +329,7 @@ BuffOnPreAttackBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -381,6 +383,22 @@ TargetExecuteBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "evelyn_invis_cas.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
       {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
@@ -450,7 +468,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -480,6 +498,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "shadowwalk_internal"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelyn_invis_cas.troy"
     }
   }
 }

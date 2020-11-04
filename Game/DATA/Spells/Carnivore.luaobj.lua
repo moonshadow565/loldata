@@ -156,7 +156,7 @@ BuffOnKillBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,

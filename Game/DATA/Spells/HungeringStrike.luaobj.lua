@@ -29,7 +29,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -44,11 +44,12 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Target",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -111,7 +112,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -152,7 +156,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

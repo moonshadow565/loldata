@@ -24,9 +24,11 @@ TargetExecuteBuildingBlocks = {
       Damage = 0,
       DamageVar = "Dmg",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.35
+      SpellDamageRatio = 0.35,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -47,7 +49,7 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
       Name = "heimerdinger"
     }

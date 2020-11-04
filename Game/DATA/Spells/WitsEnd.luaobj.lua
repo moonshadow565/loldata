@@ -28,11 +28,12 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBGetManaOrHealth,
+                    Function = BBGetPAROrHealth,
                     Params = {
                       DestVar = "VictimMana",
                       OwnerVar = "Target",
-                      Function = GetMana
+                      Function = GetPAR,
+                      PARType = PAR_MANA
                     }
                   },
                   {
@@ -64,7 +65,7 @@ BuffOnHitUnitBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
-                        Function = BBIncMana,
+                        Function = BBIncPAR,
                         Params = {
                           TargetVar = "Target",
                           Delta = 0,

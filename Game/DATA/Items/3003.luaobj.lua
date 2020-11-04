@@ -5,7 +5,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Src2Var = "MaxMana",
       Src2VarTable = "InstanceVars",
-      Src1Value = 0.02,
+      Src1Value = 0.025,
       Src2Value = 0,
       DestVar = "BonusAbilityPower",
       MathOp = MO_MULTIPLY
@@ -23,12 +23,13 @@ UpdateSelfBuffStatsBuildingBlocks = {
 }
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxMana",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -47,9 +48,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "TearOfTheGoddessTrack",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

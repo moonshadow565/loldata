@@ -45,7 +45,8 @@ OnBuffActivateBuildingBlocks = {
       SkinName = "Armordillo_PB",
       TargetVar = "Owner",
       IDVar = "CasterID",
-      IDVarTable = "InstanceVars"
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
     }
   },
   {
@@ -288,6 +289,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "PowerballHit.troy",
+                      Flags = 0,
+                      EffectIDVar = "A",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
                     Function = BBBreakSpellShields,
                     Params = {TargetVar = "Other1"}
                   },
@@ -309,9 +326,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageVar = "AoEDamage",
                       DamageVarTable = "InstanceVars",
                       DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 1
+                      SpellDamageRatio = 1,
+                      PhysicalDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   },
                   {
@@ -320,10 +340,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                       TargetVar = "Other1",
                       AttackerVar = "Attacker",
                       BuffName = "PowerBallSlow",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                       BuffType = BUFF_Slow,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 4,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -338,7 +358,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       BuffAddType = BUFF_REPLACE_EXISTING,
                       BuffType = BUFF_Stun,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 0.5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -383,6 +403,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Owner",
+                          EffectName = "PowerballHit.troy",
+                          Flags = 0,
+                          EffectIDVar = "A",
+                          TargetObjectVar = "Target",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWVisibilityRadius = 0,
+                          SendIfOnScreenOrDiscard = false
+                        }
+                      },
+                      {
                         Function = BBBreakSpellShields,
                         Params = {TargetVar = "Other1"}
                       },
@@ -404,9 +440,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                           DamageVar = "AoEDamage",
                           DamageVarTable = "InstanceVars",
                           DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELL,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1,
-                          SpellDamageRatio = 1
+                          SpellDamageRatio = 1,
+                          PhysicalDamageRatio = 1,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
                         }
                       },
                       {
@@ -415,10 +454,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                           TargetVar = "Other1",
                           AttackerVar = "Attacker",
                           BuffName = "PowerBallSlow",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                           BuffType = BUFF_Slow,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 4,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -433,7 +472,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                           BuffAddType = BUFF_REPLACE_EXISTING,
                           BuffType = BUFF_Stun,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 0.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -490,6 +529,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                         },
                         SubBlocks = {
                           {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Owner",
+                              EffectName = "PowerballHit.troy",
+                              Flags = 0,
+                              EffectIDVar = "A",
+                              TargetObjectVar = "Target",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWVisibilityRadius = 0,
+                              SendIfOnScreenOrDiscard = false
+                            }
+                          },
+                          {
                             Function = BBBreakSpellShields,
                             Params = {TargetVar = "Other1"}
                           },
@@ -511,9 +566,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                               DamageVar = "AoEDamage",
                               DamageVarTable = "InstanceVars",
                               DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELL,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
                               PercentOfAttack = 1,
-                              SpellDamageRatio = 1
+                              SpellDamageRatio = 1,
+                              PhysicalDamageRatio = 1,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
                             }
                           },
                           {
@@ -522,10 +580,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                               TargetVar = "Other1",
                               AttackerVar = "Attacker",
                               BuffName = "PowerBallSlow",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                               BuffType = BUFF_Slow,
                               MaxStack = 1,
-                              NumberStacks = 1,
+                              NumberOfStacks = 1,
                               Duration = 4,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0
@@ -540,7 +598,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                               BuffAddType = BUFF_REPLACE_EXISTING,
                               BuffType = BUFF_Stun,
                               MaxStack = 1,
-                              NumberStacks = 1,
+                              NumberOfStacks = 1,
                               Duration = 0.5,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0
@@ -610,6 +668,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "PowerballHit.troy",
+                      Flags = 0,
+                      EffectIDVar = "A",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
                     Function = BBBreakSpellShields,
                     Params = {TargetVar = "Other1"}
                   },
@@ -631,9 +705,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageVar = "AoEDamage",
                       DamageVarTable = "InstanceVars",
                       DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 1
+                      SpellDamageRatio = 1,
+                      PhysicalDamageRatio = 1,
+                      IgnoreDamageIncreaseMods = false,
+                      IgnoreDamageCrit = false
                     }
                   },
                   {
@@ -642,10 +719,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                       TargetVar = "Other1",
                       AttackerVar = "Attacker",
                       BuffName = "PowerBallSlow",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                       BuffType = BUFF_Slow,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 4,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -660,7 +737,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       BuffAddType = BUFF_REPLACE_EXISTING,
                       BuffType = BUFF_Stun,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 0.5,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -705,6 +782,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Owner",
+                          EffectName = "PowerballHit.troy",
+                          Flags = 0,
+                          EffectIDVar = "A",
+                          TargetObjectVar = "Target",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWVisibilityRadius = 0,
+                          SendIfOnScreenOrDiscard = false
+                        }
+                      },
+                      {
                         Function = BBBreakSpellShields,
                         Params = {TargetVar = "Other1"}
                       },
@@ -726,9 +819,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                           DamageVar = "AoEDamage",
                           DamageVarTable = "InstanceVars",
                           DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELL,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1,
-                          SpellDamageRatio = 1
+                          SpellDamageRatio = 1,
+                          PhysicalDamageRatio = 1,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
                         }
                       },
                       {
@@ -737,10 +833,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                           TargetVar = "Other1",
                           AttackerVar = "Attacker",
                           BuffName = "PowerBallSlow",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                           BuffType = BUFF_Slow,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 4,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -755,7 +851,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                           BuffAddType = BUFF_REPLACE_EXISTING,
                           BuffType = BUFF_Stun,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 0.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -812,6 +908,22 @@ BuffOnUpdateActionsBuildingBlocks = {
                         },
                         SubBlocks = {
                           {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Owner",
+                              EffectName = "PowerballHit.troy",
+                              Flags = 0,
+                              EffectIDVar = "A",
+                              TargetObjectVar = "Target",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWVisibilityRadius = 0,
+                              SendIfOnScreenOrDiscard = false
+                            }
+                          },
+                          {
                             Function = BBBreakSpellShields,
                             Params = {TargetVar = "Other1"}
                           },
@@ -833,9 +945,12 @@ BuffOnUpdateActionsBuildingBlocks = {
                               DamageVar = "AoEDamage",
                               DamageVarTable = "InstanceVars",
                               DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELL,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
                               PercentOfAttack = 1,
-                              SpellDamageRatio = 1
+                              SpellDamageRatio = 1,
+                              PhysicalDamageRatio = 1,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
                             }
                           },
                           {
@@ -844,10 +959,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                               TargetVar = "Other1",
                               AttackerVar = "Attacker",
                               BuffName = "PowerBallSlow",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                               BuffType = BUFF_Slow,
                               MaxStack = 1,
-                              NumberStacks = 1,
+                              NumberOfStacks = 1,
                               Duration = 4,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0
@@ -862,7 +977,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                               BuffAddType = BUFF_REPLACE_EXISTING,
                               BuffType = BUFF_Stun,
                               MaxStack = 1,
-                              NumberStacks = 1,
+                              NumberOfStacks = 1,
                               Duration = 0.5,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0
@@ -1037,7 +1152,7 @@ SelfExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Haste,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 8,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -1067,6 +1182,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "powerballstop.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "powerballhit.troy"
     }
   },
   {

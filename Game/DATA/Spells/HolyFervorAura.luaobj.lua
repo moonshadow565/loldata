@@ -4,24 +4,34 @@ AutoBuffActivateEffect = "Divineblessing_buf.troy"
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 Nondispellable = true
-OnBuffActivateBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedIncrease",
-      RequiredVarTable = "InstanceVars"
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "HolyFervorAuraDuplicate",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 4,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+PreLoadBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBPreloadSpell,
     Params = {
-      Stat = IncPercentAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "AttackSpeedIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Name = "holyfervorauraduplicate"
     }
   }
 }

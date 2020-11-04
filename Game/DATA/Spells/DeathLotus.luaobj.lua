@@ -3,12 +3,142 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 3
+ChannelDuration = 2.65
 BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 TriggersSpellCasts = true
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcVar = "Level",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetAreaRandom,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 550,
+          Flags = "AffectEnemies AffectHeroes ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 1
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Unit",
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetAreaRandom,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 550,
+          Flags = "AffectEnemies AffectHeroes ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 2
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Unit",
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetAreaRandom,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 550,
+          Flags = "AffectEnemies AffectHeroes ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 3
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Unit",
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
+            }
+          }
+        }
+      }
+    }
+  }
+}
 CanCastBuildingBlocks = {
   {
     Function = BBSetReturnValue,
@@ -32,7 +162,7 @@ CanCastBuildingBlocks = {
     }
   }
 }
-ChannelingStartBuildingBlocks = {
+SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
@@ -42,219 +172,68 @@ ChannelingStartBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 3,
+      NumberOfStacks = 1,
+      Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
   },
   {
-    Function = BBApplyRoot,
+    Function = BBSetVarInTable,
     Params = {
-      AttackerVar = "Owner",
+      DestVar = "Level",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Level"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
       TargetVar = "Owner",
-      Duration = 0.35
-    }
-  }
-}
-ChannelingStopBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "DeathLotusSound"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "DeathLotusSound"
-        }
-      }
-    }
-  }
-}
-ChannelingUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.3,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 3,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetAreaRandom,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 550,
-              Flags = "AffectEnemies AffectHeroes ",
-              IteratorVar = "Unit",
-              MaximumUnitsToPick = 1
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 0,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 2,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetAreaRandom,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 550,
-              Flags = "AffectEnemies AffectHeroes ",
-              IteratorVar = "Unit",
-              MaximumUnitsToPick = 2
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 0,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 3,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetAreaRandom,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 550,
-              Flags = "AffectEnemies AffectHeroes ",
-              IteratorVar = "Unit",
-              MaximumUnitsToPick = 3
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 0,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false
-                }
-              }
-            }
-          }
-        }
-      }
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0.25
     }
   }
 }
 ChannelingSuccessStopBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSpellBuffRemove,
     Params = {
-      OwnerVar = "Owner",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "DeathLotusSound"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "DeathLotusSound"
-        }
-      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeathLotus"
     }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSpellBuffRemove,
     Params = {
-      OwnerVar = "Owner",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "DeathLotusSound"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "DeathLotusSound"
-        }
-      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeathLotus"
     }
   }
 }
@@ -264,5 +243,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "deathlotussound"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "deathlotus"}
   }
 }

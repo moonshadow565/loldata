@@ -1,398 +1,151 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 2.23
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
-BuffName = "Infinite Duress"
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Duration = 2.23
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "NumHitsRemaining",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "BonusDamage",
-      RequiredVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.3,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Attacker",
-          DestVar = "TotalAttackDamage"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "TotalAttackDamage",
-          Src1Value = 0,
-          Src2Value = 0.33,
-          DestVar = "DamageToDeal",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageToDeal",
-          Src2Var = "BonusDamage",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageToDeal",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "InfiniteDuress_tar.troy",
-          Flags = 0,
-          EffectIDVar = "arr",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD}
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Owner",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_ATTACK,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "NumHitsRemaining",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "NumHitsRemaining",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_SUBTRACT
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "NumHitsRemaining",
-          Src1VarTable = "InstanceVars",
-          Value2 = 0,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBStopChanneling,
-            Params = {
-              CasterVar = "Attacker",
-              StopCondition = ChannelingStopCondition_Success,
-              StopSource = ChannelingStopSource_TimeCompleted
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBStopChanneling,
-        Params = {
-          CasterVar = "Attacker",
-          StopCondition = ChannelingStopCondition_Success,
-          StopSource = ChannelingStopSource_Die
-        }
-      },
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
-          BuffName = "InfiniteDuressHold"
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
-    SubBlocks = {
-      {
-        Function = BBStopChanneling,
-        Params = {
-          CasterVar = "Attacker",
-          StopCondition = ChannelingStopCondition_NotCancelled,
-          StopSource = ChannelingStopSource_NotCancelled
-        }
-      },
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
-          BuffName = "InfiniteDuressHold"
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
-ChannelingStartBuildingBlocks = {
-  {
-    Function = BBGetRandomPointInAreaUnit,
-    Params = {
-      TargetVar = "Target",
-      Radius = 150,
-      InnerRadius = 150,
-      ResultVar = "Pos"
-    }
-  },
-  {
-    Function = BBTeleportToPosition,
-    Params = {OwnerVar = "Owner", CastPositionName = "Pos"}
-  },
-  {
-    Function = BBFaceDirection,
-    Params = {TargetVar = "Owner", LocationVar = "Target"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "NumHitsRemaining",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 6
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BonusDamage",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        30,
-        50,
-        70
-      }
-    }
-  },
+BuffName = "InfiniteDuress"
+TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
+      BuffName = "DuressCheck",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
+      Duration = 0.01,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifestealBonus",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.3
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBIfHasBuff,
     Params = {
-      TargetVar = "Attacker",
+      OwnerVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 2.23,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      BuffName = "DuressCheck"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetRandomPointInAreaUnit,
+        Params = {
+          TargetVar = "Target",
+          Radius = 150,
+          InnerRadius = 150,
+          ResultVar = "Pos"
+        }
+      },
+      {
+        Function = BBTeleportToPosition,
+        Params = {OwnerVar = "Owner", CastPositionName = "Pos"}
+      },
+      {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Owner", LocationVar = "Target"}
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Attacker",
+          TargetVar = "Target",
+          PosVar = "Target",
+          EndPosVar = "Target",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = false,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = true
+        }
+      }
     }
-  }
-}
-ChannelingSuccessStopBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD}
   },
   {
     Function = BBElse,
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBGetRandomPointInAreaUnit,
         Params = {
           TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "InfiniteDuress"
+          Radius = 150,
+          InnerRadius = 150,
+          ResultVar = "Pos"
         }
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold"
-    }
-  },
-  {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {
-      AnimationName = "Spell4_Loop",
-      TargetVar = "Attacker"
-    }
-  }
-}
-ChannelingCancelStopBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD}
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
+      },
       {
-        Function = BBSpellBuffRemove,
+        Function = BBTeleportToPosition,
+        Params = {OwnerVar = "Owner", CastPositionName = "Pos"}
+      },
+      {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Owner", LocationVar = "Target"}
+      },
+      {
+        Function = BBIssueOrder,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "InfiniteDuress"
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Target",
+          Order = AI_ATTACKTO
         }
       }
     }
-  },
+  }
+}
+OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold"
-    }
-  },
-  {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {
-      AnimationName = "Spell4_Loop",
-      TargetVar = "Attacker"
+      RequiredVar = "LifestealBonus",
+      RequiredVarTable = "InstanceVars"
     }
   }
 }
-ChannelingSuccessStopNotCancelledErrorBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
+    Function = BBIncStat,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "InfiniteDuress"
-    }
-  },
-  {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {
-      AnimationName = "Spell4_Loop",
-      TargetVar = "Attacker"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "InfiniteDuressHold"
-    }
-  }
-}
-ChannelingUpdateActionsBuildingBlocks = {
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell4_Loop",
-      ScaleTime = 0,
-      TargetVar = "Attacker",
-      Loop = true
+      Stat = IncPercentLifeStealMod,
+      TargetVar = "Owner",
+      DeltaVar = "LifestealBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "infiniteduress_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "infiniteduresshold"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "infiniteduress"
+      Name = "duresscheck"
     }
   }
 }

@@ -3,6 +3,58 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "GreenTerror_Feast.dds"
 BuffName = "Feast"
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetBuffCountFromCaster,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Feast"
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealthPerStack",
+      SrcValueByLevel = {
+        90,
+        120,
+        150
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HealthPerStack",
+      Src2Var = "Count",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusHealth",
+      Index = 1
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetBuffCountFromCaster,
@@ -88,11 +140,12 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TargetHealth",
       OwnerVar = "Target",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -113,7 +166,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -141,7 +197,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_Aura,
           MaxStack = 6,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -156,7 +212,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -176,63 +232,14 @@ TargetExecuteBuildingBlocks = {
           Damage = 0,
           DamageVar = "FeastHealth",
           DamageType = TRUE_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBGetBuffCountFromCaster,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "Feast"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthPerStack",
-      SrcValueByLevel = {
-        90,
-        120,
-        150
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthPerStack",
-      Src2Var = "Count",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusHealth",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "BonusHealth",
-      Index = 1
     }
   }
 }

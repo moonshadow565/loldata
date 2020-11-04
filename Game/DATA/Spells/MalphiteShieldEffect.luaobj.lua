@@ -4,11 +4,12 @@ AutoBuffActivateEffect = ""
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "HPPool",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {

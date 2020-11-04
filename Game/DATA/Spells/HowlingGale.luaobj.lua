@@ -147,12 +147,29 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
           TargetVar = "Nothing",
           PosVar = "FacePos",
           EndPosVar = "FacePos",
+          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
@@ -160,7 +177,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideForceLevelVarTable = "InstanceVars",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -175,12 +193,29 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell1",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
           TargetVar = "Nothing",
           PosVar = "FacePos",
           EndPosVar = "FacePos",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = SpellSlots,
           OverrideForceLevel = 0,
@@ -188,7 +223,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideForceLevelVarTable = "InstanceVars",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -203,12 +239,29 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell2",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
           TargetVar = "Nothing",
           PosVar = "FacePos",
           EndPosVar = "FacePos",
+          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = SpellSlots,
           OverrideForceLevel = 0,
@@ -216,7 +269,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideForceLevelVarTable = "InstanceVars",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -226,12 +280,29 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Attacker",
+          BuffName = "HowlingGaleSpell3",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
         Function = BBSpellCast,
         Params = {
           CasterVar = "Other1",
           TargetVar = "Nothing",
           PosVar = "FacePos",
           EndPosVar = "FacePos",
+          OverrideCastPosition = false,
           SlotNumber = 2,
           SlotType = SpellSlots,
           OverrideForceLevel = 0,
@@ -239,7 +310,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideForceLevelVarTable = "InstanceVars",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -251,9 +323,10 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -281,7 +354,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "CooldownMod",
-      Src1Value = 12,
+      Src1Value = 10,
       Src2Value = 0,
       DestVar = "Cooldown",
       MathOp = MO_MULTIPLY
@@ -414,9 +487,10 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -450,6 +524,30 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlinggalespell3"
     }
   },
   {

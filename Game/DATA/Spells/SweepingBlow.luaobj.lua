@@ -114,7 +114,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       Damage = 150,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1
     }

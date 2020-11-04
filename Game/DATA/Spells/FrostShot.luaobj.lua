@@ -3,6 +3,8 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "Bowmaster_IceArrow.dds"
 BuffName = "Frost Shot"
 SpellToggleSlot = 1
+PersistsThroughDeath = true
+Nondispellable = true
 TriggersSpellCasts = false
 OnBuffActivateBuildingBlocks = {
   {
@@ -18,23 +20,25 @@ OnBuffActivateBuildingBlocks = {
       SpellSlot = 1,
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1
+      AutoAttackSpellLevel = 1,
+      CancelAttack = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnPreAttackBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Temp",
       OwnerVar = "Owner",
-      Function = GetMana
+      Function = GetPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -70,7 +74,7 @@ BuffOnPreAttackBuildingBlocks = {
                 }
               },
               {
-                Function = BBIncMana,
+                Function = BBIncPAR,
                 Params = {
                   TargetVar = "Owner",
                   Delta = 0,

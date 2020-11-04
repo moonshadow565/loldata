@@ -10,7 +10,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "SlowPercent",
+      RequiredVar = "AttackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -21,7 +28,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "SlowPercent",
+      DeltaVar = "MoveSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -31,7 +38,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeAttackSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "SlowPercent",
+      DeltaVar = "AttackSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -58,7 +65,15 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "SlowPercent",
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = -0.25
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         -0.25,
@@ -74,10 +89,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
+      MaxStack = 100,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -107,7 +122,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1.25,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -132,7 +150,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

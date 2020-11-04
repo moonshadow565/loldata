@@ -17,28 +17,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
-      DestVar = "SlotName",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellName
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "SlotName2",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellName
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
       DestVar = "CurrentCooldown",
       SpellSlotValue = 0,
       SpellbookType = SPELLBOOK_SUMMONER,
@@ -61,29 +39,19 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "SlotName",
-      Value2 = "SummonerBoost",
-      CompareOp = CO_EQUAL
+      Src1Var = "CurrentCooldown",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSetSlotSpellCooldownTime,
         Params = {
-          Src1Var = "CurrentCooldown",
-          Value2 = 6,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 6,
-              SpellbookType = SPELLBOOK_SUMMONER,
-              SlotType = SpellSlots,
-              SpellSlotValue = 0,
-              OwnerVar = "Owner"
-            }
-          }
+          SrcValue = 6,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
         }
       }
     }
@@ -91,29 +59,19 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "SlotName2",
-      Value2 = "SummonerBoost",
-      CompareOp = CO_EQUAL
+      Src1Var = "CurrentCooldown2",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSetSlotSpellCooldownTime,
         Params = {
-          Src1Var = "CurrentCooldown2",
-          Value2 = 6,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 6,
-              SpellbookType = SPELLBOOK_SUMMONER,
-              SlotType = SpellSlots,
-              SpellSlotValue = 1,
-              OwnerVar = "Owner"
-            }
-          }
+          SrcValue = 6,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
         }
       }
     }
@@ -124,7 +82,8 @@ OnBuffActivateBuildingBlocks = {
       SkinName = "RebirthEgg",
       TargetVar = "Owner",
       IDVar = "SeaHorseID",
-      IDVarTable = "InstanceVars"
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
     }
   },
   {
@@ -175,34 +134,6 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
   },
   {
     Function = BBSpellBuffRemoveType,
@@ -279,16 +210,20 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "TempEggHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RebirthCooldown",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 240,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
-  },
-  {
-    Function = BBPopAllCharacterData,
-    Params = {TargetVar = "Owner"}
   },
   {
     Function = BBSetStatus,
@@ -315,45 +250,8 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "EggTimer",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
         Function = BBSpellEffectCreate,
@@ -374,19 +272,15 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSpellEffectRemove,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "RebirthCooldown",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 240,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      EffectIDVar = "EggTimer",
+      EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBPopAllCharacterData,
+    Params = {TargetVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -412,30 +306,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
     }
   },
   {
@@ -471,15 +341,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rebirth_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "rebirthcooldown"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rebirth_cas.troy"
     }
   }
 }

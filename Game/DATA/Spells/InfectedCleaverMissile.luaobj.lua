@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = true
 BuffTextureName = "DrMundo_InfectedCleaver.dds"
 BuffName = "InfectedCleaverDebuff"
 SpellDamageRatio = 1
@@ -130,11 +131,12 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Health",
           OwnerVar = "Target",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -180,7 +182,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -188,10 +193,10 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -283,11 +288,12 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "Health",
               OwnerVar = "Target",
-              Function = GetHealth
+              Function = GetHealth,
+              PARType = PAR_MANA
             }
           },
           {
@@ -333,7 +339,10 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_DEFAULT,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -341,10 +350,10 @@ TargetExecuteBuildingBlocks = {
             Params = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -448,11 +457,12 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBGetManaOrHealth,
+                Function = BBGetPAROrHealth,
                 Params = {
                   DestVar = "Health",
                   OwnerVar = "Target",
-                  Function = GetHealth
+                  Function = GetHealth,
+                  PARType = PAR_MANA
                 }
               },
               {
@@ -498,7 +508,10 @@ TargetExecuteBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_DEFAULT,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               },
               {
@@ -506,10 +519,10 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0

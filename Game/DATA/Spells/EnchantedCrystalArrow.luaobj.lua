@@ -59,21 +59,6 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanMove
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      Flags = 0,
-      EffectIDVar = "ajldjfio",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -149,7 +134,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 400,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -166,15 +152,16 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                300,
-                500,
-                700
+                250,
+                425,
+                600
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -185,9 +172,10 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Stun,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationVar = "StunDuration",
@@ -212,9 +200,9 @@ TargetExecuteBuildingBlocks = {
               DestVar = "AttackSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.25,
-                -0.25,
-                -0.25
+                0,
+                0,
+                0
               }
             }
           },
@@ -225,9 +213,10 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
@@ -254,15 +243,16 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
-                175,
-                275,
-                375
+                125,
+                212,
+                300
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.5,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -285,9 +275,9 @@ TargetExecuteBuildingBlocks = {
               DestVar = "AttackSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.25,
-                -0.25,
-                -0.25
+                0,
+                0,
+                0
               }
             }
           },
@@ -298,9 +288,10 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {

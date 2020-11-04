@@ -56,10 +56,9 @@ OnBuffDeactivateBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "DamagePerTick",
+          DestVar = "AttackSpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcVar = "DamagePerTick",
-          SrcVarTable = "InstanceVars"
+          SrcValue = 0
         }
       },
       {
@@ -67,8 +66,7 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcVar = "MoveSpeedMod",
-          SrcVarTable = "InstanceVars"
+          SrcValue = -0.6
         }
       },
       {
@@ -76,12 +74,12 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
-          BuffName = "BantamTrapTarget",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffName = "Slow",
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 5,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -97,7 +95,10 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -110,8 +111,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "bantamtraptarget"
-    }
+    Params = {Name = "slow"}
   }
 }

@@ -1,10 +1,11 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "HealthPercent",
       OwnerVar = "Owner",
-      Function = GetHealthPercent
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
     }
   },
   {
@@ -32,23 +33,19 @@ UpdateSelfBuffStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatCritDamageMod,
+      Stat = IncFlatCritChanceMod,
       TargetVar = "Owner",
       DeltaVar = "CritChanceMod",
       Delta = 0
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
-      AttackerVar = "Owner",
+      CasterVar = "Owner",
       BuffName = "Bloodlust"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    },
     SubBlocks = {
       {
         Function = BBGetSlotSpellInfo,
@@ -96,24 +93,99 @@ SetVarsByLevelBuildingBlocks = {
       DestVar = "CritChanceMultiplier",
       DestVarTable = "CharVars",
       SrcValueByLevel = {
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1,
-        1
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      }
+    }
+  }
+}
+CharOnHitUnitBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Critical,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "Cooldown",
+              SpellSlotValue = 2,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Owner",
+              Function = GetSlotSpellCooldownTime
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Cooldown",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Cooldown",
+                  Src1Value = 0,
+                  Src2Value = 2,
+                  DestVar = "NewCooldown",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBSetSlotSpellCooldownTime,
+                Params = {
+                  SrcVar = "NewCooldown",
+                  SrcValue = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  SpellSlotValue = 2,
+                  OwnerVar = "Owner"
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
@@ -224,23 +296,6 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false
     }
   }
 }

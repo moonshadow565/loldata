@@ -38,6 +38,41 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
+      Value2 = 900,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "GravityVar", SrcValue = 50}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "SpeedVar", SrcValue = 1200}
+      },
+      {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+      },
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 900,
+          OffsetAngle = 0,
+          PositionVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Distance", SrcValue = 900}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Distance",
       Value2 = 600,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
@@ -169,7 +204,11 @@ SelfExecuteBuildingBlocks = {
       SpeedVar = "SpeedVar",
       Gravity = 0,
       GravityVar = "GravityVar",
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance"
     }
   },
   {
@@ -194,7 +233,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -225,9 +264,30 @@ BuffOnMoveEndBuildingBlocks = {
           DamageVar = "Damage",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.8
+          SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MoveSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MoveSpeedMod",
+          SrcVarTable = "InstanceVars",
+          SrcValue = -0.6
         }
       },
       {
@@ -236,10 +296,10 @@ BuffOnMoveEndBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "RocketJumpSlow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

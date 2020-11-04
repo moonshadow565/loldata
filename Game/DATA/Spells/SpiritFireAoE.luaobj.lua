@@ -91,7 +91,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -107,8 +107,25 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_afterburn.troy",
+          Flags = 0,
+          EffectIDVar = "c",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -131,7 +148,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -147,28 +164,106 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_afterburn.troy",
+          Flags = 0,
+          EffectIDVar = "c",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "nassus_spiritFire_afterburn.troy",
-      Flags = 0,
-      EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -20,
+        -25,
+        -30,
+        -35,
+        -40
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Owner",
+      Range = 400,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Damage",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 6,
+          DestVar = "TotalDamage",
+          MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "TotalDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "SpiritFireArmorReduction",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 1.25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   }
 }
@@ -184,6 +279,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Boom2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "c",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -242,7 +344,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.95,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -274,7 +376,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               Damage = 0,
               DamageVar = "TotalDamage",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.2,
               IgnoreDamageIncreaseMods = false,

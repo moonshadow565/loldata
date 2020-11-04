@@ -11,144 +11,105 @@ PersistsThroughDeath = true
 Nondispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "VoracityMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 15,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "Level",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
+      Src1Var = "HitResult",
+      Value2 = HIT_Miss,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBIf,
         Params = {
-          DestVar = "Level",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "Level"
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Target",
-          AttackerVar = "Owner",
-          BuffName = "KillerInstinctCounter"
+          Src1Var = "HitResult",
+          Value2 = HIT_Dodge,
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBGetSlotSpellInfo,
             Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctSpeed",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              DestVar = "Level",
+              SpellSlotValue = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Owner",
+              Function = GetSlotSpellLevel
             }
           },
           {
-            Function = BBSpellBuffAdd,
+            Function = BBIf,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctCounter",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              Src1Var = "Level",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "Level"
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "KillerInstinctSpeed",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 5,
+                  NumberOfStacks = 1,
+                  Duration = 3,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }
+      }
+    }
+  }
+}
+BuffOnSpellCastBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "DoesntTriggerSpellCasts",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
       },
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemove,
+            Function = BBSetVarInTable,
             Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "KillerInstinctSpeed"
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "KillerInstinctSpeed"
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "KillerInstinctSpeed"
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "KillerInstinctSpeed"
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "KillerInstinctSpeed"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctCounter",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              DestVar = "Level",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "Level"
             }
           },
           {
@@ -160,7 +121,7 @@ BuffOnHitUnitBuildingBlocks = {
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_Internal,
               MaxStack = 5,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -172,18 +133,6 @@ BuffOnHitUnitBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "voracitymarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "killerinstinctcounter"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Judicator_RighteousFury.dds"
@@ -16,7 +16,8 @@ OnBuffActivateBuildingBlocks = {
       SpellSlot = 0,
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1
+      AutoAttackSpellLevel = 1,
+      CancelAttack = true
     }
   },
   {
@@ -30,7 +31,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = true}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

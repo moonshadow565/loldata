@@ -1,6 +1,7 @@
 BuffTextureName = "48thSlave_WaveOfLoathing.dds"
 BuffName = "BlessingoftheLizardElder"
 AutoBuffActivateEffect = ""
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -39,6 +40,59 @@ BuffOnDeathBuildingBlocks = {
         Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "NewDuration",
+              SrcValue = 150
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "MonsterBuffs"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "NewDuration",
+                  Src1Value = 1.15,
+                  Src2Value = 0,
+                  DestVar = "NewDuration",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "MonsterBuffs2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.3,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Attacker",
@@ -46,9 +100,10 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 150,
+              NumberOfStacks = 1,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "NewDuration",
               TickRate = 0
             }
           }
@@ -101,6 +156,8 @@ BuffOnHitUnitBuildingBlocks = {
                           DestVarTable = "NextBuffVars",
                           SrcValue = 0,
                           SrcValueByLevel = {
+                            10,
+                            10,
                             15,
                             15,
                             20,
@@ -116,9 +173,7 @@ BuffOnHitUnitBuildingBlocks = {
                             45,
                             45,
                             50,
-                            50,
-                            55,
-                            55
+                            50
                           }
                         }
                       },
@@ -131,7 +186,7 @@ BuffOnHitUnitBuildingBlocks = {
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Damage,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 1
@@ -144,6 +199,11 @@ BuffOnHitUnitBuildingBlocks = {
                           DestVarTable = "NextBuffVars",
                           SrcValue = 0,
                           SrcValueByLevel = {
+                            -0.1,
+                            -0.1,
+                            -0.1,
+                            -0.1,
+                            -0.1,
                             -0.15,
                             -0.15,
                             -0.15,
@@ -156,12 +216,7 @@ BuffOnHitUnitBuildingBlocks = {
                             -0.2,
                             -0.25,
                             -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.3,
-                            -0.3,
-                            -0.3
+                            -0.25
                           }
                         }
                       },
@@ -199,10 +254,10 @@ BuffOnHitUnitBuildingBlocks = {
                           TargetVar = "Target",
                           AttackerVar = "Attacker",
                           BuffName = "Slow",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberStacks = 1,
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                          BuffType = BUFF_Slow,
+                          MaxStack = 100,
+                          NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -224,6 +279,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "neutralmonster_buf_red_offense.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs2"
     }
   },
   {

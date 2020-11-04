@@ -57,7 +57,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -65,11 +68,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "IceBlastSlow",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffName = "Chilled",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
+      MaxStack = 100,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -79,8 +82,6 @@ TargetExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "iceblastslow"
-    }
+    Params = {Name = "chilled"}
   }
 }

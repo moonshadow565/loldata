@@ -47,7 +47,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
+      Stat = IncPercentMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MoveSpeedMod",
       DeltaVarTable = "InstanceVars",
@@ -57,7 +57,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "AttackSpeedMod",
       DeltaVarTable = "InstanceVars",

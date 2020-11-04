@@ -53,48 +53,33 @@ TargetExecuteBuildingBlocks = {
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBGetBuffCountFromAll,
-        Params = {
-          DestVar = "DarkWindStacks",
-          TargetVar = "Target",
-          BuffName = "DarkWind"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DarkWindStacks",
-          Src1Value = 0,
-          Src2Value = 0.75,
-          DestVar = "DurationByStack",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DurationByStack",
-          Src1Value = 0,
-          Src2Value = 1.5,
-          DestVar = "DarkWindDuration",
-          MathOp = MO_ADD
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Silence,
-          MaxStack = 6,
-          NumberStacks = 1,
-          Duration = 0,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
-          DurationVar = "DarkWindDuration",
           TickRate = 0
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TargetNum",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
@@ -102,9 +87,12 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           Damage = 100,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.35
+          SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -120,17 +108,14 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           Damage = 100,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.35
+          SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "darkwind"}
   }
 }

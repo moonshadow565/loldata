@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       SlotNumber = 0,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Self,
       TargetVar = "Owner"
     }
@@ -40,7 +40,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       SlotNumber = 0,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Location,
       TargetVar = "Owner"
     }
@@ -82,20 +82,57 @@ OnBuffDeactivateBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+      },
+      {
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "MissileEndPosition",
-          EffectName = "cryo_FlashFrost_tar.troy",
-          Flags = 0,
-          EffectIDVar = "arr",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "TeamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "MissileEndPosition",
+              EffectName = "cryo_FlashFrost_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "MissileEndPosition",
+              EffectName = "cryo_FlashFrost_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
         }
       },
       {
@@ -126,9 +163,12 @@ OnBuffDeactivateBuildingBlocks = {
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5
+              SpellDamageRatio = 0.5,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -161,10 +201,10 @@ OnBuffDeactivateBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "Chilled",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -309,9 +349,12 @@ BuffOnMissileEndBuildingBlocks = {
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5
+              SpellDamageRatio = 0.5,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -344,10 +387,10 @@ BuffOnMissileEndBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "Chilled",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -423,7 +466,7 @@ SelfExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -436,13 +479,15 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "TargetPos",
           EndPosVar = "TargetPos",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }

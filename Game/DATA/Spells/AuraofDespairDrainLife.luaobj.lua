@@ -24,11 +24,12 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Owner",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -51,9 +52,11 @@ BuffOnUpdateActionsBuildingBlocks = {
           Damage = 0,
           DamageVar = "PercentDamage",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

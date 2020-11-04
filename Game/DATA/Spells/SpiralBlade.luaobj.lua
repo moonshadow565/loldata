@@ -2,24 +2,61 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
-TargetExecuteBuildingBlocks = {
+SelfExecuteBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBGetCastSpellTargetPos,
+    Params = {DestVar = "TargetPos"}
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBDistanceBetweenPoints,
     Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        75,
-        100,
-        125,
-        150,
-        175
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.75
+      DestVar = "Distance",
+      Point1Var = "OwnerPos",
+      Point2Var = "TargetPos"
+    }
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Distance",
+      Value2 = 1000,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 950,
+          OffsetAngle = 0,
+          PositionVar = "TargetPos"
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Nothing",
+      PosVar = "TargetPos",
+      EndPosVar = "TargetPos",
+      SlotNumber = 1,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 0,
+      OverrideForceLevelVar = "Level",
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }

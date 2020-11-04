@@ -4,11 +4,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "WeaponMastery",
+      BuffName = "EquipmentMastery",
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -23,7 +23,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -69,7 +69,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -134,7 +134,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -174,7 +174,7 @@ CharOnDodgeBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 7,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -211,7 +211,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -231,7 +231,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }
@@ -239,7 +240,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "weaponmastery"
+      Name = "equipmentmastery"
     }
   },
   {

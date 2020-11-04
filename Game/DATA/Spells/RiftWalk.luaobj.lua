@@ -9,7 +9,7 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = ""
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,
@@ -141,7 +141,7 @@ SelfExecuteBuildingBlocks = {
           Damage = 0,
           DamageVar = "TotalDamage",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.4,
           IgnoreDamageIncreaseMods = false,
@@ -161,7 +161,7 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,

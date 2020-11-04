@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Averdrian_ConsumeSpirit.dds"
+BuffTextureName = "Kassadin_ForcePulse.dds"
 BuffName = "ForcePulse"
 BuffOnSpellCastBuildingBlocks = {
   {
@@ -36,9 +36,10 @@ BuffOnSpellCastBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "ForcePulseCounter",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 6,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -74,9 +75,12 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -108,10 +112,11 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "Slow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 100,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

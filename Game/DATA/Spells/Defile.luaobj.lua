@@ -53,9 +53,9 @@ OnBuffActivateBuildingBlocks = {
           Damage = 0,
           DamageVar = "DamageToDeal",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PERIODIC,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2,
+          SpellDamageRatio = 0.25,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -206,11 +206,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "OwnerMana",
           OwnerVar = "Owner",
-          Function = GetMana
+          Function = GetPAR,
+          PARType = PAR_MANA
         }
       },
       {
@@ -242,7 +243,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Owner",
               Delta = 0,
@@ -282,9 +283,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageToDeal",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PERIODIC,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.2,
+              SpellDamageRatio = 0.25,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

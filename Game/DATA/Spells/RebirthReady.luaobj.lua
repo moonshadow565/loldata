@@ -4,11 +4,12 @@ PersistsThroughDeath = true
 Nondispellable = true
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -78,7 +79,7 @@ BuffOnPreDamageBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "Rebirth",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberStacks = 1,

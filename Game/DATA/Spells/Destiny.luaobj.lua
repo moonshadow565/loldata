@@ -3,12 +3,12 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Destiny_temp.dds"
 BuffName = "Destiny"
 AutoBuffActivateEffect = "DestinyEye.troy"
-AutoBuffActivateEffect2 = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect2 = ""
 SpellDamageRatio = 0.75
 AutoCooldownByLevel = {
-  130,
-  110,
-  90
+  150,
+  135,
+  120
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -49,72 +49,70 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        4.5,
-        6.5,
-        8.5
-      },
-      TickRate = 0
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MoveSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = -0.45
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        3.5,
-        5.5,
-        7.5
-      },
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "DestinySlow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        4,
         6,
-        8
+        8,
+        10
       },
       TickRate = 0
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectEnemies AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationByLevel = {
+            6,
+            8,
+            10
+          },
+          TickRate = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "Gate",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0.5,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 3,
+      OwnerVar = "Owner"
     }
   }
 }
@@ -127,8 +125,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "destinyslow"
-    }
+    Params = {Name = "gate"}
   }
 }

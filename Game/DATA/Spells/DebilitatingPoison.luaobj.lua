@@ -3,6 +3,7 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Twitch_Fade.dds"
 BuffName = "DebilitatingPoison"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect2 = "twitch_debilitatingPoison_tar.troy"
 PopupMessage1 = "game_floatingtext_Slowed"
 OnBuffActivateBuildingBlocks = {
   {
@@ -27,7 +28,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1Value = 0,
-      Src2Value = -0.1,
+      Src2Value = -0.06,
       DestVar = "BonusMove",
       MathOp = MO_MULTIPLY
     }
@@ -60,7 +61,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = -0.2
+      SrcValue = -0.3
     }
   },
   {
@@ -82,10 +83,10 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {

@@ -4,6 +4,58 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "rupture_cas_01.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "rupture_cas_01.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "DamageAmount",
@@ -76,21 +128,55 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "Owner",
-      EffectName = "rupture_cas_02.troy",
-      Flags = 0,
-      EffectIDVar = "partname",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "TeamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "rupture_cas_02.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "rupture_cas_02.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {
@@ -123,7 +209,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       BuffMaxStack = 1,
-      BuffNumberStacks = 1,
+      BuffNumberOfStacks = 1,
       BuffDuration = 37037,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -141,7 +227,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Stun,
       BuffMaxStack = 1,
-      BuffNumberStacks = 1,
+      BuffNumberOfStacks = 1,
       BuffDuration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -164,7 +250,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -236,7 +324,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -244,6 +332,12 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rupture_cas_01.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -263,7 +357,7 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   }
 }

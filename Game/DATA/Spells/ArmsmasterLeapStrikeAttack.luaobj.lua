@@ -3,21 +3,28 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = false
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "LeapStrikeSpeed",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.35,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBBreakSpellShields,
     Params = {TargetVar = "Target"}
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
   },
   {
     Function = BBGetTotalAttackDamage,
@@ -27,26 +34,18 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetBuffCountFromAll,
+    Function = BBIfHasBuff,
     Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      BuffName = "EmpowerCleave"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Count",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "EmpowerTwo"
     },
     SubBlocks = {
       {
         Function = BBGetSlotSpellInfo,
         Params = {
           DestVar = "Level",
-          SpellSlotValue = 0,
+          SpellSlotValue = 1,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
           OwnerVar = "Owner",
@@ -56,45 +55,14 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "DamagePerStack",
+          DestVar = "EmpowerTwoDamage",
           SrcValueByLevel = {
-            20,
-            25,
-            30,
-            35,
-            40
+            40,
+            60,
+            80,
+            100,
+            120
           }
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamagePerStack",
-          Src2Var = "Count",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "EmpowerBonus",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "Count",
-          Src1Value = 125,
-          Src2Value = 0,
-          DestVar = "RadiusOfCleave",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AttackDamage",
-          Src1Value = 0,
-          Src2Value = 0.5,
-          DestVar = "AoEDamage",
-          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -102,33 +70,26 @@ TargetExecuteBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Target",
-          Range = 0,
-          RangeVar = "RadiusOfCleave",
+          Range = 375,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBApplyDamage,
             Params = {
-              Src1Var = "Target",
-              Src2Var = "Unit",
-              CompareOp = CO_NOT_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Unit",
-                  Damage = 0,
-                  DamageVar = "AoEDamage",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_PROC,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0
-                }
-              }
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "EmpowerTwoDamage",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -138,31 +99,20 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "Empower"
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveStacks,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "EmpowerCleave",
-          NumStacks = 0
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "EmpowerBonus",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          BuffName = "EmpowerTwo"
         }
       }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
@@ -199,7 +149,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 0.8,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -226,12 +179,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "empowercleave"
+      Name = "leapstrikespeed"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "empower"}
+    Params = {Name = "empowertwo"}
   },
   {
     Function = BBPreloadSpell,

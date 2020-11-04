@@ -87,7 +87,7 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetManaCostInc,
+        Function = BBSetPARCostInc,
         Params = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 0,
@@ -106,7 +106,7 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetManaCostInc,
+        Function = BBSetPARCostInc,
         Params = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 1,
@@ -125,7 +125,7 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetManaCostInc,
+        Function = BBSetPARCostInc,
         Params = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 2,
@@ -145,7 +145,7 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetManaCostInc,
+        Function = BBSetPARCostInc,
         Params = {
           SpellSlotOwnerVar = "Owner",
           SpellSlot = 3,
@@ -159,7 +159,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 0,
@@ -168,7 +168,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
@@ -177,7 +177,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 2,
@@ -186,7 +186,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,

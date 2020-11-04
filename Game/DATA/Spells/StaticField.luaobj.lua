@@ -66,7 +66,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2
+                  SpellDamageRatio = 0.2,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               },
               {
@@ -123,15 +125,17 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        200,
-        300,
-        400
+        250,
+        375,
+        500
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

@@ -95,7 +95,7 @@ BuffOnUpdateStatsBuildingBlocks = {
                     Params = {
                       OwnerVar = "Owner",
                       AttackerVar = "Owner",
-                      BuffName = "Internal_15Slow"
+                      BuffName = "Internal_20Slow"
                     },
                     SubBlocks = {
                       {
@@ -103,7 +103,31 @@ BuffOnUpdateStatsBuildingBlocks = {
                         Params = {
                           Stat = IncPercentMultiplicativeMovementSpeedMod,
                           TargetVar = "Owner",
-                          Delta = -0.15
+                          Delta = -0.2
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBElse,
+                    Params = {},
+                    SubBlocks = {
+                      {
+                        Function = BBIfHasBuff,
+                        Params = {
+                          OwnerVar = "Owner",
+                          AttackerVar = "Owner",
+                          BuffName = "Internal_15Slow"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBIncStat,
+                            Params = {
+                              Stat = IncPercentMultiplicativeMovementSpeedMod,
+                              TargetVar = "Owner",
+                              Delta = -0.15
+                            }
+                          }
                         }
                       }
                     }
@@ -140,6 +164,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "internal_30slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_20slow"
     }
   },
   {

@@ -14,13 +14,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageBonus",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -38,13 +31,12 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncPermanentStat,
+    Function = BBSetBuffToolTipVar,
     Params = {
-      Stat = IncPermanentFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "DamageBonus",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Value = 0,
+      ValueVar = "TotalArmorAmount",
+      ValueVarTable = "InstanceVars",
+      Index = 1
     }
   }
 }
@@ -54,26 +46,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "DamageBonus",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "DamageBonusCleanup",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "DamageBonusCleanup",
-      Delta = 0
     }
   }
 }
@@ -152,7 +124,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
-      TargetVar = "Target",
+      TargetVar = "Attacker",
       DestVar = "AbilityPower"
     }
   },
@@ -218,10 +190,27 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 12,
+      NumberOfStacks = 1,
+      Duration = 10.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "JannaEoTSBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 10.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -232,6 +221,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "eyeofthestorm_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jannaeotsbuff"
     }
   }
 }

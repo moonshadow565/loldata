@@ -32,7 +32,7 @@ BuffOnSpellHitBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -67,9 +67,10 @@ BuffOnSpellHitBuildingBlocks = {
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.75,
+          SpellDamageRatio = 0.5,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -153,13 +154,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos1",
       EndPosVar = "Pos1",
+      OverrideCastPosition = false,
       SlotNumber = 2,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   },
   {
@@ -169,13 +172,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos2",
       EndPosVar = "Pos2",
+      OverrideCastPosition = false,
       SlotNumber = 2,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   },
   {
@@ -185,13 +190,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos3",
       EndPosVar = "Pos3",
+      OverrideCastPosition = false,
       SlotNumber = 2,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   },
   {
@@ -202,7 +209,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 6
@@ -217,7 +224,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 6

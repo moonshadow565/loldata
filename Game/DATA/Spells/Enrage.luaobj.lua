@@ -9,6 +9,8 @@ AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 SpellToggleSlot = 3
+PersistsThroughDeath = true
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
@@ -92,7 +94,7 @@ BuffOnKillBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -145,7 +147,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -187,11 +189,12 @@ BuffOnLaunchAttackBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurrentHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {

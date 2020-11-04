@@ -30,6 +30,34 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 400,
+      Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "TremDamage",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.3,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -43,20 +71,12 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TremDamage",
-      SrcVar = "TremDamage",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -76,10 +96,13 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "TremDamage",
+              DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PERIODIC,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.3
+              SpellDamageRatio = 0.3,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -109,21 +132,15 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src2Var = "Level",
-      Src1Value = 55,
-      Src2Value = 0,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TremDamage",
       DestVarTable = "NextBuffVars",
-      SrcVar = "DamageAmount"
+      SrcValueByLevel = {
+        65,
+        130,
+        195
+      }
     }
   },
   {
@@ -132,7 +149,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Damage,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 0,

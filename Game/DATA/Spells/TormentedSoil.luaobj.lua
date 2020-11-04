@@ -94,7 +94,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 280,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -111,7 +111,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 280,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -134,7 +134,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 280,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -151,7 +151,69 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 280,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Owner",
+      Range = 280,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "DamagePerTick",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "FireFeet_buf.troy",
+          Flags = 0,
+          EffectIDVar = "hi1",
+          BoneName = "L_foot",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "FireFeet_buf.troy",
+          Flags = 0,
+          EffectIDVar = "hi2",
+          BoneName = "R_foot",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -203,7 +265,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -225,7 +287,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "DamagePerTick",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PERIODIC,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.2,
               IgnoreDamageIncreaseMods = false,

@@ -1,5 +1,6 @@
 BuffTextureName = "PlantKing_AnimateEntangler.dds"
 BuffName = "Crest Of Unyielding Stone"
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -263,7 +264,7 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 120,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

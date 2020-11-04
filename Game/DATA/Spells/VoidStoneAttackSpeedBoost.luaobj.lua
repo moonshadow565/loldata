@@ -13,7 +13,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "AttackSpeedBoost",
       DeltaVarTable = "InstanceVars",
