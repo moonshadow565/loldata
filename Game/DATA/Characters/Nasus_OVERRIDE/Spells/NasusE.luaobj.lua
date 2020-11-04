@@ -1,0 +1,69 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+PersistsThroughDeath = true
+NonDispellable = true
+SpellFXOverrideSkins = {
+  "NasusSkin05"
+}
+SpellVOOverrideSkins = {
+  "NasusSkin05"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_e_tar_afterburn.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_e_tar_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_e_tar_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_base_e_spiritfire.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_e_green_ring.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_e_red_ring.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nasusearmorreduction"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_e_tar_warning.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_base_e_warning.troy"
+    }
+  }
+}

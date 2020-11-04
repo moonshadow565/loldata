@@ -15,6 +15,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "zedshadow"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rallyingbanner_itm.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "zedultshadowmark"

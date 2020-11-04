@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "starcalldamage"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soraka_q_reduction.troy"
+    }
   }
 }

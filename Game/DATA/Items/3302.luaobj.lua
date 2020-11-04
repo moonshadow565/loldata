@@ -1,7 +1,10 @@
-BuffTextureName = "2008_Tome_of_Combat_Mastery.dds"
-BuffName = "WillOfTheAncientsFriendly"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "goldpertencounter"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

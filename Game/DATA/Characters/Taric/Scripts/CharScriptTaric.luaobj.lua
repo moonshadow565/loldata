@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "taricgemcraftbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "gemcraft"}
   },
   {

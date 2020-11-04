@@ -16,5 +16,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "heimerdinger_turret_standard_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "cripple"}
   }
 }

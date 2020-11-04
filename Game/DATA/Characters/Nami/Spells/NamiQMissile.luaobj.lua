@@ -7,12 +7,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "namiqfakeknockup"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "namiqdebuff"
     }
   },

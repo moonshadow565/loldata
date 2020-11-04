@@ -1,10 +1,33 @@
-local L0_0, L1_1
+local L0_0
 function L0_0()
   SetState(AI_HARDIDLE)
   InitTimer("TimerFindEnemies", 0.15, true)
   return false
 end
 OnInit = L0_0
+L0_0 = {
+  "AI_SOFTATTACK",
+  "AI_HARDATTACK",
+  "AI_ATTACKMOVESTATE",
+  "AI_STANDING",
+  "AI_MOVE",
+  "AI_GUARD",
+  "AI_ATTACK",
+  "AI_RETREAT",
+  "AI_HARDIDLE",
+  "AI_HARDIDLE_ATTACKING",
+  "AI_TAUNTED",
+  "AI_ATTACKMOVE_ATTACKING",
+  "AI_FEARED",
+  "AI_CHARMED",
+  "AI_FLEEING",
+  "AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION",
+  "AI_HALTED",
+  "AI_SIEGEATTACK",
+  "AI_LAST_NONPET_AI_STATE"
+}
+L0_0[0] = "AI_IDLE"
+DEBUG_MINION_STATE_TABLE = L0_0
 function L0_0()
   if GetState() == AI_HALTED then
     return
@@ -24,13 +47,13 @@ function L0_0()
   return true
 end
 OnTargetLost = L0_0
-function L0_0(A0_2, A1_3)
+function L0_0(A0_1, A1_2)
   if GetState() == AI_HALTED then
     return
   end
-  if A1_3 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
+  if A1_2 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
     NetSetState(AI_HARDIDLE_ATTACKING)
-    SetTarget(A1_3)
+    SetTarget(A1_2)
   end
 end
 OnCallForHelp = L0_0

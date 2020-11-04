@@ -1,4 +1,4 @@
-local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11
+local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12
 MAX_MINIONS_EVER = L0
 TEAM_ORDER = L0
 TEAM_CHAOS = L0
@@ -192,6 +192,7 @@ L8 = "YoungLizard"
 L9 = "Wraith"
 L10 = "Worm"
 L11 = "SmallGolem"
+L12 = "GreatWraith"
 L0[1] = L1
 L0[2] = L2
 L0[3] = L3
@@ -203,6 +204,7 @@ L0[8] = L8
 L0[9] = L9
 L0[10] = L10
 L0[11] = L11
+L0[12] = L12
 NeutralMinionNames = L0
 CreateLaneBuildingTable = L0
 L3 = CreateLaneBuildingTable
@@ -243,6 +245,7 @@ ReductionCounter = L0
 ApplyBarracksRespawnReductions = L0
 ReactiveCounter = L0
 BarrackReactiveEvent = L0
+DisableSuperMinions = L0
 DisactivatedCounter = L0
 HandleDestroyedObject = L0
 IncreaseCannonMinionSpawnRate = L0

@@ -2,13 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "emblemofvalorparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "emblemofvalor"
+      Name = "goldpertencounter"
     }
   },
   {

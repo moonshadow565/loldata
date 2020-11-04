@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "consecrationauranoparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "consecrationaura"
     }
   },
@@ -15,6 +9,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "starcallrangecheck"
     }
   }
 }
