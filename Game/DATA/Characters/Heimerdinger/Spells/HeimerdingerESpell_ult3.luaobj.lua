@@ -6,7 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Heimerdinger_E2.dds"
 BuffName = "Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
-AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateAttachBoneName = "Buffbone_Glb_Ground_Loc"
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
