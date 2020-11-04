@@ -143,5 +143,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "feelnopain_eff.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimertyellowbasicattack2"
+    }
   }
 }

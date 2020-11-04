@@ -22,7 +22,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_shards.troy"
+      Name = "Lissandra_Base_shards.troy"
     }
   }
 }

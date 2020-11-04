@@ -35,6 +35,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "shacoboxslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shacoboxsnare"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "jackintheboxsoftlock"
     }
   },

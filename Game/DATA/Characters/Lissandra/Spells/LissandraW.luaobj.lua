@@ -18,7 +18,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_w_nova.troy"
+      Name = "Lissandra_Base_W_Nova.troy"
     }
   },
   {

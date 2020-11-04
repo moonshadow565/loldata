@@ -1,6 +1,5 @@
 BuffTextureName = "ItemDisabled.dds"
 BuffName = "WardDisable"
-AutoBuffActivateAttachBoneName = "head"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

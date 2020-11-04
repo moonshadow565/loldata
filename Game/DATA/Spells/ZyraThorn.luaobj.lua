@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyrathornplantmissilespawn02"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_plant_overhead_indicator_02.troy"

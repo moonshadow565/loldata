@@ -15,5 +15,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "terrify_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "fleeslow"}
   }
 }

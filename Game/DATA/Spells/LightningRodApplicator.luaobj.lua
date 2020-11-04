@@ -7,10 +7,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "lightningrodchain"
     }
@@ -19,6 +15,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "lightningrodcounter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightningrodready"
     }
   }
 }

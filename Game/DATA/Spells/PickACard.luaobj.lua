@@ -15,19 +15,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "card_blue.troy"
+      Name = "twistedfate_base_w_bluecard.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "card_red.troy"
+      Name = "twistedfate_base_w_redcard.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "card_yellow.troy"
+      Name = "twistedfate_base_w_goldcard.troy"
     }
   },
   {

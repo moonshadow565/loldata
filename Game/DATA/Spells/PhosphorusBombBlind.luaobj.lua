@@ -2,4 +2,4 @@ IsDamagingSpell = false
 BuffTextureName = "Corki_PhosphorusBomb.dds"
 BuffName = "PhosphorusBomb"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

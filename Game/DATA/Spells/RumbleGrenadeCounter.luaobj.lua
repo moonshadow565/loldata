@@ -1,7 +1,0 @@
-BuffTextureName = "Rumble_Electro Harpoon.dds"
-BuffName = "RumbleGrenadeAmmo"
-AutoBuffActivateEffect = "Aegis_buf.troy"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""

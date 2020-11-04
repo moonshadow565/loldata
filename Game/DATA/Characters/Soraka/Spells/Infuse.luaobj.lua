@@ -1,4 +1,7 @@
 NotSingleTargetSpell = false
+BuffTextureName = "Soraka_E.dds"
+BuffName = "InfuseWrapper"
+IsDeathRecapSource = true
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

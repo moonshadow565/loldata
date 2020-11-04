@@ -6,7 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "BlindMonkEOne.dds"
 BuffName = "BlindMonkTempest"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellFXOverrideSkins = {
   "ReefMalphite"
 }
@@ -27,12 +27,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_e_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
     }
   },
   {

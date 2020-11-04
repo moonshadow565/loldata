@@ -79,6 +79,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nocturefleeslow"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nocturneunspeakablehorror_fear.troy"

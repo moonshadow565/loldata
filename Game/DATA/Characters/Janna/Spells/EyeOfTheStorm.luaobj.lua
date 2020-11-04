@@ -16,7 +16,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "eyeofthestorm_frost_tower_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "eyeofthestorm_frost_ally_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "eyeofthestorm_tower_buf.troy"
     }
   },
   {

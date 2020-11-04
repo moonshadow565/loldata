@@ -6,5 +6,4 @@ IsDamagingSpell = true
 BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
 BuffName = "CaitlynYordleTrapSight"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
-AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

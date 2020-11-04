@@ -14,19 +14,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_r_iceblock_lulu.troy"
+      Name = "Lissandra_Base_R_iceblock_Lulu.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_r_iceblock.troy"
+      Name = "Lissandra_Base_R_iceblock.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_r_skin.troy"
+      Name = "Lissandra_Base_R_skin.troy"
     }
   }
 }

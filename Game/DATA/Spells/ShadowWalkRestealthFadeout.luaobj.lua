@@ -6,7 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Evelynn_OutOfStealth.dds"
 BuffName = "ShadowWalkRevealed"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

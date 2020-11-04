@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "2026_Arcane_Protection_Potion.dds"
 BuffName = "OracleElixir"
-AutoBuffActivateAttachBoneName = "head"
 PersistsThroughDeath = true
 NonDispellable = true
 PermeatesThroughDeath = true

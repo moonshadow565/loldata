@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "skarnervirulentslashslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "skarnerimpaleflashlock"
     }
   },

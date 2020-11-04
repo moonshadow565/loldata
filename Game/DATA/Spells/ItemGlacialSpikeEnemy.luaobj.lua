@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemglacialspikeenemy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "itemglacialspikeenemyslow"
     }
   },
@@ -27,13 +21,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_itemglacialspikeenemy_nova.troy"
+      Name = "item_trueice_hit_nova.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_trueicehit.troy"
+      Name = "item_trueice_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemglacialspikeenemy"
     }
   },
   {

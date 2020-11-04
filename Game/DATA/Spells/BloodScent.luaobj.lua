@@ -2,14 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Wolfman_Bloodscent.dds"
 BuffName = "Haste"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
-AutoBuffActivateAttachBoneName4 = ""
 AutoCooldownByLevel = {
   45,
   40,
