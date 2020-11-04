@@ -93,7 +93,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_ORDER,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -113,7 +113,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_CHAOS,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -143,7 +143,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_ORDER,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -163,7 +163,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_CHAOS,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -189,7 +189,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_ORDER,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_ORDER,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -209,7 +209,7 @@ OnBuffActivateBuildingBlocks = {
               SpecificUnitOnlyVar = "Nothing",
               SpecificTeamOnly = TEAM_CHAOS,
               UseSpecificUnit = true,
-              FOWTeam = TEAM_CHAOS,
+              FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
@@ -268,7 +268,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           },
@@ -288,7 +288,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           }
@@ -318,7 +318,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           },
@@ -338,7 +338,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           }
@@ -364,7 +364,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           },
@@ -384,7 +384,7 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamOfOwner",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true,
+              SendIfOnScreenOrDiscard = false,
               FollowsGroundTilt = false
             }
           }
