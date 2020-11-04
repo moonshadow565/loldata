@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="snowballfollowupcast"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_poroexplosion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="globalpolymorphhasbegun"}}, 
+{Function=BBPreloadParticle, Params={Name="iceblast_mis.troy"}}, 
+}
