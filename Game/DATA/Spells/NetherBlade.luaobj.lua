@@ -25,7 +25,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kassadin_netherblade.troy"
+      Name = "Kassadin_Base_W_buf.troy"
     }
   }
 }
