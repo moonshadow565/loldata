@@ -15,11 +15,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemspiritconservation"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemspiritwraith"
-    }
   }
 }

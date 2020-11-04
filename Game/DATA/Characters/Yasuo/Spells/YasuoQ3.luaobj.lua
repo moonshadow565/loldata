@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuoqspellshieldcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuoqdamage"
     }
   },

@@ -5,6 +5,7 @@ IsDamagingSpell = true
 BuffTextureName = "Ahri_FoxFire.dds"
 BuffName = "AhriFoxFire"
 SpellDamageRatio = 1
+SpellVOOverrideSkins = {"AhriSkin04"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
