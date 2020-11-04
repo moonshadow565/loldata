@@ -206,18 +206,3 @@ sp_RegenTickInterval                               =                            
 hq_EoGUseNexusDeathAnimation                       =                                             1 ; Flag to tell the Nexus to use its death animation at EoG
 hq_EoGPanTime                                      =                                         3.000 ; Time it takes to pan to the Nexus during the EoG ceremony
 hq_EoGNexusChangeSkinTime                          =                                         3.500 ; Time before the explosion effect and the skin swap is played on Nexus during the EoG ceremony
-
-; Shop VO Variables
-shopvo_GlobalCooldown                              =                                        15.000 ; Minimum time between VO events
-shopvo_RichPlayer                                  =                                      3000.000 ; How much gold the player needs to be considered rich
-shopvo_OpenVOChance                                =                                         0.100 ; Percentage chance(0->1) to play VO when the shop becomes open for business
-shopvo_OpenVOInitialDelay                          =                                        60.000 ; How long to wait until before the Shop Open VO can play
-shopvo_BrowsingVOInterval                          =                                        10.000 ; How long to wait to check to see to play VO while browsing the shop
-shopvo_BrowsingVOChance                            =                                         0.100 ; Percentage chance(0->1) to play VO when the player is browsing the shop
-shopvo_AmbientVOInterval                           =                                        10.000 ; How long to wait to check to see to play VO while not opening the shop but in range
-shopvo_AmbientVOChance                             =                                         0.100 ; Percentage chance(0->1) to play VO when the player is in range of the shop but doesn't have it open
-shopvo_MenuOpenVOChance                            =                                         0.100 ; Percentage chance(0->1) to play VO when the player opens the shop menu
-shopvo_MenuCloseVOChance                           =                                         0.100 ; Percentage chance(0->1) to play VO when the player closes the shop menu
-shopvo_PurchaseVOChance                            =                                         0.150 ; Percentage chance(0->1) to play VO when the player purchases an item more expensive than shovo_PurchaseMinimumGold
-shovo_PurchaseMinimumGold                          =                                           400 ; The minimum amount of gold an item has to cost to get VO
-shopvo_MultiMenuOpen                               =                                             5 ; Number of times the menu has to be opened before leaving the shop area in which the VO will be played
