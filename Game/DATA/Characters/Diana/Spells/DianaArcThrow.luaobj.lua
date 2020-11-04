@@ -8,13 +8,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_Q_End.troy"
+      Name = "diana_skin01_q_end.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_Q_End.troy"
+      Name = "diana_base_q_end.troy"
     }
   },
   {
@@ -32,25 +32,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_Q_Tar.troy"
+      Name = "diana_skin01_q_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_Q_Tar.troy"
+      Name = "diana_base_q_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_R_Teleport_Success.troy"
+      Name = "diana_skin01_r_teleport_success.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_R_Teleport_Success.troy"
+      Name = "diana_base_r_teleport_success.troy"
     }
   }
 }

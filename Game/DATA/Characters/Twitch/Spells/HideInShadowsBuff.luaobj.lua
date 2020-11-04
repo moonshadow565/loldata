@@ -1,6 +1,0 @@
-BuffTextureName = "Twitch_Stealth.dds"
-BuffName = "AmbushBuff"
-AutoBuffActivateEffect = "twitch_ambush_buf.troy"
-AutoBuffActivateAttachBoneName = "R_Hand"
-AutoBuffActivateEffect2 = "twitch_ambush_buf.troy"
-AutoBuffActivateAttachBoneName2 = "L_Hand"

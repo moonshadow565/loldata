@@ -7,7 +7,8 @@ BuffTextureName = "Cryophoenix_FrigidOrb.dds"
 BuffName = "Flash Frost"
 SpellToggleSlot = 1
 SpellFXOverrideSkins = {
-  "Lissandra_skin01"
+  "Lissandra_skin01",
+  "lissandraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

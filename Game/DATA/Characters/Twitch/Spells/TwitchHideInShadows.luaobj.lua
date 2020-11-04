@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Twitch_Ambush.dds"
-BuffName = "Hide"
+BuffName = "TwitchHideInShadows"
 AutoBuffActivateEffect2 = "Twitch_Base_Q_Invisible.troy"
 SpellToggleSlot = 1
 PreLoadBuildingBlocks = {
@@ -23,6 +23,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_base_q_invisible.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchhideinshadowsbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchhideinshadowsinternal"
     }
   }
 }

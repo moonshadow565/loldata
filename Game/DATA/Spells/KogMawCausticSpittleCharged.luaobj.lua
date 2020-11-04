@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kogmaw_shred_02.troy"
+      Name = "kogmaw_q_ampen.troy"
     }
   },
   {

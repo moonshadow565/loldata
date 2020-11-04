@@ -5,12 +5,14 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "twitch_poison_counter_01.troy"
+      Name = "twitch_base_p_smoke.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_poison_counter_01.troy"
+    }
   },
   {
     Function = BBPreloadParticle,
@@ -41,6 +43,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "twitch_base_p_impact_stack_06.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,

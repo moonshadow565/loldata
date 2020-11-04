@@ -33,5 +33,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "global_ss_heal_02.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "summonerhealcheck"
+    }
   }
 }

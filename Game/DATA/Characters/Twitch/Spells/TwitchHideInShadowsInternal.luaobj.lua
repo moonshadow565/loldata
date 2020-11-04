@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchhideinshadows"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_base_q_bamf.troy"

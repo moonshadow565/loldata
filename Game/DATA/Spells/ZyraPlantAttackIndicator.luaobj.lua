@@ -7,5 +7,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyra_plant_overhead_indicator.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

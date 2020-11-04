@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Teemo_MoveQuick.dds"
 BuffName = "Move Quick2"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 SpellFXOverrideSkins = {"SuperTeemo"}
 PreLoadBuildingBlocks = {
