@@ -85,6 +85,7 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "BreakDamage",
@@ -93,6 +94,7 @@ BuffOnHitUnitBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -125,12 +127,14 @@ BuffOnSpellHitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "SpellShieldMarker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 37037,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -161,18 +165,31 @@ BuffOnSpellHitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "SpellShieldMarker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 37037,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Target",
+              Duration = 0,
+              DurationVar = "StunDuration",
+              DurationVarTable = "InstanceVars"
             }
           },
           {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "BreakDamage",
@@ -181,6 +198,7 @@ BuffOnSpellHitBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

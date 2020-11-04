@@ -213,7 +213,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "HasteBoost",
       DestVarTable = "InstanceVars",
-      SrcValue = 0.3
+      SrcValue = 0.375
     }
   }
 }
@@ -399,7 +399,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 1,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false
@@ -517,28 +517,77 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "DamageTick",
       SrcValueByLevel = {
-        16,
-        27,
-        38,
-        49,
-        60
+        20,
+        33.75,
+        47.5,
+        61.25,
+        75
       }
     }
   },
   {
-    Function = BBGetStat,
+    Function = BBGetPAROrHealth,
     Params = {
-      Stat = GetFlatHPPoolMod,
-      TargetVar = "Attacker",
-      DestVar = "Health"
+      DestVar = "maxHP",
+      OwnerVar = "Owner",
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "baseHP", SrcValue = 400}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "healthPerLevel",
+      SrcValue = 85
+    }
+  },
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Level",
+      Src2Var = "healthPerLevel",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "levelHealth",
+      MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Health",
+      Src1Var = "levelHealth",
+      Src2Var = "baseHP",
       Src1Value = 0,
-      Src2Value = 0.025,
+      Src2Value = 0,
+      DestVar = "totalBaseHealth",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "maxHP",
+      Src2Var = "totalBaseHealth",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "totalBonusHealth",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalBonusHealth",
+      Src1Value = 0,
+      Src2Value = 0.0375,
       DestVar = "HealthMod",
       MathOp = MO_MULTIPLY
     }
@@ -565,7 +614,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

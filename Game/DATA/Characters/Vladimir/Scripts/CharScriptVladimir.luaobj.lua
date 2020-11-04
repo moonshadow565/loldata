@@ -1,19 +1,68 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBGetStat,
+    Function = BBGetPAROrHealth,
     Params = {
-      Stat = GetFlatHPPoolMod,
-      TargetVar = "Owner",
-      DestVar = "BonusHealth"
+      DestVar = "maxHP",
+      OwnerVar = "Owner",
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "baseHP", SrcValue = 400}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "healthPerLevel",
+      SrcValue = 85
+    }
+  },
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Level",
+      Src2Var = "healthPerLevel",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "levelHealth",
+      MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BonusHealth",
+      Src1Var = "levelHealth",
+      Src2Var = "baseHP",
       Src1Value = 0,
-      Src2Value = 0.125,
-      DestVar = "BonusHealth",
+      Src2Value = 0,
+      DestVar = "totalBaseHealth",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "maxHP",
+      Src2Var = "totalBaseHealth",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "totalBonusHealth",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalBonusHealth",
+      Src1Value = 0,
+      Src2Value = 0.15,
+      DestVar = "totalBonusHealth",
       MathOp = MO_MULTIPLY
     }
   },
@@ -21,7 +70,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Function = BBSetSpellToolTipVar,
     Params = {
       Value = 0,
-      ValueVar = "BonusHealth",
+      ValueVar = "totalBonusHealth",
       Index = 1,
       SlotNumber = 1,
       SlotType = SpellSlots,
