@@ -10,6 +10,10 @@ AutoBuffActivateAttachBoneName3 = "head"
 PopupMessage1 = "game_floatingtext_Slowed"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = false}
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatMissChanceMod,
@@ -22,6 +26,24 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "ArmorMod",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ArmorMod",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Owner",
+          SourceVar = "Attacker"
+        }
+      }
     }
   }
 }
@@ -88,6 +110,27 @@ AdjustCooldownBuildingBlocks = {
         }
       },
       {
+        Function = BBIf,
+        Params = {
+          Src1Var = "HasRune5378",
+          Src1VarTable = "AvatarVars",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CooldownMultiplier",
+              Src1Value = 0,
+              Src2Value = 0.04,
+              DestVar = "CooldownMultiplier",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      },
+      {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
@@ -95,29 +138,6 @@ AdjustCooldownBuildingBlocks = {
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "BanishCooldownBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BaseCooldown",
-          Src2Var = "BanishCooldownBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BaseCooldown",
-          MathOp = MO_SUBTRACT
         }
       }
     }
@@ -183,7 +203,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffName = "ExhaustSlow",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
@@ -206,7 +226,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffName = "ExhaustSlow",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
@@ -261,9 +281,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Blind,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,

@@ -34,7 +34,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 550,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 3,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -44,6 +45,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               PosVar = "Owner",
               EndPosVar = "Owner",
+              OverrideCastPosition = false,
               SlotNumber = 0,
               SlotType = ExtraSlots,
               OverrideForceLevel = 0,
@@ -51,7 +53,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               OverrideCoolDownCheck = true,
               FireWithoutCasting = true,
               UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
             }
           }
         }
@@ -74,7 +77,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 550,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 2
+          MaximumUnitsToPick = 3,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -84,6 +88,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               PosVar = "Owner",
               EndPosVar = "Owner",
+              OverrideCastPosition = false,
               SlotNumber = 0,
               SlotType = ExtraSlots,
               OverrideForceLevel = 0,
@@ -91,7 +96,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               OverrideCoolDownCheck = true,
               FireWithoutCasting = true,
               UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
             }
           }
         }
@@ -114,7 +120,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 550,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 3
+          MaximumUnitsToPick = 3,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -124,6 +131,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               TargetVar = "Unit",
               PosVar = "Owner",
               EndPosVar = "Owner",
+              OverrideCastPosition = false,
               SlotNumber = 0,
               SlotType = ExtraSlots,
               OverrideForceLevel = 0,
@@ -131,7 +139,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               OverrideCoolDownCheck = true,
               FireWithoutCasting = true,
               UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
             }
           }
         }
@@ -152,7 +161,8 @@ CanCastBuildingBlocks = {
       Range = 550,
       Flags = "AffectEnemies AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -170,12 +180,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "DeathLotusSound",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -192,12 +204,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.25
+      TickRate = 0.25,
+      CanMitigateDuration = false
     }
   }
 }

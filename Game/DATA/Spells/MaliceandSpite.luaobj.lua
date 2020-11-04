@@ -1,7 +1,8 @@
+CastingBreaksStealth = true
 BuffTextureName = "Evelynn_Drink.dds"
 BuffName = "MaliceAndSpite"
-AutoBuffActivateEffect = "Eve_ExudingEmbrace_tar.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "Eve_ExudingEmbrace_tar.troy"
 AutoBuffActivateAttachBoneName2 = "r_foot"
 AutoBuffActivateEffect3 = "Eve_ExudingEmbrace_tar.troy"
@@ -65,7 +66,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "TargetPos",
-      Range = 200,
+      Range = 275,
       Flags = "AffectEnemies AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -82,7 +83,7 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Blind,
+          BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
@@ -94,12 +95,12 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "SlowPercent",
+          DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            -0.4,
-            -0.5,
-            -0.6
+            -0.45,
+            -0.6,
+            -0.75
           }
         }
       },
@@ -108,7 +109,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "MaliceAndSpiteSlow",
+          BuffName = "Slow",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
@@ -140,8 +141,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "maliceandspiteslow"
-    }
+    Params = {Name = "slow"}
   }
 }

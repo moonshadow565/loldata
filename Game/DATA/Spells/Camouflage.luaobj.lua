@@ -14,7 +14,7 @@ OnBuffActivateBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -80,7 +80,100 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 3,
+          Duration = 1.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "IsInvuln",
+      Status = GetInvulnerable
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "IsInvuln",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CamouflageCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Value2 = true,
+      CompareOp = CO_IS_DEAD
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CamouflageCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Recall"
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CamouflageCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -147,7 +240,7 @@ BuffOnSpellCastBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 3,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -188,7 +281,7 @@ BuffOnSpellCastBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 3,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false
@@ -215,7 +308,7 @@ BuffOnTakeDamageBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 3,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -240,7 +333,7 @@ BuffOnHitUnitBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 3,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -261,7 +354,7 @@ BuffOnLaunchAttackBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -274,6 +367,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "camouflagecheck"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "recall"}
   },
   {
     Function = BBPreloadSpell,

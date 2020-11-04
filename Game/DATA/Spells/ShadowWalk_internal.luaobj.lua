@@ -30,13 +30,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "InitialTime",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "TimeLastHit",
       RequiredVarTable = "InstanceVars"
     }

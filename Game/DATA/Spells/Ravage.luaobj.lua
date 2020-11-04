@@ -109,7 +109,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Distance",
       Src1Value = 0,
-      Src2Value = 12,
+      Src2Value = 15,
       DestVar = "Distance",
       MathOp = MO_SUBTRACT
     }
@@ -165,20 +165,6 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageVar",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        100,
-        175,
-        250,
-        0,
-        0
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "dashSpeed",
       DestVarTable = "NextBuffVars",
       SrcVar = "dashSpeed"
@@ -219,7 +205,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.25,
       CanMitigateDuration = false

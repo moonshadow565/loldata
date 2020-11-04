@@ -20,6 +20,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "SwainMultiplier",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
@@ -117,32 +124,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageTaken",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "DamageAmpPerc",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageToAdd",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageToAdd",
-          Src2Var = "DoTDamage",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DoTDamage",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
-        }
-      },
-      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -154,39 +135,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.15,
+          SpellDamageRatio = 0.2,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
-        }
-      }
-    }
-  }
-}
-BuffOnTakeDamageBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Caster",
-      Src2Var = "Attacker",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src2Var = "DamageTaken",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageTaken",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
         }
       }
     }
@@ -199,25 +151,25 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DoTDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
-        31.25,
-        42.5,
-        53.75,
-        65
+        18.75,
+        28.75,
+        38.75,
+        48.75,
+        58.75
       }
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageAmpPerc",
+      DestVar = "SwainMultiplier",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.04,
-        0.05,
-        0.06,
-        0.07,
-        0.08
+        1.08,
+        1.11,
+        1.14,
+        1.17,
+        1.2
       }
     }
   },

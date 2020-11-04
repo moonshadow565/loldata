@@ -455,9 +455,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCostInc",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            4,
+            5,
             7,
-            10
+            9
           }
         }
       },
@@ -467,9 +467,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            15,
-            20,
-            25
+            30,
+            32,
+            34
           }
         }
       },

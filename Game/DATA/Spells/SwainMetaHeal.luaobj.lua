@@ -16,9 +16,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseHeal",
       SrcValue = 0,
       SrcValueByLevel = {
-        20,
-        30,
-        40,
+        25,
+        35,
+        45,
         0,
         0
       }

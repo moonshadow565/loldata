@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-TargetExecuteBuildingBlocks = {
+SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
@@ -89,6 +89,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "TotalDamage",

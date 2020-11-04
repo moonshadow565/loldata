@@ -19,7 +19,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "weapontip",
+      BoneName = "BUFFBONE_CSTM_WEAPON_1",
       TargetObjectVar = "Owner",
       TargetBoneName = "weapon",
       SpecificUnitOnlyVar = "Owner",
@@ -39,7 +39,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "weapontip",
+      BoneName = "BUFFBONE_CSTM_WEAPON_1",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -73,6 +73,14 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -167,7 +175,7 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       Src1Var = "AttackDamage",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.3,
       DestVar = "PhysicalBonus",
       MathOp = MO_MULTIPLY
     }
@@ -212,56 +220,41 @@ BuffOnHitUnitBuildingBlocks = {
       },
       {
         Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Target",
-              Range = 375,
-              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Unit",
-                  Damage = 0,
-                  DamageVar = "AOEDmg",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Unit",
-                  EffectName = "EmpowerTwoHit_tar.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  EffectIDVarTable = "InstanceVars",
-                  TargetObjectVar = "Unit",
-                  SpecificUnitOnlyVar = "Nothing",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
-                }
-              }
-            }
-          }
+        Params = {}
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "AOEDmg",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "EmpowerTwoHit_tar.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -282,10 +275,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        5,
-        5,
-        5,
-        5,
+        9,
+        8,
+        7,
+        6,
         5
       }
     }
@@ -296,11 +289,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        40,
         60,
-        80,
-        100,
-        120
+        90,
+        120,
+        150,
+        180
       }
     }
   },

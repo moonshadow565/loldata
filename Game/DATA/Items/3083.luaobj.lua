@@ -31,7 +31,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraHP",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 36,
+          Src2Value = 45,
           DestVar = "ExtraHP",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
@@ -43,7 +43,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraRegen",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 1,
+          Src2Value = 0.3,
           DestVar = "ExtraRegen",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
@@ -67,7 +67,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraRegen",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 10,
+          Src2Value = 3,
           DestVar = "ExtraRegen",
           DestVarTable = "InstanceVars",
           MathOp = MO_MIN
@@ -85,7 +85,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraHP",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 3.6,
+          Src2Value = 4.5,
           DestVar = "ExtraHP",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
@@ -97,7 +97,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraRegen",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 0.1,
+          Src2Value = 0.03,
           DestVar = "ExtraRegen",
           DestVarTable = "InstanceVars",
           MathOp = MO_ADD
@@ -121,7 +121,7 @@ ItemOnKillBuildingBlocks = {
           Src1Var = "ExtraRegen",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 12.5,
+          Src2Value = 3,
           DestVar = "ExtraRegen",
           DestVarTable = "InstanceVars",
           MathOp = MO_MIN
@@ -145,6 +145,62 @@ OnActivateBuildingBlocks = {
       DestVar = "ExtraRegen",
       DestVarTable = "InstanceVars",
       SrcValue = 0
+    }
+  }
+}
+ItemOnAssistBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ExtraHP",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 45,
+          DestVar = "ExtraHP",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ExtraRegen",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0.3,
+          DestVar = "ExtraRegen",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ExtraHP",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 450,
+          DestVar = "ExtraHP",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ExtraRegen",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 3,
+          DestVar = "ExtraRegen",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_MIN
+        }
+      }
     }
   }
 }

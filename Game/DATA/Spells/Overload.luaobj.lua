@@ -54,6 +54,23 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "overload_tar.troy",
+      Flags = 0,
+      BoneName = "root",
+      TargetObjectVar = "Target",
+      TargetBoneName = "root",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -144,7 +161,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.45,
+      SpellDamageRatio = 0.4,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -222,7 +239,7 @@ TargetExecuteBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.3375,
+                  SpellDamageRatio = 0.26,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
@@ -236,6 +253,16 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "overload_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

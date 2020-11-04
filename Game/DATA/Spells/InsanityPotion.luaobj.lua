@@ -127,7 +127,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 25,
+      Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

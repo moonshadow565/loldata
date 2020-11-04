@@ -53,12 +53,37 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ManaPushback",
+      SrcValueByLevel = {
+        -100,
+        -90,
+        -80,
+        -70,
+        -60
+      }
+    }
+  },
+  {
     Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = -60,
+      Cost = 0,
+      CostVar = "ManaPushback",
       PARType = PAR_MANA
     }
   },
@@ -87,10 +112,27 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 10
+      SrcValueByLevel = {
+        16,
+        14,
+        12,
+        10,
+        8
+      }
     }
   },
   {
@@ -215,6 +257,20 @@ BuffOnUpdateStatsBuildingBlocks = {
       Src1VarTable = "InstanceVars",
       Value2 = true,
       CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Recall"
     },
     SubBlocks = {
       {
@@ -358,9 +414,22 @@ BuffOnSpellCastBuildingBlocks = {
         Params = {
           Src1Var = "DoesntTriggerSpellCasts",
           Src1VarTable = "SpellVars",
-          Value2 = true,
-          CompareOp = CO_NOT_EQUAL
+          CompareOp = CO_EQUAL
         },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
         SubBlocks = {
           {
             Function = BBSetVarInTable,
@@ -373,6 +442,12 @@ BuffOnSpellCastBuildingBlocks = {
         }
       }
     }
+  }
+}
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 BuffOnPreAttackBuildingBlocks = {
@@ -484,13 +559,6 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBGetTime,
         Params = {
-          DestVar = "InitialTime",
-          DestVarTable = "NextBuffVars"
-        }
-      },
-      {
-        Function = BBGetTime,
-        Params = {
           DestVar = "TimeLastHit",
           DestVarTable = "NextBuffVars"
         }
@@ -552,14 +620,6 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillRemove",
-          DestVarTable = "NextBuffVars",
-          SrcValue = false
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
@@ -579,18 +639,16 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnLaunchAttackBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "shadowwalkarmor"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "recall"}
   },
   {
     Function = BBPreloadSpell,

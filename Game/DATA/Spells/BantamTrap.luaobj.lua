@@ -64,6 +64,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 4000,
           DamageType = TRUE_DAMAGE,
@@ -186,11 +187,33 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {TargetVar = "Attacker", DestVar = "TeamID"}
           },
           {
+            Function = BBGetTeamID,
+            Params = {
+              TargetVar = "Owner",
+              DestVar = "MushroomTeamID"
+            }
+          },
+          {
             Function = BBSpellBuffRemove,
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "Stealth"
+            }
+          },
+          {
+            Function = BBGetUnitPosition,
+            Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+          },
+          {
+            Function = BBAddPosPerceptionBubble,
+            Params = {
+              TeamVar = "MushroomTeamID",
+              Radius = 700,
+              PosVar = "OwnerPos",
+              Duration = 4,
+              SpecificUnitsClientOnlyVar = "Nothing",
+              RevealSteath = false
             }
           },
           {
@@ -303,6 +326,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Owner",
               Damage = 500,
               DamageType = TRUE_DAMAGE,
@@ -319,7 +343,100 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "TeemoMushrooms"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CanMove",
+          Value2 = true,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "CanCast",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveStacks,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TeemoMushrooms",
+      NumStacks = 1
+    }
+  },
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
@@ -431,6 +548,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "teemomushrooms"
+    }
   },
   {
     Function = BBPreloadSpell,

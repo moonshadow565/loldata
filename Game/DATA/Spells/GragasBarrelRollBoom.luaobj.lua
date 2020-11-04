@@ -124,7 +124,8 @@ OnBuffDeactivateBuildingBlocks = {
       CenterVar = "Attacker",
       Range = 300,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -135,6 +136,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
             100,
@@ -220,11 +222,11 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "CooldownVar",
       SrcValueByLevel = {
-        12,
         11,
         10,
         9,
-        8
+        8,
+        7
       }
     }
   },
@@ -298,6 +300,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Attacker",
       Damage = 5000,
       DamageType = TRUE_DAMAGE,
@@ -307,6 +310,16 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifeTime",
+      DestVarTable = "InstanceVars",
+      SrcVar = "LifeTime"
     }
   }
 }
@@ -327,16 +340,6 @@ BuffOnSpellCastBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifeTime",
-      DestVarTable = "InstanceVars",
-      SrcVar = "LifeTime"
     }
   }
 }

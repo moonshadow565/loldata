@@ -146,6 +146,40 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetTargetable
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetInvulnerable
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

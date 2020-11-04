@@ -26,6 +26,24 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "OwnerID"}
+  },
+  {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "OwnerID",
+      Radius = 100,
+      TargetVar = "Owner",
+      Duration = 4,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -85,23 +103,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Attacker",
-      EffectName = "Global_Slow.troy",
-      Flags = 0,
-      EffectIDVar = "AParticle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Attacker",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Attacker",
       EffectName = "swain_disintegrationBeam_beam.troy",
       Flags = 0,
       EffectIDVar = "BParticle",
@@ -152,13 +153,6 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "SlowPercent",
-      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -251,13 +245,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "AParticle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
       EffectIDVar = "DParticle",
       EffectIDVarTable = "InstanceVars"
     }
@@ -293,17 +280,12 @@ OnBuffDeactivateBuildingBlocks = {
       BubbleIDVar = "BubbleID",
       BubbleIDVarTable = "InstanceVars"
     }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
+  },
   {
-    Function = BBIncStat,
+    Function = BBRemovePerceptionBubble,
     Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Attacker",
-      DeltaVar = "SlowPercent",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
@@ -333,31 +315,27 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Value2 = 625,
+          Value2 = 580,
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBSpellBuffRemove,
+            Function = BBIfHasBuff,
             Params = {
-              TargetVar = "Attacker",
-              AttackerVar = "Nothing",
-              BuffName = "SwainBeamDamage"
+              OwnerVar = "Attacker",
+              AttackerVar = "Owner",
+              BuffName = "Slow"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Owner",
+                  BuffName = "Slow"
+                }
+              }
             }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
-        SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           },
           {
             Function = BBIfHasBuff,
@@ -368,10 +346,9 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffRemove,
+                Function = BBSpellBuffClear,
                 Params = {
                   TargetVar = "Attacker",
-                  AttackerVar = "Nothing",
                   BuffName = "SwainBeamDamage"
                 }
               }
@@ -386,14 +363,79 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffRemove,
+                Function = BBSpellBuffClear,
                 Params = {
                   TargetVar = "Attacker",
-                  AttackerVar = "Nothing",
                   BuffName = "SwainBeamDamageMinion"
                 }
               }
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Owner",
+              BuffName = "Slow"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Owner",
+                  BuffName = "Slow"
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Nothing",
+              BuffName = "SwainBeamDamage"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamage"
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Nothing",
+              BuffName = "SwainBeamDamageMinion"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamageMinion"
+                }
+              }
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -438,7 +480,7 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "SlowPercent",
+      DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         -0.2,
@@ -452,14 +494,22 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "DamagePerHalfSecond",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        30,
-        45,
-        60,
-        75,
-        90
+        25,
+        40,
+        55,
+        70,
+        85
       }
     }
   },
@@ -512,6 +562,23 @@ TargetExecuteBuildingBlocks = {
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Other3",
+          BuffName = "Slow",
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
+          BuffType = BUFF_Slow,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -573,7 +640,7 @@ TargetExecuteBuildingBlocks = {
               BuffName = "SwainBeamDamageMinionNashor",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
-              BuffType = BUFF_Internal,
+              BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 3,
@@ -604,6 +671,23 @@ TargetExecuteBuildingBlocks = {
               TickRate = 0,
               CanMitigateDuration = false
             }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Other3",
+              BuffName = "Slow",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
           }
         }
       }
@@ -611,12 +695,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_slow.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -664,6 +742,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "swainbeamexpirationtimer"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,

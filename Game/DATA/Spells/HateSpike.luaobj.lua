@@ -16,7 +16,7 @@ CanCastBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 350,
+      Range = 370,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 1,
@@ -106,7 +106,13 @@ SelfExecuteBuildingBlocks = {
         Params = {
           DestVar = "DrainPercent",
           DestVarTable = "NextBuffVars",
-          SrcValue = 0.2
+          SrcValueByLevel = {
+            0.1,
+            0.125,
+            0.15,
+            0.175,
+            0.2
+          }
         }
       },
       {
@@ -143,7 +149,10 @@ SelfExecuteBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBSetVarInTable,
-            Params = {DestVar = "LowestHP", SrcValue = -1}
+            Params = {
+              DestVar = "LowestHPPercent",
+              SrcValue = 1.01
+            }
           },
           {
             Function = BBSetVarInTable,
@@ -157,7 +166,7 @@ SelfExecuteBuildingBlocks = {
               Range = 375,
               Flags = "AffectEnemies AffectHeroes ",
               IteratorVar = "Other3",
-              MaximumUnitsToPick = 10,
+              MaximumUnitsToPick = 5,
               InclusiveBuffFilter = true
             },
             SubBlocks = {
@@ -166,50 +175,15 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "HealthCandidate",
                   OwnerVar = "Other3",
-                  Function = GetHealth,
+                  Function = GetHealthPercent,
                   PARType = PAR_MANA
                 }
               },
               {
                 Function = BBIf,
                 Params = {
-                  Src1Var = "LowestHP",
-                  Value2 = -1,
-                  CompareOp = CO_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "Unit",
-                      Src2Var = "Other3",
-                      CompareOp = CO_NOT_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "LowestHP",
-                          SrcVar = "HealthCandidate"
-                        }
-                      },
-                      {
-                        Function = BBSetUnit,
-                        Params = {SrcVar = "Other3", DestVar = "Other1"}
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {DestVar = "FoundUnit", SrcValue = true}
-                      }
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBIf,
-                Params = {
                   Src1Var = "HealthCandidate",
-                  Src2Var = "LowestHP",
+                  Src2Var = "LowestHPPercent",
                   CompareOp = CO_LESS_THAN
                 },
                 SubBlocks = {
@@ -224,7 +198,7 @@ SelfExecuteBuildingBlocks = {
                       {
                         Function = BBSetVarInTable,
                         Params = {
-                          DestVar = "LowestHP",
+                          DestVar = "LowestHPPercent",
                           SrcVar = "HealthCandidate"
                         }
                       },
@@ -294,7 +268,7 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   AttackerVar = "Owner",
                   CenterVar = "Owner",
-                  Range = 355,
+                  Range = 375,
                   Flags = "AffectEnemies AffectNeutral AffectMinions ",
                   IteratorVar = "Other3",
                   MaximumUnitsToPick = 2,
@@ -338,6 +312,31 @@ SelfExecuteBuildingBlocks = {
                       EndPosVar = "Owner",
                       OverrideCastPosition = false,
                       SlotNumber = 1,
+                      SlotType = ExtraSlots,
+                      OverrideForceLevel = 0,
+                      OverrideForceLevelVar = "Level",
+                      OverrideCoolDownCheck = true,
+                      FireWithoutCasting = true,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = false,
+                      UpdateAutoAttackTimer = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElseIf,
+                Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+                SubBlocks = {
+                  {
+                    Function = BBSpellCast,
+                    Params = {
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      PosVar = "Owner",
+                      EndPosVar = "Owner",
+                      OverrideCastPosition = false,
+                      SlotNumber = 2,
                       SlotType = ExtraSlots,
                       OverrideForceLevel = 0,
                       OverrideForceLevelVar = "Level",

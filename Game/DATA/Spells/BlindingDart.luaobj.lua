@@ -40,10 +40,10 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
         1.5,
+        1.75,
         2,
-        2.5,
-        3,
-        3.5
+        2.25,
+        2.5
       },
       TickRate = 0,
       CanMitigateDuration = false

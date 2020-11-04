@@ -69,70 +69,37 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "SwainShadowGraspRootTemp.troy",
-          Flags = 0,
-          EffectIDVar = "RootParticleEffect",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "SwainShadowGraspRootTemp.troy",
+      Flags = 0,
+      EffectIDVar = "RootParticleEffect2",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "swain_shadowGrasp_magic.troy",
-          Flags = 0,
-          EffectIDVar = "RootParticleEffect",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "SwainShadowGraspRootTemp.troy",
-          Flags = 0,
-          EffectIDVar = "RootParticleEffect",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "swain_shadowGrasp_magic.troy",
+      Flags = 0,
+      EffectIDVar = "RootParticleEffect",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -143,6 +110,13 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "RootParticleEffect2",
+      EffectIDVarTable = "InstanceVars"
     }
   },
   {

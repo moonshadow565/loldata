@@ -1,15 +1,3 @@
-UpdateSelfBuffStatsBuildingBlocks = {
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  }
-}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -98,6 +86,17 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -110,17 +109,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 3,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
         Function = BBIf,
         Params = {
           Src1Var = "Level",
@@ -129,21 +117,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "NumSwings",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 1
-            }
-          },
-          {
-            Function = BBGetTime,
-            Params = {
-              DestVar = "LastHitTime",
-              DestVarTable = "NextBuffVars"
-            }
-          },
-          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
@@ -151,7 +124,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               BuffName = "RelentlessAssault",
               BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
-              BuffType = BUFF_Aura,
+              BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 25000,
@@ -176,7 +149,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       Src1Var = "AttackDamage",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.3,
       DestVar = "AttackDamage",
       MathOp = MO_MULTIPLY
     }
@@ -236,26 +209,6 @@ CharOnDodgeBuildingBlocks = {
 }
 CharOnActivateBuildingBlocks = {
   {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -270,6 +223,32 @@ CharOnActivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "NumSwings",
+      DestVarTable = "CharVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LastHitTime",
+      DestVarTable = "CharVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   }
 }

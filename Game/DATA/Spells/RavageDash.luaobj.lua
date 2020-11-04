@@ -25,13 +25,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "DamageVar",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "ArmorStealAmount",
       RequiredVarTable = "InstanceVars"
     }
@@ -78,7 +71,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBPlayAnimation,
     Params = {
-      AnimationName = "Spell2",
+      AnimationName = "Spell3",
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = true,
@@ -165,17 +158,17 @@ BuffOnMoveEndBuildingBlocks = {
       CallForHelpAttackerVar = "Owner",
       TargetVar = "Caster",
       DamageByLevel = {
-        70,
-        120,
-        170,
-        220,
-        270
+        75,
+        130,
+        185,
+        240,
+        295
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.7,
+      SpellDamageRatio = 0.75,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

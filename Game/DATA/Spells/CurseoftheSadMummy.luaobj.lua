@@ -29,23 +29,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.35,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
     Function = BBApplyAssistMarker,
     Params = {
       Duration = 10,
@@ -55,6 +38,24 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Owner",
+      Damage = 0,
+      DamageVar = "DamageAmount",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_PERIODIC,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.35,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -94,16 +95,17 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 1.2,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
           DamageVar = "DamageAmount",

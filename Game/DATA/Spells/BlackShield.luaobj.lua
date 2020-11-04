@@ -407,6 +407,16 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "AbilityPower",
+      Src1Value = 0,
+      Src2Value = 0.9,
+      DestVar = "AbilityPowerMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPowerMod",
       Src2Var = "BaseHealth",
       Src1Value = 0,
       Src2Value = 0,

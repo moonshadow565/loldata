@@ -111,7 +111,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "baseCD", SrcValue = 15}
+    Params = {DestVar = "baseCD", SrcValue = 14}
   },
   {
     Function = BBGetStat,
@@ -214,6 +214,32 @@ BuffOnBeingHitBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBGetArmor,
+        Params = {TargetVar = "Owner", DestVar = "BaseArmor"}
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseArmor",
+          Src1Value = 0,
+          Src2Value = 0.1,
+          DestVar = "ArmorMod",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ArmorMod",
+          Src2Var = "DamageReturn",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageReturn",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
@@ -221,7 +247,6 @@ BuffOnBeingHitBuildingBlocks = {
           TargetVar = "Attacker",
           Damage = 0,
           DamageVar = "DamageReturn",
-          DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,

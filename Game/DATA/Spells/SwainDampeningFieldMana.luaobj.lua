@@ -11,8 +11,20 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "ManaRegenPercent",
+      RequiredVar = "BaseManaRegen",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseManaRegen",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 3,
+      DestVar = "BaseManaRegen",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -47,17 +59,17 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ManaRegenPercent",
-      SrcVar = "ManaRegenPercent",
+      DestVar = "BaseManaRegen",
+      SrcVar = "BaseManaRegen",
       SrcVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBIncPercentPARRegenMod,
+    Function = BBIncFlatPARRegenMod,
     Params = {
       PARType = PAR_MANA,
       TargetVar = "Owner",
-      DeltaVar = "ManaRegenPercent",
+      DeltaVar = "BaseManaRegen",
       Delta = 0
     }
   }
