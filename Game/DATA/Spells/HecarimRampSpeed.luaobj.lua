@@ -13,11 +13,3 @@ AutoBuffActivateEffect3 = "Hecarim_E_weapon_buf2.troy"
 AutoBuffActivateAttachBoneName3 = "BUFFBONE_GLB_WEAPON_1"
 SpellToggleSlot = 1
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "hecarimrampminion"
-    }
-  }
-}

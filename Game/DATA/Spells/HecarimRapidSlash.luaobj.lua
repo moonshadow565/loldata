@@ -2,8 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Hecarim_Rampage.dds"
 BuffName = "HecarimRapidSlash"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "RocketTristana"
