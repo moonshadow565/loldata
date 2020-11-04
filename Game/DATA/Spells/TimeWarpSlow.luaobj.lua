@@ -1,4 +1,4 @@
-BuffTextureName = "Chronokeeper_Timestop.dds"
+BuffTextureName = "Zilean_E.dds"
 BuffName = "Slow"
 AutoBuffActivateEffect = "Zilean_Base_E_ChronoClockSlow_tar.troy"
 AutoBuffActivateEffect2 = "global_slow.troy"

@@ -6,6 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistapassivetestforboots"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoehighstack"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoenormal"}}, 
+{Function=BBPreloadParticle, Params={Name="kalista_base_e_spear_out_sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaexpungeparticle"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_r_buf_tell.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaeslow"}}, 
