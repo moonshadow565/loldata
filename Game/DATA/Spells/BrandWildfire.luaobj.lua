@@ -22,12 +22,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandwildfiremarker"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandconflagration_tar_frost.troy"

@@ -62,6 +62,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "zac_skn1_w_chunk_death.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zac_w_chunk_death.troy"
     }
   },
@@ -93,12 +99,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zac_w_heal.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zac_skn1_w_chunk_death.troy"
     }
   },
   {

@@ -4,12 +4,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "caitlynheadshotcount"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "caitlynheadshot"
     }
   }

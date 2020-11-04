@@ -3,12 +3,12 @@ LevelProp_HA_AP_Chains6.sco -100
 Turret_T2_L_03.sco -100
 LevelProp_HA_AP_Poro5.sco -100
 Info_OrderRandomThingy02.sco -100
-Shopkeeper_Viking_FrozenPose:high:RoadKillOut001.sco -100
 Turret_T1_C_07.sco -100
 __NAV_C08.sco -100
 LevelProp_HA_AP_BridgeLaneStatue8.sco -100
 Turret_T2_L_01.sco -100
 Info_HealthPack04.sco -100
+LevelProp_HA_AP_PeriphBridge.sco -100
 OrderShop01.sco -100
 LevelProp_HA_AP_Poro1.sco -100
 Barracks_T1_C1.sco -100
@@ -73,6 +73,5 @@ LevelProp_HA_AP_Viking.sco -100
 LevelProp_HA_AP_Chains5.sco -100
 LevelProp_HA_AP_ShpNorth.sco -100
 LevelProp_HA_AP_Poro6.sco -100
-Shopkeeper_Viking_FrozenPose:Shopkeeper_Viking_RG:shopkeeper_viking.sco -100
 __NAV_C013.sco -100
 Info_HealthPack01.sco -100
