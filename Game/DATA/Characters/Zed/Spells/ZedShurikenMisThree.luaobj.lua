@@ -7,16 +7,6 @@ IsDeathRecapSource = true
 TriggersSpellCasts = false
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedshurikenmarker"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "zedqenergydummy"

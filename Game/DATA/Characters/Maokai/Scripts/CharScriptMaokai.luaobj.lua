@@ -8,12 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "maokaisapmagicchaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "apbonusdamagetotowers"
     }
   },

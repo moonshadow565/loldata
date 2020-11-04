@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Ahriorbdamagesilence"
+      Name = "ahriorbdamagesilence"
     }
   }
 }

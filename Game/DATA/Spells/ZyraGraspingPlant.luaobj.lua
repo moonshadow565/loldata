@@ -1,8 +1,15 @@
+SpellFXOverrideSkins = {"ZyraSkin02"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_plant_birth_hellvine.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_plant_birth.troy"
     }
   },
   {

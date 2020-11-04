@@ -27,12 +27,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "zedrecallbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "zedultbuff"}
   },
   {
@@ -67,6 +61,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zedemotebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedshadowlaugh"
     }
   },
   {

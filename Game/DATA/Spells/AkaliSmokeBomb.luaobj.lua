@@ -8,6 +8,10 @@ IsDeathRecapSource = true
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "akali_smoke_bomb_tar_team_green.troy"
@@ -21,30 +25,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "akalismokebombinternal"
-    }
+    Params = {Name = "akaliwbuff"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalisbstealth"
+      Name = "akaliwdebuff"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalisbbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalisbdebuff"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
   }
 }

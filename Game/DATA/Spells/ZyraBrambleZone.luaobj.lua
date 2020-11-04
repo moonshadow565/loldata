@@ -5,7 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "ReefMalphite"
+  "ReefMalphite",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

@@ -83,5 +83,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "urgotswaptarget"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "spellnostackcdreset"
+    }
   }
 }

@@ -47,5 +47,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zed_e_cas.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedshurikenmistwo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedshadowdashmissile"
+    }
   }
 }

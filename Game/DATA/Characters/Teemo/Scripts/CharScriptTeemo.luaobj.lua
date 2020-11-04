@@ -19,5 +19,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "teemomovequickpassive"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "camouflagecheck"
+    }
   }
 }

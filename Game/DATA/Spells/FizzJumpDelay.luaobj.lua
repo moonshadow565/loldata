@@ -18,6 +18,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "fizztrickslamsounddummy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "fizztrickslam"
     }
   },

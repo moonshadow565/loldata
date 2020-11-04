@@ -45,12 +45,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oriannaeallyrangeringrender"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianna_ball_flash.troy"
@@ -70,6 +64,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianna_ball_flash_reverse.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "oriannaeallyrangeringrender"
     }
   },
   {

@@ -1,9 +1,5 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "orianna"}
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "orianaghost"

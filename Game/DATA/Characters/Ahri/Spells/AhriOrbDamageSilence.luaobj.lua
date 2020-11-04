@@ -6,12 +6,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "globaldrain"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ahri_orb_tar.troy"

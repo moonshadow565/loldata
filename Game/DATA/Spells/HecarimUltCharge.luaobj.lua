@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "hecarimultmissileskn4c"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hecarimultcharge"
     }
   },
@@ -39,6 +45,36 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "hecarim_skn4_r.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimultmissileskn4r1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimultmissileskn4l1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimultmissileskn4r2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimultmissileskn4l2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimultmissileskn4audio"
     }
   },
   {

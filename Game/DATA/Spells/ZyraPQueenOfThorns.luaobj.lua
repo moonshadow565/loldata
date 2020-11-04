@@ -8,7 +8,8 @@ BuffName = "ZyraPQueenOfThorns"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
@@ -27,6 +28,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zyrapqueenofthornssound"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_passive_ground.troy"
     }
   },
   {
@@ -83,6 +96,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zyrabramblezone"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_passive_ground_fade.troy"
     }
   }
 }

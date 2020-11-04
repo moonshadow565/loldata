@@ -5,13 +5,10 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {

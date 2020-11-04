@@ -1,4 +1,4 @@
-BuffTextureName = "Sivir_Sprint.dds"
+BuffTextureName = "Sivir_Passive.dds"
 BuffName = "SivirPassive"
 PersistsThroughDeath = true
 NonDispellable = true

@@ -5,7 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
@@ -55,6 +56,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplantenrage"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_r_outer_fire_hellvine.troy"
@@ -64,12 +71,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_r_outer.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraplantenrage"
     }
   },
   {

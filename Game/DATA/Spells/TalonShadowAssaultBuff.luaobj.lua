@@ -11,5 +11,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "talon_ult_sound.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalstealthscreentint"
+    }
   }
 }

@@ -52,6 +52,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "maokaidrain3counter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "maokaidrain3"
     }
   },

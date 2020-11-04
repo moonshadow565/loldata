@@ -15,12 +15,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globaldrain"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "ahrisoulcrushercounter"
     }
   },
@@ -33,5 +27,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "ahriseduce"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ahriseducedoom"
+    }
   }
 }

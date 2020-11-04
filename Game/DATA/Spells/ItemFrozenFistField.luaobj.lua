@@ -2,18 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "item_frozen_gauntlet_tiny_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "item_frozen_gauntlet_tiny_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "item_frozen_gauntlet_green.troy"
     }
   },
@@ -21,6 +9,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "item_frozen_gauntlet_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "item_frozen_gauntlet_tiny_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "item_frozen_gauntlet_tiny_red.troy"
     }
   },
   {

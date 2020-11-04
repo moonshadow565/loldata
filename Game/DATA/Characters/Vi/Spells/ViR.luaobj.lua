@@ -6,6 +6,7 @@ BuffTextureName = "ViR.dds"
 BuffName = "ViR"
 SpellDamageRatio = 1
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {"ViSkin02"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

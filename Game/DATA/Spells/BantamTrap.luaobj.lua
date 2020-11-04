@@ -62,11 +62,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "teemomushroom"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
-    }
   }
 }

@@ -62,6 +62,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vi_skin02_r_flash_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vi_skin02_r_flash_01.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "vijaycesound"

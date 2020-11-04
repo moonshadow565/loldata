@@ -1,7 +1,5 @@
 BuffTextureName = "Mordekaiser_COTG.dds"
 BuffName = "MordekaiserCOTGDot"
-AutoBuffActivateEffect = ""
-NonDispellable = false
 OnPreDamagePriority = 10
 PreLoadBuildingBlocks = {
   {
@@ -20,6 +18,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisercotgrevive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "spellnostackcdreset"
     }
   }
 }
