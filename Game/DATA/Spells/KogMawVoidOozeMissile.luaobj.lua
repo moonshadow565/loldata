@@ -35,5 +35,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "kogmawvoidooze_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kogmawvoidoozeprotect"
+    }
   }
 }

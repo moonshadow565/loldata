@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlingabyssporoimmobilize"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "howlingabyssporocooldown"
+    }
+  }
+}

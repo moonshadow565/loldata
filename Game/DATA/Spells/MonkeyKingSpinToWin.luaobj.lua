@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "garen_weapon_glow_01.troy"
+      Name = "monkeyking_weapon_glow_01.troy"
     }
   },
   {

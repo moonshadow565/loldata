@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "1020_Glowing_Orb.dds"
+BuffTextureName = "3154_WriggleLantern.dds"
 BuffName = "WriggleLanternWard"
 AutoBuffActivateEffect = "Ward_Wriggles_Idle.troy"
 PreLoadBuildingBlocks = {
