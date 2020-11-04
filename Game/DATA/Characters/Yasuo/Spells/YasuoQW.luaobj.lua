@@ -61,5 +61,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yasuo_q_windstrike.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_q_windstrikeblade.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_q_windstrikeblade.troy"
+    }
   }
 }

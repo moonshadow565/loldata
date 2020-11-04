@@ -41,5 +41,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "ezreal_pulsefire_essenceflux_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ezrealessencefluxmissiletracker"
+    }
   }
 }

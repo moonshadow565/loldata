@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "baronbacksidedetect"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sru_baron_backspikes.troy"
+    }
   }
 }
