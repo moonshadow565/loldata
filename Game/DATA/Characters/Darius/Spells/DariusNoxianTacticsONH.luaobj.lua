@@ -17,31 +17,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_W_weapon_02.troy"
+      Name = "darius_base_w_weapon_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_W_weapon_02_Norse_King.troy"
+      Name = "darius_base_w_weapon_02_norse_king.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Skin02_W_Activate_ZaunKnight.troy"
+      Name = "darius_skin02_w_activate_zaunknight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Skin02_W_Atomic_Mist.troy"
+      Name = "darius_skin02_w_atomic_mist.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Base_Frost_Mist.troy"
+      Name = "darius_base_frost_mist.troy"
     }
   },
   {

@@ -26,5 +26,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "gragas_base_q_end.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "gragasq"}
   }
 }

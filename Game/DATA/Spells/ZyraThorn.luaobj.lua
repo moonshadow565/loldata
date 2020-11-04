@@ -11,6 +11,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_skin02_plant_birth.troy"

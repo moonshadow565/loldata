@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_boost.troy"
+      Name = "global_ss_cleanse.troy"
     }
   }
 }

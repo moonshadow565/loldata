@@ -1,0 +1,17 @@
+SpellFXOverrideSkins = {
+  "PantheonSkin06"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masterattackspeedbuff"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_base_q_tar.troy"
+    }
+  }
+}

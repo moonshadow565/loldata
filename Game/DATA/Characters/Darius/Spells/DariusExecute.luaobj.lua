@@ -4,6 +4,9 @@ SpellFXOverrideSkins = {
   "Darius_ZaunKnight",
   "Darius_NorseKing"
 }
+SpellVOOverrideSkins = {
+  "DariusSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -14,25 +17,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_r_refresh_01.troy"
+      Name = "darius_base_r_refresh_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Skin02_R_activate_zaunKnight.troy"
+      Name = "darius_skin02_r_activate_zaunknight.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariusrkillsound"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_R_blood_spatter_self.troy"
+      Name = "darius_base_r_blood_spatter_self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Skin02_W_Atomic_Mist_04.troy"
+      Name = "darius_skin02_w_atomic_mist_04.troy"
     }
   },
   {
@@ -54,7 +63,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_R_tar.troy"
+      Name = "darius_base_r_tar.troy"
     }
   },
   {
@@ -66,13 +75,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_R_tar_02.troy"
+      Name = "darius_base_r_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_R_tar_03.troy"
+      Name = "darius_base_r_tar_03.troy"
     }
   }
 }

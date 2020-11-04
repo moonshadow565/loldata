@@ -10,5 +10,23 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "twitchvenomcaskdebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchdeadlyvenom"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchdeadlyvenominternal"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchdeadlyvenomdamagemarker"
+    }
   }
 }

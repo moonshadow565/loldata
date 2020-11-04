@@ -43,5 +43,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "odinscoreangel"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarrevive"
+    }
   }
 }

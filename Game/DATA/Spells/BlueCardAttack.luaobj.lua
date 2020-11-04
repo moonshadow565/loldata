@@ -11,5 +11,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "pickacard_blue_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "katarinaqmarkspellshieldcheck"
+    }
   }
 }

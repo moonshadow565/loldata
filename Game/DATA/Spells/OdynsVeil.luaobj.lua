@@ -9,5 +9,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "odynsveil_cas.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "odynsveil"}
   }
 }

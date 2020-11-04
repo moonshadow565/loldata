@@ -15,13 +15,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_Mark_deadwood.troy"
+      Name = "lissandra_base_r_mark_deadwood.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_Mark.troy"
+      Name = "lissandra_base_r_mark.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lissandrarenemy2"
     }
   },
   {
@@ -32,18 +38,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "lissandrar"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lissandrarenemy2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "lissandrar"}
   }
 }

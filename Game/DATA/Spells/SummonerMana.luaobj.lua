@@ -11,7 +11,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_mana.troy"
+      Name = "global_ss_clarity.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_ss_clarity_02.troy"
     }
   }
 }

@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "shenwayoftheninjaaura"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "shenwayoftheninjamarker"
     }
   },

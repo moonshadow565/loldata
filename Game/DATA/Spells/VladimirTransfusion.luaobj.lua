@@ -1,4 +1,4 @@
-DoesntBreakShields = false
+DoesntBreakShields = true
 SpellFXOverrideSkins = {
   "BloodkingVladimir"
 }

@@ -1,9 +1,14 @@
-AutoItemActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sunfirecloakparticle"
+      Name = "itemsunfirecapeparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemsunfirecapepulse"
     }
   }
 }

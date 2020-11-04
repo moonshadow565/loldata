@@ -26,6 +26,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sightwardaudiobuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trinkettotemlvl3audio"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "itemplacementmissile"
     }
   },
