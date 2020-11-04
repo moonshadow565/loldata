@@ -8,6 +8,12 @@ BuffName = "RumbleShield"
 OnPreDamagePriority = 3
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumblemechvo_w"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "rumble_skin03_w_energy_shield_02.troy"

@@ -74,5 +74,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "teemomushroombuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "traplimiter"
+    }
   }
 }

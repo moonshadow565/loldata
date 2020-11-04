@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "traplimiter_teemo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "teemomovequickpassive"
     }
   },

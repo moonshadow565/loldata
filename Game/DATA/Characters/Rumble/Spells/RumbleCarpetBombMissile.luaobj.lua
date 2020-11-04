@@ -88,5 +88,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rumblecarpetbombbuffdest"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "team_rectangle_test.troy"
+    }
   }
 }

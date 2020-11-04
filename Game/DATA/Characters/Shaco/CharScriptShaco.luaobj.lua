@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "traplimiter_shaco"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "shacoclonedanceoverride"
     }
   }
