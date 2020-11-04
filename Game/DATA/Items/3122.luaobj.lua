@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
