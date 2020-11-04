@@ -11,6 +11,3 @@ SpellFXOverrideSkins = {
   "RivenSkin05",
   "RivenSkin06"
 }
-SpellVOOverrideSkins = {
-  "RivenSkin06"
-}

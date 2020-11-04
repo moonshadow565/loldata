@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="jhinespottedconsumed"}}, 
 {Function=BBPreloadParticle, Params={Name="jhin_base_w_charging.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="jhin_base_w_cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="jhin_base_w_indicator_marked.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="jhin_base_w_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_w_indicator_marked.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="jhin_base_e_root_tar.troy"}}, 
 }

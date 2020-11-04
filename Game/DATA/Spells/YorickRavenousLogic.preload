@@ -1,3 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.Status"}}, 
 {Function=BBPreloadParticle, Params={Name="yorick_ravenousghoul_lifesteal_self.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="yorickravenous"}}, 
 }

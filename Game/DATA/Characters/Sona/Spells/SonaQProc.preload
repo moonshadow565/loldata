@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sona_base_q_target_hit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="sonaqprocattacker"}}, 
 {Function=BBPreloadParticle, Params={Name="sona_base_q_trail.troy"}}, 
 }

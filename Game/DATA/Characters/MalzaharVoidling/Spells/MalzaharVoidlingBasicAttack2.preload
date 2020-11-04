@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Global.Status"}}, 
-{Function=BBPreloadParticle, Params={Name="elisespiderling_base_ba_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="malzaharvoidlingbasicattack"}}, 
 }

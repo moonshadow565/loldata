@@ -2,6 +2,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_z_ball_flash.troy"}}, 
 {Function=BBPreloadModule, Params={Name="Global.Vector"}}, 
-{Function=BBPreloadParticle, Params={Name="shen_base_p_indicator_ally.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="shen_base_p_indicator_enemy.troy"}}, 
 }
