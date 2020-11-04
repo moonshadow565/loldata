@@ -64,5 +64,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lucian_aa_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "lucianq"}
   }
 }

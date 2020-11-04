@@ -40,6 +40,22 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "fizz_trickslamtwo.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fizz_trickslam_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "fizzjump"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "fizz_playfultrickster_idle_sound.troy"
     }
   },
@@ -48,9 +64,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "fizzjumpbuffered"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fizzjump"}
   }
 }

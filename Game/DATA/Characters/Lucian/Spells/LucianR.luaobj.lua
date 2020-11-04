@@ -24,6 +24,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lucianruncyclemanager"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "lucian_r_refresh.troy"
