@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dariusqcast"}}, 
 {Function=BBPreloadParticle, Params={Name="darius_base_q_ring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_q_ring_windup.troy"}}, 
 }

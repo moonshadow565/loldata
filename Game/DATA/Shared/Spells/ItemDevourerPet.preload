@@ -1,3 +1,2 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="itemdevourerpetoverlay.troy"}}, 
 }

@@ -6,4 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="fiorawslow"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_w_hit_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_hit_tar_minions.troy"}}, 
 }
