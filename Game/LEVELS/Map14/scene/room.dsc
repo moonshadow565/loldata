@@ -23,7 +23,6 @@ LevelProp_bw_anclantern6.sco -100
 LevelProp_bw_anclantern5.sco -100
 LevelProp_HA_AP_ShpNorth.sco -100
 LevelProp_BW_squid1.sco -100
-LevelProp_bw_anclantern9.sco -100
 AIPath.sco -100
 LevelProp_HA_AP_Poro7.sco -100
 LevelProp_BW_shortrope5.sco -100
@@ -57,11 +56,11 @@ LevelProp_BW_signa1.sco -100
 LevelProp_BW_Lantern4.sco -100
 LevelProp_bw_bottle3.sco -100
 LevelProp_HABW_Banner1.sco -100
-LevelProp_BW_brdgdoor1.sco -100
 OrderShop01.sco -100
 LevelProp_bw_anclantern8.sco -100
 LevelProp_bw_shadowshark1.sco -100
 Turret_T1_C_07.sco -100
+LevelProp_BW_brdgdoor1.sco -100
 LevelProp_bw_bottle2.sco -100
 Turret_T2_L_03.sco -100
 LevelProp_HA_AP_Poro2.sco -100
@@ -75,6 +74,7 @@ LevelProp_bw_bottle.sco -100
 LevelProp_BW_Lantern7.sco -100
 LevelProp_bw_tooth1.sco -100
 Turret_ChaosTurretShrine.sco -100
+LevelProp_bw_anclantern9.sco -100
 LevelProp_BW_shortrope6.sco -100
 LevelProp_BW_AP_Finn.sco -100
 LevelProp_BW_dblrope2.sco -100
