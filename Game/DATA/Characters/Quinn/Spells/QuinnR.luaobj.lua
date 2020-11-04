@@ -4,6 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 IsDeathRecapSource = true
+PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
   "PhoenixQuinn"
@@ -101,12 +102,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "quinn_r2_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "quinnrdeath"
     }
   },
   {

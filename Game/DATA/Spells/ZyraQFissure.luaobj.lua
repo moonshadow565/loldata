@@ -10,16 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zyra_ult_cas_target_center.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "zyra_q_cas_hellvine.troy"
     }
   },
@@ -39,24 +29,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_q_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_r_outer_fire_hellvine.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_q_vines.troy"
     }
   },
   {
@@ -92,12 +64,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "zyrathorn"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyrathornplantbirthsound"
-    }
   },
   {
     Function = BBPreloadParticle,
