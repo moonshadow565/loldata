@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Minotaur_FerociousHowl.dds"
 BuffName = "Ferocious Howl"
 AutoBuffActivateEffect = "minatuar_unbreakableWill_cas.troy"
-AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "feroscioushowl_cas2.troy"
 AutoBuffActivateAttachBoneName2 = "pelvis"
 AutoCooldownByLevel = {
