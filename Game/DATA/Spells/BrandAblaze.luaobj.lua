@@ -174,6 +174,27 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "b",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "c",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxHealth",
@@ -231,27 +252,6 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "b",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "c",
-      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -325,52 +325,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
-    }
-  }
-}
-BuffOnDeathBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "b",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "c",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnZombieBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "b",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "c",
-      EffectIDVarTable = "InstanceVars"
     }
   }
 }

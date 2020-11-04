@@ -70,7 +70,7 @@ sv_OnDeathRatio                         =      0.000 ; Spell Vamp ratio for DAMA
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =     90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =      5.000 ; Interval between ambient gold ticks
-ai_AmbientGoldAmount                    =     30.000 ; Gold granted on ambient gold tick
+ai_AmbientGoldAmount                    =     28.000 ; Gold granted on ambient gold tick
 ai_DisableAmbientGoldWhileDead          =          0 ; Disable ambient gold while dead
 ai_AmbientXPDelay                       =      0.000 ; Delay before first ambient XP tick
 ai_AmbientXPInterval                    =      1.000 ; Interval between ambient XP ticks

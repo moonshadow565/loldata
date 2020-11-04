@@ -1,4 +1,4 @@
-BuffTextureName = "Galio_RunicSkin.dds"
+BuffTextureName = "Xerath_AscendedForm.dds"
 BuffName = "XerathAscended"
 PersistsThroughDeath = true
 Nondispellable = true
@@ -11,6 +11,10 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "APMod",
       DestVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {Value = 15, Index = 2}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

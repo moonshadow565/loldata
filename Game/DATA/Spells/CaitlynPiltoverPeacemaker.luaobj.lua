@@ -28,15 +28,37 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TotalDamage"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
   },
   {
     Function = BBMath,
     Params = {
+      Src1Var = "TotalDamage",
       Src2Var = "BaseDamage",
-      Src1Value = 1.3,
+      Src1Value = 0,
       Src2Value = 0,
-      DestVar = "BaseDamage",
+      DestVar = "FinalDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "FinalDamage",
+      Src1Value = 1.5,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
       MathOp = MO_MULTIPLY
     }
   },
@@ -67,7 +89,11 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -77,14 +103,14 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            20,
-            65,
-            110,
-            155,
-            200
+            70,
+            125,
+            180,
+            235,
+            290
           },
           Damage = 0,
-          DamageVar = "BaseDamage",
+          DamageVar = "FinalDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 0,
@@ -148,7 +174,11 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -158,14 +188,14 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
-                20,
-                65,
-                110,
-                155,
-                200
+                70,
+                125,
+                180,
+                235,
+                290
               },
               Damage = 0,
-              DamageVar = "BaseDamage",
+              DamageVar = "FinalDamage",
               DamageType = PHYSICAL_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 0,
@@ -241,7 +271,11 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -251,14 +285,14 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    20,
-                    65,
-                    110,
-                    155,
-                    200
+                    70,
+                    125,
+                    180,
+                    235,
+                    290
                   },
                   Damage = 0,
-                  DamageVar = "BaseDamage",
+                  DamageVar = "FinalDamage",
                   DamageType = PHYSICAL_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 0,

@@ -198,6 +198,16 @@ TargetExecuteBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "BonusAD",
+          Src1Value = 0,
+          Src2Value = 0.9,
+          DestVar = "BonusAD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusAD",
           Src2Var = "BaseDamage",
           Src1Value = 0,
           Src2Value = 0,
@@ -364,6 +374,16 @@ TargetExecuteBuildingBlocks = {
               Stat = GetFlatPhysicalDamageMod,
               TargetVar = "Owner",
               DestVar = "BonusAD"
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "BonusAD",
+              Src1Value = 0,
+              Src2Value = 0.9,
+              DestVar = "BonusAD",
+              MathOp = MO_MULTIPLY
             }
           },
           {
@@ -554,6 +574,16 @@ TargetExecuteBuildingBlocks = {
                 Function = BBMath,
                 Params = {
                   Src1Var = "BonusAD",
+                  Src1Value = 0,
+                  Src2Value = 0.9,
+                  DestVar = "BonusAD",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "BonusAD",
                   Src2Var = "BaseDamage",
                   Src1Value = 0,
                   Src2Value = 0,
@@ -716,12 +746,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "blindmonkqmanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "blindmonkqonechaos"
     }
   },
@@ -729,6 +753,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_q_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "blindmonkqmanager"
     }
   }
 }
