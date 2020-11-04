@@ -1,4 +1,4 @@
 BuffTextureName = "Averdrian_AstralBeam.dds"
-BuffName = "Exalted with Baron Nashor"
+BuffName = "ExaltedWithBaronNashorMinion"
 PersistsThroughDeath = true
 NonDispellable = true

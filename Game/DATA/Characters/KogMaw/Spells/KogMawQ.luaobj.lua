@@ -6,5 +6,5 @@ SpellFXOverrideSkins = {
   "KogMawSkin08"
 }
 SpellVOOverrideSkins = {
-  "KogmawSkin08"
+  "KogMawSkin08"
 }

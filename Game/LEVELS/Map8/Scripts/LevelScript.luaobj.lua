@@ -772,7 +772,7 @@ function L0_0(A0_37, A1_38)
 end
 EndOfGameCeremony = L0_0
 function L0_0(A0_39)
-  MoveCameraFromCurrentPositionToPoint(A0_39, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
+  MoveCameraFromCurrentPositionToPoint(A0_39, losingHQPosition, EOG_PAN_TO_NEXUS_TIME, true)
   SetGreyscaleEnabledWhenDead(A0_39, false)
 end
 ChampionEoGCeremony = L0_0

@@ -8,7 +8,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="suppression"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpale"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpalebuff"}}, 
-{Function=BBPreloadSpell, Params={Name="skarnerimpalevo"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerpassivecooldown"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_tar_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpalerangecheck"}}, 

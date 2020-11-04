@@ -474,7 +474,6 @@ function OnGameStartup()
   L0_38 = 0
   OrderHQPos = GetKeyLocation(L0_38, TEAM_ORDER)
   ChaosHQPos = GetKeyLocation(L0_38, TEAM_CHAOS)
-  InitTimer("ApplyBaseBuffToAllChampions", 0.25, true)
 end
 function SetShieldBuffsOnSecondaryTurrets(A0_39)
   local L1_40, L2_41, L3_42, L4_43

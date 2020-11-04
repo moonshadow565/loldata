@@ -2,9 +2,9 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Renekton_Execute.dds"
 BuffName = "RenektonExecuteReady"
-AutoBuffActivateEffect = "Renekton_Base_W_Cas.troy"
+AutoBuffActivateEffect = "Renekton_Weapon_Hot.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
-AutoBuffActivateEffect2 = "Renekton_Skin04_w_cas.troy"
+AutoBuffActivateEffect2 = "Renekton_Runewars_Rage_Skin.troy"
 SpellToggleSlot = 2
 SpellFXOverrideSkins = {
   "RenektonSkin06"

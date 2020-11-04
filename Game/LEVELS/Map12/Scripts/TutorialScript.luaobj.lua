@@ -2320,7 +2320,8 @@ function L0()
   L3 = firstChaosTurret
   L2 = L2(L3)
   L3 = 3
-  L0(L1, L2, L3)
+  L4 = false
+  L0(L1, L2, L3, L4)
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_TITANBAR
   L2 = false

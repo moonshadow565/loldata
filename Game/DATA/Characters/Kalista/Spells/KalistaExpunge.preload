@@ -1,8 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistadummyspell"}}, 
-{Function=BBPreloadSpell, Params={Name="slow"}}, 
-{Function=BBPreloadSpell, Params={Name="kalistaexpungeprotect"}}, 
-{Function=BBPreloadParticle, Params={Name="twitch_base_e_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="temp_kalista_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaexpungemarker"}}, 
 }
