@@ -4,13 +4,23 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rebirthready"
+      Name = "nightmarebotspiritaniviacooldown"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
+    Params = {Name = "aniviaegg"}
+  },
+  {
+    Function = BBPreloadParticle,
     Params = {
-      Name = "rebirthmarker"
+      Name = "eggtimer.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rebirth_cas.troy"
     }
   }
 }

@@ -26,12 +26,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akaliwstealth"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "akaliwdebuff"
     }
   }
