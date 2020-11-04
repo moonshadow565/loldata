@@ -168,7 +168,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,
@@ -439,7 +439,7 @@ BuffOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
               SlotType = SpellSlots,
@@ -535,7 +535,7 @@ BuffOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
               SlotType = SpellSlots,
@@ -631,7 +631,7 @@ BuffOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
               SlotType = SpellSlots,
@@ -727,7 +727,7 @@ BuffOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
               SlotType = SpellSlots,

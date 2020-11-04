@@ -148,7 +148,7 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
-          BuffName = "Slow",
+          BuffName = "CardmasterSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
@@ -156,15 +156,10 @@ OnBuffActivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   }
 }

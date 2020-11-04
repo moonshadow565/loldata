@@ -18,6 +18,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "HasDealtDamage",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -106,7 +114,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -115,133 +124,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HasDealtDamage",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Damage",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        90,
-        140,
-        190,
-        245,
-        300
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBDistanceBetweenObjects,
-    Params = {
-      DestVar = "Distance",
-      ObjectVar1 = "Attacker",
-      ObjectVar2 = "Target"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "Distance",
-      Src1Value = 420,
-      Src2Value = 0,
-      DestVar = "factor",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "factor",
-      Src1Value = 0,
-      Src2Value = 600,
-      DestVar = "factor",
-      MathOp = MO_DIVIDE
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "factor",
-      Src1Value = 0.45,
-      Src2Value = 0,
-      DestVar = "factor",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "factor",
-      Src1Value = 0.75,
-      Src2Value = 0,
-      DestVar = "scaletime",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell2",
-      ScaleTime = 0,
-      ScaleTimeVar = "scaletime",
-      TargetVar = "Attacker",
-      Loop = false,
-      Blend = false
-    }
-  },
-  {
-    Function = BBMove,
-    Params = {
-      UnitVar = "Attacker",
-      TargetVar = "Target",
-      Speed = 1500,
-      Gravity = 2,
-      MoveBackBy = 150,
-      MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0
     }
   }
 }
@@ -288,6 +170,156 @@ CanCastBuildingBlocks = {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
       }
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HasDealtDamage",
+      DestVarTable = "NextBuffVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Damage",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        90,
+        140,
+        190,
+        245,
+        300
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Attacker",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Distance",
+      Src1Value = 420,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 600,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.35,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.75,
+      Src2Value = 0,
+      DestVar = "scaletime",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 650,
+      DestVar = "animlocktime",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "animlocktime",
+      Src1Value = 0,
+      Src2Value = 0.3,
+      DestVar = "animlocktime",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationVar = "animlocktime",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "scaletime",
+      TargetVar = "Attacker",
+      Loop = false,
+      Blend = false
+    }
+  },
+  {
+    Function = BBMove,
+    Params = {
+      UnitVar = "Attacker",
+      TargetVar = "Target",
+      Speed = 1500,
+      Gravity = 2,
+      MoveBackBy = 150,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
     }
   }
 }

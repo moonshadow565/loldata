@@ -14,52 +14,78 @@ UpdateSelfBuffActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "ManaRegenMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 2.4
+            }
           },
           {
-            Function = BBElse,
-            Params = {},
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "CooldownReduction",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.15
+            }
+          },
+          {
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 1200,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
+            },
             SubBlocks = {
               {
-                Function = BBForEachUnitInTargetArea,
+                Function = BBIf,
                 Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Owner",
-                  Range = 1000,
-                  Flags = "AffectFriends AffectHeroes ",
-                  IteratorVar = "Unit"
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
                 },
                 SubBlocks = {
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "CooldownReduction",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = -0.15
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "ManaRegenMod",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = 2.4
-                    }
-                  },
                   {
                     Function = BBSpellBuffAdd,
                     Params = {
                       TargetVar = "Unit",
                       AttackerVar = "Owner",
-                      BuffName = "Apocalypse",
+                      BuffName = "SoulShroudAuraSelf",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "SoulShroudAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -100,10 +126,6 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "apocalypse"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {

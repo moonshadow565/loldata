@@ -141,11 +141,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ArmorAmount",
       SrcValueByLevel = {
-        100,
-        150,
+        80,
+        120,
+        160,
         200,
-        250,
-        300
+        240
       }
     }
   },

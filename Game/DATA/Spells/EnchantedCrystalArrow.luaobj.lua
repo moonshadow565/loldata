@@ -110,7 +110,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Distance",
       Src1Value = 0,
-      Src2Value = 0.00125,
+      Src2Value = 0.002,
       DestVar = "StunDuration",
       MathOp = MO_MULTIPLY
     }
@@ -130,7 +130,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "StunDuration",
       Src1Value = 0,
-      Src2Value = 3.5,
+      Src2Value = 4.5,
       DestVar = "StunDuration",
       MathOp = MO_MIN
     }

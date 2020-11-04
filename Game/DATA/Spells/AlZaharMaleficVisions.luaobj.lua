@@ -1,3 +1,4 @@
+DoesntBreakShields = false
 BuffTextureName = "AlZahar_MaleficVisions.dds"
 BuffName = "AlZaharMaleficVisions"
 AutoBuffActivateEffect = "AlzaharMaleficVisions_tar.troy"
@@ -101,6 +102,15 @@ BuffOnDeathBuildingBlocks = {
     }
   },
   {
+    Function = BBIncPAR,
+    Params = {
+      TargetVar = "Attacker",
+      Delta = 0,
+      PARType = PAR_MANA,
+      DeltaVar = "ManaRestore"
+    }
+  },
+  {
     Function = BBForNClosestUnitsInTargetArea,
     Params = {
       AttackerVar = "Attacker",
@@ -113,13 +123,8 @@ BuffOnDeathBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncPAR,
-        Params = {
-          TargetVar = "Attacker",
-          Delta = 0,
-          PARType = PAR_MANA,
-          DeltaVar = "ManaRestore"
-        }
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
       },
       {
         Function = BBSpellBuffAdd,
@@ -127,7 +132,7 @@ BuffOnDeathBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "AlZaharMaleficVisions",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
@@ -170,12 +175,16 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "AlZaharMaleficVisions",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,

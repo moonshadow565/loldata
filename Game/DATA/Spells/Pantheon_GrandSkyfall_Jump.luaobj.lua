@@ -219,7 +219,7 @@ ChannelingSuccessStopBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 2.25,
+          Src = 2,
           SlotNumber = 1,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_SUMMONER,

@@ -114,7 +114,7 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -139,7 +139,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -156,7 +156,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -179,7 +179,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -196,7 +196,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -224,6 +224,20 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle1",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -552,7 +566,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPowerRatio",
       Src1Value = 0,
-      Src2Value = 1.5E-4,
+      Src2Value = 1.25E-4,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }

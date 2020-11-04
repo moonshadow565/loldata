@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
@@ -60,6 +60,10 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -118,7 +122,7 @@ ChannelingStartBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
-      AttackerVar = "Attacker",
+      AttackerVar = "Owner",
       BuffName = "AlZaharNetherGrasp",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
@@ -128,7 +132,7 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = true
     }
   },
   {
@@ -202,7 +206,7 @@ ChannelingUpdateActionsBuildingBlocks = {
         Function = BBIfNotHasBuff,
         Params = {
           OwnerVar = "Target",
-          CasterVar = "Attacker",
+          CasterVar = "Owner",
           BuffName = "AlZaharNetherGrasp"
         },
         SubBlocks = {

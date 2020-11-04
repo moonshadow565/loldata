@@ -70,7 +70,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -92,7 +93,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }

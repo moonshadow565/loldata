@@ -239,6 +239,22 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Summoner_Boost.troy",
+      Flags = 0,
+      EffectIDVar = "BoostParticle",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBDispellNegativeBuffs,
     Params = {AttackerVar = "Owner"}
   },
@@ -264,6 +280,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_boost.troy"
     }
   }
 }

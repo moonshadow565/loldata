@@ -17,7 +17,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 2,
               SlotType = SpellSlots,
@@ -26,7 +26,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             }
           },
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
               SlotType = SpellSlots,
@@ -35,7 +35,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             }
           },
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 0,
               SlotType = SpellSlots,
@@ -44,7 +44,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             }
           },
           {
-            Function = BBSilenceSpellSlot,
+            Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 3,
               SlotType = SpellSlots,

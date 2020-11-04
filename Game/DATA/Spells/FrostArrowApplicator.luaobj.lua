@@ -44,11 +44,11 @@ BuffOnHitUnitBuildingBlocks = {
               DestVar = "MovementSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.15,
-                -0.2,
-                -0.25,
-                -0.3,
-                -0.35
+                -0.1,
+                -0.17,
+                -0.24,
+                -0.31,
+                -0.38
               }
             }
           },

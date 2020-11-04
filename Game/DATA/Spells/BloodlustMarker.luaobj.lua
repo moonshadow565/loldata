@@ -35,10 +35,10 @@ BuffOnKillBuildingBlocks = {
       DestVar = "CritDamageMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0,
-        0.01125,
+        0.015,
         0.0225,
-        0.03375,
+        0.03,
+        0.0375,
         0.045
       }
     }

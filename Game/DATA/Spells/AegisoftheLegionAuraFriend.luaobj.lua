@@ -1,5 +1,5 @@
 BuffTextureName = "034_Steel_Shield.dds"
-BuffName = "Aegis of the Legion"
+BuffName = "Aegis of the Legion Friend"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
