@@ -4,4 +4,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="alistartrample"}}, 
 {Function=BBPreloadSpell, Params={Name="headbutttarget"}}, 
+{Function=BBPreloadParticle, Params={Name="headbutt_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="stun"}}, 
 }

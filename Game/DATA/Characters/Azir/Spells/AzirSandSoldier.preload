@@ -15,4 +15,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="azir_base_w_soldier_dissipate.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_towersandbib.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_soldiertimeout.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="azir_base_w_soldier_cas.troy"}}, 
 }
