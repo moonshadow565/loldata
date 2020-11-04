@@ -4,6 +4,34 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Critical,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -104,6 +132,78 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Other1", LocationVar = "Attacker"}
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Other1",
+      Distance = 500,
+      OffsetAngle = 90,
+      PositionVar = "LeftPos"
+    }
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Other1",
+      Distance = 500,
+      OffsetAngle = 270,
+      PositionVar = "RightPos"
+    }
+  },
+  {
+    Function = BBSpawnMinion,
+    Params = {
+      Name = "LocationFinder",
+      Skin = "TestCube",
+      AiScript = "idle.lua",
+      PosVar = "LeftPos",
+      Team = TEAM_UNKNOWN,
+      TeamVar = "TeamID",
+      Stunned = true,
+      Rooted = true,
+      Silenced = true,
+      Invulnerable = true,
+      MagicImmune = true,
+      IgnoreCollision = true,
+      Placemarker = true,
+      VisibilitySize = 0,
+      DestVar = "Other2",
+      GoldRedirectTargetVar = "Nothing"
+    }
+  },
+  {
+    Function = BBSpawnMinion,
+    Params = {
+      Name = "LocationFinder",
+      Skin = "TestCube",
+      AiScript = "idle.lua",
+      PosVar = "RightPos",
+      Team = TEAM_UNKNOWN,
+      TeamVar = "TeamID",
+      Stunned = true,
+      Rooted = true,
+      Silenced = true,
+      Invulnerable = true,
+      MagicImmune = true,
+      IgnoreCollision = true,
+      Placemarker = true,
+      VisibilitySize = 0,
+      DestVar = "Other3",
+      GoldRedirectTargetVar = "Nothing"
+    }
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Other2", LocationVar = "Attacker"}
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Other3", LocationVar = "Attacker"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Other1",
@@ -121,12 +221,46 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBFaceDirection,
-    Params = {TargetVar = "Other1", LocationVar = "Attacker"}
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other2",
+      AttackerVar = "Attacker",
+      BuffName = "ExpirationTimer",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
+      AttackerVar = "Attacker",
+      BuffName = "ExpirationTimer",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   },
   {
     Function = BBGetUnitPosition,
     Params = {UnitVar = "Other1", PositionVar = "TargetPos"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "EatHydra", SrcValue = 0}
   },
   {
     Function = BBForEachUnitInTargetArea,
@@ -169,6 +303,84 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Other2",
+      Range = 500,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      BuffNameFilter = "MissFortuneRShotHolder",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "MissFortuneRShotHolder"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "MissFortuneRicochetShot",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 6,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Other3",
+      Range = 500,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      BuffNameFilter = "MissFortuneRShotHolder",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "MissFortuneRShotHolder"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "MissFortuneRicochetShot",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 6,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
     Function = BBForEachUnitInTargetAreaRandom,
     Params = {
       AttackerVar = "Attacker",
@@ -200,6 +412,55 @@ TargetExecuteBuildingBlocks = {
           ForceCastingOrChannelling = false,
           UpdateAutoAttackTimer = false
         }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "EatHydra", SrcValue = 1}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "EatHydra",
+      Value2 = 1,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetAreaRandom,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "Other1",
+          Range = 575,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 1,
+          BuffNameFilter = "MissFortuneRicochetShot",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Attacker",
+              TargetVar = "Unit",
+              PosVar = "Unit",
+              EndPosVar = "Unit",
+              OverrideCastPosition = true,
+              OverrideCastPosVar = "TargetPos",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = false,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
+            }
+          }
+        }
       }
     }
   }
@@ -225,6 +486,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "missfortunershotholder"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "missfortunericochetshot"
     }
   }
 }

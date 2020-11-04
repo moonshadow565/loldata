@@ -406,13 +406,6 @@ BuffOnUpdateStatsBuildingBlocks = {
           TickRate = 0,
           CanMitigateDuration = false
         }
-      },
-      {
-        Function = BBDebugSay,
-        Params = {
-          OwnerVar = "Owner",
-          ToSay = "willremove is true"
-        }
       }
     }
   },

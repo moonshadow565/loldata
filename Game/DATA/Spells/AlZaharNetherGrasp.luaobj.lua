@@ -112,23 +112,41 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = true
+      CanMitigateDuration = false
     }
   },
   {
-    Function = BBApplyStun,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Owner",
       TargetVar = "Target",
-      Duration = 2.5
+      AttackerVar = "Owner",
+      BuffName = "Stun",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
-    Function = BBApplySuppression,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Owner",
       TargetVar = "Target",
-      Duration = 2.5
+      AttackerVar = "Owner",
+      BuffName = "Suppression",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

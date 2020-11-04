@@ -46,10 +46,6 @@ TargetExecuteBuildingBlocks = {
             Params = {TargetVar = "Owner", DestVar = "TeamID"}
           },
           {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Target"}
-          },
-          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
@@ -88,9 +84,9 @@ TargetExecuteBuildingBlocks = {
             Params = {
               DestVar = "BaseDamage",
               SrcValueByLevel = {
-                45,
-                70,
-                95,
+                60,
+                85,
+                110,
                 185,
                 230
               }

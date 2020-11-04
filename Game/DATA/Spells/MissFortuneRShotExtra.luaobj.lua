@@ -4,6 +4,34 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Critical,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },

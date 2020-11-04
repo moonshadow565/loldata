@@ -11,6 +11,57 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "teamID",
       DestVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "AlZaharRecentVis"
+    },
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 1500,
+          Flags = "AffectEnemies AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = false
+        },
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "AlZaharVoidling"
+            },
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Owner",
+                  Src2Var = "Unit",
+                  CompareOp = CO_DIFFERENT_TEAM
+                },
+                SubBlocks = {
+                  {
+                    Function = BBApplyTaunt,
+                    Params = {
+                      AttackerVar = "Owner",
+                      TargetVar = "Unit",
+                      Duration = 1.5
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -51,6 +102,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
           DamageVar = "DamagePerTick",
@@ -61,6 +113,57 @@ BuffOnUpdateActionsBuildingBlocks = {
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "AlZaharRecentVis"
+        },
+        SubBlocks = {
+          {
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 1500,
+              Flags = "AffectEnemies AffectMinions AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = false
+            },
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "AlZaharVoidling"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "Owner",
+                      Src2Var = "Unit",
+                      CompareOp = CO_DIFFERENT_TEAM
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBApplyTaunt,
+                        Params = {
+                          AttackerVar = "Owner",
+                          TargetVar = "Unit",
+                          Duration = 1.5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -127,6 +230,33 @@ BuffOnDeathBuildingBlocks = {
         Params = {TargetVar = "Unit"}
       },
       {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "AlZaharRecentVis"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "AlZaharRecentVis",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 4,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
@@ -179,6 +309,43 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Target"}
   },
   {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 3000,
+      Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = false
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffClear,
+        Params = {
+          TargetVar = "Unit",
+          BuffName = "AlZaharRecentVis"
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "AlZaharRecentVis",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -197,6 +364,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharvoidling"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "malzahar"}

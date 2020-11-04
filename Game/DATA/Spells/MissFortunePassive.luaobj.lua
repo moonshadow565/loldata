@@ -73,7 +73,7 @@ BuffOnHitUnitBuildingBlocks = {
                     Params = {
                       Src1Var = "APMod",
                       Src1Value = 0,
-                      Src2Value = 0.04,
+                      Src2Value = 0.05,
                       DestVar = "ModdedDmg",
                       MathOp = MO_MULTIPLY
                     }

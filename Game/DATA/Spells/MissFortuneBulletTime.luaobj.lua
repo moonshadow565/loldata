@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 2
+ChannelDuration = 2.2
 BuffName = ""
 ChannelingStartBuildingBlocks = {
   {
@@ -533,6 +533,14 @@ ChannelingUpdateActionsBuildingBlocks = {
       Src2Value = 1,
       DestVar = "Count",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBDebugSay,
+    Params = {
+      OwnerVar = "Owner",
+      ToSay = "Count:",
+      SrcVar = "Count"
     }
   },
   {

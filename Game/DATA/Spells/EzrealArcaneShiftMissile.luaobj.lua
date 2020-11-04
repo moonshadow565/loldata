@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        70,
-        115,
-        160,
-        205,
-        250
+        75,
+        125,
+        175,
+        225,
+        275
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
