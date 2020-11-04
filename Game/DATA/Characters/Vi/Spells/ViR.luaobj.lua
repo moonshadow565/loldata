@@ -8,18 +8,6 @@ SpellDamageRatio = 1
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "vi_r_run_sound.troy "
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "shatterready_buf.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "virknockback"

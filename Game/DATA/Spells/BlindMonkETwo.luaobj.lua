@@ -12,17 +12,3 @@ AutoBuffActivateAttachBoneName2 = "R_Hand"
 PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkeone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkemanager"
-    }
-  }
-}

@@ -9,3 +9,11 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZiggsSnowday"
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ziggsshortfuse"
+    }
+  }
+}

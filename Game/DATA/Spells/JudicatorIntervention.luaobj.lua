@@ -2,13 +2,15 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Judicator_EyeforanEye.dds"
 BuffName = "JudicatorIntervention"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   90,
   90,
   90,
   90,
   90
+}
+SpellFXOverrideSkins = {
+  "MetalWingedJudicator"
 }
 PreLoadBuildingBlocks = {
   {

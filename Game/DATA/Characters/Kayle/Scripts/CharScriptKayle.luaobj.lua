@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "kaylemetalwingrecall"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "judicatorholyfervordebuff"
     }
   },
@@ -21,6 +27,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "judicatorholyfervor"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kayleanimationrun"
     }
   }
 }

@@ -5,7 +5,8 @@ ChannelDuration = 4
 BuffTextureName = "RecallHome.dds"
 BuffName = "Recall"
 SpellFXOverrideSkins = {
-  "OktoberGragas"
+  "OktoberGragas",
+  "MetalWingedJudicator"
 }
 SpellVOOverrideSkins = {
   "ZombieBrand",

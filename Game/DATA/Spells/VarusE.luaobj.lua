@@ -14,13 +14,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "expirationtimer"
+      Name = "varusemissiledummy1"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "varusemissiledummy1"
+      Name = "expirationtimer"
     }
   },
   {

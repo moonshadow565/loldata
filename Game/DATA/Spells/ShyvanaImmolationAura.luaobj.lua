@@ -5,7 +5,6 @@ IsDamagingSpell = true
 BuffTextureName = "ShyvanaScorchedEarth.dds"
 BuffName = "ShyvanaScorchedEarth"
 AutoBuffActivateEffect = "shyvana_scorchedEarth_01.troy"
-AutoBuffActivateEffect2 = "shyvana_scorchedEarth_speed.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

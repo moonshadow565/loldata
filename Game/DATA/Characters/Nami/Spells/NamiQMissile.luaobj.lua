@@ -31,6 +31,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nami_koi_q_tar_ground.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nami_q_tar_ground.troy"
     }
   }

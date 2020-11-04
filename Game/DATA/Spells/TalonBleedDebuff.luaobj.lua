@@ -1,11 +1,6 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "TalonNoxianDiplomacy.dds"
 BuffName = "Bleed"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {

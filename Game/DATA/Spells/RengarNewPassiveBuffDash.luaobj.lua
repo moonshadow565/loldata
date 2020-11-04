@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarleapdummy"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "rengar_leapsound.troy"

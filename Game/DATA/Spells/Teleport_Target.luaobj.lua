@@ -1,11 +1,16 @@
 BuffTextureName = "Summoner_teleport.dds"
-BuffName = "Teleport Target"
-AutoBuffActivateEffect = ""
+BuffName = "Teleport_Target"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "teleport_target.troy"
+      Name = "teleport_target_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "teleport_target_red.troy"
     }
   }
 }

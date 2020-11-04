@@ -13,7 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_teleport.troy"
+      Name = "summoner_teleport_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_teleport_red.troy"
     }
   },
   {
@@ -25,7 +31,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_teleportarrive.troy"
+      Name = "summoner_teleportarrive_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_teleportarrive_red.troy"
     }
   },
   {

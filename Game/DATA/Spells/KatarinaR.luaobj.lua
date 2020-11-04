@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 1.9
+SpellFXOverrideSkins = {
+  "XmasKatarina"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

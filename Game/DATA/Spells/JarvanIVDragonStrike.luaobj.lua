@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 CastTime = 0.4
 BuffTextureName = "JarvanIV_DragonStrike.dds"
+SpellFXOverrideSkins = {
+  "LubuJarvanIV"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

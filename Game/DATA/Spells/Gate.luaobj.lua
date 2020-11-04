@@ -48,5 +48,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "gatemarker_red.troy"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twistedfategatetarget"
+    }
   }
 }

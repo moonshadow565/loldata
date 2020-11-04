@@ -18,11 +18,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "ziggspassive_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ziggsshortfusecooldown"
-    }
   }
 }

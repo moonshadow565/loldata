@@ -1,0 +1,35 @@
+BuffTextureName = "Hecarim_Rampage.dds"
+BuffName = "DianaPassive"
+PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_metal_recall_sound_sr.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_metal_recall_sound_sr_improved.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_metal_recall_sound_dom.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_metal_recall_sound_dom_improved.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kayle_metal_recall_overide.troy"
+    }
+  }
+}

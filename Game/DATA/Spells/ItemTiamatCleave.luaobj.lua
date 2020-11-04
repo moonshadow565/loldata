@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
 PreLoadBuildingBlocks = {
