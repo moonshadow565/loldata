@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "olaf_recklessswing_tar_02.troy"
+      Name = "olaf_recklessstrike_axe_charge.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "olaf_recklessstrike_axe_charge.troy"
+      Name = "olaf_recklessswing_tar_02.troy"
     }
   },
   {

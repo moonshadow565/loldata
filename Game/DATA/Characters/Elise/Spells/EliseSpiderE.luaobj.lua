@@ -69,12 +69,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "elisespideredescentparticle"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender10vision"

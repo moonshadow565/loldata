@@ -2,13 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretbonus"
+      Name = "eliserhealthpassbuff"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "turretbonushealth"
+      Name = "elise_spiderling_cas.troy"
     }
   }
 }

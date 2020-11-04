@@ -50,7 +50,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "elise_spiderling_cas.troy"
+      Name = "elise_volatile_spiderling_cas.troy"
     }
   }
 }

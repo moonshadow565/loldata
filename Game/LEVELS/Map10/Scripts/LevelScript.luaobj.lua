@@ -85,7 +85,7 @@ L0_0 = 3
 CASTER_ARMOR_UPGRADE = L0_0
 L0_0 = 3
 CASTER_MR_UPGRADE = L0_0
-L0_0 = 66
+L0_0 = 100
 SUPER_HEALTH_UPGRADE = L0_0
 L0_0 = 2
 SUPER_DAMAGE_UPGRADE = L0_0
@@ -93,9 +93,9 @@ L0_0 = 0
 SUPER_GOLD_UPGRADE = L0_0
 L0_0 = 0
 SUPER_EXP_UPGRADE = L0_0
-L0_0 = 0
+L0_0 = 2
 SUPER_ARMOR_UPGRADE = L0_0
-L0_0 = 0
+L0_0 = 0.5
 SUPER_MR_UPGRADE = L0_0
 L0_0 = 10
 MAXIMUM_MELEE_GOLD_BONUS = L0_0
@@ -433,11 +433,13 @@ L0_0 = {
 }
 OrderBarracksBonuses = L0_0
 L0_0 = {
-  "Lizard",
-  "Dragon",
-  "Golem",
-  "wolf",
-  "Wraith"
+  "TT_NWolf",
+  "TT_NWolf2",
+  "TT_NGolem",
+  "TT_NGolem2",
+  "TT_NWraith",
+  "TT_NWraith2",
+  "TT_Spiderboss"
 }
 NeutralMinionNames = L0_0
 function L0_0()
@@ -597,7 +599,7 @@ end
 OppositeTeam = L0_0
 function L0_0()
   local L0_9, L1_10, L2_11, L3_12, L4_13, L5_14, L6_15
-  for L3_12 = 0, 3 do
+  for L3_12 = 1, 3 do
     L4_13 = OrderBarracksBonuses
     L4_13 = L4_13[L3_12]
     L5_14 = OrderBarracksBonuses

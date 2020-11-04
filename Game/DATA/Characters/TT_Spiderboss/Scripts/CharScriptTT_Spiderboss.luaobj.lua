@@ -38,6 +38,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "poisontrailtarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "tt_actiontimer"
     }
   }

@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "elise_spiderling_cas.troy"
+      Name = "elisespiderlingfadeout2"
     }
   }
 }
