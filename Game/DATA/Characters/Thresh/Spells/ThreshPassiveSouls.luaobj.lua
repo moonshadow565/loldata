@@ -19,18 +19,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "threshcritattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threshbasicattack1sfast"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "threshbasicattack1l"
     }
   },

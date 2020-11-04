@@ -1,2 +1,2 @@
-BuffTextureName = "SadMummy_BandageFlinger.dds"
+BuffTextureName = "Thresh_QPassive2.dds"
 BuffName = "ThreshQPassive"

@@ -1,4 +1,4 @@
-BuffTextureName = "SadMummy_BandageFlinger.dds"
+BuffTextureName = "Thresh_QPassive3.dds"
 BuffName = "ThreshQPassive"
 PreLoadBuildingBlocks = {
   {

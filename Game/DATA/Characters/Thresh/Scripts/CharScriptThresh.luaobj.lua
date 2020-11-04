@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "become_transparent.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
@@ -51,12 +57,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "become_transparent.troy"
     }
   },
   {
