@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_q_tar.troy"
+      Name = "Quinn_Base_Q_tar.troy"
     }
   },
   {
@@ -24,13 +24,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_aoe_unit_tar.troy"
+      Name = "Quinn_Base_Q_AOE_unit_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinnvalor_q_tar.troy"
+      Name = "QuinnValor_Base_Q_Tar.troy"
     }
   }
 }

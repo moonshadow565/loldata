@@ -69,12 +69,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrspiritbearattacksfx"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_spiritguard_audio_bearstunattack.troy"

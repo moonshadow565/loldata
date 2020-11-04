@@ -1102,6 +1102,7 @@ function L0()
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
+  L0.TimerType = "Order Blue"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
   L0.Groups = L1
@@ -1126,6 +1127,7 @@ function L0()
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
+  L0.TimerType = "Order Red"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
   L0.Groups = L1
@@ -1153,6 +1155,7 @@ function L0()
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
+  L0.TimerType = "Chaos Blue"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
   L0.Groups = L1
@@ -1177,6 +1180,7 @@ function L0()
   L0.GroupsRespawnTime = 300
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
+  L0.TimerType = "Chaos Red"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
   L0.Groups = L1
@@ -1280,6 +1284,8 @@ function L0()
     L5[L6] = L7
     L7 = L4 + 1
     L5.Timer = L6
+    L7 = L3
+    L5(L6, L7)
   end
 end
 InitializeNeutralMinionInfo = L0

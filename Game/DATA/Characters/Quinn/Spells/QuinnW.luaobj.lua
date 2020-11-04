@@ -6,7 +6,9 @@ BuffName = "QuinnW"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {
   "PhoenixQuinn",
-  "QuinnValor_Phoenix"
+  "QuinnValor_Phoenix",
+  "QuinnSkin02",
+  "QuinnValorSkin02"
 }
 DoOnPreDamageInExpirationOrder = true
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
@@ -20,7 +22,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_cas_nova.troy"
+      Name = "quinn_base_w_cas_nova.troy"
     }
   }
 }

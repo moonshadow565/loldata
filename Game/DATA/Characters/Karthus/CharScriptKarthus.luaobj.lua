@@ -1,14 +1,8 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deathdefied"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "neutralmonster_buf.troy"
+      Name = "karthus_base_e_passive_buff.troy"
     }
   },
   {
@@ -21,6 +15,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "crestbigmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalruncyclemanager"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karthus_base_q_ring.troy"
     }
   }
 }

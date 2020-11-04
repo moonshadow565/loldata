@@ -5,13 +5,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_enhanced.troy"
+      Name = "Quinn_Base_W_Tar_Enhanced.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_enhanced_minion.troy"
+      Name = "Quinn_Base_W_Tar_Enhanced_Minion.troy"
     }
   }
 }

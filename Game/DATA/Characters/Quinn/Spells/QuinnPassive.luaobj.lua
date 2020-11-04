@@ -34,13 +34,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_respawn.troy"
+      Name = "Quinn_Base_Respawn.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_r_finale_cas.troy"
+      Name = "Quinn_Base_R_Cas_Finale.troy"
     }
   },
   {
@@ -58,7 +58,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinnvalor_r_end.troy"
+      Name = "Quinn_Base_R_End.troy"
     }
   },
   {
@@ -82,7 +82,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_cas_passive.troy"
+      Name = "Quinn_Base_W_Cas_Passive.troy"
     }
   },
   {

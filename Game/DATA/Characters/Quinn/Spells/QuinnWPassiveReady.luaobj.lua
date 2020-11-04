@@ -23,13 +23,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_tar.troy"
+      Name = "Quinn_Base_W_tar_Valor.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "quinn_w_tar_enemy_sound.troy"
+      Name = "Quinn_Base_W_tar_enemy_sound.troy"
     }
   },
   {

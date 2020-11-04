@@ -359,6 +359,8 @@ function L0()
     L5[L6] = L7
     L7 = L4 + 1
     L5.Timer = L6
+    L7 = L3
+    L5(L6, L7)
   end
 end
 InitializeNeutralMinionInfo = L0
