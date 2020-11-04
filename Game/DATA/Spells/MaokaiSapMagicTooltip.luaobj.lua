@@ -1,2 +1,0 @@
-BuffName = "MaokaiSapMagicTooltip"
-PersistsThroughDeath = true

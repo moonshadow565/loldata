@@ -1,5 +1,0 @@
-BuffTextureName = "Chronokeeper_Timestop.dds"
-BuffName = "SoulShackleSlow"
-AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
-AutoBuffActivateAttachBoneName = ""
-PopupMessage1 = "game_floatingtext_Slowed"

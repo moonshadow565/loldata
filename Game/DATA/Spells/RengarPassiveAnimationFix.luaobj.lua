@@ -1,2 +1,0 @@
-BuffName = "RengarPassive"
-PersistsThroughDeath = true

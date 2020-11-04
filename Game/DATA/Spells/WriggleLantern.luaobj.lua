@@ -12,10 +12,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "sightward"}
+  },
+  {
     Function = BBPreloadCharacter,
-    Params = {
-      Name = "wrigglelantern"
-    }
+    Params = {Name = "sightward"}
   },
   {
     Function = BBPreloadSpell,
