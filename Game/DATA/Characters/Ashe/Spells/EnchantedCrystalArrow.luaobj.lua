@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Bowmaster_EnchantedArrow.dds"
+BuffTextureName = "Ashe_R.dds"
 BuffName = "Enchanted Crystal Arrow"
 AutoBuffActivateEffect2 = "LOC_Stun.troy"
 AutoBuffActivateAttachBoneName2 = "head"

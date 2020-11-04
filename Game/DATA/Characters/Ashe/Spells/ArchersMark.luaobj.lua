@@ -1,7 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
-BuffTextureName = "Bowmaster_Hawkshot.dds"
 BuffName = "Archer's Mark"
 SpellToggleSlot = 3
 PersistsThroughDeath = true

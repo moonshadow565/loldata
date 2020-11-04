@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "GSB_Stun.dds"
 BuffName = "Shen Destabilize"
-AutoBuffActivateEffect = "archersmark_tar.troy"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
