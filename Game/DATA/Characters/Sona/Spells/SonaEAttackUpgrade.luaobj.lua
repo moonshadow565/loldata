@@ -22,11 +22,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sonaepcdeathrecapfix"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapassiveslow"
-    }
   }
 }

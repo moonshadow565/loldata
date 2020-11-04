@@ -10,7 +10,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sonacrescendo_buf.troy"
+      Name = "sona_base_r_buf.troy"
     }
   },
   {

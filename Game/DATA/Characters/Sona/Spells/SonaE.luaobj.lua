@@ -20,11 +20,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "sonaezone"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
   }
 }

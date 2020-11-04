@@ -3,7 +3,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sonabasicattack_tar.troy"
+      Name = "sona_base_ba_tar.troy"
     }
   }
 }
