@@ -80,7 +80,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "MoveSpeedMod",
+          DestVar = "SpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValue = -0.55
         }

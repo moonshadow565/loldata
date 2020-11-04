@@ -8,7 +8,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = 1
+      Delta = 0.5
     }
   }
 }

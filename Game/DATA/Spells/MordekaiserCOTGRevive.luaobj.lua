@@ -48,6 +48,14 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Other1",
+      AttackerVar = "Other1",
+      BuffName = "Entropy"
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -62,5 +70,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "mordekaisercotgpetbuff2"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "entropy"}
   }
 }
