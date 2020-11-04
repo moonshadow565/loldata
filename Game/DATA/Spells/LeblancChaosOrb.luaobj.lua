@@ -10,7 +10,6 @@ AutoCooldownByLevel = {
   10,
   8
 }
-PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
@@ -44,26 +43,80 @@ OnBuffDeactivateBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBIfHasBuff,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        70,
-        110,
-        150,
-        190,
-        230
+      OwnerVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "LeblancChaosOrb"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplySilence,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Target",
+          Duration = 2
+        }
       },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.6,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Owner",
+          BuffName = "LeblancChaosOrb"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            20,
+            40,
+            60,
+            80,
+            100
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.3,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -232,79 +285,26 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBApplyDamage,
     Params = {
-      OwnerVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "LeblancChaosOrb"
-    },
-    SubBlocks = {
-      {
-        Function = BBApplySilence,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Duration = 2
-        }
-      },
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Owner",
-          BuffName = "LeblancChaosOrb"
-        }
-      },
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            20,
-            40,
-            60,
-            80,
-            100
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.3,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        70,
+        110,
+        150,
+        190,
+        230
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.6,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -318,13 +318,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancchaosorbm"
+      Name = "leblancchaosorb"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancchaosorb"
+      Name = "leblancchaosorbm"
     }
   }
 }

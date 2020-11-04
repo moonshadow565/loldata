@@ -13,7 +13,8 @@ AutoCooldownByLevel = {
   60
 }
 SpellFXOverrideSkins = {
-  "GangsterTwitch"
+  "GangsterTwitch",
+  "PunkTwitch"
 }
 OnBuffActivateBuildingBlocks = {
   {

@@ -5,6 +5,7 @@ BuffTextureName = "UrgotTerrorCapacitor.dds"
 BuffName = "UrgotTerrorCapacitor"
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
+OnPreDamagePriority = 3
 ChainMissileParameters = {
   MaximumHits = {
     4,
@@ -17,7 +18,15 @@ ChainMissileParameters = {
   CanHitSameTarget = 0,
   CanHitSameTargetConsecutively = 0
 }
+DoOnPreDamageInExpirationOrder = true
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Shield",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBSpellEffectCreate,
     Params = {
@@ -75,6 +84,17 @@ OnBuffActivateBuildingBlocks = {
       ValueVar = "SlowPercent",
       Index = 2
     }
+  },
+  {
+    Function = BBIncreaseShield,
+    Params = {
+      UnitVar = "Owner",
+      AmountVar = "Shield",
+      AmountVarTable = "InstanceVars",
+      Amount = 0,
+      MagicShield = true,
+      PhysicalShield = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -83,6 +103,28 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle1",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Shield",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBRemoveShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "Shield",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
+        }
+      }
     }
   }
 }
@@ -165,6 +207,15 @@ BuffOnHitUnitBuildingBlocks = {
 }
 BuffOnPreDamageBuildingBlocks = {
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "oldArmorAmount",
+      DestVarTable = "InstanceVars",
+      SrcVar = "Shield",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "Shield",
@@ -192,6 +243,31 @@ BuffOnPreDamageBuildingBlocks = {
           DestVar = "DamageAmount",
           SrcValue = 0
         }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "oldArmorAmount",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "Shield",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "oldArmorAmount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
+        }
       }
     }
   },
@@ -217,6 +293,17 @@ BuffOnPreDamageBuildingBlocks = {
           DestVar = "Shield",
           DestVarTable = "InstanceVars",
           SrcValue = 0
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
         }
       },
       {

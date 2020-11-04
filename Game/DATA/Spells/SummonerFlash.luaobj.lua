@@ -159,7 +159,8 @@ AdjustCastInfoBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -281,7 +282,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 425,
+      Value2 = 475,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -289,7 +290,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 425,
+          Distance = 475,
           OffsetAngle = 0,
           PositionVar = "CastPos"
         }
@@ -383,7 +384,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

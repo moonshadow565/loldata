@@ -212,7 +212,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 12,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -261,14 +262,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               DestVar = "Active",
               DestVarTable = "InstanceVars",
               SrcValue = true
-            }
-          },
-          {
-            Function = BBOverrideAnimation,
-            Params = {
-              ToOverrideAnim = "Idle1",
-              OverrideAnim = "Wait",
-              OwnerVar = "Owner"
             }
           },
           {
@@ -360,7 +353,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBPlayAnimation,
     Params = {
-      AnimationName = "Idle1",
+      AnimationName = "Spell1",
       ScaleTime = 1,
       TargetVar = "Other3",
       Loop = false,
@@ -380,7 +373,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

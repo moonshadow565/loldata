@@ -27,6 +27,15 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Value = 0,
+      Src2Value = 2.5,
+      DestVar = "HealthIncRate",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatHPPoolMod,
@@ -34,6 +43,26 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "HealthMod",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "HealthMod",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "HealthIncRate",
+      Index = 2
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {Value = 10, Index = 3}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {

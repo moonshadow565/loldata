@@ -11,6 +11,8 @@ AutoCooldownByLevel = {
   0
 }
 NonDispellable = true
+OnPreDamagePriority = 3
+DoOnPreDamageInExpirationOrder = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -60,6 +62,17 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcVar = "ManaShield"
     }
+  },
+  {
+    Function = BBIncreaseShield,
+    Params = {
+      UnitVar = "Owner",
+      AmountVar = "ManaShield",
+      AmountVarTable = "InstanceVars",
+      Amount = 0,
+      MagicShield = true,
+      PhysicalShield = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -69,9 +82,40 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "asdf1",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ManaShield",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBRemoveShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "ManaShield",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
+        }
+      }
+    }
   }
 }
 BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "oldArmorAmount",
+      DestVarTable = "InstanceVars",
+      SrcVar = "ManaShield",
+      SrcVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
@@ -103,6 +147,31 @@ BuffOnPreDamageBuildingBlocks = {
         Params = {
           DestVar = "DamageAmount",
           SrcValue = 0
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "oldArmorAmount",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "ManaShield",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "oldArmorAmount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
         }
       },
       {
@@ -145,6 +214,17 @@ BuffOnPreDamageBuildingBlocks = {
           DestVar = "ManaShield",
           DestVarTable = "InstanceVars",
           SrcValue = 0
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
         }
       },
       {

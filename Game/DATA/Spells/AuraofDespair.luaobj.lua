@@ -4,6 +4,7 @@ BuffTextureName = "SadMummy_AuraofDespair.dds"
 BuffName = "AuraofDespair"
 AutoBuffActivateEffect = "Despair_buf.troy"
 AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect2 = "Despairpool_tar.troy"
 SpellToggleSlot = 2
 OnBuffActivateBuildingBlocks = {
   {
@@ -135,6 +136,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "PercentDamage",
@@ -184,7 +186,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "OwnerMana",
-          Value2 = 10,
+          Value2 = 8,
           CompareOp = CO_LESS_THAN
         },
         SubBlocks = {
@@ -202,7 +204,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBIncPAR,
             Params = {
               TargetVar = "Owner",
-              Delta = -10,
+              Delta = -8,
               PARType = PAR_MANA
             }
           }
@@ -326,6 +328,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "PercentDamage",
@@ -380,7 +383,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

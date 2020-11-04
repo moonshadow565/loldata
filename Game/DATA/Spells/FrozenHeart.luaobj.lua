@@ -5,7 +5,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.25
+      Delta = -0.2
     }
   }
 }

@@ -19,5 +19,9 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {Value = 8, Index = 1}
   }
 }

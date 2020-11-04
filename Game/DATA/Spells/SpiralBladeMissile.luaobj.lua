@@ -24,12 +24,31 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
-      Src2Var = "totalDamage",
-      Src1Value = 0.75,
+      Src1Var = "totalDamage",
+      Src2Var = "BaseDamage",
+      Src1Value = 0,
       Src2Value = 0,
-      DestVar = "bonusWeaponDamage",
+      DestVar = "BonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BonusDamage",
+      Src1Value = 0.95,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
   },
@@ -40,14 +59,14 @@ TargetExecuteBuildingBlocks = {
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        20,
-        70,
+        75,
         120,
-        170,
-        220
+        165,
+        210,
+        255
       },
       Damage = 0,
-      DamageVar = "bonusWeaponDamage",
+      DamageVar = "BonusDamage",
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,
@@ -64,7 +83,7 @@ TargetExecuteBuildingBlocks = {
       Src1Var = "percentOfAttack",
       Src1VarTable = "CharVars",
       Src1Value = 0,
-      Src2Value = 0.9,
+      Src2Value = 0.8,
       DestVar = "percentOfAttack",
       DestVarTable = "CharVars",
       MathOp = MO_MULTIPLY

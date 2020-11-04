@@ -279,6 +279,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "beaconauraap"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "beaconaura"}
   }
 }
