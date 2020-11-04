@@ -69,6 +69,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spider_e_peak_sound.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "elisespideredescenttrigger"
@@ -90,12 +96,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "elisespidereindicator"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "elise_spider_e_peak_sound.troy"
     }
   }
 }

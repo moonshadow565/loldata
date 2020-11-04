@@ -62,5 +62,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "volibearqspeed"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "volibearqflashlock"
+    }
   }
 }

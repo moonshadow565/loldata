@@ -1,5 +1,5 @@
-BuffTextureName = "Aatrox_Passive_Cooldown.dds"
-BuffName = "AatroxPassiveActivate"
+BuffTextureName = "Aatrox_Passive.dds"
+BuffName = "AatroxPassiveReady"
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
