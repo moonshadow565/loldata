@@ -22,13 +22,14 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        80,
-        130,
-        180,
-        230,
-        280
+        70,
+        115,
+        160,
+        205,
+        250
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -47,6 +48,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "EzrealRisingSpellForce",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
@@ -59,7 +61,8 @@ TargetExecuteBuildingBlocks = {
         0,
         0
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

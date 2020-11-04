@@ -420,7 +420,7 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "ADRatio", SrcValue = 0.6}
+    Params = {DestVar = "ADRatio", SrcValue = 0}
   },
   {
     Function = BBGetStat,
@@ -581,7 +581,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "ExtraCost",
-      Src1Value = 200,
+      Src1Value = 160,
       Src2Value = 0,
       DestVar = "ExtraCost",
       MathOp = MO_MIN

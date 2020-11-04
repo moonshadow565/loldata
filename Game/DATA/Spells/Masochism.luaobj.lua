@@ -124,11 +124,11 @@ CanCastBuildingBlocks = {
         Params = {
           DestVar = "HealthCost",
           SrcValueByLevel = {
-            20,
+            25,
             35,
-            50,
-            65,
-            80
+            45,
+            55,
+            65
           }
         }
       },
@@ -185,11 +185,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        -15,
-        -30,
+        -25,
+        -35,
         -45,
-        -60,
-        -75
+        -55,
+        -65
       }
     }
   },
@@ -236,12 +236,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -189,6 +189,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "DamageDealt",
@@ -238,6 +239,39 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HealthReturn",
+          SrcValueByLevel = {
+            25,
+            30,
+            35,
+            40,
+            45
+          }
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "HealthReturn",
+          HealerVar = "Owner"
         }
       }
     }
@@ -349,6 +383,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "DamageDealt",
@@ -398,6 +433,39 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBGetSlotSpellInfo,
+            Params = {
+              DestVar = "Level",
+              SpellSlotValue = 0,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              OwnerVar = "Owner",
+              Function = GetSlotSpellLevel
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "HealthReturn",
+              SrcValueByLevel = {
+                25,
+                30,
+                35,
+                40,
+                45
+              }
+            }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "HealthReturn",
+              HealerVar = "Owner"
             }
           }
         }
@@ -521,6 +589,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageDealt",
@@ -570,6 +639,39 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Owner",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "HealthReturn",
+                  SrcValueByLevel = {
+                    25,
+                    30,
+                    35,
+                    40,
+                    45
+                  }
+                }
+              },
+              {
+                Function = BBIncHealth,
+                Params = {
+                  TargetVar = "Owner",
+                  Delta = 0,
+                  DeltaVar = "HealthReturn",
+                  HealerVar = "Owner"
                 }
               }
             }

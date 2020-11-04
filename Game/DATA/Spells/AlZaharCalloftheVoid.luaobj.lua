@@ -227,6 +227,45 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Attacker",
+      TargetVar = "Nothing",
+      PosVar = "TargetPos",
+      EndPosVar = "TargetPos",
+      OverrideCastPosition = true,
+      OverrideCastPosVar = "Owner",
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 0,
+      OverrideForceLevelVar = "Level",
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -238,7 +277,8 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
-      TargetVar = "Target",
+      CallForHelpAttackerVar = "Owner",
+      TargetVar = "Owner",
       Damage = 10000,
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
@@ -250,17 +290,38 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
+    Function = BBSetVarInTable,
     Params = {
-      EffectIDVar = "Particle2",
-      EffectIDVarTable = "InstanceVars"
+      DestVar = "Particle2",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Particle2",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSpellEffectRemove,
+    Function = BBSetVarInTable,
     Params = {
-      EffectIDVar = "Particle3",
-      EffectIDVarTable = "InstanceVars"
+      DestVar = "Particle3",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Particle3",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "AlZaharCallR",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 2,
+      NumberOfStacks = 1,
+      Duration = 0.75,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -327,57 +388,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanMove
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      SrcVar = "TargetPos",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.4,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Attacker",
-          TargetVar = "Nothing",
-          PosVar = "TargetPos",
-          EndPosVar = "TargetPos",
-          OverrideCastPosition = true,
-          OverrideCastPosVar = "Owner",
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
-        }
-      }
     }
   }
 }
@@ -555,7 +565,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.8,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -571,7 +581,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.8,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

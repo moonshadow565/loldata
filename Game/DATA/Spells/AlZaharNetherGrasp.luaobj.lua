@@ -124,6 +124,14 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
+    Function = BBApplySuppression,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      Duration = 2.5
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
@@ -293,6 +301,14 @@ ChannelingCancelStopBuildingBlocks = {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Suppression"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "AlZaharNetherGrasp"
     }
@@ -351,5 +367,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "stun"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
   }
 }

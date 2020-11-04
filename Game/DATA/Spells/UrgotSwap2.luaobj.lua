@@ -340,6 +340,30 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "Stun"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "Suppression"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "UrgotSwapTarget"
+    }
+  },
+  {
     Function = BBUnlockAnimation,
     Params = {OwnerVar = "Owner", Blend = false}
   },
@@ -459,62 +483,304 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {TargetVar = "Owner", BuffName = "UrgotSwap2"}
       }
     }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "TargetPos"}
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
-    }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamOfOwner",
-      Value2 = TEAM_ORDER,
+      Src1Var = "IsDisabled",
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBSpellBuffClear,
+        Params = {TargetVar = "Owner", BuffName = "UrgotSwap2"}
+      }
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBGetCastSpellTargetPos,
+        Params = {DestVar = "TargetPos"}
+      },
+      {
+        Function = BBGetTeamID,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "UrgotSwapTarget.troy",
-          Flags = 0,
-          EffectIDVar = "GateParticle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          TargetBoneName = "root",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          TargetVar = "Owner",
+          DestVar = "TeamOfOwner"
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "UrgotSwapTarget.troy",
-          Flags = 0,
-          EffectIDVar = "GateParticle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          TargetBoneName = "root",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "TeamOfOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "UrgotSwapTarget.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              TargetBoneName = "root",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "UrgotSwapTarget.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              TargetBoneName = "root",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "UrgotSwapTarget.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "UrgotSwapTarget.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "GateParticle",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "GateParticle",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "GateParticle2",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "GateParticle2",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBFaceDirection,
+        Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "UrgotSwapMarker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Owner",
+          BuffName = "UrgotSwapMarker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Target",
+          BuffName = "UrgotSwapMissile",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Attacker",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DefInc",
+          SrcValueByLevel = {
+            80,
+            105,
+            130
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DefInc",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "DefInc"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "UrgotSwapDef",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "Suppression",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Suppression,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Owner",
+          BuffName = "UrgotSwapTarget",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Target",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -524,204 +790,28 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "UrgotSwapTarget.troy",
-          Flags = 0,
-          EffectIDVar = "GateParticle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          Src = 5,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner"
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBSetVarInTable,
+        Params = {DestVar = "ManaRefund", SrcValue = 120}
+      },
+      {
+        Function = BBIncPAR,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "UrgotSwapTarget.troy",
-          Flags = 0,
-          EffectIDVar = "GateParticle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          TargetVar = "Owner",
+          Delta = 0,
+          PARType = PAR_MANA,
+          DeltaVar = "ManaRefund"
         }
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "GateParticle",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "GateParticle",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "GateParticle2",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "GateParticle2",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "TargetPos"
-    }
-  },
-  {
-    Function = BBFaceDirection,
-    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UrgotSwapMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "UrgotSwapMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Target",
-      BuffName = "UrgotSwapMissile",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DefInc",
-      SrcValueByLevel = {
-        80,
-        105,
-        130
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DefInc",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "DefInc"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UrgotSwapDef",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "UrgotSwapTarget",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Target",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
     }
   }
 }
@@ -740,6 +830,22 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "stun"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "urgotswaptarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "urgotswapexecute"
     }
@@ -748,12 +854,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "unlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "urgotswaptarget"
     }
   },
   {

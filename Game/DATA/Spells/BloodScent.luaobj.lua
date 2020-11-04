@@ -10,7 +10,6 @@ AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateEffect4 = ""
 AutoBuffActivateAttachBoneName4 = ""
-SpellToggleSlot = 3
 AutoCooldownByLevel = {
   45,
   40,
@@ -48,62 +47,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
-  },
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
+    Function = BBSpellEffectRemove,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "wolfman_bloodscent_activate_blood_buff.troy",
-      Flags = 0,
-      EffectIDVar = "Part2",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "L_hand",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "wolfman_bloodscent_activate_blood_buff.troy",
-      Flags = 0,
-      EffectIDVar = "Part3",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "R_hand",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "wolfman_bloodscent_activate_blood_buff_02.troy",
-      Flags = 0,
-      EffectIDVar = "Part4",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "head",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      EffectIDVar = "Part1",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -156,33 +107,46 @@ BuffOnLevelUpSpellBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
+SelfExecuteBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBIfHasBuff,
     Params = {
-      EffectIDVar = "Part1",
-      EffectIDVarTable = "InstanceVars"
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Bloodscent_internal"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Bloodscent_internal"
+        }
+      }
     }
   },
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Part2",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Part3",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Part4",
-      EffectIDVarTable = "InstanceVars"
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Bloodscent_internal",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
     }
   }
 }
@@ -191,18 +155,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "wolfman_bloodscent_activate_speed.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "wolfman_bloodscent_activate_blood_buff.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "wolfman_bloodscent_activate_blood_buff_02.troy"
     }
   }
 }

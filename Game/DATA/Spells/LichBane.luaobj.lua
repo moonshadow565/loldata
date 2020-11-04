@@ -63,8 +63,25 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "SheenDelay",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBSpellBuffClear,
+            Params = {TargetVar = "Owner", BuffName = "LichBane"}
           }
         }
       }
@@ -75,5 +92,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "sheen"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "sheendelay"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "lichbane"}
   }
 }

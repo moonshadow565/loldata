@@ -151,6 +151,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -241,6 +242,22 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressSound"
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Suppression"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Stun"
+    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -258,6 +275,22 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressSound"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Suppression"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Stun"
     }
   }
 }
@@ -279,5 +312,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "infiniteduresshold"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stun"}
   }
 }

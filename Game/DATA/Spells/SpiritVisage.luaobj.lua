@@ -28,19 +28,29 @@ BuffOnHealBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Health",
-          Src1Value = 0,
-          Src2Value = 1.2,
-          DestVar = "EffectiveHeal",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetReturnValue,
-        Params = {
-          SrcVar = "EffectiveHeal"
+          Src1Var = "Owner",
+          Src2Var = "Target",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Health",
+              Src1Value = 0,
+              Src2Value = 1.2,
+              DestVar = "EffectiveHeal",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {
+              SrcVar = "EffectiveHeal"
+            }
+          }
         }
       }
     }

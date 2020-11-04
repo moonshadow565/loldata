@@ -28,11 +28,37 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyStun,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 1.7
+      AttackerVar = "Attacker",
+      BuffName = "Stun",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1.7,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Suppression",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Suppression,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1.7,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -107,7 +133,8 @@ TargetExecuteBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = true
+          ForceCastingOrChannelling = true,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -124,6 +151,18 @@ TargetExecuteBuildingBlocks = {
           Order = AI_ATTACKTO
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stun"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
     }
   }
 }

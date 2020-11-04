@@ -1,39 +1,3 @@
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 3,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CooldownResevoir",
-          Src1VarTable = "InstanceVars",
-          Value2 = 2,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "CooldownResevoir",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 1,
-              Src2Value = 0,
-              DestVar = "CooldownResevoir",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          }
-        }
-      }
-    }
-  }
-}
 ItemOnSpellCastBuildingBlocks = {
   {
     Function = BBIf,
@@ -49,12 +13,11 @@ ItemOnSpellCastBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "CooldownResevoir",
-          Src1VarTable = "InstanceVars",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "SheenDelay"
         },
         SubBlocks = {
           {
@@ -96,24 +59,14 @@ ItemOnSpellCastBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "LichBane",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "CooldownResevoir",
-              Src2VarTable = "InstanceVars",
-              Src1Value = -1,
-              Src2Value = 0,
-              DestVar = "CooldownResevoir",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -132,6 +85,10 @@ OnActivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "sheendelay"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "lichbane"}
