@@ -107,7 +107,7 @@ ca_RevealAttackerTimeOut                =        4.500 ; The timeout for the rev
 ; obj_BarracksDampener variables
 
 ; obj_AI_Hero variables
-events_TimeForMultiKill                 =        8.000 ; Amount of time for something to be considered a multikill (double kill etc...)
+events_TimeForMultiKill                 =       10.000 ; Amount of time for something to be considered a multikill (double kill etc...)
 events_TimerForAssist                   =       10.000 ; Amount of time for something to be considered a multikill (double kill etc...)
 
 ; obj_HQ variables

@@ -12,5 +12,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "camouflagecheck"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "teemocamouflagestealthtt"
+    }
   }
 }

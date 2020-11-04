@@ -1,6 +1,5 @@
 BuffTextureName = "AkaliTwilightShroud.dds"
 BuffName = "AkaliTwilightShroud"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -13,9 +12,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "akaliholdstealth"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "recall"}
   }
 }

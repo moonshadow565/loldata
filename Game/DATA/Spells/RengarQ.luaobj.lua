@@ -8,18 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rengarqbuffbonusmaxinternal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarqbuffbonusinternal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rengarqanimation"
     }
   },

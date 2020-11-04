@@ -1,8 +1,6 @@
 BuffTextureName = "3157_Zhonyas_Hourglass.dds"
 BuffName = "Zhonyas Ring"
-AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = "zhonyas_cylinder.troy"
-AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = "zhonya_ring_self_skin.troy"
 AutoBuffActivateAttachBoneName3 = "head"
 AutoBuffActivateEffect4 = "zhonyas_ring_activate.troy"

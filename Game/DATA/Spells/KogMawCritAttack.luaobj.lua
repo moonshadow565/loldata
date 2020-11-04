@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kogmawspatter.troy"
+      Name = "kogmawspatter_crit.troy"
     }
   }
 }

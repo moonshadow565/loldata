@@ -97,6 +97,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrawneutralfix"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "syndraw"}
   }
 }

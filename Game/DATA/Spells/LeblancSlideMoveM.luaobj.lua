@@ -1,3 +1,4 @@
+SpellToggleSlot = 4
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
