@@ -9,7 +9,7 @@ AutoCooldownByLevel = {
   12
 }
 SpellFXOverrideSkins = {
-  "RocketTristana"
+  "HeadhunterNidalee"
 }
 PreLoadBuildingBlocks = {
   {

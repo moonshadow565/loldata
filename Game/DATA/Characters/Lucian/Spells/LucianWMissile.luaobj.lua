@@ -20,13 +20,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lucian_w_blowup.troy"
+      Name = "lucian_skin01_w_blowup.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lucian_skin01_w_blowup.troy"
+      Name = "lucian_w_blowup.troy"
     }
   }
 }
