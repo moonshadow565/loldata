@@ -11,8 +11,25 @@ AutoBuffActivateEffect2 = "nassus_godofDeath_overhead.troy"
 AutoBuffActivateAttachBoneName2 = "R_hand"
 AutoBuffActivateEffect3 = "nassus_godofDeath_overhead.troy"
 AutoBuffActivateAttachBoneName3 = "L_hand"
-AutoBuffActivateEffect4 = "nassus_godofDeath_aura.troy"
+AutoBuffActivateEffect4 = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "nassus_godofDeath_aura.troy",
+      Flags = 0,
+      EffectIDVar = "AuraParticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -68,7 +85,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 375,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -134,6 +152,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "HToDamage",
@@ -141,6 +160,7 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -190,6 +210,13 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetScaleSkinCoef,
     Params = {Scale = 1, OwnerVar = "Owner"}
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "AuraParticle",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -241,7 +268,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 375,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -307,6 +335,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "HToDamage",
@@ -314,6 +343,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -437,6 +467,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -447,11 +478,18 @@ SelfExecuteBuildingBlocks = {
         15,
         15
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nassus_godofdeath_aura.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

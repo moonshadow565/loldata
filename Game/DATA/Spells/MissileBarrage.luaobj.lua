@@ -1,6 +1,5 @@
 BuffTextureName = "Corki_MissileBarrage.dds"
 BuffName = "MissileBarrageCheck"
-PersistsThroughDeath = true
 NonDispellable = true
 CanCastBuildingBlocks = {
   {

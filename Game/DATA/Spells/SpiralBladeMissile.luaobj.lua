@@ -17,19 +17,37 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "totalDamage",
+      Src1Value = 0.75,
+      Src2Value = 0,
+      DestVar = "bonusWeaponDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        60,
-        115,
+        20,
+        70,
+        120,
         170,
-        225,
-        280
+        220
       },
       Damage = 0,
+      DamageVar = "bonusWeaponDamage",
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,

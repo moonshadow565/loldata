@@ -243,7 +243,7 @@ BuffOnBeingHitBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Owner",
           TargetVar = "Attacker",
           Damage = 0,
           DamageVar = "DamageReturn",
@@ -295,11 +295,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReturn",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        26,
-        32,
-        38,
-        44,
-        50
+        22,
+        28,
+        34,
+        40,
+        46
       }
     }
   },
