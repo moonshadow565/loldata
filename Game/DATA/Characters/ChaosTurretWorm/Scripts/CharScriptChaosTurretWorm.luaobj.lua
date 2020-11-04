@@ -95,6 +95,16 @@ CharOnActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = true}
   }
 }
+UpdateSelfBuffStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorPenetrationMod,
+      TargetVar = "Owner",
+      Delta = 0.2
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

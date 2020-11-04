@@ -359,18 +359,24 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = false}
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Spell2b",
-      ScaleTime = 0.25,
-      TargetVar = "Owner",
-      Loop = false,
-      Blend = true,
-      Lock = false
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    SubBlocks = {
+      {
+        Function = BBUnlockAnimation,
+        Params = {OwnerVar = "Owner", Blend = false}
+      },
+      {
+        Function = BBPlayAnimation,
+        Params = {
+          AnimationName = "Spell2b",
+          ScaleTime = 0.25,
+          TargetVar = "Owner",
+          Loop = false,
+          Blend = true,
+          Lock = false
+        }
+      }
     }
   },
   {

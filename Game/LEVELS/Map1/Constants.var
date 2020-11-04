@@ -14,14 +14,14 @@ gcd_PercentEXPBonusMaximum              =      5.000 ; The highest EXPBonus Perc
 
 ; Damage Ratios
 dr_HeroToHero                           =      1.000 ;  
-dr_BuildingToHero                       =      1.100 ;  
+dr_BuildingToHero                       =      1.000 ;  
 dr_UnitToHero                           =      0.700 ;  
 dr_HeroToUnit                           =      1.000 ;  
 dr_BuildingToUnit                       =      1.105 ;  
 dr_UnitToUnit                           =      1.000 ;  
 dr_HeroToBuilding                       =      1.000 ;  
 dr_BuildingToBuilding                   =      1.000 ;  
-dr_UnitToBuilding                       =      0.400 ;  
+dr_UnitToBuilding                       =      0.600 ;  
 
 ; Call For Help variables
 cfh_Delay                               =      1.000 ; How often a unit will issue a Call For Help

@@ -116,7 +116,7 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "Duration", SrcValue = 14}
+    Params = {DestVar = "Duration", SrcValue = 10}
   },
   {
     Function = BBIf,
@@ -186,7 +186,8 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
