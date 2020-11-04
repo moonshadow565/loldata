@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="trinketlenslvl1audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemblackout"}}, 
 {Function=BBPreloadSpell, Params={Name="trinketsweeperpersist"}}, 
+{Function=BBPreloadModule, Params={Name="Global.TrinketCD"}}, 
 }

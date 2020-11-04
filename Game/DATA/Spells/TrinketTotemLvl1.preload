@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.Brush"}}, 
 {Function=BBPreloadSpell, Params={Name="sightward"}}, 
 {Function=BBPreloadCharacter, Params={Name="sightward"}}, 
 {Function=BBPreloadCharacter, Params={Name="yellowtrinket"}}, 

@@ -4,6 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Summoner_haste.dds"
-BuffName = "BootsHomeguardSpeed"
+BuffName = "S4SpawnLockSpeed"
 AutoBuffActivateEffect = "Global_Haste.troy"
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

@@ -1,14 +1,17 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="bardfollower"}}, 
 {Function=BBPreloadSpell, Params={Name="summonerporothrowpfix"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_cast_sound_project.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_cast_sound.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="kingporo_porofollower"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_mis_project.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_mis.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_mis_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion_project.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_explosion_sound_project.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_explosion_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="poro_throw_explosion_sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="porotag"}}, 
 {Function=BBPreloadSpell, Params={Name="porothrowfollowup"}}, 
 }

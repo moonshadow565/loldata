@@ -4,6 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="malzahar_base_w_aoe_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharsummonvoidling"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharvoidlingcount"}}, 
-{Function=BBPreloadSpell, Params={Name="alzaharnullzone"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 }

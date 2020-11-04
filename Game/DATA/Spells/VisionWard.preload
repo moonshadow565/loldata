@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.Brush"}}, 
 {Function=BBPreloadSpell, Params={Name="sharedwardbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="wardbounty"}}, 
 {Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 

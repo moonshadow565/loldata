@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="poppy_base_w_zone_spent.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poppy_base_p_proc.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="poppywknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyw"}}, 
 }
