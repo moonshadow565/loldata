@@ -15,6 +15,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuointeractionsriven5"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuointeractionsriven3"
     }
   },

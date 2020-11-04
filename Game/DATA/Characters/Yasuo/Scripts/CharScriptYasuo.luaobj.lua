@@ -68,6 +68,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuotauntriven"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuotauntninja"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuotauntyi"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuoqselfreveal"
     }
   },
@@ -81,6 +99,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuoeqcombo"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jinx_w_beam.troy"
     }
   },
   {

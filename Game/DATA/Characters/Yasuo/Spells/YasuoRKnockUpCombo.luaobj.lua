@@ -12,13 +12,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorarmorpen"
+      Name = "yasuorknockupcombo"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorknockupcomboself"
+      Name = "yasuorarmorpen"
     }
   },
   {
@@ -44,19 +44,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorknockupcombo"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorknockupcombow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "tempyasuormissile"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_r_slash_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_base_r_slash_cas.troy"
     }
   },
   {
@@ -89,6 +89,36 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_base_r_land_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorsound4"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorhitsound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorsound1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorsound2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorsound3"
     }
   }
 }
