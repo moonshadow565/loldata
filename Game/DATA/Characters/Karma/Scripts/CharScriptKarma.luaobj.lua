@@ -16,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_passive_refresh.troy"
+      Name = "karma_base_p_refresh.troy"
     }
   }
 }

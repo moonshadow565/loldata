@@ -7,7 +7,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_soulshield_buf.troy"
+      Name = "karma_base_e_shield_01.troy"
     }
   },
   {
@@ -19,7 +19,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_soulshield_buf_mantra.troy"
+      Name = "karma_base_e_shield_r_01.troy"
     }
   },
   {
@@ -35,19 +35,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_souldshiled_ult_unit_tar.troy"
+      Name = "karma_base_e_unit_tar_r_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_passive_refresh.troy"
+      Name = "karma_base_p_refresh.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmasolkimshieldlocket"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_souldshiled_ult_unit_tar.troy"
     }
   },
   {

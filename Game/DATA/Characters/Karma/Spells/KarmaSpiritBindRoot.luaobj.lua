@@ -10,31 +10,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar5.troy"
+      Name = "karma_base_w_tar_05.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar4.troy"
+      Name = "karma_base_w_tar_04.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar3.troy"
+      Name = "karma_base_w_tar_03.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar2.troy"
+      Name = "karma_base_w_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar.troy"
+      Name = "karma_base_w_tar_02.troy"
     }
   }
 }

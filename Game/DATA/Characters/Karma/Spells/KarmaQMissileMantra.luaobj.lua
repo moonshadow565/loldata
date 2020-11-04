@@ -32,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_mqexplosion_nova.troy"
+      Name = "karma_base_q_impact_r_01.troy"
     }
   },
   {
@@ -44,19 +44,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_mqexplosion_nova_02.troy"
+      Name = "karma_base_q_impact_r_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_passive_refresh.troy"
+      Name = "karma_base_p_refresh.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_qhiteffect_tar.troy"
+      Name = "karma_base_q_unit_tar.troy"
     }
   },
   {

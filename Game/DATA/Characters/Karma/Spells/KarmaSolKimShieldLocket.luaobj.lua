@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_soulshield_buf.troy"
+      Name = "karma_base_e_shield_01.troy"
     }
   },
   {

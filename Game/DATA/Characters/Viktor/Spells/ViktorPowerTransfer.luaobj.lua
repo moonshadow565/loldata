@@ -1,6 +1,8 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+BuffTextureName = "Viktor_Q1.dds"
+BuffName = "ViktorShield"
 AutoCooldownByLevel = {
   16,
   14,
@@ -14,9 +16,19 @@ TriggersSpellCasts = true
 SetSpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_reverb_shield.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "viktorpowertransfer"
+      Name = "viktorpowertransferreturn"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "haste"}
   }
 }

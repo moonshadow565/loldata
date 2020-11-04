@@ -17,7 +17,6 @@ function L0_0(A0_2, A1_3)
       if false == L8_10 then
         gCurrentBuildingBlockNumber = L6_8
         gCurrentBuildingBlock = L8_10
-        do break end
         if L8_10 then
           if not L8_10 then
             for L11_13, L12_14 in L8_10(L9_11) do

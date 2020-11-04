@@ -19,6 +19,9 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellVOOverrideSkins = {
+  "MonkeyKingSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

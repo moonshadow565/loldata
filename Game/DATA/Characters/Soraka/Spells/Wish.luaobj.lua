@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+SpellVOOverrideSkins = {
+  "SorakaSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -1,12 +1,16 @@
-BuffTextureName = "ViktorGravitonField.dds"
+BuffTextureName = "Viktor_W1.dds"
 BuffName = "ViktorGravitonSlow"
-AutoBuffActivateEffect = "Global_Slow.troy"
-PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_catalyst_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_base_w_aug.troy"
     }
   },
   {

@@ -14,13 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_mantraactivate_aura.troy"
+      Name = "karma_base_r_activate.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_mantraactivate_stones.troy"
+      Name = "karma_base_r_activate_overhead.troy"
     }
   }
 }

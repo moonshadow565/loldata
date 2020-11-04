@@ -61,6 +61,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "azirrdamage"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "braumespecialvobuff"
     }
   }
