@@ -23,37 +23,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "pantheonrparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonpassivecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonpassiveshield"
+      Name = "pantheon_skin06_r_wingsjump.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "pantheon_base_r_jump.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "pantheonr"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonrparticlered"
     }
   }
 }

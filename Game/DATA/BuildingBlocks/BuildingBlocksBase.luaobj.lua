@@ -255,10 +255,12 @@ function L0_0(A0_74, A1_75)
     return
   end
   if type(L2_76[A1_75.TableVar]) == "table" then
-    if L3_77 then
-      table.remove(L2_76[A1_75.TableVar], L3_77, valueData)
+    if GetParam("Key", A0_74, A1_75) then
+      L2_76[A1_75.TableVar][GetParam("Key", A0_74, A1_75)] = nil
+    elseif L3_77 then
+      table.remove(L2_76[A1_75.TableVar], L3_77)
     else
-      ClientPrint("Specified index was nil: " .. tostring(A1_75.IndexVarTable) .. "." .. tostring(A1_75.IndexVar))
+      ClientPrint("Specified index/key was nil: " .. tostring(A1_75.IndexVarTable) .. "." .. tostring(A1_75.IndexVar))
     end
   end
 end

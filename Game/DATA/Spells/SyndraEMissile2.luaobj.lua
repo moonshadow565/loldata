@@ -26,7 +26,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Syndra_Base_E_tar.troy"
+      Name = "syndra_base_e_tar.troy"
     }
   },
   {

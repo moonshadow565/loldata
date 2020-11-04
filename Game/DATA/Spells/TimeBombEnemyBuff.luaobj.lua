@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Chronokeeper_Chronoblast.dds"
 BuffName = "Time Bomb"
-NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -31,12 +30,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "timebombcountdown"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "timebombenemybuff"
     }
   }
 }

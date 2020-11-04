@@ -15,11 +15,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "talonshadowassaultmistwo"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "bowmaster_basicattack_tar.troy"
-    }
   }
 }
