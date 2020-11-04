@@ -10,11 +10,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nautiluspassive"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "championchampiondelta"
-    }
   }
 }

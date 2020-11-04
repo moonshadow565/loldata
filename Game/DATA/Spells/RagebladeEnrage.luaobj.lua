@@ -1,6 +1,6 @@
 BuffTextureName = "Summoner_BattleCry.dds"
 BuffName = "RagebladeEnrage"
-AutoBuffActivateEffect = "OntheHunt_buf.troy"
+AutoBuffActivateEffect = "Global_Haste.troy"
 AutoBuffActivateAttachBoneName = "root"
 AutoBuffActivateEffect2 = "summoner_battlecry.troy"
 AutoBuffActivateEffect3 = "summoner_battlecry_oc.troy"

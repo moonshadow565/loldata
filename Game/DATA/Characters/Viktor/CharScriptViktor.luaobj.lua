@@ -30,12 +30,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "championchampiondelta"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_idle.troy"

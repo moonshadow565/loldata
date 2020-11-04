@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 BuffTextureName = "Summoner_Exhaust.dds"

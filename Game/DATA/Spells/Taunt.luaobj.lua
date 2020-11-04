@@ -1,25 +1,13 @@
 BuffTextureName = "GSB_taunt.dds"
 BuffName = "Taunt"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect = "LOC_Taunt.troy"
+AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Taunted"
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "galioidolofdurandmarker"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_taunt_unit_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdashcooldown"
     }
   },
   {
@@ -32,12 +20,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_unit_impact.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "puncturingtauntarmordebuff"
     }
   },
   {
