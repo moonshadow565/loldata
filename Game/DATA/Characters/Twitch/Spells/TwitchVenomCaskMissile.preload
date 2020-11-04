@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="twitchvenomcaskdebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="twitchvenomcask"}}, 
 {Function=BBPreloadSpell, Params={Name="twitchdeadlyvenom"}}, 
+{Function=BBPreloadSpell, Params={Name="twitchdeadlyvenomtriggerstack"}}, 
 }

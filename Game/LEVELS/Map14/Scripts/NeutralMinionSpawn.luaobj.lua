@@ -252,6 +252,9 @@ function L0()
     L5.LeashRadius = 800
     L5 = NeutralMinionCamps
     L5 = L5[L4]
+    L5.StopSpawnTime = 25000
+    L5 = NeutralMinionCamps
+    L5 = L5[L4]
     L6 = CampSpawnPoints
     L6 = L6[L4]
     L6 = L6[1]
@@ -446,7 +449,7 @@ function L0(A0, A1, A2)
       L8 = NeutralMinionCamps
       L8 = L8[L4]
       L8 = L8.GroupsRespawnTime
-      L5(L6, L7, L8, L9, L10)
+      L5(L6, L7, L8, L9, L10, L11)
     end
   end
 end

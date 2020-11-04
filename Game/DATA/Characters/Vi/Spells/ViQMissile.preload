@@ -6,8 +6,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="viwvisual"}}, 
 {Function=BBPreloadSpell, Params={Name="viw"}}, 
 {Function=BBPreloadSpell, Params={Name="viqknockback"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_q_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="viqminionhit"}}, 
 {Function=BBPreloadSpell, Params={Name="viqminion"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_q_minion_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_q_minion_tar.troy"}}, 
 }

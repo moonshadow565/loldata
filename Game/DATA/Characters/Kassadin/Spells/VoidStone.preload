@@ -2,5 +2,9 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kassadin_base_q_shieldon.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kassadin_base_r_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kassadin_base_r_vanish.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="kassadinpolymorphed"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_base_w_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_base_w_buf_sword.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_base_w_buf_face.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_base_idle_blade.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_skin05_idle_body.troy"}}, 
 }

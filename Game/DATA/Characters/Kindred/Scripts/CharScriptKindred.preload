@@ -10,5 +10,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_timer.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kindredmarkofthekindredtimer"}}, 
 {Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_deactivate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_vo_death_long.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_vo_death_medium.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_vo_death_short.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kindreduiincombatbuff"}}, 
 }

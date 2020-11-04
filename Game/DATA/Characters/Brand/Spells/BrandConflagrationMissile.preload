@@ -1,7 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Brand_Skin03_Conflagration_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Brand_Skin04_Conflagration_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Brand_Base_Conflagration_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin03_e_conflagration_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin04_e_conflagration_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_base_e_conflagration_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="brandablaze"}}, 
 {Function=BBPreloadSpell, Params={Name="brandconflagration"}}, 
 }

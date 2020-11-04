@@ -1,6 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="disconnecttimer"}}, 
 {Function=BBPreloadSpell, Params={Name="positivechampiondelta"}}, 
-{Function=BBPreloadParticle, Params={Name="theyarecoming_base_death_lamb.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="theyarecoming_base_death_wolf.troy"}}, 
 }

@@ -8,5 +8,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="bardpchimepickupspeedstacks"}}, 
 {Function=BBPreloadSpell, Params={Name="bardpchimepickupspeedboost"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_p_collection_upgrade_ceremony.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="bardpdisplayrequiredchimes"}}, 
 }

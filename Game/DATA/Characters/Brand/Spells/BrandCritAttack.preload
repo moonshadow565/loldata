@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Brand_Skin03_CritAttack_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Brand_Skin04_CritAttack_tar.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Brand_Base_CritAttack_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin03_critattack_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin04_critattack_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_base_critattack_tar.troy"}}, 
 }

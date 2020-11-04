@@ -23,52 +23,52 @@ L0 = 0.25
 assistMinPercentage = L0
 L0 = 0.5
 assistMaxPercentage = L0
-function L0(A0, A1, A2)
-  local L3, L4, L5, L6, L7, L8, L9
-  L3 = baseKillGold
-  L4 = A1 + 1
-  L5 = 1
-  L6 = minimumKillsForKillStreak
-  if A0 >= L6 then
-    L6 = math
-    L6 = L6.pow
-    L7 = percentBonusPerKill
-    L7 = 1 + L7
-    L8 = 1 + A0
-    L9 = minimumKillsForKillStreak
-    L8 = L8 - L9
-    L6 = L6(L7, L8)
+function L0(A0, A1, A2, A3)
+  local L4, L5, L6, L7, L8, L9, L10
+  L4 = baseKillGold
+  L5 = A1 + 1
+  L6 = 1
+  L7 = minimumKillsForKillStreak
+  if A0 >= L7 then
     L7 = math
-    L7 = L7.min
-    L8 = L6
-    L9 = maxPercentKillStreakBonus
+    L7 = L7.pow
+    L8 = percentBonusPerKill
+    L8 = 1 + L8
+    L9 = 1 + A0
+    L10 = minimumKillsForKillStreak
+    L9 = L9 - L10
     L7 = L7(L8, L9)
-    L5 = L5 * L7
+    L8 = math
+    L8 = L8.min
+    L9 = L7
+    L10 = maxPercentKillStreakBonus
+    L8 = L8(L9, L10)
+    L6 = L6 * L8
   else
-    L6 = minimumDeathsForDeathStreak
-    if L4 >= L6 then
-      L6 = math
-      L6 = L6.pow
-      L7 = percentReductionPerDeath
-      L7 = 1 - L7
-      L8 = 0.4 + L4
-      L9 = minimumDeathsForDeathStreak
-      L8 = L8 - L9
-      L6 = L6(L7, L8)
+    L7 = minimumDeathsForDeathStreak
+    if L5 >= L7 then
       L7 = math
-      L7 = L7.max
-      L8 = L6
-      L9 = minPercentDeathStreakPenalty
+      L7 = L7.pow
+      L8 = percentReductionPerDeath
+      L8 = 1 - L8
+      L9 = 0.4 + L5
+      L10 = minimumDeathsForDeathStreak
+      L9 = L9 - L10
       L7 = L7(L8, L9)
-      L5 = L5 * L7
+      L8 = math
+      L8 = L8.max
+      L9 = L7
+      L10 = minPercentDeathStreakPenalty
+      L8 = L8(L9, L10)
+      L6 = L6 * L8
     end
   end
-  L3 = L3 * L5
+  L4 = L4 * L6
   if A2 then
-    L6 = firstBloodBonus
-    L3 = L3 + L6
+    L7 = firstBloodBonus
+    L4 = L4 + L7
   end
-  return L3
+  return L4
 end
 GetBounty = L0
 function L0(A0)
@@ -101,3 +101,14 @@ function L0(A0)
   return L1
 end
 GetAssistPercentageShare = L0
+function L0(A0, A1)
+  local L2
+  L2 = minimumKillsForKillStreak
+  if A0 < L2 then
+    L2 = 0
+    return L2
+  end
+  L2 = 0
+  return L2
+end
+GetGlobalShutdownPool = L0

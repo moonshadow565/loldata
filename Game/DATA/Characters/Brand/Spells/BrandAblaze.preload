@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="brand_skin03_blaze_hotfoot.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="brand_skin03_firemark.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="brand_skin04_blaze_hotfoot.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="brand_skin04_firemark.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="brand_base_blaze_hotfoot.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="brand_base_firemark.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin03_p_hotfoot.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin03_p_firemark.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin04_p_hotfoot.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_skin04_p_firemark.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_base_p_hotfoot.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="brand_base_p_firemark.troy"}}, 
 }

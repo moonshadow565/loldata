@@ -3,4 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="kindredeslow"}}, 
 {Function=BBPreloadSpell, Params={Name="kindredecharge"}}, 
+{Function=BBPreloadSpell, Params={Name="spellnostackcdreset"}}, 
+{Function=BBPreloadSpell, Params={Name="yorickreviveally"}}, 
 }
