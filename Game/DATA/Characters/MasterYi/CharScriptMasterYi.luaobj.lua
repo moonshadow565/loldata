@@ -6,13 +6,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "doublestrike"
+      Name = "doublestrikestacks"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "doublestrikestacks"
+      Name = "doublestrike"
     }
   },
   {

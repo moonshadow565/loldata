@@ -10,11 +10,3 @@ AutoCooldownByLevel = {
   50,
   50
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_w_heal.troy"
-    }
-  }
-}
