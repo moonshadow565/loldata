@@ -1,4 +1,5 @@
 BuffTextureName = "Pirate_GrogSoakedBlade.dds"
 BuffName = "ScurvyStrike"
 AutoBuffActivateEffect = "Global_Slow.troy"
-AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = "Global_Poison.troy"
+AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"
