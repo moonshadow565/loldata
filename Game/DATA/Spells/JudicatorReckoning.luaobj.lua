@@ -11,3 +11,11 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "MetalWingedJudicator"
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "judicatorholyfervordebuff"
+    }
+  }
+}
