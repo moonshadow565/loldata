@@ -56,12 +56,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_wb5_tar1.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "syndra_wb5_tar2.troy"
     }
   },

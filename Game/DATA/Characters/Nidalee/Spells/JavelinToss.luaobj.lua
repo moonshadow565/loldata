@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellDamageRatio = 1
 PopupMessage1 = "game_floatingtext_Slowed"
+SpellFXOverrideSkins = {
+  "HeadhunterNidalee"
+}
 TriggersSpellCasts = false
 PreLoadBuildingBlocks = {
   {

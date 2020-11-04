@@ -29,30 +29,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "howlinggalespell"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlinggalespell1"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlinggalespell2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlinggalespell3"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "expirationtimer"
     }
   }

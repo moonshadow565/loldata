@@ -1,7 +1,16 @@
 BuffTextureName = "UrgotCorrosiveCharge.dds"
 BuffName = "UrgotCorrosiveDebuff"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "Draven_Gladiator"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dravenspinningreturnleftaxe"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -12,18 +21,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "dravenspinningreturncatch"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
     }
   },
   {

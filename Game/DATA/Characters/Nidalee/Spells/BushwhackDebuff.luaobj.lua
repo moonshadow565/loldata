@@ -5,5 +5,6 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "NIdalee_Bushwhack.dds"
 BuffName = "Bushwhack"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "HeadhunterNidalee"
+}

@@ -9,6 +9,16 @@ AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_e_counter3.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "namie"}
   },
@@ -39,5 +49,23 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "namieslow"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_e_mis_ally.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_e_counter2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_e_counter1.troy"
+    }
   }
 }

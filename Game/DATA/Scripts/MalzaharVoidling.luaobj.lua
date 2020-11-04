@@ -19,7 +19,6 @@ function L0_0()
 end
 OnInit = L0_0
 function L0_0(A0_2, A1_3)
-  Say("[OnOrder()] Order: " .. A0_2)
   owner = GetGoldRedirectTarget()
   if owner == nil then
     Die(me, DAMAGESOURCE_INTERNALRAW)
@@ -39,7 +38,6 @@ function L0_0(A0_2, A1_3)
 end
 OnOrder = L0_0
 function L0_0()
-  Say("[TimerDebug()] State: " .. GetState())
 end
 TimerDebug = L0_0
 function L0_0()

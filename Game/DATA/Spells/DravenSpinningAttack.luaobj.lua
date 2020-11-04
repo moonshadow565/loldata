@@ -1,5 +1,8 @@
 BuffTextureName = "Draven_SpinningAxe.dds"
 BuffName = "DravenSpinning"
+SpellFXOverrideSkins = {
+  "Draven_Gladiator"
+}
 SpellVOOverrideSkins = {
   "Draven_SoulReaper"
 }
