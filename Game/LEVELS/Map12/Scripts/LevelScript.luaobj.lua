@@ -476,8 +476,7 @@ function L0_0()
     L4_29(L5_30)
     L4_29.NumOfMeleeMinionsPerWave = 3
     L4_29.NumOfCasterMinionsPerWave = 3
-    L6_31 = 12
-    L4_29(L5_30, L6_31)
+    L4_29(L5_30)
     L4_29()
   end
   L4_29(L5_30)
@@ -503,7 +502,7 @@ function L0_0()
 end
 ApplyAramBuffs = L0_0
 function L0_0()
-  LoadLevelScriptIntoScript("CreateLevelProps.lua", 12)
+  LoadLevelScriptIntoScript("CreateLevelProps.lua")
   if GetGameMode() == "TUTORIAL" then
     CreateLevelPropsTutorial()
   else

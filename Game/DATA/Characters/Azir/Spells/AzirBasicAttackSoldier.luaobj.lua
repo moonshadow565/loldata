@@ -1,1 +1,15 @@
 SpellFXOverrideSkins = {"AzirSkin01"}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_w_soldierba1_buffed_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azirrecentsoldieraa"
+    }
+  }
+}

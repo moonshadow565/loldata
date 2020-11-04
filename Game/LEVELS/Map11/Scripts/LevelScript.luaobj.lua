@@ -406,9 +406,9 @@ function L0_0()
   L3_30(L4_31)
   L7_34 = L4_31()
   L3_30(L4_31, L5_32, L6_33, L7_34, L4_31())
-  L3_30(L4_31, L5_32)
+  L3_30(L4_31)
   L3_30()
-  L3_30(L4_31, L5_32)
+  L3_30(L4_31)
   L3_30.WaveSpawnRate = 30000
   L3_30.SingleMinionSpawnDelay = 800
   L3_30.ExpRadius = L4_31
@@ -422,7 +422,7 @@ function L0_0()
 end
 OnLevelInitServer = L0_0
 function L0_0()
-  LoadLevelScriptIntoScript("CreateLevelProps.lua", 11)
+  LoadLevelScriptIntoScript("CreateLevelProps.lua")
   CreateLevelProps()
 end
 OnPostLevelLoad = L0_0

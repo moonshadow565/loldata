@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Overhead_Loc"
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {

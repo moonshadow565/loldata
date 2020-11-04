@@ -12,7 +12,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassdeadlycadence_buf.troy"
+      Name = "Cassiopeia_Base_P_DeadlyCadence_Buff.troy"
     }
   },
   {

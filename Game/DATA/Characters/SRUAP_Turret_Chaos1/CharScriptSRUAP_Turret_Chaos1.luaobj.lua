@@ -2,7 +2,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sog_activationcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "turretbonus"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "turretpackage"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "outerturretbonus"
     }
   },
   {
@@ -33,18 +51,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "turretglowparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "turretpackage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "outerturretbonus"
     }
   },
   {

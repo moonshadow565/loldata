@@ -525,8 +525,7 @@ function L0_0()
   end
   L4_7 = L2_5()
   L1_4(L2_5, L3_6, L4_7, L2_5())
-  L3_6 = 8
-  L1_4(L2_5, L3_6)
+  L1_4(L2_5)
   L1_4.WaveSpawnRate = 30000
   L1_4.NumOfMeleeMinionsPerWave = 3
   L1_4.NumOfCasterMinionsPerWave = 3
@@ -539,7 +538,7 @@ function L0_0()
 end
 OnLevelInitServer = L0_0
 function L0_0()
-  LoadLevelScriptIntoScript("CreateLevelProps.lua", 8)
+  LoadLevelScriptIntoScript("CreateLevelProps.lua")
   CreateLevelProps()
 end
 OnPostLevelLoad = L0_0
