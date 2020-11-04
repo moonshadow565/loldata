@@ -51,6 +51,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "zyra_skin02_seed_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_seed_indicator_nosound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zyra_seed_indicator.troy"
     }
   },
@@ -70,6 +82,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_w_seedtrap_trigger_hellvine.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_w_seedtrap_trigger.troy"
     }
   },
   {

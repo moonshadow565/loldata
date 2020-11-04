@@ -54,6 +54,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_e_warning.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"

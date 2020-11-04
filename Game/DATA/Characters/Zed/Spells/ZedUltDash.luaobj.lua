@@ -18,16 +18,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "zedshadow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedultshadowmark"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "zedultdashclonemaker"

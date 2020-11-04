@@ -22,11 +22,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyraplantdrzyra"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_q_plant_cas_hellvine.troy"
-    }
   }
 }

@@ -4,13 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "akali_twilight_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akaliholdstealth"
+      Name = "temp_akalipoof2.troy"
     }
   }
 }

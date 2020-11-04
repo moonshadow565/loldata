@@ -90,5 +90,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyrabramblezone"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_passive_ground_fade.troy"
+    }
   }
 }

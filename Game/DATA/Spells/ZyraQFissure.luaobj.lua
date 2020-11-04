@@ -28,6 +28,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "zyra_skin02_q_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_qfissure_cas_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_qfissure_cas_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zyra_q_cas.troy"
     }
   },
@@ -40,6 +58,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "zyra_skin02_q_expire.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zyra_q_expire.troy"
     }
   },
@@ -47,6 +71,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_q_tar_hellvine.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_q_tar.troy"
     }
   },
   {

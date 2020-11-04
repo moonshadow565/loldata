@@ -19,7 +19,23 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zed_ult_targetmarker_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "zedshadow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedultshadowmark"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "zedultdash"}
   }
 }

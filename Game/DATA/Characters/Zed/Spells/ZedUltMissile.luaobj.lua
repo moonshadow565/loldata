@@ -21,7 +21,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "zedultdash"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zed_stormninja_w_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zed_w_tar.troy"
+    }
   }
 }
