@@ -8,6 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="udyrspiritbearattackult"}}, 
 {Function=BBPreloadSpell, Params={Name="udyrspiritbearrunstart"}}, 
 {Function=BBPreloadSpell, Params={Name="udyrbearactivation"}}, 
-{Function=BBPreloadSpell, Params={Name="udyrbearstance"}}, 
 {Function=BBPreloadParticle, Params={Name="udyr_spiritguard_audio_bearstunattack.troy"}}, 
 }

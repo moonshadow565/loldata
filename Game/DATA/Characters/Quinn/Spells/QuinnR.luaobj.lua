@@ -7,5 +7,6 @@ ChannelDuration = 1.75
 IsDeathRecapSource = true
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "PhoenixQuinn"
+  "PhoenixQuinn",
+  "QuinnSkin02"
 }

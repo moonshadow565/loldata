@@ -1,7 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="itemdevourersimulatelaunchattack"}}, 
-{Function=BBPreloadParticle, Params={Name="xenziou_wind_chainattack01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="xenziou_chainattack_02.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="xenzhaocomboautofinish"}}, 
-{Function=BBPreloadSpell, Params={Name="xenzhaocombotarget"}}, 
+{Function=BBPreloadModule, Params={Name="XinZhao.XenZhaoFunctionModule"}}, 
 }

@@ -8,5 +8,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="azir_skin01_p_tower_enemy.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_skin01_p_sundisc_channelcomplete.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_skin01_p_sunddisc_idle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="azir_skin02_p_tower_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="azir_skin02_p_sundisc_channelcomplete.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="azir_skin02_p_sunddisc_idle.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_p_sundisc_cas.troy"}}, 
 }

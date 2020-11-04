@@ -1,6 +1,6 @@
 BuffTextureName = "3025_Frozen_Fist.dds"
 BuffName = "ItemFrozenFist"
-AutoBuffActivateEffect = "bluehands_buf.troy"
+AutoBuffActivateEffect = "Item_FrozenGauntlet_Glow_buf.troy"
 AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
-AutoBuffActivateEffect2 = "bluehands_buf.troy"
+AutoBuffActivateEffect2 = "Item_FrozenGauntlet_Glow_buf.troy"
 AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"

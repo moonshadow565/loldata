@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unstoppableforcemarker"}}, 
 {Function=BBPreloadParticle, Params={Name="tahmkench_base_audio_allydevoured.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchwallylockout"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnrreturntoquinn"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnr"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchwallytriggeredspit"}}, 
 }

@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unstoppableforcemarker"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4c"}}, 
-{Function=BBPreloadSpell, Params={Name="hecarimultcharge"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimult"}}, 
 {Function=BBPreloadCharacter, Params={Name="spellbook1"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4r1"}}, 
@@ -10,6 +9,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4r2"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4l2"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4audio"}}, 
-{Function=BBPreloadParticle, Params={Name="hecarim_r_impact.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="hecarim_base_r_impact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissilegrab"}}, 
 }

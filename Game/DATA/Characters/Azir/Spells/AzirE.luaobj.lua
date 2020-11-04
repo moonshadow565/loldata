@@ -1,2 +1,3 @@
 DoesntTriggerSpellCasts = false
-SpellFXOverrideSkins = {"AzirSkin01"}
+SpellFXOverrideSkins = {"AzirSkin01", "AzirSkin02"}
+SpellVOOverrideSkins = {"AzirSkin02"}

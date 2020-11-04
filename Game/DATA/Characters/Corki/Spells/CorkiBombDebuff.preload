@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="corki_skin06_w_loaded_tarx.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_w_loaded_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="corkibombmark"}}, 
 {Function=BBPreloadSpell, Params={Name="carpetbomb"}}, 

@@ -1,0 +1,13 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="illaoievessel"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritexpire_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritreturn.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoiehold"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoiemis"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_castavatar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_castshadow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_castrelic.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_tentaclemat.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_tentacleglow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritheal.troy"}}, 
+}

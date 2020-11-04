@@ -1,6 +1,6 @@
 BuffTextureName = "126_Zeal_and_Sheen.dds"
 BuffName = "LichBane"
-AutoBuffActivateEffect = "purplehands_buf.troy"
+AutoBuffActivateEffect = "Item_Lichbane_Glow_buf.troy"
 AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
-AutoBuffActivateEffect2 = "purplehands_buf.troy"
+AutoBuffActivateEffect2 = "Item_Lichbane_Glow_buf.troy"
 AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"

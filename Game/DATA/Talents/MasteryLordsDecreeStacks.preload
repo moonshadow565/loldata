@@ -2,5 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="masterylordsdecree_aoe_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="cu_masteryring_flash.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="cu_thunderlordsdecree_aoe.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mastery6362deathrecapdummy"}}, 
 {Function=BBPreloadParticle, Params={Name="cu_thunderlordsdecree_impact.troy"}}, 
 }

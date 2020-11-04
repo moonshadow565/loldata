@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="lucianr"}}, 
 {Function=BBPreloadParticle, Params={Name="lucian_base_r_tar_champ.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="lucian_base_r_tar.troy"}}, 
 }

@@ -1,0 +1,11 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_glow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="evelynn_ring_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_z_tentacletrail.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
+{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleattackdelay"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleattack"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoiwattack"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_avatarglow.troy"}}, 
+}

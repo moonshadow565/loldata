@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="illaoievesselvo"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoivesseltentaclespawncooldown"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vesselshowallb.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_illaoiselfonly.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vesselb.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_vodisable.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="illaoiminion"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentaclespawntrail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentaclespawn.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleminion"}}, 
+}

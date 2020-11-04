@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_debuffvo.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_cleared.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_vessel_tentaclekill.troy"}}, 
+}

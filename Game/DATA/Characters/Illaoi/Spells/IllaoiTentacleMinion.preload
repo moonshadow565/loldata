@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="empty.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_p_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleactive"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleattack"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacledormant"}}, 
+}
