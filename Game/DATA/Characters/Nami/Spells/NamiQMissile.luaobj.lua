@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_votrigger.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "namipassivedebuff"

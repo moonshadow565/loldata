@@ -7,17 +7,3 @@ BuffTextureName = "Summoner_haste.dds"
 BuffName = "BootsHomeguard"
 AutoBuffActivateEffect = "Boots_Homeguard.troy"
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bootshomeguardspeed"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bootshomeguardheal"
-    }
-  }
-}

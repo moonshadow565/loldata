@@ -2,19 +2,15 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Nocturne_Paranoia.dds"
 BuffName = "NocturneParanoiaTarget"
-AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneparanoiatargetorder"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nocturneparanoiafriend.troy"
+      Name = "nocturneparanoiafriendcyber.troy"
     }
   },
   {
@@ -24,7 +20,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nocturneparanoiafriend.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nocturneparanoiafoe.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturneparanoiafoecyber.troy"
     }
   }
 }

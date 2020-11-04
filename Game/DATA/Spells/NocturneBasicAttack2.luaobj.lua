@@ -1,3 +1,6 @@
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
 SpellVOOverrideSkins = {
   "CyberNocturne"
 }

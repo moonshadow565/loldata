@@ -119,14 +119,14 @@ function L0_0(A0_10)
           SetStateAndCloseToTarget(AI_ATTACK, A0_10)
           SetRoamState(HOSTILE)
           SetLeashCounter(GetLeashCounter() + 1)
-          if GetLeashCounter() > 5 then
+          if GetLeashCounter() > 10 then
             Retreat()
           end
         elseif not IsHeroAI(A0_10) and DistanceBetweenObjectCenterAndPoint(target, L2_12) > DistanceBetweenObjectCenterAndPoint(A0_10, L2_12) + 25 then
           SetStateAndCloseToTarget(AI_ATTACK, A0_10)
           SetRoamState(HOSTILE)
           SetLeashCounter(GetLeashCounter() + 1)
-          if GetLeashCounter() > 5 then
+          if GetLeashCounter() > 10 then
             Retreat()
           end
         end
@@ -196,14 +196,14 @@ function L0_0(A0_13, A1_14)
             SetStateAndCloseToTarget(AI_ATTACK, A1_14)
             SetRoamState(HOSTILE)
             SetLeashCounter(GetLeashCounter() + 1)
-            if GetLeashCounter() > 3 then
+            if GetLeashCounter() > 10 then
               Retreat()
             end
           elseif not IsHeroAI(A1_14) and L4_17 > DistanceBetweenObjectCenterAndPoint(A1_14, L3_16) + 25 then
             SetStateAndCloseToTarget(AI_ATTACK, A1_14)
             SetRoamState(HOSTILE)
             SetLeashCounter(GetLeashCounter() + 1)
-            if GetLeashCounter() > 5 then
+            if GetLeashCounter() > 10 then
               Retreat()
             end
           end

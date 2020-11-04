@@ -21,15 +21,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hextech_dmg_shield_onhit_02.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "hexdrinkertimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "hexdrinker"}
   }
 }

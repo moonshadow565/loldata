@@ -1,3 +1,6 @@
+SpellVOOverrideSkins = {
+  "CyberNocturne"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

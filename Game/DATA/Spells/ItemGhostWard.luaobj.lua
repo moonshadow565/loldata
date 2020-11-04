@@ -6,12 +6,6 @@ AutoBuffActivateEffect = "Ward_Sight_Idle.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "sightwardstealth"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "visionward"}
   },
   {
@@ -30,6 +24,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sharedwardbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemghostward"
     }
   },
   {

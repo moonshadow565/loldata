@@ -10,11 +10,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemminiregenpotion"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "potion_internal"
-    }
   }
 }

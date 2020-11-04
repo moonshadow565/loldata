@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "2050_Explorer_Ward.dds"
 BuffName = "ItemMiniWard"
-AutoBuffActivateEffect = "ICU.troy"
+AutoBuffActivateEffect = "Ward_Sight_Idle.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

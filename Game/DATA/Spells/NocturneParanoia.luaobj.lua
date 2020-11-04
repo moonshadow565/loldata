@@ -6,6 +6,9 @@ IsDamagingSpell = false
 BuffTextureName = "Nocturne_Paranoia.dds"
 BuffName = "NocturneParanoia"
 SpellToggleSlot = 4
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

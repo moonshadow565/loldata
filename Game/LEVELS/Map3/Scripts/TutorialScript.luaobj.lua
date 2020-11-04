@@ -498,7 +498,7 @@ function L0()
   L1(L2)
   L1 = IncGold
   L2 = playerID
-  L3 = 2000
+  L3 = 500
   L1(L2, L3)
   L1 = LogTutorial
   L2 = "Setting up timer to increase bot levels"
@@ -640,7 +640,7 @@ function L0()
   L0(L1)
   L0 = IncExp
   L1 = allyID
-  L2 = 90000
+  L2 = 20000
   L0(L1, L2)
   L0 = IncExp
   L1 = allyID
@@ -679,7 +679,7 @@ function L0()
   L0(L1)
   L0 = IncExp
   L1 = botID
-  L2 = 30000
+  L2 = 20000
   L0(L1, L2)
   L0 = IncExp
   L1 = botID
