@@ -1,4 +1,4 @@
-BuffTextureName = "FallenAngel_TormentedSoil.dds"
+BuffTextureName = "MordekaiserCreepingDeath.dds"
 BuffName = "MordekaiserCreepingDeathBuff"
 AutoBuffActivateEffect = "mordekaiser_creepingDeath_tar.troy"
 OnBuffActivateBuildingBlocks = {

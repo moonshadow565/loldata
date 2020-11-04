@@ -10,7 +10,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MordekaiserDeathParticle",
           BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Aura,
+          BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
@@ -38,6 +38,25 @@ UpdateSelfBuffActionsBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "MordekaiserDeathParticle"
+            }
+          }
+        }
+      },
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "MordekaiserMaceOfSpades"
+        },
+        SubBlocks = {
+          {
+            Function = BBSilenceSpellSlot,
+            Params = {
+              SpellSlot = 0,
+              SlotType = SpellSlots,
+              TargetVar = "Owner",
+              State = false
             }
           }
         }
@@ -211,6 +230,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaiserdeathparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisermaceofspades"
     }
   },
   {

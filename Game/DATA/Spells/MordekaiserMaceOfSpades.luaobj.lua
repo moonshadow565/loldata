@@ -1,12 +1,16 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "PoppyDevastatingBlow.dds"
-BuffName = "PoppyDevastatingBlow"
-AutoBuffActivateEffect = "Poppy_DevastatingBlow_buf.troy"
-AutoBuffActivateAttachBoneName = "hammer_b"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
+BuffTextureName = "MordekaiserMaceOfSpades.dds"
+BuffName = "MordekaiserMaceOfSpades"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = "mordakaiser_maceOfSpades_activate.troy"
+AutoBuffActivateAttachBoneName2 = "BUFFBONE_WEAPON_1"
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
+AutoBuffActivateEffect4 = ""
+Nondispellable = true
 ChainMissileParameters = {
   MaximumHits = {
     4,
@@ -261,7 +265,7 @@ BuffOnHitUnitBuildingBlocks = {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Target",
-                  EffectName = "mordakaiser_hallowedStrike_tar.troy",
+                  EffectName = "mordakaiser_maceOfSpades_tar.troy",
                   Flags = 0,
                   EffectIDVar = "a",
                   TargetObjectVar = "Target",
@@ -310,7 +314,7 @@ BuffOnHitUnitBuildingBlocks = {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Target",
-                  EffectName = "mordakaiser_hallowedStrike_tar.troy",
+                  EffectName = "mordakaiser_maceOfSpades_tar.troy",
                   Flags = 0,
                   EffectIDVar = "b",
                   TargetObjectVar = "Target",
@@ -470,7 +474,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "mordakaiser_hallowedstrike_tar.troy"
+      Name = "mordakaiser_maceofspades_tar.troy"
     }
   }
 }

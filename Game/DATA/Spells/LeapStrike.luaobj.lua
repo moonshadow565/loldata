@@ -46,24 +46,44 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellCast,
+            Function = BBIf,
             Params = {
-              CasterVar = "Owner",
-              TargetVar = "Attacker",
-              PosVar = "Attacker",
-              EndPosVar = "Attacker",
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 1,
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = false,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false
+              Src1Var = "Attacker",
+              Src2Var = "Owner",
+              CompareOp = CO_SAME_TEAM
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
             }
           },
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Attacker",
+                  PosVar = "Attacker",
+                  EndPosVar = "Attacker",
+                  SlotNumber = 0,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 1,
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = false,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
+            }
           }
         }
       }

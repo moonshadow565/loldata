@@ -1,5 +1,5 @@
-BuffTextureName = "DarkChampion_EndlessRage.dds"
-BuffName = "MordekaiserChildrenOfTheGrave"
+BuffTextureName = "Mordekaiser_COTG.dds"
+BuffName = "MordekaiserCOTGDot"
 AutoBuffActivateEffect = "mordekeiser_cotg_tar.troy"
 OnBuffActivateBuildingBlocks = {
   {
@@ -117,9 +117,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "LifestealPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.025,
         0.03,
-        0.035
+        0.035,
+        0.04
       }
     }
   },
@@ -132,7 +132,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 12,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

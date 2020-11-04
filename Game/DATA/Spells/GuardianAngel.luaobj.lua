@@ -400,6 +400,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "idle1",
@@ -407,6 +411,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       Loop = false
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellEffectCreate,
