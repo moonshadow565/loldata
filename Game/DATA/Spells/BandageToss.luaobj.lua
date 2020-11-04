@@ -7,3 +7,6 @@ AutoCooldownByLevel = {
   12,
   10
 }
+SpellFXOverrideSkins = {
+  "BadrobotAmumu"
+}

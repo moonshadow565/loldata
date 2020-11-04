@@ -356,11 +356,17 @@ OrderBarracksBonuses = {
   OrderBarrack2
 }
 NeutralMinionNames = {
-  "Lizard",
   "Dragon",
   "Golem",
   "wolf",
-  "Wraith"
+  "AncientGolem",
+  "LesserWraith",
+  "GiantWolf",
+  "LizardElder",
+  "YoungLizard",
+  "Wraith",
+  "Worm",
+  "SmallGolem"
 }
 function CreateLaneBuildingTable()
   return {
@@ -407,9 +413,9 @@ function OnLevelInit()
   PreloadSpell("RespawnClassic")
   PreloadSpell("SpellShieldMarker")
   math.randomseed(os.time())
-  LoadScriptIntoScript("NeutralMinionSpawn.lua")
+  LoadLevelScriptIntoScript("NeutralMinionSpawn.lua", 1)
   NeutralMinionInit()
-  LoadScriptIntoScript("Data\\Scripts\\EndOfGame.lua")
+  LoadLevelScriptIntoScript("EndOfGame.lua", 1)
   SpawnTable.WaveSpawnRate = 30000
   SpawnTable.NumOfMeleeMinionsPerWave = 3
   SpawnTable.NumOfArcherMinionsPerWave = 3
@@ -420,7 +426,7 @@ function OnLevelInit()
   InitTimer("AllowDamageOnBuildings", 10, false)
 end
 function OnPostLevelLoad()
-  LoadScriptIntoScript("CreateLevelProps.lua")
+  LoadLevelScriptIntoScript("CreateLevelProps.lua", 1)
   CreateLevelProps()
 end
 function OppositeTeam(_ARG_0_)

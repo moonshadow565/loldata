@@ -77,12 +77,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraseedcap"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_seed_death_sound.troy"
@@ -119,12 +113,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "zyraseed"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraseedtimer"
-    }
   },
   {
     Function = BBPreloadParticle,

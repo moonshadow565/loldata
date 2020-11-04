@@ -1,10 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {
@@ -16,39 +12,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yomuglobalcooldown"
+      Name = "orianaglobalcooldown"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yomuredacttarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "yomughost"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yomughostself"
+      Name = "orianaredacttarget"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yomuredactshield"
+      Name = "orianaredactshield"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "yomuredact"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
-      Name = "yomudesperatepower"
+      Name = "orianaredact"
     }
   }
 }

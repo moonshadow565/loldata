@@ -2,8 +2,15 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Sona_Crescendo.dds"
 BuffName = "SonaCrescendo"
-AutoBuffActivateEffect = "SonaCrescendo_buf.troy"
 AutoBuffActivateEffect2 = "Stun_glb.troy"
 AutoBuffActivateAttachBoneName2 = "head"
-SpellFXOverrideSkins = {"GuqinSona"}
 PopupMessage1 = "game_floatingtext_Stunned"
+SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sonacrescendo_buf.troy"
+    }
+  }
+}

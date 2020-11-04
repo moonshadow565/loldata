@@ -52,11 +52,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyraseedcharge"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xaraexpirationtimer"
-    }
   }
 }

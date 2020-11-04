@@ -4,10 +4,6 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 30
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

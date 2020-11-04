@@ -3,7 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "MaokaiUnstableGrowth"
 PreLoadBuildingBlocks = {
   {

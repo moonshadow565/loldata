@@ -6,7 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
 SpellToggleSlot = 4
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {"GuqinSona"}
+SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

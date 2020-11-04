@@ -4,10 +4,8 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sona_SongofDiscordGold.dds"
-BuffName = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {"GuqinSona"}
+SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

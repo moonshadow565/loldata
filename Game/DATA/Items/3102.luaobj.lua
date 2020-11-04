@@ -3,12 +3,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bansheesveiltimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "bansheesveil"
     }
   }

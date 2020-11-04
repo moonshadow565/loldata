@@ -1,0 +1,64 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrapassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraqremoval"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrarvisual"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrarbounce5"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "syndra_q5_dialogue.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "syndra_w5_dialogue.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "syndrae5"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "syndra_e5_dialogue.troy"
+    }
+  }
+}

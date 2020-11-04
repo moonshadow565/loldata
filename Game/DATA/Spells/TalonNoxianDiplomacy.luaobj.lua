@@ -2,8 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Armsmaster_Empower.dds"
 BuffName = "TalonNoxianDiplomacy"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {

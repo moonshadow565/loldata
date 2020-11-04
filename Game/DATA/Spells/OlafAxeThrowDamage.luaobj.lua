@@ -1,4 +1,3 @@
-IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

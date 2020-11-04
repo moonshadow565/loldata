@@ -1,5 +1,6 @@
 BuffTextureName = "Sona_HymnofValorGold.dds"
 BuffName = "SonaHymnofValorAura"
+SpellFXOverrideSkins = {"PaxSona"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

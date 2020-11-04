@@ -36,11 +36,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "manaleach_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jayceattackspeeddebuff"
-    }
   }
 }

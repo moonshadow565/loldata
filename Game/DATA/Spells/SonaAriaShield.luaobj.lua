@@ -1,3 +1,10 @@
 BuffTextureName = "Sona_PowerChord_green.dds"
 BuffName = "SonaAriaShield"
-AutoBuffActivateEffect = "SonaRotShield_buf.troy"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sonarotshield_buf.troy"
+    }
+  }
+}

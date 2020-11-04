@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
-BuffTextureName = "ApolloGunStance.dds"
 BuffName = "ApolloStanceDance"
 SpellToggleSlot = 2
 OnPreDamagePriority = 3

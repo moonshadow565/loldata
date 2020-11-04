@@ -4,17 +4,7 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 4.5
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odincapturechannelbomb"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -26,12 +16,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinchannelvision"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "odincapturebeam.troy"
@@ -40,7 +24,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "odinbombsuppression"
+      Name = "odinchannelvision"
     }
   },
   {
@@ -64,7 +48,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "odinbombsuccessparticle"
+      Name = "odinbombsuppression"
     }
   },
   {
