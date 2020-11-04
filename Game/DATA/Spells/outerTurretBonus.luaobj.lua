@@ -1,2 +1,2 @@
-BuffTextureName = "096_Eye_of_the_Observer.dds"
-BuffName = "Magical Sight"
+BuffTextureName = "TurretInitialArmor.dds"
+BuffName = "TurretInitialArmor"
