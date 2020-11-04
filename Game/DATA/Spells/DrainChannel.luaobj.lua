@@ -79,8 +79,6 @@ ChannelingStartBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -181,72 +179,6 @@ ChannelingStartBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Owner",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "Party_DrainGlow.troy",
-          Flags = 0,
-          EffectIDVar = "Glow",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "spine",
-          TargetObjectVar = "Target",
-          TargetBoneName = "spine",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Attacker",
-          EffectName = "Party_HornConfetti.troy",
-          Flags = 0,
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "BUFFBONE_CSTM_HORN",
-          TargetObjectVar = "Attacker",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
     }
   }
 }
@@ -473,41 +405,6 @@ ChannelingSuccessStopBuildingBlocks = {
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Owner",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Glow",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -545,41 +442,6 @@ ChannelingCancelStopBuildingBlocks = {
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Owner",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Glow",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -597,18 +459,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "globaldrain"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "party_drainglow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "party_hornconfetti.troy"
     }
   },
   {

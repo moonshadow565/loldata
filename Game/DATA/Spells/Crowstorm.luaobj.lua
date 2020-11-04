@@ -44,8 +44,6 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 500,
       SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -119,49 +117,6 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBFaceDirection,
     Params = {TargetVar = "Owner", LocationVar = "CastPos"}
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Attacker",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Attacker",
-          EffectName = "Party_HornConfetti.troy",
-          Flags = 0,
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "BUFFBONE_CSTM_HORN",
-          TargetObjectVar = "Attacker",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
-    }
   }
 }
 ChannelingSuccessStopBuildingBlocks = {
@@ -189,8 +144,6 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -211,8 +164,6 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -232,8 +183,6 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -301,64 +250,6 @@ ChannelingSuccessStopBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Attacker",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
-  }
-}
-ChannelingCancelStopBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetSkinID,
-    Params = {
-      UnitVar = "Attacker",
-      SkinIDVar = "FiddlesticksSkinID"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "FiddlesticksSkinID",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Confetti",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -372,12 +263,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "crowstorm_red_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "party_hornconfetti.troy"
     }
   },
   {
