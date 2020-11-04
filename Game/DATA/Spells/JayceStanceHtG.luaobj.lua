@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 BuffTextureName = "ApolloGunStance.dds"
 BuffName = "ApolloStanceDance"

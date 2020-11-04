@@ -1,5 +1,3 @@
-BuffTextureName = "Lich_WallOfPain.dds"
-BuffName = "ApolloERbuff"
 AutoBuffActivateEffect = "Jayce_Wall_Accel_Buf.troy"
 PreLoadBuildingBlocks = {
   {
