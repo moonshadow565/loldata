@@ -8,6 +8,30 @@ BuffName = "RiftWalk"
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dianateleportmarker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "globalhit_mana.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "temp_diana_lance_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diana_r_cas.troy"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "diana_r_teleport_success_valkyrie.troy"
@@ -32,18 +56,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dianateleportmarker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "globalhit_mana.troy"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "diana_r_tar_valkyrie.troy"
@@ -53,18 +65,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "diana_r_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_diana_lance_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_cas.troy"
     }
   }
 }
