@@ -1,3 +1,31 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BaseDamage",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "AttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AttackDamage",
+      Index = 1,
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  }
+}
 CharOnSpellCastBuildingBlocks = {
   {
     Function = BBGetCastInfo,
@@ -100,34 +128,6 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "BaseDamage",
-      Src1Value = 1.1,
-      Src2Value = 0,
-      DestVar = "AttackDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "AttackDamage",
-      Index = 1,
-      SlotNumber = 0,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Attacker"
     }
   }
 }

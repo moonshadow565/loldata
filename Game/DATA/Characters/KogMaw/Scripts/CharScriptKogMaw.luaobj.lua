@@ -1,5 +1,13 @@
 UpdateSelfBuffActionsBuildingBlocks = {
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusDamage"
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -70,6 +78,61 @@ UpdateSelfBuffActionsBuildingBlocks = {
           }
         }
       }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Level", SrcValue = 1}
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArtilleryADRatio",
+      SrcValue = 0.6
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src2Var = "ArtilleryADRatio",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "ArtilleryDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ArtilleryDamage",
+      Index = 1,
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Owner"
     }
   }
 }
@@ -164,7 +227,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

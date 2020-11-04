@@ -266,8 +266,21 @@ SelfExecuteBuildingBlocks = {
         1,
         2,
         2,
-        3,
-        3
+        2,
+        2
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level4BonusHP",
+      SrcValueByLevel = {
+        0,
+        0,
+        0,
+        100,
+        100
       }
     }
   },
@@ -902,9 +915,22 @@ SelfExecuteBuildingBlocks = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
       Src2Value = 21,
-      DestVar = "BonusHealth",
+      DestVar = "BonusHealthPreLevel4",
       DestVarTable = "NextBuffVars",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusHealthPreLevel4",
+      Src1VarTable = "NextBuffVars",
+      Src2Var = "Level4BonusHP",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusHealth",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
     }
   },
   {

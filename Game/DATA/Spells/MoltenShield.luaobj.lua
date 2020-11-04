@@ -52,45 +52,40 @@ BuffOnTakeDamageBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_MELEE},
+        Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
-            SubBlocks = {
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Attacker",
-                  EffectName = "AnnieSparks.troy",
-                  Flags = 0,
-                  EffectIDVar = "Particle",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Owner",
-                  TargetVar = "Attacker",
-                  Damage = 0,
-                  DamageVar = "DamageReturn",
-                  DamageVarTable = "InstanceVars",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              }
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "AnnieSparks.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Owner",
+              TargetVar = "Attacker",
+              Damage = 0,
+              DamageVar = "DamageReturn",
+              DamageVarTable = "InstanceVars",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.2,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }

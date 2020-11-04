@@ -115,6 +115,18 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      DestVarTable = "InstanceVars",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -135,73 +147,75 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIf,
     Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      Src1Var = "Level",
+      Src1VarTable = "InstanceVars",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetAreaRandom,
+        Function = BBExecutePeriodically,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 550,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          BuffNameFilter = "KennenShurikenNOCAST",
-          InclusiveBuffFilter = false
+          TimeBetweenExecutions = 0.5,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = true
         },
         SubBlocks = {
           {
-            Function = BBGetBuffCountFromAll,
+            Function = BBForEachUnitInTargetAreaRandom,
             Params = {
-              DestVar = "Count",
-              TargetVar = "Unit",
-              BuffName = "KennenShurikenStormHolder"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Count",
-              Value2 = 2,
-              CompareOp = CO_GREATER_THAN_OR_EQUAL
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 550,
+              Flags = "AffectEnemies AffectHeroes ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              BuffNameFilter = "KennenShurikenNOCAST",
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBGetBuffCountFromAll,
                 Params = {
+                  DestVar = "Count",
                   TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "KennenShurikenNOCAST",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  BuffName = "KennenShurikenStormHolder"
                 }
-              }
-            }
-          },
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBIfNotHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              CasterVar = "Owner",
-              BuffName = "KennenShurikenStormMOS"
-            },
-            SubBlocks = {
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Count",
+                  Value2 = 2,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "KennenShurikenNOCAST",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
               {
                 Function = BBSpellBuffAdd,
                 Params = {
@@ -215,76 +229,457 @@ BuffOnUpdateActionsBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 12,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "KennenShurikenStormMOS",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "BonusDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenStormHolder",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenNOCAST",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Unit",
+                  EffectName = "kennen_ss_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "a",
+                  BoneName = "spine",
+                  TargetObjectVar = "Unit",
+                  TargetBoneName = "spine",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = true
                 }
               }
             }
-          },
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Level",
+      Src1VarTable = "InstanceVars",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBExecutePeriodically,
+        Params = {
+          TimeBetweenExecutions = 0.4,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = true
+        },
+        SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBForEachUnitInTargetAreaRandom,
             Params = {
-              TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "KennenShurikenStormMOS",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 10,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              CenterVar = "Owner",
+              Range = 550,
+              Flags = "AffectEnemies AffectHeroes ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              BuffNameFilter = "KennenShurikenNOCAST",
+              InclusiveBuffFilter = false
+            },
+            SubBlocks = {
+              {
+                Function = BBGetBuffCountFromAll,
+                Params = {
+                  DestVar = "Count",
+                  TargetVar = "Unit",
+                  BuffName = "KennenShurikenStormHolder"
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Count",
+                  Value2 = 2,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "KennenShurikenNOCAST",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenMarkofStorm",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 3,
+                  NumberOfStacks = 1,
+                  Duration = 12,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "KennenShurikenStormMOS",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "BonusDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenStormHolder",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenNOCAST",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Unit",
+                  EffectName = "kennen_ss_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "a",
+                  BoneName = "spine",
+                  TargetObjectVar = "Unit",
+                  TargetBoneName = "spine",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = true
+                }
+              }
             }
-          },
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Level",
+      Src1VarTable = "InstanceVars",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBExecutePeriodically,
+        Params = {
+          TimeBetweenExecutions = 0.33,
+          TrackTimeVar = "LastTimeExecuted",
+          TrackTimeVarTable = "InstanceVars",
+          ExecuteImmediately = true
+        },
+        SubBlocks = {
           {
-            Function = BBApplyDamage,
+            Function = BBForEachUnitInTargetAreaRandom,
             Params = {
               AttackerVar = "Owner",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "BonusDamage",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.33,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "KennenShurikenStormHolder",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 4,
-              NumberOfStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Unit",
-              EffectName = "kennen_ss_tar.troy",
-              Flags = 0,
-              EffectIDVar = "a",
-              BoneName = "spine",
-              TargetObjectVar = "Unit",
-              TargetBoneName = "spine",
-              SpecificUnitOnlyVar = "Unit",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              CenterVar = "Owner",
+              Range = 550,
+              Flags = "AffectEnemies AffectHeroes ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              BuffNameFilter = "KennenShurikenNOCAST",
+              InclusiveBuffFilter = false
+            },
+            SubBlocks = {
+              {
+                Function = BBGetBuffCountFromAll,
+                Params = {
+                  DestVar = "Count",
+                  TargetVar = "Unit",
+                  BuffName = "KennenShurikenStormHolder"
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "Count",
+                  Value2 = 2,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "KennenShurikenNOCAST",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenMarkofStorm",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 3,
+                  NumberOfStacks = 1,
+                  Duration = 12,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "KennenShurikenStormMOS",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "BonusDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenStormHolder",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 4,
+                  NumberOfStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenShurikenNOCAST",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Unit",
+                  EffectName = "kennen_ss_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "a",
+                  BoneName = "spine",
+                  TargetObjectVar = "Unit",
+                  TargetBoneName = "spine",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = true
+                }
+              }
             }
           }
         }
@@ -322,7 +717,8 @@ SelfExecuteBuildingBlocks = {
         4,
         5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -354,13 +750,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "kennenshurikenstormmos"
+      Name = "kennenmarkofstorm"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "kennenmarkofstorm"
+      Name = "kennenshurikenstormmos"
     }
   },
   {

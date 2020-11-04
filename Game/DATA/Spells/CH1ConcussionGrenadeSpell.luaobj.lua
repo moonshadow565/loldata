@@ -77,7 +77,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Target",
       Range = 250,
-      Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes AffectTurrets ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },
@@ -88,32 +88,7 @@ TargetExecuteBuildingBlocks = {
       },
       {
         Function = BBIf,
-        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_TURRET},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              DamageByLevel = {
-                40,
-                67.5,
-                95,
-                122.5,
-                150
-              },
-              Damage = 0,
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.2525,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
+        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_TURRET}
       },
       {
         Function = BBElse,
@@ -136,7 +111,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.55,
+              SpellDamageRatio = 0.6,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -182,7 +157,7 @@ TargetExecuteBuildingBlocks = {
           BuffName = "BlindingDart",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Blind,
           MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 0,

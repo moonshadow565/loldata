@@ -33,7 +33,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Blind,
       MaxStack = 100,
       NumberOfStacks = 1,
       Duration = 0,
@@ -53,6 +53,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         80,

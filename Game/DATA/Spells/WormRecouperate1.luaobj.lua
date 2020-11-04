@@ -14,24 +14,6 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "garen_heal.troy",
-      Flags = 0,
-      EffectIDVar = "Part",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
@@ -41,13 +23,6 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "Part",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBSpellBuffAdd,
     Params = {
@@ -128,7 +103,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffName = "WormRecoupDebuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
@@ -149,7 +124,7 @@ BuffOnSpellCastBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "WormRecoupDebuff",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
@@ -162,12 +137,6 @@ BuffOnSpellCastBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "garen_heal.troy"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

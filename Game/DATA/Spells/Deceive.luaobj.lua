@@ -179,11 +179,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        10,
-        10,
-        10,
-        10,
-        10
+        11,
+        11,
+        11,
+        11,
+        11
       }
     }
   },
@@ -304,10 +304,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "deceive"}
-  },
   {
     Function = BBPreloadSpell,
     Params = {

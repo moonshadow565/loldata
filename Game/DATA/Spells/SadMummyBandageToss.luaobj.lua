@@ -123,6 +123,33 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Distance",
+          Src1Value = 0,
+          Src2Value = 80,
+          DestVar = "DistanceCheck",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 0,
+          DistanceVar = "DistanceCheck",
+          OffsetAngle = 0,
+          PositionVar = "PathablePoint"
+        }
+      },
+      {
+        Function = BBIsPathable,
+        Params = {
+          DestPosVar = "PathablePoint",
+          ResultVar = "PathableVar"
+        }
+      },
+      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "WillRemove",
@@ -151,16 +178,45 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBMove,
+        Function = BBIf,
         Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 1350,
-          Gravity = 5,
-          MoveBackBy = 80,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          IdealDistance = 0
+          Src1Var = "PathableVar",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMove,
+            Params = {
+              UnitVar = "Attacker",
+              TargetVar = "Target",
+              Speed = 1350,
+              Gravity = 5,
+              MoveBackBy = 80,
+              MovementType = FURTHEST_WITHIN_RANGE,
+              MovementOrdersType = CANCEL_ORDER,
+              IdealDistance = 0
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMove,
+            Params = {
+              UnitVar = "Attacker",
+              TargetVar = "Target",
+              Speed = 1350,
+              Gravity = 5,
+              MoveBackBy = 0,
+              MovementType = FURTHEST_WITHIN_RANGE,
+              MovementOrdersType = CANCEL_ORDER,
+              IdealDistance = 0
+            }
+          }
         }
       },
       {
@@ -183,6 +239,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
             80,
@@ -262,6 +319,33 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Distance",
+              Src1Value = 0,
+              Src2Value = 80,
+              DestVar = "DistanceCheck",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBGetPointByUnitFacingOffset,
+            Params = {
+              UnitVar = "Owner",
+              Distance = 0,
+              DistanceVar = "DistanceCheck",
+              OffsetAngle = 0,
+              PositionVar = "PathablePoint"
+            }
+          },
+          {
+            Function = BBIsPathable,
+            Params = {
+              DestPosVar = "PathablePoint",
+              ResultVar = "PathableVar"
+            }
+          },
+          {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "WillRemove",
@@ -290,16 +374,45 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBMove,
+            Function = BBIf,
             Params = {
-              UnitVar = "Attacker",
-              TargetVar = "Target",
-              Speed = 1350,
-              Gravity = 5,
-              MoveBackBy = 80,
-              MovementType = FURTHEST_WITHIN_RANGE,
-              MovementOrdersType = CANCEL_ORDER,
-              IdealDistance = 0
+              Src1Var = "PathableVar",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMove,
+                Params = {
+                  UnitVar = "Attacker",
+                  TargetVar = "Target",
+                  Speed = 1350,
+                  Gravity = 5,
+                  MoveBackBy = 80,
+                  MovementType = FURTHEST_WITHIN_RANGE,
+                  MovementOrdersType = CANCEL_ORDER,
+                  IdealDistance = 0
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBMove,
+                Params = {
+                  UnitVar = "Attacker",
+                  TargetVar = "Target",
+                  Speed = 1350,
+                  Gravity = 5,
+                  MoveBackBy = 0,
+                  MovementType = FURTHEST_WITHIN_RANGE,
+                  MovementOrdersType = CANCEL_ORDER,
+                  IdealDistance = 0
+                }
+              }
             }
           },
           {
@@ -322,6 +435,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
                 80,
@@ -413,6 +527,33 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "Distance",
+                  Src1Value = 0,
+                  Src2Value = 80,
+                  DestVar = "DistanceCheck",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBGetPointByUnitFacingOffset,
+                Params = {
+                  UnitVar = "Owner",
+                  Distance = 0,
+                  DistanceVar = "DistanceCheck",
+                  OffsetAngle = 0,
+                  PositionVar = "PathablePoint"
+                }
+              },
+              {
+                Function = BBIsPathable,
+                Params = {
+                  DestPosVar = "PathablePoint",
+                  ResultVar = "PathableVar"
+                }
+              },
+              {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "WillRemove",
@@ -441,16 +582,45 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBMove,
+                Function = BBIf,
                 Params = {
-                  UnitVar = "Attacker",
-                  TargetVar = "Target",
-                  Speed = 1350,
-                  Gravity = 5,
-                  MoveBackBy = 80,
-                  MovementType = FURTHEST_WITHIN_RANGE,
-                  MovementOrdersType = CANCEL_ORDER,
-                  IdealDistance = 0
+                  Src1Var = "PathableVar",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMove,
+                    Params = {
+                      UnitVar = "Attacker",
+                      TargetVar = "Target",
+                      Speed = 1350,
+                      Gravity = 5,
+                      MoveBackBy = 80,
+                      MovementType = FURTHEST_WITHIN_RANGE,
+                      MovementOrdersType = CANCEL_ORDER,
+                      IdealDistance = 0
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBMove,
+                    Params = {
+                      UnitVar = "Attacker",
+                      TargetVar = "Target",
+                      Speed = 1350,
+                      Gravity = 5,
+                      MoveBackBy = 0,
+                      MovementType = FURTHEST_WITHIN_RANGE,
+                      MovementOrdersType = CANCEL_ORDER,
+                      IdealDistance = 0
+                    }
+                  }
                 }
               },
               {
@@ -473,6 +643,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
                     80,
