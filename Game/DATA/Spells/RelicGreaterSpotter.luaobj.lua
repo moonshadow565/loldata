@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "oracleelixirsight"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "relicspotter"
+    }
   }
 }

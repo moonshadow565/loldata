@@ -31,5 +31,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "expirationtimer"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "corki_base_q_indicator_red.troy"
+    }
   }
 }

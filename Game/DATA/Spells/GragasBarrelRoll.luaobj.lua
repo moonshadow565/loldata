@@ -28,5 +28,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "gragasbarrelroll"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasbarrelrolltoggle"
+    }
   }
 }

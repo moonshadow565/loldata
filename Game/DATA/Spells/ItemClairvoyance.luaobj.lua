@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_cast.troy"
+      Name = "global_trinket_itemclairvoyance_cas.troy"
     }
   },
   {

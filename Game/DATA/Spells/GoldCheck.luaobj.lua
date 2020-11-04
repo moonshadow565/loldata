@@ -4,3 +4,11 @@ BuffTextureName = "2036_Test_Gold_Potion.dds"
 BuffName = "ElixirOfGold"
 PersistsThroughDeath = true
 NonDispellable = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "philogolddisplay"
+    }
+  }
+}

@@ -26,13 +26,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sharedwardbuff"
+      Name = "relicyellowward"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "relicyellowward"
+      Name = "sharedwardbuff"
     }
   },
   {

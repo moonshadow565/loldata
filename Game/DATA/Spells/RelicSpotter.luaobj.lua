@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "spotter_marker.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "relicspotter"
+    }
   }
 }

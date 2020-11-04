@@ -41,12 +41,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "masterattackspeedbuff"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "masteryi_base_q_cas.troy"

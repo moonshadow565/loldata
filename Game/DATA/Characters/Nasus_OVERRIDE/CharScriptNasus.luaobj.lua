@@ -20,7 +20,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nasuspassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "nasusskin5sfx"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nasustauntrenekton"
     }
   }
 }

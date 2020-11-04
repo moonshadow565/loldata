@@ -50,5 +50,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "masteryscoutbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
+    }
   }
 }
