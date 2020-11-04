@@ -3,18 +3,10 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "GragasBodySlam.dds"
-BuffName = "GragasBodySlam"
 SpellFXOverrideSkins = {
   "HecarimArcade"
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gragas_bodyslam_cas.troy"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

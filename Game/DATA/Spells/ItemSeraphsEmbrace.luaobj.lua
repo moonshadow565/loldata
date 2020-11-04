@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 BuffTextureName = "3040_Seraphs_Embrace.dds"
 BuffName = "ItemSeraphsEmbrace"
 AutoCooldownByLevel = {

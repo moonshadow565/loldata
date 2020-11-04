@@ -12,12 +12,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "fortifycheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "positivechampiondelta"
     }
   }

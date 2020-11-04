@@ -1,5 +1,3 @@
-BuffTextureName = "UrgotCorrosiveCharge.dds"
-BuffName = "UrgotCorrosiveDebuff"
 SpellFXOverrideSkins = {
   "VarusAscended"
 }

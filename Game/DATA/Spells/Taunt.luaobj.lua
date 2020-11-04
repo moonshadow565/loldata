@@ -1,7 +1,4 @@
-BuffTextureName = "GSB_taunt.dds"
 BuffName = "Taunt"
-AutoBuffActivateEffect = "LOC_Taunt.troy"
-AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Taunted"
 PreLoadBuildingBlocks = {
   {
@@ -26,6 +23,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "global_taunt.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "loc_taunt.troy"
     }
   }
 }

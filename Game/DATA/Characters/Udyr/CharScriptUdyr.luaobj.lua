@@ -28,6 +28,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrvoearlygame"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrvoattacks"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_spirit_minion_death_tiger.troy"

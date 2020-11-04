@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masterattackspeedbuff"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "garen_keeper0fpeace_tar_01.troy"

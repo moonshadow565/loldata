@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "pantheon_aegisshield"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masterattackspeedbuff"
+    }
   }
 }

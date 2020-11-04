@@ -44,5 +44,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "draven_base_p.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_base_p_lesser.troy"
+    }
   }
 }

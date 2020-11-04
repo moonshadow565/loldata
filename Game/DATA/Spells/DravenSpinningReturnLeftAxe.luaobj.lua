@@ -1,5 +1,3 @@
-BuffTextureName = "UrgotCorrosiveCharge.dds"
-BuffName = "UrgotCorrosiveDebuff"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "Draven_Gladiator"

@@ -3,7 +3,10 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "BlindMonkQOne.dds"
 BuffName = "BlindMonkSonicWave"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+SpellFXOverrideSkins = {
+  "LeeSinSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -27,6 +30,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blindmonkqonechaos"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "leesin_skin05_q_tar_sound.troy"
     }
   },
   {

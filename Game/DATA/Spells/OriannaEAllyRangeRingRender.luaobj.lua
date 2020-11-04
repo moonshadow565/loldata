@@ -1,4 +1,4 @@
-BuffName = "UrgotQLockRangeRingRender"
+BuffName = "OriannaEAllyRangeRingRender"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

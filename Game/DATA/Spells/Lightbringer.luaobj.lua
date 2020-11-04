@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightbringerreveal"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "temp_oracleelixirring.troy"
+    }
+  }
+}

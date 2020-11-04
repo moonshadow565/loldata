@@ -10,7 +10,8 @@ AutoBuffActivateAttachBoneName = "lhnd"
 AutoBuffActivateEffect2 = "Global_Haste.troy"
 AutoBuffActivateAttachBoneName2 = "rhnd"
 SpellFXOverrideSkins = {
-  "Renekton_VolcanoGod"
+  "Renekton_VolcanoGod",
+  "RenektonSkin06"
 }
 PreLoadBuildingBlocks = {
   {

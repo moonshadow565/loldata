@@ -7,7 +7,10 @@ AutoCooldownByLevel = {
   16,
   14
 }
-SpellFXOverrideSkins = {"iBlitz"}
+SpellFXOverrideSkins = {
+  "iBlitz",
+  "BlitzcrankSkin08"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

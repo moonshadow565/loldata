@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   8,
   4
 }
+SpellFXOverrideSkins = {
+  "GravesSkin05"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

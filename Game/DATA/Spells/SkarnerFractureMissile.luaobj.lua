@@ -20,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "galio_bulwark_heal.troy"
+      Name = "skarner_fracture_heal.troy"
     }
   },
   {

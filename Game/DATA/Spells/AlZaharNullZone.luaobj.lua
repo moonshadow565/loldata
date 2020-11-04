@@ -3,6 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffName = "AlZaharNullZone"
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
