@@ -27,6 +27,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraemissile2"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "syndra_ecast.troy"

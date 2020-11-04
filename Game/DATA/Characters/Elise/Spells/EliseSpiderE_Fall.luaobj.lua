@@ -1,0 +1,22 @@
+DoesntBreakShields = true
+ChannelDuration = 1.5
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spider_e_land.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_grandskyfall_falld"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_grandskyfall_fall"
+    }
+  }
+}

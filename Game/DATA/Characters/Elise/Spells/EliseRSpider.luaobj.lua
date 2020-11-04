@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "SwainRavenousFlock.dds"
+BuffName = "SwainMetamorphism"
+SpellToggleSlot = 4
+PersistsThroughDeath = true
+NonDispellable = true

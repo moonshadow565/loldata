@@ -3,13 +3,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pickacard_blue_tar.troy"
+      Name = "athenesunholygrail_manarestore_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "athenesunholygrail_manarestore_tar.troy"
+      Name = "pickacard_blue_tar.troy"
     }
   },
   {

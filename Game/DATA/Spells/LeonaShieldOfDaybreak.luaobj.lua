@@ -2,11 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "LeonaShieldOfDaybreak.DDS"
 BuffName = "LeonaShieldOfDaybreak"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

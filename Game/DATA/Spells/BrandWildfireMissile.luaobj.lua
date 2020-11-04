@@ -5,7 +5,8 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "FrostFireBrand"
+  "FrostFireBrand",
+  "ZombieBrand"
 }
 PreLoadBuildingBlocks = {
   {
@@ -18,6 +19,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandconflagration_tar_frost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_ult_tar_zombie.troy"
     }
   },
   {

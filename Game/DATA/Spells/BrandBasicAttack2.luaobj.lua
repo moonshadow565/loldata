@@ -1,11 +1,21 @@
 SpellFXOverrideSkins = {
-  "FrostFireBrand"
+  "FrostFireBrand",
+  "ZombieBrand"
+}
+SpellVOOverrideSkins = {
+  "ZombieBrand"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandbasicattack_frost_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandbasicattack_zombie_tar.troy"
     }
   },
   {

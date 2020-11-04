@@ -7,7 +7,11 @@ BuffTextureName = "Ryze_LightningFlux.dds"
 BuffName = "Spell Flux"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
-  "FrostFireBrand"
+  "FrostFireBrand",
+  "ZombieBrand"
+}
+SpellVOOverrideSkins = {
+  "ZombieBrand"
 }
 PreLoadBuildingBlocks = {
   {
@@ -20,6 +24,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandconflagration_tar_frost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_ult_tar_zombie.troy"
     }
   },
   {

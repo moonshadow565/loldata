@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spider_e_descent_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "elisespideredescentparticle"
+    }
+  }
+}

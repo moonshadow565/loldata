@@ -27,12 +27,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rengarrecallcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rengarrunspeed"
     }
   }

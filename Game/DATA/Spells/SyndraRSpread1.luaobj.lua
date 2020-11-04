@@ -2,7 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Syndra_rcast.troy"
+      Name = "syndra_rcast.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrartimer"
     }
   },
   {

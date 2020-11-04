@@ -40,5 +40,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "maokai_sapling_team_id_red.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "maokai_gravesapling_rdy_indicator_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "maokai_gravesapling_rdy_indicator_red.troy"
+    }
   }
 }

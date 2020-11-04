@@ -1,0 +1,27 @@
+NonDispellable = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_spiderbosssmashcd"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_spiderbosssmashsequence"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_bossattack2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_actiontimer"
+    }
+  }
+}

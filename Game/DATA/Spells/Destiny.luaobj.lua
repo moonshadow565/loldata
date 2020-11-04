@@ -3,12 +3,14 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Destiny_temp.dds"
 BuffName = "Destiny"
 AutoBuffActivateEffect = "DestinyEye.troy"
-AutoBuffActivateEffect2 = ""
 SpellDamageRatio = 0.75
 AutoCooldownByLevel = {
   150,
   135,
   120
+}
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
 }
 PreLoadBuildingBlocks = {
   {

@@ -2,19 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "Syndrasphere"
+      Name = "syndrasphere"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Syndraqspell"
+      Name = "syndraqspell"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Syndrarwillfire"
+      Name = "syndrarwillfire"
     }
   }
 }

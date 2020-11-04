@@ -9,6 +9,9 @@ AutoCooldownByLevel = {
   55,
   40
 }
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -20,6 +23,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "cardmasterteleport_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gatemarker_green_underworld.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gatemarker_red_underworld.troy"
     }
   },
   {

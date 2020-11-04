@@ -1,7 +1,5 @@
 BuffTextureName = "GreenTerror_SpikeSlam.dds"
 BuffName = "MaokaiUnstableGrowthRoot"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {

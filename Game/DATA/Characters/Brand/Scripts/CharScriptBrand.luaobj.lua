@@ -22,5 +22,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "brandpassivesound"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "brandpassiverunspeed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "brandzombieresurrection"
+    }
   }
 }

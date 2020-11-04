@@ -7,6 +7,9 @@ BuffName = "Recall"
 SpellFXOverrideSkins = {
   "OktoberGragas"
 }
+SpellVOOverrideSkins = {
+  "ZombieBrand"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

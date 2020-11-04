@@ -1,4 +1,5 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Chronokeeper_Chronoblast.dds"
@@ -23,6 +24,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "syndrarwillfire"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrartrigger"
     }
   },
   {

@@ -28,5 +28,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "maokaisapmagicpass"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "maokaigravediggerresurrection"
+    }
   }
 }
