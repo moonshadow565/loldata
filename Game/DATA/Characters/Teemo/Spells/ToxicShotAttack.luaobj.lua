@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Teemo_PoisonedDart.dds"
+BuffTextureName = "Teemo_E.dds"
 BuffName = "Toxic Shot"
 SpellFXOverrideSkins = {
   "AstronautTeemo",

@@ -1,4 +1,4 @@
-BuffTextureName = "Teemo_Camouflage.dds"
+BuffTextureName = "Teemo_P.dds"
 BuffName = "Camouflage"
 PersistsThroughDeath = true
 NonDispellable = true

@@ -1,2 +1,2 @@
-BuffTextureName = "BlindMonk_BlindingStrike.dds"
+BuffTextureName = "Teemo_P_Buff.dds"
 BuffName = "CamoflagueBuff"

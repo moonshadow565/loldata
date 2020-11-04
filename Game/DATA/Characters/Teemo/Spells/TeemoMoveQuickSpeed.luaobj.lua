@@ -1,2 +1,2 @@
-BuffTextureName = "Teemo_MoveQuick.dds"
+BuffTextureName = "Teemo_W.dds"
 BuffName = "Move Quick"

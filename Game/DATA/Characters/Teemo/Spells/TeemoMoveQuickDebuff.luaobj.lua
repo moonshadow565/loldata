@@ -1,2 +1,2 @@
-BuffTextureName = "Teemo_MoveQuick_Grey.dds"
+BuffTextureName = "Teemo_W_Grey.dds"
 BuffName = "Move Quick Cooldown"

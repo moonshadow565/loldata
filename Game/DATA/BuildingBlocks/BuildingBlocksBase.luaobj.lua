@@ -2301,3 +2301,6 @@ function L0_0(A0_642, A1_643)
   BBSetMinionKills(A0_642, A1_643)
 end
 BBIncreaseMinionKills = L0_0
+function L0_0(A0_644, A1_645)
+end
+BBForcePreload = L0_0

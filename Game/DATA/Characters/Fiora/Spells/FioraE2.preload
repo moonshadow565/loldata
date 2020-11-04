@@ -1,3 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fiora_base_e_sword_glow.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_e_hit_tar.troy"}}, 
 }
