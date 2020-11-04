@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="KogMaw_Base_Q_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="KogMaw_Base_Q_shred.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kogmaw_base_q_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kogmaw_base_q_shred.troy"}}, 
 }

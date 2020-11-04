@@ -5,6 +5,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="karthusdeathdefied"}}, 
 {Function=BBPreloadSpell, Params={Name="kogmawicathiansurpriseready"}}, 
 {Function=BBPreloadSpell, Params={Name="zyrapqueenofthornsready"}}, 
+{Function=BBPreloadSpell, Params={Name="sionpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="yorickultpetactive"}}, 
 {Function=BBPreloadSpell, Params={Name="yorickradelaylich"}}, 
 {Function=BBPreloadSpell, Params={Name="yorickradelaysion"}}, 

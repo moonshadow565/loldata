@@ -25,5 +25,9 @@ SpellFXOverrideSkins = {
   "SightWardShurimaRammus",
   "SightWardShurimaAmumu",
   "SightWardShurima",
-  "SightWardS4Champ"
+  "SightWardS4Champ",
+  "S4ConqueringWard",
+  "S4VictoriousWard",
+  "S4TriumphantWard",
+  "SightWardBattleCast"
 }

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "ChemicalMan_ChemicalRage.dds"
+BuffTextureName = "Singed_R.dds"
 BuffName = "Insanity Potion"
 SpellFXOverrideSkins = {
   "SingedSkin06"

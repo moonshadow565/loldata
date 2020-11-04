@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "ChemicalMan_AcidSpray.dds"
+BuffTextureName = "Singed_Q.dds"
 BuffName = "Poison Trail"
 SpellToggleSlot = 1
 SpellFXOverrideSkins = {

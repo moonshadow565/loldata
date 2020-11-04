@@ -12,7 +12,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sionrsoundexplosionhitchampion"}}, 
 {Function=BBPreloadSpell, Params={Name="sionrsoundexplosionhitminion"}}, 
 {Function=BBPreloadSpell, Params={Name="sionrslow"}}, 
-{Function=BBPreloadSpell, Params={Name="sionstun"}}, 
-{Function=BBPreloadSpell, Params={Name="sionvostacks"}}, 
 {Function=BBPreloadSpell, Params={Name="sionrtarget"}}, 
+{Function=BBPreloadSpell, Params={Name="sionstun"}}, 
 }
