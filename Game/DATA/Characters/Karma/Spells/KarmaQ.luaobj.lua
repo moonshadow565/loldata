@@ -19,7 +19,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_shieldspeed_buf.troy"
+      Name = "karma_base_e_speed_buf.troy"
     }
   }
 }

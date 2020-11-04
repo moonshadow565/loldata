@@ -1,5 +1,8 @@
 BuffTextureName = "AkaliShadowDance.dds"
 BuffName = "AkaliShadowDance"
+SpellFXOverrideSkins = {
+  "MonkeyKingSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

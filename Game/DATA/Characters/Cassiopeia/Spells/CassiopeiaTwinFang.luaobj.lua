@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassiopeia_base_e_tar.troy"
+      Name = "cassiopeia_base_e_twinfang_tar.troy"
     }
   },
   {

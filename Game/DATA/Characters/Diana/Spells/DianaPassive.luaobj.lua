@@ -27,6 +27,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dianapassivedeathrecap"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "diana_skin01_e_precas.troy"

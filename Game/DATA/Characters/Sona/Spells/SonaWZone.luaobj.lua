@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sona_base_w_zone_self.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonawshield"

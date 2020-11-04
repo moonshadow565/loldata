@@ -1,3 +1,10 @@
 BuffTextureName = "Chronokeeper_Recall.dds"
 BuffName = "Haste"
-AutoBuffActivateEffect = "MoveQuick_buf.troy"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_haste.troy"
+    }
+  }
+}

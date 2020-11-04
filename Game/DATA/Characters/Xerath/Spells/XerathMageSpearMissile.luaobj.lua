@@ -18,11 +18,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xerath_base_e_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xerathmagechains"
-    }
   }
 }

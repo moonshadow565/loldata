@@ -1,9 +1,8 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "ViktorPowerTransfer.dds"
-BuffName = "ViktorShield"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
+BuffTextureName = "Viktor_Q_Buff.dds"
+BuffName = "ViktorPowerTransferReturn"
 AutoCooldownByLevel = {
   16,
   14,
@@ -17,15 +16,27 @@ TriggersSpellCasts = true
 SetSpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "viktor_reverb_shield.troy"
+      Name = "viktorqbuff"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "viktorpowertransferreturn"
+      Name = "viktor_skin03_q_aug_buff.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_base_q_aug_buff.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_base_q_aug_attack_cas.troy"
     }
   }
 }

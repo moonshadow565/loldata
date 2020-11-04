@@ -1,25 +1,30 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-SpellDamageRatio = 0.5
 IsPetDurationBuff = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kassadinqcancelchannels"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_base_r_tar2.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "tempmovablechar"
+      Name = "viktorsingularity"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "viktorchaosstorm"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktorchaosstormhighlight"
     }
   },
   {
@@ -44,18 +49,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "viktorexpirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_chaosstorm_beam.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_chaosstorm_hit.troy"
     }
   }
 }

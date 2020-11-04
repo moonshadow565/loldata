@@ -5,6 +5,10 @@ L0 = 200
 TEAM_CHAOS = L0
 L0 = 1
 DIFFICULTY_INDEX = L0
+function L0()
+  local L0, L1
+end
+OnInitClient = L0
 function L0(A0)
   local L1, L2, L3
   L2 = A0
@@ -20,7 +24,7 @@ function L0(A0)
   L3 = "SetNightmareBotDifficulty"
   L1(L2, L3)
 end
-NightmareBotDifficultyOnInit = L0
+OnInitServer = L0
 function L0(A0)
   local L1, L2, L3, L4, L5, L6
   L1 = ApplyPersistentBuff

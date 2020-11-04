@@ -1,5 +1,9 @@
 local L0, L1
 function L0()
+  local L0, L1
+end
+OnInitClient = L0
+function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
   for L3 = L0, L1, L2 do
     L4 = GetPlayerByClientID
@@ -31,4 +35,4 @@ function L0()
   end
   L0(L1, L2)
 end
-IntroBotStarterBuffsOnInit = L0
+OnInitServer = L0

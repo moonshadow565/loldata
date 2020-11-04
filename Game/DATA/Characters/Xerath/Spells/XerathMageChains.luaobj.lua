@@ -4,7 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Xerath_E1.dds"
 BuffName = "XerathMageChains"
 AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
+AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Overhead_Loc"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
   "IronForgeXerath"

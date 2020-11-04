@@ -514,23 +514,14 @@ function L0_0()
   L0_3(L1_4)
   L0_3(L1_4)
   L0_3(L1_4)
-  if L0_3 == "ASCENSION" then
-    L1_4(L2_5)
-    L1_4(L2_5)
-    L1_4(L2_5)
-    L1_4(L2_5)
-    L1_4(L2_5)
-    L1_4(L2_5)
-    L1_4(L2_5)
-  end
-  L4_7 = L2_5()
-  L1_4(L2_5, L3_6, L4_7, L2_5())
-  L1_4(L2_5)
-  L1_4.WaveSpawnRate = 30000
-  L1_4.NumOfMeleeMinionsPerWave = 3
-  L1_4.NumOfCasterMinionsPerWave = 3
-  L1_4.SingleMinionSpawnDelay = 800
-  L1_4.DidPowerGroup = false
+  L4_7 = L1_4()
+  L0_3(L1_4, L2_5, L3_6, L4_7, L1_4())
+  L0_3(L1_4)
+  L0_3.WaveSpawnRate = 30000
+  L0_3.NumOfMeleeMinionsPerWave = 3
+  L0_3.NumOfCasterMinionsPerWave = 3
+  L0_3.SingleMinionSpawnDelay = 800
+  L0_3.DidPowerGroup = false
 end
 OnLevelInit = L0_0
 function L0_0()

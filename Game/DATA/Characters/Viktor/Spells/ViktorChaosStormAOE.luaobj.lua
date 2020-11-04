@@ -1,12 +1,16 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Annie_GuardianIncinerate.dds"
-BuffName = "Infernal Guardian"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
   "MakerViktor"
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_base_r_droid.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "karma_passive_refresh.troy"
+      Name = "karma_base_p_refresh.troy"
     }
   },
   {
@@ -33,13 +33,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindtethermantra_beam.troy"
+      Name = "karma_base_w_beam_r.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindtether_beam.troy"
+      Name = "karma_base_w_beam.troy"
     }
   },
   {
@@ -57,7 +57,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_w_cas.troy"
+      Name = "karma_base_w_cas.troy"
     }
   }
 }

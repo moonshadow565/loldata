@@ -2,9 +2,8 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
-BuffTextureName = "ViktorChaosStorm.dds"
-BuffName = "ViktorStormGuide"
-SpellDamageRatio = 0.5
+BuffTextureName = "Viktor_R1.dds"
+BuffName = "ViktorChaosStormGuide"
 IsPetDurationBuff = true
 PreLoadBuildingBlocks = {
   {
@@ -17,12 +16,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_chaosstorm_indicator_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktorchaosstormhighlight"
     }
   },
   {
@@ -45,6 +38,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_skn3_rosition.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cursor_moveto.troy"
     }
   }
 }
