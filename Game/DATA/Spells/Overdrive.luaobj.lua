@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Blitzcrank_Overdrive.dds"
 BuffName = "Overdrive"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   90,
   90,
@@ -11,7 +10,8 @@ AutoCooldownByLevel = {
   14
 }
 SpellFXOverrideSkins = {
-  "PiltoverCustomsBlitz"
+  "PiltoverCustomsBlitz",
+  "iBlitz"
 }
 PreLoadBuildingBlocks = {
   {

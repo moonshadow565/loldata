@@ -1,10 +1,5 @@
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
+BuffTextureName = "Kennen_SlicingMaelstrom.dds"
+BuffName = "KennenShurikenStorm"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -27,12 +22,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "kennenshurikenstormholder"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "kennenmarkofstorm"
     }
   },
@@ -40,6 +29,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "kennenshurikenstormmos"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenshurikenstormholder"
     }
   },
   {
