@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "globaldrain"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "itemswordoffeastandfamine"
     }
   },
