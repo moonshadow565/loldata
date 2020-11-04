@@ -10,6 +10,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MordekaiserDeathParticle",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -94,6 +95,7 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -109,6 +111,7 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MordekaiserIronMan",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -124,6 +127,7 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -136,7 +140,7 @@ CharOnActivateBuildingBlocks = {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = -175,
+      Delta = -140,
       PARType = PAR_SHIELD
     }
   }
@@ -147,14 +151,14 @@ CharOnLevelUpBuildingBlocks = {
     Params = {
       PARType = PAR_SHIELD,
       TargetVar = "Owner",
-      Delta = 25
+      Delta = 30
     }
   },
   {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = -25,
+      Delta = -30,
       PARType = PAR_SHIELD
     }
   }
@@ -197,6 +201,7 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,

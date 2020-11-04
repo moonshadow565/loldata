@@ -9,8 +9,16 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStunned
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
     }
   },
   {
@@ -51,8 +59,16 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetStunned
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
     }
   }
 }
@@ -61,8 +77,16 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStunned
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }
@@ -116,10 +140,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Stun,
+      BuffType = BUFF_Net,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

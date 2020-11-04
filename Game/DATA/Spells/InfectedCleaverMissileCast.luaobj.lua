@@ -104,38 +104,5 @@ SelfExecuteBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false
     }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthCost",
-      SrcValueByLevel = {
-        -20,
-        -35,
-        -50,
-        -65,
-        -80
-      }
-    }
-  },
-  {
-    Function = BBIncHealth,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealthCost",
-      HealerVar = "Owner"
-    }
   }
 }

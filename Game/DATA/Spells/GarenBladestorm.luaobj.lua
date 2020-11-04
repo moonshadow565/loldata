@@ -579,11 +579,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        10,
-        20,
-        30,
-        40,
-        50
+        7.5,
+        17.5,
+        27.5,
+        37.5,
+        47.5
       }
     }
   },
@@ -593,11 +593,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamageHero",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
-        40,
-        60,
-        80,
-        100
+        15,
+        35,
+        55,
+        75,
+        95
       }
     }
   },

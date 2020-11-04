@@ -98,10 +98,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
         40,
-        80,
-        120,
-        160,
-        200
+        75,
+        110,
+        145,
+        180
       }
     }
   },
@@ -155,11 +155,11 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        2,
-        2,
-        2,
-        2,
-        2
+        1.5,
+        1.5,
+        1.5,
+        1.5,
+        1.5
       },
       TickRate = 0
     }

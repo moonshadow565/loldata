@@ -121,7 +121,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -148,7 +149,8 @@ OnBuffActivateBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "AbsoluteZero_Slow",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 10,
           NumberOfStacks = 1,
@@ -201,7 +203,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 575,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -229,6 +232,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Chilled",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
@@ -281,6 +285,7 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 10,
       NumberOfStacks = 1,
@@ -321,7 +326,8 @@ ChannelingSuccessStopBuildingBlocks = {
       CenterVar = "Owner",
       Range = 650,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -397,7 +403,8 @@ ChannelingCancelStopBuildingBlocks = {
       CenterVar = "Owner",
       Range = 650,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {

@@ -75,7 +75,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "pantheon_grandskyfall_land.troy",
+      EffectName = "RanduinsOmen_cas.troy",
       Flags = 0,
       EffectIDVar = "a",
       TargetObjectVar = "Target",
@@ -394,7 +394,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pantheon_grandskyfall_land.troy"
+      Name = "randuinsomen_cas.troy"
     }
   },
   {

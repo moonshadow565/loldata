@@ -27,7 +27,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPowerMod",
       Src1Value = 0,
-      Src2Value = 3.7E-4,
+      Src2Value = 3.75E-4,
       DestVar = "AbilityPowerMod",
       MathOp = MO_MULTIPLY
     }
@@ -97,7 +97,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Src1Var = "AttackSpeedMod",
       Src1Value = 0,
-      Src2Value = 3.7E-4,
+      Src2Value = 3.75E-4,
       DestVar = "AttackSpeedMod",
       MathOp = MO_MULTIPLY
     }

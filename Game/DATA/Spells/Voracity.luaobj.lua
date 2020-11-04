@@ -9,134 +9,185 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 PersistsThroughDeath = true
 Nondispellable = true
-BuffOnHitUnitBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "HitResult",
-      Value2 = HIT_Miss,
-      CompareOp = CO_NOT_EQUAL
-    },
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellEffectCreate,
         Params = {
-          Src1Var = "HitResult",
-          Value2 = HIT_Dodge,
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Level",
-              SpellSlotValue = 1,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellLevel
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Level",
-              Value2 = 0,
-              CompareOp = CO_GREATER_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "Level",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "Level"
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Attacker",
-                  BuffName = "KillerInstinctSpeed",
-                  BuffAddType = BUFF_STACKS_AND_RENEWS,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 5,
-                  NumberOfStacks = 1,
-                  Duration = 3,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
-            }
-          }
+          BindObjectVar = "Owner",
+          EffectName = "katarina_spell_refresh_indicator.troy",
+          Flags = 0,
+          EffectIDVar = "Placeholder",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBIncGold,
+        Params = {TargetVar = "Owner", Delta = 50}
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 2,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "DLCooldown",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DLCooldown",
+          Src1Value = 0,
+          Src2Value = 15,
+          DestVar = "DLCooldown",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "DLCooldown",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 3,
+          OwnerVar = "Owner"
         }
       }
     }
   }
 }
-BuffOnSpellCastBuildingBlocks = {
+BuffOnAssistBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBSpellEffectCreate,
     Params = {
-      Src1Var = "DoesntTriggerSpellCasts",
-      Src1VarTable = "SpellVars",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Level",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Level",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "Level"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctSpeed",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberOfStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      }
+      BindObjectVar = "Owner",
+      EffectName = "katarina_spell_refresh_indicator.troy",
+      Flags = 0,
+      EffectIDVar = "Placeholder",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBIncGold,
+    Params = {TargetVar = "Owner", Delta = 50}
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 0,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 1,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 2,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "DLCooldown",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DLCooldown",
+      Src1Value = 0,
+      Src2Value = 15,
+      DestVar = "DLCooldown",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcVar = "DLCooldown",
+      SrcValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 3,
+      OwnerVar = "Owner"
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "killerinstinctspeed"
+      Name = "katarina_spell_refresh_indicator.troy"
     }
   }
 }

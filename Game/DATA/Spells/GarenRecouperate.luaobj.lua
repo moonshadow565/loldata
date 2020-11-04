@@ -380,7 +380,7 @@ BuffOnUpdateStatsBuildingBlocks = {
             Params = {
               Src1Var = "maxHealth",
               Src1Value = 0,
-              Src2Value = 0.006,
+              Src2Value = 0.005,
               DestVar = "HealthToInc",
               MathOp = MO_MULTIPLY
             }

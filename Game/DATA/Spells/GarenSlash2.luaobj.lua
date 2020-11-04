@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        40,
-        60,
-        80,
-        100,
-        120
+        20,
+        35,
+        50,
+        65,
+        80
       }
     }
   },
@@ -87,7 +87,7 @@ TargetExecuteBuildingBlocks = {
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = true,
+          IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = true
         }
       },
@@ -124,7 +124,7 @@ TargetExecuteBuildingBlocks = {
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = true,
+          IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = true
         }
       }

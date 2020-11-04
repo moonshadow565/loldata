@@ -81,10 +81,11 @@ BuffOnHitUnitBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Owner",
               BuffName = "FrostArrow",
-              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -122,9 +123,10 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0.1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -152,7 +154,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

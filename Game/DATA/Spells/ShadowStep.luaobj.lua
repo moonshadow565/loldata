@@ -52,7 +52,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetPointByUnitFacingOffset,
     Params = {
       UnitVar = "Target",
-      Distance = -75,
+      Distance = -100,
       OffsetAngle = 0,
       PositionVar = "TargetPos"
     }
@@ -79,7 +79,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "KillerInstinctBuff"
+      BuffName = "KillerInstinct"
     },
     SubBlocks = {
       {
@@ -96,9 +96,15 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "Level",
+          DestVar = "DamageReduction",
           DestVarTable = "NextBuffVars",
-          SrcVar = "Level"
+          SrcValueByLevel = {
+            0.85,
+            0.8,
+            0.75,
+            0.7,
+            0.65
+          }
         }
       },
       {
@@ -108,9 +114,10 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "ShadowStepDodge",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -121,7 +128,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "KillerInstinctBuff"
+          BuffName = "KillerInstinct"
         }
       }
     }
@@ -162,23 +169,9 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.75,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "VoracityMarker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 15,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
         }
       }
     }
@@ -200,7 +193,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "killerinstinctbuff"
+      Name = "killerinstinct"
     }
   },
   {
@@ -213,12 +206,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_shadowstep_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "voracitymarker"
     }
   }
 }

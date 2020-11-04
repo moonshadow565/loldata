@@ -29,7 +29,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "CharLevel",
           Src1Value = 0,
-          Src2Value = 25,
+          Src2Value = 30,
           DestVar = "ShieldMax",
           MathOp = MO_MULTIPLY
         }
@@ -39,7 +39,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "ShieldMax",
           Src1Value = 0,
-          Src2Value = 150,
+          Src2Value = 110,
           DestVar = "ShieldMax",
           MathOp = MO_ADD
         }
@@ -57,7 +57,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "MaxEnergy",
           Src1Value = 0,
-          Src2Value = 0.02,
+          Src2Value = 0.03,
           DestVar = "ShieldDecay",
           MathOp = MO_MULTIPLY
         }

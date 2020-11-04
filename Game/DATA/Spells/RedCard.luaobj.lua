@@ -124,11 +124,11 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        20,
-        25,
         30,
-        35,
-        40
+        45,
+        60,
+        75,
+        90
       }
     }
   },
@@ -225,26 +225,73 @@ BuffOnHitUnitBuildingBlocks = {
         }
       },
       {
-        Function = BBApplyDamage,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Unit",
-          DamageByLevel = {
-            0,
-            0,
-            0,
-            0,
-            0
+          Src1Var = "Unit",
+          Src2Var = "Target",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBDebugSay,
+            Params = {OwnerVar = "Owner", ToSay = "YO!2"}
           },
-          Damage = 0,
-          DamageVar = "RedCardDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.4,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              DamageByLevel = {
+                0,
+                0,
+                0,
+                0,
+                0
+              },
+              Damage = 0,
+              DamageVar = "RedCardDamage",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.4,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              DamageByLevel = {
+                0,
+                0,
+                0,
+                0,
+                0
+              },
+              Damage = 0,
+              DamageVar = "BonusDamage",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0.4,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBDebugSay,
+            Params = {OwnerVar = "Owner", ToSay = "YO!"}
+          }
         }
       }
     }
