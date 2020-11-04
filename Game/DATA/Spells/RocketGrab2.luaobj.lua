@@ -10,9 +10,11 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       TargetVar = "LandPos",
-      Speed = 1350,
+      Speed = 1800,
       Gravity = 5,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER
     }
   }
 }

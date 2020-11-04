@@ -129,6 +129,13 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       Cost = 0
     }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -336,6 +343,23 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "twitch_invis_cas.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
           SrcValue = 0,
@@ -432,6 +456,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "hideinshadows_internal"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_invis_cas.troy"
     }
   }
 }

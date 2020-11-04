@@ -42,7 +42,7 @@ ItemOnHitUnitBuildingBlocks = {
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
                           NumberStacks = 1,
-                          Duration = 2.5,
+                          Duration = 2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
                         }
@@ -63,7 +63,7 @@ ItemOnHitUnitBuildingBlocks = {
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
                           NumberStacks = 1,
-                          Duration = 2.5,
+                          Duration = 2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
                         }
@@ -80,7 +80,7 @@ ItemOnHitUnitBuildingBlocks = {
                       BuffType = BUFF_Slow,
                       MaxStack = 1,
                       NumberStacks = 1,
-                      Duration = 2.5,
+                      Duration = 2,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
                     }
@@ -97,6 +97,18 @@ ItemOnHitUnitBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "ItemSlow"}
+    Params = {
+      Name = "internal_40slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_30slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "itemslow"}
   }
 }

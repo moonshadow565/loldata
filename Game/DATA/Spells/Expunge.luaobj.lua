@@ -90,14 +90,16 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1
+              SpellDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Unit",
-              EffectName = "Expunge_tar.troy",
+              EffectName = "Expunge_tar_02.troy",
               Flags = 0,
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
@@ -109,31 +111,12 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBWhile,
+            Function = BBSpellBuffRemoveStacks,
             Params = {
-              Src1Var = "Count",
-              Value2 = 0,
-              CompareOp = CO_GREATER_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "Count",
-                  Src1Value = 0,
-                  Src2Value = 1,
-                  DestVar = "Count",
-                  MathOp = MO_SUBTRACT
-                }
-              },
-              {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "DeadlyVenom"
-                }
-              }
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "DeadlyVenom",
+              NumStacks = 0
             }
           }
         }
@@ -151,7 +134,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "expunge_tar.troy"
+      Name = "expunge_tar_02.troy"
     }
   }
 }

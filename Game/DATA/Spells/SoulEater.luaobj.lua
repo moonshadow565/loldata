@@ -76,15 +76,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               ValueVar = "CurrentLifesteal",
               Index = 1
             }
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "DamageBonus",
-              ValueVarTable = "CharVars",
-              Index = 3
-            }
           }
         }
       }

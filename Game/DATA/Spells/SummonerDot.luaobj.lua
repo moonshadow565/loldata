@@ -24,6 +24,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentPercentHPRegenMod,
+      TargetVar = "Owner",
+      Delta = -0.5
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -32,6 +40,14 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "DotPart",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentPercentHPRegenMod,
+      TargetVar = "Owner",
+      Delta = 0.5
     }
   }
 }
@@ -82,7 +98,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -169,6 +187,34 @@ TargetExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
+    }
+  }
+}
+BuffOnHealBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Health",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Health",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "EffectiveHeal",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetReturnValue,
+        Params = {
+          SrcVar = "EffectiveHeal"
+        }
+      }
     }
   }
 }

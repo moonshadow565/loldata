@@ -27,6 +27,51 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 500,
+          Flags = "AffectFriends AffectHeroes NotAffectSelf ",
+          IteratorVar = "Unit"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetLevel,
+            Params = {TargetVar = "Unit", DestVar = "UnitLevel"}
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "OwnerLevel",
+              Src2Var = "UnitLevel",
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBIncExp,
+                Params = {TargetVar = "Unit", Delta = 5}
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 CharOnActivateBuildingBlocks = {

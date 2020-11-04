@@ -1,15 +1,11 @@
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
-      AttackerVar = "Owner",
+      CasterVar = "Owner",
       BuffName = "MalphiteShieldBeenHit"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    },
     SubBlocks = {
       {
         Function = BBSpellBuffAdd,
@@ -31,10 +27,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.1,
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -116,7 +112,7 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MalphiteShield",
       BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 25000,

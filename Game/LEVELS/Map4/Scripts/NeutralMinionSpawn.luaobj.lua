@@ -437,6 +437,7 @@ function L0()
   L1[1] = L2
   L1[2] = L3
   L0.GroupsChance = L1
+  L0.GroupDelaySpawnTime = 0
   L3 = PredefinedCamps
   L3 = L3[2]
   L1[1] = L2
@@ -446,6 +447,7 @@ function L0()
   L1[1] = L2
   L1[2] = L3
   L0.GroupsChance = L1
+  L0.GroupDelaySpawnTime = 0
   L3 = PredefinedCamps
   L3 = L3[4]
   L1[1] = L2
@@ -455,6 +457,7 @@ function L0()
   L1[1] = L2
   L1[2] = L3
   L0.GroupsChance = L1
+  L0.GroupDelaySpawnTime = 0
   L3 = PredefinedCamps
   L3 = L3[4]
   L1[1] = L2
@@ -464,6 +467,7 @@ function L0()
   L1[1] = L2
   L1[2] = L3
   L0.GroupsChance = L1
+  L0.GroupDelaySpawnTime = 0
   L3 = PredefinedCamps
   L3 = L3[6]
   L1[1] = L2
@@ -474,8 +478,9 @@ function L0()
   L1[2] = L3
   L0.GroupsChance = L1
   L0.RespawnTime = 180
+  L0.GroupDelaySpawnTime = 15
   L3 = PredefinedCamps
-  L3 = L3[6]
+  L3 = L3[5]
   L1[1] = L2
   L1[2] = L3
   L0.Groups = L1
@@ -484,6 +489,7 @@ function L0()
   L1[2] = L3
   L0.GroupsChance = L1
   L0.RespawnTime = 180
+  L0.GroupDelaySpawnTime = 15
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
@@ -495,11 +501,13 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.RespawnTime = 240
+  L0.GroupDelaySpawnTime = 50
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
   L0.RespawnTime = 180
+  L0.GroupDelaySpawnTime = 15
 end
 NeutralMinionInit = L0
 function L0(A0)
@@ -582,24 +590,37 @@ function L0(A0)
     L2 = 0
     L3 = false
     for L7 = L4, L5, L6 do
-      if L1 <= L8 and L3 == false then
+      if 0 < L8 and L3 == false then
         L3 = true
         L8.AliveTracker = L9
         for L11 = L8, L9, L10 do
-          L12 = SpawnNeutralMinion
-          L13 = NeutralMinionCamps
-          L13 = L13[A0]
-          L14 = A0
-          L15 = L7
-          L16 = L11
-          L12(L13, L14, L15, L16)
           L12 = NeutralMinionCamps
           L12 = L12[A0]
           L12 = L12.AliveTracker
           L12[L11] = true
         end
+        L11 = false
+        L8(L9, L10, L11)
+      else
+        if L1 <= L8 and L3 == false then
+          L3 = true
+          L8.AliveTracker = L9
+          for L11 = L8, L9, L10 do
+            L12 = SpawnNeutralMinion
+            L13 = NeutralMinionCamps
+            L13 = L13[A0]
+            L14 = A0
+            L15 = L7
+            L16 = L11
+            L12(L13, L14, L15, L16)
+            L12 = NeutralMinionCamps
+            L12 = L12[A0]
+            L12 = L12.AliveTracker
+            L12[L11] = true
+          end
+        end
+        L2 = L2 + L8
       end
-      L2 = L2 + L8
     end
   end
 end

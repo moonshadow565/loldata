@@ -159,15 +159,57 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBGetChampionBySkinName,
+    Params = {
+      Skin = "Jester",
+      Team = TEAM_UNKNOWN,
+      TeamVar = "teamID",
+      DestVar = "Caster"
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Caster",
+      DestVar = "TotalDamage"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
-      Src1Var = "DamageAmount",
+      Src1Var = "TotalDamage",
       Src2Var = "DamageDealt",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "DamageAmount",
+      DestVar = "TotalDamage",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Caster",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "TotalDamage",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = true,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -258,6 +300,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hallucinate_nova.troy"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "jester"}
   },
   {
     Function = BBPreloadSpell,

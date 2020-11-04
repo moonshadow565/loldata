@@ -24,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = -0.65
+      Delta = -0.5
     }
   },
   {
@@ -41,7 +41,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = 0.65
+      Delta = 0.5
     }
   }
 }
@@ -55,7 +55,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PERIODIC,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.1,
       IgnoreDamageIncreaseMods = false,
@@ -77,7 +77,7 @@ BuffOnHealBuildingBlocks = {
         Params = {
           Src1Var = "Health",
           Src1Value = 0,
-          Src2Value = 0.35,
+          Src2Value = 0.5,
           DestVar = "EffectiveHeal",
           MathOp = MO_MULTIPLY
         }

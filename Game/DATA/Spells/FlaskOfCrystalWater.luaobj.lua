@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Eggnog_Potion.dds"
+BuffTextureName = "2004_Flask_of_Crystal_Water.dds"
 BuffName = "Mana Potion"
 AutoBuffActivateEffect = "ManaPotion_itm.troy"
 BuffOnUpdateActionsBuildingBlocks = {

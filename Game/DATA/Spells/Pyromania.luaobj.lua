@@ -1,5 +1,5 @@
 BuffTextureName = "Annie_Brilliance.dds"
-BuffName = "PyromaniaCount"
+BuffName = "Pyromania"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetBuffCountFromCaster,

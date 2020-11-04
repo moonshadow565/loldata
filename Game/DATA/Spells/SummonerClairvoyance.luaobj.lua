@@ -182,8 +182,9 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 15,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
+      DurationVar = "Duration",
       TickRate = 0
     }
   }

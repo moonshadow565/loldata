@@ -34,26 +34,40 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Var = "StunDuration",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
+      DestVar = "WillRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Target"}
       },
       {
-        Function = BBApplyStun,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Target",
-          Duration = 0,
-          DurationVar = "StunDuration",
-          DurationVarTable = "InstanceVars"
+          Src1Var = "StunDuration",
+          Src1VarTable = "InstanceVars",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Target",
+              Duration = 0,
+              DurationVar = "StunDuration",
+              DurationVarTable = "InstanceVars"
+            }
+          }
         }
       }
     }
@@ -68,10 +82,6 @@ BuffOnHitUnitBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Target"}
-      },
-      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
@@ -82,17 +92,11 @@ BuffOnHitUnitBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
     }
   }
 }
@@ -176,7 +180,9 @@ BuffOnSpellHitBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }

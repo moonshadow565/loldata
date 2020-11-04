@@ -17,31 +17,39 @@ TargetExecuteBuildingBlocks = {
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
-    Function = BBIfNotHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "PickACard"
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIfNotHasBuff,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "CardmasterBasicAttack_tar.troy",
-          Flags = 0,
-          EffectIDVar = "arrm8y",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "PickACard"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "CardmasterBasicAttack_tar.troy",
+              Flags = 0,
+              EffectIDVar = "arrm8y",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }
@@ -94,19 +102,25 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "PickaCard_red_tar.troy",
-          Flags = 0,
-          EffectIDVar = "arrm8y",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "PickaCard_red_tar.troy",
+              Flags = 0,
+              EffectIDVar = "arrm8y",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
@@ -154,7 +168,9 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.4
+              SpellDamageRatio = 0.4,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }

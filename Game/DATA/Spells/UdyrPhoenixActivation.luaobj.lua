@@ -78,6 +78,87 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AbilityPowerInc",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        24,
+        36,
+        48,
+        60,
+        72
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackDamageInc",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        12,
+        18,
+        24,
+        30,
+        36
+      }
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AbilityPowerInc",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AttackDamageInc",
+      ValueVarTable = "InstanceVars",
+      Index = 2
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AttackDamageInc",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AbilityPowerInc",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

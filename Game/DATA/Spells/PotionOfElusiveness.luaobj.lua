@@ -77,7 +77,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatCritChanceMod,
       TargetVar = "Owner",
-      Delta = -0.2
+      Delta = -0.15
     }
   }
 }

@@ -366,7 +366,7 @@ SelfExecuteBuildingBlocks = {
       NumberStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0.1
     }
   }
 }
