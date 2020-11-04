@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_headshot_tar.troy"
+      Name = "caitlyn_Base_headshot_tar.troy"
     }
   },
   {

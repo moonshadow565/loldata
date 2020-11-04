@@ -5,7 +5,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_peacemaker_tar_02.troy"
+      Name = "caitlyn_base_peacemaker_tar_02.troy"
     }
   }
 }

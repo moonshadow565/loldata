@@ -105,7 +105,15 @@ function L0_0(A0_29, A1_30)
   L5_34 = L4_33[L5_34]
   L6_35 = "<font color=\""
   L6_35 = L6_35 .. L3_32 .. "\">"
-  L6_35 = L6_35 .. L2_31
+  if L2_31 == "" then
+    if A1_30.SrcVarTable ~= nil then
+      L6_35 = L6_35 .. A1_30.SrcVarTable .. "." .. (A1_30.SrcVar or "")
+    else
+      L6_35 = L6_35 .. (A1_30.SrcVar or "")
+    end
+  else
+    L6_35 = L6_35 .. L2_31
+  end
   if type(L5_34) ~= "table" and type(L5_34) ~= "nil" then
     L6_35 = L6_35 .. " " .. tostring(L5_34)
   end
