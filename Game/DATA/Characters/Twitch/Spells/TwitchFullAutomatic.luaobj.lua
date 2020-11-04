@@ -17,5 +17,6 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "GangsterTwitch",
-  "PunkTwitch"
+  "PunkTwitch",
+  "TwitchSkin06"
 }

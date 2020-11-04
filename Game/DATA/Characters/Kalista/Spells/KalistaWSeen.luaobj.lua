@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+IsDamagingSpell = true
+BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
+BuffName = "CaitlynYordleTrapSight"
+AutoBuffActivateEffect = "global_Watched.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

@@ -120,13 +120,14 @@ function L0(A0, A1)
 end
 EndOfGameCeremony = L0
 function L0(A0)
-  local L1, L2, L3, L4
+  local L1, L2, L3, L4, L5
   L1 = MoveCameraFromCurrentPositionToPoint
   L2 = A0
   L3 = losingHQPosition
   L4 = GetEoGPanToHQTime
   L4 = L4()
-  L1(L2, L3, L4)
+  L5 = true
+  L1(L2, L3, L4, L5)
   L1 = SetGreyscaleEnabledWhenDead
   L2 = A0
   L3 = false

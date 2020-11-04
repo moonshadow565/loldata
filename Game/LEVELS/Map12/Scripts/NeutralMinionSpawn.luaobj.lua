@@ -248,7 +248,7 @@ function L0()
     L5 = L5[L4]
     L5.MinimapIcon = ""
   end
-  if L0 == "ARAM" then
+  if L0 == "ARAM" or L0 == "KINGPORO" then
     L2[1] = L3
     L1.Groups = L2
     L2[1] = L3

@@ -1,3 +1,3 @@
 BuffTextureName = "Averdrian_AstralBeam.dds"
-BuffName = "Exalted with Baron Nashor"
+BuffName = "HandOfBaron"
 NonDispellable = true

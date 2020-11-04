@@ -1,0 +1,8 @@
+BuffTextureName = "Maokai_SapMagicReady.dds"
+BuffName = "MaokaiSapMagicMelee"
+AutoBuffActivateEffect = "Maokai_Base_P_Left_Eye.troy"
+AutoBuffActivateAttachBoneName = "BUFFBONE_CSTM_SHIELDEYE_L"
+AutoBuffActivateEffect2 = "Maokai_Base_P_Right_Eye.troy"
+AutoBuffActivateAttachBoneName2 = "BUFFBONE_CSTM_SHIELDEYE_R"
+AutoBuffActivateEffect3 = "Maokai_Base_P_cas.troy"
+AutoBuffActivateAttachBoneName3 = "L_BUFFBONE_GLB_HAND_LOC"

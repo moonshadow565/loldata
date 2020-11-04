@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Summoner_haste.dds"
+BuffName = "ItemPoachersKnifeSpeed"
+AutoBuffActivateEffect = "Boots_Homeguard.troy"
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

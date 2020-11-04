@@ -1,2 +1,2 @@
-BuffTextureName = "Maokai_SapMagic.dds"
+BuffTextureName = "Maokai_Passive.dds"
 BuffName = "MaokaiSapMagicHot"

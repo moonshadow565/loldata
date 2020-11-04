@@ -31,34 +31,40 @@ function L0(A0, A1)
   L3 = TEAM_ORDER
   L2 = L2(L3)
   orderHQ = L2
-  L2 = SetInvulnerable
-  L3 = orderHQ
-  L4 = true
-  L2(L3, L4)
-  L2 = SetTargetable
-  L3 = orderHQ
-  L4 = false
-  L2(L3, L4)
-  L2 = SetBuildingHealthRegenEnabled
-  L3 = orderHQ
-  L4 = false
-  L2(L3, L4)
+  L2 = orderHQ
+  if L2 ~= nil then
+    L2 = SetInvulnerable
+    L3 = orderHQ
+    L4 = true
+    L2(L3, L4)
+    L2 = SetTargetable
+    L3 = orderHQ
+    L4 = false
+    L2(L3, L4)
+    L2 = SetBuildingHealthRegenEnabled
+    L3 = orderHQ
+    L4 = false
+    L2(L3, L4)
+  end
   L2 = GetHQ
   L3 = TEAM_CHAOS
   L2 = L2(L3)
   chaosHQ = L2
-  L2 = SetInvulnerable
-  L3 = chaosHQ
-  L4 = true
-  L2(L3, L4)
-  L2 = SetTargetable
-  L3 = chaosHQ
-  L4 = false
-  L2(L3, L4)
-  L2 = SetBuildingHealthRegenEnabled
-  L3 = chaosHQ
-  L4 = false
-  L2(L3, L4)
+  L2 = chaosHQ
+  if L2 ~= nil then
+    L2 = SetInvulnerable
+    L3 = chaosHQ
+    L4 = true
+    L2(L3, L4)
+    L2 = SetTargetable
+    L3 = chaosHQ
+    L4 = false
+    L2(L3, L4)
+    L2 = SetBuildingHealthRegenEnabled
+    L3 = chaosHQ
+    L4 = false
+    L2(L3, L4)
+  end
   L2 = CloseShop
   L2()
   L2 = LuaForEachChampion
@@ -74,13 +80,14 @@ function L0(A0, A1)
 end
 CheatEndOfGameCeremonyServer = L0
 function L0(A0)
-  local L1, L2, L3, L4
+  local L1, L2, L3, L4, L5
   L1 = MoveCameraFromCurrentPositionToPoint
   L2 = A0
   L3 = losingHQPosition
   L4 = GetEoGPanToHQTime
   L4 = L4()
-  L1(L2, L3, L4)
+  L5 = true
+  L1(L2, L3, L4, L5)
   L1 = SetGreyscaleEnabledWhenDead
   L2 = A0
   L3 = false

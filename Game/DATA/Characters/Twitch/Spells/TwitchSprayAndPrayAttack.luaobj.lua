@@ -9,5 +9,6 @@ AutoBuffActivateEffect4 = "Twitch_Base_R_Buff.troy"
 AutoBuffActivateAttachBoneName4 = "c_buffbone_glb_layout_loc"
 SpellFXOverrideSkins = {
   "GangsterTwitch",
-  "PunkTwitch"
+  "PunkTwitch",
+  "TwitchSkin06"
 }
