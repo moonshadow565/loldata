@@ -38,6 +38,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "howlingabyssturretanimdelay"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "testturretlock"
     }
   }
