@@ -64,7 +64,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -103,12 +103,27 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
+          AttackerVar = "Target",
+          BuffName = "Internal_50MS",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffName = "BouncingBladeMS",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffName = "GrievousWound",
+          BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -184,7 +199,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -216,7 +231,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -437,7 +452,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bouncingbladems"
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   },
   {

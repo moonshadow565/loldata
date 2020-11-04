@@ -35,24 +35,6 @@ OnBuffActivateBuildingBlocks = {
       AutoAttackSpellLevel = 1,
       CancelAttack = true
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      Flags = 0,
-      EffectIDVar = "ParticleID",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "weapon_b4",
-      TargetObjectVar = "Owner",
-      TargetBoneName = "weapon_b1",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -117,13 +99,6 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       State = false
     }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "ParticleID",
-      EffectIDVarTable = "InstanceVars"
-    }
   }
 }
 SelfExecuteBuildingBlocks = {
@@ -149,7 +124,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

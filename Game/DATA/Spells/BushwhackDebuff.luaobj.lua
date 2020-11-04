@@ -116,7 +116,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBAddUnitPerceptionBubble,
     Params = {
       TeamVar = "Team",
-      Radius = 30,
+      Radius = 50,
       TargetVar = "Owner",
       Duration = 20,
       SpecificUnitsClientOnlyVar = "Nothing",
@@ -235,6 +235,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

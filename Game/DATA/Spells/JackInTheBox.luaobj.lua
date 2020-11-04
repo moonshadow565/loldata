@@ -113,6 +113,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -200,11 +201,19 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIfNotHasBuff,
+            Function = BBGetBuffCountFromAll,
             Params = {
-              OwnerVar = "Owner",
-              CasterVar = "Owner",
-              BuffName = "EndKill"
+              DestVar = "Count",
+              TargetVar = "Owner",
+              BuffName = "Taunt"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 0,
+              CompareOp = CO_EQUAL
             },
             SubBlocks = {
               {
@@ -223,11 +232,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBApplyTaunt,
+                    Function = BBIssueOrder,
                     Params = {
-                      AttackerVar = "Unit",
-                      TargetVar = "Owner",
-                      Duration = 0.01
+                      WhomToOrderVar = "Owner",
+                      TargetOfOrderVar = "Unit",
+                      Order = AI_ATTACKTO
                     }
                   },
                   {
@@ -280,7 +289,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                             Params = {
                               AttackerVar = "Unit",
                               TargetVar = "Owner",
-                              Duration = 0.01
+                              Duration = 5
                             }
                           }
                         }
@@ -448,6 +457,10 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "stealth"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "taunt"}
   },
   {
     Function = BBPreloadSpell,

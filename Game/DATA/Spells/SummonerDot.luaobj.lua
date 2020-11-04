@@ -24,14 +24,6 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentPercentHPRegenMod,
-      TargetVar = "Owner",
-      Delta = -0.5
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -40,14 +32,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "DotPart",
       EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentPercentHPRegenMod,
-      TargetVar = "Owner",
-      Delta = 0.5
     }
   }
 }
@@ -183,38 +167,40 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
-  }
-}
-BuffOnHealBuildingBlocks = {
+  },
   {
-    Function = BBIf,
+    Function = BBSpellBuffAdd,
     Params = {
-      Src1Var = "Health",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Health",
-          Src1Value = 0,
-          Src2Value = 0.5,
-          DestVar = "EffectiveHeal",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetReturnValue,
-        Params = {
-          SrcVar = "EffectiveHeal"
-        }
-      }
+      TargetVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "Internal_50MS",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "GrievousWound",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }
@@ -229,6 +215,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   }
 }

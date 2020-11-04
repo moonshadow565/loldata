@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-ChannelDuration = 1.5
+ChannelDuration = 1
 BuffTextureName = "GragasDrunkenRage.dds"
 BuffName = "GragasDrunkenRage"
 AutoBuffActivateEffect = "gragas_drunkenRage_attack_buf.troy"
@@ -106,11 +106,11 @@ ChannelingSuccessStopBuildingBlocks = {
       DestVar = "DamageIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        20,
         30,
         40,
         50,
-        60
+        60,
+        70
       }
     }
   },
@@ -138,7 +138,7 @@ ChannelingSuccessStopBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 25,
+      Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

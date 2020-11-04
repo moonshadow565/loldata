@@ -100,10 +100,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        50,
         70,
-        90,
-        110,
+        85,
+        100,
+        115,
         130
       }
     }
@@ -157,7 +157,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 4,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -185,7 +185,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.33,
+              SpellDamageRatio = 0.38,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -206,7 +206,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.33,
+              SpellDamageRatio = 0.38,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -281,7 +281,7 @@ TargetExecuteBuildingBlocks = {
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0.2475,
+                      SpellDamageRatio = 0.247,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

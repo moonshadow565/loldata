@@ -73,6 +73,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -106,7 +107,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 1.2
+      Duration = 1
     }
   }
 }

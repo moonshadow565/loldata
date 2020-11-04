@@ -24,6 +24,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -80,7 +81,37 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
+              Duration = 10,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "Internal_50MS",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 10,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "GrievousWound",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_CombatDehancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -96,6 +127,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "scurvystrikeparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   }
 }

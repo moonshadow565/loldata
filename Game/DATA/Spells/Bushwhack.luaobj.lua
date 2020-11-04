@@ -96,15 +96,9 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBRemovePerceptionBubble,
-    Params = {
-      BubbleIDVar = "bubble",
-      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
@@ -200,7 +194,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 12,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -364,7 +358,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

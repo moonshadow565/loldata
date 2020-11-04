@@ -68,48 +68,6 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
-      DestVar = "SpellCD2",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Target",
-      Function = GetSlotSpellCooldownTime
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SpellCD2",
-      Src1Value = 0,
-      Src2Value = -10,
-      DestVar = "SpellCD2a",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SpellCD2a",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "SpellCD2b",
-      MathOp = MO_MAX
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcVar = "SpellCD2b",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 1,
-      OwnerVar = "Target"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
       DestVar = "SpellCD3",
       SpellSlotValue = 2,
       SpellbookType = SPELLBOOK_CHAMPION,
