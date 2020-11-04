@@ -103,16 +103,44 @@ BuffOnDealDamageBuildingBlocks = {
                       CenterVar = "Owner",
                       Range = 350,
                       Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-                      IteratorVar = "Unit"
+                      IteratorVar = "Unit",
+                      InclusiveBuffFilter = true
                     },
                     SubBlocks = {
                       {
-                        Function = BBIncHealth,
+                        Function = BBGetPAROrHealth,
                         Params = {
-                          TargetVar = "Unit",
-                          Delta = 0,
-                          DeltaVar = "HealAmount",
-                          HealerVar = "Owner"
+                          DestVar = "Temp1",
+                          OwnerVar = "Target",
+                          Function = GetHealthPercent,
+                          PARType = PAR_MANA
+                        }
+                      },
+                      {
+                        Function = BBIf,
+                        Params = {
+                          Src1Var = "Temp1",
+                          Value2 = 1,
+                          CompareOp = CO_LESS_THAN
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBIncHealth,
+                            Params = {
+                              TargetVar = "Unit",
+                              Delta = 0,
+                              DeltaVar = "HealAmount",
+                              HealerVar = "Owner"
+                            }
+                          },
+                          {
+                            Function = BBApplyAssistMarker,
+                            Params = {
+                              Duration = 10,
+                              TargetVar = "Unit",
+                              SourceVar = "Owner"
+                            }
+                          }
                         }
                       },
                       {
@@ -186,9 +214,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Cannibalism",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

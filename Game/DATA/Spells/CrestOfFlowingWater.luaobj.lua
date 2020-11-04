@@ -24,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.45
+      Delta = 0.3
     }
   }
 }
@@ -41,7 +41,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = -0.45
+      Delta = -0.3
     }
   }
 }
@@ -113,6 +113,7 @@ BuffOnDeathBuildingBlocks = {
               TargetVar = "Attacker",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,

@@ -39,14 +39,15 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Spell2",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   }
 }
 CanCastBuildingBlocks = {
@@ -119,12 +120,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -140,6 +143,16 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 3,
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
     }
   }
 }
@@ -178,7 +191,8 @@ BuffOnMoveEndBuildingBlocks = {
       CenterVar = "Owner",
       Range = 225,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {

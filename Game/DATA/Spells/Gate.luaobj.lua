@@ -227,40 +227,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
-      }
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -401,6 +367,7 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,

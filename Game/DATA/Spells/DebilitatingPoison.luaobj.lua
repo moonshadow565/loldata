@@ -12,6 +12,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -71,7 +79,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 1200,
       Flags = "AffectEnemies AffectNeutral AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -84,6 +93,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,

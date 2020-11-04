@@ -3,10 +3,10 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = false
 IsDamagingSpell = false
+BuffTextureName = "Minotaur_TriumphantRoar.dds"
 BuffName = "MoveAway"
 Nondispellable = true
 PopupMessage1 = "game_floatingtext_Knockup"
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -58,7 +58,18 @@ OnBuffActivateBuildingBlocks = {
       SpeedVarTable = "InstanceVars",
       GravityVar = "Gravity",
       GravityVarTable = "InstanceVars",
-      DistanceInner = 0
+      DistanceInner = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }

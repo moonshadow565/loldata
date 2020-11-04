@@ -51,12 +51,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -97,9 +99,10 @@ ChannelingSuccessStopBuildingBlocks = {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
-      TargetVar = "Owner",
+      TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
       SlotNumber = 1,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -143,12 +146,76 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Pantheon_Grandskyfall",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "SmnCooldown0",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "SmnCooldown1",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SmnCooldown0",
+      Value2 = 2.75,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 2.75,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SmnCooldown1",
+      Value2 = 2.75,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTimeVer2,
+        Params = {
+          Src = 2.75,
+          SlotNumber = 1,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          OwnerVar = "Owner"
+        }
+      }
     }
   }
 }
@@ -156,7 +223,7 @@ ChannelingCancelStopBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 25,
+      Src = 10,
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
@@ -190,6 +257,7 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaRefund"
     }
   },

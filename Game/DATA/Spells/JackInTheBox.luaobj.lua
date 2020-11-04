@@ -170,6 +170,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Stealth",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -228,7 +229,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Range = 400,
                   Flags = "AffectEnemies AffectHeroes ",
                   IteratorVar = "Unit",
-                  MaximumUnitsToPick = 1
+                  MaximumUnitsToPick = 1,
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -269,7 +271,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       Range = 400,
                       Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectTurrets ",
                       IteratorVar = "Unit",
-                      MaximumUnitsToPick = 1
+                      MaximumUnitsToPick = 1,
+                      InclusiveBuffFilter = true
                     },
                     SubBlocks = {
                       {
@@ -353,6 +356,7 @@ BuffOnPreAttackBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "EndKill",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -368,7 +372,8 @@ BuffOnPreAttackBuildingBlocks = {
           CenterVar = "Owner",
           Range = 400,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -438,6 +443,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "JackInTheBoxInternal",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,

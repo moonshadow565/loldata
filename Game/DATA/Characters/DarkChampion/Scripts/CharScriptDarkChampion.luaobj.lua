@@ -73,12 +73,14 @@ UpdateSelfBuffStatsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BloodlustMarker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -93,24 +95,24 @@ SetVarsByLevelBuildingBlocks = {
       DestVar = "CritChanceMultiplier",
       DestVarTable = "CharVars",
       SrcValueByLevel = {
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
       }
     }
   }
@@ -210,7 +212,8 @@ CharOnSpellCastBuildingBlocks = {
           CenterVar = "Owner",
           Range = 800,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -228,12 +231,14 @@ CharOnSpellCastBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "FacingMe",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -256,31 +261,18 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "BattleFury",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -290,12 +282,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -313,10 +307,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "facingme"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "battlefury"}
   },
   {
     Function = BBPreloadSpell,

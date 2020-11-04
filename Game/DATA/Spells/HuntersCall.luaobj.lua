@@ -21,6 +21,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "AttackSpeedOther",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -68,11 +76,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedVar",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.4,
         0.5,
-        0.55,
         0.6,
-        0.65,
-        0.7
+        0.7,
+        0.8
       }
     }
   },
@@ -82,11 +90,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedOther",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.2,
         0.25,
-        0.275,
         0.3,
-        0.325,
-        0.35
+        0.35,
+        0.4
       }
     }
   },
@@ -95,9 +103,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 20000,
+      Range = 1200,
       Flags = "AffectFriends AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -106,6 +115,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,

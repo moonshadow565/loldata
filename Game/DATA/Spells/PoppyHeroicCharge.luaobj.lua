@@ -99,14 +99,19 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "RunUlt",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = true
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "RunUlt", TargetVar = "Owner"}
+    Params = {
+      AnimationName = "RunUlt",
+      TargetVar = "Owner",
+      Blend = false
+    }
   },
   {
     Function = BBSpellEffectRemove,
@@ -264,6 +269,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -280,6 +286,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "PoppyHeroicChargePoppyFix",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -297,6 +304,7 @@ BuffOnMoveEndBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "PoppyHeroicChargePart2Fix",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -351,6 +359,7 @@ BuffOnMoveEndBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.8,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -365,7 +374,7 @@ BuffOnMoveEndBuildingBlocks = {
           },
           {
             Function = BBUnlockAnimation,
-            Params = {OwnerVar = "Owner"}
+            Params = {OwnerVar = "Owner", Blend = false}
           },
           {
             Function = BBSpellBuffAdd,
@@ -374,6 +383,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "PoppyHeroicChargeCheck",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -411,7 +421,8 @@ BuffOnMoveEndBuildingBlocks = {
               CenterVar = "Owner",
               Range = 325,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -442,6 +453,7 @@ BuffOnMoveEndBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_SPELL,
                           PercentOfAttack = 1,
                           SpellDamageRatio = 0.4,
+                          PhysicalDamageRatio = 1,
                           IgnoreDamageIncreaseMods = false,
                           IgnoreDamageCrit = false
                         }
@@ -496,6 +508,7 @@ BuffOnMoveEndBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "PoppyHeroicChargePart2",
                           BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
                           NumberOfStacks = 1,
@@ -511,6 +524,7 @@ BuffOnMoveEndBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "PoppyHeroicChargePart2",
                           BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Stun,
                           MaxStack = 1,
                           NumberOfStacks = 1,
@@ -532,6 +546,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "PoppyHeroicChargeCheck",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -541,6 +556,52 @@ BuffOnMoveEndBuildingBlocks = {
             }
           }
         }
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }

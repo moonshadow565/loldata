@@ -493,17 +493,6 @@ function L0()
   L11 = 0
   L1(L2, L3, L4, L5, L6, L7, L8, L9, L10, L11)
   L1 = LogTutorial
-  L2 = "Creating initial items"
-  L1(L2)
-  L1 = CreateItem
-  L2 = playerID
-  L3 = 1029
-  L1(L2, L3)
-  L1 = CreateItem
-  L2 = playerID
-  L3 = 1031
-  L1(L2, L3)
-  L1 = LogTutorial
   L2 = "Incrementing base bold"
   L1(L2)
   L1 = IncGold
@@ -1046,6 +1035,17 @@ end
 KillStartingMinions = L0
 function L0()
   local L0, L1, L2, L3, L4, L5
+  L0 = LogTutorial
+  L1 = "Creating initial items"
+  L0(L1)
+  L0 = CreateItem
+  L1 = playerID
+  L2 = 1029
+  L0(L1, L2)
+  L0 = CreateItem
+  L1 = playerID
+  L2 = 1031
+  L0(L1, L2)
   L0 = LogTutorial
   L1 = "Setting up Welcome event."
   L0(L1)

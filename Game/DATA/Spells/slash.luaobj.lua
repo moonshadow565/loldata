@@ -66,14 +66,15 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Spell2",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = true
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBIf,
@@ -150,7 +151,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 185,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -176,12 +178,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "SlashBeenHit",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -200,6 +204,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = true
                 }
@@ -274,6 +279,52 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }
@@ -430,22 +481,8 @@ SelfExecuteBuildingBlocks = {
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetMovementSpeed,
-      TargetVar = "Owner",
-      DestVar = "MoveSpeed"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MoveSpeed",
-      Src1Value = 0,
-      Src2Value = 300,
-      DestVar = "SlashSpeed",
-      MathOp = MO_ADD
-    }
+    Function = BBSetVarInTable,
+    Params = {DestVar = "SlashSpeed", SrcValue = 900}
   },
   {
     Function = BBMath,
@@ -498,13 +535,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

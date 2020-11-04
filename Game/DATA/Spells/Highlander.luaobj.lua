@@ -174,6 +174,192 @@ BuffOnKillBuildingBlocks = {
     }
   }
 }
+BuffOnAssistBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AlphaStrikeCD",
+          SrcValueByLevel = {
+            9,
+            8,
+            7,
+            6,
+            5
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WujuStyleCD",
+          SrcValue = 12.5
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HighlanderCD",
+          SrcValue = 37.5
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "MeditateCD", SrcValue = 22.5}
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "ASCDLeft",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "MedCDLeft",
+          SpellSlotValue = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "WujuCDLeft",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "HighCDLeft",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ASCDLeft",
+          Src2Var = "AlphaStrikeCD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "ASCDFinal",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MedCDLeft",
+          Src2Var = "MeditateCD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "MedCDFinal",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "WujuCDLeft",
+          Src2Var = "WujuStyleCD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "WujuCDFinal",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "HighCDLeft",
+          Src2Var = "HighlanderCD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "HighCDFinal",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "ASCDFinal",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "MedCDFinal",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "WujuCDFinal",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 2,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "HighCDFinal",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 3,
+          OwnerVar = "Owner"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "DeathsCaress_nova.troy",
+          Flags = 0,
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
@@ -210,9 +396,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Haste,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
@@ -220,7 +407,8 @@ TargetExecuteBuildingBlocks = {
         9,
         12
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

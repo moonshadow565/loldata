@@ -20,15 +20,203 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSay,
+        Function = BBIf,
         Params = {
-          OwnerVar = "Owner",
-          ToSay = "game_lua_BlackShield_immune"
+          Src1Var = "Type",
+          Value2 = BUFF_CombatDehancer,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
         }
       },
       {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = true}
+          }
+        }
       }
     }
   },
@@ -73,6 +261,14 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "ShieldHealth",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -235,9 +431,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_SpellImmunity,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {

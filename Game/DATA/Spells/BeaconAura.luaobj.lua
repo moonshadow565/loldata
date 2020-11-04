@@ -16,20 +16,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "WillPumpAP",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "FinalHPRegen",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -57,6 +43,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -101,24 +88,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillPumpAP",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "WillPumpAP",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "FinalHPRegen",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "FinalHPRegen",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBForEachUnitInTargetAreaAddBuff,
         Params = {
           AttackerVar = "Owner",
@@ -133,7 +102,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffNumberOfStacks = 1,
           BuffDuration = 1.1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          InclusiveBuffFilter = true
         }
       }
     }

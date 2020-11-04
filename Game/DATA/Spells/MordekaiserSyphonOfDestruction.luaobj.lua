@@ -73,6 +73,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Target",
       BuffName = "MordekaiserSyphonDmg",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 100,
       NumberOfStacks = 1,
@@ -86,11 +87,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealAmount",
       SrcValueByLevel = {
-        8,
+        6,
+        9,
         12,
-        16,
-        20,
-        24
+        15,
+        18
       }
     }
   },
@@ -110,6 +111,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MordekaiserSyphonParticle",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,

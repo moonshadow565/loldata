@@ -4,13 +4,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "WillPumpAP",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "FinalHPRegen",
       RequiredVarTable = "InstanceVars"
     }
@@ -39,7 +32,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "OwnerLevel",
-      Src1Value = 1.475,
+      Src1Value = 0.883,
       Src2Value = 0,
       DestVar = "DamageMod",
       DestVarTable = "InstanceVars",
@@ -51,7 +44,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src2Var = "DamageMod",
       Src2VarTable = "InstanceVars",
-      Src1Value = 8.6,
+      Src1Value = 9.117,
       Src2Value = 0,
       DestVar = "DamageMod",
       DestVarTable = "InstanceVars",
@@ -59,34 +52,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBMath,
     Params = {
+      Src1Var = "DamageMod",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 2,
       DestVar = "ApMod",
       DestVarTable = "InstanceVars",
-      SrcValue = 0
+      MathOp = MO_MULTIPLY
     }
   },
   {
-    Function = BBIf,
+    Function = BBApplyAssistMarker,
     Params = {
-      Src1Var = "WillPumpAP",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageMod",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "ApMod",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_MULTIPLY
-        }
-      }
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -109,29 +91,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "ApMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "FinalHPRegen",
-          DeltaVarTable = "InstanceVars",
-          HealerVar = "Attacker"
-        }
-      }
     }
   }
 }

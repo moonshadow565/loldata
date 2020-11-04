@@ -34,7 +34,18 @@ OnBuffActivateBuildingBlocks = {
       Speed = 1200,
       Gravity = 20,
       Distance = 800,
-      DistanceInner = 0
+      DistanceInner = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }

@@ -114,6 +114,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Caster"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -207,6 +215,7 @@ BuffOnMoveEndBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -232,6 +241,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "PoppyHeroicChargePart2Check",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,

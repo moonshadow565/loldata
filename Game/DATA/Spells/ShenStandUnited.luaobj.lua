@@ -43,6 +43,7 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -56,9 +57,9 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "baseShieldHealth",
       SrcValueByLevel = {
-        400,
-        600,
-        800
+        300,
+        525,
+        750
       }
     }
   },
@@ -96,10 +97,11 @@ ChannelingStartBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ShenStandUnitedShield",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8.5,
+      Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -129,10 +131,11 @@ ChannelingStartBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ShenStandUnitedShield",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8.5,
+      Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -144,6 +147,7 @@ ChannelingStartBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ShenStandUnitedTarget",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -170,18 +174,6 @@ ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBTeleportToPosition,
     Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
-  }
-}
-ChannelingCancelStopBuildingBlocks = {
-  {
-    Function = BBSetSlotSpellCooldownTimeVer2,
-    Params = {
-      Src = 60,
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
-    }
   }
 }
 PreLoadBuildingBlocks = {

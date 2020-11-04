@@ -84,14 +84,15 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Spell2",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = true
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBIf,
@@ -262,6 +263,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "DangerZone",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Damage,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -290,6 +292,50 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -317,11 +363,33 @@ CanCastBuildingBlocks = {
         }
       },
       {
+        Function = BBGetStatus,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "CanCast",
+          Status = GetCanCast
+        }
+      },
+      {
         Function = BBIf,
         Params = {
           Src1Var = "CanMove",
           Value2 = false,
           CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CanCast",
+          Value2 = true,
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
@@ -494,6 +562,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -510,6 +579,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ValkyrieSound",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,

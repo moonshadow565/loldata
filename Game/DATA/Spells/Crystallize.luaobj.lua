@@ -83,9 +83,18 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 150,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
+      {
+        Function = BBGetStatus,
+        Params = {
+          TargetVar = "Unit",
+          DestVar = "ghosted",
+          Status = GetGhosted
+        }
+      },
       {
         Function = BBIf,
         Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
@@ -157,18 +166,29 @@ OnBuffActivateBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "CrystallizePush",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Stun,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 0.25,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          Src1Var = "ghosted",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "CrystallizePush",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Stun,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0.25,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
         }
       },
       {
@@ -180,7 +200,10 @@ OnBuffActivateBuildingBlocks = {
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 0,
-          SpellDamageRatio = 0
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -204,7 +227,10 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -407,9 +433,10 @@ SelfExecuteBuildingBlocks = {
               TargetVar = "Other2",
               AttackerVar = "Owner",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -432,6 +459,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "crystallize"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "iceblock"}
   },
   {
     Function = BBPreloadCharacter,

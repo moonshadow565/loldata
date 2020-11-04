@@ -1,6 +1,6 @@
-BuffTextureName = ""
+BuffTextureName = "GSB_taunt.dds"
 BuffName = "Taunt"
-AutoBuffActivateEffect = "GLOBAL_TAUNT.TROY"
+AutoBuffActivateEffect = "Global_Taunt_multi_unit.troy"
 AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Taunted"
 OnBuffActivateBuildingBlocks = {
@@ -10,6 +10,14 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetTaunted
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }

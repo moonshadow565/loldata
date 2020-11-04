@@ -354,12 +354,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -401,11 +403,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "ShieldAmount",
       SrcValueByLevel = {
-        65,
-        110,
-        155,
-        200,
-        245
+        60,
+        100,
+        140,
+        180,
+        220
       }
     }
   },
@@ -435,12 +437,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "UdyrTurtleActivation",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

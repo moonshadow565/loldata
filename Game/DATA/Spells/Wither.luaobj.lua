@@ -20,6 +20,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "SpeedMod",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -106,6 +114,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
       NumberOfStacks = 1,

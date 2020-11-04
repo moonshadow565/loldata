@@ -10,8 +10,8 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetRooted
+      SrcValue = false,
+      Status = SetCanMove
     }
   },
   {
@@ -55,6 +55,14 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -62,8 +70,8 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetRooted
+      SrcValue = true,
+      Status = SetCanMove
     }
   }
 }
@@ -72,8 +80,8 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetRooted
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }
@@ -135,7 +143,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               CenterVar = "Target",
               Range = 300,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -203,7 +212,8 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Snare,
+      StacksExclusive = true,
+      BuffType = BUFF_Net,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,

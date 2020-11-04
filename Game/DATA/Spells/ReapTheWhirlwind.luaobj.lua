@@ -129,13 +129,40 @@ OnBuffActivateBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIncHealth,
+            Function = BBGetPAROrHealth,
             Params = {
-              TargetVar = "Unit",
-              Delta = 0,
-              DeltaVar = "TickAmount",
-              DeltaVarTable = "InstanceVars",
-              HealerVar = "Owner"
+              DestVar = "Temp1",
+              OwnerVar = "Unit",
+              Function = GetHealthPercent,
+              PARType = PAR_MANA
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Temp1",
+              Value2 = 1,
+              CompareOp = CO_LESS_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyAssistMarker,
+                Params = {
+                  Duration = 10,
+                  TargetVar = "Unit",
+                  SourceVar = "Owner"
+                }
+              },
+              {
+                Function = BBIncHealth,
+                Params = {
+                  TargetVar = "Unit",
+                  Delta = 0,
+                  DeltaVar = "TickAmount",
+                  DeltaVarTable = "InstanceVars",
+                  HealerVar = "Owner"
+                }
+              }
             }
           }
         }
@@ -242,13 +269,40 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIncHealth,
+            Function = BBGetPAROrHealth,
             Params = {
-              TargetVar = "Unit",
-              Delta = 0,
-              DeltaVar = "TickAmount",
-              DeltaVarTable = "InstanceVars",
-              HealerVar = "Owner"
+              DestVar = "Temp1",
+              OwnerVar = "Unit",
+              Function = GetHealthPercent,
+              PARType = PAR_MANA
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Temp1",
+              Value2 = 1,
+              CompareOp = CO_LESS_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyAssistMarker,
+                Params = {
+                  Duration = 10,
+                  TargetVar = "Unit",
+                  SourceVar = "Owner"
+                }
+              },
+              {
+                Function = BBIncHealth,
+                Params = {
+                  TargetVar = "Unit",
+                  Delta = 0,
+                  DeltaVar = "TickAmount",
+                  DeltaVarTable = "InstanceVars",
+                  HealerVar = "Owner"
+                }
+              }
             }
           }
         }

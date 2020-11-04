@@ -28,14 +28,6 @@ TargetExecuteBuildingBlocks = {
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "PickACard"
-        }
-      },
-      {
         Function = BBIf,
         Params = {
           Src1Var = "HitResult",
@@ -74,11 +66,11 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BonusDamage",
                   SrcValueByLevel = {
-                    40,
+                    30,
+                    45,
                     60,
-                    80,
-                    100,
-                    120
+                    75,
+                    90
                   }
                 }
               },
@@ -128,6 +120,7 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "CardmasterRedCardAOE",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
@@ -139,15 +132,19 @@ TargetExecuteBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "PickACard"
+        }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -159,5 +156,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cardmasterredcardaoe"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "pickacard"}
   }
 }

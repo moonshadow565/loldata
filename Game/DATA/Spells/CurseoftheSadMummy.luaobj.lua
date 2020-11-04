@@ -9,8 +9,16 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetRooted
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
     }
   },
   {
@@ -32,8 +40,17 @@ OnBuffActivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.35,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -42,8 +59,16 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetRooted
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
     }
   }
 }
@@ -52,8 +77,16 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetRooted
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }
@@ -79,6 +112,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -105,12 +139,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Snare,
+      StacksExclusive = true,
+      BuffType = BUFF_Net,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
