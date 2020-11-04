@@ -30,8 +30,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_ticking_ground_audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="zileanq_urf"}}, 
 {Function=BBPreloadSpell, Params={Name="rewind_urf"}}, 
-{Function=BBPreloadSpell, Params={Name="zileanw"}}, 
-{Function=BBPreloadSpell, Params={Name="zileanqbuffer"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_cas_warning_ally.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_cas_warning_enemy.troy"}}, 
 }

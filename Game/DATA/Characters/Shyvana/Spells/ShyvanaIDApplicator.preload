@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="shyvana_base_r_w_groundburn.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="shyvanaiddamage"}}, 
+}

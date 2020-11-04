@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Syndra.CharFunctionSyndra"}}, 
+{Function=BBPreloadModule, Params={Name="Global.CustomTables"}}, 
+{Function=BBPreloadParticle, Params={Name="syndra_base_e_lv5_pushedsphere_trail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="syndra_base_e_pushedsphere_trail.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="syndraqspell"}}, 
+}

@@ -1,9 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadModule, Params={Name="Syndra.CharFunctionSyndra"}}, 
-{Function=BBPreloadSpell, Params={Name="syndraemarker"}}, 
-{Function=BBPreloadParticle, Params={Name="syndra_base_e_tar.troy"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
-{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
-{Function=BBPreloadSpell, Params={Name="syndraemissile"}}, 
-{Function=BBPreloadSpell, Params={Name="syndraedebuff"}}, 
-}
