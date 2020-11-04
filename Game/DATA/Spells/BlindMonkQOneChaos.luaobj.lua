@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "BlindMonkQOne.dds"
 BuffName = "BlindMonkSonicWave"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -21,12 +21,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_q_tar_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkqmanager"
     }
   }
 }
