@@ -7,7 +7,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "InstanceVars",
-      SrcValue = 0.4
+      SrcValue = 0.35
     }
   },
   {

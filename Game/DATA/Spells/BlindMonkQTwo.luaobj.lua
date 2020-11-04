@@ -237,6 +237,16 @@ SelfExecuteBuildingBlocks = {
               {
                 Function = BBMath,
                 Params = {
+                  Src1Var = "BonusAD",
+                  Src1Value = 0,
+                  Src2Value = 0.9,
+                  DestVar = "BonusAD",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
                   Src1Var = "BaseDamage",
                   Src2Var = "BonusAD",
                   Src1Value = 0,
@@ -422,6 +432,16 @@ SelfExecuteBuildingBlocks = {
               {
                 Function = BBMath,
                 Params = {
+                  Src1Var = "BonusAD",
+                  Src1Value = 0,
+                  Src2Value = 0.9,
+                  DestVar = "BonusAD",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
                   Src1Var = "BaseDamage",
                   Src2Var = "BonusAD",
                   Src1Value = 0,
@@ -472,18 +492,6 @@ SelfExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkqone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkqonechaos"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "blindmonk_q_resonatingstrike_02.troy"
@@ -493,12 +501,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blindmonkqtwodash"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blindmonkqmanager"
     }
   }
 }
