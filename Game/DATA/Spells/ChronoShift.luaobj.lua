@@ -1,0 +1,198 @@
+BuffTextureName = "Chronokeeper_Timetwister.dds"
+BuffName = "Chrono Shift"
+AutoBuffActivateEffect = "nickoftime_tar.troy"
+AutoCooldownByLevel = {
+  160,
+  140,
+  120
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "HealthPlusAbility",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "WillRemove",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "WillRemove",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBGetManaOrHealth,
+    Params = {
+      DestVar = "CurHealth",
+      OwnerVar = "Owner",
+      Function = GetHealth
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurHealth",
+      Src2Var = "DamageAmount",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "CurHealth",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "DamageAmount",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HealthPlusAbility",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "HealthPlusAbility",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WillRemove",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "ChronoRevive",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AbilityPower"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseHealthBoost",
+      SrcValueByLevel = {
+        500,
+        750,
+        1000
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPower",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "AbilityPowerb",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPowerb",
+      Src1Value = 0,
+      Src2Value = 3,
+      DestVar = "AbilityPowerMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPowerMod",
+      Src2Var = "BaseHealthBoost",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "HealthPlusAbility",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealthPlusAbility",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "HealthPlusAbility"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "WillRemove",
+      DestVarTable = "NextBuffVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        15,
+        15,
+        15
+      },
+      TickRate = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "chronorevive"
+    }
+  }
+}
