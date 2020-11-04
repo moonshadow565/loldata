@@ -1,0 +1,2 @@
+BuffName = "KindredPassiveManager"
+PersistsThroughDeath = true

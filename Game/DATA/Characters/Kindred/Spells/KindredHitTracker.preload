@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_sound_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_sound_self.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_persistent.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_camp_kill_sound_enemy.troy"}}, 
+}

@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_w_indicator_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindredwolf_base_i_trail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindredwolf_base_i_trail_nonkindred.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindredwolf_base_i_avatar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_w_ringcast_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredwkillclone"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredwolfbuddyvisual"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_w_wolf_popsmoke.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindredwolf_base_w_eye_glow.troy"}}, 
+}

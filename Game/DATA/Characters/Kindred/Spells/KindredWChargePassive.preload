@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kindredwchargepassivebuff"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_w_heal_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_w_heal_ready_avatar.troy"}}, 
+}

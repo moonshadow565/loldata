@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kindredhittracker"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_deactivate.troy"}}, 
+}

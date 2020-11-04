@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="olaf_ragnorok_enraged.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Global.Status"}}, 
 {Function=BBPreloadSpell, Params={Name="olafragnarokpassivebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="olafragnarokspeed"}}, 
 }

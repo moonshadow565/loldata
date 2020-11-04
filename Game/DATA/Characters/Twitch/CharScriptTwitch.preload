@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="twitchdeadlyvenom"}}, 
-{Function=BBPreloadSpell, Params={Name="twitchdeadlyvenominternal"}}, 
-{Function=BBPreloadSpell, Params={Name="twitchdeadlyvenomdamagemarker"}}, 
+{Function=BBPreloadSpell, Params={Name="twitchdeadlyvenomtriggerstack"}}, 
 {Function=BBPreloadParticle, Params={Name="udyr_spiritguard_audio_ward.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="twitchdeadlyvenommarker"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 

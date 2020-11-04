@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_aoe.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredrnodeathbuff"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_aoe_end.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_heal.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_heal_audio.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredfakecasttimespell"}}, 
+}
