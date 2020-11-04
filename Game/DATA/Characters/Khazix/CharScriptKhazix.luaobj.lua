@@ -56,7 +56,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_R_Evo2_TextureFade.troy"
+      Name = "khazix_base_r_evo2_texturefade.troy"
     }
   },
   {

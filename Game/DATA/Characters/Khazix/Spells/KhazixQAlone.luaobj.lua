@@ -12,25 +12,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Skin01_Q_SingleEnemy_Indicator02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "khazix_base_q_singleenemy_indicator.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_Q_SingleEnemyPOV_Indicator.troy"
+      Name = "khazix_base_q_singleenemypov_indicator.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_Q_SingleMinion_Indicator.troy"
+      Name = "khazix_base_q_singleminion_indicator.troy"
     }
   }
 }
