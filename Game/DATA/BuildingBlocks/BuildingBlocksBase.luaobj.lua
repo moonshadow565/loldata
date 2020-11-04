@@ -62,7 +62,7 @@ function L0_0(A0_15, A1_16)
         if L3_18 == nil then
           L3_18 = "PassThroughParams"
         end
-        ClientPrint("Missing Required Variable: " .. L3_18 .. "." .. A1_16.RequiredVar .. " Current block data is: " .. tostring(gCurrentBuildingBlockString))
+        DebugClientPrint("Missing Required Variable: " .. L3_18 .. "." .. A1_16.RequiredVar .. " Current block data is: " .. tostring(gCurrentBuildingBlockString))
         ALREADY_WARNED[A1_16.RequiredVar] = true
       end
     end
@@ -314,7 +314,7 @@ function L0_0(A0_94, A1_95)
   L3_97 = GetParam
   L3_97 = L3_97("Index", A0_94, A1_95)
   if type(L2_96[A1_95.TableVar]) == "nil" then
-    ClientPrint("Table specified does not exist: " .. tostring(A1_95.TableVarTable) .. "." .. tostring(A1_95.TableVar))
+    DebugClientPrint("Table specified does not exist: " .. tostring(A1_95.TableVarTable) .. "." .. tostring(A1_95.TableVar))
     return
   end
   if type(L2_96[A1_95.TableVar]) == "table" then
@@ -323,7 +323,7 @@ function L0_0(A0_94, A1_95)
     elseif L3_97 then
       table.remove(L2_96[A1_95.TableVar], L3_97)
     else
-      ClientPrint("Specified index/key was nil: " .. tostring(A1_95.IndexVarTable) .. "." .. tostring(A1_95.IndexVar))
+      DebugClientPrint("Specified index/key was nil: " .. tostring(A1_95.IndexVarTable) .. "." .. tostring(A1_95.IndexVar))
     end
   end
 end
@@ -615,7 +615,7 @@ function L0_0(A0_184, A1_185)
   if L2_186 ~= nil and type(L2_186) == "table" then
     ExecuteBuildingBlocks(L2_186, A0_184)
   else
-    ClientPrint("Designer Error: Macro variable is not initialized inside of event. Macro Variable was: " .. tostring(A1_185.MacroVar) .. " and current block data is: " .. gCurrentBuildingBlockString .. ". This error probably occurred due to variable not being initialized yet, being misnamed or two events being called out of sequence. It is highly recommended that script macros either be initialized OnBuffActivate, OnCharActivate or in the same event. Pro Devs may violate this rule at the risk of being forced to read this error message again.")
+    DebugClientPrint("Designer Error: Macro variable is not initialized inside of event. Macro Variable was: " .. tostring(A1_185.MacroVar) .. " and current block data is: " .. gCurrentBuildingBlockString .. ". This error probably occurred due to variable not being initialized yet, being misnamed or two events being called out of sequence. It is highly recommended that script macros either be initialized OnBuffActivate, OnCharActivate or in the same event. Pro Devs may violate this rule at the risk of being forced to read this error message again.")
   end
 end
 BBRunMacro = L0_0

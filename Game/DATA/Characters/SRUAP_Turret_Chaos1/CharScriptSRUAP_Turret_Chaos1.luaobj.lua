@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sog_activationcheck"
+      Name = "sog_activationcheck_chaos"
     }
   },
   {

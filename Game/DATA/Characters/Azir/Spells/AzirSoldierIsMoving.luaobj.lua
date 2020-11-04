@@ -41,7 +41,19 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "azirrpoppedspellshield"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "azirrbump"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azirrdamage"
+    }
   },
   {
     Function = BBPreloadSpell,

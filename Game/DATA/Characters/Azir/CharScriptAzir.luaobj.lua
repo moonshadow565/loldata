@@ -58,19 +58,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_z_death_child.troy"
+      Name = "Azirbase_Z_Death_child.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_z_death_inside.troy"
+      Name = "Azirbase_Z_Death_inside.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_z_death.troy"
+      Name = "Azirbase_Z_Death.troy"
     }
   },
   {
