@@ -1,5 +1,4 @@
 BuffTextureName = "Vladimir_HemoplagueImmune.dds"
-BuffName = ""
 SpellFXOverrideSkins = {
   "BloodKingVladimir"
 }

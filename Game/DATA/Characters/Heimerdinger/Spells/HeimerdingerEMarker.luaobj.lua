@@ -6,4 +6,4 @@ IsDamagingSpell = true
 BuffTextureName = "Chronokeeper_Slow.dds"
 BuffName = "Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
-AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateAttachBoneName = "Buffbone_Glb_Ground_Loc"

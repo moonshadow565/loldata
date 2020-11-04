@@ -29,5 +29,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "aatroxwonhpower"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "aatrox_basic_hit_effect_03.troy"
+    }
   }
 }

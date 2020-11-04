@@ -7,7 +7,8 @@ BuffTextureName = "Cryophoenix_FrigidOrb.dds"
 BuffName = "Flash Frost"
 SpellToggleSlot = 1
 SpellFXOverrideSkins = {
-  "Lissandra_skin01"
+  "Lissandra_skin01",
+  "lissandraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
@@ -25,7 +26,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_tar.troy"
+      Name = "lissandra_base_e_tar.troy"
     }
   },
   {

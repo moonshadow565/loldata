@@ -2,13 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globalmonsterbuff"
+      Name = "agitatedidle"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "agitatedidle"
+      Name = "regenerationruneaura"
     }
   }
 }

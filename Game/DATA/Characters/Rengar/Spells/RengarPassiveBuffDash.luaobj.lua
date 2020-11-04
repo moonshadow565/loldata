@@ -34,7 +34,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarq_tar.troy"
+      Name = "rengar_base_q_tar.troy"
     }
   },
   {
@@ -46,7 +46,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarqmax_tar.troy"
+      Name = "rengar_base_q_max_tar.troy"
     }
   },
   {

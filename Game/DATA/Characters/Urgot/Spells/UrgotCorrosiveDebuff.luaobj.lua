@@ -1,6 +1,5 @@
 BuffTextureName = "UrgotCorrosiveCharge.dds"
 BuffName = "UrgotCorrosiveDamage"
-AutoBuffActivateEffect = ""
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {

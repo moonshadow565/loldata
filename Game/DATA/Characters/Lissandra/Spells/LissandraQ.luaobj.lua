@@ -10,6 +10,7 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Lissandra_skin01"
+  "Lissandra_skin01",
+  "lissandraSkin02"
 }
 TriggersSpellCasts = true

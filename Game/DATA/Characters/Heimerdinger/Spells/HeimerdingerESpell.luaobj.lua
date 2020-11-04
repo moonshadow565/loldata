@@ -5,8 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Heimerdinger_E1.dds"
 BuffName = "Slow"
-AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
-AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateEffect = "Global_Slow.troy"
+AutoBuffActivateAttachBoneName = "Buffbone_Glb_Ground_Loc"
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {

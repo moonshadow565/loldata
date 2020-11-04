@@ -7,19 +7,20 @@ BuffTextureName = "Lissandra_E.dds"
 BuffName = "LissandraE"
 SpellToggleSlot = 3
 SpellFXOverrideSkins = {
-  "Lissandra_skin01"
+  "Lissandra_skin01",
+  "lissandraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_End.troy"
+      Name = "lissandra_base_e_end.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_Cast.troy"
+      Name = "lissandra_base_e_cast.troy"
     }
   },
   {
@@ -31,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_Skin_Flash.troy "
+      Name = "lissandra_base_e_skin_flash.troy "
     }
   },
   {
@@ -43,13 +44,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_Departure.troy"
+      Name = "lissandra_base_e_departure.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_E_Arrival.troy"
+      Name = "lissandra_base_e_arrival.troy"
     }
   }
 }

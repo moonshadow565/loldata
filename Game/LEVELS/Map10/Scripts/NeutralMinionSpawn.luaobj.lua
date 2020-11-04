@@ -593,7 +593,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 90
-  L0.GroupDelaySpawnTime = 30
+  L0.GroupDelaySpawnTime = 95
   L0.CampLevel = 3
   L3 = CAMPTYPE_SPIDERBOSS
   L1[1] = L2

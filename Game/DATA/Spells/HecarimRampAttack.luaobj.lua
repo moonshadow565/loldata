@@ -45,6 +45,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimrampattackknockback"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "hecarim_e_tar.troy"

@@ -46,6 +46,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "rengarralert"

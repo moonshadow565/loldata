@@ -7,6 +7,12 @@ IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarqbasebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "rengarqemp"}
   },
   {

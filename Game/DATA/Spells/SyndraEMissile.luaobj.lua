@@ -88,5 +88,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "syndraqspell"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "syndra_skin02_e_pushedsphere_tar.troy"
+    }
   }
 }

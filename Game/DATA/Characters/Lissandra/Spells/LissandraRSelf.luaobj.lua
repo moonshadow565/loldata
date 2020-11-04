@@ -5,7 +5,8 @@ BuffTextureName = "Lissandra_R.dds"
 BuffName = "LissandraRSelf"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
-  "Lissandra_skin01"
+  "Lissandra_skin01",
+  "lissandraSkin02"
 }
 SpellVOOverrideSkins = {
   "ZombieBrand"
@@ -14,19 +15,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_iceblock_Lulu.troy"
+      Name = "lissandra_base_r_iceblock_lulu.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_iceblock.troy"
+      Name = "lissandra_base_r_iceblock.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_skin.troy"
+      Name = "lissandra_base_r_skin.troy"
     }
   }
 }

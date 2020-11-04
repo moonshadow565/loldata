@@ -14,13 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "galio_bullwark_target_shield_01.troy"
+      Name = "galio_bullwark_target_shield_01_self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "galio_bullwark_target_shield_01_self.troy"
+      Name = "galio_bullwark_target_shield_01.troy"
     }
   },
   {
