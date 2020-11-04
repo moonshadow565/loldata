@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentacleavatardormant.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentaclebasedormant.troy"}}, 
-}

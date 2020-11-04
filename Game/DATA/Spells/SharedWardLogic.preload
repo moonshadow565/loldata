@@ -8,5 +8,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="item_warddeath_green_pop_enemy.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="item_warddeath_pink_pop.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="item_warddeath_pink_pop_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_warddeath_blue_pop.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_warddeath_blue_pop_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="sightwardstealth"}}, 
 }
