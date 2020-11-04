@@ -191,6 +191,7 @@ function TimerReturningHome()
   if GetRoamState() == INACTIVE or GetRoamState() == RUN_IN_FEAR or GetState() == AI_HALTED or GetCharVar("inStasis") > 1 then
     return
   end
+  SetCharVar("DistanceToHome", (GetDistToRetreat()))
   if GetState() == AI_RETREAT and IsMovementStopped() == true and GetDistToRetreat() < 25 then
     StopTimer("TimerReturningHome")
     SetLeashOrientation()

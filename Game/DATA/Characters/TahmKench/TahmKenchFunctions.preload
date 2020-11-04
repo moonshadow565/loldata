@@ -13,6 +13,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="tahmkenchpdebuffcounter"}}, 
 {Function=BBPreloadParticle, Params={Name="tahmkench_base_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchq"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchnewr"}}, 
 {Function=BBPreloadParticle, Params={Name="tahmkench_base_q_slow.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchqslow"}}, 

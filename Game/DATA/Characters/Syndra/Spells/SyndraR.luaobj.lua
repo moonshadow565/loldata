@@ -8,5 +8,6 @@ AutoBuffActivateEffect = "Syndra_R_Spheres_ready.troy"
 AutoBuffActivateAttachBoneName = "spine"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "SyndraSkin02"
+  "SyndraSkin02",
+  "SyndraSkin04"
 }

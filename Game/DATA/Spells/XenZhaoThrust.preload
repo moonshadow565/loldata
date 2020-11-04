@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="xenziou_chainattack_indicator.troy"}}, 
 {Function=BBPreloadModule, Params={Name="XinZhao.XenZhaoFunctionModule"}}, 
 {Function=BBPreloadParticle, Params={Name="xenziou_chainattack_cas_01.troy"}}, 
 }

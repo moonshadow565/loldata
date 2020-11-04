@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.TrinketCD"}}, 
 {Function=BBPreloadParticle, Params={Name="global_trinket_greaterspotter.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="trinketlenslvl3audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemblackout"}}, 

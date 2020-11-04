@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_impact.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrmissile"}}, 
+}

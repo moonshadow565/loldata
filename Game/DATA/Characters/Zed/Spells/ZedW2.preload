@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Zed.CharFunctionsZed"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Skin01_Cloneswap.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_skin01_cloneswap.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_cloneswap.troy"}}, 
 }

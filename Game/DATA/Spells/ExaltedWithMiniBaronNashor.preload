@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nashor_rune_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="superrecall"}}, 
 {Function=BBPreloadSpell, Params={Name="superrecallimproved"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_relic_pickup.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="recall"}}, 
 {Function=BBPreloadSpell, Params={Name="recallimproved"}}, 
 {Function=BBPreloadSpell, Params={Name="baronnashorlines"}}, 

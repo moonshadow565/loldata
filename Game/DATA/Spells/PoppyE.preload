@@ -1,7 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="heroiccharge_cas.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="poppye"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyetarget"}}, 
-{Function=BBPreloadParticle, Params={Name="heroiccharge_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyepushenemy"}}, 
-}

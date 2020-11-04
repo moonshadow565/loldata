@@ -56,9 +56,24 @@ function LaneMinionFindTarget()
       if GetMinionLane() == CENTER_LANE then
         L2_2 = ASLEEP_TIME_CENTER_LANE
       end
-      if L2_2 < GetMissionTime() or GetTarget() == nil or IsHeroAI(L0_0) then
+      if L2_2 < GetMissionTime() or GetTarget() == nil then
         SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DEFAULT)
         L0_0 = FindTargetInAcR()
+      end
+    end
+    if L0_0 ~= nil then
+      L2_2 = IsHeroAI
+      L2_2 = L2_2(L0_0)
+      if L2_2 then
+        L2_2 = SetTarget
+        L2_2(L0_0)
+        L2_2 = AddToIgnore
+        L2_2(0.1)
+        L2_2 = SetTargetAcquisitionMode
+        L2_2(TARGET_ACQUISITION_MODE_DEFAULT)
+        L2_2 = FindTargetInAcR
+        L2_2 = L2_2()
+        L0_0 = L2_2
       end
     end
   else

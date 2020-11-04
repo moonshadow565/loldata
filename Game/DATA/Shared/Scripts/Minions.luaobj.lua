@@ -155,14 +155,30 @@ function L0_0(A0_3)
 end
 OnCollisionEnemy = L0_0
 function L0_0(A0_4)
-  if GetState() == AI_HALTED then
+  local L1_5, L2_6
+  L1_5 = GetState
+  L1_5 = L1_5()
+  L2_6 = AI_HALTED
+  if L1_5 == L2_6 then
     return
   end
-  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
-    FindTargetOrMove()
-    return false
+  L2_6 = AI_TAUNTED
+  if L1_5 ~= L2_6 then
+    L2_6 = AI_FEARED
+    if L1_5 ~= L2_6 then
+      L2_6 = AI_FLEEING
+      if L1_5 ~= L2_6 then
+        L2_6 = FindTargetInAcR
+        L2_6 = L2_6()
+        if L2_6 ~= nil then
+          SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_6)
+        end
+        return false
+      end
+    end
   end
-  return true
+  L2_6 = true
+  return L2_6
 end
 OnCollisionOther = L0_0
 function L0_0()

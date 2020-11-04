@@ -1,6 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="poppyparagonstats"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyparagonofdemacia"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyparagonparticle"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyparagonspeed"}}, 
-}

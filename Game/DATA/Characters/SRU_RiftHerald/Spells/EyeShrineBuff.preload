@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_relic.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_relic_simple.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="exaltedwithminibaronnashor"}}, 
+}

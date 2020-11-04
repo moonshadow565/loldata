@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="athenesunholygrail_manarestore_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="pickacard"}}, 
 {Function=BBPreloadParticle, Params={Name="pickacard_blue_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="katarinaqmarkspellshieldcheck"}}, 
-{Function=BBPreloadSpell, Params={Name="pickacard"}}, 
 }

@@ -1,0 +1,4 @@
+NonDispellable = true
+SpellFXOverrideSkins = {
+  "FireworksCorki"
+}

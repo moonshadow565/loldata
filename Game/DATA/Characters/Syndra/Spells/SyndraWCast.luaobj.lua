@@ -11,5 +11,6 @@ AutoCooldownByLevel = {
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "RocketTristana",
-  "SyndraSkin02"
+  "SyndraSkin02",
+  "SyndraSkin04"
 }

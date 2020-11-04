@@ -4,5 +4,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kingporo_drop_aoe_explosion.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kingporofalldamage"}}, 
 {Function=BBPreloadSpell, Params={Name="kingporomarker"}}, 
-{Function=BBPreloadSpell, Params={Name="kingporofall"}}, 
 }
