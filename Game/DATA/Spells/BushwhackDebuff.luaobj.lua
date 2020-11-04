@@ -26,10 +26,10 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
         -0.2,
-        -0.275,
+        -0.25,
+        -0.3,
         -0.35,
-        -0.425,
-        -0.5
+        -0.4
       }
     }
   },
@@ -113,6 +113,20 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "Team",
+      Radius = 30,
+      TargetVar = "Owner",
+      Duration = 20,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = true,
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatArmorMod,
@@ -146,6 +160,35 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       BubbleIDVar = "BubbleID",
       BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRemovePerceptionBubble,
+    Params = {
+      BubbleIDVar = "BubbleID2",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "Debuff",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "Debuff",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -232,28 +275,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVar = "MRDebuff",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "Debuff",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentSpellBlockMod,
-      TargetVar = "Owner",
-      DeltaVar = "Debuff",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }

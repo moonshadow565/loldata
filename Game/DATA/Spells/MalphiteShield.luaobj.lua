@@ -1,15 +1,5 @@
-BuffTextureName = ""
-BuffName = ""
+BuffTextureName = "Malphite_GraniteShield.dds"
+BuffName = "Shield Marker"
 AutoBuffActivateEffect4 = ""
+PersistsThroughDeath = true
 Nondispellable = true
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 15,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    }
-  }
-}

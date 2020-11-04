@@ -1,152 +1,67 @@
-BuffOnAllowAddBuildingBlocks = {
+UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBExecutePeriodically,
     Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_DIFFERENT_TEAM
+      TimeBetweenExecutions = 9,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSpellBuffAdd,
         Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Snare,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Slow,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Fear,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Net,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Sleep,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Stun,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Taunt,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Duration",
-              Src1Value = 0,
-              Src2Value = 0.6,
-              DestVar = "Duration",
-              MathOp = MO_MULTIPLY
-            }
-          }
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MercuryTreads",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
+    }
+  }
+}
+OnActivateBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "MercuryTreads"
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MercuryTreads",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mercurytreads"
     }
   }
 }

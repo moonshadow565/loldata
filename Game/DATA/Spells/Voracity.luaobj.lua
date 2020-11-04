@@ -11,18 +11,24 @@ PersistsThroughDeath = true
 Nondispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "VoracityMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 15,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "VoracityMarker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 15,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   },
   {
@@ -76,18 +82,24 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctCounter",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "KillerInstinctCounter",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 5,
+                  NumberStacks = 1,
+                  Duration = 3,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }
@@ -137,18 +149,24 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "KillerInstinctCounter",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_Internal,
-              MaxStack = 5,
-              NumberStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "KillerInstinctCounter",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 5,
+                  NumberStacks = 1,
+                  Duration = 3,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           },
           {

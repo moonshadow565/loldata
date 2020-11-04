@@ -1,3 +1,4 @@
+AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

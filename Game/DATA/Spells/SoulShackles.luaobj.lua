@@ -134,16 +134,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Owner",
-      Delta = -0.2
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -195,6 +185,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           {
             Function = BBSpellBuffRemoveCurrent,
             Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "SoulShackleSlow"
+            }
           }
         }
       },
@@ -217,6 +215,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               {
                 Function = BBSpellBuffRemoveCurrent,
                 Params = {TargetVar = "Owner"}
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "SoulShackleSlow"
+                }
               }
             }
           },
@@ -251,6 +257,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   {
                     Function = BBSpellBuffRemoveCurrent,
                     Params = {TargetVar = "Owner"}
+                  },
+                  {
+                    Function = BBSpellBuffRemove,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Attacker",
+                      BuffName = "SoulShackleSlow"
+                    }
                   }
                 }
               }
@@ -342,7 +356,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "SoulShackles",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberStacks = 1,
       Duration = 4,
@@ -365,6 +379,37 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = -0.2
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "SoulShackleSlow",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Slow,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -378,6 +423,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "soulshacklesowner"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshackleslow"
     }
   },
   {

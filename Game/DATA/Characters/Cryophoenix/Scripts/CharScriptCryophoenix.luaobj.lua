@@ -4,6 +4,21 @@ CharOnActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
+      BuffName = "RebirthMarker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "RebirthReady",
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
@@ -63,6 +78,12 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rebirthmarker"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

@@ -32,10 +32,14 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "TAD"}
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "DamageMultiplier",
-      Src2Var = "DamageAmount",
+      Src2Var = "TAD",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DotDamage",
@@ -48,16 +52,6 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "DotDamage",
       DestVarTable = "NextBuffVars",
       SrcVar = "DotDamage"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "DamageAmount",
-      Src1Value = 0.33,
-      Src2Value = 0,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -85,21 +79,6 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {TargetVar = "Owner"}
       },
       {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageAmount",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
@@ -109,7 +88,7 @@ BuffOnHitUnitBuildingBlocks = {
           BuffType = BUFF_Damage,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 2,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

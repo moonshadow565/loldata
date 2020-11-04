@@ -61,21 +61,6 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "LeapStrikeSpeed",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 0.75,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          },
-          {
             Function = BBSpellBuffRemoveCurrent,
             Params = {TargetVar = "Owner"}
           }
@@ -242,15 +227,8 @@ TargetExecuteBuildingBlocks = {
       SpeedVar = "SpeedVar",
       Gravity = 0,
       GravityVar = "GravityVar",
-      MoveBackBy = 100
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leapstrikespeed"
+      MoveBackBy = 100,
+      MovementType = FURTHEST_WITHIN_RANGE
     }
   }
 }

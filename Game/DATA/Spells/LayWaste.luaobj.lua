@@ -314,7 +314,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.6,
+              SpellDamageRatio = 0.7,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -366,7 +366,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.3,
+              SpellDamageRatio = 0.35,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

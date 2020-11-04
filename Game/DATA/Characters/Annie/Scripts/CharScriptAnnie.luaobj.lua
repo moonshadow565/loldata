@@ -33,6 +33,21 @@ CharOnActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
+      BuffName = "Pyromania_Marker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
@@ -77,6 +92,12 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pyromania_marker"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

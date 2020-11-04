@@ -1,22 +1,6 @@
 BuffTextureName = "1020_Glowing_Orb.dds"
 BuffName = "Magical Sight"
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "TurretDecay",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  }
-}
+OnBuffDeactivateBuildingBlocks = {}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
@@ -40,14 +24,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Owner",
       Delta = 1.5
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "turretdecay"
     }
   }
 }

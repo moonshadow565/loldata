@@ -97,7 +97,7 @@ SelfExecuteBuildingBlocks = {
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = false,
+      OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false
     }

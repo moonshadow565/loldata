@@ -2,7 +2,11 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Twitch_Clone.dds"
 BuffName = "Full Automatic"
-AutoBuffActivateEffect = "Enrage_buf.troy"
+AutoBuffActivateEffect = "twitch_ambush_buf.troy"
+AutoBuffActivateAttachBoneName = "R_hand"
+AutoBuffActivateEffect2 = "twitch_ambush_buf.troy"
+AutoBuffActivateAttachBoneName2 = "L_hand"
+AutoBuffActivateEffect3 = "twitch_ambush_buf_02.troy"
 AutoCooldownByLevel = {
   90,
   75,
@@ -20,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -63,7 +67,8 @@ TargetExecuteBuildingBlocks = {
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
       AutoAttackSpellLevel = 0,
-      AutoAttackSpellLevelVar = "Level"
+      AutoAttackSpellLevelVar = "Level",
+      CancelAttack = false
     }
   },
   {

@@ -2,56 +2,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 10,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "ZhonyasRing"
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "ZhonyasRing",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 20000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      }
-    }
-  }
-}
-OnActivateBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ZhonyasRing"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
     SubBlocks = {
       {
         Function = BBSpellBuffAdd,
@@ -59,11 +14,11 @@ OnActivateBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffName = "ZhonyasRing",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 20000,
+          Duration = 11,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

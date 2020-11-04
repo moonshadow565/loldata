@@ -13,14 +13,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Run",
-      OverrideAnim = "Spell2",
-      OwnerVar = "Owner"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Pos",
@@ -33,7 +25,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       UnitVar = "Target",
       TargetVar = "Pos",
-      Speed = 1000,
+      Speed = 900,
       Gravity = 30,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
@@ -41,12 +33,7 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
-  }
-}
+OnBuffDeactivateBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetPointByUnitFacingOffset,
@@ -99,10 +86,6 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
-  },
-  {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
   },
   {
     Function = BBGetSlotSpellInfo,

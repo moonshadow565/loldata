@@ -125,6 +125,114 @@ TargetExecuteBuildingBlocks = {
               OwnerVar = "Owner",
               ToSay = "LvL 3: Explosive Cartridges"
             }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerOne"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level1",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerTwo"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level2",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerThree"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level3",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerFour"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level4",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerFive"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level5",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerSix"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level6",
+                  DestVarTable = "CharVars",
+                  SrcValue = 3
+                }
+              }
+            }
           }
         }
       },
@@ -201,6 +309,114 @@ TargetExecuteBuildingBlocks = {
             Params = {
               OwnerVar = "Owner",
               ToSay = "LvL 2: Ur'Anium Rounds"
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerOne"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level1",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerTwo"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level2",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerThree"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level3",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerFour"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level4",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerFive"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level5",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "MarkerSix"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Level6",
+                  DestVarTable = "CharVars",
+                  SrcValue = 2
+                }
+              }
             }
           }
         }
@@ -282,6 +498,32 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "h28gevolutionturretlvl3"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "markerone"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "markertwo"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "markerthree"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "markerfour"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "markerfive"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "markersix"}
   },
   {
     Function = BBPreloadParticle,

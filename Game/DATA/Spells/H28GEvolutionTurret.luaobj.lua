@@ -143,18 +143,46 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 550,
+          Range = 575,
           Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
           IteratorVar = "Unit",
           MaximumUnitsToPick = 1
         },
         SubBlocks = {
           {
-            Function = BBApplyTaunt,
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Unit", DestVar = "teamID"}
+          },
+          {
+            Function = BBIf,
             Params = {
-              AttackerVar = "Unit",
-              TargetVar = "Owner",
-              Duration = 0.5
+              Src1Var = "teamID",
+              Value2 = TEAM_NEUTRAL,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyTaunt,
+                Params = {
+                  AttackerVar = "Unit",
+                  TargetVar = "Owner",
+                  Duration = 0.5
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIssueOrder,
+                Params = {
+                  WhomToOrderVar = "Owner",
+                  TargetOfOrderVar = "Unit",
+                  Order = AI_ATTACKTO
+                }
+              }
             }
           }
         }
@@ -268,78 +296,223 @@ SelfExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
+        Params = {
+          DestVar = "LowestLevel",
+          SrcValue = 4
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level1",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level2",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level3",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level4",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level5",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Level6",
+          Src1VarTable = "CharVars",
+          Src2Var = "LowestLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LowestLevel",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBSetVarInTable,
         Params = {DestVar = "LowestTime", SrcValue = 25000}
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time1",
+          Src1Var = "Level1",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time1",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time2",
+          Src1Var = "Level2",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time2",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time3",
+          Src1Var = "Level3",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time3",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time4",
+          Src1Var = "Level4",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time4",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time5",
+          Src1Var = "Level5",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time5",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "Time6",
+          Src1Var = "Level6",
           Src1VarTable = "CharVars",
-          Src2Var = "LowestTime",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "LowestTime",
-          MathOp = MO_MIN
+          Src2Var = "LowestLevel",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Time6",
+              Src1VarTable = "CharVars",
+              Src2Var = "LowestTime",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "LowestTime",
+              MathOp = MO_MIN
+            }
+          }
         }
       },
       {
@@ -681,12 +854,12 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "Level"}
+    Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Level",
+      Src1Var = "OwnerLevel",
       Src1Value = 0,
       Src2Value = 14,
       DestVar = "BonusHealth",
@@ -885,6 +1058,14 @@ SelfExecuteBuildingBlocks = {
         Params = {SecondsVar = "Time1", SecondsVarTable = "CharVars"}
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level1",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other3",
@@ -892,7 +1073,7 @@ SelfExecuteBuildingBlocks = {
           BuffName = "MarkerOne",
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
-          MaxStack = 1,
+          MaxStack = 6,
           NumberStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
@@ -904,7 +1085,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBElseIf,
     Params = {
-      Src1Var = "1Found",
+      Src1Var = "2Found",
       Value2 = 0,
       CompareOp = CO_EQUAL
     },
@@ -912,6 +1093,14 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBGetGameTime,
         Params = {SecondsVar = "Time2", SecondsVarTable = "CharVars"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level2",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
       },
       {
         Function = BBSpellBuffAdd,
@@ -943,6 +1132,14 @@ SelfExecuteBuildingBlocks = {
         Params = {SecondsVar = "Time3", SecondsVarTable = "CharVars"}
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level3",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other3",
@@ -963,7 +1160,6 @@ SelfExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "4Found",
-      Src1VarTable = "CharVars",
       Value2 = 0,
       CompareOp = CO_EQUAL
     },
@@ -971,6 +1167,14 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBGetGameTime,
         Params = {SecondsVar = "Time4", SecondsVarTable = "CharVars"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level4",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
       },
       {
         Function = BBSpellBuffAdd,
@@ -1002,6 +1206,14 @@ SelfExecuteBuildingBlocks = {
         Params = {SecondsVar = "Time5", SecondsVarTable = "CharVars"}
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level5",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other3",
@@ -1025,6 +1237,14 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBGetGameTime,
         Params = {SecondsVar = "Time6", SecondsVarTable = "CharVars"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Level6",
+          DestVarTable = "CharVars",
+          SrcValue = 1
+        }
       },
       {
         Function = BBSpellBuffAdd,

@@ -27,6 +27,51 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 500,
+          Flags = "AffectFriends AffectHeroes NotAffectSelf ",
+          IteratorVar = "Unit"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetLevel,
+            Params = {TargetVar = "Unit", DestVar = "UnitLevel"}
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "OwnerLevel",
+              Src2Var = "UnitLevel",
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBIncExp,
+                Params = {TargetVar = "Unit", Delta = 1}
+              }
+            }
+          }
+        }
+      }
+    }
   }
 }
 CharOnActivateBuildingBlocks = {
@@ -148,9 +193,9 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "PounceDamage",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            150,
-            225,
-            300
+            125,
+            175,
+            225
           }
         }
       },
@@ -160,9 +205,9 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "SwipeDamage",
           DestVarTable = "CharVars",
           SrcValueByLevel = {
-            125,
-            175,
-            225
+            150,
+            225,
+            300
           }
         }
       },
@@ -221,7 +266,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }

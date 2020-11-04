@@ -10,6 +10,42 @@ PersistsThroughDeath = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CD0",
+      DestVarTable = "InstanceVars",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CD1",
+      DestVarTable = "InstanceVars",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CD2",
+      DestVarTable = "InstanceVars",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
     Function = BBPushCharacterData,
     Params = {
       SkinName = "Nidalee_Cougar",
@@ -155,6 +191,85 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
       OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CD0",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "LifeTime",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CD0",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CD1",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "LifeTime",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CD1",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CD2",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "LifeTime",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CD2",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "CD0",
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "CD1",
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "CD2",
+      SlotNumber = 2,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatDodgeMod,
+      TargetVar = "Owner",
+      Delta = 0.1
     }
   }
 }

@@ -259,9 +259,9 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "BaseTickAmount",
       SrcValueByLevel = {
-        42.5,
-        65,
-        87.5
+        45,
+        75,
+        105
       }
     }
   },

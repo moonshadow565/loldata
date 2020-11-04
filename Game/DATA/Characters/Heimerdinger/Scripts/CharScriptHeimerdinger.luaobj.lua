@@ -327,6 +327,54 @@ CharOnActivateBuildingBlocks = {
       DestVarTable = "CharVars",
       SrcValue = 25000
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level1",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level2",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level3",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level4",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level5",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level6",
+      DestVarTable = "CharVars",
+      SrcValue = 1
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {

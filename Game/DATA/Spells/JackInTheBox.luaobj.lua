@@ -198,7 +198,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {
                   AttackerVar = "Attacker",
                   CenterVar = "Owner",
-                  Range = 445,
+                  Range = 400,
                   Flags = "AffectEnemies AffectHeroes ",
                   IteratorVar = "Unit",
                   MaximumUnitsToPick = 1
@@ -214,7 +214,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   },
                   {
                     Function = BBSetVarInTable,
-                    Params = {DestVar = "unitFound", SrcValue = 0}
+                    Params = {DestVar = "unitFound", SrcValue = 1}
                   },
                   {
                     Function = BBSpellBuffRemove,
@@ -239,18 +239,46 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       AttackerVar = "Attacker",
                       CenterVar = "Owner",
-                      Range = 445,
+                      Range = 400,
                       Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectTurrets ",
                       IteratorVar = "Unit",
                       MaximumUnitsToPick = 1
                     },
                     SubBlocks = {
                       {
-                        Function = BBApplyTaunt,
+                        Function = BBGetTeamID,
+                        Params = {TargetVar = "Unit", DestVar = "teamID"}
+                      },
+                      {
+                        Function = BBIf,
                         Params = {
-                          AttackerVar = "Unit",
-                          TargetVar = "Owner",
-                          Duration = 1
+                          Src1Var = "teamID",
+                          Value2 = TEAM_NEUTRAL,
+                          CompareOp = CO_EQUAL
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBApplyTaunt,
+                            Params = {
+                              AttackerVar = "Unit",
+                              TargetVar = "Owner",
+                              Duration = 1
+                            }
+                          }
+                        }
+                      },
+                      {
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
+                          {
+                            Function = BBIssueOrder,
+                            Params = {
+                              WhomToOrderVar = "Owner",
+                              TargetOfOrderVar = "Unit",
+                              Order = AI_ATTACKTO
+                            }
+                          }
                         }
                       },
                       {

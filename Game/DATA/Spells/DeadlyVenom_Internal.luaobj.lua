@@ -17,10 +17,11 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "crossbones1.troy",
+      EffectName = "twitch_poison_counter_01.troy",
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
+      BoneName = "root",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -88,7 +89,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = TRUE_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -142,10 +145,11 @@ BuffOnBeingHitBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
-              EffectName = "crossbones2.troy",
+              EffectName = "twitch_poison_counter_02.troy",
               Flags = 0,
               EffectIDVar = "Particle",
               EffectIDVarTable = "InstanceVars",
+              BoneName = "root",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -176,10 +180,11 @@ BuffOnBeingHitBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
-              EffectName = "crossbones3.troy",
+              EffectName = "twitch_poison_counter_03.troy",
               Flags = 0,
               EffectIDVar = "Particle",
               EffectIDVarTable = "InstanceVars",
+              BoneName = "root",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -210,10 +215,11 @@ BuffOnBeingHitBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
-              EffectName = "crossbones4.troy",
+              EffectName = "twitch_poison_counter_04.troy",
               Flags = 0,
               EffectIDVar = "Particle",
               EffectIDVarTable = "InstanceVars",
+              BoneName = "root",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -244,10 +250,11 @@ BuffOnBeingHitBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
-              EffectName = "crossbones5.troy",
+              EffectName = "twitch_poison_counter_05.troy",
               Flags = 0,
               EffectIDVar = "Particle",
               EffectIDVarTable = "InstanceVars",
+              BoneName = "root",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
@@ -287,10 +294,11 @@ BuffOnBeingHitBuildingBlocks = {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Owner",
-                  EffectName = "crossbones6.troy",
+                  EffectName = "twitch_poison_counter_06.troy",
                   Flags = 0,
                   EffectIDVar = "Particle",
                   EffectIDVarTable = "InstanceVars",
+                  BoneName = "root",
                   TargetObjectVar = "Target",
                   SpecificUnitOnlyVar = "Owner",
                   SpecificTeamOnly = TEAM_UNKNOWN,
@@ -319,8 +327,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones1.troy"
+      Name = "twitch_poison_counter_01.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadSpell,
@@ -337,31 +349,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones2.troy"
+      Name = "twitch_poison_counter_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones3.troy"
+      Name = "twitch_poison_counter_03.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones4.troy"
+      Name = "twitch_poison_counter_04.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones5.troy"
+      Name = "twitch_poison_counter_05.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "crossbones6.troy"
+      Name = "twitch_poison_counter_06.troy"
     }
   }
 }

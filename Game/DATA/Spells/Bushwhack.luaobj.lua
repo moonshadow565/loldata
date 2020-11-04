@@ -47,19 +47,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBAddPosPerceptionBubble,
-    Params = {
-      TeamVar = "TeamID",
-      Radius = 50,
-      PosVar = "Owner",
-      Duration = 600,
-      SpecificUnitsClientOnlyVar = "Nothing",
-      RevealSteath = false,
-      BubbleIDVar = "bubble",
-      BubbleIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Active",
@@ -253,7 +240,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBExecutePeriodically,
         Params = {
-          TimeBetweenExecutions = 1,
+          TimeBetweenExecutions = 0.9,
           TrackTimeVar = "LastTimeExecuted",
           TrackTimeVarTable = "InstanceVars",
           ExecuteImmediately = false
@@ -355,7 +342,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
-      VisibilitySize = 30,
+      VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
     }
@@ -413,12 +400,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nidalee_trap_team_id_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nidalee_trap_team_id_red.troy"
     }
   },
   {

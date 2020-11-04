@@ -21,11 +21,11 @@ BuffOnKillBuildingBlocks = {
       DestVar = "DamageMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        4,
-        4,
-        4,
-        4,
-        4
+        3,
+        3,
+        3,
+        3,
+        3
       }
     }
   },
@@ -146,11 +146,11 @@ BuffOnHitUnitBuildingBlocks = {
           DestVar = "DamageMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            4,
-            4,
-            4,
-            4,
-            4
+            3,
+            3,
+            3,
+            3,
+            3
           }
         }
       },

@@ -27,7 +27,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
-          EffectName = "Infuse_tar.troy",
+          EffectName = "soraka_infuse_ally_tar.troy",
           Flags = 0,
           EffectIDVar = "Infuse",
           TargetObjectVar = "Target",
@@ -85,7 +85,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
-          EffectName = "globalhit_blue_tar.troy",
+          EffectName = "soraka_infuse_enemy_tar.troy",
           Flags = 0,
           EffectIDVar = "Infuse",
           TargetObjectVar = "Target",
@@ -104,13 +104,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "infuse_tar.troy"
+      Name = "soraka_infuse_ally_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "globalhit_blue_tar.troy"
+      Name = "soraka_infuse_enemy_tar.troy"
     }
   }
 }

@@ -162,7 +162,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Name1",
-      Value2 = "SummonerTeleport",
+      Value2 = "summonerteleport",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -200,7 +200,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Name2",
-      Value2 = "SummonerTeleport",
+      Value2 = "summonerteleport",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -289,6 +289,10 @@ OnBuffDeactivateBuildingBlocks = {
           SrcVar = "CastPosition",
           SrcVarTable = "InstanceVars"
         }
+      },
+      {
+        Function = BBDestroyMissileForTarget,
+        Params = {TargetVar = "Owner"}
       },
       {
         Function = BBTeleportToPosition,
@@ -437,7 +441,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotNumber = 0,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_SUMMONER,
-          SpellName = "SummonerTeleport",
+          SpellName = "summonerteleport",
           TargetVar = "Owner"
         }
       },
@@ -469,7 +473,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotNumber = 1,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_SUMMONER,
-          SpellName = "SummonerTeleport",
+          SpellName = "summonerteleport",
           TargetVar = "Owner"
         }
       },

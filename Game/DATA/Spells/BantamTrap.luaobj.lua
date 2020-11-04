@@ -7,7 +7,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "DamagePerTick",
+      RequiredVar = "/",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -244,18 +244,6 @@ BuffOnUpdateActionsBuildingBlocks = {
                   TickRate = 0
                 }
               }
-            }
-          },
-          {
-            Function = BBAddPosPerceptionBubble,
-            Params = {
-              TeamVar = "TeamID",
-              Radius = 900,
-              PosVar = "Owner",
-              Duration = 7,
-              SpecificUnitsClientOnlyVar = "Nothing",
-              RevealSteath = false,
-              BubbleIDVar = "bubbleID"
             }
           },
           {

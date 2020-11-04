@@ -19,7 +19,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "MagicResistBonus",
               DestVarTable = "NextBuffVars",
-              SrcValue = 25
+              SrcValue = 24
             }
           },
           {
@@ -27,7 +27,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "ArmorBonus",
               DestVarTable = "NextBuffVars",
-              SrcValue = 25
+              SrcValue = 23
             }
           },
           {

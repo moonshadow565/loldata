@@ -234,7 +234,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Multiplier",
-      Src1Value = 6,
+      Src1Value = 10,
       Src2Value = 0,
       DestVar = "NewCooldown",
       MathOp = MO_MULTIPLY
@@ -536,9 +536,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            25,
             35,
-            50,
-            65
+            45
           }
         }
       },

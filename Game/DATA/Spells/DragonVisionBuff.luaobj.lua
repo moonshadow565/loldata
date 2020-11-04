@@ -18,6 +18,24 @@ OnBuffActivateBuildingBlocks = {
         Params = {TargetVar = "Owner", DestVar = "teamID"}
       },
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "ParticlePosition",
+          EffectName = "TwistedTreelineClairvoyance.troy",
+          Flags = 0,
+          EffectIDVar = "CastParticle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
         Function = BBIf,
         Params = {
           Src1Var = "teamID",
@@ -25,24 +43,6 @@ OnBuffActivateBuildingBlocks = {
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "ParticlePosition",
-              EffectName = "TwistedTreelineClairvoyance.troy",
-              Flags = 0,
-              EffectIDVar = "CastParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
           {
             Function = BBAddPosPerceptionBubble,
             Params = {
@@ -66,24 +66,6 @@ OnBuffActivateBuildingBlocks = {
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Nothing",
-              PosVar = "ParticlePosition",
-              EffectName = "TwistedTreelineClairvoyance.troy",
-              Flags = 0,
-              EffectIDVar = "CastParticle",
-              EffectIDVarTable = "InstanceVars",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
           {
             Function = BBAddPosPerceptionBubble,
             Params = {
@@ -125,17 +107,23 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "CastParticle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRemovePerceptionBubble,
-    Params = {
-      BubbleIDVar = "Bubble",
-      BubbleIDVarTable = "InstanceVars"
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "CastParticle",
+          EffectIDVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBRemovePerceptionBubble,
+        Params = {
+          BubbleIDVar = "Bubble",
+          BubbleIDVarTable = "InstanceVars"
+        }
+      }
     }
   }
 }
