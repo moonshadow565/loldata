@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="regenerationruneaura"}}, 
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
-{Function=BBPreloadParticle, Params={Name="global_item_righteousglory_allycas.troy"}}, 
 }

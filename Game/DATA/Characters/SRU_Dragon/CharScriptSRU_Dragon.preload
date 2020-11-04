@@ -6,6 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dragondamage"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_dragon_death.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dragonslain"}}, 
-{Function=BBPreloadParticle, Params={Name="summoner_cast.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dragontarget"}}, 
 }

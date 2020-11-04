@@ -1,6 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="s5test_dragonslayerbuffinternal"}}, 
-{Function=BBPreloadParticle, Params={Name="global_haste.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="enrage_buf.troy"}}, 
-}

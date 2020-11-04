@@ -1,2 +1,0 @@
-PersistsThroughDeath = true
-Nondispellable = true

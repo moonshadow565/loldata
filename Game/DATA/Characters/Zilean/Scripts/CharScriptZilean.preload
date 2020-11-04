@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="heightenedlearning"}}, 
-{Function=BBPreloadSpell, Params={Name="heightenedlearningally"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 }

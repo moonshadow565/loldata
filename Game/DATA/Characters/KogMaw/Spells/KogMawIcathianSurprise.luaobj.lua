@@ -11,6 +11,9 @@ AutoBuffActivateEffect2 = "KogMaw_Base_P_splats.troy"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "KogMawSkin08"
+}
 SpellVOOverrideSkins = {
   "KogmawSkin08"
 }

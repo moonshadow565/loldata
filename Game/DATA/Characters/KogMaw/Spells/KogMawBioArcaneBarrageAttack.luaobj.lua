@@ -1,7 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 SpellFXOverrideSkins = {
-  "NewYearDragonKogMaw"
+  "NewYearDragonKogMaw",
+  "KogMawSkin08"
 }
 SpellVOOverrideSkins = {
   "NewYearDragonKogMaw",

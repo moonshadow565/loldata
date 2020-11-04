@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="elixirofruinaura"}}, 
-{Function=BBPreloadParticle, Params={Name="evelynn_e_tar.troy"}}, 
-}

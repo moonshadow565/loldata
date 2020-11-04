@@ -4,7 +4,8 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
-  "NewYearDragonKogMaw"
+  "NewYearDragonKogMaw",
+  "KogMawSkin08"
 }
 SpellVOOverrideSkins = {
   "NewYearDragonKogMaw",

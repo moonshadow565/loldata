@@ -1,7 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="evelynn-yikes.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="wraith_trail_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="wraith_trail_red.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="spirit_animal_skin.troy"}}, 
-}

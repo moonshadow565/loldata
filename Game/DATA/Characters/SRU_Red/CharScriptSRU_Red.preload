@@ -2,6 +2,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="blessingofthelizardelder"}}, 
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
 {Function=BBPreloadSpell, Params={Name="blessingofthelizardelderlines"}}, 
-{Function=BBPreloadParticle, Params={Name="global_item_righteousglory_allycas.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="smitten_red_regen"}}, 
 }
