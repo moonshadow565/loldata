@@ -1,26 +1,32 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "deadlyvenom"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom_internal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom_marker"
+      Name = "udyr_spiritguard_audio_ward.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalruncyclemanager"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_base_e_range_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_interactive_vo_caitlintrap.troy"
     }
   }
 }

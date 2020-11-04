@@ -1,0 +1,21 @@
+DoesntTriggerSpellCasts = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_base_q_cas_invisible.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_base_q_invisiible_outro.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_base_q_bamf.troy"
+    }
+  }
+}

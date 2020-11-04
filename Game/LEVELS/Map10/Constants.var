@@ -81,10 +81,10 @@ sv_PetRatio                                 =                                   
 
 ; Minion exp mods
 aiExp_bonusExpPercentPerNeutralMinionLevel  =                                         0.500 ; Bonus Experience Percentage per neutral minion level ahead
-aiExp_bonusExpPercentPerLaneMinionLevel     =                                         0.000 ; Bonus Experience Percentage per lane minion level ahead
-aiExp_bonusExpLevelDeltaCap                 =                                             0 ; The maximum delta in minion levels where XP can be granted.
-aiExp_bonusExpLaneLevelStart                =                                             0 ; Minimum level of lane minion before XP kicks in (to avoid lane starvation strategies)
-aiExp_bonusExpLaneLevelDeltaMin             =                                             0 ; Minimum level difference before you get bonus lane XP
+aiExp_bonusExpPercentPerLaneMinionLevel     =                                         0.750 ; Bonus Experience Percentage per lane minion level ahead
+aiExp_bonusExpLevelDeltaCap                 =                                             5 ; The maximum delta in minion levels where XP can be granted.
+aiExp_bonusExpLaneLevelStart                =                                             5 ; Minimum level of lane minion before XP kicks in (to avoid lane starvation strategies)
+aiExp_bonusExpLaneLevelDeltaMin             =                                             1 ; Minimum level difference before you get bonus lane XP
 
 ; lane default stats for gold sharing
 defaultstats_LocalGold                      =                                             0 ; Enables the local gold system.
