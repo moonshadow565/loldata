@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 BuffTextureName = "Twitch_Expunge.dds"
 BuffName = "ExpungeAttackSpeed"
 AutoBuffActivateEffect = "twitch_ambush_buf.troy"
