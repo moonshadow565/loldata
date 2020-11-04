@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="stealth"}}, 
 {Function=BBPreloadSpell, Params={Name="bantamarmor"}}, 
 {Function=BBPreloadSpell, Params={Name="itemdisable"}}, 
-{Function=BBPreloadParticle, Params={Name="teemo_panda_teemo_base_r_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_skin07_r_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="teemo_base_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bantamtraptarget"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 

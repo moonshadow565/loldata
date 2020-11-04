@@ -1,4 +1,4 @@
-BuffTextureName = "Chronokeeper_Timetwister.dds"
+BuffTextureName = "Zilean_R.dds"
 BuffName = "Chrono Shift"
 AutoCooldownByLevel = {
   160,
