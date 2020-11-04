@@ -1,14 +1,22 @@
-BuffTextureName = "Galio_IdolOfDurand.dds"
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+BuffTextureName = "1036_Long_Sword.dds"
+BuffName = "WormRecouperate"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "galio_taunt_unit_indicator.troy",
+      EffectName = "garen_heal.troy",
       Flags = 0,
-      EffectIDVar = "TauntVFX",
+      EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "head",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -23,7 +31,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "TauntVFX",
+      EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars"
     }
   }
@@ -32,7 +40,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "galio_taunt_unit_indicator.troy"
+      Name = "garen_heal.troy"
     }
   }
 }

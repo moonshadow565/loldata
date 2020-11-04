@@ -243,18 +243,6 @@ BuffOnSpellHitBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
-              Src1Var = "BonusDamage",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0.143,
-              DestVar = "BonusDamage",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
               Src1Var = "BonusArmor",
               Src1VarTable = "InstanceVars",
               Src1Value = 0,
@@ -867,7 +855,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.25,
+      Src2Value = 0.2,
       DestVar = "AbilityPowerBonus",
       MathOp = MO_MULTIPLY
     }
@@ -877,11 +865,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        28,
-        36,
-        44,
-        52,
-        60
+        30,
+        38,
+        46,
+        54,
+        62
       }
     }
   },

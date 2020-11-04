@@ -1,5 +1,5 @@
 BuffTextureName = "Vladimir_BloodGorged.dds"
-BuffName = "Empowered Bulwark"
+BuffName = "VladimirBloodGorged"
 PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
@@ -32,6 +32,15 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "APMod",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatHPPoolMod,
@@ -39,6 +48,15 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "HPMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "HPMod",
+      ValueVarTable = "InstanceVars",
+      Index = 2
     }
   }
 }

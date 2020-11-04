@@ -40,6 +40,10 @@ OnBuffActivateBuildingBlocks = {
       AutoAttackSpellLevel = 1,
       CancelAttack = true
     }
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

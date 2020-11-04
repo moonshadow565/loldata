@@ -102,6 +102,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
+      DestVarTable = "InstanceVars",
       SpellSlotValue = 2,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
@@ -121,6 +122,7 @@ OnBuffActivateBuildingBlocks = {
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
+      OverrideForceLevelVarTable = "InstanceVars",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
@@ -186,6 +188,72 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetStealthed
+    }
+  }
+}
+BuffOnSpellHitBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      SrcVar = "Level",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetChampionBySkinName,
+    Params = {
+      Skin = "Galio",
+      Team = TEAM_UNKNOWN,
+      TeamVar = "TeamID",
+      DestVar = "Other1"
+    }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Other1",
+      CallForHelpAttackerVar = "Other1",
+      TargetVar = "Target",
+      DamageByLevel = {
+        70,
+        115,
+        160,
+        205,
+        250
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.8,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "galio_windTunnel_unit_tar.troy",
+      Flags = 0,
+      EffectIDVar = "HitVFX",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -270,6 +338,16 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "galio"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_windtunnel_unit_tar.troy"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {

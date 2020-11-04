@@ -1,14 +1,28 @@
-BuffTextureName = "Galio_IdolOfDurand.dds"
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "HealAmount",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncHealth,
+    Params = {
+      TargetVar = "Owner",
+      Delta = 0,
+      DeltaVar = "HealAmount",
+      DeltaVarTable = "InstanceVars",
+      HealerVar = "Owner"
+    }
+  },
   {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "galio_taunt_unit_indicator.troy",
+      EffectName = "galio_bulwark_heal.troy",
       Flags = 0,
-      EffectIDVar = "TauntVFX",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "head",
+      EffectIDVar = "HealVFX",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -19,20 +33,11 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "TauntVFX",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "galio_taunt_unit_indicator.troy"
+      Name = "galio_bulwark_heal.troy"
     }
   }
 }

@@ -19,7 +19,7 @@ OnBuffDeactivateBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "FoundUnit", SrcVar = "true"}
+        Params = {DestVar = "FoundUnit", SrcVar = "false"}
       },
       {
         Function = BBCanSeeTarget,
@@ -70,7 +70,7 @@ OnBuffDeactivateBuildingBlocks = {
             Params = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
-              BuffName = "ActionTimer2",
+              BuffName = "ActionTimer",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
@@ -99,7 +99,7 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffName = "ActionTimer2",
+          BuffName = "ActionTimer",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
@@ -122,7 +122,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "actiontimer2"
+      Name = "actiontimer"
     }
   }
 }

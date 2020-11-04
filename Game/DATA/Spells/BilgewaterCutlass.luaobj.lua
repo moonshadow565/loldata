@@ -55,7 +55,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMovementSpeedMod,
+      Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MoveSpeedMod",
       Delta = 0
@@ -258,9 +258,30 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "PirateCutlass_cas.troy",
+      Flags = 0,
+      EffectIDVar = "CasterParticle",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 150,
       DamageType = MAGIC_DAMAGE,
@@ -285,7 +306,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
@@ -294,22 +315,6 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "PirateCutlass_cas.troy",
-      Flags = 0,
-      EffectIDVar = "CasterParticle",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
     }
   }
 }

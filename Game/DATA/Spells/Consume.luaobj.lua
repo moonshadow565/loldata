@@ -45,10 +45,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "HealthToInc",
       SrcValueByLevel = {
         125,
-        200,
-        275,
-        350,
-        425
+        180,
+        235,
+        290,
+        345
       }
     }
   },
@@ -96,6 +96,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         500,

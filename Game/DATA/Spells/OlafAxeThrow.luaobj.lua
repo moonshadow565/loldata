@@ -140,10 +140,10 @@ BuffOnMissileEndBuildingBlocks = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.16,
-        -0.22,
+        -0.24,
         -0.28,
-        -0.34,
+        -0.32,
+        -0.36,
         -0.4
       }
     }
@@ -221,10 +221,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.16,
-        -0.22,
+        -0.24,
         -0.28,
-        -0.34,
+        -0.32,
+        -0.36,
         -0.4
       }
     }

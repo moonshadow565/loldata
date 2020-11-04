@@ -23,21 +23,9 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "BaseDamage",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        200,
-        310,
-        420
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmorBonus",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        75,
-        100,
-        125
+        220,
+        330,
+        440
       }
     }
   },
@@ -216,6 +204,36 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APStat"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "APStat",
+      Src1Value = 0,
+      Src2Value = 0.8,
+      DestVar = "APDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamage",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "APDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalBaseDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "HitCount",
@@ -241,8 +259,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BaseDamage",
-      Src1VarTable = "InstanceVars",
+      Src1Var = "TotalBaseDamage",
       Src2Var = "BonusDmgPercent",
       Src1Value = 0,
       Src2Value = 0,
@@ -267,17 +284,21 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 500,
+      Range = 520,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Owner",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "Damage",
@@ -296,6 +317,14 @@ OnBuffDeactivateBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "Taunt"
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "GalioIdolOfDurandTaunt"
         }
       },
       {
@@ -318,18 +347,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorBonus",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -345,43 +362,53 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 500,
+          Range = 520,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
           InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
-            Function = BBApplyAssistMarker,
+            Function = BBIfNotHasBuff,
             Params = {
-              Duration = 10,
-              TargetVar = "Unit",
-              SourceVar = "Owner"
-            }
-          },
-          {
-            Function = BBApplyTaunt,
-            Params = {
-              AttackerVar = "Owner",
-              TargetVar = "Unit",
-              Duration = 1
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "GalioIdolOfDurandTaunt",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Taunt,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
+              OwnerVar = "Unit",
+              CasterVar = "Owner",
+              BuffName = "GalioIdolOfDurandMarker"
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyTaunt,
+                Params = {
+                  AttackerVar = "Owner",
+                  TargetVar = "Unit",
+                  Duration = 2.5
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "GalioIdolOfDurandTaunt",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Taunt,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBApplyAssistMarker,
+                Params = {
+                  Duration = 10,
+                  TargetVar = "Unit",
+                  SourceVar = "Owner"
+                }
+              }
             }
           }
         }
@@ -389,17 +416,49 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnBeingHitBuildingBlocks = {
+BuffOnTakeDamageBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIf,
     Params = {
-      Src1Var = "HitCount",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "HitCount",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_ADD
+      Src1Var = "DamageType",
+      Value2 = DAMAGESOURCE_PERIODIC,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "HitCount",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "HitCount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "DamageType",
+      Value2 = TRUE_DAMAGE,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.7,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
+        }
+      }
     }
   }
 }
@@ -409,7 +468,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       TargetVar = "Target",
-      Duration = 1
+      Duration = 2.5
     }
   },
   {
@@ -423,7 +482,24 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "GalioIdolOfDurandMarker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -504,6 +580,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "taunt"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galioidolofdurandtaunt"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_builingstatue_unit_impact_01.troy"
@@ -512,7 +594,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "galioidolofdurandtaunt"
+      Name = "galioidolofdurandmarker"
     }
   },
   {

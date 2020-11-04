@@ -130,11 +130,11 @@ SpellOnMissileEndBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
-            60,
-            115,
-            170,
-            225,
-            280
+            70,
+            125,
+            180,
+            235,
+            290
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

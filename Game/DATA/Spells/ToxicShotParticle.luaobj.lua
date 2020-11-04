@@ -9,23 +9,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DamagePerTick",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamagePerTick",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PERIODIC,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.14,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -35,13 +18,14 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
           DamageVar = "DamagePerTick",

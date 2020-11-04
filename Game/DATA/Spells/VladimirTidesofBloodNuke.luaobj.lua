@@ -68,7 +68,7 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBBreakSpellShields,
-    Params = {TargetVar = "Unit"}
+    Params = {TargetVar = "Target"}
   },
   {
     Function = BBApplyDamage,

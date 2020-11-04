@@ -9,7 +9,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "DamageMod",
+      RequiredVar = "BonusDefense",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -72,7 +72,7 @@ OnBuffActivateBuildingBlocks = {
           Flags = 0,
           EffectIDVar = "SelfTargetVFX",
           EffectIDVarTable = "InstanceVars",
-          BoneName = "C_chest",
+          BoneName = "chest",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -118,40 +118,29 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnPreDamageBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBIncStat,
     Params = {
-      Src1Var = "DamageType",
-      Value2 = TRUE_DAMAGE,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src2Var = "DamageMod",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageReduction",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src2Var = "DamageReduction",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_SUBTRACT
-        }
-      }
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusDefense",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusDefense",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {Value1 = DAMAGESOURCE_PERIODIC, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
@@ -161,13 +150,29 @@ BuffOnPreDamageBuildingBlocks = {
         Params = {CasterVar = "Caster"}
       },
       {
-        Function = BBIncHealth,
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HealAmount",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "HealAmount",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Caster",
-          Delta = 0,
-          DeltaVar = "HealAmount",
-          DeltaVarTable = "InstanceVars",
-          HealerVar = "Caster"
+          AttackerVar = "Caster",
+          BuffName = "GalioBulwarkHeal",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -242,61 +247,23 @@ BuffOnPreDamageBuildingBlocks = {
             }
           }
         }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Caster",
-          EffectName = "galio_bulwark_heal.troy",
-          Flags = 0,
-          EffectIDVar = "HealVFX",
-          TargetObjectVar = "Caster",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
       }
     }
   }
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "APStat"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "APStat",
-      Src1Value = 0,
-      Src2Value = 4.0E-4,
-      DestVar = "DamageModBonus",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "DamageModBonus",
-      Src1Value = 0.5,
-      Src2Value = 0,
-      DestVar = "DamageMod",
-      MathOp = MO_ADD
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageMod",
+      DestVar = "BonusDefense",
       DestVarTable = "NextBuffVars",
-      SrcVar = "DamageMod"
+      SrcValueByLevel = {
+        30,
+        45,
+        60,
+        75,
+        90
+      }
     }
   },
   {
@@ -310,6 +277,14 @@ TargetExecuteBuildingBlocks = {
         56,
         68
       }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APStat"
     }
   },
   {
@@ -372,6 +347,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galiobulwarkheal"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_bullwark_shield_activate_self.troy"
@@ -381,12 +362,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_bullwark_shield_activate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "galio_bulwark_heal.troy"
     }
   }
 }

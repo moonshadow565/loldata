@@ -275,6 +275,19 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetChampionBySkinName,
+    Params = {
+      Skin = "Galio",
+      Team = TEAM_UNKNOWN,
+      TeamVar = "TeamID",
+      DestVar = "Other1"
+    }
+  },
+  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 0.25,
@@ -323,7 +336,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Unit",
-                          AttackerVar = "Attacker",
+                          AttackerVar = "Other1",
                           BuffName = "GalioRighteousGustHaste",
                           BuffAddType = BUFF_RENEW_EXISTING,
                           StacksExclusive = true,
@@ -334,6 +347,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
                           CanMitigateDuration = false
+                        }
+                      },
+                      {
+                        Function = BBApplyAssistMarker,
+                        Params = {
+                          Duration = 10,
+                          TargetVar = "Unit",
+                          SourceVar = "Other1"
                         }
                       }
                     }
@@ -346,7 +367,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                         Function = BBSpellBuffRemove,
                         Params = {
                           TargetVar = "Unit",
-                          AttackerVar = "Attacker",
+                          AttackerVar = "Other1",
                           BuffName = "GalioRighteousGustHaste"
                         }
                       }
@@ -362,7 +383,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBSpellBuffRemove,
                     Params = {
                       TargetVar = "Unit",
-                      AttackerVar = "Attacker",
+                      AttackerVar = "Other1",
                       BuffName = "GalioRighteousGustHaste"
                     }
                   }
@@ -395,11 +416,11 @@ SpellOnMissileUpdateBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        0.25,
+        0.3,
+        0.35,
         0.4,
-        0.45,
-        0.5,
-        0.55,
-        0.6
+        0.45
       }
     }
   },
@@ -418,7 +439,7 @@ SpellOnMissileUpdateBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = true,
-      Placemarker = false,
+      Placemarker = true,
       VisibilitySize = 100,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Nothing"
@@ -445,47 +466,6 @@ SpellOnMissileUpdateBuildingBlocks = {
     }
   }
 }
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        60,
-        110,
-        160,
-        210,
-        260
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.8,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "galio_windTunnel_unit_tar.troy",
-      Flags = 0,
-      EffectIDVar = "HitVFX",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -498,6 +478,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "galio_windtunnel_rune_team_red.troy"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "galio"}
   },
   {
     Function = BBPreloadSpell,
@@ -514,11 +498,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "galio_windtunnel_unit_tar.troy"
-    }
   }
 }

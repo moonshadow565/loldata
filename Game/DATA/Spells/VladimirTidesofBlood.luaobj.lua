@@ -39,11 +39,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        40,
-        55,
-        70,
-        85,
-        100
+        30,
+        45,
+        60,
+        75,
+        90
       }
     }
   },
@@ -182,7 +182,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 4,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -199,7 +199,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 5,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
