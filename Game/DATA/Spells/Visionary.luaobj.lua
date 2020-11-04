@@ -2,6 +2,7 @@ BuffTextureName = "Yeti_FrostNova.dds"
 BuffName = "Visions"
 AutoBuffActivateEffect = "Visionary_buf.troy"
 NonDispellable = true
+SpellVOOverrideSkins = {"NunuBot"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

@@ -460,11 +460,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "APADBoost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            6,
             8,
-            10,
-            12,
-            14
+            11,
+            14,
+            17,
+            20
           }
         }
       },

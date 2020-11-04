@@ -134,7 +134,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -151,7 +152,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -174,7 +176,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -191,7 +194,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -211,72 +215,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetOffsetAngle,
+    Function = BBMoveToUnit,
     Params = {
-      UnitVar = "Caster",
-      OffsetPointVar = "Owner",
-      OutputAngleVar = "OffsetAngle"
-    }
-  },
-  {
-    Function = BBGetPointByUnitFacingOffset,
-    Params = {
-      UnitVar = "Caster",
-      Distance = 125,
-      OffsetAngle = 0,
-      OffsetAngleVar = "OffsetAngle",
-      PositionVar = "Destination"
-    }
-  },
-  {
-    Function = BBIsPathable,
-    Params = {
-      DestPosVar = "Destination",
-      ResultVar = "Pathable"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Pathable",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Caster",
-          Speed = 1300,
-          Gravity = 0,
-          MovementOrdersType = POSTPONE_CURRENT_ORDER,
-          MoveBackBy = 125,
-          MaxTrackDistance = 2500,
-          IdealDistance = 0,
-          TimeOverride = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Caster",
-          Speed = 1300,
-          Gravity = 0,
-          MovementOrdersType = POSTPONE_CURRENT_ORDER,
-          MoveBackBy = 0,
-          MaxTrackDistance = 2500,
-          IdealDistance = 0,
-          TimeOverride = 0
-        }
-      }
+      UnitVar = "Owner",
+      TargetVar = "Caster",
+      Speed = 1300,
+      Gravity = 0,
+      MovementOrdersType = POSTPONE_CURRENT_ORDER,
+      MoveBackBy = 0,
+      MaxTrackDistance = 2000,
+      IdealDistance = 0,
+      TimeOverride = 0
     }
   }
 }

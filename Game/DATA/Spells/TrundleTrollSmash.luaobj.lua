@@ -28,7 +28,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -55,6 +56,10 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
     Params = {OwnerVar = "Owner", Blend = true}
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -123,6 +128,10 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Geeves1",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnPreAttackBuildingBlocks = {
@@ -195,7 +204,8 @@ SelfExecuteBuildingBlocks = {
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   },
   {
@@ -225,7 +235,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

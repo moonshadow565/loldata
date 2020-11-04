@@ -55,11 +55,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealLevel",
       SrcValueByLevel = {
-        70,
-        125,
-        195,
-        280,
-        380
+        80,
+        150,
+        220,
+        290,
+        360
       }
     }
   },

@@ -1,42 +1,58 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Ryze_LightningFlux.dds"
 BuffName = "Spell Flux"
 SpellDamageRatio = 1
-OnBuffActivateBuildingBlocks = {
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBSetVarInTable,
     Params = {DestVar = "DoOnce", SrcValue = false}
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageToDeal",
+      SrcValueByLevel = {
+        150,
+        250,
+        350,
+        400,
+        400
+      }
+    }
+  },
+  {
     Function = BBForEachUnitInTargetAreaRandom,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "Owner",
+      CenterVar = "Target",
       Range = 600,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes NotAffectSelf ",
       IteratorVar = "Unit",
       MaximumUnitsToPick = 10,
-      BuffNameFilter = "BrandWildfire",
       InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "DoOnce",
-          Value2 = false,
-          CompareOp = CO_EQUAL
+          Src1Var = "Unit",
+          Src2Var = "Target",
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "Unit",
-              Src2Var = "Owner",
+              Src1Var = "DoOnce",
+              Value2 = true,
               CompareOp = CO_NOT_EQUAL
             },
             SubBlocks = {
@@ -59,7 +75,7 @@ OnBuffActivateBuildingBlocks = {
                   {
                     Function = BBGetUnitPosition,
                     Params = {
-                      UnitVar = "Owner",
+                      UnitVar = "Target",
                       PositionVar = "AttackerPos"
                     }
                   },
@@ -77,7 +93,7 @@ OnBuffActivateBuildingBlocks = {
                   {
                     Function = BBIfHasBuff,
                     Params = {
-                      OwnerVar = "Owner",
+                      OwnerVar = "Target",
                       AttackerVar = "Attacker",
                       BuffName = "BrandAblaze"
                     },
@@ -96,7 +112,7 @@ OnBuffActivateBuildingBlocks = {
                           OverrideCoolDownCheck = true,
                           FireWithoutCasting = true,
                           UseAutoAttackSpell = false,
-                          ForceCastingOrChannelling = true,
+                          ForceCastingOrChannelling = false,
                           UpdateAutoAttackTimer = false
                         }
                       }
@@ -120,7 +136,7 @@ OnBuffActivateBuildingBlocks = {
                           OverrideCoolDownCheck = true,
                           FireWithoutCasting = true,
                           UseAutoAttackSpell = false,
-                          ForceCastingOrChannelling = true,
+                          ForceCastingOrChannelling = false,
                           UpdateAutoAttackTimer = false
                         }
                       }
@@ -129,10 +145,6 @@ OnBuffActivateBuildingBlocks = {
                   {
                     Function = BBSetVarInTable,
                     Params = {DestVar = "DoOnce", SrcValue = true}
-                  },
-                  {
-                    Function = BBSpellBuffRemoveCurrent,
-                    Params = {TargetVar = "Owner"}
                   }
                 }
               },
@@ -159,7 +171,7 @@ OnBuffActivateBuildingBlocks = {
                       {
                         Function = BBGetUnitPosition,
                         Params = {
-                          UnitVar = "Owner",
+                          UnitVar = "Target",
                           PositionVar = "AttackerPos"
                         }
                       },
@@ -177,7 +189,7 @@ OnBuffActivateBuildingBlocks = {
                       {
                         Function = BBIfHasBuff,
                         Params = {
-                          OwnerVar = "Owner",
+                          OwnerVar = "Target",
                           AttackerVar = "Attacker",
                           BuffName = "BrandAblaze"
                         },
@@ -196,7 +208,7 @@ OnBuffActivateBuildingBlocks = {
                               OverrideCoolDownCheck = true,
                               FireWithoutCasting = true,
                               UseAutoAttackSpell = false,
-                              ForceCastingOrChannelling = true,
+                              ForceCastingOrChannelling = false,
                               UpdateAutoAttackTimer = false
                             }
                           }
@@ -220,7 +232,7 @@ OnBuffActivateBuildingBlocks = {
                               OverrideCoolDownCheck = true,
                               FireWithoutCasting = true,
                               UseAutoAttackSpell = false,
-                              ForceCastingOrChannelling = true,
+                              ForceCastingOrChannelling = false,
                               UpdateAutoAttackTimer = false
                             }
                           }
@@ -229,10 +241,6 @@ OnBuffActivateBuildingBlocks = {
                       {
                         Function = BBSetVarInTable,
                         Params = {DestVar = "DoOnce", SrcValue = true}
-                      },
-                      {
-                        Function = BBSpellBuffRemoveCurrent,
-                        Params = {TargetVar = "Owner"}
                       }
                     }
                   }
@@ -240,48 +248,6 @@ OnBuffActivateBuildingBlocks = {
               }
             }
           }
-        }
-      }
-    }
-  }
-}
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageToDeal",
-      SrcValueByLevel = {
-        150,
-        250,
-        350,
-        400,
-        400
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_DEAD},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0.5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
         }
       }
     }
@@ -310,6 +276,10 @@ TargetExecuteBuildingBlocks = {
           SendIfOnScreenOrDiscard = true,
           FollowsGroundTilt = false
         }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
       },
       {
         Function = BBSpellBuffAdd,
@@ -359,6 +329,10 @@ TargetExecuteBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -430,12 +404,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandwildfire"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

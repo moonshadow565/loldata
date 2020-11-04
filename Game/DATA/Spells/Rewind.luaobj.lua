@@ -40,14 +40,15 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
+      Src = 0,
       SrcVar = "SpellCD1b",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotNumber = 0,
       SlotType = SpellSlots,
-      SpellSlotValue = 0,
-      OwnerVar = "Target"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Target",
+      BroadcastEvent = false
     }
   },
   {
@@ -62,7 +63,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -97,14 +99,15 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
+      Src = 0,
       SrcVar = "SpellCD3b",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotNumber = 2,
       SlotType = SpellSlots,
-      SpellSlotValue = 2,
-      OwnerVar = "Target"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Target",
+      BroadcastEvent = false
     }
   },
   {
@@ -139,14 +142,15 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
+      Src = 0,
       SrcVar = "SpellCD4b",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotNumber = 3,
       SlotType = SpellSlots,
-      SpellSlotValue = 3,
-      OwnerVar = "Target"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Target",
+      BroadcastEvent = true
     }
   }
 }

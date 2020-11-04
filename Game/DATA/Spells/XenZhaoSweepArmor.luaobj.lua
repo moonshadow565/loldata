@@ -2,6 +2,13 @@ BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "XenZhaoSweepArmor"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TotalArmor",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -10,30 +17,6 @@ OnBuffActivateBuildingBlocks = {
       SlotType = SpellSlots,
       OwnerVar = "Owner",
       Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmorAmount",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        30,
-        40,
-        50,
-        60,
-        70
-      }
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorAmount",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   },
   {
@@ -63,7 +46,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -87,7 +71,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -108,7 +93,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorAmount",
+      DeltaVar = "TotalArmor",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

@@ -38,80 +38,21 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Distance",
-      Src1Value = 0,
-      Src2Value = 150,
-      DestVar = "DistanceCheck",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMove,
     Params = {
       UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
-    }
-  },
-  {
-    Function = BBIsPathable,
-    Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "TargetPos",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MoveBackBy = 150,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars"
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "TargetPos",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MoveBackBy = 1,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars"
-        }
-      }
+      TargetVar = "TargetPos",
+      Speed = 0,
+      SpeedVar = "dashSpeed",
+      SpeedVarTable = "InstanceVars",
+      Gravity = 0,
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance",
+      IdealDistanceVarTable = "InstanceVars"
     }
   },
   {
@@ -129,7 +70,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -139,7 +81,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 0.5,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   },
   {
@@ -197,7 +140,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnMoveEndBuildingBlocks = {
+BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
@@ -220,7 +163,8 @@ BuffOnMoveEndBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -247,7 +191,8 @@ BuffOnMoveEndBuildingBlocks = {
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -275,7 +220,9 @@ BuffOnMoveEndBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = true
     }
-  },
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {

@@ -1,97 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HasDealtDamage",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HasDealtDamage",
-      Src1VarTable = "InstanceVars",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBDistanceBetweenObjects,
-        Params = {
-          DestVar = "Distance",
-          ObjectVar1 = "Owner",
-          ObjectVar2 = "Attacker"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
-          Value2 = 500,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "HasDealtDamage",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Attacker",
-              Src2Var = "Owner",
-              CompareOp = CO_SAME_TEAM
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffRemoveCurrent,
-                Params = {TargetVar = "Owner"}
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Attacker",
-                  PosVar = "Attacker",
-                  EndPosVar = "Attacker",
-                  OverrideCastPosition = false,
-                  SlotNumber = 0,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 1,
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = false,
-                  UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false,
-                  UpdateAutoAttackTimer = false
-                }
-              },
-              {
-                Function = BBSpellBuffRemoveCurrent,
-                Params = {TargetVar = "Owner"}
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 CanCastBuildingBlocks = {
   {
     Function = BBGetStatus,
@@ -149,10 +58,11 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 10,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -173,15 +83,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 70}
+        Params = {DestVar = "GravityVar", SrcValue = 100}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1150}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {DestVar = "Distance", SrcValue = 600}
+        Params = {DestVar = "SpeedVar", SrcValue = 1450}
       }
     }
   },
@@ -195,11 +101,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 80}
+        Params = {DestVar = "GravityVar", SrcValue = 110}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1150}
+        Params = {DestVar = "SpeedVar", SrcValue = 1300}
       }
     }
   },
@@ -213,11 +119,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 100}
+        Params = {DestVar = "GravityVar", SrcValue = 120}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1080}
+        Params = {DestVar = "SpeedVar", SrcValue = 1150}
       }
     }
   },
@@ -231,11 +137,11 @@ TargetExecuteBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "GravityVar", SrcValue = 120}
+        Params = {DestVar = "GravityVar", SrcValue = 130}
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 1010}
+        Params = {DestVar = "SpeedVar", SrcValue = 1100}
       }
     }
   },
@@ -253,7 +159,7 @@ TargetExecuteBuildingBlocks = {
       },
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedVar", SrcValue = 950}
+        Params = {DestVar = "SpeedVar", SrcValue = 1000}
       }
     }
   },
@@ -294,78 +200,141 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "targetPos"}
+  },
+  {
+    Function = BBMove,
+    Params = {
+      UnitVar = "Attacker",
+      TargetVar = "targetPos",
+      Speed = 0,
+      SpeedVar = "SpeedVar",
+      Gravity = 0,
+      GravityVar = "GravityVar",
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "Distance",
       Src1Value = 0,
-      Src2Value = 100,
-      DestVar = "DistanceCheck",
-      MathOp = MO_SUBTRACT
+      Src2Value = 700,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
     }
   },
   {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMath,
     Params = {
-      UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 0.25,
+      DestVar = "factor",
+      MathOp = MO_MAX
     }
   },
   {
-    Function = BBIsPathable,
+    Function = BBMath,
     Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 0.9,
+      DestVar = "factor",
+      MathOp = MO_MIN
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationVar = "factor",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "factor",
+      TargetVar = "Attacker",
+      Loop = false,
+      Blend = false,
+      Lock = true
+    }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "LeapStrike"
+    }
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Attacker"}
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
+      Src1Var = "Attacker",
+      Src2Var = "Owner",
+      CompareOp = CO_DIFFERENT_TEAM
     },
     SubBlocks = {
       {
-        Function = BBMove,
+        Function = BBSpellCast,
         Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 0,
-          SpeedVar = "SpeedVar",
-          Gravity = 0,
-          GravityVar = "GravityVar",
-          MoveBackBy = 100,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance"
+          CasterVar = "Owner",
+          TargetVar = "Attacker",
+          PosVar = "Attacker",
+          EndPosVar = "Attacker",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 1,
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "unlockanimation"
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMove,
-        Params = {
-          UnitVar = "Attacker",
-          TargetVar = "Target",
-          Speed = 0,
-          SpeedVar = "SpeedVar",
-          Gravity = 0,
-          GravityVar = "GravityVar",
-          MoveBackBy = 0,
-          MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance"
-        }
-      }
-    }
+    Function = BBPreloadSpell,
+    Params = {Name = "leapstrike"}
   }
 }

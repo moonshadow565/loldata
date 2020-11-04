@@ -247,6 +247,35 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AP"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AP",
+      Src1Value = 0,
+      Src2Value = 0.2,
+      DestVar = "FinalAP",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageVar",
+      Src2Var = "FinalAP",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBGetStatus,
     Params = {
       TargetVar = "Target",
@@ -269,7 +298,7 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "DamageVar",
+          DamageVar = "FinalDamage",
           DamageType = PHYSICAL_DAMAGE,
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
@@ -320,7 +349,7 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
-              DamageVar = "DamageVar",
+              DamageVar = "FinalDamage",
               DamageType = PHYSICAL_DAMAGE,
               SourceDamageType = DAMAGESOURCE_ATTACK,
               PercentOfAttack = 1,
@@ -383,7 +412,7 @@ TargetExecuteBuildingBlocks = {
                   CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
-                  DamageVar = "DamageVar",
+                  DamageVar = "FinalDamage",
                   DamageType = PHYSICAL_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_ATTACK,
                   PercentOfAttack = 1,

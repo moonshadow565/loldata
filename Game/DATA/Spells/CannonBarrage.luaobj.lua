@@ -25,7 +25,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 12,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -66,7 +67,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -84,7 +86,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -108,7 +111,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -126,7 +130,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -168,7 +173,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Attacker"}
@@ -193,149 +198,190 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBExecutePeriodically,
+    Function = BBIf,
+    Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 290,
+          OffsetAngle = 45,
+          PositionVar = "CastPosition"
+        }
+      },
+      {
+        Function = BBGetRandomPointInAreaPosition,
+        Params = {
+          PosVar = "CastPosition",
+          Radius = 300,
+          InnerRadius = 50,
+          ResultVar = "CannonPosition"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Value1 = 0.1765, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 290,
+          OffsetAngle = 135,
+          PositionVar = "CastPosition"
+        }
+      },
+      {
+        Function = BBGetRandomPointInAreaPosition,
+        Params = {
+          PosVar = "CastPosition",
+          Radius = 300,
+          InnerRadius = 50,
+          ResultVar = "CannonPosition"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Value1 = 0.2076, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 290,
+          OffsetAngle = 225,
+          PositionVar = "CastPosition"
+        }
+      },
+      {
+        Function = BBGetRandomPointInAreaPosition,
+        Params = {
+          PosVar = "CastPosition",
+          Radius = 300,
+          InnerRadius = 50,
+          ResultVar = "CannonPosition"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Value1 = 0.2443, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 290,
+          OffsetAngle = 315,
+          PositionVar = "CastPosition"
+        }
+      },
+      {
+        Function = BBGetRandomPointInAreaPosition,
+        Params = {
+          PosVar = "CastPosition",
+          Radius = 300,
+          InnerRadius = 50,
+          ResultVar = "CannonPosition"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetRandomPointInAreaPosition,
+        Params = {
+          PosVar = "CastPosition",
+          Radius = 480,
+          InnerRadius = 100,
+          ResultVar = "CannonPosition"
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpell,
     Params = {
-      TimeBetweenExecutions = 0.25,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "CannonBarrageBall",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Nothing",
+      PosVar = "CannonPosition",
+      EndPosVar = "CannonPosition",
+      OverrideCastPosition = false,
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 0,
+      OverrideForceLevelVar = "Level",
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MoveSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "AttackSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "CastPosition",
+      Range = 580,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 300,
-              OffsetAngle = 45,
-              PositionVar = "CastPosition"
-            }
-          },
-          {
-            Function = BBGetRandomPointInAreaPosition,
-            Params = {
-              PosVar = "CastPosition",
-              Radius = 300,
-              InnerRadius = 0,
-              ResultVar = "CannonPosition"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 300,
-              OffsetAngle = 135,
-              PositionVar = "CastPosition"
-            }
-          },
-          {
-            Function = BBGetRandomPointInAreaPosition,
-            Params = {
-              PosVar = "CastPosition",
-              Radius = 300,
-              InnerRadius = 0,
-              ResultVar = "CannonPosition"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 300,
-              OffsetAngle = 225,
-              PositionVar = "CastPosition"
-            }
-          },
-          {
-            Function = BBGetRandomPointInAreaPosition,
-            Params = {
-              PosVar = "CastPosition",
-              Radius = 300,
-              InnerRadius = 0,
-              ResultVar = "CannonPosition"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
-          {
-            Function = BBGetPointByUnitFacingOffset,
-            Params = {
-              UnitVar = "Owner",
-              Distance = 300,
-              OffsetAngle = 315,
-              PositionVar = "CastPosition"
-            }
-          },
-          {
-            Function = BBGetRandomPointInAreaPosition,
-            Params = {
-              PosVar = "CastPosition",
-              Radius = 300,
-              InnerRadius = 0,
-              ResultVar = "CannonPosition"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetRandomPointInAreaPosition,
-            Params = {
-              PosVar = "CastPosition",
-              Radius = 600,
-              InnerRadius = 100,
-              ResultVar = "CannonPosition"
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetSpell,
+        Function = BBSpellBuffAdd,
         Params = {
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          SpellName = "CannonBarrageBall",
-          TargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Nothing",
-          PosVar = "CannonPosition",
-          EndPosVar = "CannonPosition",
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "Slow",
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
+          BuffType = BUFF_Slow,
+          MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -361,6 +407,32 @@ SelfExecuteBuildingBlocks = {
       DestVar = "CastPosition",
       DestVarTable = "NextBuffVars",
       SrcVar = "CastPosition"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -0.15,
+        -0.2,
+        -0.25
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0,
+        0,
+        0,
+        0,
+        0
+      }
     }
   },
   {
@@ -398,7 +470,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -426,6 +499,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cannonbarrageball"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadCharacter,

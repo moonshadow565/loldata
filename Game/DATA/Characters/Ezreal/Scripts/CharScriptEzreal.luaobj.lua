@@ -70,6 +70,24 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "AP"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AP",
+          Src1Value = 0,
+          Src2Value = 0.2,
+          DestVar = "FinalAP",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
         Function = BBGetTotalAttackDamage,
         Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
       },
@@ -89,6 +107,18 @@ UpdateSelfBuffActionsBuildingBlocks = {
           Value = 0,
           ValueVar = "AttackDamage",
           Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "FinalAP",
+          Index = 2,
           SlotNumber = 0,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
