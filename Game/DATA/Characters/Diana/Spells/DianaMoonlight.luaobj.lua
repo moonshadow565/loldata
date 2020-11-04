@@ -4,49 +4,49 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_champ_valkyrie.troy"
+      Name = "Diana_Skin01_Q_Moonlight_Champ.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_champ_self_valkyrie.troy"
+      Name = "Diana_Skin01_Q_Moonlight_Champ_Self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_champ.troy"
+      Name = "Diana_Base_Q_Moonlight_Champ.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_champ_self.troy"
+      Name = "Diana_Base_Q_Moonlight_Champ_Self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_valkyrie.troy"
+      Name = "Diana_Skin01_Q_Moonlight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_self_valkyrie.troy"
+      Name = "Diana_Skin01_Q_Moonlight_Self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight.troy"
+      Name = "Diana_Base_Q_Moonlight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_moonlight_self.troy"
+      Name = "Diana_Base_Q_Moonlight_Self.troy"
     }
   }
 }

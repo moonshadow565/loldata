@@ -18,9 +18,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "odinneutralguardian_stone.troy"
+      Name = "odinminiontaunt"
     }
   },
   {
@@ -32,19 +32,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "infernalguardian_tar_frost.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinminiontaunt"
+      Name = "odinneutralguardian_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "odinneutralguardian_red.troy"
+      Name = "odinneutralguardian_stone.troy"
     }
   }
 }

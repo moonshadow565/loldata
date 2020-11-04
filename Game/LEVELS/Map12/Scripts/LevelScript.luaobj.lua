@@ -603,10 +603,6 @@ function L0_0()
 end
 ApplyAramBuffs = L0_0
 function L0_0()
-  ApplyPersistentBuffToAllChampions("HowlingAbyss_FB_MS", false)
-end
-ApplyFirstBloodBuffs = L0_0
-function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua", 12)
   if GetGameMode() == "TUTORIAL" then
     CreateLevelPropsTutorial()

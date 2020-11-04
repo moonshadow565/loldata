@@ -5,9 +5,21 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "threshwtetherparticle"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thresh_lantern_cas_ground.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "testcuberender10vision"
+      Name = "testcuberenderwcollision"
     }
   },
   {

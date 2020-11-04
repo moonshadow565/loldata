@@ -1,2 +1,2 @@
-AutoBuffActivateEffect = "Diana_Passive_buf.troy"
+AutoBuffActivateEffect = "Diana_Base_P_Buf.troy"
 PersistsThroughDeath = true

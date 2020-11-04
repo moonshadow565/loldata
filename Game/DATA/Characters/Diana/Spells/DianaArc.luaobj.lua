@@ -7,13 +7,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_end_valkyrie.troy"
+      Name = "Diana_Skin01_Q_End.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_end.troy"
+      Name = "Diana_Base_Q_End.troy"
     }
   },
   {
@@ -31,13 +31,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_tar_valkyrie.troy"
+      Name = "Diana_Skin01_Q_Tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_q_tar.troy"
+      Name = "Diana_Base_Q_Tar.troy"
     }
   },
   {
