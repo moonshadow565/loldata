@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="urgotslow"}}, 
+{Function=BBPreloadSpell, Params={Name="urgotheatseekingmissile"}}, 
 {Function=BBPreloadParticle, Params={Name="bloodslash.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="urgotheatseekingmissile_battlecast_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="urgotheatseekingmissile_tar.troy"}}, 

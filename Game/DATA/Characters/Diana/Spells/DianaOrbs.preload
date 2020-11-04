@@ -3,6 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dianashield"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadParticle, Params={Name="diana_base_w_cas.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="dianaorbs"}}, 
 {Function=BBPreloadSpell, Params={Name="dianaorbsmissile"}}, 
 }

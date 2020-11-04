@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nautilusqimpact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilusminorknockaway"}}, 
+{Function=BBPreloadSpell, Params={Name="nautilusanchordrag"}}, 
 }

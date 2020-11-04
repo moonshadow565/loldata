@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="namiwmissileally"}}, 
+{Function=BBPreloadSpell, Params={Name="namiw"}}, 
 {Function=BBPreloadSpell, Params={Name="namipassivedebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="nami_base_w_heal.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nami_base_w_tar_ally.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="namiw"}}, 
 }
