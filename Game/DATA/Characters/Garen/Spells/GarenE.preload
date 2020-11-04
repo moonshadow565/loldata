@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="garen_base_e_cancel.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="garenecancel"}}, 
 {Function=BBPreloadParticle, Params={Name="garen_base_e_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="masterattackspeedbuff"}}, 
 }

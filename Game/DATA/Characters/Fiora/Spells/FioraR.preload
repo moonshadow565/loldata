@@ -5,4 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="fiorapassivedir2"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorapassivedir3"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorapassivedir4"}}, 
+{Function=BBPreloadSpell, Params={Name="spellnostackcdreset"}}, 
+{Function=BBPreloadSpell, Params={Name="yorickreviveally"}}, 
 }

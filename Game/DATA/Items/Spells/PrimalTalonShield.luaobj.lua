@@ -1,3 +1,3 @@
 BuffTextureName = "RagebladeEnrage.dds"
-BuffName = "PrimalTalonEnrage"
+BuffName = "PrimalTalonShield"
 OnPreDamagePriority = 4
