@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="fizzwbonusbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzmarinerdoom"}}, 
 }

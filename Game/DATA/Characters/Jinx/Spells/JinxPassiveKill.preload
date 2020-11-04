@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Jinx_Base_Passive_Buff_OnKill.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jinx_base_passive_buff_onkill.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="jinx_base_passive_buff.troy"}}, 
 }

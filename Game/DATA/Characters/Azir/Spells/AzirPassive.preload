@@ -14,6 +14,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="azirpassiveavailable"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_p_idle.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="azir_base_w_soldier_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_w_indicator.troy"}}, 
 }
