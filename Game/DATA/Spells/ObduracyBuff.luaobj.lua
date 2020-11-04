@@ -8,8 +8,62 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "Level",
+      RequiredVar = "PercMod",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "DamageVar"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageVar",
+      Src2Var = "PercMod",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageIncrease",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "DamageIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBGetArmor,
+    Params = {TargetVar = "Owner", DestVar = "ArmorVar"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ArmorVar",
+      Src2Var = "PercMod",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "ArmorIncrease",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   },
   {
@@ -69,6 +123,50 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageIncrease",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = -1,
+      DestVar = "DamageIncrease",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "DamageIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ArmorIncrease",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = -1,
+      DestVar = "ArmorIncrease",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "SandLHand",
@@ -87,53 +185,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Sandroot",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Level",
-      SrcVar = "Level",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "Damage"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "PercMod",
-      SrcValueByLevel = {
-        0.3,
-        0.4,
-        0.5,
-        0.6,
-        0.7
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Damage",
-      Src2Var = "PercMod",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "Damage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "Damage",
-      Delta = 0
     }
   }
 }

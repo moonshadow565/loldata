@@ -92,30 +92,36 @@ ItemOnPreDamageBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBMath,
-                    Params = {
-                      Src1Var = "CurHealth",
-                      Src1Value = 0,
-                      Src2Value = 1,
-                      DestVar = "DamageAmount",
-                      MathOp = MO_SUBTRACT
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "GuardianAngel",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Internal,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 4,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
+                    Function = BBIf,
+                    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+                    SubBlocks = {
+                      {
+                        Function = BBMath,
+                        Params = {
+                          Src1Var = "CurHealth",
+                          Src1Value = 0,
+                          Src2Value = 1,
+                          DestVar = "DamageAmount",
+                          MathOp = MO_SUBTRACT
+                        }
+                      },
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Owner",
+                          AttackerVar = "Owner",
+                          BuffName = "GuardianAngel",
+                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 4,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
                     }
                   }
                 }

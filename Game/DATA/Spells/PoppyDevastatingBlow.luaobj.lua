@@ -43,6 +43,10 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -104,6 +108,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       State = false
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnHitUnitBuildingBlocks = {

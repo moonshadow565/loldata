@@ -303,19 +303,78 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMove,
+    Function = BBMath,
     Params = {
-      UnitVar = "Attacker",
-      TargetVar = "Target",
-      Speed = 0,
-      SpeedVar = "SpeedVar",
-      Gravity = 0,
-      GravityVar = "GravityVar",
-      MoveBackBy = 200,
-      MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0,
-      IdealDistanceVar = "Distance"
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 150,
+      DestVar = "DistanceCheck",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = 0,
+      DistanceVar = "DistanceCheck",
+      OffsetAngle = 0,
+      PositionVar = "PathablePoint"
+    }
+  },
+  {
+    Function = BBIsPathable,
+    Params = {
+      DestPosVar = "PathablePoint",
+      ResultVar = "PathableVar"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "PathableVar",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMove,
+        Params = {
+          UnitVar = "Attacker",
+          TargetVar = "Target",
+          Speed = 0,
+          SpeedVar = "SpeedVar",
+          Gravity = 0,
+          GravityVar = "GravityVar",
+          MoveBackBy = 150,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBMove,
+        Params = {
+          UnitVar = "Attacker",
+          TargetVar = "Target",
+          Speed = 0,
+          SpeedVar = "SpeedVar",
+          Gravity = 0,
+          GravityVar = "GravityVar",
+          MoveBackBy = 0,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance"
+        }
+      }
     }
   }
 }

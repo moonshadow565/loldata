@@ -28,7 +28,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -100,41 +100,6 @@ ChannelingStartBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "ShenStandUnitedShield",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 7.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "shieldHealth",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "shieldHealth",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "shieldHealth",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "shieldHealth"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "ShenStandUnitedShield",
       BuffAddType = BUFF_RENEW_EXISTING,

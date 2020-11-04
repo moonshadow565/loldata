@@ -7,15 +7,17 @@ BuffTextureName = ""
 BuffName = ""
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSetVarInTable,
     Params = {
-      DestVar = "Level",
+      DestVar = "PercMod",
       DestVarTable = "NextBuffVars",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
+      SrcValueByLevel = {
+        0.2,
+        0.25,
+        0.3,
+        0.35,
+        0.4
+      }
     }
   },
   {
@@ -25,12 +27,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ObduracyBuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

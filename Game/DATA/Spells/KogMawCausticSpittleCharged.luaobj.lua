@@ -12,53 +12,31 @@ BuffOnUpdateStatsBuildingBlocks = {
       SpellSlotValue = 0,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
-      OwnerVar = "Owner",
+      OwnerVar = "Attacker",
       Function = GetSlotSpellLevel
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ArmorPen",
+      DestVar = "ArmorReduction",
       SrcValue = 0,
       SrcValueByLevel = {
-        0.26,
-        0.32,
-        0.38,
-        0.44,
-        0.5
+        -5,
+        -10,
+        -15,
+        -20,
+        -25
       }
     }
   },
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentArmorPenetrationMod,
+      Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorPen",
+      DeltaVar = "ArmorReduction",
       Delta = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmorPen2",
-      SrcValue = 0,
-      SrcValueByLevel = {
-        26,
-        32,
-        38,
-        44,
-        50
-      }
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "ArmorPen2",
-      Index = 1
     }
   }
 }

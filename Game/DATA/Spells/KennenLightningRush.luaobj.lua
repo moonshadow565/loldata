@@ -43,6 +43,20 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        10,
+        20,
+        30,
+        40,
+        50
+      }
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -82,6 +96,32 @@ OnBuffActivateBuildingBlocks = {
       fadeTime = 0.1,
       IDVar = "LitRush",
       IDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DefenseBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KennenLightningRushBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -280,7 +320,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2.2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      TickRate = 0.1,
+      CanMitigateDuration = false
     }
   },
   {
@@ -295,7 +336,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -324,6 +366,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "kennen_lr_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenlightningrushbuff"
     }
   },
   {

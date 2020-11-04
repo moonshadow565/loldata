@@ -105,6 +105,14 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "SelfParticle",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UnstoppableForceMarker"
+    }
   }
 }
 CanCastBuildingBlocks = {
@@ -137,6 +145,10 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "TargetPos"}
   },
   {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
@@ -165,10 +177,6 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = false
     }
-  },
-  {
-    Function = BBGetUnitPosition,
-    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
     Function = BBGetStat,
@@ -237,9 +245,26 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.05,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UnstoppableForceMarker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
     }
@@ -295,6 +320,7 @@ BuffOnMoveEndBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "Damage",
@@ -337,6 +363,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "unstoppableforce_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "unstoppableforcemarker"
     }
   },
   {

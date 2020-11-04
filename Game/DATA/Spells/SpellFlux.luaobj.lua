@@ -101,8 +101,13 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "AoEDamage",
-      SrcValue = 0.65,
-      SrcValueByLevel = {}
+      SrcValueByLevel = {
+        0.65,
+        0.65,
+        0.65,
+        0.65,
+        0.65
+      }
     }
   },
   {

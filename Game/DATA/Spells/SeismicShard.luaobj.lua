@@ -24,6 +24,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         80,
@@ -36,7 +37,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.6
+      SpellDamageRatio = 0.6,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -46,12 +50,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "SeismicShardBuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 5,
+      NumberOfStacks = 1,
+      Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

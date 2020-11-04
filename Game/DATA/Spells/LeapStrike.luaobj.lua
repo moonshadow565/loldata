@@ -77,7 +77,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   OverrideCoolDownCheck = true,
                   FireWithoutCasting = false,
                   UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
                 }
               },
               {
@@ -87,6 +88,52 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           }
         }
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }
@@ -104,7 +151,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -246,64 +294,77 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMove,
+    Function = BBMath,
     Params = {
-      UnitVar = "Attacker",
-      TargetVar = "Target",
-      Speed = 0,
-      SpeedVar = "SpeedVar",
-      Gravity = 0,
-      GravityVar = "GravityVar",
-      MoveBackBy = 100,
-      MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0,
-      IdealDistanceVar = "Distance"
-    }
-  }
-}
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 100,
+      DestVar = "DistanceCheck",
+      MathOp = MO_SUBTRACT
     }
   },
   {
-    Function = BBGetStatus,
+    Function = BBGetPointByUnitFacingOffset,
     Params = {
-      TargetVar = "Owner",
-      DestVar = "CanCast",
-      Status = GetCanCast
+      UnitVar = "Owner",
+      Distance = 0,
+      DistanceVar = "DistanceCheck",
+      OffsetAngle = 0,
+      PositionVar = "PathablePoint"
+    }
+  },
+  {
+    Function = BBIsPathable,
+    Params = {
+      DestPosVar = "PathablePoint",
+      ResultVar = "PathableVar"
     }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "CanMove",
+      Src1Var = "PathableVar",
       Value2 = true,
-      CompareOp = CO_NOT_EQUAL
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
+        Function = BBMove,
+        Params = {
+          UnitVar = "Attacker",
+          TargetVar = "Target",
+          Speed = 0,
+          SpeedVar = "SpeedVar",
+          Gravity = 0,
+          GravityVar = "GravityVar",
+          MoveBackBy = 100,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance"
+        }
       }
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanCast",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
+        Function = BBMove,
+        Params = {
+          UnitVar = "Attacker",
+          TargetVar = "Target",
+          Speed = 0,
+          SpeedVar = "SpeedVar",
+          Gravity = 0,
+          GravityVar = "GravityVar",
+          MoveBackBy = 0,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          IdealDistance = 0,
+          IdealDistanceVar = "Distance"
+        }
       }
     }
   }

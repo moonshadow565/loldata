@@ -296,6 +296,14 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Silence}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Stun}
   },
   {

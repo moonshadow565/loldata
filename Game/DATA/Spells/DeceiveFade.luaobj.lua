@@ -76,9 +76,10 @@ OnBuffDeactivateBuildingBlocks = {
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4.5,
+      Duration = 3.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -127,7 +128,8 @@ BuffOnPreAttackBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

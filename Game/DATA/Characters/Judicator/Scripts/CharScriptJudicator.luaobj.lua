@@ -34,10 +34,21 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetTotalAttackDamage,
+        Function = BBGetStat,
         Params = {
+          Stat = GetFlatMagicDamageMod,
           TargetVar = "Owner",
-          DestVar = "AttackDamage"
+          DestVar = "KayleAP"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "KayleAP",
+          Src1Value = 0.3,
+          Src2Value = 0,
+          DestVar = "KayleAP",
+          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -45,23 +56,23 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "DamageMod",
           SrcValueByLevel = {
-            0.2,
-            0.25,
-            0.3,
-            0.35,
-            0.4
+            4,
+            10,
+            16,
+            22,
+            28
           }
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "DamageMod",
-          Src2Var = "AttackDamage",
+          Src1Var = "KayleAP",
+          Src2Var = "DamageMod",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "AttackDamage",
-          MathOp = MO_MULTIPLY
+          MathOp = MO_ADD
         }
       },
       {

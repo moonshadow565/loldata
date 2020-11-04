@@ -20,11 +20,26 @@ TargetExecuteBuildingBlocks = {
           Delta = 0,
           PARType = PAR_MANA,
           DeltaByLevel = {
+            25,
             50,
+            75,
             100,
-            150,
-            200,
-            250
+            125
+          }
+        }
+      },
+      {
+        Function = BBIncPAR,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          PARType = PAR_MANA,
+          DeltaByLevel = {
+            25,
+            50,
+            75,
+            100,
+            125
           }
         }
       },
@@ -44,6 +59,33 @@ TargetExecuteBuildingBlocks = {
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
         }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "soraka_infuse_ally_tar.troy",
+              Flags = 0,
+              EffectIDVar = "Infuse",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
       }
     }
   },
@@ -55,6 +97,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
             50,
