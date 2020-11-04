@@ -54,6 +54,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rengarralertsound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rengarr_internal"
     }
   }

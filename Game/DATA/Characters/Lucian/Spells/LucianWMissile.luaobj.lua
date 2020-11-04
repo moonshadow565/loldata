@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lucianwmarker"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "lucian_w_blowup.troy"

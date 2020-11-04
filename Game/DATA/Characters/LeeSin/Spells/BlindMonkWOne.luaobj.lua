@@ -30,9 +30,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
-    }
+    Params = {Name = "destealth"}
   },
   {
     Function = BBPreloadSpell,
