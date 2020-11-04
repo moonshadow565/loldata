@@ -14,6 +14,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_base_e_spin.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_base_aa_sword_swipe_front.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "garene"}
   },

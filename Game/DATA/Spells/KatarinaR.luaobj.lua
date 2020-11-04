@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 1.9
+ChannelDuration = 2.4
 SpellFXOverrideSkins = {
   "XmasKatarina"
 }

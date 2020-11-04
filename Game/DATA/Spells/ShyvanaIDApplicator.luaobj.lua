@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shyvanaiddamage"
+      Name = "shyvanaidapplicator"
     }
   }
 }

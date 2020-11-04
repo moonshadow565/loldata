@@ -8,6 +8,18 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cass_skn4_petrify_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cass_skn4_castglow.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "cassiopeiapetrifyinggaze"
@@ -26,17 +38,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cass_skn4_petrify_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cass_skn4_castglow.troy"
-    }
   }
 }

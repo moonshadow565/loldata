@@ -6,6 +6,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktorb_blue.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "viktorgravitonfield"
