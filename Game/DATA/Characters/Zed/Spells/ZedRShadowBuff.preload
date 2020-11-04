@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Zed_Skin01_CloneDeath.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_skin01_clonedeath.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_clonedeath.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Base_ShadowIndicatorNEARBloop.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Base_R_Dash.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Base_ShadowIndicatorMED.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Zed_Base_ShadowIndicatorFAR.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_shadowindicatornearbloop.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_r_dash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_shadowindicatormed.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_shadowindicatorfar.troy"}}, 
 }
