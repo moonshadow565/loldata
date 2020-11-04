@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_q_wall_warning.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_q_stun_flash_wall.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardqparticlecontroller"}}, 
+{Function=BBPreloadSpell, Params={Name="bardqshackledebuff"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_q_missile2_chain.troy"}}, 
+}

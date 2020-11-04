@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_w_heal.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardwspeedboost"}}, 
+}

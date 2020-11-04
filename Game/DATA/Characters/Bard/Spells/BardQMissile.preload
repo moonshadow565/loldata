@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="bardqinitialtargetdebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="bardqmissile2"}}, 
+}

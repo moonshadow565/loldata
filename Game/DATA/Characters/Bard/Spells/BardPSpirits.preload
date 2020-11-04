@@ -1,0 +1,15 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_upgrade_sparkles.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_skin01_p_meep_upgrade_ribbon.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_upgrade_eyeglow.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpdisplayspirittimer"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspiritammocount"}}, 
+{Function=BBPreloadCharacter, Params={Name="bardfollower"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear_others.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspiritmissile"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspiritmissilepicker_hack"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspirithandlerecall"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspirithandleemotes"}}, 
+}

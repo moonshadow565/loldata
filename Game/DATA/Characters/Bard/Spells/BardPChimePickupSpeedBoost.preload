@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_p_collection_speedlines.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_audio_speed_on.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_audio_dronestop.troy"}}, 
+}
