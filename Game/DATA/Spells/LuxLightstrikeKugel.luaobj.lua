@@ -1,12 +1,8 @@
-AutoBuffActivateEffect = "LuxLightstrike_mis.troy"
-AutoBuffActivateAttachBoneName = "root"
+BuffTextureName = "LuxLightStrikeKugel.dds"
+BuffName = "LuxEEnd"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "luxlightstriketoggle"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -52,5 +48,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "luxlightstriketoggle"
+    }
   }
 }
