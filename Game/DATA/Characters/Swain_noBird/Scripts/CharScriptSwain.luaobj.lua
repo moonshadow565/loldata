@@ -1,3 +1,56 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetPercentCooldownMod,
+          TargetVar = "Owner",
+          DestVar = "CooldownStat"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownStat",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "Multiplier",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Multiplier",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "NewCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "NewCooldown",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -71,54 +124,58 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
-UpdateSelfBuffActionsBuildingBlocks = {
+CharOnPreDealDamageBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIfHasBuff,
     Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      OwnerVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "SwainTorment"
     },
     SubBlocks = {
       {
-        Function = BBGetStat,
+        Function = BBGetSlotSpellInfo,
         Params = {
-          Stat = GetPercentCooldownMod,
-          TargetVar = "Owner",
-          DestVar = "CooldownStat"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "CooldownStat",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "Multiplier",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Multiplier",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "NewCooldown",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "NewCooldown",
-          Index = 1,
-          SlotNumber = 0,
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamagePercent",
+              SrcValueByLevel = {
+                1.08,
+                1.11,
+                1.14,
+                1.17,
+                1.2
+              }
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamagePercent",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_MULTIPLY
+            }
+          }
         }
       }
     }
@@ -141,6 +198,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "swaintacticalsupremacy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swaintorment"
     }
   }
 }
