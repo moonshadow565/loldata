@@ -1,32 +1,6 @@
 BuffTextureName = "Lich_Defied.dds"
 BuffName = "Death Defied Buff"
 NonDispellable = true
-BuffOnAllowAddBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_DIFFERENT_TEAM
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
-      }
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -320,7 +294,15 @@ OnBuffDeactivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
-      State = false
+      State = true
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetInvulnerable
     }
   },
   {
@@ -371,6 +353,22 @@ OnBuffDeactivateBuildingBlocks = {
           }
         }
       }
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Owner",
+      Damage = 10000,
+      DamageType = TRUE_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -453,37 +451,11 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSealSpellSlot,
     Params = {
-      SpellSlot = 5,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = InventorySlots,
-      TargetVar = "Owner",
-      State = false
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
       SpellSlot = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 10000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
     }
   }
 }
@@ -537,6 +509,32 @@ BuffOnUpdateStatsBuildingBlocks = {
           TargetVar = "Owner",
           State = true
         }
+      }
+    }
+  }
+}
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = true}
       }
     }
   }
