@@ -1,0 +1,9 @@
+BuffTextureName = "AncientKrug_Square.dds"
+BuffName = "KrugStoneFist"
+AutoBuffActivateEffect = "Global_Item_ElixirOfIron_Buf.troy"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateEffect2 = "Global_Item_ElixirOfIron_Buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
+SpellDamageRatio = 1
+PersistsThroughDeath = true
+NonDispellable = true

@@ -6,7 +6,8 @@ IsDamagingSpell = true
 BuffTextureName = "Sejuani_Q.dds"
 BuffName = "SejuaniArcticAssault"
 SpellFXOverrideSkins = {
-  "SejuaniSkin04"
+  "SejuaniSkin04",
+  "SejuaniSkin05"
 }
 SpellVOOverrideSkins = {
   "SejuaniClassic"
