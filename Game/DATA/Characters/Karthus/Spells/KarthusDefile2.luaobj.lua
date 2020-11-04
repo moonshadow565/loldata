@@ -1,8 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
-BuffTextureName = "Lich_Defile.dds"
-BuffName = "Defile"
+BuffTextureName = "Karthus_E.dds"
+BuffName = "KarthusDefile"
 SpellToggleSlot = 3
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
