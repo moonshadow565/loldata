@@ -1834,7 +1834,7 @@ function L0()
   L5 = 0
   L0(L1, L2, L3, L4, L5)
   L0 = RegisterOnSpellAvatarCastCallback
-  L1 = 0
+  L1 = 4
   L2 = "EventSummonerHealCongrats"
   L0(L1, L2)
 end
@@ -1849,7 +1849,7 @@ function L0()
   L2 = "EventReturnPlatform"
   L0(L1, L2)
   L0 = UnRegisterOnSpellAvatarCastCallback
-  L1 = 0
+  L1 = 4
   L2 = "Tutorial_Replenish"
   L0(L1, L2)
   L0 = HideObjectiveText
