@@ -1769,3 +1769,33 @@ function L0(A0, A1, A2)
   end
 end
 BBSpellBuffRemoveStacks = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5
+  L3 = A0.EmoteId
+  L4 = A1.EmoteId
+  if L3 == L4 then
+    L3 = ExecuteBuildingBlocks
+    L4 = A2
+    L5 = A0
+    L3(L4, L5)
+    A0.LastIfSucceeded = true
+  else
+    A0.LastIfSucceeded = false
+  end
+end
+BBIfEmoteIs = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5
+  L3 = A0.EmoteId
+  L4 = A1.EmoteId
+  if L3 ~= L4 then
+    L3 = ExecuteBuildingBlocks
+    L4 = A2
+    L5 = A0
+    L3(L4, L5)
+    A0.LastIfSucceeded = true
+  else
+    A0.LastIfSucceeded = false
+  end
+end
+BBIfEmoteIsNot = L0

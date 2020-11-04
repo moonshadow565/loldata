@@ -1,0 +1,12 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+BuffTextureName = "Nocturne_ShroudofDarkness.dds"
+BuffName = "FioraRiposteBuff"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
+PersistsThroughDeath = true
+TriggersSpellCasts = true

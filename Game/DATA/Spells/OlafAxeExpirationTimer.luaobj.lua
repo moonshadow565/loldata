@@ -25,12 +25,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "olafberzerkerrage"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "olaf_axe_refresh_indicator.troy"

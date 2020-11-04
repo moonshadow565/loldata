@@ -15,6 +15,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "ziggsmirvzone"
     }
   }

@@ -14,7 +14,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 PreLoadBuildingBlocks = {
   {
@@ -33,12 +35,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "poppyparagonspeed"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyparagonicon"
     }
   }
 }

@@ -5,11 +5,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "teemomushroomcounter"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomushrooms"
-    }
   }
 }

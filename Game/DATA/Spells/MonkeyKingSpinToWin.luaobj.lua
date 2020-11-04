@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "monkeykingdecoystealth"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "monkeykingspintowin"
     }
   },
@@ -46,12 +40,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingspinmarkerchaos"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "monkey_king_ult_unit_tar_02.troy"
@@ -61,6 +49,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "monkeykingspinknockup"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monkeykingspinmarkerchaos"
     }
   },
   {

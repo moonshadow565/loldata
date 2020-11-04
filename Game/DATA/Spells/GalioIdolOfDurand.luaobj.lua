@@ -38,16 +38,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "taunt"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "galioidolofdurandtaunt"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_builingstatue_unit_impact_01.troy"
@@ -57,12 +47,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "galioidolofdurandmarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "galioidolofdurand"
     }
   }
 }

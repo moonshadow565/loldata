@@ -1,0 +1,10 @@
+BuffTextureName = "3114_Malady.dds"
+BuffName = "NautilusPassive"
+AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateAttachBoneName3 = ""
+AutoBuffActivateEffect4 = ""
+PersistsThroughDeath = true
+NonDispellable = true

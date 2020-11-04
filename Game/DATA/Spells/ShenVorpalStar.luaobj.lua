@@ -16,9 +16,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shendestabilize"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_vorpalstar_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shen_vorpalstar_lifetap_tar_02.troy"
     }
   }
 }

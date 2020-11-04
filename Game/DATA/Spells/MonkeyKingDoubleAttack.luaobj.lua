@@ -12,25 +12,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xenziou_battle_cry_weapon_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "monkey_king_crushingblow_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "monkeykingdoubleattack"
+      Name = "monkeykingdoubleattackdebuff"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "monkeykingdoubleattackdebuff"
+      Name = "xenziou_battle_cry_weapon_01.troy"
     }
   }
 }

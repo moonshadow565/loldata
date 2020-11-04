@@ -15,17 +15,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xeratharcanebarragewrapper"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xeratharcanebarrageminion"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "xeratharcanebarragelauncher"
-    }
   }
 }

@@ -12,12 +12,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "poppyparagonicon"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "poppyparagonparticle"
     }
   },

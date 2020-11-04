@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "desperatepower"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "desperatepower_aoe.troy"
