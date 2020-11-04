@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "heimerdingerturretcounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "heimerdingerturretready"
     }
   },

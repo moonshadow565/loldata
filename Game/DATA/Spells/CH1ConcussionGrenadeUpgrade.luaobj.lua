@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Cryophoenix_FrigidOrb.dds"
-BuffName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -22,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blindingdart"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell1"
     }
   }
 }

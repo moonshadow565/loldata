@@ -1,4 +1,4 @@
-BuffTextureName = "Thresh_QPassive3.dds"
+BuffTextureName = "Thresh_Q2.dds"
 BuffName = "ThreshQPassive"
 PreLoadBuildingBlocks = {
   {

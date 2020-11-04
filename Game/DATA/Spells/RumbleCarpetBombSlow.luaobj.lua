@@ -1,8 +1,4 @@
 BuffTextureName = "GragasBodySlam.dds"
 BuffName = "RumbleCarpetBombSlow"
 AutoBuffActivateEffect = "Global_Slow.troy"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
 PopupMessage1 = "game_floatingtext_Slowed"

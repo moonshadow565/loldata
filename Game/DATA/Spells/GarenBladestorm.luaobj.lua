@@ -2,6 +2,9 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_KeepingthePeace.dds"
 BuffName = "GarenBladestorm"
+SpellFXOverrideSkins = {
+  "SteellegionGaren"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

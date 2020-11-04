@@ -1,5 +1,5 @@
 BuffTextureName = "Shen_KiStrike.dds"
-BuffName = "Shen Passive Marker"
+BuffName = "ShenWayOfTheNinjaMarker"
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

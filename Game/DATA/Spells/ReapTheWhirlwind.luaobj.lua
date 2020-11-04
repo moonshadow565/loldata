@@ -6,10 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 4
 BuffTextureName = "Janna_ReapTheWhirlwind.dds"
 BuffName = "Reap The Whirlwind"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

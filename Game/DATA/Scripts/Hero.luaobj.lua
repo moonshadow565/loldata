@@ -192,6 +192,9 @@ function L0_0()
         InitTimer("TimerCheckAttack", 0.1, true)
         return false
       end
+      if IsAutoAcquireTargetEnabled() == false and GetState() ~= AI_SOFTATTACK then
+        return false
+      end
       newTarget = FindTargetInAcR()
       if newTarget ~= nil then
         if GetState() == AI_CHARMED then
@@ -236,11 +239,15 @@ function L0_0()
   if L0_6 ~= L1_7 then
     L1_7 = AI_IDLE
   elseif L0_6 == L1_7 then
-    L1_7 = GetTargetOrFindTargetInAcR
+    L1_7 = IsAutoAcquireTargetEnabled
     L1_7 = L1_7()
-    if L1_7 ~= nil and CanSeeMe(L1_7) then
-      SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
-      return true
+    if L1_7 then
+      L1_7 = GetTargetOrFindTargetInAcR
+      L1_7 = L1_7()
+      if L1_7 ~= nil and CanSeeMe(L1_7) then
+        SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
+        return true
+      end
     end
   end
   L1_7 = AI_MOVE
@@ -248,15 +255,19 @@ function L0_0()
     L1_7 = IsMovementStopped
     L1_7 = L1_7()
     if L1_7 then
-      L1_7 = GetTargetOrFindTargetInAcR
+      L1_7 = IsAutoAcquireTargetEnabled
       L1_7 = L1_7()
-      if L1_7 ~= nil and CanSeeMe(L1_7) then
-        SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
-        TurnOnAutoAttack(L1_7)
-        return true
+      if L1_7 then
+        L1_7 = GetTargetOrFindTargetInAcR
+        L1_7 = L1_7()
+        if L1_7 ~= nil and CanSeeMe(L1_7) then
+          SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
+          TurnOnAutoAttack(L1_7)
+          return true
+        end
+        NetSetState(AI_IDLE)
+        return false
       end
-      NetSetState(AI_IDLE)
-      return false
     end
   end
   L1_7 = AI_ATTACKMOVESTATE

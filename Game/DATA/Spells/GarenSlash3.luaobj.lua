@@ -2,6 +2,9 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_DecisiveStrike.dds"
 BuffName = "GarenSlash"
+SpellFXOverrideSkins = {
+  "SteellegionGaren"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

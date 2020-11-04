@@ -5,11 +5,3 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffName = "ScurvyStrike"
 IsDeathRecapSource = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "scurvystrikeparticle"
-    }
-  }
-}

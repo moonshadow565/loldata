@@ -5,18 +5,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleheatingup"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleheatingup2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rumbleoverheat"
     }
   },

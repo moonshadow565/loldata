@@ -1,4 +1,4 @@
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "GSB_stun.dds"
 BuffName = "Stun"
 AutoBuffActivateEffect = "Stun_glb.troy"
 AutoBuffActivateAttachBoneName = "head"

@@ -1,2 +1,2 @@
-BuffTextureName = "Thresh_QPassive2.dds"
+BuffTextureName = "Thresh_Q1.dds"
 BuffName = "ThreshQPassive"

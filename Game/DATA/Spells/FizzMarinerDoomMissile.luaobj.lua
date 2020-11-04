@@ -3,8 +3,6 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {

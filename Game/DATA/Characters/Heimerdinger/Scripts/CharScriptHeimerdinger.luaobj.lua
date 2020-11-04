@@ -28,5 +28,23 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "heimerdingerturretready"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ifhasbuffcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell2"
+    }
   }
 }
