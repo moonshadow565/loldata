@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "renektonrageready"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "renektonweaponglowfade"
     }
   }
