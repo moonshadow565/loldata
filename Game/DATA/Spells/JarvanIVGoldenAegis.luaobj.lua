@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 BuffTextureName = "JarvanIV_GoldenAegis.dds"
 BuffName = "JarvanIVGoldenAegis"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 OnPreDamagePriority = 3
 ChainMissileParameters = {

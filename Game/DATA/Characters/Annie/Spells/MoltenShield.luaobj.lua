@@ -1,8 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Annie_GhastlyShield.dds"
+BuffTextureName = "Annie_E.dds"
 BuffName = "Molten Shield"
-AutoBuffActivateEffect = "GhastlyShield_buf.troy"
+AutoBuffActivateEffect = "Annie_E_buf.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

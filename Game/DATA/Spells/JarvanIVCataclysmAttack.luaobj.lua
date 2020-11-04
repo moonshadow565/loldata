@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvanwallcrumble_lubu.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "jarvanivcataclysmcheck"

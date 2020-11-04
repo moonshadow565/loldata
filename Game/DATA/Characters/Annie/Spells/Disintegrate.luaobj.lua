@@ -10,25 +10,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "disintegratehit_tar_frost.troy"
+      Name = "annie_skin05_q_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "disintegrate_hit_frost.troy"
+      Name = "annie_skin05_q_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "disintegratehit_tar.troy"
+      Name = "annie_q_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "disintegrate_hit.troy"
+      Name = "annie_q_tar_02.troy"
     }
   }
 }

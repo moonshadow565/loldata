@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = "Stun_glb.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
@@ -26,5 +26,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cass_skn4_petrify_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cass_skn4_castglow.troy"
+    }
   }
 }

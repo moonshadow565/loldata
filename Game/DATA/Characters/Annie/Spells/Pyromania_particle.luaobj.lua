@@ -1,3 +1,3 @@
-BuffTextureName = "Annie_Brilliance.dds"
+BuffTextureName = "Annie_Passive.dds"
 BuffName = "Energized"
 AutoBuffActivateEffect = "StunReady.troy"

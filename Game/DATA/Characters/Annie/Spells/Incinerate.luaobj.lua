@@ -10,13 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "incinerate_buf_frost.troy"
+      Name = "annie_skin05_w_buf.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "incinerate_buf.troy"
+      Name = "annie_w_buf.troy"
     }
   }
 }

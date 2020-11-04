@@ -12,5 +12,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "jarvandragonstrike_hit.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvan_lubu_dragonstrike_hit_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvandragonstrike_hit_sound.troy"
+    }
   }
 }
