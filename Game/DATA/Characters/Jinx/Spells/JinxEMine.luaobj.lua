@@ -34,7 +34,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "jinx_e_mine_trigger_sound.troy"
+      Name = "jinx_e_mine_trigger.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jinxeminesnare"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jinxeminemarker"
     }
   },
   {
@@ -58,19 +70,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "jinx_e_mine_trigger.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jinxeminesnare"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jinxeminemarker"
+      Name = "jinx_e_mine_trigger_sound.troy"
     }
   }
 }

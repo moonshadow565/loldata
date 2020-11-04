@@ -1,4 +1,4 @@
-BuffTextureName = "3184_FrozenWarhammer.dds"
+BuffTextureName = "3184_Entropy.dds"
 BuffName = "OdinEntropicClaymore"
 PreLoadBuildingBlocks = {
   {

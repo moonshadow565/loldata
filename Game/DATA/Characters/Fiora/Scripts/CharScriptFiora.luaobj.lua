@@ -20,5 +20,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "fioraripostebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fiorasummonerspelllockout"
+    }
   }
 }

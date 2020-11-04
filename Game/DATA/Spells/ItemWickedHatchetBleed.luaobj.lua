@@ -1,6 +1,6 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "TalonNoxianDiplomacy.dds"
-BuffName = "Bleed"
+BuffTextureName = "3122_Wicked_Hatchet.dds"
+BuffName = "ItemWickedHatchetBleed"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
