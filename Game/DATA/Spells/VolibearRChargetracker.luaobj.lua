@@ -12,4 +12,3 @@ AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateEffect4 = ""
 AutoBuffActivateAttachBoneName4 = ""
-BuffOnHitUnitBuildingBlocks = {}

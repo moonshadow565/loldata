@@ -5,16 +5,6 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffName = "DefensiveBallCurl"
 AutoBuffActivateEffect = ""
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "DefensiveBallCurl"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

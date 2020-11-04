@@ -11,16 +11,6 @@ AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 SpellToggleSlot = 3
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "GarenBladestorm"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

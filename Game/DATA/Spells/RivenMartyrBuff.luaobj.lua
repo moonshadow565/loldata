@@ -13,34 +13,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "SpeedBoost",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "SpeedBoost",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "SpeedBoost",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}

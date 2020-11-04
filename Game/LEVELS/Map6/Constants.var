@@ -15,13 +15,13 @@ gcd_PercentEXPBonusMaximum              =      5.000 ; The highest EXPBonus Perc
 ; Damage Ratios
 dr_HeroToHero                           =      1.000 ;  
 dr_BuildingToHero                       =      1.050 ;  
-dr_UnitToHero                           =      0.600 ;
+dr_UnitToHero                           =      0.600 ;  
 dr_HeroToUnit                           =      1.000 ;  
-dr_BuildingToUnit                       =      1.105 ;
+dr_BuildingToUnit                       =      1.105 ;  
 dr_UnitToUnit                           =      1.000 ;  
 dr_HeroToBuilding                       =      1.000 ;  
 dr_BuildingToBuilding                   =      1.000 ;  
-dr_UnitToBuilding                       =      0.500 ;
+dr_UnitToBuilding                       =      0.500 ;  
 
 ; Call For Help variables
 cfh_Delay                               =      1.000 ; How often a unit will issue a Call For Help
@@ -121,8 +121,8 @@ events_TimerForAssist                   =     10.000 ; Amount of time for someth
 tut_TutorialModeOn                      =          0 ; Flag to turn TutorialMode On/Off
 
 ; Audio variables
-aud_FMODMusicCueID                      =          5 ; FMOD ID for a music cue for the map's music.
-aud_FMODAmbientEvent                    =   map_snow ; FMOD event name for the map's ambient track.
+aud_FMODMusicCueID                      =          3 ; FMOD ID for a music cue for the map's music.
+aud_FMODAmbientEvent                    = map_forest ; FMOD event name for the map's ambient track.
 aud_FMODVictoryMusicCueID               =         10 ; FMOD ID for a Victory music cue for the map's music.
 aud_FMODDefeatMusicCueID                =         11 ; FMOD ID for a Defeat music cue for the map's music.
 

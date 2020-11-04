@@ -13,23 +13,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  }
-}

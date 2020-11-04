@@ -8,4 +8,3 @@ BuffName = ""
 SpellDamageRatio = 1
 TriggersSpellCasts = false
 PopupMessage1 = "game_floatingtext_Slowed"
-TargetExecuteBuildingBlocks = {}
