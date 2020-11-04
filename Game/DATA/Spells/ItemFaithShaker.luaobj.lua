@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemfaithshakercooldown"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "neutralize_tower.troy"

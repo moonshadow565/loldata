@@ -5,15 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Poppy_DiplomaticImmunity.dds"
 BuffName = "PoppyDiplomaticImmunity"
-AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyditarget"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -24,6 +17,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "diplomaticimmunity_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "poppyditarget"
     }
   },
   {

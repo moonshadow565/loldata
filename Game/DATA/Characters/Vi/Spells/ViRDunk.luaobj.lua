@@ -34,5 +34,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "virdunktarget"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "virdunkstun"
+    }
   }
 }

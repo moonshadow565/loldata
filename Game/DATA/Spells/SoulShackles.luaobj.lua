@@ -19,13 +19,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "morgana_blackthorn_soulshackle_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "morgana_blackthorn_soulshackle_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "morgana_blackthorn_soulshackle_buf.troy"
+      Name = "soulshackle_buf.troy"
     }
   },
   {
@@ -37,7 +43,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "soulshackle_buf.troy"
+      Name = "morgana_blackthorn_soulshackle_tar_explode.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soulshackle_tar_explode.troy"
     }
   },
   {

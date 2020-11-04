@@ -6,6 +6,16 @@ AutoBuffActivateEffect2 = "bluehands_buf.troy"
 AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_30slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "itemslow"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "globalhit_physical.troy"
