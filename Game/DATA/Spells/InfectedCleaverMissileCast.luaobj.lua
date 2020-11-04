@@ -46,32 +46,6 @@ CanCastBuildingBlocks = {
     }
   }
 }
-AdjustCooldownBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Sadism"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = 2.5}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = 5}
-      }
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -123,7 +97,7 @@ SelfExecuteBuildingBlocks = {
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = false,
+      OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false
     }
@@ -160,11 +134,5 @@ SelfExecuteBuildingBlocks = {
       DeltaVar = "HealthCost",
       HealerVar = "Owner"
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sadism"}
   }
 }

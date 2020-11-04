@@ -8,7 +8,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatMagicDamageMod,
       TargetVar = "Owner",
-      Delta = 8
+      Delta = 10
     }
   },
   {
@@ -37,7 +37,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Count",
-      Src1Value = 8,
+      Src1Value = 10,
       Src2Value = 0,
       DestVar = "APDisplay",
       MathOp = MO_MULTIPLY

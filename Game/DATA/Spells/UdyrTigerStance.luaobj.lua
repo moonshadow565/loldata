@@ -129,11 +129,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        0.2,
-        0.275,
-        0.35,
-        0.425,
-        0.5
+        0.24,
+        0.33,
+        0.42,
+        0.51,
+        0.6
       }
     }
   },
@@ -233,7 +233,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "CooldownPerc",
-      Src1Value = 3,
+      Src1Value = 2.5,
       Src2Value = 0,
       DestVar = "CooldownPerc",
       MathOp = MO_MULTIPLY

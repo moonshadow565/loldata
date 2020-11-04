@@ -41,6 +41,18 @@ OnBuffDeactivateBuildingBlocks = {
         }
       },
       {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetPercentLifeStealMod,
+          TargetVar = "Attacker",
+          DestVar = "LifestealPercent"
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {TargetVar = "Attacker", DestVar = "TAD"}
+      },
+      {
         Function = BBMath,
         Params = {
           Src2Var = "CritDamage",
@@ -48,6 +60,38 @@ OnBuffDeactivateBuildingBlocks = {
           Src2Value = 0,
           DestVar = "CritDamage",
           MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "LifestealPercent",
+          Src2Var = "TAD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "LifestealHeal",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "LifestealHeal",
+          Src1Value = 0.33,
+          Src2Value = 0,
+          DestVar = "LifestealHeal",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "CritDamage",
+          Src2Var = "LifestealHeal",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "CritLifestealHeal",
+          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -79,6 +123,15 @@ OnBuffDeactivateBuildingBlocks = {
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 0,
+              DeltaVar = "CritLifestealHeal",
+              HealerVar = "Attacker"
+            }
           }
         }
       },
@@ -99,6 +152,15 @@ OnBuffDeactivateBuildingBlocks = {
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 0,
+              DeltaVar = "LifestealHeal",
+              HealerVar = "Attacker"
             }
           }
         }
@@ -122,6 +184,15 @@ OnBuffDeactivateBuildingBlocks = {
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 0,
+              DeltaVar = "CritLifestealHeal",
+              HealerVar = "Attacker"
+            }
           }
         }
       },
@@ -142,6 +213,15 @@ OnBuffDeactivateBuildingBlocks = {
               SpellDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 0,
+              DeltaVar = "LifestealHeal",
+              HealerVar = "Attacker"
             }
           }
         }

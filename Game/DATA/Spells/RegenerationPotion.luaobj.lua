@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "2003_Regeneration_Potion.dds"
+BuffTextureName = "Eggnog_HealthPotion.dds"
 BuffName = "Health Potion"
 AutoBuffActivateEffect = "Regenerationpotion_itm.troy"
 BuffOnUpdateActionsBuildingBlocks = {

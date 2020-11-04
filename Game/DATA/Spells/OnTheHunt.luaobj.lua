@@ -94,9 +94,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.35,
-        0.35,
-        0.35
+        0.3,
+        0.3,
+        0.3
       }
     }
   },
@@ -115,8 +115,8 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             0.25,
-            0.5,
-            0.75
+            0.45,
+            0.65
           }
         }
       },
@@ -152,8 +152,8 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             0.125,
-            0.25,
-            0.375
+            0.225,
+            0.325
           }
         }
       },
@@ -170,9 +170,9 @@ TargetExecuteBuildingBlocks = {
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
-            18,
-            18,
-            18
+            15,
+            15,
+            15
           },
           TickRate = 0
         }

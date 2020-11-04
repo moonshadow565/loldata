@@ -37,47 +37,53 @@ BuffOnSpellCastBuildingBlocks = {
         Params = {
           OwnerVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "UdyrMA2"
+          BuffName = "UdyrMA0"
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBIfHasBuff,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "UdyrMA0",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "UdyrMA1"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrMA2",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
-          }
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "UdyrMA1"
-        },
-        SubBlocks = {
+          },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "UdyrMA2",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrMA1",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }
@@ -87,18 +93,80 @@ BuffOnSpellCastBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBIfHasBuff,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "UdyrMA1",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "UdyrMA2"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrMA0",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberStacks = 1,
+                  Duration = 5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrMA1"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "UdyrMA2",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "UdyrMA1",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
+                }
+              }
             }
           }
         }
@@ -115,14 +183,14 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "udyrma2"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "udyrma0"}
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "udyrma1"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "udyrma2"}
   }
 }

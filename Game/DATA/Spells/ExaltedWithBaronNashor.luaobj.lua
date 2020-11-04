@@ -38,7 +38,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusAttack",
       Src1Value = 0,
-      Src2Value = 50,
+      Src2Value = 40,
       DestVar = "BonusAttack",
       MathOp = MO_MIN
     }

@@ -30,7 +30,6 @@ Barracks_T2_R1.sco -100
 Barracks_T2_L1.sco -100
 Turret_OrderTurretShrine.sco -100
 Turret_ChaosTurretShrine.sco -100
-orderShop01.sco -100
 chaosShop01.sco -100
 __ANIMS_store2.sco -100
 __ANIMS_shopekeeper2.sco -100
@@ -90,6 +89,7 @@ __NAV_R014.sco -100
 __NAV_R015.sco -100
 __NAV_R016.sco -100
 __NAV_R017.sco -100
-AIPath.sco -100
 __Spawn_T2.sco -100
 __Spawn_T1.sco -100
+AIPath.sco -100
+orderShop01.sco -100

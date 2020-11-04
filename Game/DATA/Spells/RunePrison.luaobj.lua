@@ -115,7 +115,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
-              EffectName = "ManaLeach_tar.troy",
+              EffectName = "DesperatePower_aoe.troy",
               Flags = 0,
               EffectIDVar = "part",
               TargetObjectVar = "Owner",
@@ -222,6 +222,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "desperatepower"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "desperatepower_aoe.troy"
     }
   },
   {

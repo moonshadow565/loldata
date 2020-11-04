@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 6
+ChannelDuration = 4
 BuffTextureName = "Janna_ReapTheWhirlwind.dds"
 BuffName = "Reap The Whirlwind"
 AutoBuffActivateEffect = ""
@@ -114,7 +114,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 900,
+      Range = 700,
       Flags = "AffectEnemies AffectFriends AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -164,7 +164,7 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               DestVar = "Distance",
               DestVarTable = "NextBuffVars",
-              SrcValue = 900
+              SrcValue = 1000
             }
           },
           {
@@ -172,7 +172,7 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               DestVar = "Gravity",
               DestVarTable = "NextBuffVars",
-              SrcValue = 50
+              SrcValue = 10
             }
           },
           {
@@ -180,7 +180,7 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               DestVar = "Speed",
               DestVarTable = "NextBuffVars",
-              SrcValue = 800
+              SrcValue = 1200
             }
           },
           {
@@ -225,7 +225,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 600,
+      Range = 700,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -259,9 +259,9 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "BaseTickAmount",
       SrcValueByLevel = {
-        30,
-        50,
-        70
+        45,
+        75,
+        105
       }
     }
   },
@@ -278,7 +278,7 @@ ChannelingStartBuildingBlocks = {
     Params = {
       Src1Var = "APAmount",
       Src1Value = 0,
-      Src2Value = 0.125,
+      Src2Value = 0.175,
       DestVar = "APTickBonus",
       MathOp = MO_MULTIPLY
     }

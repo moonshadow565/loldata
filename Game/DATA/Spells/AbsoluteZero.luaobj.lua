@@ -334,15 +334,17 @@ ChannelingSuccessStopBuildingBlocks = {
           AttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
-            500,
-            700,
-            900
+            625,
+            875,
+            1125
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 2.5
+          SpellDamageRatio = 2.5,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -354,9 +356,9 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       DestVar = "SecondDamage",
       SrcValueByLevel = {
-        500,
-        700,
-        900
+        625,
+        875,
+        1125
       }
     }
   },
@@ -412,7 +414,9 @@ ChannelingCancelStopBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 0,
           PercentOfAttackVar = "TotalTime",
-          SpellDamageRatio = 2.5
+          SpellDamageRatio = 2.5,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

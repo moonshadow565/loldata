@@ -226,7 +226,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Target",
-              EffectName = "ManaLeach_tar.troy",
+              EffectName = "DesperatePower_aoe.troy",
               Flags = 0,
               EffectIDVar = "part",
               TargetObjectVar = "Target",
@@ -305,6 +305,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "desperatepower"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "desperatepower_aoe.troy"
     }
   },
   {

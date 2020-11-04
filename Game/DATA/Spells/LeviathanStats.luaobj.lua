@@ -8,7 +8,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
-      Delta = 37.5
+      Delta = 32
     }
   },
   {
@@ -37,7 +37,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Count",
-      Src1Value = 37.5,
+      Src1Value = 32,
       Src2Value = 0,
       DestVar = "HealthDisplay",
       MathOp = MO_MULTIPLY

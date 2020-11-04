@@ -54,7 +54,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           AttackerVar = "Attacker",
           CenterVar = "TargetPos",
-          Range = 350,
+          Range = 300,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit"
         },
@@ -134,7 +134,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               AttackerVar = "Attacker",
               CenterVar = "TargetPos",
-              Range = 350,
+              Range = 300,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit"
             },
@@ -226,7 +226,7 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   AttackerVar = "Attacker",
                   CenterVar = "TargetPos",
-                  Range = 350,
+                  Range = 300,
                   Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
                   IteratorVar = "Unit"
                 },

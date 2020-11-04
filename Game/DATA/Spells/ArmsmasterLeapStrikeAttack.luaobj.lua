@@ -228,6 +228,23 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "LeapStrikeSpeed",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 0.35,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -243,6 +260,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "relentlessassaultmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leapstrikespeed"
     }
   }
 }

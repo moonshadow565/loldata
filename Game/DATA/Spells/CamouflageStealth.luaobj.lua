@@ -55,7 +55,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 6,
+      Duration = 4.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -152,6 +152,14 @@ BuffOnSpellCastBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "camouflagecheck"
     }
   }
 }

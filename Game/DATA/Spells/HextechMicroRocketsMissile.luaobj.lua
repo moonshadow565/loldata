@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
@@ -8,17 +9,19 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       TargetVar = "Target",
       DamageByLevel = {
-        80,
-        80,
-        80,
-        80,
-        80
+        90,
+        150,
+        210,
+        270,
+        330
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.2
+      SpellDamageRatio = 0.8,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

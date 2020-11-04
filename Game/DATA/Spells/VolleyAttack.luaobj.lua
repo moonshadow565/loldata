@@ -4,10 +4,11 @@ SpellDamageRatio = 0.5
 TriggersSpellCasts = false
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetBuffCountFromAll,
+    Function = BBGetBuffCountFromCaster,
     Params = {
       DestVar = "Count",
-      TargetVar = "Target",
+      TargetVar = "Owner",
+      CasterVar = "Target",
       BuffName = "VolleyAttack"
     }
   },
@@ -55,12 +56,12 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBSpellBuffAdd,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              AttackerVar = "Target",
               BuffName = "VolleyAttack",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_Internal,
-              MaxStack = 5,
+              MaxStack = 9,
               NumberStacks = 1,
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
@@ -215,12 +216,12 @@ TargetExecuteBuildingBlocks = {
               {
                 Function = BBSpellBuffAdd,
                 Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
+                  TargetVar = "Owner",
+                  AttackerVar = "Target",
                   BuffName = "VolleyAttack",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
                   BuffType = BUFF_Internal,
-                  MaxStack = 5,
+                  MaxStack = 9,
                   NumberStacks = 1,
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
@@ -387,12 +388,12 @@ TargetExecuteBuildingBlocks = {
                   {
                     Function = BBSpellBuffAdd,
                     Params = {
-                      TargetVar = "Target",
-                      AttackerVar = "Attacker",
+                      TargetVar = "Owner",
+                      AttackerVar = "Target",
                       BuffName = "VolleyAttack",
                       BuffAddType = BUFF_STACKS_AND_RENEWS,
                       BuffType = BUFF_Internal,
-                      MaxStack = 5,
+                      MaxStack = 9,
                       NumberStacks = 1,
                       Duration = 0.5,
                       BuffVarsTable = "NextBuffVars",

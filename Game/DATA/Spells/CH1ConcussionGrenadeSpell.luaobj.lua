@@ -18,20 +18,57 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "Target",
-      EffectName = "heimerdinger_CH1_grenade_tar.troy",
-      Flags = 0,
-      EffectIDVar = "arr",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "teamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "Target",
+          EffectName = "heimerdinger_CH1_grenade_tar.troy",
+          Flags = 0,
+          EffectIDVar = "arr",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "Target",
+          EffectName = "heimerdinger_CH1_grenade_tar.troy",
+          Flags = 0,
+          EffectIDVar = "arr",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {

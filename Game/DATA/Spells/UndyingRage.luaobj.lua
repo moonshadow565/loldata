@@ -29,7 +29,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "healthPercent",
-      Value2 = 0.05,
+      Value2 = 0.03,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -54,7 +54,7 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           Src1Var = "maxHealth",
           Src1Value = 0,
-          Src2Value = 0.05,
+          Src2Value = 0.03,
           DestVar = "healthFactor",
           MathOp = MO_MULTIPLY
         }
@@ -176,11 +176,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        4,
-        4,
-        4,
-        4,
-        4
+        3,
+        3,
+        3,
+        3,
+        3
       }
     }
   },

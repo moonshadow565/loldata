@@ -17,11 +17,11 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        75,
-        125,
-        175,
+        60,
+        115,
+        170,
         225,
-        275
+        280
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
