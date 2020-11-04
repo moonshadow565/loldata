@@ -8,5 +8,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "garenpassivecooldown"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenpassiveheal"
+    }
   }
 }

@@ -2,13 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "garenjusticeprecast"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garenrecouperateon"
+      Name = "garenpassiveheal"
     }
   },
   {

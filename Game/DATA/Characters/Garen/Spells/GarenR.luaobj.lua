@@ -8,12 +8,6 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garendeathcheck"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "garen_base_r_sword_tar.troy"

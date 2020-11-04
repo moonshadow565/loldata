@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalcannotclickobjects"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "gatemarker_green_underworld.troy"
