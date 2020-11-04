@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "hexdrinkertimerundo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hexdrinkertimercd"
     }
   }
