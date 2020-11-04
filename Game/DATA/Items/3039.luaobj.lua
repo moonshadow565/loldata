@@ -1,1 +1,0 @@
-AutoBuffActivateEffect = "Abyssalscepter_itm.troy"
