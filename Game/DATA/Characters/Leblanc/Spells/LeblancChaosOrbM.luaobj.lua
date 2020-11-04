@@ -23,13 +23,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancchaosorbmproc"
+      Name = "leblancchaosorbproc"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancchaosorbproc"
+      Name = "leblancchaosorbmproc"
     }
   }
 }

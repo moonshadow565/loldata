@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "ahritumble"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ahrispiritrushreadymanager"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ahri_spiritrush_cas.troy"

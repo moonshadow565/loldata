@@ -8,23 +8,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sivirpassivespeed"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sivirrpassive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sivirrpassivemarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sivirrpassivebuff"
-    }
   }
 }

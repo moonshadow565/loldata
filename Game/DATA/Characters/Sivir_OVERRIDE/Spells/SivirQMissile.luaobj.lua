@@ -1,8 +1,9 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -15,5 +16,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sivir_base_q_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
   }
 }

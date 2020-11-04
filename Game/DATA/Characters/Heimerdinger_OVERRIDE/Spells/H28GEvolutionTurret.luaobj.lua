@@ -73,6 +73,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heimerdinger_ult_turret_ring.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "heimerdingerturretlockon"

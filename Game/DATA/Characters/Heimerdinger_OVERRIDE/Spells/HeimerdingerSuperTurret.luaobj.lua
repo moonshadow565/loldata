@@ -1,5 +1,5 @@
-BuffTextureName = "Heimerdinger_TechmaturgicalRepairBots.dds"
-BuffName = "HeimerPassive"
+BuffTextureName = "Heimerdinger_H28GEvolutionTurret.dds"
+BuffName = "HeimerdingerSuperTurret"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
