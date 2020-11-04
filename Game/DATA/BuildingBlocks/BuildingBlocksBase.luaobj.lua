@@ -87,7 +87,7 @@ function L0_0(A0_25, A1_26)
   L2_27 = L2_27(L3_28, A1_26.SrcVarTable, false)
   L3_28 = A1_26.ToSay
   L3_28 = L3_28 or ""
-  ClientPrint(tostring(L3_28) .. ": " .. type(L2_27[A1_26.SrcVar]))
+  DebugClientPrint(tostring(L3_28) .. ": " .. type(L2_27[A1_26.SrcVar]))
 end
 BBPrintTypeToChat = L0_0
 function L0_0(A0_29, A1_30)
@@ -106,18 +106,18 @@ function L0_0(A0_29, A1_30)
   L6_35 = L6_35 .. L3_32 .. "\">"
   if L2_31 == "" then
     if A1_30.SrcVarTable ~= nil then
-      L6_35 = L6_35 .. A1_30.SrcVarTable .. "." .. (A1_30.SrcVar or "")
+      L6_35 = L6_35 .. "(DEBUG) " .. A1_30.SrcVarTable .. "." .. (A1_30.SrcVar or "")
     else
-      L6_35 = L6_35 .. (A1_30.SrcVar or "")
+      L6_35 = L6_35 .. "(DEBUG) " .. (A1_30.SrcVar or "")
     end
   else
-    L6_35 = L6_35 .. L2_31
+    L6_35 = L6_35 .. "(DEBUG) " .. L2_31
   end
   if type(L5_34) ~= "table" and type(L5_34) ~= "nil" then
     L6_35 = L6_35 .. " " .. tostring(L5_34)
   end
   L6_35 = L6_35 .. "</font>"
-  ClientPrint(L6_35)
+  DebugClientPrint(L6_35)
   if type(L5_34) == "table" then
     PrintTableToChat(L5_34)
   end
@@ -130,7 +130,7 @@ function L0_0(A0_36, A1_37)
   L2_38 = L2_38(L3_39, A1_37.TableName, true)
   L3_39 = A1_37.TableName
   L3_39 = L3_39 or "PassThroughParams"
-  ClientPrint(L3_39)
+  DebugClientPrint(L3_39)
   PrintTableToChat(L2_38)
 end
 BBPrintTableToChat = L0_0
@@ -167,7 +167,7 @@ function L0_0(A0_40, A1_41)
     end
     L13_53 = L3_43
     L13_53 = L13_53 .. L12_52 .. ": " .. L11_51
-    ClientPrint(L13_53)
+    DebugClientPrint(L13_53)
     if type(L10_50) == "table" then
       PrintTableToChat(L10_50, A1_41 + 1)
     end

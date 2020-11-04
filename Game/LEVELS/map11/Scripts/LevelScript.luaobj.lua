@@ -413,6 +413,8 @@ function OnPostLevelLoad()
     SetDampenerRespawnAnimationDuration(L4_37, ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION)
     L4_37 = GetDampener(TEAM_CHAOS, L3_36)
     SetDampenerRespawnAnimationDuration(L4_37, CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION)
+    SetLaneExposed(TEAM_ORDER, L3_36, false)
+    SetLaneExposed(TEAM_CHAOS, L3_36, false)
   end
   L0_33(L1_34)
   L0_33(L1_34)
@@ -793,6 +795,8 @@ function ApplyBarracksRespawnReductions(A0_114, A1_115)
         totalNumberOfOrderBarracks = L13_127
       end
       L13_127.WillSpawnSuperMinion = 0
+      L16_130 = false
+      L13_127(L14_128, L15_129, L16_130)
     end
     if L12_126 == 3 then
       HQ = L13_127
@@ -893,6 +897,10 @@ function HandleDestroyedObject(A0_142)
     L2_144 = A0_142
     L1_143 = L1_143(L2_144)
     barrackLane = L1_143
+    L1_143 = SetLaneExposed
+    L2_144 = barrackTeam
+    L3_145 = barrackLane
+    L1_143(L2_144, L3_145, true)
     L1_143 = DisableBarracksSpawn
     L2_144 = barrackLane
     L3_145 = barrackTeam
@@ -988,28 +996,45 @@ function HandleDestroyedObject(A0_142)
   L2_144 = true
   return L2_144
 end
+function SetLaneExposed(A0_146, A1_147, A2_148)
+  if A0_146 == TEAM_ORDER then
+    if A1_147 == RIGHT_LANE then
+      SetWorldVar("OrderRightLaneExposed", A2_148)
+    elseif A1_147 == LEFT_LANE then
+      SetWorldVar("OrderLeftLaneExposed", A2_148)
+    else
+      SetWorldVar("OrderMidLaneExposed", A2_148)
+    end
+  elseif A1_147 == RIGHT_LANE then
+    SetWorldVar("ChaosRightLaneExposed", A2_148)
+  elseif A1_147 == LEFT_LANE then
+    SetWorldVar("ChaosLeftLaneExposed", A2_148)
+  else
+    SetWorldVar("ChaosMidLaneExposed", A2_148)
+  end
+end
 function IncreaseCannonMinionSpawnRate()
-  local L1_146
-  L1_146 = 2
-  CANNON_MINION_SPAWN_FREQUENCY = L1_146
+  local L1_149
+  L1_149 = 2
+  CANNON_MINION_SPAWN_FREQUENCY = L1_149
 end
 function IncreaseCannonMinionSpawnRateAgain()
-  local L1_147
-  L1_147 = 1
-  CANNON_MINION_SPAWN_FREQUENCY = L1_147
+  local L1_150
+  L1_150 = 1
+  CANNON_MINION_SPAWN_FREQUENCY = L1_150
 end
-function PostGameSetup(A0_148)
+function PostGameSetup(A0_151)
   POST_GAME_EVENTS = {}
 end
-function PostGameUpdate(A0_149, A1_150)
-  local L2_151, L3_152, L4_153, L5_154, L6_155, L7_156
-  for L7_156, _FORV_8_ in L4_153(L5_154) do
-    if A0_149 > _FORV_8_.delay then
+function PostGameUpdate(A0_152, A1_153)
+  local L2_154, L3_155, L4_156, L5_157, L6_158, L7_159
+  for L7_159, _FORV_8_ in L4_156(L5_157) do
+    if A0_152 > _FORV_8_.delay then
       ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_8_.cameraLocation, _FORV_8_.travelTime)
       if _FORV_8_.soundFile then
         ClientSide_PlaySoundFile(_FORV_8_.soundFile)
       end
-      table.remove(POST_GAME_EVENTS, L7_156)
+      table.remove(POST_GAME_EVENTS, L7_159)
       break
     end
   end

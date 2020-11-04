@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="s5junglemushroompoison"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_junglebuff_gromp_attacker_hit.troy"}}, 
+}
