@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "HeimerdingerQspell1"
+      Name = "heimerdingerqspell1"
     }
   },
   {
