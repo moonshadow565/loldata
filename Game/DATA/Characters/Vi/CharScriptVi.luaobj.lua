@@ -39,18 +39,18 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "vionthecase"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "viwmarker"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "vicaittaunt"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vionthecase"
     }
   },
   {

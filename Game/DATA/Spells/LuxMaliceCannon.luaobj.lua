@@ -1,6 +1,9 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -42,6 +45,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "luxmalicecannonball"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "luxmalicecannon_steellegion_beammiddle.troy"
     }
   },
   {
