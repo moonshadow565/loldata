@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="globalruncycleoverride"}}, 
 {Function=BBPreloadParticle, Params={Name="monkeyking_base_r_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="monkeyking_base_r_cas_glow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="monkeyking_base_r_tar.troy"}}, 
