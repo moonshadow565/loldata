@@ -17,18 +17,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "teemomushrooms"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomushroommanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "teemomovequickpassive"
     }
   }

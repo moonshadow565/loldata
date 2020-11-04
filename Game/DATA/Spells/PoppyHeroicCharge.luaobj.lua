@@ -4,6 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffName = "XenZhaoSweep"
+IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "ZhaoYunXinZhao"
 }

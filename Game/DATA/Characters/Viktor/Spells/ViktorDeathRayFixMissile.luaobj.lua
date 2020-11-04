@@ -14,5 +14,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "viktordeathraydot"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_skn3_beamorigin.troy"
+    }
   }
 }

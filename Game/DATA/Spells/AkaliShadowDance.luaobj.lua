@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "AkaliShadowDance.dds"
 BuffName = "AkaliShadowDance"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 ChainMissileParameters = {
   MaximumHits = {
@@ -22,12 +21,6 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdance"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

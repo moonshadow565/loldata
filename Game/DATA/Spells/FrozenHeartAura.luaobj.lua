@@ -12,5 +12,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "frozen_heart_marker.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "frozenheartauracosmetic"
+    }
   }
 }

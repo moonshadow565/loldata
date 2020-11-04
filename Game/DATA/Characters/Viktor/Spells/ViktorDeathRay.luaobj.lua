@@ -1,11 +1,14 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "MakerViktor"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "viktorentropicbeam_beam.troy"
+      Name = "viktor_skn3_beamorigin.troy"
     }
   },
   {
@@ -54,6 +57,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktordeathrayfix_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktorentropicbeam_beam.troy"
     }
   }
 }

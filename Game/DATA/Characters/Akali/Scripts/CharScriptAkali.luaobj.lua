@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalishadowdance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "akalitwindisciplines"
     }
   },

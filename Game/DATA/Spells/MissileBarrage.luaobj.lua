@@ -8,12 +8,6 @@ SpellFXOverrideSkins = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "missilebarrage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "mbcheck2"}
   },
   {

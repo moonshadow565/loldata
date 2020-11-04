@@ -2,10 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Armsmaster_Empower.dds"
 BuffName = "EmpowerTwo"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

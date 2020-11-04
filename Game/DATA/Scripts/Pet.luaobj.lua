@@ -219,7 +219,7 @@ function L0_0()
   end
   distanceToOwner = DistanceBetweenObjectBounds(me, tempOwner)
   if distanceToOwner > TELEPORT_DISTANCE then
-    SetActorPositionFromObject(me, tempOwner)
+    TeleportToObj(tempOwner)
     AIScriptSpellBuffRemove(me, "PetCommandParticle")
     NetSetState(AI_PET_IDLE)
     return

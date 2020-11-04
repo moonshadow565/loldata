@@ -3,12 +3,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zac_passive_revivespotmarker.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "zacpassiveexplosion.troy"
     }
   },

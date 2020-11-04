@@ -2,10 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Vladimir_Hemoplague.dds"
 BuffName = "VladimirHemoplagueDebuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 SpellFXOverrideSkins = {
   "BloodkingVladimir"
 }

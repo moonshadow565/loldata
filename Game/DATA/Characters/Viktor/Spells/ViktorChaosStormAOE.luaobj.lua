@@ -1,8 +1,6 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "Infernal Guardian"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

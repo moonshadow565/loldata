@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 BuffTextureName = "Summoner_Exhaust.dds"
 BuffName = "SummonerExhaustDebuff"
 AutoBuffActivateEffect = "summoner_banish.troy"
-PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

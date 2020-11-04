@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Cardmaster_red.dds"
 BuffName = "Pick A Card Red"

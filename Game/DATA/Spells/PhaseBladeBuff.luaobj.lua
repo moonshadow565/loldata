@@ -1,2 +1,0 @@
-BuffTextureName = ""
-BuffName = ""

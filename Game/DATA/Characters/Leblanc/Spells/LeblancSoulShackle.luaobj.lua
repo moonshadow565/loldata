@@ -17,10 +17,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblanc_shackle_self_idle.troy"

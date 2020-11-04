@@ -1,6 +1,5 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Nasus_Wither.dds"
 BuffName = "RengarW"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {

@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "zed_ult_pop_kill_self_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zed_ult_pop_nokill.troy"
     }
   },

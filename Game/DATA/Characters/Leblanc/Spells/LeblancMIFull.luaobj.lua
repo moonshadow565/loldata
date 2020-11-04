@@ -1,11 +1,5 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancpassive"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblancimage.troy"

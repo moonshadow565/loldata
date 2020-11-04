@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "missilebarrage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "corkimissilebarragenc"
     }
   },
