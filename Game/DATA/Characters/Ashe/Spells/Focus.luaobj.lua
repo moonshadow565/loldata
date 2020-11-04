@@ -1,4 +1,4 @@
-BuffTextureName = "Bowmaster_Bullseye.dds"
+BuffTextureName = "Ashe_Passive.dds"
 BuffName = "Focus"
 PersistsThroughDeath = true
 NonDispellable = true

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Bowmaster_IceArrow.dds"
+BuffTextureName = "Ashe_Q.dds"
 BuffName = "Frost Shot"
 AutoBuffActivateEffect = "Ashe_Base_q_buf.troy"
 AutoBuffActivateAttachBoneName = "Bow_04"

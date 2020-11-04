@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Soraka_Bless.dds"
+BuffTextureName = "Soraka_W.dds"
 BuffName = "Astral Blessing"
 SpellFXOverrideSkins = {
   "ClericSoraka"

@@ -1,4 +1,4 @@
-BuffTextureName = "Bowmaster_Bullseye.dds"
+BuffTextureName = "Ashe_Passive.dds"
 BuffName = "AsheCritChanceReady"
 AutoBuffActivateEffect = "Ashe_Base_P_buf_geo.troy"
 AutoBuffActivateAttachBoneName = "Bow_01"
