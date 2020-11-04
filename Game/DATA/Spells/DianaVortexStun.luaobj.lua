@@ -1,4 +1,4 @@
-BuffTextureName = "Maokai_ArcaneSmash.dds"
+BuffTextureName = "Diana_E_MoonFall.dds"
 BuffName = "MaokaiStun"
 PreLoadBuildingBlocks = {
   {
