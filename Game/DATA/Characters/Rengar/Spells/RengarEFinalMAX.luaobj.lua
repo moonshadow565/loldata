@@ -32,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengaremax_tar.troy"
+      Name = "Rengar_Base_E_Max_Tar.troy"
     }
   }
 }

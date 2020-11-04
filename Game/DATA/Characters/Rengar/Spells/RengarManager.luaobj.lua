@@ -3,7 +3,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarpassivemax.troy"
+      Name = "Rengar_Base_P_Buf_Max.troy"
     }
   }
 }

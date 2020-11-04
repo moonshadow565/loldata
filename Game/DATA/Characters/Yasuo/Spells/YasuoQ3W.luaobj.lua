@@ -46,6 +46,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_q3_indicator_ring.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "yasuoqw"}
   },

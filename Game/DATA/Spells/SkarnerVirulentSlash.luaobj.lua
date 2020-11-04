@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "SkarnerVirulentSlash.dds"
 BuffName = "SkarnerVirulentSlash"
+AutoBuffActivateEffect = "Fiora_Flurry_AS.troy"
 SpellFXOverrideSkins = {
   "ReefMalphite"
 }

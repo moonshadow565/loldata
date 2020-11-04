@@ -13,13 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarrvanish.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengarreffect.troy"
+      Name = "rengar_base_r_buf.troy"
     }
   },
   {

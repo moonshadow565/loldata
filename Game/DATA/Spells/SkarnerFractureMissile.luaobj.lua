@@ -2,7 +2,7 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "SkarnerFracture.dds"
-BuffName = "SkarnerFracture"
+BuffName = "SkarnerFractureMissile"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -32,7 +32,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "skarnerfracturemissile"
+      Name = "skarnervirulentslashslow"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "luxpassive_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_crystal_slash_tar.troy"
     }
   }
 }
