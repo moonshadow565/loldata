@@ -4,6 +4,9 @@ BuffTextureName = "BlindMonkQOne.dds"
 BuffName = "BlindMonkSonicWave"
 AutoBuffActivateEffect = "global_Watched.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+SpellFXOverrideSkins = {
+  "LeeSinSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
