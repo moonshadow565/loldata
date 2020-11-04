@@ -164,7 +164,7 @@ function L0()
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret
   L1 = "Turret_ChaosTurretShrine"
-  L2 = "SRUAP_Turret_Chaos5"
+  L2 = "SRUAP_MageCrystal"
   L3 = TEAM_CHAOS
   L4 = 0
   L5 = 1

@@ -1766,55 +1766,82 @@ function L0_0(A0_487, A1_488, A2_489)
   end
 end
 BBSpellBuffRemoveStacks = L0_0
-function L0_0(A0_492, A1_493, A2_494)
-  if A0_492.EmoteId == A1_493.EmoteId then
-    ExecuteBuildingBlocks(A2_494, A0_492)
-    A0_492.LastIfSucceeded = true
+function L0_0(A0_492, A1_493)
+  local L2_494, L3_495
+  L2_494 = GetParam
+  L3_495 = "Unit"
+  L2_494 = L2_494(L3_495, A0_492, A1_493)
+  unit = L2_494
+  L2_494 = unit
+  if L2_494 == nil then
+    L2_494 = ReportError
+    L3_495 = "Could not resolve Unit param"
+    L2_494(L3_495)
+    return
+  end
+  L2_494 = true
+  L3_495 = GetParam
+  L3_495 = L3_495("ChampionToShowTo", A0_492, A1_493)
+  if L3_495 == nil then
+    L2_494 = false
+    L3_495 = GetParam("ChampionToShowToByFlag", A0_492, A1_493)
+  end
+  if L3_495 == nil then
+    ReportError("Could not resolve ChampionToShowTo param")
+    return
+  end
+  SetShowHealthBarToChampion(unit, A1_493.Show, L3_495, L2_494, A1_493.ApplyToSpectator)
+end
+BBSetShowHealthBarToChampion = L0_0
+function L0_0(A0_496, A1_497, A2_498)
+  if A0_496.EmoteId == A1_497.EmoteId then
+    ExecuteBuildingBlocks(A2_498, A0_496)
+    A0_496.LastIfSucceeded = true
   else
-    A0_492.LastIfSucceeded = false
+    A0_496.LastIfSucceeded = false
   end
 end
 BBIfEmoteIs = L0_0
-function L0_0(A0_495, A1_496, A2_497)
-  if A0_495.EmoteId ~= A1_496.EmoteId then
-    ExecuteBuildingBlocks(A2_497, A0_495)
-    A0_495.LastIfSucceeded = true
+function L0_0(A0_499, A1_500, A2_501)
+  if A0_499.EmoteId ~= A1_500.EmoteId then
+    ExecuteBuildingBlocks(A2_501, A0_499)
+    A0_499.LastIfSucceeded = true
   else
-    A0_495.LastIfSucceeded = false
+    A0_499.LastIfSucceeded = false
   end
 end
 BBIfEmoteIsNot = L0_0
-function L0_0(A0_498, A1_499)
-  local L2_500, L3_501, L4_502, L5_503
-  L2_500 = GetTable
-  L3_501 = A0_498
-  L4_502 = A1_499.String1VarTable
-  L5_503 = false
-  L2_500 = L2_500(L3_501, L4_502, L5_503)
-  L3_501 = A1_499.String1Var
-  L3_501 = L2_500[L3_501]
-  L4_502 = GetTable
-  L5_503 = A0_498
-  L4_502 = L4_502(L5_503, A1_499.String2VarTable, false)
-  L5_503 = A1_499.String2Var
-  L5_503 = L4_502[L5_503]
-  GetTable(A0_498, A1_499.ResultVarTable, false)[A1_499.ResultVar] = L3_501 .. L5_503
+function L0_0(A0_502, A1_503)
+  local L2_504, L3_505, L4_506, L5_507
+  L2_504 = GetTable
+  L3_505 = A0_502
+  L4_506 = A1_503.String1VarTable
+  L5_507 = false
+  L2_504 = L2_504(L3_505, L4_506, L5_507)
+  L3_505 = A1_503.String1Var
+  L3_505 = L2_504[L3_505]
+  L4_506 = GetTable
+  L5_507 = A0_502
+  L4_506 = L4_506(L5_507, A1_503.String2VarTable, false)
+  L5_507 = A1_503.String2Var
+  L5_507 = L4_506[L5_507]
+  GetTable(A0_502, A1_503.ResultVarTable, false)[A1_503.ResultVar] = L3_505 .. L5_507
 end
 BBConcatenateStrings = L0_0
-function L0_0(A0_504, A1_505)
-  local L2_506, L3_507
-  L2_506 = GetTable
-  L3_507 = A0_504
-  L2_506 = L2_506(L3_507, A1_505.VariableVarTable, false)
-  L3_507 = A1_505.VariableVar
-  L3_507 = L2_506[L3_507]
-  GetTable(A0_504, A1_505.ResultVarTable, false)[A1_505.ResultVar] = "(" .. L3_507 .. ")"
+function L0_0(A0_508, A1_509)
+  local L2_510, L3_511
+  L2_510 = GetTable
+  L3_511 = A0_508
+  L2_510 = L2_510(L3_511, A1_509.VariableVarTable, false)
+  L3_511 = A1_509.VariableVar
+  L3_511 = L2_510[L3_511]
+  GetTable(A0_508, A1_509.ResultVarTable, false)[A1_509.ResultVar] = "(" .. L3_511 .. ")"
 end
 BBEncaseInParantheses = L0_0
-function L0_0(A0_508, A1_509)
-  BBGetMinionKills(A0_508, A1_509)
-  A0_508.MinionKillSource = GetParam("MinionKillTarget")
-  A0_508.MinionKills = A0_508.MinionsKilled + GetParam("MinionKills", A0_508, A1_509)
-  BBSetMinionKills(A0_508, A1_509)
+function L0_0(A0_512, A1_513)
+  BBGetMinionKills(A0_512, A1_513)
+  A0_512.MinionKillSource = GetParam("MinionKillTarget")
+  A0_512.MinionKills = A0_512.MinionsKilled + GetParam("MinionKills", A0_512, A1_513)
+  BBSetMinionKills(A0_512, A1_513)
 end
 BBIncreaseMinionKills = L0_0

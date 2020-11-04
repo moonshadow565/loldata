@@ -5,9 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="sionruncyclemanager"}}, 
 {Function=BBPreloadSpell, Params={Name="sionwpassive"}}, 
-{Function=BBPreloadParticle, Params={Name="warwick_w_cone.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="varusqchannel.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="varusqchannel2.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="sionetrigger"}}, 
 }
