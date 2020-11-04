@@ -90,7 +90,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
-          BuffName = "Slow",
+          BuffName = "TimeWarpSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
@@ -113,6 +113,8 @@ TargetExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "slow"}
+    Params = {
+      Name = "timewarpslow"
+    }
   }
 }

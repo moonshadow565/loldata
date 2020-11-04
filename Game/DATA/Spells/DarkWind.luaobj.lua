@@ -60,8 +60,8 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Silence,
           MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 2,
+          NumberOfStacks = 1,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -90,6 +90,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -110,6 +111,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

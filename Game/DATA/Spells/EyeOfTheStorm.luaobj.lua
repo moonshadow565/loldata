@@ -161,7 +161,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
-      TargetVar = "Target",
+      TargetVar = "Attacker",
       DestVar = "AbilityPower"
     }
   },

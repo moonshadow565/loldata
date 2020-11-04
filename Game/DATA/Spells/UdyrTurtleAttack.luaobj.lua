@@ -18,6 +18,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -73,7 +74,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "LeechAmount",
-              Src1Value = 0.5,
+              Src1Value = 0.75,
               Src2Value = 0,
               DestVar = "ManaLeechAmount",
               MathOp = MO_MULTIPLY
@@ -93,6 +94,7 @@ TargetExecuteBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "ManaLeechAmount"
             }
           },

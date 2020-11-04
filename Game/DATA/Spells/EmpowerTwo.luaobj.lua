@@ -155,15 +155,15 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       Src1Var = "AttackDamage",
       Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "HalfAttack",
+      Src2Value = 0.2,
+      DestVar = "PhysicalBonus",
       MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "HalfAttack",
+      Src1Var = "PhysicalBonus",
       Src2Var = "BonusDamage",
       Src2VarTable = "InstanceVars",
       Src1Value = 0,
@@ -217,12 +217,11 @@ BuffOnHitUnitBuildingBlocks = {
                   AttackerVar = "Attacker",
                   TargetVar = "Unit",
                   Damage = 0,
-                  DamageVar = "BonusDamage",
-                  DamageVarTable = "InstanceVars",
+                  DamageVar = "AOEDmg",
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.35,
+                  SpellDamageRatio = 0.2,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
@@ -281,11 +280,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        45,
-        65,
-        85,
-        105,
-        125
+        40,
+        60,
+        80,
+        100,
+        120
       }
     }
   },

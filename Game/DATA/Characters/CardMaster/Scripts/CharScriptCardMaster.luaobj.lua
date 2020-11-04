@@ -101,11 +101,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
+            60,
             90,
             120,
             150,
-            180,
-            210
+            180
           }
         }
       },

@@ -138,7 +138,10 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       PercentOfAttackVar = "BackstabBonus",
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -175,13 +178,21 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffName = "TwoShivPoison",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Deceive"
     }
   }
 }
@@ -197,5 +208,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "twoshivpoison"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "deceive"}
   }
 }

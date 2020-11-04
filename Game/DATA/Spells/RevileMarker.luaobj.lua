@@ -7,11 +7,30 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBDistanceBetweenObjects,
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBDistanceBetweenPoints,
     Params = {
       DestVar = "Distance",
-      ObjectVar1 = "Owner",
-      ObjectVar2 = "Attacker"
+      Point1Var = "OwnerPos",
+      Point2Var = "TargetPos"
     }
   },
   {
@@ -27,7 +46,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Speed",
       Src1Value = 0,
-      Src2Value = 0.27,
+      Src2Value = 0.15,
       DestVar = "PlusBonus",
       MathOp = MO_MULTIPLY
     }
@@ -35,18 +54,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Speed",
-      Src1Value = 0,
-      Src2Value = 0.35,
-      DestVar = "PlusLess",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 285,
+      Src1Value = 320,
       Src2Value = 0,
       DestVar = "UpperBound",
       MathOp = MO_ADD
@@ -55,8 +64,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src2Var = "PlusLess",
-      Src1Value = 395,
+      Src2Var = "PlusBonus",
+      Src1Value = 320,
       Src2Value = 0,
       DestVar = "LowerBound",
       MathOp = MO_SUBTRACT
@@ -91,7 +100,7 @@ OnBuffActivateBuildingBlocks = {
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 3.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -128,11 +137,23 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBDistanceBetweenObjects,
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBDistanceBetweenPoints,
     Params = {
       DestVar = "Distance",
-      ObjectVar1 = "Owner",
-      ObjectVar2 = "Attacker"
+      Point1Var = "OwnerPos",
+      Point2Var = "TargetPos"
     }
   },
   {
@@ -148,7 +169,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       Src1Var = "Speed",
       Src1Value = 0,
-      Src2Value = 0.27,
+      Src2Value = 0.15,
       DestVar = "PlusBonus",
       MathOp = MO_MULTIPLY
     }
@@ -156,18 +177,8 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Speed",
-      Src1Value = 0,
-      Src2Value = 0.35,
-      DestVar = "PlusLess",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 285,
+      Src1Value = 320,
       Src2Value = 0,
       DestVar = "UpperBound",
       MathOp = MO_ADD
@@ -176,8 +187,8 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src2Var = "PlusLess",
-      Src1Value = 395,
+      Src2Var = "PlusBonus",
+      Src1Value = 320,
       Src2Value = 0,
       DestVar = "LowerBound",
       MathOp = MO_SUBTRACT
@@ -212,7 +223,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 3.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0

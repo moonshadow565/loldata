@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
-BuffName = "Infinite Duress"
+BuffName = "InfiniteDuress"
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -17,6 +17,28 @@ TargetExecuteBuildingBlocks = {
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.01,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifestealBonus",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.3
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -53,6 +75,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           PosVar = "Target",
           EndPosVar = "Target",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
@@ -94,6 +117,27 @@ TargetExecuteBuildingBlocks = {
           Order = AI_ATTACKTO
         }
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "LifestealBonus",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentLifeStealMod,
+      TargetVar = "Owner",
+      DeltaVar = "LifestealBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }

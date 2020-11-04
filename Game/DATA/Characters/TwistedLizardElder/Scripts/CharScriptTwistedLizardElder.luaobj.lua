@@ -16,32 +16,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 100000
-        }
-      }
-    }
-  },
-  {
-    Function = BBIfNotHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "DragonVisionBuff"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "DragonVisionBuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 100000
@@ -74,7 +49,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -100,12 +75,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blessingofthelizardelder"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dragonvisionbuff"
     }
   },
   {
