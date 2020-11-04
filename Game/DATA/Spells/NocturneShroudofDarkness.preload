@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nocturne_shroud_deactivatetrigger.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Global.Status"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneshroudofdarknessbuff"}}, 
 }

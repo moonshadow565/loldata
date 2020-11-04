@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_timer.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredmarkofthekindredtimer"}}, 
+}

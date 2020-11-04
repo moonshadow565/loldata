@@ -1376,7 +1376,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 1200
+  L0.LeashRadius = 900
   L0.Name = "Order Wolves"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
@@ -1387,6 +1387,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
+  L0.LeashRadius = 700
   L0.Name = "Order Wraiths"
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1412,7 +1413,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 1200
+  L0.LeashRadius = 900
   L0.Name = "Order Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
@@ -1423,6 +1424,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
+  L0.LeashRadius = 900
   L0.Name = "Dragon"
   L0.TimerType = L1
   L3 = CAMPTYPE_DRAGON
@@ -1462,6 +1464,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
+  L0.LeashRadius = 700
   L0.Name = "Chaos Wraiths"
   L3 = CAMPTYPE_WRAITHS2
   L1[1] = L2
@@ -1484,7 +1487,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
-  L0.LeashRadius = 1200
+  L0.LeashRadius = 900
   L0.Name = "Chaos Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS2
   L1[1] = L2
@@ -1495,6 +1498,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
+  L0.LeashRadius = 900
   L0.Name = "Baron"
   L0.TimerType = L1
   L3 = CAMPTYPE_NASHOR
@@ -1522,6 +1526,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
+  L0.LeashRadius = 700
   L0.Name = "Chaos OwlBear"
   L3 = CAMPTYPE_OWLBEAR
   L1[1] = L2
@@ -1532,6 +1537,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
+  L0.LeashRadius = 700
   L0.Name = "Dragon Crab"
   L3 = CAMPTYPE_CRAB
   L1[1] = L2

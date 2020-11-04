@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredpassivemanager"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredruncyclemanager"}}, 
+{Function=BBPreloadSpell, Params={Name="braummarkdamagetracker"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredwchargepassive"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_ba_pre_attack.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_q_pre_attack.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_sound_self.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_mark_timer.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredmarkofthekindredtimer"}}, 
+}

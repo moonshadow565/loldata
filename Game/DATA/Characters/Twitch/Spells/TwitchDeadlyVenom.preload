@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="twitch_base_p_smoke.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="twitch_base_p_impact_stack_06.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+}

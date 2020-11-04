@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_nodeath_buff_minion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_nodeath_buff.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_r_glow.troy"}}, 
+}

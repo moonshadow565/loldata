@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kindredbasicattackbounty3"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredbasicattackbounty2"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredbasicattackbounty1"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredbasicattack"}}, 
+{Function=BBPreloadParticle, Params={Name="kindred_base_p_vo_kindred_bounty_success.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredcritattack"}}, 
+}

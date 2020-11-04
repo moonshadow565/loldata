@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="morgana_base_e_tar.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Global.Status"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_e_tar_break.troy"}}, 
 }

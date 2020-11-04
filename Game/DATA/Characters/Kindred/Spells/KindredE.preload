@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="kindred_base_e_mis_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredeslow"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredecharge"}}, 
+}
