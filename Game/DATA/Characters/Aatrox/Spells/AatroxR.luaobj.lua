@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
-IsDamagingSpell = true
 BuffTextureName = "Aatrox_R.dds"
 BuffName = "AatroxR"
 NonDispellable = true
@@ -13,3 +12,4 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "AatroxSkin02"
 }
+IsDamagingSpell = true

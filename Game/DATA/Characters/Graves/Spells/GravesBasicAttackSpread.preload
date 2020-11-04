@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gravesbasicattack"}}, 
 {Function=BBPreloadSpell, Params={Name="gravesbasicattackknockback"}}, 
-{Function=BBPreloadSpell, Params={Name="stun"}}, 
 {Function=BBPreloadParticle, Params={Name="graves_base_ba_tar.troy"}}, 
 }

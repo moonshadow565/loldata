@@ -1,8 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
-{Function=BBPreloadSpell, Params={Name="shenpassivedatathing"}}, 
-{Function=BBPreloadSpell, Params={Name="shenpassivedataenergy"}}, 
-{Function=BBPreloadSpell, Params={Name="shenpassivedatashield"}}, 
 {Function=BBPreloadSpell, Params={Name="shenpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="shenq"}}, 
 {Function=BBPreloadSpell, Params={Name="shene"}}, 

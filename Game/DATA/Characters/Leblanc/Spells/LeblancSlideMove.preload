@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="leblanc_base_w_mis.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="leblanc_base_w_aoe_impact_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="leblanc_base_w_tar_02.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="leblancslide"}}, 
 {Function=BBPreloadSpell, Params={Name="leblancchaosorbproc"}}, 
 {Function=BBPreloadSpell, Params={Name="leblancchaosorbmproc"}}, 
 }

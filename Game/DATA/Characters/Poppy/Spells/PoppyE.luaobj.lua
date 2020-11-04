@@ -1,8 +1,8 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-IsDamagingSpell = true
 IsDeathRecapSource = true
+IsDamagingSpell = true
 ChainMissileParameters = {
   MaximumHits = {
     4,

@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="shenqbuffstrong"}}, 
 {Function=BBPreloadSpell, Params={Name="shenq"}}, 
 {Function=BBPreloadSpell, Params={Name="shenqbuffweak"}}, 
-{Function=BBPreloadSpell, Params={Name="shenqattack"}}, 
 {Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_ready_Strong_outro.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_ready_Weak_outro.troy"}}, 
 }

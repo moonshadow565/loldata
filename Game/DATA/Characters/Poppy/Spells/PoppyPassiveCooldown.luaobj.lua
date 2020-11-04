@@ -8,6 +8,4 @@ AutoCooldownByLevel = {
   14,
   12
 }
-SpellFXOverrideSkins = {
-  "RocketTristana"
-}
+SpellFXOverrideSkins = {""}

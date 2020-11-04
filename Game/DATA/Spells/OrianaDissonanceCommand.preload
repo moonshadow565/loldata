@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="orianaglobalcooldown"}}, 
-{Function=BBPreloadSpell, Params={Name="orianadissonancecommand"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_w_dissonance_ally_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_w_dissonance_ally_red.troy"}}, 

@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_hit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinemarker"}}, 
 }

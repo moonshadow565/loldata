@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sion_base_q_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_q_cas1_weapon.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="sion_base_q_cas2.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_q_indicator.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_q_indicator2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="sionqlock"}}, 

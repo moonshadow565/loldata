@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
-IsDamagingSpell = true
 BuffTextureName = "Sejuani_Q.dds"
 BuffName = "SejuaniArcticAssault"
 SpellFXOverrideSkins = {
@@ -12,3 +11,4 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "SejuaniClassic"
 }
+IsDamagingSpell = true

@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="shyvana_base_r_skin.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="shyvana_base_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanatransformcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="shyvanatransformcast"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanatransformdamage"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanatransform"}}, 
 {Function=BBPreloadParticle, Params={Name="shyvana_base_r_impact.troy"}}, 
