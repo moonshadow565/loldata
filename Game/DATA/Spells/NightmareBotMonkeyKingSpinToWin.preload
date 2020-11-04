@@ -1,9 +1,9 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="MonkeyKing_Base_R_Cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="MonkeyKing_Base_R_Cas_Glow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="MonkeyKing_Base_R_Tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="monkeyking_base_r_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="monkeyking_base_r_cas_glow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="monkeyking_base_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingspinmarker"}}, 
-{Function=BBPreloadParticle, Params={Name="MonkeyKing_Base_R_Tar_Audio.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="monkeyking_base_r_tar_audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingspinknockup"}}, 
 {Function=BBPreloadCharacter, Params={Name="monkeykingclone"}}, 
 {Function=BBPreloadCharacter, Params={Name="monkeyking"}}, 

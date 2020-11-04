@@ -12,7 +12,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistaexpungeprotect"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_e_lethal.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_e_tar_lethal.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="kalistaexpungewrapper"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoassistally"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_recall_mist_fountain.troy"}}, 
 }

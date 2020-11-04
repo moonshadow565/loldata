@@ -1,6 +1,2 @@
 BuffTextureName = "OriannaPowerDagger.dds"
 BuffName = "OrianaPowerDagger"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""

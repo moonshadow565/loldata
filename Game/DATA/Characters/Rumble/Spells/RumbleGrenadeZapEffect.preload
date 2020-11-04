@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="rumblegrenadedz"}}, 
 {Function=BBPreloadParticle, Params={Name="rumble_taze_tar_dangerzone_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="rumble_taze_tar_dangerzone.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="rumble_taze_beam.troy"}}, 

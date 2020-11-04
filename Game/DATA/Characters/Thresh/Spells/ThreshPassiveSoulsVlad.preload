@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="thresh_Base_soul_eat_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="thresh_base_soul_eat_buf.troy"}}, 
 }

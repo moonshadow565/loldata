@@ -1,3 +1,1 @@
-BuffTextureName = ""
-BuffName = ""
 NonDispellable = true

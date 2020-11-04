@@ -9,5 +9,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="zacpassivespawnchunk"}}, 
-{Function=BBPreloadParticle, Params={Name="zac_r_aimer.troy"}}, 
 }

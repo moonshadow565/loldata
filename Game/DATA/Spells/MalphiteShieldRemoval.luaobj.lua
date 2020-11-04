@@ -1,3 +1,2 @@
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true

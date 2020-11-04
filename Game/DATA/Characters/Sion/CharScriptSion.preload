@@ -4,5 +4,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="sionruncyclemanager"}}, 
 {Function=BBPreloadSpell, Params={Name="sionwpassive"}}, 
-{Function=BBPreloadSpell, Params={Name="sionetrigger"}}, 
 }

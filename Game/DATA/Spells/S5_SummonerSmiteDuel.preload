@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="summonersmiteinitializer"}}, 
 {Function=BBPreloadParticle, Params={Name="global_ss_smite_duel_player.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemsmitechallenge"}}, 
 {Function=BBPreloadSpell, Params={Name="itemsmiteattacksmanager"}}, 

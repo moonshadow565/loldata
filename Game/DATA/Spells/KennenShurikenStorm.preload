@@ -6,5 +6,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kennenshurikenstormmos"}}, 
 {Function=BBPreloadSpell, Params={Name="kennenshurikenstormholder"}}, 
 {Function=BBPreloadParticle, Params={Name="kennen_ss_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="kennenrwmark"}}, 
 }

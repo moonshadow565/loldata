@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadParticle, Params={Name="velkoz_base_r_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="velkoz_base_r_beam_end.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="velkoz_base_r_lensbeam.troy"}}, 

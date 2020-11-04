@@ -1,10 +1,4 @@
 BuffTextureName = "Nautilus_StaggeringBlow.dds"
 BuffName = "NautilusPassiveCheck"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
 PersistsThroughDeath = true
 NonDispellable = true

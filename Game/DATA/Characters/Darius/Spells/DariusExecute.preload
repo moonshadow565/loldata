@@ -7,8 +7,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dariushemo"}}, 
 {Function=BBPreloadSpell, Params={Name="dariushemointernal"}}, 
 {Function=BBPreloadSpell, Params={Name="dariushemovisual"}}, 
-{Function=BBPreloadParticle, Params={Name="darius_base_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dariusexecute"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_r_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="darius_base_r_tar_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="darius_base_r_tar_03.troy"}}, 
 }

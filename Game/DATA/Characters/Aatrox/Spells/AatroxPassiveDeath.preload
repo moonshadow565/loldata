@@ -1,8 +1,5 @@
 PreLoadBuildingBlocks = {
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_Passive_Death_Activate.troy"}}, 
-
+{Function=BBPreloadParticle, Params={Name="aatrox_base_passive_death_activate.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="globalcannotclickobjects"}}, 
 {Function=BBPreloadSpell, Params={Name="aatroxpassiveactivate"}}, 
-
 }
-

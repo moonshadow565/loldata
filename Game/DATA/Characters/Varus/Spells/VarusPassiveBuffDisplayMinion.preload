@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="varus-bow-glow-red-big.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="varus-bow-glow-red-med.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="varus-bow-glow-red-small.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_p_bow_glow_big.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_p_bow_glow_med.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_p_bow_glow_small.troy"}}, 
 }

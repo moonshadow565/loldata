@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="sonaGenre03qsound"}},
-{Function=BBPreloadSpell, Params={Name="sonaGenre03wsound"}},
-{Function=BBPreloadSpell, Params={Name="sonaGenre03esound"}},
-}

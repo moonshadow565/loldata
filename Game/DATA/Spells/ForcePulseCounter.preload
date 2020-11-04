@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="forcepulsecounter"}}, 
 {Function=BBPreloadSpell, Params={Name="forcepulsecancast"}}, 
 }

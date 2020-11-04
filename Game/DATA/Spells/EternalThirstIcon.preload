@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="eternalthirstbuff"}}, 
 {Function=BBPreloadParticle, Params={Name="globallifesteal_buf.troy"}}, 
 }

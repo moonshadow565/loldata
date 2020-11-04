@@ -1,10 +1,4 @@
 PreLoadBuildingBlocks = {
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_W_WeaponLife.troy"}}, 
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_W_weaponlife_glow.troy"}}, 
-
-{Function=BBPreloadParticle, Params={Name="Aatrox_Base_W_WeaponPower.troy"}}, 
-
+{Function=BBPreloadParticle, Params={Name="aatrox_base_w_weaponlife.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="aatrox_base_w_weaponpower.troy"}}, 
 }
-

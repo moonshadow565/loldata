@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="varusrhit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_r_hit.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="varusexpirationtimer"}}, 
 }

@@ -1,8 +1,2 @@
 BuffTextureName = "48thSlave_RenderingCry.dds"
 BuffName = "HecarimDefileLifeLeech"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""

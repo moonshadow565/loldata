@@ -5,6 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Minotaur_Pulverize.dds"
 BuffName = "VolibearR"
-AutoBuffActivateEffect = ""
 SpellDamageRatio = 0.75
 PopupMessage1 = "game_floatingtext_Knockup"

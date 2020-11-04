@@ -6,4 +6,3 @@ IsDamagingSpell = false
 ChannelDuration = 6
 BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
 BuffName = "Drain"
-AutoBuffActivateEffect = ""

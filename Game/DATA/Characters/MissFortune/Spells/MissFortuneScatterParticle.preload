@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="MissFortune_Base_E_Unit_Tar_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="MissFortune_Base_E_Unit_Tar_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="MissFortune_Base_E_Hit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit.troy"}}, 
 }

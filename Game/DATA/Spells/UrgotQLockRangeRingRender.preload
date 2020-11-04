@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
-	{Function=BBPreloadParticle,
-		Params={Name="UrgotQLockRangeRing.troy"}
-	}, 
+{Function=BBPreloadParticle, Params={Name="urgotqlockrangering.troy"}}, 
 }

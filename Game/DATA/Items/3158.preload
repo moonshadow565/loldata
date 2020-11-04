@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="IonianBootsofLucidity"}}, 
+{Function=BBPreloadSpell, Params={Name="ionianbootsoflucidity"}}, 
 }

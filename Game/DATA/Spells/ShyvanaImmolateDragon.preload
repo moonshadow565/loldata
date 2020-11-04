@@ -3,6 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="shyvanaidapplicator"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanaiddamage"}}, 
 {Function=BBPreloadParticle, Params={Name="shyvana_scorchedearth_unit_tar_shadow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Shyvana_Base_W_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shyvana_base_w_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanaimmolatedragon"}}, 
 }

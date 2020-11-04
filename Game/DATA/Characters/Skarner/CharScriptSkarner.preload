@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="skarnerbrushcheck"}}, 
-{Function=BBPreloadSpell, Params={Name="skarnervirulentslashslow"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpaleflashlock"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_cas_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_cas_02.troy"}}, 

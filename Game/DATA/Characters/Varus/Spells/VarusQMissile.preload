@@ -2,6 +2,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="varusqhit"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqspellshieldcheck"}}, 
 {Function=BBPreloadSpell, Params={Name="varuswdetonate"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_q_hit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="varus_base_q_hit_minion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varusqhit.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varusqhitminion.troy"}}, 
 }

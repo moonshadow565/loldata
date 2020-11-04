@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="itemvoidspeed"}}, 
-{Function=BBPreloadSpell, Params={Name="itemvoidgatepower"}}, 
 }

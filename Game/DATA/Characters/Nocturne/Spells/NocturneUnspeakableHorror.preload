@@ -12,6 +12,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nocturneunspeakablehorror_break.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturefleeslow"}}, 
+{Function=BBPreloadSpell, Params={Name="nocturneehaste"}}, 
 {Function=BBPreloadParticle, Params={Name="nocturneunspeakablehorror_fear.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 }

@@ -7,7 +7,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoqprotect"}}, 
 {Function=BBPreloadParticle, Params={Name="yasuo_base_ba_hit_tar_01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="temp_yasuoq_garen_bladestormcrit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoeqcombosoundhit"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoq"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoq3w"}}, 

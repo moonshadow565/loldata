@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="globaldrain"}}, 
 {Function=BBPreloadSpell, Params={Name="trundlepainshred"}}, 
 {Function=BBPreloadSpell, Params={Name="trundlepain"}}, 
 {Function=BBPreloadParticle, Params={Name="trundle_r_voice1.troy"}}, 

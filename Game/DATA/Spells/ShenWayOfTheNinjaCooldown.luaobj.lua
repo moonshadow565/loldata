@@ -1,6 +1,2 @@
 BuffTextureName = "Shen_KiStrike_Grey.dds"
 BuffName = "Shen Passive Cooldown"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""

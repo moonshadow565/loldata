@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="howlingabyssdamagetracker"}}, 
-{Function=BBPreloadSpell, Params={Name="howlingabyssdamagetrackerb"}}, 
-}

@@ -1,1 +1,1 @@
-NonDispellable = True
+NonDispellable = true

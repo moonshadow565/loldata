@@ -5,7 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="virhit"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="virdunkmarker"}}, 
-{Function=BBPreloadSpell, Params={Name="virdunktarget"}}, 
 {Function=BBPreloadSpell, Params={Name="virdunkstun"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="virdunk"}}, 

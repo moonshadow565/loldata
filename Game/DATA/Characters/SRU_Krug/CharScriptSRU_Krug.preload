@@ -3,6 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_junglebuff_krug_marker.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="crestoftheancientgolemlines"}}, 
-{Function=BBPreloadSpell, Params={Name="krugstonefist"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_junglebuff_krug_buff_flash.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="krugstonefist"}}, 
 }

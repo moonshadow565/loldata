@@ -1,3 +1,3 @@
-IsDeathRecapSource = true
-DoesntTriggerSpellCasts = true
 DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+IsDeathRecapSource = true

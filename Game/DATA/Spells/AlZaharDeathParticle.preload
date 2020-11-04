@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Malzahar_Base_Death.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malzahar_base_death.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 }

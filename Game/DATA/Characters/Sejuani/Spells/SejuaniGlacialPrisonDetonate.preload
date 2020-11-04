@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sejuani_ult_tar_04.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="sejuaniglacialprisonslow"}}, 
 }

@@ -3,7 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="nocturneparanoiavo"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneparanoiatargetordervo"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneparanoiatargetchaosvo"}}, 
-{Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneparanoiaparticle"}}, 
 {Function=BBPreloadParticle, Params={Name="nocturneparanoiastartorderfriend.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 

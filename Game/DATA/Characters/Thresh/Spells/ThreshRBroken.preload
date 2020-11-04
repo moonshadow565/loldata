@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="temp_thresh_wallcrumble.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
-}

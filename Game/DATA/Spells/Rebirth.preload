@@ -5,6 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="blackiceaniviarebirth_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="rebirthanimationplay"}}, 
 {Function=BBPreloadParticle, Params={Name="rebirth_cas.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="rebirthanimationreset"}}, 
 {Function=BBPreloadSpell, Params={Name="aniviaeggdeathanimationplay"}}, 
 }
