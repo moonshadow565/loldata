@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 AutoCooldownByLevel = {
   18,
   16,
@@ -185,6 +185,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -302,6 +303,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -431,6 +433,7 @@ TargetExecuteBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }

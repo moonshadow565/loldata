@@ -17,13 +17,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
     Params = {OwnerVar = "Owner"}
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "ParticleSup",
-      EffectIDVarTable = "InstanceVars"
-    }
   }
 }
 TargetExecuteBuildingBlocks = {
@@ -312,6 +305,7 @@ BuffOnMoveEndBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

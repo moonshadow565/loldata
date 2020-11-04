@@ -1,0 +1,72 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
+BuffTextureName = "FallenAngel_DarkBinding.dds"
+BuffName = "Dark Binding"
+AutoBuffActivateEffect = "DarkBinding_tar.troy"
+AutoBuffActivateEffect2 = ""
+PopupMessage1 = "game_floatingtext_Snared"
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      DamageByLevel = {
+        80,
+        130,
+        180,
+        230,
+        280
+      },
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.75,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "EzrealRisingSpellForce",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 5,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        0,
+        0,
+        0,
+        0,
+        0
+      },
+      TickRate = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ezrealrisingspellforce"
+    }
+  }
+}
