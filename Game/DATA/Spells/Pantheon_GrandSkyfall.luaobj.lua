@@ -3,22 +3,124 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "Particle",
+      RequiredVar = "TargetPos",
       RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "Particle2",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBRequireVar,
+    Function = BBGetTeamID,
     Params = {
-      RequiredVar = "BubbleID",
-      RequiredVarTable = "InstanceVars"
+      TargetVar = "Owner",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamOfOwner",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBAddPosPerceptionBubble,
+    Params = {
+      TeamVar = "TeamOfOwner",
+      Radius = 700,
+      PosVar = "TargetPos",
+      Duration = 6,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
@@ -42,6 +144,20 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       BubbleIDVar = "BubbleID",
       BubbleIDVarTable = "InstanceVars"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_grandskyfall_tar_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_grandskyfall_tar_red.troy"
     }
   }
 }

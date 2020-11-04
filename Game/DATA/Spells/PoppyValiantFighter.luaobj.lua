@@ -56,7 +56,7 @@ BuffOnPreDamageBuildingBlocks = {
             Params = {
               Src1Var = "DamageManipulator",
               Src1Value = 0,
-              Src2Value = 0.7,
+              Src2Value = 0.5,
               DestVar = "DamageManipulator",
               MathOp = MO_MULTIPLY
             }

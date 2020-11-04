@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "Summoner_exhaust.dds"
 BuffName = "Exhaust"
 AutoBuffActivateEffect = "Summoner_Banish.troy"
-AutoBuffActivateEffect2 = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect2 = ""
 AutoBuffActivateEffect3 = "Global_miss.troy"
 AutoBuffActivateAttachBoneName3 = "head"
 PopupMessage1 = "game_floatingtext_Slowed"
@@ -14,13 +14,6 @@ OnBuffActivateBuildingBlocks = {
       Stat = IncFlatMissChanceMod,
       TargetVar = "Owner",
       Delta = 1
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "MoveSpeedMod",
-      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -38,16 +31,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatMissChanceMod,
       TargetVar = "Owner",
       Delta = 1
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "MoveSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   },
   {
@@ -173,14 +156,6 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ArmorMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "DurationBonus",
       SrcValue = 0
     }
@@ -200,24 +175,51 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DurationBonus",
           SrcValue = 0.5
         }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "ExhaustSlow",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Slow,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
       }
     }
   },
   {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "ExhaustDurationBonus",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBSpellBuffAdd,
         Params = {
-          DestVar = "DurationBonus",
-          SrcValue = 1
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "ExhaustSlow",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Slow,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
     }
   },
   {
@@ -255,7 +257,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Slow,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
@@ -270,6 +272,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "exhaustslow"
     }
   }
 }

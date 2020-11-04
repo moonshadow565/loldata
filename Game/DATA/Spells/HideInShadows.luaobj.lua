@@ -129,13 +129,6 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       Cost = 0
     }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -295,7 +288,7 @@ BuffOnPreAttackBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "TimeSinceLast",
@@ -349,7 +342,7 @@ TargetExecuteBuildingBlocks = {
           EffectName = "twitch_invis_cas.troy",
           Flags = 0,
           EffectIDVar = "a",
-          EffectIDVarTable = "InstanceVars",
+          EffectIDVarTable = "NextBuffVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -420,7 +413,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

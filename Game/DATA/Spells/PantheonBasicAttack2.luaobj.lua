@@ -1,39 +1,59 @@
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBIf,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Pantheon_CertainDeath"
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+        Params = {
+          Src1Var = "HitResult",
+          Value2 = HIT_Miss,
+          CompareOp = CO_NOT_EQUAL
+        },
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Pantheon_CertainDeath"
+            },
             SubBlocks = {
               {
-                Function = BBGetManaOrHealth,
-                Params = {
-                  DestVar = "TarHP",
-                  OwnerVar = "Target",
-                  Function = GetHealthPercent
-                }
-              },
-              {
                 Function = BBIf,
-                Params = {
-                  Src1Var = "TarHP",
-                  Value2 = 0.2,
-                  CompareOp = CO_LESS_THAN_OR_EQUAL
-                },
+                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
                 SubBlocks = {
                   {
-                    Function = BBSetVarInTable,
-                    Params = {DestVar = "HitResult", SrcValue = HIT_Critical}
+                    Function = BBIf,
+                    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+                    SubBlocks = {
+                      {
+                        Function = BBGetManaOrHealth,
+                        Params = {
+                          DestVar = "TarHP",
+                          OwnerVar = "Target",
+                          Function = GetHealthPercent
+                        }
+                      },
+                      {
+                        Function = BBIf,
+                        Params = {
+                          Src1Var = "TarHP",
+                          Value2 = 0.15,
+                          CompareOp = CO_LESS_THAN_OR_EQUAL
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSetVarInTable,
+                            Params = {DestVar = "HitResult", SrcValue = HIT_Critical}
+                          }
+                        }
+                      }
+                    }
                   }
                 }
               }

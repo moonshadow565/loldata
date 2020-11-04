@@ -1,16 +1,8 @@
 BuffTextureName = "Pantheon_AOZ.dds"
 BuffName = "PantheonAegisShield"
 AutoBuffActivateEffect = "pantheon_aoz_passive.troy"
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBOverrideAnimation,
-    Params = {
-      ToOverrideAnim = "Run",
-      OverrideAnim = "Run2",
-      OwnerVar = "Owner"
-    }
-  }
-}
+AutoBuffActivateAttachBoneName = "waist"
+OnBuffActivateBuildingBlocks = {}
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBClearOverrideAnimation,
@@ -20,52 +12,52 @@ OnBuffDeactivateBuildingBlocks = {
 BuffOnBeingHitBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
           Src1Var = "HitResult",
-          Value2 = HIT_Dodge,
+          Value2 = HIT_Miss,
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "HitResult",
-              Value2 = HIT_Miss,
-              CompareOp = CO_NOT_EQUAL
+              Src1Var = "DamageAmount",
+              Value2 = 40,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBIf,
+                Function = BBSay,
                 Params = {
-                  Src1Var = "DamageAmount",
-                  Value2 = 40,
-                  CompareOp = CO_GREATER_THAN_OR_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSay,
-                    Params = {OwnerVar = "Attacker", ToSay = "BLOCKED!"}
-                  },
-                  {
-                    Function = BBSay,
-                    Params = {OwnerVar = "Owner", ToSay = "BLOCKED!"}
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "DamageAmount",
-                      SrcValue = 0
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffRemoveCurrent,
-                    Params = {TargetVar = "Owner"}
-                  }
+                  OwnerVar = "Attacker",
+                  ToSay = "game_lua_Aegis_Block"
                 }
+              },
+              {
+                Function = BBSay,
+                Params = {
+                  OwnerVar = "Owner",
+                  ToSay = "game_lua_Aegis_Block"
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "DamageAmount",
+                  SrcValue = 0
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
               }
             }
           }

@@ -45,6 +45,14 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = true,
       Status = SetNoRender
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "1ce",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -89,32 +97,12 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBTeleportToPosition,
-    Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Deathscaress_nova.troy",
-      Flags = 0,
-      EffectIDVar = "a",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 700,
-      Flags = "AffectEnemies AffectHeroes ",
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
     SubBlocks = {
@@ -291,7 +279,7 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 2
     }
   }
 }
@@ -302,6 +290,39 @@ ChannelingSuccessStopBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "Pantheon_GrandSkyfall_Fall"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "1ce",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBTeleportToPosition,
+        Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "1ce",
+          DestVarTable = "InstanceVars",
+          SrcValue = 1
+        }
+      }
     }
   }
 }

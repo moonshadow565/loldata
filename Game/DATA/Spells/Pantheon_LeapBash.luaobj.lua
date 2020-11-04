@@ -1,3 +1,8 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
 AutoBuffActivateEffect = "pantheon_aegis_self.troy"
 OnBuffActivateBuildingBlocks = {
   {
@@ -42,7 +47,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Invulnerability,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
@@ -265,6 +270,10 @@ BuffOnMoveEndBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "DistanceTar",
@@ -272,6 +281,25 @@ BuffOnMoveEndBuildingBlocks = {
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pantheon_AegisShield",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Caster"}
+      },
       {
         Function = BBApplyDamage,
         Params = {
@@ -295,27 +323,8 @@ BuffOnMoveEndBuildingBlocks = {
           TargetVar = "Caster",
           Duration = 1
         }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Pantheon_AegisShield",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
       }
     }
-  },
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

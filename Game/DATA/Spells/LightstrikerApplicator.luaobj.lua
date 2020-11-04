@@ -53,20 +53,26 @@ BuffOnHitUnitBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "SpiralBlade_tar.troy",
-          Flags = 0,
-          EffectIDVar = "part",
-          BoneName = "spine",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "SpiralBlade_tar.troy",
+              Flags = 0,
+              EffectIDVar = "part",
+              BoneName = "spine",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }
