@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Jayce_Base_Model_Swap_Buff_Melee.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_base_model_swap_buff_melee.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="Jayce_Base_Model_Swap_Buff_Range.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_base_model_swap_buff_range.troy"}}, 
 }

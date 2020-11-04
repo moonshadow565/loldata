@@ -38,8 +38,6 @@ function L0_0(A0_2, A1_3, A2_4)
         SearchForTargets = L3_5
         L3_5 = false
         SearchIgnoresAzirMovement = L3_5
-        L3_5 = TurnOffAutoAttack
-        L3_5(STOPREASON_MOVING)
       else
         L3_5 = ORDER_ATTACKMOVE
         if A0_2 == L3_5 then
@@ -63,8 +61,6 @@ function L0_0(A0_2, A1_3, A2_4)
               SearchForTargets = L3_5
               L3_5 = false
               SearchIgnoresAzirMovement = L3_5
-              L3_5 = TurnOffAutoAttack
-              L3_5(STOPREASON_TARGET_LOST)
             else
               L3_5 = ORDER_CASTSPELL
               if A0_2 == L3_5 then

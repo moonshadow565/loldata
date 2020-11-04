@@ -6,3 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "BlindMonkWOne.dds"
 BuffName = "BlindMonkSafeguard"
 OnPreDamagePriority = 3
+SpellFXOverrideSkins = {
+  "LeeSinSkin10"
+}

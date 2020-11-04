@@ -35,7 +35,7 @@ L0_0 = 0
 MINION_HEALTH_DENIAL_PERCENT = L0_0
 L0_0 = 90
 UPGRADE_MINION_TIMER = L0_0
-L0_0 = 1250
+L0_0 = 1400
 EXP_GIVEN_RADIUS = L0_0
 L0_0 = 1250
 GOLD_GIVEN_RADIUS = L0_0
@@ -62,7 +62,7 @@ L0_0.ArmorUpgrade = 1
 L0_0.MagicResistance = 0
 L0_0.MagicResistanceUpgrade = 0.625
 L0_0.HPBonus = 0
-L0_0.HPUpgrade = 10
+L0_0.HPUpgrade = 13
 L0_0.HPInhibitor = 0
 L0_0.DamageBonus = 0
 L0_0.DamageUpgrade = 0.5
@@ -71,7 +71,7 @@ L0_0.ExpGiven = 64
 L0_0.ExpBonus = 0
 L0_0.ExpUpgrade = 0
 L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 18.8
+L0_0.GoldGiven = 22.8
 L0_0.GoldBonus = 0
 L0_0.GoldUpgrade = 0.2
 L0_0.GoldInhibitor = 0
@@ -88,7 +88,7 @@ L0_0.ArmorUpgrade = 0.625
 L0_0.MagicResistance = 0
 L0_0.MagicResistanceUpgrade = 1
 L0_0.HPBonus = 0
-L0_0.HPUpgrade = 7.5
+L0_0.HPUpgrade = 10
 L0_0.HPInhibitor = 0
 L0_0.DamageBonus = 0
 L0_0.DamageUpgrade = 1
@@ -97,7 +97,7 @@ L0_0.ExpGiven = 32
 L0_0.ExpBonus = 0
 L0_0.ExpUpgrade = 0
 L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 13.8
+L0_0.GoldGiven = 17.8
 L0_0.GoldBonus = 0
 L0_0.GoldUpgrade = 0.2
 L0_0.GoldInhibitor = 0
@@ -114,7 +114,7 @@ L0_0.ArmorUpgrade = 1.5
 L0_0.MagicResistance = 0
 L0_0.MagicResistanceUpgrade = 1.5
 L0_0.HPBonus = 0
-L0_0.HPUpgrade = 13.5
+L0_0.HPUpgrade = 23
 L0_0.HPInhibitor = 0
 L0_0.DamageBonus = 0
 L0_0.DamageUpgrade = 1.5
@@ -123,7 +123,7 @@ L0_0.ExpGiven = 100
 L0_0.ExpBonus = 0
 L0_0.ExpUpgrade = 0
 L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 39.5
+L0_0.GoldGiven = 42.5
 L0_0.GoldBonus = 0
 L0_0.GoldUpgrade = 0.5
 L0_0.GoldInhibitor = 0
@@ -149,7 +149,7 @@ L0_0.ExpGiven = 100
 L0_0.ExpBonus = 0
 L0_0.ExpUpgrade = 0
 L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 39.5
+L0_0.GoldGiven = 42.5
 L0_0.GoldBonus = 0
 L0_0.GoldUpgrade = 0.5
 L0_0.GoldInhibitor = 0
@@ -160,35 +160,35 @@ L0_0.LocalGoldGiven = 0
 L0_0.LocalGoldBonus = 0
 SuperDefaultMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Blue_Minion_Basic"
+L0_0.MinionName = "HA_OrderMinionMelee"
 L0_0.DefaultInfo = MeleeDefaultMinionInfo
 OrderMeleeMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Red_Minion_Basic"
+L0_0.MinionName = "HA_ChaosMinionMelee"
 L0_0.DefaultInfo = MeleeDefaultMinionInfo
 ChaosMeleeMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Blue_Minion_Wizard"
+L0_0.MinionName = "HA_OrderMinionRanged"
 L0_0.DefaultInfo = CasterDefaultMinionInfo
 OrderCasterMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Red_Minion_Wizard"
+L0_0.MinionName = "HA_ChaosMinionRanged"
 L0_0.DefaultInfo = CasterDefaultMinionInfo
 ChaosCasterMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Blue_Minion_MechCannon"
+L0_0.MinionName = "HA_OrderMinionSiege"
 L0_0.DefaultInfo = CannonDefaultMinionInfo
 OrderCannonMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Red_Minion_MechCannon"
+L0_0.MinionName = "HA_ChaosMinionSiege"
 L0_0.DefaultInfo = CannonDefaultMinionInfo
 ChaosCannonMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Blue_Minion_MechMelee"
+L0_0.MinionName = "HA_OrderMinionSuper"
 L0_0.DefaultInfo = SuperDefaultMinionInfo
 OrderSuperMinionInfo = L0_0
 L0_0 = {}
-L0_0.MinionName = "Red_Minion_MechMelee"
+L0_0.MinionName = "HA_ChaosMinionSuper"
 L0_0.DefaultInfo = SuperDefaultMinionInfo
 ChaosSuperMinionInfo = L0_0
 L0_0 = {}
@@ -471,6 +471,13 @@ function L0_0()
   L2_29(L3_30)
   L2_29(L3_30)
   L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
+  L2_29(L3_30)
   L6_33 = L3_30()
   L2_29(L3_30, L4_31, L5_32, L6_33, L3_30())
   L2_29(L3_30)
@@ -538,7 +545,7 @@ function L0_0()
     for L7_54 = BACK_TOWER, HQ_TOWER1 do
       orderTurret = GetTurret(TEAM_ORDER, L3_50, L7_54)
       if orderTurret ~= nil then
-        if L7_54 == MIDDLE_TOWER then
+        if L7_54 == FRONT_TOWER then
           SetInvulnerable(orderTurret, false)
           SetTargetable(orderTurret, true)
         else
@@ -548,7 +555,7 @@ function L0_0()
       end
       chaosTurret = GetTurret(TEAM_CHAOS, L3_50, L7_54)
       if chaosTurret ~= nil then
-        if L7_54 == MIDDLE_TOWER then
+        if L7_54 == FRONT_TOWER then
           SetInvulnerable(chaosTurret, false)
           SetTargetable(chaosTurret, true)
         else

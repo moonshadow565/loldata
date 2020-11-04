@@ -2,6 +2,13 @@ local L0, L1
 function L0()
   local L0, L1, L2, L3, L4, L5
   L0 = CreateChildTurret
+  L1 = "Turret_T1_R_03"
+  L2 = "TT_OrderTurret5"
+  L3 = TEAM_ORDER
+  L4 = 3
+  L5 = 0
+  L0(L1, L2, L3, L4, L5)
+  L0 = CreateChildTurret
   L1 = "Turret_T1_C_07"
   L2 = "TT_OrderTurret1"
   L3 = TEAM_ORDER
@@ -13,6 +20,13 @@ function L0()
   L2 = "TT_OrderTurret2"
   L3 = TEAM_ORDER
   L4 = 2
+  L5 = 0
+  L0(L1, L2, L3, L4, L5)
+  L0 = CreateChildTurret
+  L1 = "Turret_T2_R_03"
+  L2 = "TT_ChaosTurret5"
+  L3 = TEAM_CHAOS
+  L4 = 3
   L5 = 0
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret
@@ -30,6 +44,13 @@ function L0()
   L5 = 0
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret
+  L1 = "Turret_T1_L_03"
+  L2 = "TT_OrderTurret5"
+  L3 = TEAM_ORDER
+  L4 = 3
+  L5 = 2
+  L0(L1, L2, L3, L4, L5)
+  L0 = CreateChildTurret
   L1 = "Turret_T1_C_06"
   L2 = "TT_OrderTurret1"
   L3 = TEAM_ORDER
@@ -41,6 +62,13 @@ function L0()
   L2 = "TT_OrderTurret2"
   L3 = TEAM_ORDER
   L4 = 2
+  L5 = 2
+  L0(L1, L2, L3, L4, L5)
+  L0 = CreateChildTurret
+  L1 = "Turret_T2_L_03"
+  L2 = "TT_ChaosTurret5"
+  L3 = TEAM_CHAOS
+  L4 = 3
   L5 = 2
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret

@@ -1,3 +1,3 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "3185_Lightbringer.dds"
+BuffTextureName = "17.dds"
 BuffName = "ItemLightBringerBleed"

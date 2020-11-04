@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="malphite_base_cleaveenragedhit.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="malphite_base_cleavehit.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="globalhit_physical.troy"}}, 
-}
