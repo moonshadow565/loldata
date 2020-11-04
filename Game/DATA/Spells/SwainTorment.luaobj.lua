@@ -144,34 +144,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Attacker",
-      Src2Var = "Caster",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "SwainMultiplier",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
-        }
-      }
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,

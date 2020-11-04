@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+SpellFXOverrideSkins = {
+  "GangsterTwitch"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetCastInfo,
@@ -25,6 +28,61 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "TwitchSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TwitchSkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "twitch_gangster_sprayandPray_tar.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "twitch_sprayandPray_tar.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "TargetNum",
@@ -36,6 +94,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "BaseDamage",
@@ -43,6 +102,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -57,6 +117,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "BaseDamage",
@@ -64,6 +125,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -87,12 +149,14 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "DeadlyVenom",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Damage,
                   MaxStack = 6,
                   NumberOfStacks = 1,
                   Duration = 8.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -119,12 +183,14 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "DeadlyVenom_Internal",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 8.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -135,6 +201,18 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_gangster_sprayandpray_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_sprayandpray_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
