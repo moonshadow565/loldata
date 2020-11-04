@@ -1,5 +1,5 @@
 DoesntBreakShields = true
-ChannelDuration = 2
+ChannelDuration = 1.5
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

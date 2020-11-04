@@ -21,15 +21,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "defensiveballcurl"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "thornmail_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "defensiveballcurl"
     }
   }
 }

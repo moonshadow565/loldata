@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "rengar_base_r_teamindicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "rengar_teamindicatorr.troy"
     }
   }

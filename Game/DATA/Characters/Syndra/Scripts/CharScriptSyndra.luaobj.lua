@@ -60,5 +60,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "syndra_r3_dialogue.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndrarecall"
+    }
   }
 }
