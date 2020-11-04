@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_delay_activate.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="shenwactive"}}, 
+{Function=BBPreloadSpell, Params={Name="shenw"}}, 
+}

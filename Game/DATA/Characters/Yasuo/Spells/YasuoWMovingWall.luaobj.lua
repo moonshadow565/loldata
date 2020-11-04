@@ -8,6 +8,7 @@ AutoCooldownByLevel = {
   8,
   4
 }
+PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "YasuoSkin02"
 }

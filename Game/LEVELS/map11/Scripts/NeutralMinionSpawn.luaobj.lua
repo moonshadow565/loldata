@@ -9,6 +9,14 @@ L0 = 300
 TEAM_NEUTRAL = L0
 L0 = 400
 TEAM_MAX = L0
+L0 = 25
+START_OF_GAME_MONSTER_SPAWN_DELAY = L0
+L0 = 50
+START_OF_GAME_ADDITIONAL_DELAY_CRAB = L0
+L0 = 50
+START_OF_GAME_ADDITIONAL_DELAY_DRAGON = L0
+L0 = 140
+START_OF_GAME_ADDITIONAL_DELAY_HERALD = L0
 L0 = 1
 HOSTILE = L0
 L0 = 0
@@ -1460,7 +1468,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
@@ -1472,7 +1480,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
   L0.Name = "Order Wraiths"
@@ -1482,7 +1490,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1
   L3 = 50.27832
@@ -1496,7 +1504,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
@@ -1508,7 +1516,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
   L0.LeashRadius = 900
@@ -1520,7 +1528,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 360
-  L0.GroupDelaySpawnTime = 65
+  L0.GroupDelaySpawnTime = L1
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
@@ -1536,7 +1544,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
@@ -1548,7 +1556,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
   L0.Name = "Chaos Wraiths"
@@ -1558,7 +1566,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.67
   L0.Name = "Chaos Red"
@@ -1569,7 +1577,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
@@ -1581,7 +1589,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
   L0.LeashRadius = 900
@@ -1609,7 +1617,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
   L0.LeashRadius = 700
@@ -1620,7 +1628,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = L1
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
   L0.LeashRadius = 700
@@ -1631,7 +1639,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 180
-  L0.GroupDelaySpawnTime = 65
+  L0.GroupDelaySpawnTime = L1
   L0.SpawnDuration = 2.2
   L0.AIScript = "RiverCrab.lua"
   L0.Name = "Baron Crab"
@@ -1641,7 +1649,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 180
-  L0.GroupDelaySpawnTime = 65
+  L0.GroupDelaySpawnTime = L1
   L0.SpawnDuration = 2.2
   L0.AIScript = "RiverCrab.lua"
   L0.Name = "SRU_RiftHerald"
@@ -1653,7 +1661,7 @@ function L0()
   L0.GroupsChance = L1
   L0.StopSpawnTime = 1170
   L0.GroupsRespawnTime = 300
-  L0.GroupDelaySpawnTime = 155
+  L0.GroupDelaySpawnTime = L1
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_RIFTHERALD_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1

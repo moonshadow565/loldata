@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gangplankqvograves"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankqwrapper"}}, 
 {Function=BBPreloadParticle, Params={Name="gangplank_sound_q_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="gangplank_base_q_gold.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="gangplank_base_q_token.troy"}}, 

@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jhinetrap"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinetrapslow"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_explosion_onkill.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_hit_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+}

@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="shen_base_q_slow_dome_grey.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_slow_hit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_slow_dome.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_slow.troy"}}, 
+}

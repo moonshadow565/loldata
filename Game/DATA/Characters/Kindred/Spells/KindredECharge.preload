@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kindredefinalattackbuff"}}, 
 {Function=BBPreloadParticle, Params={Name="kindred_base_e_stack_3.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kindred_base_e_stack_2.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredewrapper"}}, 
 {Function=BBPreloadParticle, Params={Name="kindred_base_e_full_stack_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 }

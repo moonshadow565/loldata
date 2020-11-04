@@ -2,7 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="varus_base_q_channel.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_q_channel2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="varus_base_r_indicator_ring.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqanimations"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqlaunchsound"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqlaunch"}}, 

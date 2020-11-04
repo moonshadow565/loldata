@@ -1,0 +1,2 @@
+BuffName = "JhinPassiveManager"
+PersistsThroughDeath = true

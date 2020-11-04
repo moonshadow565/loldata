@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_viewcone.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_viewcone_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_choir_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinrshot"}}, 
+}

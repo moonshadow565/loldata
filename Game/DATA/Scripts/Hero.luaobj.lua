@@ -180,8 +180,8 @@ function OnOrder(A0_0, A1_1, A2_2)
     L4_4 = true
     return L4_4
   end
-  L4_4 = TimerCheckAttack
-  L4_4()
+  L4_4 = InitTimer
+  L4_4("TimerCheckAttackOnce", 0.001, false)
   L4_4 = false
   return L4_4
 end
@@ -290,6 +290,9 @@ function OnStopMove()
     return
   end
   ClearTargetPosInPos()
+end
+function TimerCheckAttackOnce()
+  TimerCheckAttack()
 end
 function TimerCheckAttack()
   if GetState() ~= _UPVALUE0_ then

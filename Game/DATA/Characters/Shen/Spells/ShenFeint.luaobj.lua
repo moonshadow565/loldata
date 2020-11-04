@@ -1,9 +1,0 @@
-NotSingleTargetSpell = false
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
-IsDamagingSpell = false
-BuffTextureName = "Shen_Feint.dds"
-BuffName = "Shen Feint Buff"
-AutoBuffActivateEffect = "shen_Feint_self.troy"
-OnPreDamagePriority = 3
