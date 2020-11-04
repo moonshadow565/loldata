@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "DarkChampion_EndlessRage.dds"
+BuffTextureName = "Tryndamere_R.dds"
 BuffName = "Undying Rage"
 AutoBuffActivateEffect = "UndyingRage_buf.troy"
 AutoBuffActivateAttachBoneName = "c_buffbone_glb_layout_loc"

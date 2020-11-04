@@ -27,13 +27,6 @@ function L0()
       L9 = 1
       L10 = 1
       L5(L6, L7, L8, L9, L10)
-      L5 = ApplyPersistentBuff
-      L6 = L4
-      L7 = "IntroBotReducedAttackRange"
-      L8 = false
-      L9 = 1
-      L10 = 1
-      L5(L6, L7, L8, L9, L10)
     end
   end
   L0(L1, L2)
