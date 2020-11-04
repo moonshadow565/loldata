@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemdisable"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "teemo_panda_shroommine.troy"
@@ -61,6 +67,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "teemomushroom"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "teemomushroombuff"
     }
   }
 }

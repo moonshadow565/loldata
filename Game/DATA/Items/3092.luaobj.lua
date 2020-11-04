@@ -2,18 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "manamanipulatorauraself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "manamanipulatoraurafriend"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "kagesluckypick"
     }
   },

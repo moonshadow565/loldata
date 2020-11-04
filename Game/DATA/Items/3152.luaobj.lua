@@ -4,19 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "willoftheancientsself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "willoftheancientsfriendly"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rallyingbanner_itm.troy"
+      Name = "willoftheancients"
     }
   }
 }

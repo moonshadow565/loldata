@@ -7,13 +7,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "powerfist_blitzcrank_skin08.troy"
+      Name = "powerfist_blitzcrank_skin07.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "powerfist_blitzcrank_skin08_02.troy"
+      Name = "powerfist_blitzcrank_skin07_02.troy"
     }
   },
   {

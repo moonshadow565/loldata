@@ -20,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "minionsuperaura"
+      Name = "superminionbuff_blue"
     }
   }
 }

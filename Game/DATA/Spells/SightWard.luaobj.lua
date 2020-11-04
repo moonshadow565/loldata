@@ -12,12 +12,21 @@ SpellFXOverrideSkins = {
   "SightWardSnowMan",
   "SightWardGingerBread",
   "SightWardLantern",
-  "SightWardBanner",
-  "SightWardSoraka",
-  "SightWardDraven",
-  "SightWardLux"
+  "SightWardBanner"
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "evelyn_invis_cas.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

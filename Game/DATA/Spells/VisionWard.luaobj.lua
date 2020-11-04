@@ -12,18 +12,9 @@ SpellFXOverrideSkins = {
   "SightWardSnowMan",
   "SightWardGingerBread",
   "SightWardLantern",
-  "SightWardBanner",
-  "SightWardSoraka",
-  "SightWardDraven",
-  "SightWardLux"
+  "SightWardBanner"
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sightwardstealth"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "visionward"}
@@ -51,7 +42,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "masteryscoutbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
     }
   }
 }

@@ -1,4 +1,4 @@
-BuffTextureName = "3068_Sunfire_Cape.dds"
+BuffTextureName = "3068_SunfireCape.dds"
 BuffName = "Sunfire Cape Self"
 PreLoadBuildingBlocks = {
   {

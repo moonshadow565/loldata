@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "temp_zedulttargetmark.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "zedshadow"}
   },

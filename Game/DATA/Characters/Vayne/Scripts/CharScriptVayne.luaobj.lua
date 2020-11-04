@@ -28,5 +28,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "vaynesilveredbolts"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vaynecondemnaalock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vaynecondemn"
+    }
   }
 }

@@ -17,7 +17,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_clonedeath.troy"
+      Name = "Zed_Base_CloneDeath.troy"
     }
   },
   {

@@ -28,6 +28,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "fioradancerepeat"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "fioradancevisibility"
     }
   }

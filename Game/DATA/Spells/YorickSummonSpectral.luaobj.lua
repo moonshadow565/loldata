@@ -7,12 +7,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickactivespectral"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yorick_spectralghoul_death.troy"
@@ -21,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickspectralprimarytarget"
+      Name = "yorickspectralghoul"
     }
   },
   {
@@ -34,6 +28,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickspectrallogic"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickactivespectral"
     }
   }
 }

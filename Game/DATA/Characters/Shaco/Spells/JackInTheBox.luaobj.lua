@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "itemdisable"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "stealth"}
   },
   {

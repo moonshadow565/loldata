@@ -13,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "HeimerdingerEspell_ult"
+      Name = "heimerdingerespell_ult"
     }
   },
   {
@@ -25,7 +25,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "HeimerdingerEspell"
+      Name = "heimerdingerespell"
     }
   },
   {

@@ -1,0 +1,78 @@
+BuffTextureName = "Commander_Passive.dds"
+BuffName = "TalentReaper"
+PersistsThroughDeath = true
+NonDispellable = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "talentreapervfx"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mastery_reaper_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge01_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge02_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge03.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge03_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge04.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_charge04_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "talentreaperdisplay"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_execute.troy"
+    }
+  }
+}

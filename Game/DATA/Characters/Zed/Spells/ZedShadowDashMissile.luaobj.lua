@@ -29,13 +29,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "abyssalscepter_itm.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zed_stormninja_w_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_w_tar.troy"
+      Name = "Zed_Base_W_Tar.troy"
     }
   },
   {
@@ -45,7 +51,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_e_cas.troy"
+      Name = "Zed_Base_E_Cas.troy"
     }
   },
   {

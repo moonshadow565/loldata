@@ -1,9 +1,5 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = true
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

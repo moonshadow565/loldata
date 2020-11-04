@@ -1,0 +1,12 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "GemKnight_Gemcraft.dds"
+BuffName = "TaricGemcraftBuff"
+AutoBuffActivateEffect = "bluehands_buf.troy"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateEffect2 = "bluehands_buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
+SpellFXOverrideSkins = {""}
