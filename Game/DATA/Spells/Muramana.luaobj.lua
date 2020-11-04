@@ -2,6 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "3042_Muramana.dds"
 BuffName = "Muramana"
+AutoBuffActivateEffect = "ItemMuramanaToggle.troy"
+AutoBuffActivateAttachBoneName = "BUFFBONE_GLB_WEAPON_1"
 AutoCooldownByLevel = {
   0,
   0,
@@ -14,25 +16,19 @@ NonDispellable = true
 DoOnPreDamageInExpirationOrder = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "itemmuramana_activate.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "muramana"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "corki_misslebarrage_std_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "itemmuramana.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "muramanadot"
     }
   }
 }

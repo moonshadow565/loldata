@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "3049_Prismatic_Sphere.dds"
-BuffName = "GhostWard"
+BuffTextureName = "2050_Explorer_Ward.dds"
+BuffName = "ItemMiniWard"
 AutoBuffActivateEffect = "ICU.troy"
 PreLoadBuildingBlocks = {
   {
@@ -17,8 +17,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "visionward"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "sightward"}
+  },
+  {
     Function = BBPreloadCharacter,
-    Params = {Name = "ghostward"}
+    Params = {Name = "sightward"}
   },
   {
     Function = BBPreloadSpell,

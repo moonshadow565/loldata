@@ -1,2 +1,2 @@
 BuffTextureName = "3087_Statikk_Shiv.dds"
-BuffName = "ItemStatikkShank"
+BuffName = "ItemStatikShankCharge"

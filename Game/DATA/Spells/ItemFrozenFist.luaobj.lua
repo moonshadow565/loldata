@@ -18,6 +18,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "itemfrozenfistfield"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "expirationtimer"
     }
   },
