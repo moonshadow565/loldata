@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = false
+BuffTextureName = "Bowmaster_ArchersMark.dds"
+BuffName = "Archer's Mark"
+SpellToggleSlot = 3
+TriggersSpellCasts = true
+PersistsThroughDeath = true
+NonDispellable = true

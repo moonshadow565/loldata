@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "Sion_SpiritFeast.dds"
+BuffName = "Entropy"
+PersistsThroughDeath = true
+Nondispellable = true
+NonDispellable = true

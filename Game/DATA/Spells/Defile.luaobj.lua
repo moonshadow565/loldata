@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = true
+IsDamagingSpell = true
+BuffTextureName = "Lich_Defile.dds"
+BuffName = "Defile"
+AutoBuffActivateEffect = "Defile_glow.troy"
+AutoBuffActivateAttachBoneName = "L_weapon"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+SpellToggleSlot = 3

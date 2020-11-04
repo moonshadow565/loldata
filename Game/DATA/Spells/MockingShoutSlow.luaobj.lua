@@ -1,0 +1,5 @@
+BuffTextureName = "48thSlave_Pacify.dds"
+BuffName = "Mocking Shout Slow"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateEffect2 = "Chicken_buf.troy"
+AutoBuffActivateAttachBoneName2 = "head"

@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "Cryophoenix_Rebirth.dds"
+BuffName = "RebirthCooldown"
+PersistsThroughDeath = true
+Nondispellable = true

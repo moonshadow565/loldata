@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "GemKnight_Gemcraft.dds"
+BuffName = "Gemcraft"
+PersistsThroughDeath = true
+Nondispellable = true

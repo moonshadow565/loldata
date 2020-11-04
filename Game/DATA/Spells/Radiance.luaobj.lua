@@ -1,0 +1,13 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "GemKnight_Radiance.dds"
+BuffName = "Radiance"
+AutoBuffActivateEffect = "Radiance_glow.troy"
+AutoBuffActivateAttachBoneName = "weapon"
+AutoBuffActivateEffect2 = "Radiance_cas2.troy"
+AutoBuffActivateAttachBoneName2 = "spine"
+SpellToggleSlot = 4
+Nondispellable = true

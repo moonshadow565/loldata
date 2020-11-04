@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+BuffTextureName = "Wolfman_FuryStance.dds"
+BuffName = "Hunter's Call"
+AutoBuffActivateEffect = "Global_DmgHands_buf.troy"
+AutoBuffActivateAttachBoneName = "r_hand"
+AutoBuffActivateEffect2 = "Global_DmgHands_buf.troy"
+AutoBuffActivateAttachBoneName2 = "l_hand"
+TriggersSpellCasts = true

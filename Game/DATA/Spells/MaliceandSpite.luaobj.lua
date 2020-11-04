@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+BuffTextureName = "Evelynn_Drink.dds"
+BuffName = "Malice And Spite"
+AutoBuffActivateEffect = "Malice_buf.troy"
+AutoBuffActivateAttachBoneName = "l_hand"
+AutoBuffActivateEffect2 = "Malice_buf.troy"
+AutoBuffActivateAttachBoneName2 = "r_hand"

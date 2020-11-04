@@ -1,0 +1,7 @@
+BuffTextureName = "034_Steel_Shield.dds"
+BuffName = "Aegis of the Legion"
+AutoBuffActivateEffect = "Aegis_buf.troy"
+AutoBuffActivateEffect2 = "BloodBoil_buf.troy"
+AutoBuffActivateAttachBoneName2 = "r_hand"
+AutoBuffActivateEffect3 = "Bloodboil_buf.troy"
+AutoBuffActivateAttachBoneName3 = "l_hand"

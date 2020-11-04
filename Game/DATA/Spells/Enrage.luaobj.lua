@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = true
+BuffTextureName = "Sion_SpiritRage.dds"
+BuffName = "Enrage"
+AutoBuffActivateEffect = "Enrageweapon_buf.troy"
+AutoBuffActivateAttachBoneName = "weapon"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
+SpellToggleSlot = 3

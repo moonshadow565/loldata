@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = true
+BuffTextureName = "Tristana_DrawABead.dds"
+BuffName = "Draw a Bead"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+PersistsThroughDeath = true
+Nondispellable = true
+TriggersSpellCasts = false
