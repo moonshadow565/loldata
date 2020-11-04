@@ -13,3 +13,24 @@ AutoCooldownByLevel = {
   25
 }
 TriggersSpellCasts = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "MoveSpeedBuff",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMovementSpeedMod,
+      TargetVar = "Attacker",
+      DeltaVar = "MoveSpeedBuff",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}

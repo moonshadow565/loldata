@@ -1,4 +1,14 @@
 BuffTextureName = "Yeti_FrostNova.dds"
 BuffName = "Visionary"
-NonDispellable = true
 PersistsThroughDeath = true
+NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HitCount",
+      DestVarTable = "CharVars",
+      SrcValue = 0
+    }
+  }
+}

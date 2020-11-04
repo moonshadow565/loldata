@@ -1,3 +1,3 @@
-AutoBuffActivateEffect = "Abyssalscepter_itm.troy"
-BuffName = "Abyssal Scepter Aura"
 BuffTextureName = "3001_Abyssal_Scepter.dds"
+BuffName = "Abyssal Scepter Aura"
+AutoBuffActivateEffect = "Abyssalscepter_itm.troy"

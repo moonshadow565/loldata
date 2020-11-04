@@ -347,20 +347,6 @@ function OnLevelInit()
   PreloadCharacter("ChaosTurretWorm2")
   PreloadCharacter("ChaosTurretGiant")
   PreloadCharacter("ChaosTurretNormal")
-  PreloadCharacter("SpellBook1")
-  PreloadCharacter("IceBlock")
-  PreloadCharacter("TestCube")
-  PreloadCharacter("TestCubeRender")
-  PreloadCharacter("BantamTrap")
-  PreloadCharacter("Bear")
-  PreloadCharacter("Armordillo_DBC")
-  PreloadCharacter("IceBlock")
-  PreloadCharacter("RebirthEgg")
-  PreloadCharacter("SightWard")
-  PreloadCharacter("Summoner_Rider_Chaos")
-  PreloadCharacter("JackInTheBox")
-  PreloadCharacter("SummonerBeacon")
-  PreloadCharacter("Summoner_Rider_Order")
   math.randomseed(os.time())
   LoadScriptIntoScript("NeutralMinionSpawn.lua")
   NeutralMinionInit()
@@ -780,4 +766,56 @@ function HandleDestroyedObject(_ARG_0_)
     Log("Could not find Linking barracks!")
   end
   return true
+end
+TEAM_UNKNOWN = 0
+EOG_PAN_TO_NEXUS_TIME = 3
+EOG_NEXUS_EXPLOSION_TIME = EOG_PAN_TO_NEXUS_TIME + 2
+EOG_SCOREBOARD_PHASE_DELAY_TIME = 3
+EOG_NEXUS_REVIVE_TIME = 5
+EOG_ALIVE_NEXUS_SKIN = 0
+EOG_DESTROYED_NEXUS_SKIN = 1
+function EndOfGameCeremony(_ARG_0_, _ARG_1_)
+  winningTeam = _ARG_0_
+  if winningTeam == TEAM_ORDER then
+    losingTeam = TEAM_CHAOS
+  else
+    losingTeam = TEAM_ORDER
+  end
+  losingHQPosition = GetPosition(_ARG_1_)
+  orderHQ = GetHQ(TEAM_ORDER)
+  SetInvulnerable(orderHQ, true)
+  SetTargetable(orderHQ, false)
+  SetBuildingHealthRegenEnabled(orderHQ, false)
+  chaosHQ = GetHQ(TEAM_CHAOS)
+  SetInvulnerable(chaosHQ, true)
+  SetTargetable(chaosHQ, false)
+  SetBuildingHealthRegenEnabled(chaosHQ, false)
+  SetInputLockingFlag(INPUT_CAMERALOCKING, true)
+  SetInputLockingFlag(INPUT_CAMERAMOVEMENT, true)
+  SetInputLockingFlag(INPUT_ABILITIES, true)
+  SetInputLockingFlag(INPUT_SUMMONERSPELLS, true)
+  SetInputLockingFlag(INPUT_MOVEMENT, true)
+  SetInputLockingFlag(INPUT_SHOP, true)
+  SetInputLockingFlag(INPUT_CHAT, true)
+  SetInputLockingFlag(INPUT_MINIMAPMOVEMENT, true)
+  DisableHUDForEndOfGame()
+  ToggleBarracks()
+  CloseShop()
+  HaltAllAI()
+  LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
+  InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
+end
+function ChampionEoGCeremony(_ARG_0_)
+  MoveCameraFromCurrentPositionToPoint(_ARG_0_, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
+  SetGreyscaleEnabledWhenDead(_ARG_0_, false)
+end
+function DestroyNexusPhase()
+  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
+  InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
+end
+function ScoreboardPhase()
+  EndGame(winningTeam)
+end
+function TestReviveNexus()
+  SetHQCurrentSkin(losingTeam, EOG_ALIVE_NEXUS_SKIN)
 end

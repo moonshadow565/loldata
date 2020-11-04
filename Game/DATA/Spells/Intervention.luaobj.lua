@@ -10,3 +10,49 @@ AutoCooldownByLevel = {
   30,
   20
 }
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetInvulnerable
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetInvulnerable
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetInvulnerable
+    }
+  }
+}
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Invulnerability,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}

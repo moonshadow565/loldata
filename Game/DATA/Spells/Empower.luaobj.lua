@@ -4,3 +4,303 @@ BuffTextureName = "Armsmaster_Empower.dds"
 BuffName = "EmpowerCleave"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RelentlessAssaultMarker"
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBOverrideAutoAttack,
+        Params = {
+          SpellSlot = 1,
+          SlotType = ExtraSlots,
+          OwnerVar = "Owner",
+          AutoAttackSpellLevel = 1
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Empower_buf.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "weaponstreak",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DamagePerStack",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RelentlessAssaultMarker"
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAutoAttack,
+        Params = {
+          SpellSlot = 2,
+          SlotType = ExtraSlots,
+          OwnerVar = "Owner",
+          AutoAttackSpellLevel = 1
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBRemoveOverrideAutoAttack,
+        Params = {OwnerVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "EmpowerCleave",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 4,
+          NumberStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
+  }
+}
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "TiamatMelee_itm.troy",
+      Flags = 0,
+      EffectIDVar = "part",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "EmpowerCleave"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamagePerStack",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "Count",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageBonus",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Count",
+      Src1Value = 125,
+      Src2Value = 0,
+      DestVar = "RadiusOfCleave",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "AoEDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Target",
+      Range = 0,
+      RangeVar = "RadiusOfCleave",
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Target",
+          Src2Var = "Unit",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "AoEDamage",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELL,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageBonus",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_PROC,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Empower"
+    }
+  },
+  {
+    Function = BBSpellBuffRemoveStacks,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "EmpowerCleave",
+      NumStacks = 0
+    }
+  }
+}
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamagePerStack",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        20,
+        25,
+        30,
+        35,
+        40
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "relentlessassaultmarker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "empower_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "empowercleave"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tiamatmelee_itm.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "empower"}
+  }
+}

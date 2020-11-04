@@ -145,6 +145,19 @@ function L0(A0, A1, A2, A3)
   L4(L5, L6)
 end
 Move = L0
+function L0(A0)
+  local L1, L2
+  L1 = {}
+  L1.IDVar = A0
+  passThroughParams = L1
+  L1 = {}
+  L1.BubbleIDVar = "IDVar"
+  perBlockParams = L1
+  L1 = BBRemovePerceptionBubble
+  L2 = A0
+  L1(L2)
+end
+RemovePerceptionBubble = L0
 function L0(A0, A1)
   local L2, L3, L4
   L2 = {}
@@ -194,7 +207,7 @@ function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9)
   L12 = perBlockParams
   L10(L11, L12)
 end
-SpellBuffAdd = L0
+TutorialSpellBuffAdd = L0
 function L0(A0, A1, A2)
   local L3, L4, L5
   L3 = {}
@@ -282,3 +295,22 @@ function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
   return L12
 end
 SpawnMinion = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = {}
+  L2.Pos = A1
+  L3 = GetHashedGameObjName
+  L4 = "Owner"
+  L3 = L3(L4)
+  L2[L3] = A0
+  passThroughParams = L2
+  L2 = {}
+  L2.OwnerVar = "Owner"
+  L2.CastPositionName = "Pos"
+  perBlockParams = L2
+  L2 = BBTeleportToPosition
+  L3 = passThroughParams
+  L4 = perBlockParams
+  L2(L3, L4)
+end
+TeleportToPosition = L0

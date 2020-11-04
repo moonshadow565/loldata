@@ -27,10 +27,10 @@ function L0_0(A0_2, A1_3)
     Die(me, DAMAGESOURCE_INTERNALRAW)
     return false
   end
-  if A1_3 == nil then
-    return false
-  end
   if A0_2 == ORDER_ATTACKTO then
+    if A1_3 == nil then
+      return false
+    end
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_ATTACK, A1_3)
     return true
@@ -46,6 +46,9 @@ function L0_0(A0_2, A1_3)
     return true
   end
   if A0_2 == ORDER_PETHARDATTACK then
+    if A1_3 == nil then
+      return false
+    end
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_HARDATTACK, A1_3)
     return true

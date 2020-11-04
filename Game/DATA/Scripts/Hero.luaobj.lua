@@ -166,6 +166,11 @@ function L0_0()
   L0_6 = L0_6()
   aiState = L0_6
   L0_6 = aiState
+  if L0_6 == AI_HARDIDLE then
+    L0_6 = true
+    return L0_6
+  end
+  L0_6 = aiState
   if L0_6 ~= AI_STANDING then
     L0_6 = aiState
   elseif L0_6 == AI_IDLE then

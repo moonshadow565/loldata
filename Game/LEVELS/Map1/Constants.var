@@ -105,18 +105,16 @@ aud_FMODAmbientEvent                    = map_forest ; FMOD event name for the m
 aud_FMODVictoryMusicCueID               =          0 ; FMOD ID for a Victory music cue for the map's music.
 aud_FMODDefeatMusicCueID                =          0 ; FMOD ID for a Defeat music cue for the map's music.
 
+; HUD variables
+hud_BlinkFrequency                      =       1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
+hud_DefaultBlinkCount                   =          3 ; Sets the default number of pulses a HUD element will blink when highlighted.
+
 ; Camera Variables
-cam_GameFOV                             =     53.000 ; Camera field of view
-cam_BillAngle                           =     56.000 ; Vertical Angle
-cam_BillRotate                          =    180.000 ; Rotation Angle
 cam_KeyboardOrbitSpeedX                 =    100.000 ; Keyboard Orbit Speed x axis
 cam_KeyboardOrbitSpeedY                 =     50.000 ; Keyboard Orbit Speed y axis
-cam_MinZoomDistance                     =   1000.000 ; Minimum camera zoom distance
-cam_MaxZoomDistance                     =   2100.000 ; Maximum camera zoom distance
 
 ; Cursor variables
 cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flashes when you cast a targeted spell
-cr_MoveClickRepeatRate                  =      0.250 ; How often do we moveclick when holding down the key
 cr_MouseScrollSpeed                     =   3900.000 ; Mouse Scroll Speed
 
 ; Attack Flags
@@ -125,17 +123,11 @@ ca_RevealAttackerTimeOut                =      1.500 ; The timeout for the revea
 ca_MinCastRotationSpeed                 =    250.000 ; Whats the minimum speed we will rotate to face a target during a spell cast?
 
 ; obj_AI_Base variables
-ai_ShowSelection                        =          0 ; Shows selection bubble around the unit
-
-; Server Culling
-ser_LineOfSightCulling                  =          1 ; Toggles line of sight checking for visiblity
-ser_LineOfSightMaxDistance              =   3000.000 ; Distances less than this number automatically are in LoS
 
 ; Item and Inventory variables
 it_UseExplicitItemInclusion             =          0 ; Only the items explicitly listed in LEVELS\[MapName]\Items.ini will be in the store.
 
 ; FOW
-ai_FOWBrightness                        =      0.400 ; Fog of war brightness
 
 ; Attack Range variables
 ar_ClosingAttackRangeModifier           =    300.000 ;  

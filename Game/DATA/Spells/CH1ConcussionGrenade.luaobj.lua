@@ -1,0 +1,95 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = ""
+BuffName = ""
+SpellToggleSlot = 1
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "Level", Info = GetCastSpellLevelPlusOne}
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetCastSpellTargetPos,
+    Params = {DestVar = "TargetPos"}
+  },
+  {
+    Function = BBSpawnMinion,
+    Params = {
+      Name = "k",
+      Skin = "TestCubeRender",
+      AiScript = "idle.lua",
+      PosVar = "TargetPos",
+      Team = TEAM_NEUTRAL,
+      TeamVar = "TeamID",
+      Stunned = true,
+      Rooted = true,
+      Silenced = false,
+      Invulnerable = false,
+      MagicImmune = true,
+      IgnoreCollision = true,
+      VisibilitySize = 0,
+      DestVar = "Other2",
+      GoldRedirectTargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Other2",
+      SrcValue = true,
+      Status = SetNoRender
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Other2",
+      PosVar = "TargetPos",
+      EndPosVar = "TargetPos",
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 0,
+      OverrideForceLevelVar = "Level",
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other2",
+      AttackerVar = "Attacker",
+      BuffName = "ExpirationTimer",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
+  }
+}
