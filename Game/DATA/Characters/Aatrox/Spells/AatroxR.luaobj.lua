@@ -10,7 +10,11 @@ AutoBuffActivateEffect2 = "Aatrox_Base_R_Decal.troy"
 AutoBuffActivateAttachBoneName2 = "Spine2"
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "AatroxSkin01"
+  "AatroxSkin01",
+  "AatroxSkin02"
+}
+SpellVOOverrideSkins = {
+  "AatroxSkin02"
 }
 PreLoadBuildingBlocks = {
   {

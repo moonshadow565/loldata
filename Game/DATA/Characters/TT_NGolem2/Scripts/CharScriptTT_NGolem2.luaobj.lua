@@ -4,11 +4,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "agitatedidle"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "regenerationruneaura"
-    }
   }
 }

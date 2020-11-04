@@ -42,18 +42,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "ha_ap_orderturret"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlingabyssturretskinswap"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "sru_orderturret1_break1.troy"

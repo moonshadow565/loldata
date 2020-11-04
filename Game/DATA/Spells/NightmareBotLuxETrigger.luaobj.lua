@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nightmarebotluxqmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "luxlightbindingdummy"
     }
   },

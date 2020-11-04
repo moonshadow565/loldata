@@ -8,6 +8,9 @@ SpellFXOverrideSkins = {
   "GlacialMalphite",
   "MalphiteSkin06"
 }
+SpellVOOverrideSkins = {
+  "MalphiteSkin06"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

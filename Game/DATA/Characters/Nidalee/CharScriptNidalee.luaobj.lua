@@ -28,14 +28,14 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "swipe"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nidalee_base_cougar_e_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "swipe"}
   },
   {
     Function = BBPreloadParticle,
