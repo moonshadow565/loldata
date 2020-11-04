@@ -1,4 +1,5 @@
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {"GuqinSona"}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTotalAttackDamage,

@@ -63,11 +63,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SlowPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        -0.2,
         -0.25,
         -0.3,
         -0.35,
-        -0.4,
-        -0.45
+        -0.4
       }
     }
   },
@@ -381,19 +381,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "skarnervirulentslashenergy1"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "unlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "skarnervirulentslash"
     }
   },
   {
@@ -424,6 +412,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "skarnervirulentslashslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnervirulentslash"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnervirulentslashenergy1"
     }
   }
 }

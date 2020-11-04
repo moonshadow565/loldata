@@ -212,10 +212,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageToDeal",
       SrcValueByLevel = {
         60,
-        95,
-        130,
-        165,
-        200
+        105,
+        150,
+        195,
+        240
       }
     }
   },

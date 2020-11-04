@@ -64,6 +64,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 500,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -400,7 +402,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

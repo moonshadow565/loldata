@@ -409,6 +409,14 @@ CharOnActivateBuildingBlocks = {
       BubbleIDVar = "Bubble",
       BubbleIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetImmovable
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {

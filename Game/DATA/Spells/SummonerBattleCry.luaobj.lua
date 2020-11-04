@@ -306,7 +306,7 @@ SpellUpdateTooltipBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 220
+      SrcValue = 180
     }
   },
   {
@@ -361,7 +361,7 @@ AdjustCooldownBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 220
+      SrcValue = 180
     }
   },
   {

@@ -74,6 +74,10 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 0.25,
@@ -108,28 +112,38 @@ BuffOnUpdateActionsBuildingBlocks = {
           },
           {
             Function = BBIf,
-            Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+            Params = {
+              Src1Var = "Caster",
+              Src2Var = "Unit",
+              CompareOp = CO_SAME_TEAM
+            },
             SubBlocks = {
               {
-                Function = BBIssueOrder,
-                Params = {
-                  WhomToOrderVar = "Unit",
-                  TargetOfOrderVar = "Owner",
-                  Order = AI_MOVETO
+                Function = BBIf,
+                Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+                SubBlocks = {
+                  {
+                    Function = BBIssueOrder,
+                    Params = {
+                      WhomToOrderVar = "Unit",
+                      TargetOfOrderVar = "Owner",
+                      Order = AI_MOVETO
+                    }
+                  }
                 }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
+              },
               {
-                Function = BBIssueOrder,
-                Params = {
-                  WhomToOrderVar = "Unit",
-                  TargetOfOrderVar = "Owner",
-                  Order = AI_MOVETO
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIssueOrder,
+                    Params = {
+                      WhomToOrderVar = "Unit",
+                      TargetOfOrderVar = "Owner",
+                      Order = AI_MOVETO
+                    }
+                  }
                 }
               }
             }
@@ -190,46 +204,56 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "ViktorChaosStormGuide"
+        },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "ViktorChaosStormGuide",
-              ResetDuration = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Unit",
-              SrcValue = false,
-              Status = SetInvulnerable
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "ViktorChaosStormGuide",
+                  ResetDuration = 0
+                }
+              }
             }
           },
           {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Unit",
-              CallForHelpAttackerVar = "Unit",
-              TargetVar = "Unit",
-              Damage = 25000,
-              DamageType = TRUE_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetStatus,
+                Params = {
+                  TargetVar = "Unit",
+                  SrcValue = false,
+                  Status = SetInvulnerable
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Unit",
+                  CallForHelpAttackerVar = "Unit",
+                  TargetVar = "Unit",
+                  Damage = 25000,
+                  DamageType = TRUE_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
           }
         }

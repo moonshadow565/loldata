@@ -5,11 +5,19 @@ BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "MissilePosition",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "willStick",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -367,84 +375,95 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBForNClosestUnitsInTargetArea,
+    Function = BBIf,
     Params = {
-      AttackerVar = "Owner",
-      CenterVar = "MissilePosition",
-      CenterVarTable = "InstanceVars",
-      Range = 150,
-      Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit",
-      MaximumUnitsToPick = 1,
-      InclusiveBuffFilter = true
+      Src1Var = "willStick",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBGetBuffRemainingDuration,
+        Function = BBForNClosestUnitsInTargetArea,
         Params = {
-          DestVar = "Duration",
-          TargetVar = "Owner",
-          BuffName = "FizzMarinerDoomMissile"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Temp",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Temp2",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Temp3",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "Temp4",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "FizzMarinerDoomBomb",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Damage,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "Duration",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          CenterVar = "MissilePosition",
+          CenterVarTable = "InstanceVars",
+          Range = 150,
+          Flags = "AffectEnemies AffectHeroes ",
+          IteratorVar = "Unit",
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBGetBuffRemainingDuration,
+            Params = {
+              DestVar = "Duration",
+              TargetVar = "Owner",
+              BuffName = "FizzMarinerDoomMissile"
+            }
+          },
+          {
+            Function = BBSpellEffectRemove,
+            Params = {
+              EffectIDVar = "Temp",
+              EffectIDVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellEffectRemove,
+            Params = {
+              EffectIDVar = "Temp2",
+              EffectIDVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellEffectRemove,
+            Params = {
+              EffectIDVar = "Temp3",
+              EffectIDVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellEffectRemove,
+            Params = {
+              EffectIDVar = "Temp4",
+              EffectIDVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "FizzMarinerDoomBomb",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Damage,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "Duration",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Exploded",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
         }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Exploded",
-          DestVarTable = "InstanceVars",
-          SrcValue = true
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
       }
     }
   }
@@ -479,12 +498,20 @@ SpellOnMissileEndBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "willStick",
+          DestVarTable = "NextBuffVars",
+          SrcValue = true
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffName = "FizzMarinerDoomMissile",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
@@ -538,28 +565,12 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetMissilePosFromID,
-    Params = {
-      TargetIDVar = "MissileNetworkID",
-      TargetID = 0,
-      ResultVar = "MissilePosition"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MissilePosition",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "MissilePosition"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "FizzMarinerDoomBomb",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
@@ -577,6 +588,68 @@ TargetExecuteBuildingBlocks = {
       DestVar = "UltFired",
       DestVarTable = "CharVars",
       SrcValue = false
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      CasterVar = "Nothing",
+      BuffName = "FizzMarinerDoomBomb"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetUnitPosition,
+        Params = {
+          UnitVar = "Target",
+          PositionVar = "MissileEndPosition"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MissilePosition",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MissileEndPosition"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "willStick",
+          DestVarTable = "NextBuffVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "FizzMarinerDoomMissile",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
     }
   }
 }

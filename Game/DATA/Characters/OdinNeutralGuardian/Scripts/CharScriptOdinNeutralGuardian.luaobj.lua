@@ -3,8 +3,8 @@ CharOnActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMoveEver
+      SrcValue = true,
+      Status = SetImmovable
     }
   },
   {

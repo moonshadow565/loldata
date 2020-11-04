@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "Ezreal_EssenceFlux.dds"
 BuffName = "EzrealEssenceFluxDebuff"
+SpellFXOverrideSkins = {
+  "CyberEzreal"
+}
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -87,28 +90,6 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Target", DestVar = "CasterID2"}
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "Ezreal_essenceflux_tar.troy",
-      Flags = 0,
-      EffectIDVar = "asdf",
-      BoneName = "root",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "CasterID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
-    }
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -247,6 +228,73 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Ezreal_PulseFire_essenceflux_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          BoneName = "root",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "CasterID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Ezreal_essenceflux_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          BoneName = "root",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "CasterID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -276,6 +324,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ezrealessencefluxmissile"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_essenceflux_tar.troy"
     }
   }
 }

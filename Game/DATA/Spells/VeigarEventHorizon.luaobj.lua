@@ -191,7 +191,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBElseIf,
     Params = {
       Src1Var = "VeigarSkinID",
       Value2 = 6,

@@ -44,6 +44,15 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = true
     }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentCooldownMod,
+      TargetVar = "Attacker",
+      DestVar = "CDMOD",
+      DestVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -185,17 +194,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetPercentCooldownMod,
-      TargetVar = "Attacker",
-      DestVar = "CDMOD"
-    }
-  },
-  {
     Function = BBMath,
     Params = {
       Src2Var = "CDMOD",
+      Src2VarTable = "InstanceVars",
       Src1Value = 120,
       Src2Value = 0,
       DestVar = "NEWCD",

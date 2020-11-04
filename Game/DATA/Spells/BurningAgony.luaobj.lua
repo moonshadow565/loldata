@@ -325,11 +325,11 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "HealthCost",
           SrcValueByLevel = {
+            10,
+            15,
             20,
             25,
-            30,
-            35,
-            40
+            30
           }
         }
       },
@@ -530,7 +530,8 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "BurningAgony"
+          BuffName = "BurningAgony",
+          ResetDuration = 0
         }
       }
     }
@@ -552,7 +553,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

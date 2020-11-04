@@ -8,6 +8,7 @@ BuffName = ""
 AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 4
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {"GuqinSona"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,

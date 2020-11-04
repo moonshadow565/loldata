@@ -63,6 +63,10 @@ OnBuffActivateBuildingBlocks = {
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Nothing",
@@ -75,7 +79,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "teamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
       PersistsThroughReconnect = false,
       BindFlexToOwnerPAR = false,
@@ -141,6 +146,10 @@ OnBuffDeactivateBuildingBlocks = {
       ShowMinimapIcon = true,
       DestVar = "Other1"
     }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
   },
   {
     Function = BBSetVarInTable,
@@ -262,8 +271,9 @@ OnBuffDeactivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
+      FOWTeamOverrideVar = "teamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true,
       PersistsThroughReconnect = false,
       BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
@@ -303,8 +313,9 @@ OnBuffDeactivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false,
+      FOWTeamOverrideVar = "teamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true,
       PersistsThroughReconnect = false,
       BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,

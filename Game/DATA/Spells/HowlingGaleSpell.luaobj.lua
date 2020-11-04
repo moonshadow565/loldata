@@ -200,10 +200,6 @@ TargetExecuteBuildingBlocks = {
                   CanMitigateDuration = false,
                   IsHiddenOnClient = false
                 }
-              },
-              {
-                Function = BBDebugSay,
-                Params = {OwnerVar = "Owner", ToSay = "ISCHAMPION"}
               }
             }
           },
@@ -288,10 +284,6 @@ TargetExecuteBuildingBlocks = {
                       CanMitigateDuration = false,
                       IsHiddenOnClient = false
                     }
-                  },
-                  {
-                    Function = BBDebugSay,
-                    Params = {OwnerVar = "Owner", ToSay = "ISNOTCHAMP"}
                   }
                 }
               }

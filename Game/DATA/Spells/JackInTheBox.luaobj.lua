@@ -525,6 +525,14 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBIncPAR,
+        Params = {
+          TargetVar = "Owner",
+          Delta = -0.5,
+          PARType = PAR_SHIELD
+        }
+      },
+      {
         Function = BBIfHasBuff,
         Params = {
           OwnerVar = "Owner",

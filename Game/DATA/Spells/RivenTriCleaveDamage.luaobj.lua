@@ -88,10 +88,10 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
         30,
-        50,
-        70,
-        90,
-        110
+        55,
+        80,
+        105,
+        130
       }
     }
   },

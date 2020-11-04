@@ -8,6 +8,7 @@ BuffName = ""
 AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 4
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {"GuqinSona"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
@@ -571,24 +572,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchord"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

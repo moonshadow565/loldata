@@ -5,6 +5,9 @@ BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
+SpellFXOverrideSkins = {
+  "CyberEzreal"
+}
 PopupMessage1 = "game_floatingtext_Snared"
 TargetExecuteBuildingBlocks = {
   {
@@ -62,7 +65,8 @@ TargetExecuteBuildingBlocks = {
         0
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

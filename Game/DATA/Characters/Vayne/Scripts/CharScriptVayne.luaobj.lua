@@ -90,7 +90,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "SpeedBoost", SrcValue = 40}
+        Params = {DestVar = "SpeedBoost", SrcValue = 30}
       },
       {
         Function = BBIfHasBuff,
@@ -283,11 +283,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       DestVar = "Spear",
       SrcValueByLevel = {
+        0.3,
+        0.35,
         0.4,
         0.45,
-        0.5,
-        0.55,
-        0.6
+        0.5
       }
     }
   },
@@ -572,12 +572,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "vaynehunted"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vayneinquisition"
     }
   },
   {
