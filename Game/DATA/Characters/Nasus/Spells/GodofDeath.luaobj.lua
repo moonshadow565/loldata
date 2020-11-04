@@ -19,13 +19,13 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "nasusult"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nassus_godofdeath_transform.troy"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "nasusult"}
   }
 }

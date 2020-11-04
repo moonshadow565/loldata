@@ -2,14 +2,30 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Nasus_SiphoningStrike.dds"
 BuffName = "SiphoningStrike"
-AutoBuffActivateEffect = "nassus_siphonStrike_buf.troy"
-AutoBuffActivateAttachBoneName = "weapon_b"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nasus_skin05_q_buf_axeglow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_q_buf_axeheadglow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nassus_siphonstrike_beam_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nassus_siphonstrike_buf.troy"
     }
   },
   {

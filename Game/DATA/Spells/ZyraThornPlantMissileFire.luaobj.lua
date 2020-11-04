@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 SpellDamageRatio = 1
 IsDeathRecapSource = true
