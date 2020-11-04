@@ -4,9 +4,25 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaFlameBreath.dds"
 BuffName = "ShyvanaFlameBreathDebuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_flamebreath_dragon_burn_shadow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_flamebreath_tar_shadow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_flamebreath_indicator_shadow.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -29,6 +45,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shyvana_flamebreath_reignite.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_flamebreath_reignite_shadow.troy"
     }
   },
   {

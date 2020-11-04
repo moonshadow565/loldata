@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "ancientgoleminitialattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "globalmonsterbuff"
     }
   },
@@ -9,6 +15,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "crestoftheancientgolem"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ancientgolemattackswap"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "agitatedidle"
     }
   }
 }

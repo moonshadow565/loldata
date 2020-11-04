@@ -132,8 +132,8 @@ cam_KeyboardOrbitSpeedX                 =           100.000 ; Keyboard Orbit Spe
 cam_KeyboardOrbitSpeedY                 =            50.000 ; Keyboard Orbit Speed y axis
 cam_MinX                                =           300.000 ; Minimum X position of camera
 cam_MinY                                =           300.000 ; Minimum Y position of camera
-cam_MaxX                                =         14545.000 ; Maximum X position of camera
-cam_MaxY                                =         14545.000 ; Maximum Y position of camera
+cam_MaxX                                =         14000.000 ; Maximum X position of camera
+cam_MaxY                                =         14200.000 ; Maximum Y position of camera
 
 ; Cursor variables
 cr_SpellCastFlashTime                   =             2.000 ; How long the cursor flashes when you cast a targeted spell

@@ -9,7 +9,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rupture_cas_01.troy"
+      Name = "rupture_cas_01_green_team.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rupture_cas_01_red_team.troy"
     }
   },
   {

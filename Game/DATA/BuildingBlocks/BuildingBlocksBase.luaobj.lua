@@ -426,6 +426,13 @@ function L0(A0)
   return L1
 end
 CO_IS_NOT_DEAD = L0
+function L0(A0)
+  local L1, L2
+  L1 = IsDeadOrZombie
+  L2 = A0
+  return L1(L2)
+end
+CO_IS_DEAD_OR_ZOMBIE = L0
 function L0(A0, A1)
   local L2, L3, L4
   L2 = BBIsTargetInFrontOfMe
@@ -1609,19 +1616,36 @@ function L0(A0, A1)
 end
 BBGetPAROrHealth = L0
 function L0(A0, A1)
-  local L2, L3, L4, L5, L6, L7, L8
+  local L2, L3, L4, L5, L6, L7, L8, L9, L10
   L2 = A1.WhomToOrderVar
   L2 = A0[L2]
   L3 = A1.TargetOfOrderVar
   L3 = A0[L3]
-  L4 = IssueOrder
-  L5 = L2
-  L6 = A1.Order
-  L7 = GetPosition
-  L8 = L3
-  L7 = L7(L8)
-  L8 = L3
-  L4(L5, L6, L7, L8)
+  L4 = GetTable
+  L5 = A0
+  L6 = A1.SrcVarTable
+  L7 = false
+  L4 = L4(L5, L6, L7)
+  L5 = nil
+  L6 = A1.SrcVar
+  if L6 ~= nil and L4 ~= nil then
+    L6 = A1.SrcVar
+    L5 = L4[L6]
+  else
+    L6 = GetPosition
+    L7 = L3
+    L6 = L6(L7)
+    L5 = L6
+  end
+  if L3 == nil then
+    L3 = L2
+  end
+  L6 = IssueOrder
+  L7 = L2
+  L8 = A1.Order
+  L9 = L5
+  L10 = L3
+  L6(L7, L8, L9, L10)
 end
 BBIssueOrder = L0
 function L0(A0, A1)

@@ -18,12 +18,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xenzhaocombotarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "xenzhaocomboauto"
     }
   }

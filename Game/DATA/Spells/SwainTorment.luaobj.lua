@@ -22,5 +22,23 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "swain_torment_dot.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_torment_tar_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_torment_marker_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_torment_dot_grand.troy"
+    }
   }
 }

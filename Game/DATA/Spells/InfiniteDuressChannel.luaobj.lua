@@ -12,23 +12,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "infiniteduress_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "infiniteduresssound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "infiniteduresschannel"
-    }
   }
 }

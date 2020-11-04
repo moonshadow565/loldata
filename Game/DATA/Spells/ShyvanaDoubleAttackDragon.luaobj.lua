@@ -19,6 +19,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "shyvana_flamebreath_reignite_shadow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_doubleattack_tar_shadow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "shyvana_doubleattack_tar.troy"
     }
   }

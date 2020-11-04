@@ -34,6 +34,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nautilussplashzonemarker"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "nautilus_e_impact_unit_tar.troy"

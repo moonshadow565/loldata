@@ -3,10 +3,25 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_beam_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_tar_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_beam_idle_grand.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -36,21 +51,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "swainbeamexpirationtimer"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainbeamdamage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainbeamdamageminion"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   }
 }

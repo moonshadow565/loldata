@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "amumu_sadrobot_bandagetoss_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "bandagetoss_tar.troy"
     }
   }

@@ -31,9 +31,33 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_grand_metamorphism_demonform_small.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_grand_metamorphism_demonform.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_grand_skin_flash.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "swainbeamtransition"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_grand_metamorh_human.troy"
     }
   }
 }

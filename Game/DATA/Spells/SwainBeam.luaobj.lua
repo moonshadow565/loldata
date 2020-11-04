@@ -3,10 +3,25 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_beam_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_tar_grand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_disintegrationbeam_beam_idle_grand.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -26,12 +41,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainbeamdamage"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "swain_disintegrationbeam_cas_end.troy"
@@ -45,16 +54,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainbeamdamageminion"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "swainbeam"}
   },
   {
@@ -64,19 +63,29 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "swainbeamdamage"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "swainbeamself"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "resistantskin"
-    }
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "swainbeamdamageminionnashor"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swainbeamdamageminion"
     }
   },
   {

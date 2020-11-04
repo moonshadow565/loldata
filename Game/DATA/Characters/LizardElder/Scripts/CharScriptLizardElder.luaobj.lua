@@ -2,6 +2,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "agitatedidle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lizardelderinitialattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "globalmonsterbuff"
     }
   },
@@ -9,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "blessingofthelizardelder"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lizardelderattackswap"
     }
   }
 }
