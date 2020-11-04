@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "tt_capture_sound_right.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tt_capture_damage.troy"
+    }
   }
 }

@@ -3,6 +3,8 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "2050_Explorer_Ward.dds"
 BuffName = "ItemMiniWard"
 AutoBuffActivateEffect = "Ward_Sight_Idle.troy"
+MinimapIconTextureName = "Minimap_Ward_Green.tga"
+MinimapIconEnemyTextureName = "Minimap_Ward_Green_Enemy.tga"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

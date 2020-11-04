@@ -23,5 +23,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "siphoningstrike"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "siphoningstrikenew"
+    }
   }
 }

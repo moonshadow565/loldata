@@ -1,6 +1,21 @@
 BuffTextureName = "Katarina_BouncingBlade.dds"
 BuffName = "KatarinaQMark"
+SpellFXOverrideSkins = {
+  "XmasKatarina"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_cyber_daggered.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_xmas_daggered.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

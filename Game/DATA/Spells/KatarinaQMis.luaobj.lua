@@ -5,7 +5,8 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "XmasKatarina"
 }
 PreLoadBuildingBlocks = {
   {
@@ -24,6 +25,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_bouncingblades_tar_sand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_cyber_bouncingblades_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_xmas_bouncingblades_tar.troy"
     }
   },
   {

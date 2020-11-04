@@ -4,14 +4,14 @@ IsDamagingSpell = true
 ChannelDuration = 1.5
 BuffTextureName = "Fiddlesticks_Crowstorm.dds"
 BuffName = "Crowstorm"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   150,
   120,
   100
 }
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "CandyCaneFiddlesticks"
 }
 PreLoadBuildingBlocks = {
   {

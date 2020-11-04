@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "MasterYi_LeapStrike.dds"
 BuffName = "Alpha Striking"
-AutoBuffActivateEffect = ""
 ChainMissileParameters = {
   MaximumHits = {
     4,

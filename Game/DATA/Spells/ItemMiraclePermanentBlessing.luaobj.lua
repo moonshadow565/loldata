@@ -5,11 +5,16 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "3173_Eleisas_Miracle.dds"
 BuffName = "ItemMiraclePermanentBlessing"
-SpellToggleSlot = 1
 PersistsThroughDeath = true
 NonDispellable = true
 AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemmiracleboost"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

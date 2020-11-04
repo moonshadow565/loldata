@@ -3,6 +3,9 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
+SpellFXOverrideSkins = {
+  "XmasKatarina"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -8,7 +8,8 @@ BuffName = "Silence"
 AutoBuffActivateEffect = "Global_Silence.troy"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "XmasKatarina"
 }
 PreLoadBuildingBlocks = {
   {
@@ -27,6 +28,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_bouncingblades_tar_sand.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_cyber_bouncingblades_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_xmas_bouncingblades_tar.troy"
     }
   },
   {

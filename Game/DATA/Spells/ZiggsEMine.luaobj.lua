@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "ZiggsE.dds"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "ZiggsSnowday"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -26,6 +29,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggsemine_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggssnowdayemine.troy"
     }
   },
   {
@@ -56,6 +65,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggse_mis_small_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggse_mis_small_snow.troy"
     }
   },
   {

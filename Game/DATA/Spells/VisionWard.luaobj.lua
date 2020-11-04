@@ -10,6 +10,8 @@ SpellFXOverrideSkins = {
   "SightWardTree",
   "SightWardGhost"
 }
+MinimapIconTextureName = "Minimap_Ward_Pink_Friendly.tga"
+MinimapIconEnemyTextureName = "Minimap_Ward_Pink_Enemy.tga"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

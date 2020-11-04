@@ -1,6 +1,5 @@
 BuffTextureName = "LeonaSunlight.dds"
 BuffName = "LeonaSunlight"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -5,10 +5,7 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 AutoBuffActivateEffect2 = "global_stun.troy"
 AutoBuffActivateAttachBoneName2 = "C_Buffbone_Glb_Head_Loc"
 PopupMessage1 = "game_floatingtext_Stunned"
-SpellFXOverrideSkins = {
-  "ZiggsMadScientist",
-  "ZiggsPoolParty"
-}
+SpellFXOverrideSkins = {"NamiKoi"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
