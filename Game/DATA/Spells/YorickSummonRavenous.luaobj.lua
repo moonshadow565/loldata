@@ -2,12 +2,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickactiveravenous"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yorick_ravenousghoul_death.troy"
@@ -16,7 +10,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickravenousprimarytarget"
+      Name = "yorickravenousghoul"
     }
   },
   {

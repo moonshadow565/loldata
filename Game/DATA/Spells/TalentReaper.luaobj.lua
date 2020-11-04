@@ -10,15 +10,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "mastery_reaper_heal.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "talentreaperdisplay"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mastery_reaper_heal.troy"
     }
   },
   {

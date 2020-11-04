@@ -1,2 +1,2 @@
-BuffTextureName = "034_Steel_Shield.dds"
+BuffTextureName = "3105_AegisOfTheLegion.dds"
 BuffName = "ItemAegis of the Legion Friend"

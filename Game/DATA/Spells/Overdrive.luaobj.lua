@@ -36,7 +36,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "overdrive_buf_blitcrank_skin08.troy"
+      Name = "overdrive_buf_blitzcrank_skin07.troy"
     }
   }
 }

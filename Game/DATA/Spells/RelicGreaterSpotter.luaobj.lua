@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "spotter_ring.troy"
+      Name = "global_trinket_greaterspotter.troy"
     }
   },
   {

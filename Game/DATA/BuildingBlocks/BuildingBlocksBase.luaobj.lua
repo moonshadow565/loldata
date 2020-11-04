@@ -1085,7 +1085,8 @@ function L0_0(A0_314, A1_315, A2_316)
   L4_318 = GetTime
   L4_318 = L4_318()
   L5_319 = A1_315.ExecuteImmediately
-  L6_320 = A1_315.TimeBetweenExecutions
+  L6_320 = GetParam
+  L6_320 = L6_320("TimeBetweenExecutions", A0_314, A1_315)
   if A1_315.TickTimeVar ~= nil and GetTable(A0_314, A1_315.TickTimeVarTable, false)[A1_315.TickTimeVar] ~= nil then
     L6_320 = GetTable(A0_314, A1_315.TickTimeVarTable, false)[A1_315.TickTimeVar]
   end
@@ -1454,3 +1455,10 @@ function L0_0(A0_411, A1_412)
   GetTable(A0_411, A1_412.ResultVarTable, false)[A1_412.ResultVar] = L3_414 .. L5_416
 end
 BBConcatenateStrings = L0_0
+function L0_0(A0_417, A1_418)
+  BBGetMinionKills(A0_417, A1_418)
+  A0_417.MinionKillSource = GetParam("MinionKillTarget")
+  A0_417.MinionKills = A0_417.MinionsKilled + GetParam("MinionKills", A0_417, A1_418)
+  BBSetMinionKills(A0_417, A1_418)
+end
+BBIncreaseMinionKills = L0_0

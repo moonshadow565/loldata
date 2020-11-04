@@ -26,7 +26,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "wrigglelanternward"
+      Name = "relicyellowward"
     }
   },
   {
@@ -39,6 +39,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "masteryscoutbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
     }
   }
 }

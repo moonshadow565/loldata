@@ -2,19 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "manamanipulatorauraself"
+      Name = "regenerationruneaura"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "manamanipulatoraurafriend"
+      Name = "monsterminiondamageamp"
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "zettasmanamanipulator_itm.troy"
+      Name = "agitatedidle"
     }
   }
 }

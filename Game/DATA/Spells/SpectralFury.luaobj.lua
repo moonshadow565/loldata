@@ -1,4 +1,4 @@
-BuffTextureName = "3142_Youmus_Spectral_Blade.dds"
+BuffTextureName = "3142_YomuuGhostblade.dds"
 BuffName = "SpectralFury"
 AutoBuffActivateEffect = "spectral_fury_activate.troy"
 AutoBuffActivateEffect2 = "SpectralFury_wpn_new.troy"

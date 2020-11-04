@@ -32,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "relicsmalllanternward"
+      Name = "relicyellowward"
     }
   },
   {

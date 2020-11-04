@@ -1,3 +1,4 @@
 SpellVOOverrideSkins = {
-  "SpecialForcesGangplank"
+  "SpecialForcesGangplank",
+  "GangplankSkin06"
 }

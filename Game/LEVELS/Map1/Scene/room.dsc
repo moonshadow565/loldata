@@ -1,4 +1,5 @@
 Barracks_T1_R1.sco -100
+AIPath.sco -100
 HQ_T1.sco -100
 Turret_T2_C_05.sco -100
 Barracks_T2_L1.sco -100
@@ -23,7 +24,6 @@ HQ_T2.sco -100
 Barracks_T1_C1.sco -100
 Barracks_T2_C1.sco -100
 Turret_T1_C_03.sco -100
-AIPath.sco -100
 Turret_T2_C_04.sco -100
 Turret_T2_L_01.sco -100
 Turret_T1_C_06.sco -100

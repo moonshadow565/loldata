@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_trinket_yellow_death.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sightwardstealth"

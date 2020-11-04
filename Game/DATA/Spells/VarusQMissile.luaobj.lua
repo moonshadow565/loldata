@@ -10,6 +10,10 @@ TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
+    Params = {Name = "varusqhit"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "varusqspellshieldcheck"
     }
@@ -19,10 +23,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varuswdetonate"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "varusqhit"}
   },
   {
     Function = BBPreloadParticle,
