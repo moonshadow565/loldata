@@ -37,7 +37,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "asdf1",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "BUFFBONE__HAND_R",
+      BoneName = "r_hand",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -45,7 +45,11 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

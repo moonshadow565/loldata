@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = ""
+BuffName = ""
+SpellDamageRatio = 1
+TriggersSpellCasts = false
+PopupMessage1 = "game_floatingtext_Slowed"
