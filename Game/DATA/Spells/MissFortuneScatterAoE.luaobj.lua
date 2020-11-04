@@ -1,9 +1,7 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "missfortunescattershotslow"
-    }
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadParticle,

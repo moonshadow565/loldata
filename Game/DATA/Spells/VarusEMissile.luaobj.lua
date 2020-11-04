@@ -30,7 +30,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "varuseslow"}
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,

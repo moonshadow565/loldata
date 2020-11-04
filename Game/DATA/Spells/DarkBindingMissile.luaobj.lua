@@ -3,17 +3,10 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
+AutoBuffActivateEffect = ""
+AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
-SpellFXOverrideSkins = {
-  "GhostBrideMorgana"
-}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "morgana_skin06_q_tar.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

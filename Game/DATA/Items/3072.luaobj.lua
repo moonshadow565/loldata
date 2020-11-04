@@ -1,1 +1,1 @@
-AutoBuffActivateEffect = "GlobalLifeSteal_buf.troy"
+AutoBuffActivateEffect = "EternalThirst_buf.troy"

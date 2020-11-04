@@ -22,12 +22,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_ult_fire.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"

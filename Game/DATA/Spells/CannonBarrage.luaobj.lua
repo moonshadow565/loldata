@@ -51,9 +51,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "cannonbarrageslow"
-    }
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadCharacter,

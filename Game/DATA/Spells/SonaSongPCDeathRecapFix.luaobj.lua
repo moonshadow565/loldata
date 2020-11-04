@@ -1,9 +1,13 @@
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "sonapowerchord_songofselerity_tar.troy"
+      Name = "ifhasbuffcheck"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

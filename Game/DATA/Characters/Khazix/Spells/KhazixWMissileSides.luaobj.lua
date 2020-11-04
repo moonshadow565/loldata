@@ -1,4 +1,4 @@
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 PreLoadBuildingBlocks = {
   {

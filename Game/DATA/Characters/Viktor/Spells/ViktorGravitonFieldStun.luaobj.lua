@@ -5,6 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "ViktorGravitonFieldAUG.dds"
 BuffName = "ViktorGravitonStun"
-AutoBuffActivateEffect = "LOC_Stun.troy"
+AutoBuffActivateEffect = "Stun_glb.troy"
 AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Stunned"

@@ -29,10 +29,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "globalhit_mana.troy"
@@ -55,5 +51,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "luxblitz_nova.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

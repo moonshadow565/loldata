@@ -13,11 +13,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "neutralmonster_buf_blue_defense.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "CrestoftheAncientGolemLines"
-    }
   }
 }

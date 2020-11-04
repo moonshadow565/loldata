@@ -38,8 +38,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "vladimirsanguinepoolslow"
-    }
+    Params = {Name = "slow"}
   }
 }

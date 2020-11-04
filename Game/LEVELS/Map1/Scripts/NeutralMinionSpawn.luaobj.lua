@@ -995,8 +995,8 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupsRespawnTime = 60
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1004,7 +1004,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
@@ -1019,8 +1019,8 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupsRespawnTime = 60
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_DRAGON
   L1[1] = L2
@@ -1045,8 +1045,8 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupsRespawnTime = 60
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1054,7 +1054,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
@@ -1069,8 +1069,8 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
-  L0.GroupDelaySpawnTime = 15
+  L0.GroupsRespawnTime = 60
+  L0.GroupDelaySpawnTime = 0
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_NASHOR
   L1[1] = L2

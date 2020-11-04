@@ -1,6 +1,7 @@
-BuffTextureName = "Lulu_GiantGrowth.dds"
-BuffName = "LuluRSlow"
+BuffTextureName = "Chronokeeper_Timestop.dds"
+BuffName = "Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {

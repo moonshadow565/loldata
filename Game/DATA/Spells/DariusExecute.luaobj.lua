@@ -1,8 +1,7 @@
 IsDamagingSpell = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "Darius_ZaunKnight",
-  "Darius_NorseKing"
+  "Darius_ZaunKnight"
 }
 PreLoadBuildingBlocks = {
   {

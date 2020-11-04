@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "globallifesteal_buf.troy"
+      Name = "eternalthirst_buf.troy"
     }
   },
   {

@@ -1,14 +1,20 @@
-NotSingleTargetSpell = true
+NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffName = "XenZhaoSweep"
-SpellFXOverrideSkins = {
-  "ZhaoYunXinZhao"
-}
-SpellVOOverrideSkins = {
-  "ZhaoYunXinZhao"
+ChainMissileParameters = {
+  MaximumHits = {
+    4,
+    4,
+    4,
+    4,
+    4
+  },
+  CanHitCaster = 0,
+  CanHitSameTarget = 0,
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 PreLoadBuildingBlocks = {
   {
@@ -18,27 +24,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xenziou_audaciouscharge_tar_unit_instant.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "poppyheroiccharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyetarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaointimidate"
+      Name = "poppyheroicchargepoppyfix"
     }
   },
   {
@@ -50,19 +38,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "poppyepushenemy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyepushself"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "heroiccharge_tar2.troy"
+      Name = "poppyheroicchargepart2"
     }
   }
 }
