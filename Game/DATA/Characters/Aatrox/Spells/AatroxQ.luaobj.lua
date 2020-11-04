@@ -40,6 +40,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "aatroxqanimfix"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "aatroxqdescent"
     }
   }
