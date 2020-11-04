@@ -20,5 +20,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "fioradancetarget"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "fioradancevisibility"
+    }
   }
 }
