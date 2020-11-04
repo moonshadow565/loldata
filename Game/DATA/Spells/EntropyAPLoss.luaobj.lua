@@ -1,4 +1,4 @@
-BuffTextureName = "Sion_SpiritFeast.dds"
-BuffName = "Entropy"
+BuffTextureName = "Permission_Entropy.dds"
+BuffName = "EntropyTarget"
 PersistsThroughDeath = true
 NonDispellable = true

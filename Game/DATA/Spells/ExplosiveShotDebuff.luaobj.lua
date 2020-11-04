@@ -1,4 +1,4 @@
 BuffTextureName = "Tristana_ExplosiveShot.dds"
 BuffName = "Explosive Shot Debuff"
-AutoBuffActivateEffect = "Global_poison.troy"
+AutoBuffActivateEffect = "ExplosiveShot_buf.troy"
 AutoBuffActivateAttachBoneName = "head"

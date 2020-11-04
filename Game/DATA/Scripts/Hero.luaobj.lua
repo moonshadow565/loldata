@@ -142,15 +142,8 @@ function L0_0()
         if aiState == AI_CHARMED then
           SpellBuffRemoveType(me, BUFF_Taunt)
         end
-        if IsPointSet() then
-          if aiState == AI_SOFTATTACK or aiState == AI_HARDATTACK then
-            SetStateAndMoveTargetPos(AI_ATTACKMOVESTATE)
-            return true
-          end
-        else
-          NetSetState(AI_STANDING)
-          return true
-        end
+        NetSetState(AI_STANDING)
+        return true
       end
       return true
     end

@@ -8,3 +8,5 @@ AutoBuffActivateAttachBoneName = "L_weapon"
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 SpellToggleSlot = 3
+PersistsThroughDeath = true
+Nondispellable = true

@@ -1,4 +1,26 @@
 local L0, L1
+function L0(A0, A1, A2, A3, A4)
+  local L5, L6, L7
+  L5 = {}
+  L5.Pos = A0
+  L5.Team = A4
+  passThroughParams = L5
+  L5 = {}
+  L5.TeamVar = "Team"
+  L5.Radius = A1
+  L5.PosVar = "Pos"
+  L5.Duration = A2
+  L5.RevealSteath = A3
+  perBlockParams = L5
+  L5 = BBAddPosPerceptionBubble
+  L6 = passThroughParams
+  L7 = perBlockParams
+  L5(L6, L7)
+  L5 = passThroughParams
+  L5 = L5.BubbleIDVar
+  return L5
+end
+AddPosPerceptionBubble = L0
 function L0(A0, A1, A2)
   local L3, L4, L5
   L3 = {}
@@ -46,6 +68,25 @@ function L0(A0, A1)
   L2(L3, L4)
 end
 CreateItem = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = {}
+  L3 = GetHashedGameObjName
+  L4 = "Target"
+  L3 = L3(L4)
+  L2[L3] = A0
+  L2.Position = A1
+  passThroughParams = L2
+  L2 = {}
+  L2.TargetVar = "Target"
+  L2.LocationVar = "Position"
+  perBlockParams = L2
+  L2 = BBFaceDirection
+  L3 = passThroughParams
+  L4 = perBlockParams
+  L2(L3, L4)
+end
+FaceDirection = L0
 function L0(A0, A1)
   local L2, L3, L4
   L2 = {}
@@ -154,6 +195,29 @@ function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9)
   L10(L11, L12)
 end
 SpellBuffAdd = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5
+  L3 = {}
+  L4 = GetHashedGameObjName
+  L5 = "Attacker"
+  L4 = L4(L5)
+  L3[L4] = A0
+  L4 = GetHashedGameObjName
+  L5 = "Target"
+  L4 = L4(L5)
+  L3[L4] = A1
+  passThroughParams = L3
+  L3 = {}
+  L3.TargetBar = "Target"
+  L3.AttackerVar = "Attacker"
+  L3.BuffName = A2
+  perBlockParams = L3
+  L3 = BBSpellBuffRemove
+  L4 = passThroughParams
+  L5 = perBlockParams
+  L3(L4, L5)
+end
+SpellBuffRemove = L0
 function L0(A0, A1, A2, A3, A4, A5)
   local L6, L7, L8
   L6 = {}
@@ -185,35 +249,36 @@ function L0(A0, A1, A2, A3, A4, A5)
   return L6
 end
 SpellEffectCreate = L0
-function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10)
-  local L11, L12, L13
-  L11 = {}
-  L11.Pos = A3
-  L12 = GetHashedGameObjName
-  L13 = "GoldRedirectObj"
-  L12 = L12(L13)
-  L11[L12] = A10
-  passThroughParams = L11
-  L11 = {}
-  L11.Name = A0
-  L11.Skin = A1
-  L11.AiScript = A2
-  L11.PosVar = "Pos"
-  L11.Team = A4
-  L11.Stunned = A5
-  L11.Rooted = A6
-  L11.Silenced = A7
-  L11.Invulnerable = A8
-  L11.MagicImmune = A9
-  L11.DestVar = "DestObj"
-  L11.GoldRedirectTargetVar = "GoldRedirectObj"
-  perBlockParams = L11
-  L11 = BBSpawnMinion
+function L0(A0, A1, A2, A3, A4, A5, A6, A7, A8, A9, A10, A11)
+  local L12, L13, L14
+  L12 = {}
+  L12.Pos = A3
+  L13 = GetHashedGameObjName
+  L14 = "GoldRedirectObj"
+  L13 = L13(L14)
+  L12[L13] = A11
+  passThroughParams = L12
+  L12 = {}
+  L12.Name = A0
+  L12.Skin = A1
+  L12.AiScript = A2
+  L12.PosVar = "Pos"
+  L12.Team = A4
+  L12.Stunned = A5
+  L12.Rooted = A6
+  L12.Silenced = A7
+  L12.Invulnerable = A8
+  L12.MagicImmune = A9
+  L12.IgnoreCollision = A10
+  L12.DestVar = "DestObj"
+  L12.GoldRedirectTargetVar = "GoldRedirectObj"
+  perBlockParams = L12
+  L12 = BBSpawnMinion
+  L13 = passThroughParams
+  L14 = perBlockParams
+  L12(L13, L14)
   L12 = passThroughParams
-  L13 = perBlockParams
-  L11(L12, L13)
-  L11 = passThroughParams
-  L11 = L11.DestObj
-  return L11
+  L12 = L12.DestObj
+  return L12
 end
 SpawnMinion = L0

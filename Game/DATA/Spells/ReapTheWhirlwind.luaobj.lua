@@ -1,0 +1,12 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+ChannelDuration = 6
+BuffTextureName = "Janna_ReapTheWhirlwind.dds"
+BuffName = "Reap The Whirlwind"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""

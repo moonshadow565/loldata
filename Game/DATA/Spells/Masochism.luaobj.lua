@@ -1,10 +1,9 @@
-NotSingleTargetSpell = true
+NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-AutoBuffActivateEffect = "Global_DamageImmunity.troy"
-AutoCooldownByLevel = {
-  70,
-  60,
-  50,
-  40,
-  30
-}
+IsDamagingSpell = true
+AutoBuffActivateEffect = "dr_mundo_masochism_cas.troy"
+AutoBuffActivateAttachBoneName = "R_hand"
+AutoBuffActivateEffect2 = "dr_mundo_masochism_cas.troy"
+AutoBuffActivateAttachBoneName2 = "L_hand"
+AutoBuffActivateAttachBoneName3 = ""
+AutoBuffActivateAttachBoneName4 = ""

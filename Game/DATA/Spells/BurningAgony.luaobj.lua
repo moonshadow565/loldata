@@ -1,4 +1,9 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-AutoBuffActivateEffect = "Cape_neg_buf.prt"
-SpellToggleSlot = 3
+IsDamagingSpell = true
+BuffTextureName = "DrMundo_BurningAgony.dds"
+BuffName = "BurningAgony"
+AutoBuffActivateEffect = "dr_mundo_burning_agony_cas_02.troy"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = "root"
+SpellToggleSlot = 2

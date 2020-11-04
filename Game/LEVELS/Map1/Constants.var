@@ -14,10 +14,10 @@ gcd_PercentEXPBonusMaximum              =      5.000 ; The highest EXPBonus Perc
 
 ; Damage Ratios
 dr_HeroToHero                           =      1.000 ;  
-dr_BuildingToHero                       =      1.000 ;  
+dr_BuildingToHero                       =      1.100 ;  
 dr_UnitToHero                           =      0.700 ;  
 dr_HeroToUnit                           =      1.000 ;  
-dr_BuildingToUnit                       =      1.000 ;  
+dr_BuildingToUnit                       =      1.105 ;  
 dr_UnitToUnit                           =      1.000 ;  
 dr_HeroToBuilding                       =      1.000 ;  
 dr_BuildingToBuilding                   =      1.000 ;  
@@ -49,8 +49,8 @@ ai_StartingGold                         =    475.000 ; Gold granted on startup
 ai_DefaultPetReturnRadius               =    200.000 ; Default pet return radius
 
 ; Attack Range variables
-ar_ClosingAttackRangeModifier           =    300.000 ;  
 ar_StopAttackRangeModifier              =    100.000 ;  
+ar_AICharmedAcquisitionRange            =   1000.000 ; The acquisition range for charmed units.
 
 ; Server Culling
 ser_LineOfSightCulling                  =          1 ; Toggles line of sight checking for visiblity
@@ -70,15 +70,15 @@ ai_AmbientGoldInterval                  =      5.000 ; Interval between ambient 
 ai_AmbientGoldAmount                    =      7.000 ; Gold granted on ambient gold tick
 ai_GoldLostPerLevel                     =      0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                     =      4.000 ; Time in seconds spent dead per level
-ai_GoldHandicapCoefficient              =      1.000 ; Coefficient for gold handicapping
+ai_GoldHandicapCoefficient              =      0.000 ; Coefficient for gold handicapping
 ai_MinionDenialPercentage               =      0.000 ; Minion denial percentage
 
 ; Server Culling
 ser_ClosenessLineOfSightThresholdTurret =    200.000 ; Distances greater then this for turrets perform the LOS check, otherwise they don't.  This was put in because of all the collision around Turrets. 
 
 ; Spell global variables
-sg_SpellGlobalCooldown                  =      0.500 ; Global Cooldown for spells in seconds
-sg_SpellGlobalCooldown_Avatar           =      0.250 ; Global Cooldown for avatar spells in seconds
+sg_SpellGlobalCooldown                  =      0.000 ; Global Cooldown for spells in seconds
+sg_SpellGlobalCooldown_Avatar           =      0.000 ; Global Cooldown for avatar spells in seconds
 
 ; Barracks Variables
 bar_bSpawnEnabled                       =          1 ; Enable/disable spawn from barracks
@@ -120,7 +120,7 @@ cam_KeyboardOrbitSpeedY                 =     50.000 ; Keyboard Orbit Speed y ax
 ; Cursor variables
 cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flashes when you cast a targeted spell
 cr_MouseScrollSpeed                     =   3900.000 ; Mouse Scroll Speed
-cr_KeyScrollSpeed                       =   1300.000 ; Key Scroll Speed
+cr_KeyScrollSpeed                       =   1000.000 ; Key Scroll Speed
 cr_MoveClickRepeatRate                  =      0.250 ; How often do we moveclick when holding down the key
 
 ; Attack Flags
@@ -136,3 +136,6 @@ it_UseExplicitItemInclusion             =          0 ; Only the items explicitly
 
 ; FOW
 ai_FOWBrightness                        =      0.400 ; Fog of war brightness
+
+; Attack Range variables
+ar_ClosingAttackRangeModifier           =    300.000 ;  

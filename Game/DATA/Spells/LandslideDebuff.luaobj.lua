@@ -1,2 +1,2 @@
-BuffTextureName = "SadMummy_AuraofDespair.dds"
+BuffTextureName = "Malphite_GroundSlam.dds"
 BuffName = "LandslideDebuff"

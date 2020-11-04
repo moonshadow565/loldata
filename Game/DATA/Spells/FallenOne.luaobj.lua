@@ -11,3 +11,5 @@ AutoCooldownByLevel = {
   150,
   120
 }
+PersistsThroughDeath = true
+Nondispellable = true

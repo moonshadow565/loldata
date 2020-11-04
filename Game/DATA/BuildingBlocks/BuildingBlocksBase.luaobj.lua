@@ -286,6 +286,15 @@ end
 CO_IS_TYPE_AI = L0
 function L0(A0)
   local L1, L2
+  L1 = IsObjectAI
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_NOT_AI = L0
+function L0(A0)
+  local L1, L2
   L1 = IsObjectHero
   L2 = A0
   return L1(L2)
@@ -293,11 +302,29 @@ end
 CO_IS_TYPE_HERO = L0
 function L0(A0)
   local L1, L2
+  L1 = IsObjectHero
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_NOT_HERO = L0
+function L0(A0)
+  local L1, L2
   L1 = IsMelee
   L2 = A0
   return L1(L2)
 end
 CO_IS_MELEE = L0
+function L0(A0)
+  local L1, L2
+  L1 = IsMelee
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_RANGED = L0
 function L0(A0)
   local L1
   L1 = math
@@ -316,11 +343,29 @@ end
 CO_IS_TYPE_TURRET = L0
 function L0(A0)
   local L1, L2
+  L1 = IsTurretAI
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_NOT_TURRET = L0
+function L0(A0)
+  local L1, L2
   L1 = IsDead
   L2 = A0
   return L1(L2)
 end
 CO_IS_DEAD = L0
+function L0(A0)
+  local L1, L2
+  L1 = IsDead
+  L2 = A0
+  L1 = L1(L2)
+  L1 = L1 ~= true
+  return L1
+end
+CO_IS_NOT_DEAD = L0
 function L0(A0, A1)
   local L2, L3, L4
   L2 = BBIsTargetInFrontOfMe
@@ -508,7 +553,7 @@ function L0(A0, A1, A2)
   L7 = A1.BuffName
   L8 = L4
   L5 = L5(L6, L7, L8)
-  L5 = 0 < L5
+  L5 = L5 <= 0
   if L5 then
     L6 = ExecuteBuildingBlocks
     L7 = A2
@@ -519,7 +564,7 @@ function L0(A0, A1, A2)
     A0.LastIfSucceeded = false
   end
 end
-BBIfHasBuff = L0
+BBIfNotHasBuff = L0
 function L0(A0, A1, A2)
   local L3, L4, L5, L6, L7, L8, L9, L10
   L3 = GetTable

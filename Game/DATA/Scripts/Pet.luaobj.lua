@@ -24,6 +24,10 @@ function L0_0(A0_2, A1_3)
   end
   owner = GetOwner()
   if owner == nil then
+    Die(me, DAMAGESOURCE_INTERNALRAW)
+    return false
+  end
+  if A1_3 == nil then
     return false
   end
   if A0_2 == ORDER_ATTACKTO then
@@ -66,6 +70,10 @@ function L0_0()
   newTarget = FindTargetInAcR()
   if newTarget == nil then
     owner = GetOwner()
+    if owner == nil then
+      Die(me, DAMAGESOURCE_INTERNALRAW)
+      return false
+    end
     if aiState == AI_PET_HARDIDLE_ATTACKING then
       NetSetState(AI_PET_HARDIDLE)
       return true

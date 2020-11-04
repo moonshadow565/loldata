@@ -1,4 +1,4 @@
-BuffTextureName = "Minotaur_FerociousHowl.dds"
-BuffName = "MalphiteObduracy"
+BuffTextureName = ""
+BuffName = ""
 AutoBuffActivateEffect4 = ""
 Nondispellable = true

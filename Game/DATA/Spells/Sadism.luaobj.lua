@@ -1,7 +1,12 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
+BuffName = "Sadism"
+AutoBuffActivateEffect = "dr_mundo_heal.troy"
+AutoBuffActivateAttachBoneName = ""
 AutoCooldownByLevel = {
-  120,
   90,
+  75,
   60
 }
+Nondispellable = true

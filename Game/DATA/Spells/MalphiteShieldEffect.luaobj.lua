@@ -1,4 +1,4 @@
-BuffTextureName = "FallenAngel_BlackShield.dds"
+BuffTextureName = "Malphite_GraniteShield.dds"
 BuffName = "MalphiteObduracyEffect"
 AutoBuffActivateEffect = ""
 Nondispellable = true
