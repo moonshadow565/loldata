@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="zacr"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_r_firstslam_skn1.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_base_r_firstslam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_r_smallerslam_skn1.troy"}}, 

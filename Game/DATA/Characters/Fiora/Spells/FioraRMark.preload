@@ -12,6 +12,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_r_heal_zone.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorarheal"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorar"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_r_sw_timeout.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_r_sw_timeout_fioraonly.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_r_se_timeout.troy"}}, 

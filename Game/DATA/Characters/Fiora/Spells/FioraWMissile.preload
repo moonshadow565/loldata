@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorawstun"}}, 
+{Function=BBPreloadSpell, Params={Name="fioraw"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_w_cc_hit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorawslow"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 

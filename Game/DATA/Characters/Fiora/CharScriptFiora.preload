@@ -3,6 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorapassive"}}, 
 {Function=BBPreloadSpell, Params={Name="fioraqmanager"}}, 
-{Function=BBPreloadParticle, Params={Name="fiora_schoolteacher_emote_taunt_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_ba_tar.troy"}}, 
 }

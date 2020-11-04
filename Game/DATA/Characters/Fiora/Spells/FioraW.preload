@@ -7,6 +7,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="fiorawblockccsound"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_w_block_cc.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_w_telegraph.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorawstun"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_cc_hit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bansheesveil"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorawblockhitsound"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_w_block_large.troy"}}, 

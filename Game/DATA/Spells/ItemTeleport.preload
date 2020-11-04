@@ -8,4 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="itemteleportcd"}}, 
 {Function=BBPreloadSpell, Params={Name="itemteleporttarget"}}, 
 {Function=BBPreloadSpell, Params={Name="destealth"}}, 
+{Function=BBPreloadSpell, Params={Name="itemteleportcancel"}}, 
 }
