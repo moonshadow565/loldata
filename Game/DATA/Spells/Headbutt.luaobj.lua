@@ -13,144 +13,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Value1 = 0,
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIfNotHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "HeadbuttHit"
-        },
-        SubBlocks = {
-          {
-            Function = BBSetBuffCasterUnit,
-            Params = {CasterVar = "Attacker"}
-          },
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 275,
-              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit",
-              BuffNameFilter = "AlistarHeadbuttMarker",
-              InclusiveBuffFilter = true
-            },
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "AlistarHeadbuttMarker"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "HeadbuttHit",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Internal,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 2,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false,
-                      IsHiddenOnClient = false
-                    }
-                  },
-                  {
-                    Function = BBBreakSpellShields,
-                    Params = {TargetVar = "Unit"}
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "HasDealtDamage",
-                      DestVarTable = "InstanceVars",
-                      SrcValue = true
-                    }
-                  },
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Owner",
-                      CallForHelpAttackerVar = "Owner",
-                      TargetVar = "Unit",
-                      Damage = 0,
-                      DamageVar = "Damage",
-                      DamageVarTable = "InstanceVars",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 1,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  },
-                  {
-                    Function = BBApplyAssistMarker,
-                    Params = {
-                      Duration = 10,
-                      TargetVar = "Unit",
-                      SourceVar = "Owner"
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Attacker",
-                      BuffName = "HeadbuttTarget",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Stun,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false,
-                      IsHiddenOnClient = false
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffRemoveCurrent,
-                    Params = {TargetVar = "Owner"}
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBFaceDirection,
@@ -209,25 +71,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationVar = "factor",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "Spell2",
@@ -236,7 +79,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       Loop = false,
       Blend = false,
-      Lock = true
+      Lock = false
     }
   },
   {
@@ -446,7 +289,7 @@ BuffOnMoveSuccessBuildingBlocks = {
             Function = BBSpellBuffRemove,
             Params = {
               TargetVar = "Owner",
-              AttackerVar = "Owner",
+              AttackerVar = "Attacker",
               BuffName = "Headbutt"
             }
           }
@@ -457,32 +300,14 @@ BuffOnMoveSuccessBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "headbutthit"
-    }
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "alistarheadbuttmarker"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "headbutttarget"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
@@ -499,5 +324,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "headbutt"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "headbutttarget"
+    }
   }
 }
