@@ -1,7 +1,5 @@
 BuffTextureName = "Fiddlesticks_Paranoia.dds"
 BuffName = "Paranoia"
-PersistsThroughDeath = true
-NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
@@ -23,7 +21,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -34,6 +36,46 @@ OnBuffDeactivateBuildingBlocks = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Owner",
       Delta = 10
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBDistanceBetweenObjects,
+        Params = {
+          DestVar = "dist",
+          ObjectVar1 = "Attacker",
+          ObjectVar2 = "Owner"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "dist",
+          Value2 = 800,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      }
     }
   }
 }

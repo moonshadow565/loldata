@@ -52,12 +52,13 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "BaseDamage",
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
+      PercentOfAttack = 0.7,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
@@ -70,12 +71,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

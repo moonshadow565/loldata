@@ -5,7 +5,7 @@ BuffOnHitUnitBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Value1 = 0.15, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+        Params = {Value1 = 0.2, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
         SubBlocks = {
           {
             Function = BBIf,
@@ -21,7 +21,7 @@ BuffOnHitUnitBuildingBlocks = {
                       AttackerVar = "Attacker",
                       CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Target",
-                      Damage = 500,
+                      Damage = 300,
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_PROC,
                       PercentOfAttack = 1,

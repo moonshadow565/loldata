@@ -38,24 +38,72 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "CastPos",
-      PosVarTable = "InstanceVars",
-      EffectName = "HowlingGale_cas.troy",
-      Flags = 0,
-      EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      UnitVar = "Owner",
+      SkinIDVar = "OwnerSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "OwnerSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          PosVarTable = "InstanceVars",
+          EffectName = "HowlingGale_Frost_cas.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          PosVarTable = "InstanceVars",
+          EffectName = "HowlingGale_cas.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   }
 }
@@ -111,6 +159,10 @@ OnBuffDeactivateBuildingBlocks = {
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
     }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Other1", PositionVar = "UnitPos2"}
   },
   {
     Function = BBSetVarInTable,
@@ -181,25 +233,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           SpellName = "HowlingGaleSpell",
-          TargetVar = "Other1"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other1",
-          AttackerVar = "Attacker",
-          BuffName = "HowlingGaleSpell",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          TargetVar = "Owner"
         }
       }
     }
@@ -220,25 +254,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           SpellName = "HowlingGaleSpell1",
-          TargetVar = "Other1"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other1",
-          AttackerVar = "Attacker",
-          BuffName = "HowlingGaleSpell1",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          TargetVar = "Owner"
         }
       }
     }
@@ -259,25 +275,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           SpellName = "HowlingGaleSpell2",
-          TargetVar = "Other1"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other1",
-          AttackerVar = "Attacker",
-          BuffName = "HowlingGaleSpell2",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          TargetVar = "Owner"
         }
       }
     }
@@ -293,25 +291,7 @@ OnBuffDeactivateBuildingBlocks = {
           SlotType = ExtraSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           SpellName = "HowlingGaleSpell3",
-          TargetVar = "Other1"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other1",
-          AttackerVar = "Attacker",
-          BuffName = "HowlingGaleSpell3",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          TargetVar = "Owner"
         }
       }
     }
@@ -319,11 +299,12 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellCast,
     Params = {
-      CasterVar = "Other1",
+      CasterVar = "Owner",
       TargetVar = "Nothing",
       PosVar = "FacePos",
       EndPosVar = "FacePos",
-      OverrideCastPosition = false,
+      OverrideCastPosition = true,
+      OverrideCastPosVar = "UnitPos2",
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -574,6 +555,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "howlinggale_frost_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "howlinggale_cas.troy"
     }
   },
@@ -615,12 +602,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlinggale"
     }
   }
 }

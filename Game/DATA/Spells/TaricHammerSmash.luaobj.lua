@@ -57,6 +57,30 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageIncrease",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        30,
+        50,
+        70
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AbilityPower",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        30,
+        50,
+        70
+      }
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -86,7 +110,7 @@ SelfExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.6,
+          SpellDamageRatio = 0.7,
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -116,36 +140,12 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageIncrease",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        30,
-        50,
-        70
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AbilityPower",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        30,
-        50,
-        70
-      }
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffName = "Radiance",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,

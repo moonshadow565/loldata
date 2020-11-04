@@ -29,6 +29,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -128,7 +130,7 @@ OnBuffActivateBuildingBlocks = {
       Range = 180,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      BuffNameFilter = "TrundleCircle",
+      BuffNameFilter = "GlobalWallPush",
       InclusiveBuffFilter = false
     },
     SubBlocks = {
@@ -141,57 +143,47 @@ OnBuffActivateBuildingBlocks = {
         }
       },
       {
-        Function = BBDistanceBetweenObjects,
+        Function = BBGetOffsetAngle,
         Params = {
-          DestVar = "Distance",
-          ObjectVar1 = "Owner",
-          ObjectVar2 = "Unit"
+          UnitVar = "Owner",
+          OffsetPointVar = "Unit",
+          OutputAngleVar = "offsetAngle"
         }
       },
       {
-        Function = BBMath,
+        Function = BBGetPointByUnitFacingOffset,
         Params = {
-          Src1Var = "Distance",
-          Src1Value = 0,
-          Src2Value = 200,
-          DestVar = "MoveValue",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "MoveValue",
-          Src1Value = 0,
-          Src2Value = -1,
-          DestVar = "TrueMove",
-          MathOp = MO_MULTIPLY
+          UnitVar = "Owner",
+          Distance = 200,
+          OffsetAngle = 0,
+          OffsetAngleVar = "offsetAngle",
+          PositionVar = "TargetPos"
         }
       },
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "TrueMove",
+          DestVar = "TargetPos",
           DestVarTable = "NextBuffVars",
-          SrcVar = "TrueMove"
+          SrcVar = "TargetPos"
         }
       },
       {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
-          AttackerVar = "Owner",
-          BuffName = "TrundleWallPush",
+          AttackerVar = "Attacker",
+          BuffName = "GlobalWallPush",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
-          MaxStack = 76,
+          MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1,
+          Duration = 0.25,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
-          IsHiddenOnClient = true
+          IsHiddenOnClient = false
         }
       },
       {
@@ -482,13 +474,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trundlecircle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "trundlewallpush"
+      Name = "globalwallpush"
     }
   },
   {
@@ -496,15 +482,15 @@ PreLoadBuildingBlocks = {
     Params = {Name = "slow"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crystallize"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "trundlewall"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trundlecircle"
     }
   }
 }

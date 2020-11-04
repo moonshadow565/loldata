@@ -175,6 +175,7 @@ BuffOnHitUnitBuildingBlocks = {
     }
   }
 }
+BuffOnPreAttackBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -276,26 +277,6 @@ BuffOnLevelUpSpellBuildingBlocks = {
           MathOp = MO_ADD
         }
       }
-    }
-  }
-}
-BuffOnPreAttackBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "EnrageDeathRecapFix",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 10,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
     }
   }
 }

@@ -2,6 +2,32 @@ BuffTextureName = "Cryophoenix_Rebirth.dds"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Attacker",
+      Src2Var = "Owner",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Internal,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBPlayAnimation,
@@ -226,21 +252,31 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {OwnerVar = "Owner", Blend = false}
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBIfNotHasBuff,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "YorickRAZombieLich",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 10,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "YorickRAZombieLich"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "YorickRAZombieLich",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
     }
   }
 }
@@ -320,196 +356,6 @@ BuffOnPreDamageBuildingBlocks = {
         Params = {
           DestVar = "DamageAmount",
           SrcValue = 0
-        }
-      }
-    }
-  }
-}
-BuffOnAllowAddBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_DIFFERENT_TEAM
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Fear,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Net,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Silence,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Sleep,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Slow,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Snare,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Stun,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Taunt,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Blind,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Suppression,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_CombatDehancer,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Damage,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = true}
-          }
         }
       }
     }

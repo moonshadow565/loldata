@@ -19,21 +19,50 @@ BuffOnDeathBuildingBlocks = {
 }
 BuffOnZombieBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
+    Function = BBIfNotHasBuff,
     Params = {
-      TargetVar = "Owner",
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "DeathDefiedBuff"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "DeathDefiedBuff",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 7,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "DeathDefiedBuff",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 7,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      BuffName = "DeathDefiedBuff"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
     }
   }
 }

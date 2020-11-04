@@ -3,17 +3,17 @@ AutoItemActivateEffect = ""
 AutoAuraBuffName = ""
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.9,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
     SubBlocks = {
       {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 0.9,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
-        },
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
             Function = BBSetVarInTable,
@@ -30,12 +30,15 @@ UpdateSelfBuffStatsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "AbyssalScepterAuraSelf",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -44,8 +47,10 @@ UpdateSelfBuffStatsBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 1000,
-              Flags = "AffectEnemies AffectNeutral AffectHeroes ",
-              IteratorVar = "Unit"
+              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+              IteratorVar = "Unit",
+              BuffNameFilter = "AbyssalScepterAura",
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
@@ -55,12 +60,15 @@ UpdateSelfBuffStatsBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "AbyssalScepterAura",
                   BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Shred,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 1,
+                  Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

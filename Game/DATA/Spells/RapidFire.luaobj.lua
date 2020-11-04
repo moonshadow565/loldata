@@ -4,6 +4,9 @@ BuffTextureName = "Tristana_headshot.dds"
 BuffName = "Rapid Fire"
 AutoBuffActivateEffect = "rapidfire_buf.troy"
 AutoBuffActivateAttachBoneName = "weapon"
+SpellFXOverrideSkins = {
+  "RocketTristana"
+}
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -47,12 +50,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

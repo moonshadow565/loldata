@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+BuffTextureName = "Armordillo_ShellBash.dds"
 BuffName = "DefensiveBallCurl"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
@@ -346,10 +347,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "powerball"}
-  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "rammusdbc"}

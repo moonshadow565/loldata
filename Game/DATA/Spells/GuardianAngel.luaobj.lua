@@ -15,7 +15,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -25,7 +29,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 4,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -189,11 +194,16 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
   },
   {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Shred}
+  },
+  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "WillRevive"
+      BuffName = "WillRevive",
+      ResetDuration = 0
     }
   },
   {
@@ -351,7 +361,8 @@ OnBuffDeactivateBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -371,7 +382,11 @@ OnBuffDeactivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -388,7 +403,8 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -479,10 +495,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lifeaura.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "willrevive"}
   },
   {
     Function = BBPreloadParticle,

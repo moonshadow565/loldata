@@ -46,7 +46,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "BonusDamage",
-      Src1Value = 1,
+      Src1Value = 1.1,
       Src2Value = 0,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
@@ -67,12 +67,12 @@ TargetExecuteBuildingBlocks = {
       },
       Damage = 0,
       DamageVar = "BonusDamage",
-      DamageType = MAGIC_DAMAGE,
+      DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,
       PercentOfAttackVar = "percentOfAttack",
-      SpellDamageRatio = 0.75,
-      PhysicalDamageRatio = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -117,7 +117,10 @@ TargetExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }

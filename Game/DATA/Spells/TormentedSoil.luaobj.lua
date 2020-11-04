@@ -11,84 +11,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetForceRenderParticles
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MRminus",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        4,
-        5,
-        6,
-        7,
-        8
-      }
+      RequiredVar = "MRminus",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -99,9 +32,35 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MRminus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MRminus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
       EffectName = "TormentedSoil_green_tar.troy",
       EffectNameForOtherTeam = "TormentedSoil_red_tar.troy",
       Flags = 0,
@@ -117,6 +76,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 280,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -125,11 +86,11 @@ OnBuffActivateBuildingBlocks = {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "Owner",
+      CenterVar = "TargetPos",
       Range = 280,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
@@ -158,10 +119,10 @@ OnBuffActivateBuildingBlocks = {
           BuffName = "TormentedSoilDebuff",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Shred,
           MaxStack = 5,
           NumberOfStacks = 1,
-          Duration = 2,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
@@ -183,6 +144,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -202,6 +165,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -223,33 +188,34 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 1000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MRminus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MRminus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBExecutePeriodically,
     Params = {
@@ -263,11 +229,11 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Attacker",
-          CenterVar = "Owner",
+          CenterVar = "TargetPos",
           Range = 280,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          InclusiveBuffFilter = true
+          InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
@@ -296,10 +262,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffName = "TormentedSoilDebuff",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
+              BuffType = BUFF_Shred,
               MaxStack = 5,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false,
@@ -321,6 +287,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -340,6 +308,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -355,32 +325,11 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "TargetPos"}
   },
   {
-    Function = BBGetTeamID,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
-    }
-  },
-  {
-    Function = BBSpawnMinion,
-    Params = {
-      Name = "HiddenMinion",
-      Skin = "TestCube",
-      AiScript = "idle.lua",
-      PosVar = "TargetPos",
-      Team = TEAM_CASTER,
-      TeamVar = "TeamOfOwner",
-      Stunned = false,
-      Rooted = true,
-      Silenced = false,
-      Invulnerable = true,
-      MagicImmune = true,
-      IgnoreCollision = true,
-      IsWard = false,
-      Placemarker = true,
-      VisibilitySize = 0,
-      DestVar = "Other3",
-      GoldRedirectTargetVar = "Owner"
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
     }
   },
   {
@@ -398,13 +347,27 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MRminus",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -4,
+        -5,
+        -6,
+        -7,
+        -8
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Other3",
+      TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Damage,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 5,
@@ -439,9 +402,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "firefeet_buf.troy"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
   }
 }

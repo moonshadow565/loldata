@@ -4,6 +4,9 @@ IsDamagingSpell = true
 BuffTextureName = "Tristana_BusterShot.dds"
 BuffName = "Buster Shot"
 SpellDamageRatio = 1
+SpellFXOverrideSkins = {
+  "RocketTristana"
+}
 TriggersSpellCasts = true
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {

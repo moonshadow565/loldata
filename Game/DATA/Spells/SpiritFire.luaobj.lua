@@ -3,131 +3,145 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+PersistsThroughDeath = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBIf,
+    Function = BBRequireVar,
     Params = {
-      Src1Var = "TeamID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "nassus_spiritFire_warning.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "nassus_spiritFire_warning.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
-        }
-      }
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "InitialDamage",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
+      RequiredVar = "Damage",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetForceRenderParticles
+      RequiredVar = "ArmorReduction",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBSpellEffectCreate,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
+      EffectName = "nassus_spiritFire_warning.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 100,
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBAddPosPerceptionBubble,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
+      TeamVar = "TeamID",
+      Radius = 200,
+      PosVar = "TargetPos",
+      Duration = 2.6,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSetVarInTable,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
+      DestVar = "InitialDamage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "InitialDamage",
+      SrcVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Damage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Damage",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorReduction",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "ArmorReduction",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "SpiritFireAoE",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetCastSpellTargetPos,
+    Params = {DestVar = "TargetPos"}
   },
   {
     Function = BBSetVarInTable,
@@ -158,81 +172,38 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "SpiritFireAoE",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  }
-}
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
     }
   },
   {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "TargetPos"}
-  },
-  {
-    Function = BBAddPosPerceptionBubble,
+    Function = BBSetVarInTable,
     Params = {
-      TeamVar = "TeamOfOwner",
-      Radius = 200,
-      PosVar = "TargetPos",
-      Duration = 2.6,
-      SpecificUnitsClientOnlyVar = "Nothing",
-      RevealSteath = false,
-      BubbleIDVar = "BubbleID"
-    }
-  },
-  {
-    Function = BBSpawnMinion,
-    Params = {
-      Name = "SpellBook1",
-      Skin = "SpellBook1",
-      AiScript = "idle.lua",
-      PosVar = "TargetPos",
-      Team = TEAM_CASTER,
-      TeamVar = "TeamOfOwner",
-      Stunned = false,
-      Rooted = true,
-      Silenced = false,
-      Invulnerable = true,
-      MagicImmune = true,
-      IgnoreCollision = false,
-      IsWard = false,
-      Placemarker = true,
-      VisibilitySize = 0,
-      DestVar = "Other3",
-      GoldRedirectTargetVar = "Owner"
+      DestVar = "ArmorReduction",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -20,
+        -25,
+        -30,
+        -35,
+        -40
+      }
     }
   },
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Other3",
+      TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0,
+      Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -252,9 +223,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "spiritfireaoe"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "spellbook1"}
   }
 }

@@ -17,8 +17,8 @@ BuffOnAllowAddBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "MaxStack",
-          Value2 = 76,
+          Src1Var = "ScriptName",
+          Value2 = "globalwallpush",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {

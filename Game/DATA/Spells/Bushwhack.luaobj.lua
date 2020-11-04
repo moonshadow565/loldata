@@ -218,6 +218,42 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DOTCounter",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 0
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamagePerTick",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                20,
+                31.25,
+                42.5,
+                53.75,
+                65
+              }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Debuff",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                -0.2,
+                -0.25,
+                -0.3,
+                -0.35,
+                -0.4
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Unit",
@@ -225,7 +261,25 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffName = "BushwhackDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
+              BuffType = BUFF_Shred,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 12,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "BushwhackDamage",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Damage,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 12,
@@ -401,7 +455,9 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "destealth"}
+    Params = {
+      Name = "bushwhackdamage"
+    }
   },
   {
     Function = BBPreloadParticle,

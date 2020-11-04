@@ -83,6 +83,10 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", Type = BUFF_Blind}
   },
   {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Shred}
+  },
+  {
     Function = BBGetStatus,
     Params = {
       TargetVar = "Owner",
@@ -131,8 +135,8 @@ TargetExecuteBuildingBlocks = {
         Function = BBGetRandomPointInAreaUnit,
         Params = {
           TargetVar = "Owner",
-          Radius = 400,
-          InnerRadius = 200,
+          Radius = 100,
+          InnerRadius = 0,
           ResultVar = "Pos"
         }
       },
@@ -186,41 +190,11 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "shacoDamageTaken",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            0.85,
-            0.85,
-            0.85
-          }
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other1",
           AttackerVar = "Attacker",
           BuffName = "HallucinateFull",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 18,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Other1",
-          BuffName = "Hallucinate",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,

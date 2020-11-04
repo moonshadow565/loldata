@@ -12,18 +12,18 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Internal,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
       }
     }
   }
@@ -203,6 +203,10 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Shred}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Stun}
   },
   {
@@ -292,25 +296,13 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "cost0",
-          DestVarTable = "InstanceVars",
           SrcValueByLevel = {
-            20,
-            26,
-            32,
-            38,
-            44
+            -20,
+            -26,
+            -32,
+            -38,
+            -44
           }
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cost0",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = -1,
-          DestVar = "cost0ToInc",
-          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -320,7 +312,38 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 0,
           SlotType = SpellSlots,
           Cost = 0,
-          CostVar = "cost0ToInc",
+          CostVar = "cost0",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 1,
+          SlotType = SpellSlots,
+          Cost = -100,
           PARType = PAR_MANA
         }
       }
@@ -348,26 +371,14 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "cost2",
-          DestVarTable = "InstanceVars",
+          DestVar = "cost0",
           SrcValueByLevel = {
-            30,
-            42,
-            54,
-            66,
-            78
+            -30,
+            -42,
+            -54,
+            -66,
+            -78
           }
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cost2",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = -1,
-          DestVar = "cost2ToInc",
-          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -377,8 +388,46 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 2,
           SlotType = SpellSlots,
           Cost = 0,
-          CostVar = "cost2ToInc",
+          CostVar = "cost0",
           PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "Defile"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Defile",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
         }
       }
     }
@@ -406,23 +455,11 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "cost3",
-          DestVarTable = "InstanceVars",
           SrcValueByLevel = {
-            150,
-            175,
-            200
+            -150,
+            -175,
+            -200
           }
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "cost3",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = -1,
-          DestVar = "cost3ToInc",
-          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -432,24 +469,26 @@ OnBuffActivateBuildingBlocks = {
           SpellSlot = 3,
           SlotType = SpellSlots,
           Cost = 0,
-          CostVar = "cost3ToInc",
+          CostVar = "cost3",
           PARType = PAR_MANA
         }
       }
     }
   },
   {
-    Function = BBSetPARCostInc,
+    Function = BBIncPAR,
     Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 1,
-      SlotType = SpellSlots,
-      Cost = -100,
+      TargetVar = "Owner",
+      Delta = 5000,
       PARType = PAR_MANA
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBForceDead,
+    Params = {OwnerVar = "Owner"}
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -558,7 +597,7 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSealSpellSlot,
     Params = {
-      SpellSlot = 3,
+      SpellSlot = 2,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
@@ -568,10 +607,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBShowHealthBar,
     Params = {UnitVar = "Owner", Show = true}
-  },
-  {
-    Function = BBForceDead,
-    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellBuffRemove,
@@ -855,5 +890,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "mordekeiser_cotg_skin.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "defile"}
   }
 }

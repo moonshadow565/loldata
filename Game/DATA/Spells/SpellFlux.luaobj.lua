@@ -21,7 +21,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 1,
   CanHitSameTarget = 1,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -135,7 +137,11 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -153,7 +159,7 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Shred,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
@@ -164,57 +170,20 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBGetCastInfo,
-        Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
-      },
-      {
-        Function = BBIf,
+        Function = BBApplyDamage,
         Params = {
-          Src1Var = "TargetNum",
-          Value2 = 1,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "Damage",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.35,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "Damage",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.35,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "Damage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.35,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -239,7 +208,11 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -275,7 +248,11 @@ TargetExecuteBuildingBlocks = {
                       FOWTeam = TEAM_UNKNOWN,
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
+                      FollowsGroundTilt = false,
+                      FacesTarget = false
                     }
                   },
                   {
@@ -309,12 +286,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "spellflux_tar2.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "desperatepower"
     }
   },
   {

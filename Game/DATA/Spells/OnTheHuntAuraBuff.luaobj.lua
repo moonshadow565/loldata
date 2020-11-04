@@ -1,6 +1,7 @@
 BuffTextureName = "Sivir_Deadeye.dds"
 BuffName = "On The Hunt"
 AutoBuffActivateEffect = "OntheHunt_buf.troy"
+AutoBuffActivateAttachBoneName = "root"
 AutoBuffActivateEffect2 = ""
 OnBuffActivateBuildingBlocks = {
   {
@@ -13,7 +14,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "AttackSpeedMod",
+      RequiredVar = "AllyAttackSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -42,7 +43,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
+      DeltaVar = "AllyAttackSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

@@ -79,11 +79,35 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBMath,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KillerInstinct"
+      Src1Var = "finalDistance",
+      Src1Value = 0,
+      Src2Value = 250,
+      DestVar = "finalDistance",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = 0,
+      DistanceVar = "finalDistance",
+      OffsetAngle = 0,
+      PositionVar = "TargetPos"
+    }
+  },
+  {
+    Function = BBIsPathable,
+    Params = {DestPosVar = "TargetPos", ResultVar = "Temp"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Temp",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -91,43 +115,9 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "finalDistance",
           Src1Value = 0,
-          Src2Value = 250,
+          Src2Value = 200,
           DestVar = "finalDistance",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 0,
-          DistanceVar = "finalDistance",
-          OffsetAngle = 0,
-          PositionVar = "TargetPos"
-        }
-      },
-      {
-        Function = BBIsPathable,
-        Params = {DestPosVar = "TargetPos", ResultVar = "Temp"}
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Temp",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "finalDistance",
-              Src1Value = 0,
-              Src2Value = 200,
-              DestVar = "finalDistance",
-              MathOp = MO_SUBTRACT
-            }
-          }
+          MathOp = MO_SUBTRACT
         }
       }
     }

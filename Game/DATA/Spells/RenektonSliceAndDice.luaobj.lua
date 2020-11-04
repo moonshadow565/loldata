@@ -242,7 +242,7 @@ BuffOnCollisionBuildingBlocks = {
                           BuffName = "RenektonSliceAndDiceDebuff",
                           BuffAddType = BUFF_REPLACE_EXISTING,
                           StacksExclusive = true,
-                          BuffType = BUFF_CombatDehancer,
+                          BuffType = BUFF_Shred,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 4,
@@ -488,7 +488,10 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -513,7 +516,10 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -540,7 +546,10 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -1824,7 +1833,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "RenektonSliceAndDice"
+      BuffName = "RenektonSliceAndDice",
+      ResetDuration = 0
     }
   }
 }

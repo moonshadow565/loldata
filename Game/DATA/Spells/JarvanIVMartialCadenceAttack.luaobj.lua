@@ -4,11 +4,33 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBGetStat,
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
     Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Owner",
-      DestVar = "BaseDamage"
+      DestVar = "HealthPerc",
+      SrcValueByLevel = {
+        0.06,
+        0.06,
+        0.06,
+        0.06,
+        0.06,
+        0.06,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.08,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1
+      }
     }
   },
   {
@@ -24,8 +46,9 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "TargetHealth",
+      Src2Var = "HealthPerc",
       Src1Value = 0,
-      Src2Value = 0.08,
+      Src2Value = 0,
       DestVar = "HealthDamage",
       MathOp = MO_MULTIPLY
     }
@@ -58,13 +81,21 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "HealthDamage",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
     }
   },
   {
@@ -95,15 +126,8 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        6,
-        6,
-        6,
-        6,
-        6
-      },
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
@@ -124,6 +148,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }

@@ -82,6 +82,13 @@ BuffOnHitUnitBuildingBlocks = {
                             Params = {TargetVar = "Attacker", DestVar = "TeamID"}
                           },
                           {
+                            Function = BBGetTeamID,
+                            Params = {
+                              TargetVar = "Target",
+                              DestVar = "TeamIDTarget"
+                            }
+                          },
+                          {
                             Function = BBSpellEffectCreate,
                             Params = {
                               BindObjectVar = "Nothing",
@@ -97,38 +104,136 @@ BuffOnHitUnitBuildingBlocks = {
                               FOWTeamOverrideVar = "TeamID",
                               FOWVisibilityRadius = 10,
                               SendIfOnScreenOrDiscard = true,
+                              PersistsThroughReconnect = false,
+                              BindFlexToOwnerPAR = false,
                               FollowsGroundTilt = false,
                               FacesTarget = false
                             }
-                          }
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Target",
-                          AttackerVar = "Attacker",
-                          BuffName = "VayneSilveredDebuff",
-                          BuffAddType = BUFF_STACKS_AND_RENEWS,
-                          StacksExclusive = true,
-                          BuffType = BUFF_CombatDehancer,
-                          MaxStack = 3,
-                          NumberOfStacks = 1,
-                          Duration = 3.5,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
-                        }
-                      },
-                      {
-                        Function = BBIf,
-                        Params = {
-                          Src1Var = "Count",
-                          Value2 = 2,
-                          CompareOp = CO_EQUAL
-                        },
-                        SubBlocks = {
+                          },
+                          {
+                            Function = BBGetSlotSpellInfo,
+                            Params = {
+                              DestVar = "Level",
+                              SpellSlotValue = 1,
+                              SpellbookType = SPELLBOOK_CHAMPION,
+                              SlotType = SpellSlots,
+                              OwnerVar = "Attacker",
+                              Function = GetSlotSpellLevel
+                            }
+                          },
+                          {
+                            Function = BBGetStat,
+                            Params = {
+                              Stat = GetFlatMagicDamageMod,
+                              TargetVar = "Attacker",
+                              DestVar = "AbilityPower"
+                            }
+                          },
+                          {
+                            Function = BBMath,
+                            Params = {
+                              Src2Var = "AbilityPower",
+                              Src1Value = 0,
+                              Src2Value = 0,
+                              DestVar = "BonusMaxHealthDamage",
+                              MathOp = MO_MULTIPLY
+                            }
+                          },
+                          {
+                            Function = BBSpellBuffClear,
+                            Params = {
+                              TargetVar = "Target",
+                              BuffName = "VayneSilveredDebuff"
+                            }
+                          },
+                          {
+                            Function = BBGetPAROrHealth,
+                            Params = {
+                              DestVar = "TarMaxHealth",
+                              OwnerVar = "Target",
+                              Function = GetMaxHealth,
+                              PARType = PAR_MANA
+                            }
+                          },
+                          {
+                            Function = BBSetVarInTable,
+                            Params = {
+                              DestVar = "RankScaling",
+                              SrcValueByLevel = {
+                                0.04,
+                                0.05,
+                                0.06,
+                                0.07,
+                                0.08
+                              }
+                            }
+                          },
+                          {
+                            Function = BBSetVarInTable,
+                            Params = {
+                              DestVar = "FlatScaling",
+                              SrcValueByLevel = {
+                                20,
+                                30,
+                                40,
+                                50,
+                                60
+                              }
+                            }
+                          },
+                          {
+                            Function = BBMath,
+                            Params = {
+                              Src1Var = "RankScaling",
+                              Src2Var = "BonusMaxHealthDamage",
+                              Src1Value = 0,
+                              Src2Value = 0,
+                              DestVar = "RankScaling",
+                              MathOp = MO_ADD
+                            }
+                          },
+                          {
+                            Function = BBMath,
+                            Params = {
+                              Src1Var = "TarMaxHealth",
+                              Src2Var = "RankScaling",
+                              Src1Value = 0,
+                              Src2Value = 0,
+                              DestVar = "DamageToDeal",
+                              MathOp = MO_MULTIPLY
+                            }
+                          },
+                          {
+                            Function = BBMath,
+                            Params = {
+                              Src1Var = "DamageToDeal",
+                              Src2Var = "FlatScaling",
+                              Src1Value = 0,
+                              Src2Value = 0,
+                              DestVar = "DamageToDeal",
+                              MathOp = MO_ADD
+                            }
+                          },
+                          {
+                            Function = BBIf,
+                            Params = {
+                              Src1Var = "TeamIDTarget",
+                              Value2 = TEAM_NEUTRAL,
+                              CompareOp = CO_EQUAL
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBMath,
+                                Params = {
+                                  Src1Var = "DamageToDeal",
+                                  Src1Value = 0,
+                                  Src2Value = 200,
+                                  DestVar = "DamageToDeal",
+                                  MathOp = MO_MIN
+                                }
+                              }
+                            }
+                          },
                           {
                             Function = BBApplyDamage,
                             Params = {
@@ -136,21 +241,38 @@ BuffOnHitUnitBuildingBlocks = {
                               CallForHelpAttackerVar = "Attacker",
                               TargetVar = "Target",
                               Damage = 0,
-                              DamageVar = "DamageAmount",
-                              DamageType = PHYSICAL_DAMAGE,
+                              DamageVar = "DamageToDeal",
+                              DamageType = TRUE_DAMAGE,
                               SourceDamageType = DAMAGESOURCE_PROC,
                               PercentOfAttack = 1,
                               SpellDamageRatio = 0,
-                              PhysicalDamageRatio = 0,
+                              PhysicalDamageRatio = 1,
                               IgnoreDamageIncreaseMods = false,
                               IgnoreDamageCrit = false
                             }
-                          },
+                          }
+                        }
+                      },
+                      {
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
                           {
-                            Function = BBSetVarInTable,
+                            Function = BBSpellBuffAdd,
                             Params = {
-                              DestVar = "DamageAmount",
-                              SrcValue = 0
+                              TargetVar = "Target",
+                              AttackerVar = "Attacker",
+                              BuffName = "VayneSilveredDebuff",
+                              BuffAddType = BUFF_STACKS_AND_RENEWS,
+                              StacksExclusive = true,
+                              BuffType = BUFF_CombatDehancer,
+                              MaxStack = 3,
+                              NumberOfStacks = 1,
+                              Duration = 3.5,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -168,15 +290,15 @@ BuffOnHitUnitBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vaynesilvereddebuff"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "vayne_w_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vaynesilvereddebuff"
     }
   }
 }

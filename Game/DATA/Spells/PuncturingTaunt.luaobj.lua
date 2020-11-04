@@ -40,14 +40,15 @@ TargetExecuteBuildingBlocks = {
       BuffName = "PuncturingTauntArmorDebuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Shred,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "tauntDuration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

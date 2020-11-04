@@ -16,6 +16,28 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src2Var = "AttackDamage",
+          Src1Value = 0.2,
+          Src2Value = 0,
+          DestVar = "RAttackGain",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "RAttackGain",
+          Index = 3,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      },
+      {
         Function = BBGetStat,
         Params = {
           Stat = GetBaseAttackDamage,

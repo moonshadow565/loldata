@@ -1,4 +1,6 @@
 AutoBuffActivateEffect = ""
+PersistsThroughDeath = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -15,59 +17,25 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
+      RequiredVar = "ArmorReduction",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetForceRenderParticles
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -80,7 +48,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
       EffectName = "nassus_spiritFire_afterburn.troy",
       Flags = 0,
       EffectIDVar = "c",
@@ -93,6 +62,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -100,7 +71,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
       EffectName = "nassus_spiritFire_tar_green.troy",
       EffectNameForOtherTeam = "nassus_spiritFire_tar_red.troy",
       Flags = 0,
@@ -116,19 +88,18 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
   },
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSetVarInTable,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
     }
   },
   {
@@ -136,24 +107,19 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "ArmorReduction",
       DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        -20,
-        -25,
-        -30,
-        -35,
-        -40
-      }
+      SrcVar = "ArmorReduction",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "Owner",
+      CenterVar = "TargetPos",
       Range = 400,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
@@ -182,10 +148,10 @@ OnBuffActivateBuildingBlocks = {
           BuffName = "SpiritFireArmorReduction",
           BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Shred,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1.25,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
@@ -224,56 +190,15 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "c",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 1000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ArmorReduction",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        -20,
-        -25,
-        -30,
-        -35,
-        -40
-      }
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -307,14 +232,31 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "TargetPos",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "TargetPos"
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "ArmorReduction",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "ArmorReduction",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Attacker",
-              CenterVar = "Owner",
+              CenterVar = "TargetPos",
               Range = 400,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
-              InclusiveBuffFilter = true
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
@@ -353,10 +295,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffName = "SpiritFireArmorReduction",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
+                  BuffType = BUFF_Shred,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 1.25,
+                  Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false,

@@ -200,7 +200,7 @@ BuffOnAllowAddBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src1Var = "Duration",
-              Src2Var = "DurationMod",
+              Src2Var = "PercentReduction",
               Src1Value = 0,
               Src2Value = 0,
               DestVar = "Duration",
@@ -221,7 +221,7 @@ BuffOnAllowAddBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src1Var = "Duration",
-              Src2Var = "DurationMod",
+              Src2Var = "PercentReduction",
               Src1Value = 0,
               Src2Value = 0,
               DestVar = "Duration",
@@ -530,8 +530,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "BurningAgony",
-          ResetDuration = 0
+          BuffName = "BurningAgony"
         }
       }
     }
@@ -553,8 +552,7 @@ SelfExecuteBuildingBlocks = {
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false,
-          IsHiddenOnClient = false
+          CanMitigateDuration = false
         }
       }
     }

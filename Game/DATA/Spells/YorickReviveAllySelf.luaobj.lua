@@ -44,6 +44,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -66,6 +68,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 500,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -553,6 +557,25 @@ BuffOnZombieBuildingBlocks = {
     }
   }
 }
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "YorickRADelay"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -575,6 +598,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yorickultpetactive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yorickradelaylich"
     }
   },
@@ -587,19 +616,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yorickultpetactive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yorickradelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickraremovepet"
     }
   }
 }
