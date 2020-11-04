@@ -5,7 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="azirpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="azirruncyclemanager"}}, 
 {Function=BBPreloadSpell, Params={Name="azirtowerbuff"}}, 
-{Function=BBPreloadSpell, Params={Name="azirtowerbuffchaos"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_p_activatebeam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azirbase_z_death_child.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azirbase_z_death_inside.troy"}}, 

@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="azir_skin01_e_knockup.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="azir_base_e_knockup.troy"}}, 
-}
