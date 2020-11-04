@@ -416,11 +416,11 @@ SpellOnMissileUpdateBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
-        0.25,
-        0.3,
-        0.35,
-        0.4,
-        0.45
+        0.2,
+        0.24,
+        0.28,
+        0.32,
+        0.36
       }
     }
   },

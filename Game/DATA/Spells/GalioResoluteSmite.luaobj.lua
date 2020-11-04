@@ -46,11 +46,11 @@ SpellOnMissileEndBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.3,
-        -0.35,
-        -0.4,
-        -0.45,
-        -0.5
+        -0.24,
+        -0.28,
+        -0.32,
+        -0.36,
+        -0.4
       }
     }
   },
@@ -113,7 +113,7 @@ SpellOnMissileEndBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "MissileEndPosition",
-      Range = 230,
+      Range = 220,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = false
@@ -130,11 +130,11 @@ SpellOnMissileEndBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
-            70,
-            125,
-            180,
-            235,
-            290
+            60,
+            115,
+            170,
+            225,
+            280
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

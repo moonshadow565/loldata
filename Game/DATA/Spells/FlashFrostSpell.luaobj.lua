@@ -8,9 +8,14 @@ BuffName = "Flash Frost"
 SpellToggleSlot = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         60,
@@ -52,12 +57,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Chilled",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

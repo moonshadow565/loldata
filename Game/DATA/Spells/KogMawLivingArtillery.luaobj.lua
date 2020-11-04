@@ -5,6 +5,13 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "FinalDamage",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -90,13 +97,6 @@ OnBuffActivateBuildingBlocks = {
           SendIfOnScreenOrDiscard = true
         }
       }
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageAmount",
-      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -267,9 +267,10 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
-          DamageVar = "DamageAmount",
+          DamageVar = "FinalDamage",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
@@ -285,11 +286,11 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "DamageAmount",
+      Src1Var = "FinalDamage",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 2.5,
-      DestVar = "DamageAmount",
+      DestVar = "FinalDamage",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
     }
@@ -330,9 +331,10 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
-          DamageVar = "DamageAmount",
+          DamageVar = "FinalDamage",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
@@ -357,6 +359,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 1000,
       DamageType = TRUE_DAMAGE,
@@ -385,6 +388,29 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "ADRatio", SrcValue = 0.5}
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ADRatio",
+      Src2Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -433,12 +459,30 @@ SelfExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DamageAmount",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         80,
         120,
         160
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "FinalDamage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DamageAmount"
     }
   },
   {

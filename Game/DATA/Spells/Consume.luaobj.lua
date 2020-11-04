@@ -93,26 +93,65 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBIfHasBuff,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        500,
-        600,
-        700,
-        800,
-        900
-      },
-      Damage = 0,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      OwnerVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "ResistantSkin"
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            250,
+            300,
+            350,
+            400,
+            450
+          },
+          Damage = 0,
+          DamageType = TRUE_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            500,
+            600,
+            700,
+            800,
+            900
+          },
+          Damage = 0,
+          DamageType = TRUE_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }
@@ -121,6 +160,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "meditate_eff.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "resistantskin"
     }
   }
 }

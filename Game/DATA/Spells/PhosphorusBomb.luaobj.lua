@@ -122,12 +122,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -136,6 +138,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         80,
@@ -161,12 +164,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "PhosphorusBombBlind",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      BuffType = BUFF_CombatDehancer,
+      StacksExclusive = true,
+      BuffType = BUFF_Blind,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

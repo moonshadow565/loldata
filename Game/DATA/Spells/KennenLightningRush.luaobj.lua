@@ -5,6 +5,70 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 3
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_Highlander"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_Highlander"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = true}
+      }
+    }
+  }
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -40,6 +104,20 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "InstanceVars",
       SrcValue = 1
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        10,
+        20,
+        30,
+        40,
+        50
+      }
     }
   },
   {
@@ -82,6 +160,32 @@ OnBuffActivateBuildingBlocks = {
       fadeTime = 0.1,
       IDVar = "LitRush",
       IDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DefenseBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KennenLightningRushBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -280,7 +384,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2.2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      TickRate = 0.1,
+      CanMitigateDuration = false
     }
   },
   {
@@ -295,7 +400,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -324,6 +430,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "kennen_lr_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenlightningrushbuff"
     }
   },
   {

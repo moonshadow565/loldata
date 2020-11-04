@@ -18,81 +18,34 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "ArmorPen",
+      DestVar = "AttackSpeed",
       SrcValue = 0,
       SrcValueByLevel = {
-        0.13,
-        0.16,
-        0.19,
-        0.22,
-        0.25
+        0.1,
+        0.15,
+        0.2,
+        0.25,
+        0.3
       }
     }
   },
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentArmorPenetrationMod,
+      Stat = IncPercentMultiplicativeAttackSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorPen",
+      DeltaVar = "AttackSpeed",
       Delta = 0
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmorPen2",
-      SrcValue = 0,
-      SrcValueByLevel = {
-        13,
-        16,
-        19,
-        22,
-        25
-      }
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "ArmorPen2",
-      Index = 1
-    }
   }
 }
-SelfExecuteBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KogMawCausticSpittle"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "KogMawCausticSpittleCharged",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 4,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  }
-}
+SelfExecuteBuildingBlocks = {}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         60,
@@ -110,15 +63,26 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "KogMawCausticSpittleCharged",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawcausticspittle"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {
