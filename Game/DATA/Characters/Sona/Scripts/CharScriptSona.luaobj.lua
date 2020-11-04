@@ -463,11 +463,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "MSBoost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            14,
+            12,
+            15,
             18,
-            22,
-            26,
-            30
+            21,
+            24
           }
         }
       },

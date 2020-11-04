@@ -17,7 +17,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "APMod",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.5,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY
     }

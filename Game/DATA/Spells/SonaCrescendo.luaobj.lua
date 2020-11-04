@@ -1,9 +1,10 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Sona_Crescendo.dds"
-BuffName = "CurseoftheSadMummy"
+BuffName = "SonaCrescendo"
 AutoBuffActivateEffect = "SonaCrescendo_buf.troy"
-AutoBuffActivateEffect2 = ""
+AutoBuffActivateEffect2 = "Stun_glb.troy"
+AutoBuffActivateAttachBoneName2 = "head"
 PopupMessage1 = "game_floatingtext_Stunned"
 OnBuffActivateBuildingBlocks = {
   {
@@ -46,30 +47,11 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBOverrideAnimation,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 2.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "Dance",
-      ScaleTime = 2.5,
-      TargetVar = "Owner",
-      Loop = true,
-      Blend = false
+      ToOverrideAnim = "Idle1",
+      OverrideAnim = "Dance",
+      OwnerVar = "Owner"
     }
   }
 }
@@ -86,7 +68,7 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.2,
+      SpellDamageRatio = 0.175,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -115,6 +97,10 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Idle1", OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -165,7 +151,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2,
+          SpellDamageRatio = 0.175,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -205,14 +191,6 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
     }
   }
 }

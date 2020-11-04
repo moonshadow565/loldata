@@ -5,6 +5,10 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",

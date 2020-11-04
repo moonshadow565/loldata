@@ -1,6 +1,6 @@
 BuffTextureName = "Sona_SongofDiscord.dds"
 BuffName = "SonaSongofDiscordAuraB"
-AutoBuffActivateEffect = "SonaSongofDiscord_tarB.troy"
+AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 OnBuffActivateBuildingBlocks = {
