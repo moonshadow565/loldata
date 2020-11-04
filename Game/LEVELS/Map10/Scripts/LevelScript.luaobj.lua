@@ -1272,7 +1272,7 @@ function L0_0(A0_24, A1_25, A2_26, A3_27, A4_28)
     LAST_WAVE = A4_28
   end
   if SPECIAL_MINION_MODE == "2MeleeMinions" then
-    lNumOfMeleeMinionsPerWave = max(2 - lNumOfSuperMinionsPerWave, 0)
+    lNumOfMeleeMinionsPerWave = math.max(2 - lNumOfSuperMinionsPerWave, 0)
     lNumOfCasterMinionsPerWave = 0
     lNumOfCannonMinionsPerWave = 0
   elseif SPECIAL_MINION_MODE == "None" then

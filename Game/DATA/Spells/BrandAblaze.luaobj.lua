@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "BrandBlaze.dds"
 BuffName = "BrandAblaze"
 IsDeathRecapSource = true
-PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -5,19 +5,19 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "RivenPathoftheExile.dds"
 BuffName = "RivenFeint"
-AutoBuffActivateEffect = "exile_E_shield_01.troy"
+AutoBuffActivateEffect = "Riven_Base_E_Shield.troy"
 OnPreDamagePriority = 3
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "exile_e_interupt.troy"
+      Name = "riven_base_e_interupt.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "exile_e_mis.troy"
+      Name = "riven_base_e_mis.troy"
     }
   },
   {
