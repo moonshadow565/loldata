@@ -14,12 +14,15 @@ UpdateSelfBuffStatsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "dragonApplicator",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 100000
+          TickRate = 100000,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -47,12 +50,15 @@ UpdateSelfBuffStatsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "HPByPlayerLevel",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -70,6 +76,26 @@ CharOnHitUnitBuildingBlocks = {
     }
   }
 }
+CharOnActivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "ResistantSkinDragon",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -81,6 +107,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "hpbyplayerlevel"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "resistantskindragon"
     }
   }
 }

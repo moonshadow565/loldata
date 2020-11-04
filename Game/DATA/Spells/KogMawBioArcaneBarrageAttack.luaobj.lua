@@ -1,5 +1,11 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+SpellFXOverrideSkins = {
+  "NewYearDragonKogMaw"
+}
+SpellVOOverrideSkins = {
+  "NewYearDragonKogMaw"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -18,6 +24,64 @@ TargetExecuteBuildingBlocks = {
       Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
       DestVar = "BaseDamage"
+    }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Attacker", SkinIDVar = "KMSkinID"}
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "KMSkinID",
+          Value2 = 5,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "KogMawChineseBasicAttack_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "KogMawSpatter.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      }
     }
   },
   {
@@ -170,6 +234,20 @@ TargetExecuteBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kogmawchinesebasicattack_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kogmawspatter.troy"
     }
   }
 }

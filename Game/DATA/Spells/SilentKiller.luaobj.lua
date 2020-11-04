@@ -2,6 +2,84 @@ BuffTextureName = "Evelynn_Stalk.dds"
 BuffName = "Silent Killer"
 PersistsThroughDeath = true
 Nondispellable = true
+BuffOnKillBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "MaliceHeal",
+              DeltaVarTable = "CharVars",
+              HealerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  }
+}
+BuffOnAssistBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 1,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "MaliceHeal",
+              DeltaVarTable = "CharVars",
+              HealerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 BuffOnBeingHitBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -41,42 +119,6 @@ BuffOnBeingHitBuildingBlocks = {
               MathOp = MO_MULTIPLY
             }
           }
-        }
-      }
-    }
-  }
-}
-BuffOnKillBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "MaliceHeal",
-          DeltaVarTable = "CharVars",
-          HealerVar = "Owner"
-        }
-      }
-    }
-  }
-}
-BuffOnAssistBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "MaliceHeal",
-          DeltaVarTable = "CharVars",
-          HealerVar = "Owner"
         }
       }
     }

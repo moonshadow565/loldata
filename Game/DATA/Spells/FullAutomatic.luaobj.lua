@@ -115,7 +115,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 12,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -134,7 +135,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 12,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -172,6 +174,14 @@ BuffOnLaunchMissileBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "twitchsprayandpray"
     }
   }
 }

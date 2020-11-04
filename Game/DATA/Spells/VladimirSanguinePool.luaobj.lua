@@ -175,7 +175,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 2.25,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -185,7 +186,8 @@ OnBuffActivateBuildingBlocks = {
       ScaleTime = 2.25,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   },
   {
@@ -461,10 +463,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 1.5,
+              Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -528,11 +531,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.5,
-        -0.5,
-        -0.5,
-        -0.5,
-        -0.5
+        -0.4,
+        -0.4,
+        -0.4,
+        -0.4,
+        -0.4
       }
     }
   },
@@ -641,7 +644,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

@@ -46,11 +46,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthToRestore",
       SrcValueByLevel = {
-        80,
-        130,
+        60,
+        120,
         180,
-        230,
-        280
+        240,
+        300
       }
     }
   },
@@ -60,11 +60,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AstralArmor",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        15,
         20,
-        25,
-        30,
-        35
+        35,
+        50,
+        65,
+        80
       }
     }
   },
@@ -73,7 +73,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "TempAbilityPower",
       Src1Value = 0,
-      Src2Value = 1,
+      Src2Value = 0.9,
       DestVar = "HealingBonus",
       MathOp = MO_MULTIPLY
     }
@@ -99,10 +99,11 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 9,
+      Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

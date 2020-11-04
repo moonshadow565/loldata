@@ -14,6 +14,10 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DCooldown",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -83,6 +87,10 @@ OnBuffDeactivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_CHAMPION,
       OwnerVar = "Owner"
     }
+  },
+  {
+    Function = BBSetDodgePiercing,
+    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -168,7 +176,8 @@ BuffOnPreAttackBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -289,7 +298,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

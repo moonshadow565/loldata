@@ -53,7 +53,8 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 0,
       TargetVar = "Owner",
       Loop = false,
-      Blend = false
+      Blend = false,
+      Lock = true
     }
   },
   {
@@ -79,11 +80,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        40,
-        70,
-        100,
-        130,
-        160
+        60,
+        90,
+        120,
+        150,
+        180
       }
     }
   },
@@ -118,7 +119,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "WeaponDamage",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.8,
       DestVar = "WeaponDamage",
       MathOp = MO_MULTIPLY
     }
@@ -454,7 +455,7 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "DrainPercent",
                   DestVarTable = "NextBuffVars",
-                  SrcValue = 0.1
+                  SrcValue = 0.075
                 }
               },
               {

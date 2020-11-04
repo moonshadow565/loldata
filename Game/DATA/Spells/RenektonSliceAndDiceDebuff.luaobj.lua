@@ -22,7 +22,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorMod,
+      Stat = IncPercentArmorMod,
       TargetVar = "Owner",
       DeltaVar = "ArmorShred",
       DeltaVarTable = "InstanceVars",

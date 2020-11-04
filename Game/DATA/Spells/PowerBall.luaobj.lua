@@ -478,6 +478,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Other1",
                   Damage = 0,
                   DamageVar = "AoEDamage",
@@ -502,10 +503,11 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 4,
+                  Duration = 3,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -522,7 +524,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -654,11 +657,11 @@ SelfExecuteBuildingBlocks = {
           DestVar = "SlowPercent",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            -0.28,
-            -0.36,
-            -0.44,
-            -0.52,
-            -0.6
+            -0.2,
+            -0.25,
+            -0.3,
+            -0.35,
+            -0.4
           }
         }
       },
@@ -698,7 +701,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 8,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

@@ -19,6 +19,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "WillFade",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  },
+  {
     Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -74,13 +82,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "abc",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -102,7 +103,26 @@ OnBuffDeactivateBuildingBlocks = {
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "WillFade",
+      Src1VarTable = "InstanceVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "abc",
+          EffectIDVarTable = "InstanceVars"
         }
       }
     }
