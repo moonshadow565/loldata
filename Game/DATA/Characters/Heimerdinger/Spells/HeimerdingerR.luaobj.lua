@@ -10,13 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "HeimerdingerE_ult"
+      Name = "heimerdingere_ult"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "HeimerdingerE"
+      Name = "heimerdingere"
     }
   },
   {
