@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "s4spawnlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "positivechampiondelta"
     }
   }
