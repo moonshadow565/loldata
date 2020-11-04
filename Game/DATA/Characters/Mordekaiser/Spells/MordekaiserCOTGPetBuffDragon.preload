@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_dragon_idle_eyeglow_left.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_dragon.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_dragon_ring.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaisercotgguidedragonleash"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_dragon_fireball_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaiserdragonfireball"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaiserdragonfireball2"}}, 

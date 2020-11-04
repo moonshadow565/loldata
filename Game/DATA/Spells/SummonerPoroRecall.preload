@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="summonerpororecall_cast_sound.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="summonerpororecall"}}, 
 {Function=BBPreloadCharacter, Params={Name="kingporo_hiddenunit"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_poroexplosion.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="globalpolymorphhasbegun"}}, 

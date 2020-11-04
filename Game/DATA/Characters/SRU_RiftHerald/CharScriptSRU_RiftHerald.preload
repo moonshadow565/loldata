@@ -4,5 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sru_riftheralddance"}}, 
 {Function=BBPreloadSpell, Params={Name="exaltedwithminibaronnashor"}}, 
 {Function=BBPreloadSpell, Params={Name="crestoftheancientgolemlines"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_death.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="minibaronincombat"}}, 
+{Function=BBPreloadSpell, Params={Name="riftheraldloggingbuff"}}, 
 }

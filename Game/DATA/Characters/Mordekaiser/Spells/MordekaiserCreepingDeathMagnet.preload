@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathmagnetvfx"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathmagnetspeed"}}, 
 }

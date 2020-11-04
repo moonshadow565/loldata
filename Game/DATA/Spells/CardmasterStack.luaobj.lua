@@ -1,8 +1,7 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 BuffTextureName = "Cardmaster_RapidToss.dds"
 BuffName = "CardMasterStack"
-SpellToggleSlot = 2
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true

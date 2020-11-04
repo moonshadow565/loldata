@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spirit.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_linkbeam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="evelynn_ring_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_watched.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spirittimershatter.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritdeath.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritdeathdust.troy"}}, 
