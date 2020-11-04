@@ -35,13 +35,19 @@ BuffOnBeingHitBuildingBlocks = {
     Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
     SubBlocks = {
       {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0.9,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0.9,
+              DestVar = "DamageAmount",
+              MathOp = MO_MULTIPLY
+            }
+          }
         }
       }
     }

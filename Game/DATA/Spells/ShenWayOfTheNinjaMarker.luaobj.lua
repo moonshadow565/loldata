@@ -75,7 +75,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       Src1Var = "MaxHP",
       Src1Value = 0,
-      Src2Value = 0.08,
+      Src2Value = 0.12,
       DestVar = "BonusDmgFromHP",
       MathOp = MO_MULTIPLY
     }
@@ -228,23 +228,23 @@ BuffOnHitUnitBuildingBlocks = {
 BuffOnBeingHitBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Miss,
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
         Params = {
           Src1Var = "HitResult",
-          Value2 = HIT_Miss,
+          Value2 = HIT_Dodge,
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {
-              Src1Var = "HitResult",
-              Value2 = HIT_Dodge,
-              CompareOp = CO_NOT_EQUAL
-            },
+            Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
                 Function = BBMath,
@@ -257,57 +257,75 @@ BuffOnBeingHitBuildingBlocks = {
                   DestVarTable = "InstanceVars",
                   MathOp = MO_SUBTRACT
                 }
-              },
-              {
-                Function = BBGetGameTime,
-                Params = {SecondsVar = "CurTime"}
-              },
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
               {
                 Function = BBMath,
                 Params = {
-                  Src1Var = "CurTime",
-                  Src2Var = "LastHit",
-                  Src2VarTable = "InstanceVars",
+                  Src1Var = "LastHit",
+                  Src1VarTable = "InstanceVars",
                   Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "TimeSinceLastHit",
+                  Src2Value = 0.5,
+                  DestVar = "LastHit",
+                  DestVarTable = "InstanceVars",
                   MathOp = MO_SUBTRACT
                 }
-              },
+              }
+            }
+          },
+          {
+            Function = BBGetGameTime,
+            Params = {SecondsVar = "CurTime"}
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CurTime",
+              Src2Var = "LastHit",
+              Src2VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "TimeSinceLastHit",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "TimeSinceLastHit",
+              Value2 = 8,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
               {
-                Function = BBIf,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  Src1Var = "TimeSinceLastHit",
-                  Value2 = 8,
-                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "ShenWayOfTheNinjaAura"
                 },
                 SubBlocks = {
                   {
-                    Function = BBIfNotHasBuff,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      OwnerVar = "Owner",
-                      CasterVar = "Owner",
-                      BuffName = "ShenWayOfTheNinjaAura"
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Owner",
-                          AttackerVar = "Owner",
-                          BuffName = "ShenWayOfTheNinjaAura",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Aura,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 25000,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false,
-                          IsHiddenOnClient = false
-                        }
-                      }
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "ShenWayOfTheNinjaAura",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
                   }
                 }
