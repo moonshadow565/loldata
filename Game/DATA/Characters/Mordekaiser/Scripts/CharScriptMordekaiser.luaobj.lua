@@ -45,47 +45,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "MordAP"
-    }
-  },
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "MordAP",
-          Src1Value = 0,
-          Src2Value = 0.02,
-          DestVar = "TooltipDisplay",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "TooltipDisplay",
-          Index = 1,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
-        }
-      }
-    }
   }
 }
 CharOnActivateBuildingBlocks = {
@@ -144,7 +103,7 @@ CharOnActivateBuildingBlocks = {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = -140,
+      Delta = -180,
       PARType = PAR_SHIELD
     }
   }

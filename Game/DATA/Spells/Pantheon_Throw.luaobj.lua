@@ -102,10 +102,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ThrowDmg",
       SrcValueByLevel = {
-        20,
-        31,
-        42,
-        53,
+        16,
+        28,
+        40,
+        52,
         64
       }
     }
@@ -161,6 +161,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "pantheon_aegisshield"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_aegis_counter"
     }
   }
 }

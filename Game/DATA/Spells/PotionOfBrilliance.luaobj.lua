@@ -15,7 +15,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Level",
       Src1Value = 0,
-      Src2Value = 2,
+      Src2Value = 1.18,
       DestVar = "BonusAP",
       MathOp = MO_MULTIPLY
     }
@@ -25,7 +25,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusAP",
       Src1Value = 0,
-      Src2Value = 29,
+      Src2Value = 18.82,
       DestVar = "BonusAP",
       DestVarTable = "InstanceVars",
       MathOp = MO_ADD
@@ -87,12 +87,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

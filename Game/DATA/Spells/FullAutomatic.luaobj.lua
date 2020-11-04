@@ -19,7 +19,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "AttackSpeedMod",
+      RequiredVar = "numAttacks",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "bonusDamage",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -28,6 +35,15 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
     Params = {OwnerVar = "Owner", CancelAttack = false}
+  },
+  {
+    Function = BBSpellBuffRemoveStacks,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TwitchSprayAndPray",
+      NumStacks = 0
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -42,9 +58,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentAttackSpeedMod,
+      Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
+      DeltaVar = "bonusDamage",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -54,12 +70,24 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "AttackSpeedMod",
+      DestVar = "numAttacks",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.3,
-        0.45,
-        0.6
+        5,
+        6,
+        7
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "bonusDamage",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        15,
+        25,
+        35
       }
     }
   },
@@ -81,13 +109,69 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 6,
+      Duration = 12,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "TwitchSprayAndPray",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = false,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 10,
+      NumberOfStacks = 0,
+      NumberOfStacksVar = "numAttacks",
+      NumberOfStacksVarTable = "NextBuffVars",
+      Duration = 12,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+BuffOnLaunchMissileBuildingBlocks = {
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "numAttacks",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "numAttacks",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TwitchSprayAndPray"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "numAttacks",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
     }
   }
 }

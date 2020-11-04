@@ -404,6 +404,28 @@ BuffOnPreAttackBuildingBlocks = {
               DurationVar = "FearDuration",
               DurationVarTable = "InstanceVars"
             }
+          },
+          {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Unit", DestVar = "teamID"}
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "teamID",
+              Value2 = 300,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyTaunt,
+                Params = {
+                  AttackerVar = "Owner",
+                  TargetVar = "Unit",
+                  Duration = 5
+                }
+              }
+            }
           }
         }
       }

@@ -183,6 +183,14 @@ SelfExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBGetStatus,
+        Params = {
+          TargetVar = "Unit",
+          DestVar = "IsStealthed",
+          Status = GetStealthed
+        }
+      },
+      {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Unit",
@@ -258,20 +266,94 @@ SelfExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBApplyDamage,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "DtDReal",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DtDReal",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DtDReal",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Owner",
+              TargetVar = "Unit",
+              ResultVar = "CanSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "CanSee",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "DtDReal",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
+            }
+          }
         }
       }
     }

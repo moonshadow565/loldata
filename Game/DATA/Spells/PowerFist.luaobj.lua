@@ -124,7 +124,37 @@ BuffOnHitUnitBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Owner",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageToDeal",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_DEFAULT,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
       },
       {
         Function = BBElse,

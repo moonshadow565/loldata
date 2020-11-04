@@ -1,3 +1,86 @@
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0.8,
+          DestVar = "bbBonusDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "bbBonusDamage",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0.55,
+          DestVar = "dlBonusDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "dlBonusDamage",
+          Index = 1,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -80,57 +163,6 @@ CharOnDisconnectBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBGetTotalAttackDamage,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "AttackDamage"
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "AttackDamage",
-      Index = 1,
-      SlotNumber = 0,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Attacker"
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DestVar = "BonusAD"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BonusAD",
-      Src1Value = 0,
-      Src2Value = 0.55,
-      DestVar = "BonusAD",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "BonusAD",
-      Index = 1,
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Attacker"
     }
   }
 }

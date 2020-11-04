@@ -5,26 +5,11 @@ SpellFXOverrideSkins = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "TargetNum", Info = GetCastSpellTargetsHitPlusOne}
-  },
-  {
     Function = BBGetStat,
     Params = {
       Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
       DestVar = "BaseDamage"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "PercentDamage",
-      SrcValueByLevel = {
-        1,
-        1,
-        1
-      }
     }
   },
   {
@@ -83,120 +68,31 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      Src1Var = "TargetNum",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BaseDamage",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BaseDamage",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PROC,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffName = "DeadlyVenom",
-                  BuffAddType = BUFF_STACKS_AND_RENEWS,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Damage,
-                  MaxStack = 6,
-                  NumberOfStacks = 1,
-                  Duration = 8.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamageAmount",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "DamageAmount",
-                  SrcVarTable = "CharVars"
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "LastCount",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 1
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffName = "DeadlyVenom_Internal",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 8.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
-                }
-              }
-            }
-          }
-        }
-      }
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Owner",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "BaseDamage",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -211,18 +107,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_sprayandpray_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom_internal"
     }
   }
 }

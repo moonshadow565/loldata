@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        40,
+        30,
+        45,
         60,
-        80,
-        100,
-        120
+        75,
+        90
       }
     }
   },
@@ -38,32 +38,23 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "SupremeDmg"}
   },
   {
-    Function = BBGetStat,
+    Function = BBMath,
     Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Owner",
-      DestVar = "BaseDamage"
+      Src1Var = "SupremeDmg",
+      Src1Value = 0,
+      Src2Value = 1.2,
+      DestVar = "scalingDamage",
+      MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "BaseDamage",
+      Src1Var = "scalingDamage",
       Src2Var = "BonusDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DealtDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "SupremeDmg",
-      Src2Var = "BonusDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TotalDamage",
       MathOp = MO_ADD
     }
   },
@@ -83,6 +74,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "DealtDamage",
@@ -90,7 +82,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = true
         }
@@ -120,6 +112,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "DealtDamage",
@@ -127,7 +120,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_ATTACK,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = true
         }

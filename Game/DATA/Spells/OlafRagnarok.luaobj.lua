@@ -340,9 +340,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageAbsorption",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        25,
-        45,
-        65
+        20,
+        30,
+        40
       }
     }
   },

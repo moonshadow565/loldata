@@ -218,7 +218,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 240,
+          Src1Value = 255,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -257,10 +257,6 @@ AdjustCooldownBuildingBlocks = {
   }
 }
 SelfExecuteBuildingBlocks = {
-  {
-    Function = BBDestroyMissileForTarget,
-    Params = {TargetVar = "Owner"}
-  },
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "CastPos"}
