@@ -22,6 +22,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_base_r_cast_axe.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_skin04_r_tar_backboard.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
   },

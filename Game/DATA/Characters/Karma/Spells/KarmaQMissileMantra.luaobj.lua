@@ -6,6 +6,12 @@ SpellDamageRatio = 0.5
 TriggersSpellCasts = false
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmaqmissilemantraslow"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "tormentedsoil_green_tar.troy"
@@ -39,12 +45,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tempkarma_mqexplosion_nova_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmaqmissilemantraslow"
     }
   },
   {

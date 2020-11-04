@@ -1,0 +1,58 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffName = "XenZhaoSweep"
+SpellFXOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
+SpellVOOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heroiccharge_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xenziou_audaciouscharge_tar_unit_instant.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "Braumq"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "Braumqtarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaointimidate"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heroiccharge_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "Braumqpushenemy"
+    }
+  }
+}

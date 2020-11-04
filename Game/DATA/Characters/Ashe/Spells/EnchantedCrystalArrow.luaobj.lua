@@ -11,6 +11,12 @@ SpellFXOverrideSkins = {"AsheSkin06"}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ashe_base_r_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "enchantedcrystalarrowslow"

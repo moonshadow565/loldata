@@ -6,5 +6,4 @@ IsDamagingSpell = true
 BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
 BuffName = "CaitlynYordleTrap"
 AutoBuffActivateEffect = "caitlyn_yordleTrap_impact_debuf.troy"
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
+PopupMessage1 = "game_floatingtext_Snared"

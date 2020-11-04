@@ -1,3 +1,3 @@
 BuffTextureName = "3068_SunfireCape.dds"
-BuffName = "Sunfire Cape Aura"
+BuffName = "ItemSunfireCapeAura"
 AutoBuffActivateEffect = "SunfireCapeAura_tar.troy"

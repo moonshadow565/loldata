@@ -13,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_W_Tar.troy"
+      Name = "khazix_base_w_tar.troy"
     }
   },
   {

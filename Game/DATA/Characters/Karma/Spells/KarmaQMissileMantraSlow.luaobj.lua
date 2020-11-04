@@ -1,3 +1,5 @@
 BuffTextureName = "Karma_Q2.dds"
 BuffName = "KarmaQMissile"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateAttachBoneName = "Buffbone_Glb_Ground_Loc"
 PopupMessage1 = "game_floatingtext_Slowed"

@@ -1107,7 +1107,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_WRAITHS
@@ -1115,7 +1115,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_REDBUFF
@@ -1131,7 +1131,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_DRAGON
@@ -1140,7 +1140,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 360
-  L0.GroupDelaySpawnTime = 50
+  L0.GroupDelaySpawnTime = 60
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
@@ -1158,7 +1158,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_WRAITHS
@@ -1166,7 +1166,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_REDBUFF
@@ -1182,7 +1182,7 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
   L0.GroupBuffSide = L1
   L3 = CAMPTYPE_NASHOR
@@ -1202,15 +1202,17 @@ function L0()
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
+  L0.GroupBuffSide = L1
   L3 = CAMPTYPE_OWLBEAR
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
-  L0.GroupsRespawnTime = 50
+  L0.GroupsRespawnTime = 60
   L0.GroupDelaySpawnTime = 25
+  L0.GroupBuffSide = L1
 end
 NeutralMinionInit = L0
 function L0(A0)
