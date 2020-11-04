@@ -177,7 +177,7 @@ shopvo_MultiMenuOpen                    =                 5 ; Number of times th
 
 ; Audio variables
 aud_FMODMusicCueID                      =                47 ; FMOD ID for a music cue for the map's music.
-aud_FMODAmbientEvent                    =        map_forest ; FMOD event name for the map's ambient track.
+aud_FMODAmbientEvent                    =             map12 ; FMOD event name for the map's ambient track.
 aud_FMODVictoryMusicCueID               =                50 ; FMOD ID for a Victory music cue for the map's music.
 aud_FMODDefeatMusicCueID                =                51 ; FMOD ID for a Defeat music cue for the map's music.
 aud_FMODReverbPreset                    = LoL_SummonersRift ; FMOD name of the reverb preset to be used on this map.
