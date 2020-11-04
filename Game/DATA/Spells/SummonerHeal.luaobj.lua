@@ -40,7 +40,7 @@ SpellUpdateTooltipBuildingBlocks = {
         Params = {
           Src1Var = "TotalHeal",
           Src1Value = 0,
-          Src2Value = 1.15,
+          Src2Value = 1.1,
           DestVar = "TotalHeal",
           MathOp = MO_MULTIPLY
         }
@@ -238,7 +238,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "TotalHeal",
           Src1Value = 0,
-          Src2Value = 1.15,
+          Src2Value = 1.1,
           DestVar = "TotalHeal",
           MathOp = MO_MULTIPLY
         }

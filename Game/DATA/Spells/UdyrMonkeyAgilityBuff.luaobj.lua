@@ -20,7 +20,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -43,14 +47,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatDodgeMod,
-      TargetVar = "Owner",
-      Delta = 0.03
-    }
-  },
-  {
     Function = BBGetBuffCountFromAll,
     Params = {
       DestVar = "MonkeyStacks",
@@ -69,29 +65,11 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MonkeyStacks",
-      Src1Value = 3,
-      Src2Value = 0,
-      DestVar = "DodgeMod",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
     Function = BBSetBuffToolTipVar,
     Params = {
       Value = 0,
       ValueVar = "AttackSpeedMod",
       Index = 1
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "DodgeMod",
-      Index = 2
     }
   }
 }
@@ -100,12 +78,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyrbuff.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrmonkeyagilitybuff"
     }
   }
 }

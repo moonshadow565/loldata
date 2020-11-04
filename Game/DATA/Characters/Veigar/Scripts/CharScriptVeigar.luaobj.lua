@@ -1,5 +1,66 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "ChampionAPGain"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {RequiredVar = "TotalBonus", RequiredVarTable = "CharVars"}
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "TotalBonus",
+          Src2VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TotalBonus",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "APGain",
+          Src1VarTable = "CharVars",
+          Src2Var = "TotalBonus",
+          Src2VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TotalBonus",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "TotalBonus",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {RequiredVar = "APGain", RequiredVarTable = "CharVars"}
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatMagicDamageMod,
@@ -80,7 +141,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -97,7 +159,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -114,7 +177,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -123,6 +187,65 @@ CharOnActivateBuildingBlocks = {
       DestVar = "APGain",
       DestVarTable = "CharVars",
       SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TotalBonus",
+      DestVarTable = "CharVars",
+      SrcValue = 0
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusAP",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            1,
+            1,
+            1,
+            1,
+            1
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MaxBonus",
+          DestVarTable = "CharVars",
+          SrcValueByLevel = {
+            9999,
+            9999,
+            9999,
+            9999,
+            9999
+          }
+        }
+      }
     }
   }
 }

@@ -25,10 +25,7 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_NEUTRAL,
           FOWVisibilityRadius = 900,
           SendIfOnScreenOrDiscard = true,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          FollowsGroundTilt = false
         }
       }
     }
@@ -71,7 +68,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "MaxHP",
       Src1Value = 0,
-      Src2Value = 0.12,
+      Src2Value = 0.08,
       DestVar = "BonusDmgFromHP",
       MathOp = MO_MULTIPLY
     }
@@ -151,6 +148,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "globalhit_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shenwayoftheninjaaura"
     }
   }
 }

@@ -11,12 +11,20 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBGetPAROrHealth,
     Params = {
-      TimeBetweenExecutions = 5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      DestVar = "healthPercent",
+      OwnerVar = "Owner",
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "healthPercent",
+      Value2 = 0.99,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -28,90 +36,42 @@ BuffOnUpdateStatsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBIfNotHasBuff,
             Params = {
-              Src1Var = "LifeTime",
-              Value2 = 122,
-              CompareOp = CO_LESS_THAN_OR_EQUAL
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "MonsterBankSmall"
             },
             SubBlocks = {
               {
-                Function = BBIf,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  Src1Var = "bountyActive",
-                  Src1VarTable = "InstanceVars",
-                  Value2 = false,
-                  CompareOp = CO_EQUAL
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "MonsterBankBig"
                 },
                 SubBlocks = {
                   {
-                    Function = BBIncPermanentExpReward,
-                    Params = {TargetVar = "Owner", Delta = 12.5}
-                  },
-                  {
-                    Function = BBIncPermanentGoldReward,
-                    Params = {TargetVar = "Owner", Delta = 2}
-                  },
-                  {
-                    Function = BBSetVarInTable,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      DestVar = "bountyActive",
-                      DestVarTable = "InstanceVars",
-                      SrcValue = true
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "MonsterBankSmall",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false,
+                      IsHiddenOnClient = false
                     }
-                  }
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBIncPermanentExpReward,
-                    Params = {TargetVar = "Owner", Delta = 1.786}
-                  },
-                  {
-                    Function = BBIncPermanentGoldReward,
-                    Params = {TargetVar = "Owner", Delta = 0.2667}
                   }
                 }
               }
             }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "bountyActive",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "LifeTime",
-          Value2 = 122,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetScaleSkinCoef,
-            Params = {Scale = 1.1, OwnerVar = "Owner"}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetScaleSkinCoef,
-            Params = {Scale = 1.05, OwnerVar = "Owner"}
           }
         }
       }

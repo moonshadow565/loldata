@@ -139,11 +139,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthPerFury",
       SrcValueByLevel = {
-        0.65,
-        1.15,
-        1.65,
-        2.15,
-        2.65
+        0.5,
+        0.95,
+        1.4,
+        1.85,
+        2.3
       }
     }
   },
@@ -221,6 +221,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -246,10 +248,6 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "bloodlust"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {

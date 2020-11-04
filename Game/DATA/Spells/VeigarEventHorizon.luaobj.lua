@@ -182,6 +182,46 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 900,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "VeigarSkinID",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "permission_desecrate_green_cas_daper.troy",
+          EffectNameForOtherTeam = "permission_desecrate_red_cas_daper.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -215,6 +255,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 900,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -458,6 +500,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "permission_desecrate_green_cas_daper.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "permission_desecrate_red_cas_daper.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "permission_desecrate_green_cas.troy"
     }
   },
@@ -465,12 +519,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "permission_desecrate_red_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "veigareventhorizonprevent"
     }
   },
   {

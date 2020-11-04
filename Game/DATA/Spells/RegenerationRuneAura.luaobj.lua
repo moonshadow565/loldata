@@ -1,33 +1,12 @@
 BuffTextureName = "Regeneration_Sigil.dds"
 BuffName = "RegenerationAura"
+AutoBuffActivateEffect = "regen_rune_new_buf.troy"
 PersistsThroughDeath = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "teamID"}
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "regen_rune_new_buf.troy",
-      Flags = 0,
-      EffectIDVar = "buffParticle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "teamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = true,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
-    }
   },
   {
     Function = BBGetGameTime,
@@ -62,12 +41,59 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
+OnBuffDeactivateBuildingBlocks = {}
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBExecutePeriodically,
     Params = {
-      EffectIDVar = "buffParticle",
-      EffectIDVarTable = "InstanceVars"
+      TimeBetweenExecutions = 5,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "RegenerationRune"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetGameTime,
+            Params = {SecondsVar = "gameTime"}
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "gameTime",
+              Value2 = 210,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "RegenerationRune",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -154,61 +180,6 @@ BuffOnDeathBuildingBlocks = {
               UseAutoAttackSpell = false,
               ForceCastingOrChannelling = false,
               UpdateAutoAttackTimer = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBIfNotHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "RegenerationRune"
-        },
-        SubBlocks = {
-          {
-            Function = BBGetGameTime,
-            Params = {SecondsVar = "gameTime"}
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "gameTime",
-              Value2 = 210,
-              CompareOp = CO_GREATER_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "RegenerationRune",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 25000,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false,
-                  IsHiddenOnClient = false
-                }
-              }
             }
           }
         }

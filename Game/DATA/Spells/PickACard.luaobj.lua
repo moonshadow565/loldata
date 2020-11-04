@@ -26,7 +26,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -69,7 +72,10 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 600,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -100,7 +106,10 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 600,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -126,7 +135,10 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 600,
           SendIfOnScreenOrDiscard = false,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       }
     }
@@ -239,7 +251,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GoldCardPreAttack"
+      BuffName = "GoldCardPreAttack",
+      ResetDuration = 0
     }
   },
   {
@@ -247,7 +260,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "RedCardPreAttack"
+      BuffName = "RedCardPreAttack",
+      ResetDuration = 0
     }
   },
   {
@@ -255,8 +269,13 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "BlueCardPreAttack"
+      BuffName = "BlueCardPreAttack",
+      ResetDuration = 0
     }
+  },
+  {
+    Function = BBSetAutoAcquireTargets,
+    Params = {TargetVar = "Owner", Value = true}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -317,7 +336,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 600,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -365,7 +387,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 600,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -413,7 +438,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 600,
               SendIfOnScreenOrDiscard = false,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -584,8 +612,13 @@ BuffOnSpellCastBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "Pickacard_tracker"
+              BuffName = "Pickacard_tracker",
+              ResetDuration = 0
             }
+          },
+          {
+            Function = BBSetAutoAcquireTargets,
+            Params = {TargetVar = "Owner", Value = false}
           }
         }
       }
@@ -666,8 +699,13 @@ BuffOnSpellCastBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "Pickacard_tracker"
+              BuffName = "Pickacard_tracker",
+              ResetDuration = 0
             }
+          },
+          {
+            Function = BBSetAutoAcquireTargets,
+            Params = {TargetVar = "Owner", Value = false}
           }
         }
       }
@@ -748,8 +786,13 @@ BuffOnSpellCastBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "Pickacard_tracker"
+              BuffName = "Pickacard_tracker",
+              ResetDuration = 0
             }
+          },
+          {
+            Function = BBSetAutoAcquireTargets,
+            Params = {TargetVar = "Owner", Value = false}
           }
         }
       }
@@ -1063,24 +1106,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "goldcardpreattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "redcardpreattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bluecardpreattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "redcardlock"
     }
   },
@@ -1094,6 +1119,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "bluecardlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "redcardpreattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "goldcardpreattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bluecardpreattack"
     }
   },
   {

@@ -89,11 +89,34 @@ BuffOnCollisionBuildingBlocks = {
                         Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
                         SubBlocks = {
                           {
-                            Function = BBIncPAR,
+                            Function = BBIf,
                             Params = {
-                              TargetVar = "Owner",
-                              Delta = 40,
-                              PARType = PAR_ENERGY
+                              Src1Var = "EnergyRefunds",
+                              Src1VarTable = "InstanceVars",
+                              Value2 = 1,
+                              CompareOp = CO_GREATER_THAN_OR_EQUAL
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBIncPAR,
+                                Params = {
+                                  TargetVar = "Owner",
+                                  Delta = 50,
+                                  PARType = PAR_ENERGY
+                                }
+                              },
+                              {
+                                Function = BBMath,
+                                Params = {
+                                  Src1Var = "EnergyRefunds",
+                                  Src1VarTable = "InstanceVars",
+                                  Src1Value = 0,
+                                  Src2Value = 1,
+                                  DestVar = "EnergyRefunds",
+                                  DestVarTable = "InstanceVars",
+                                  MathOp = MO_SUBTRACT
+                                }
+                              }
                             }
                           }
                         }
@@ -147,6 +170,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "EnergyRefunds",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
@@ -188,8 +218,6 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -376,11 +404,18 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         1,
-        1.3,
-        1.6,
-        1.9,
-        2.2
+        1.25,
+        1.5,
+        1.75,
+        2
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "EnergyRefunds",
+      SrcValue = 1
     }
   },
   {
@@ -451,8 +486,6 @@ SelfExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              PersistsThroughReconnect = false,
-              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -462,17 +495,45 @@ SelfExecuteBuildingBlocks = {
             Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBIncPAR,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Owner",
-                  Delta = 40,
-                  PARType = PAR_ENERGY
+                  Src1Var = "EnergyRefunds",
+                  Value2 = 1,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 40,
+                      PARType = PAR_ENERGY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "EnergyRefunds",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "EnergyRefunds",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
                 }
               }
             }
           }
         }
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "EnergyRefunds",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "EnergyRefunds"
     }
   },
   {
@@ -574,8 +635,6 @@ BuffOnMoveEndBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false,
-              PersistsThroughReconnect = false,
-              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -585,11 +644,34 @@ BuffOnMoveEndBuildingBlocks = {
             Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBIncPAR,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Owner",
-                  Delta = 40,
-                  PARType = PAR_ENERGY
+                  Src1Var = "EnergyRefunds",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = 1,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 40,
+                      PARType = PAR_ENERGY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "EnergyRefunds",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "EnergyRefunds",
+                      DestVarTable = "InstanceVars",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
                 }
               }
             }
@@ -604,6 +686,12 @@ BuffOnMoveEndBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sharedwardbuff"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

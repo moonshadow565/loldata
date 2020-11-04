@@ -95,8 +95,8 @@ OnBuffActivateBuildingBlocks = {
     Function = BBApplyAssistMarker,
     Params = {
       Duration = 10,
-      TargetVar = "Attacker",
-      SourceVar = "Owner"
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   },
   {

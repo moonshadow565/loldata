@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "ViktorChaosStormGuide.dds"
+BuffName = "ViktorStormTimer"
+AutoBuffActivateEffect = ""
+PersistsThroughDeath = true
+NonDispellable = true
+OnBuffDeactivateBuildingBlocks = {}

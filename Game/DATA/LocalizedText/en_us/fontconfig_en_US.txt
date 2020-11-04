@@ -1,0 +1,6 @@
+[FontConfig "English"]
+fontlib "gfxfontlib.swf"
+map "$ButtonFont" = "Microsoft YaHei"
+map "$NormalFont" = "Microsoft YaHei"
+map "$TitleFont" = "Microsoft YaHei"
+map "$IMECandidateListFont" = "Microsoft YaHei"

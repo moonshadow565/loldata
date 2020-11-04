@@ -21,7 +21,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "HPPoolMod",
           Src1Value = 0,
-          Src2Value = 0.2,
+          Src2Value = 0.18,
           DestVar = "HPPoolMod",
           MathOp = MO_MULTIPLY
         }
@@ -289,6 +289,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "volibearhatred"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "volibearhatredzilean"
     }
   },
   {

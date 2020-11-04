@@ -228,6 +228,58 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Owner", SkinIDVar = "SkinID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPlayAnimation,
+        Params = {
+          AnimationName = "gangplank_key",
+          ScaleTime = 0,
+          TargetVar = "Owner",
+          Loop = true,
+          Blend = false,
+          Lock = false
+        }
+      }
+    }
+  }
+}
+CharOnResurrectBuildingBlocks = {
+  {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Owner", SkinIDVar = "SkinID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPlayAnimation,
+        Params = {
+          AnimationName = "gangplank_key",
+          ScaleTime = 0,
+          TargetVar = "Owner",
+          Loop = true,
+          Blend = false,
+          Lock = false
+        }
+      }
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {
@@ -251,12 +303,6 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "raisemoraleteambuff"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

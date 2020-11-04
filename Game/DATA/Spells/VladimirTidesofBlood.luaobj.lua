@@ -54,11 +54,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        25,
-        35,
-        45,
-        55,
-        65
+        30,
+        40,
+        50,
+        60,
+        70
       }
     }
   },

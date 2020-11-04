@@ -34,24 +34,68 @@ SelfExecuteBuildingBlocks = {
     Params = {UnitVar = "Owner", PositionVar = "CastPos"}
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "CastPos",
-      EffectName = "katarina_shadowStep_return.troy",
-      Flags = 0,
-      EffectIDVar = "p3",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      UnitVar = "Owner",
+      SkinIDVar = "ownerskinid"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ownerskinid",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          EffectName = "katarina_shadowStep_Sand_return.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          EffectName = "katarina_shadowStep_return.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 900,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   }
 }
@@ -337,6 +381,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_shadowstep_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_shadowstep_sand_return.troy"
     }
   },
   {

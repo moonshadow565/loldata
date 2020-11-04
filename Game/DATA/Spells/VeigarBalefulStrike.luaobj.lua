@@ -9,42 +9,7 @@ AutoCooldownByLevel = {
   5,
   4
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "APGain",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "APGain",
-          DestVarTable = "CharVars",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "permission_ability_indicator.troy",
-          Flags = 0,
-          EffectIDVar = "Placeholder",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  }
-}
+OnBuffDeactivateBuildingBlocks = {}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
@@ -69,7 +34,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -98,11 +64,126 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-PreLoadBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBIf,
     Params = {
-      Name = "permission_ability_indicator.troy"
+      Src1Var = "TotalBonus",
+      Src1VarTable = "CharVars",
+      Src2Var = "MaxBonus",
+      Src2VarTable = "CharVars",
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "TotalBonus",
+          Src2VarTable = "CharVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "BonusAdd",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TotalBonus",
+          DestVarTable = "CharVars",
+          SrcVar = "BonusAdd"
+        }
+      },
+      {
+        Function = BBIncPermanentStat,
+        Params = {
+          Stat = IncPermanentFlatMagicDamageMod,
+          TargetVar = "Owner",
+          Delta = 1
+        }
+      }
+    }
+  }
+}
+BuffOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusAP",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "BonusAP",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MaxBonus",
+          DestVarTable = "CharVars",
+          SrcValueByLevel = {
+            9999,
+            9999,
+            9999,
+            9999,
+            9999
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MaxBonus",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MaxBonus",
+          SrcVarTable = "CharVars"
+        }
+      }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "BonusAP",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "MaxBonus",
+      RequiredVarTable = "InstanceVars"
     }
   }
 }

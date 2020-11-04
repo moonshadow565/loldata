@@ -1,0 +1,8 @@
+BuffTextureName = "3022_Frozen_Heart.dds"
+BuffName = "Chilled"
+AutoBuffActivateEffect = "Global_Slow.troy"
+AutoBuffActivateEffect2 = "Viktor_Catalyst_buf.troy"
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
+PopupMessage1 = "game_floatingtext_Slowed"

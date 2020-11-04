@@ -2,7 +2,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 10,
+      TimeBetweenExecutions = 9,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -13,13 +13,13 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "3047",
+          BuffName = "ViktorHexCore",
           BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 11,
+          Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false,
@@ -27,29 +27,19 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
-  }
-}
-BuffOnBeingHitBuildingBlocks = {
+  },
   {
-    Function = BBIf,
-    Params = {Value1 = DAMAGESOURCE_ATTACK, CompareOp = CO_DAMAGE_SOURCETYPE_IS},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0.9,
-              DestVar = "DamageAmount",
-              MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      }
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusForItem",
+      ValueVarTable = "CharVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }

@@ -7,47 +7,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "LifeTapMod",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "maxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "maxHealth",
-      Src1Value = 0.00667,
-      Src2Value = 0,
-      DestVar = "bonusHeal",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "bonusHeal",
-      Src2Var = "LifeTapMod",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "finalHealAmount",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "finalHealAmount",
-      ValueVarTable = "InstanceVars",
-      Index = 1
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -73,11 +32,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          SendIfOnScreenOrDiscard = false
         }
       },
       {
@@ -102,7 +57,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
-              DeltaVar = "finalHealAmount",
+              DeltaVar = "LifeTapMod",
               DeltaVarTable = "InstanceVars",
               HealerVar = "Attacker"
             }

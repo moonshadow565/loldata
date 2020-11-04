@@ -64,6 +64,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 400,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -89,6 +91,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 400,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -196,6 +200,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -327,6 +333,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 250,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -353,6 +361,8 @@ OnBuffDeactivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 250,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -451,11 +461,11 @@ SpellOnMissileEndBuildingBlocks = {
       DestVar = "LSCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        12,
-        12,
-        12,
-        12,
-        12
+        9,
+        9,
+        9,
+        9,
+        9
       }
     }
   },
