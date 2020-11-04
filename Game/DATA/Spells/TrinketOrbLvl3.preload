@@ -7,8 +7,9 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sightward"}}, 
 {Function=BBPreloadCharacter, Params={Name="sightward"}}, 
 {Function=BBPreloadCharacter, Params={Name="bluetrinket"}}, 
-{Function=BBPreloadSpell, Params={Name="wardbounty"}}, 
+{Function=BBPreloadSpell, Params={Name="sharedwardbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="relicblueward"}}, 
+{Function=BBPreloadSpell, Params={Name="wardbounty"}}, 
 {Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 
 {Function=BBPreloadModule, Params={Name="Global.TrinketCD"}}, 
 }
