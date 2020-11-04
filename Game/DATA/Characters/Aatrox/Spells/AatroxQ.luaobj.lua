@@ -12,25 +12,26 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "AatroxSkin01"
+  "AatroxSkin01",
+  "AatroxSkin02"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Aatrox_Base_Q_Tar_Green.troy"
+      Name = "aatrox_base_q_tar_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Aatrox_Base_Q_Tar_Red.troy"
+      Name = "aatrox_base_q_tar_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Aatrox_Base_Q_Cast.troy"
+      Name = "aatrox_base_q_cast.troy"
     }
   },
   {

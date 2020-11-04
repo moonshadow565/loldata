@@ -5,6 +5,9 @@ BuffName = "AatroxWPower"
 SpellToggleSlot = 2
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "AatroxSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

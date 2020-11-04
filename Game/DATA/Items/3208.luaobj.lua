@@ -2,19 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "colossalstrength"
+      Name = "itemspiritstonedefense"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "apbonusdamagetotowers"
+      Name = "lightbringer"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ferocioushowl"
+      Name = "itemspiritconservation"
     }
   }
 }

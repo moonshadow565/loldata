@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sona_base_e_tar_buf.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
   },

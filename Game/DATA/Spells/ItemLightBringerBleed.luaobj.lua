@@ -1,19 +1,17 @@
 DoesntTriggerSpellCasts = true
-IsDeathRecapSource = true
-SpellFXOverrideSkins = {
-  "AatroxSkin02"
-}
+BuffTextureName = "3122_Wicked_Hatchet.dds"
+BuffName = "ItemWickedHatchetBleed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_base_w_active_hit_life.troy"
+      Name = "talon_q_bleed.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_base_w_active_hit_power.troy"
+      Name = "tt_watched.troy"
     }
   }
 }

@@ -50,6 +50,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "jarvanivcataclysmid"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "jarvanivcataclysmattack"
     }
   },

@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "rageblade"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bloodslash.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "rengarqbuffbonus"
@@ -41,12 +47,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "rengar_base_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "bloodslash.troy"
     }
   },
   {

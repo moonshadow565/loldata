@@ -20,12 +20,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadParticle,
-    Params = {
-      Name = "party_hornconfetti.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
     Params = {Name = "drain.troy"}
   },
   {
