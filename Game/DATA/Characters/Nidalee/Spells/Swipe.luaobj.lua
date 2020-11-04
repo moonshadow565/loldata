@@ -9,17 +9,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nidalee_cougar_swipe_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nidalee_cougar_swipepaws.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nidalee_cougar_swipe_cas.troy"
-    }
   }
 }

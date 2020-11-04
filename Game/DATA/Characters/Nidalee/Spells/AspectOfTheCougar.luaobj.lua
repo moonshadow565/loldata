@@ -20,5 +20,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nidalee_transform.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "takedown"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aspectofthecougar"
+    }
   }
 }

@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "elisehumanwboom"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "elise_spider_q_tar.troy"

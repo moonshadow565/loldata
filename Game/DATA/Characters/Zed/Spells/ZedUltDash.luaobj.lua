@@ -42,12 +42,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "zedrcloneactive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "zedultexecute"
     }
   },
