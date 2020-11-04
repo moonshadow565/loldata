@@ -1087,7 +1087,9 @@ function L0_0(A0_124)
 end
 ChampionEoGCeremony = L0_0
 function L0_0()
-  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
+  if GetEoGUseNexusDeathAnimation() == false then
+    SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
+  end
   FadeMinions(losingTeam, EOG_MINION_FADE_AMOUNT, EOG_MINION_FADE_TIME)
   InitTimer("StopRenderingMinionsPhase", EOG_MINION_FADE_TIME, false)
   InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
