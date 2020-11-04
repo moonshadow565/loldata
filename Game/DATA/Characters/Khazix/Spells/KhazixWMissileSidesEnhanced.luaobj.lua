@@ -1,7 +1,5 @@
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
-BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
-BuffName = "KhazixWMissile"
 SpellFXOverrideSkins = {
   "KhazixDroid"
 }
@@ -13,19 +11,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "khazix_w_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixwslow"
+      Name = "khazix_w_detonate_enhanced.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "khazixwexplosioncheck"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "khazix_p_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "khazixpslow"
     }
   },
   {
