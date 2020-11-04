@@ -4,6 +4,12 @@ BuffTextureName = "Nasus_Wither.dds"
 BuffName = "Wither"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
+SpellFXOverrideSkins = {
+  "NasusSkin05"
+}
+SpellVOOverrideSkins = {
+  "NasusSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
