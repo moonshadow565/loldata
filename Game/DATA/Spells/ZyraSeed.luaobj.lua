@@ -27,6 +27,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "caitlyn_yordletrap_trigger_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "zyraseedenemytexture.troy"
     }
   },
@@ -55,13 +61,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zyra_seed_indicator_team_green.troy"
+      Name = "zyra_seed_indicator_team_green.troy "
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zyra_seed_indicator_team_red.troy"
+      Name = "zyra_seed_indicator_team_red.troy  "
     }
   },
   {
@@ -98,18 +104,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zyraseedtrapvision"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_seed_indicator_hellvine_nosound.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_seed_indicator_sound.troy"
     }
   },
   {

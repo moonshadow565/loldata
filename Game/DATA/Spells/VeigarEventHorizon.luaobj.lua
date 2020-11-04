@@ -10,7 +10,22 @@ AutoCooldownByLevel = {
   18,
   16
 }
+SpellFXOverrideSkins = {
+  "BadSantaVeigar"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "veigareventhorizoninside"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "veigareventhorizonoutside"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

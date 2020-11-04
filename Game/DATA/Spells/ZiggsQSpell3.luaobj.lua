@@ -1,6 +1,7 @@
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
-  "ZiggsPoolParty"
+  "ZiggsPoolParty",
+  "ZiggsSnowday"
 }
 PreLoadBuildingBlocks = {
   {

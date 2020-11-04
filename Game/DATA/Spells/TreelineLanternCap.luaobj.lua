@@ -26,7 +26,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tt_capture_damage.troy"
+      Name = "ezreal_essenceflux_tar.troy"
     }
   }
 }

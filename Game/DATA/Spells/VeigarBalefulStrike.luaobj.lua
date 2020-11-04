@@ -9,6 +9,9 @@ AutoCooldownByLevel = {
   5,
   4
 }
+SpellFXOverrideSkins = {
+  "BadSantaVeigar"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -8,11 +8,17 @@ SpellFXOverrideSkins = {
   "SightWardGhost",
   "SightWardSpider",
   "SightWardTree",
-  "SightWardStone"
+  "SightWardStone",
+  "SightWardSnowMan",
+  "SightWardGingerBread"
 }
-MinimapIconTextureName = "Minimap_Ward_Green.tga"
-MinimapIconEnemyTextureName = "Minimap_Ward_Green_Enemy.tga"
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ward_sight_death.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

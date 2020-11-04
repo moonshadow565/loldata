@@ -3,6 +3,9 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "BadSantaVeigar"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
