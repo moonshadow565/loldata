@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathcast"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeath2"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_buf_active_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_buf_active_red.troy"}}, 
@@ -9,5 +10,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_buf_end.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathdebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathcast"}}, 
 }

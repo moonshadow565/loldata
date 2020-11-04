@@ -1,0 +1,1 @@
+SpellToggleSlot = 2
