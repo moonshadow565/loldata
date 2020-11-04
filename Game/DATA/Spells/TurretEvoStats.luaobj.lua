@@ -151,7 +151,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 500,
           Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {

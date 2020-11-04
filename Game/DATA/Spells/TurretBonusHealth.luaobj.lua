@@ -72,6 +72,16 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
+      Src2Var = "NumChampions",
+      Src1Value = 5,
+      Src2Value = 0,
+      DestVar = "NumChampions",
+      MathOp = MO_MIN
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
       Src1Var = "NumChampions",
       Src2Var = "BonusHealth",
       Src2VarTable = "InstanceVars",

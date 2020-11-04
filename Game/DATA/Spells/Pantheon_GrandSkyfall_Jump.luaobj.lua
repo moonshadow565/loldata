@@ -109,32 +109,6 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   },
   {
-    Function = BBGetNearestPassablePosition,
-    Params = {
-      Owner = "Owner",
-      PositionVar = "TargetPos",
-      NewPositionVar = "TargetPos",
-      NewPositionVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "TargetPos",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      SrcVar = "TargetPos",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
@@ -170,6 +144,14 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
     }
   },
   {
