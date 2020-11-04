@@ -1,12 +1,9 @@
 AutoBuffActivateEffect = "maokai_sapling_activated_indicator.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
+SpellFXOverrideSkins = {
+  "ThreshUndersea"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "thresh_lantern.troy"
-    }
-  },
   {
     Function = BBPreloadCharacter,
     Params = {

@@ -60,48 +60,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianaballindicatorfar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_thresh_windicatorfar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianaballindicatormedium.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_thresh_windicatormedium.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianaballindicatornear.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_thresh_windicatornear.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_thresh_lanterncountdown.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "threshwshield"

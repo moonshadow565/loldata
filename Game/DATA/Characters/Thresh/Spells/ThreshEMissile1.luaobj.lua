@@ -33,9 +33,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "powerballhit.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   }
 }

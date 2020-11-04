@@ -24,11 +24,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "threshqpullmissile"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threshqleadout"
-    }
   }
 }
