@@ -6,4 +6,4 @@ IsDamagingSpell = true
 BuffTextureName = "Jinx_W.dds"
 BuffName = "JinxWSight"
 AutoBuffActivateEffect = "global_Watched.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_OVERHEAD_LOC"
