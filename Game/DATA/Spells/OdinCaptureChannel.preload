@@ -13,6 +13,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="odinbombtickorder"}}, 
 {Function=BBPreloadSpell, Params={Name="odinbombtickchaos"}}, 
 {Function=BBPreloadParticle, Params={Name="odincapturebeamengaged_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="odincapturebeamengaged_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="odincapturebeamengaged_blue.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="odincapturecancel.troy"}}, 
 }
