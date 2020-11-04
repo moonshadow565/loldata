@@ -458,6 +458,7 @@ function L0_0()
   L0_1(L1_2)
   L0_1(L1_2)
   L0_1(L1_2)
+  L0_1(L1_2)
   L4_5 = L1_2()
   L0_1(L1_2, L2_3, L3_4, L4_5, L1_2())
   L0_1.WaveSpawnRate = 30000
@@ -846,11 +847,8 @@ end
 ApplyBarracksDestructionBonuses = L0_0
 function L0_0(A0_28)
   HQType = GetHQType(A0_28)
-  Log("Building destroyed!")
   if HQType == ORDER_HQ or HQType == CHAOS_HQ then
-    Log("HQ Destroyed!")
     if HQType == CHAOS_HQ then
-      Log("Chaos HQ Destroyed!")
       EndOfGameCeremony(TEAM_ORDER, A0_28)
     else
       EndOfGameCeremony(TEAM_CHAOS, A0_28)

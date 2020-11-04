@@ -121,7 +121,8 @@ BuffOnMissileEndBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "DurationVar",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -192,7 +193,8 @@ BuffOnMissileEndBuildingBlocks = {
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -201,7 +203,7 @@ BuffOnMissileEndBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "OlafAxeThrowDamage",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
@@ -209,7 +211,8 @@ BuffOnMissileEndBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -262,7 +265,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -271,7 +275,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "OlafAxeThrowDamage",
-      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
@@ -279,7 +283,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

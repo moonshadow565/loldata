@@ -7,9 +7,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DaggerBase",
       SrcValueByLevel = {
-        40,
         50,
-        60
+        65,
+        80
       }
     }
   },
@@ -68,7 +68,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "bonusDamage",
       Src1Value = 0,
-      Src2Value = 0.55,
+      Src2Value = 0.5,
       DestVar = "dlBonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -106,7 +106,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.3,
+      SpellDamageRatio = 0.25,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

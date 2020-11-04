@@ -11,9 +11,9 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       DestVar = "ManaMod",
       SrcValueByLevel = {
-        0.33,
-        0.66,
-        1
+        0.2,
+        0.4,
+        0.6
       }
     }
   },

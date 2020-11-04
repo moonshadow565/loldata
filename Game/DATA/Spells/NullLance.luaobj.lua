@@ -10,6 +10,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         80,
@@ -29,32 +30,18 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBApplySilence,
     Params = {
-      TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Silence",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Silence,
-      MaxStack = 100,
-      NumberOfStacks = 1,
+      TargetVar = "Target",
       Duration = 0,
-      BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
         1,
         1.4,
         1.8,
         2.2,
         2.6
-      },
-      TickRate = 0
+      }
     }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "silence"}
   }
 }

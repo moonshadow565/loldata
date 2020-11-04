@@ -49,10 +49,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
         30,
-        45,
+        40,
+        50,
         60,
-        75,
-        90
+        70
       }
     }
   },
@@ -194,7 +194,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -211,7 +212,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

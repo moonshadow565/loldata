@@ -85,7 +85,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 1.05,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -97,10 +98,6 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBGetPetOwner,
-            Params = {PetVar = "Owner", DestVar = "Attacker"}
-          },
-          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Owner",
@@ -108,7 +105,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Range = 400,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
-              InclusiveBuffFilter = true
+              BuffNameFilter = "SunfireCapeAura",
+              InclusiveBuffFilter = false
             },
             SubBlocks = {
               {
@@ -125,7 +123,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 1.05,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

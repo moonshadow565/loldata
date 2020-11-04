@@ -59,7 +59,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 0.05,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -76,7 +77,8 @@ TargetExecuteBuildingBlocks = {
               Duration = 6,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -122,7 +124,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "APPreMod",
-              Src1Value = 0.25,
+              Src1Value = 0.2,
               Src2Value = 0,
               DestVar = "APPostMod",
               MathOp = MO_MULTIPLY

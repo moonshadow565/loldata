@@ -37,6 +37,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 5000,
       DamageType = TRUE_DAMAGE,
@@ -103,6 +104,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffDuration = 1.1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
+          IsHiddenOnClient = false,
           InclusiveBuffFilter = true
         }
       }
