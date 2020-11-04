@@ -6,7 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "Shen_Feint.dds"
 BuffName = "Shen Feint Buff"
 AutoBuffActivateEffect = "shen_Feint_self.troy"
-AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
 PreLoadBuildingBlocks = {
   {

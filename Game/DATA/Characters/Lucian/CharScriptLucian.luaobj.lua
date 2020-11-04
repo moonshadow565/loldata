@@ -46,5 +46,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lucianpassivebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lucianwcastingbuff"
+    }
   }
 }
