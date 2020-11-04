@@ -48,5 +48,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "actiontimer2"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "wormcooldown"
+    }
   }
 }
