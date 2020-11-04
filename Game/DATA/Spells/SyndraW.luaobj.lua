@@ -56,6 +56,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "syndra_wb_tar1.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "syndra_wb5_tar2.troy"
     }
   },
@@ -75,12 +81,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "syndra_w_beam.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "syndra_wb_tar1.troy"
     }
   },
   {

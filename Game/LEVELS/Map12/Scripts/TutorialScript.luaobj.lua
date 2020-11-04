@@ -624,18 +624,6 @@ function L0()
   L10 = buffVarsTable
   L11 = 0
   L1(L2, L3, L4, L5, L6, L7, L8, L9, L10, L11)
-  L1 = TutorialSpellBuffAdd
-  L2 = playerID
-  L3 = playerID
-  L4 = "TutorialBonusDamage"
-  L5 = BUFF_RENEW_EXISTING
-  L6 = BUFF_Internal
-  L7 = 1
-  L8 = 1
-  L9 = 25000
-  L10 = buffVarsTable
-  L11 = 0
-  L1(L2, L3, L4, L5, L6, L7, L8, L9, L10, L11)
   L1 = SetInvulnerable
   L2 = botID
   L3 = true
@@ -1629,7 +1617,7 @@ function L0()
   L0()
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_Extra_WellDone1"
-  L2 = "EventSummonedAnother"
+  L2 = "EventShowKeyboardTipDialog"
   L0(L1, L2)
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_HUD
@@ -1654,7 +1642,21 @@ function L0()
 end
 EventLevelUpGrats = L0
 function L0()
+  local L0, L1, L2, L3, L4
+  L0 = ActivateTipDialog
+  L1 = playerID
+  L2 = "game_tutorial_keyboard_title"
+  L3 = "game_tutorial_keyboard_text"
+  L4 = "tipDialogImage_hotkeys.dds"
+  L0(L1, L2, L3, L4)
+  L0 = RegisterOnTutorialPopupClosedCallback
+  L1 = "EventSummonedAnother"
+  L0(L1)
+end
+EventShowKeyboardTipDialog = L0
+function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16
+  L0()
   L0(L1, L2)
   L0(L1)
   L3 = "DisableHPRegen"
