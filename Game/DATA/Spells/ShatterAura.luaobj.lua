@@ -1,0 +1,97 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
+BuffTextureName = "GemKnight_Shatter.dds"
+BuffName = "ShatterAura"
+AutoBuffActivateEffect = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "ShatterReady_buf.troy",
+          Flags = 0,
+          EffectIDVar = "taric",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "taric",
+          EffectIDVarTable = "InstanceVars"
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorBonus",
+      SrcValueByLevel = {
+        10,
+        15,
+        20,
+        25,
+        30
+      }
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorBonus",
+      Delta = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shatterready_buf.troy"
+    }
+  }
+}
