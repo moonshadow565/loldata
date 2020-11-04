@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sonaambientmanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "apbonusdamagetotowers"
     }
   },
@@ -33,6 +39,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonapassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaambientqsound"
     }
   }
 }

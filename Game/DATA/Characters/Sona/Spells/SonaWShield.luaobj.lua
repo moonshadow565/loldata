@@ -6,7 +6,6 @@ IsDamagingSpell = true
 BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
 BuffName = "SonaWShield"
 SpellToggleSlot = 4
-PersistsThroughDeath = true
 SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
 PreLoadBuildingBlocks = {
   {

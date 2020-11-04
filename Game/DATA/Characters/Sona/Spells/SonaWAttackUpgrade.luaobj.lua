@@ -8,15 +8,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sona_base_w_tar_buf.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonapassivedebuff"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sona_base_w_tar_buf.troy"
     }
   },
   {

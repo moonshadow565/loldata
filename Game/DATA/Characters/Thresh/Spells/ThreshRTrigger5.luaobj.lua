@@ -3,12 +3,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "thresh_r_wall_hit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "thresh_r_wall_break.troy"
     }
   },
@@ -16,6 +10,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "threshrslow"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thresh_r_wall_hit.troy"
     }
   },
   {
