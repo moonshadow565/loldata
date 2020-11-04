@@ -11,6 +11,14 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = true,
       Status = SetStunned
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {

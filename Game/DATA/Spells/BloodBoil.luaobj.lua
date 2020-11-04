@@ -16,6 +16,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "MovementSpeedBonusPercent",
@@ -66,11 +74,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MovementSpeedBonusPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.1,
-        0.125,
-        0.15,
-        0.175,
-        0.2
+        0.11,
+        0.12,
+        0.13,
+        0.14,
+        0.15
       }
     }
   },
@@ -80,10 +88,26 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Haste,
       MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 40,
+      NumberOfStacks = 1,
+      Duration = 15,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Haste,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 15,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

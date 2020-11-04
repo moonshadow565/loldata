@@ -67,6 +67,31 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MRminus",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        4,
+        5,
+        6,
+        7,
+        8
+      }
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
@@ -164,7 +189,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 280,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -179,8 +205,25 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.2,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "TormentedSoilDebuff",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 5,
+          NumberOfStacks = 1,
+          Duration = 2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       },
       {
@@ -253,6 +296,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -275,7 +319,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 280,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -290,8 +335,25 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.2,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "TormentedSoilDebuff",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatDehancer,
+              MaxStack = 5,
+              NumberOfStacks = 1,
+              Duration = 2,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           },
           {
@@ -371,10 +433,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamagePerTick",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        30,
-        45,
-        60,
-        75,
+        25,
+        40,
+        55,
+        70,
         85
       }
     }
@@ -385,9 +447,10 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

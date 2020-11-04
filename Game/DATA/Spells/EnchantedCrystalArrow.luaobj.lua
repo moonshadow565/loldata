@@ -33,6 +33,14 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -212,7 +220,7 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "Chilled",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
@@ -287,7 +295,7 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffName = "Chilled",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,

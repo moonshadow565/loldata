@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 TargetExecuteBuildingBlocks = {

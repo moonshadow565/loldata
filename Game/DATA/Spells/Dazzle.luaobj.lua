@@ -44,6 +44,16 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DazzleDamage",
+      Src1Value = 0,
+      Src2Value = 0.25,
+      DestVar = "MinDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBGetUnitPosition,
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
@@ -146,16 +156,6 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src1Var = "BaseDamage",
-          Src1Value = 0,
-          Src2Value = 0.25,
-          DestVar = "MinDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
           Src1Var = "DazzleDamage",
           Src2Var = "MinDamage",
           Src1Value = 0,
@@ -185,7 +185,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

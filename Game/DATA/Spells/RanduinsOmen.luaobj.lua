@@ -75,7 +75,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "pantheon_grandskyfall_land.troy",
+      EffectName = "RanduinsOmen_cas.troy",
       Flags = 0,
       EffectIDVar = "a",
       TargetObjectVar = "Target",
@@ -269,7 +269,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -289,7 +289,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name1",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -309,7 +309,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name2",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -329,7 +329,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name3",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -349,7 +349,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name4",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -369,7 +369,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name5",
-      Value2 = "YoumusBlade",
+      Value2 = "RanduinsOmen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -394,7 +394,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pantheon_grandskyfall_land.troy"
+      Name = "randuinsomen_cas.troy"
     }
   },
   {

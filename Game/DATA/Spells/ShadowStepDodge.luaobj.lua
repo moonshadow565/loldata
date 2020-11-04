@@ -4,7 +4,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "Level",
+      RequiredVar = "DamageReduction",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -31,28 +31,17 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBMath,
     Params = {
-      DestVar = "Level",
-      SrcVar = "Level",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatDodgeMod,
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaByLevel = {
-        0.3,
-        0.4,
-        0.5,
-        0.6,
-        0.7
-      }
+      Src1Var = "DamageReduction",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_MULTIPLY
     }
   }
 }

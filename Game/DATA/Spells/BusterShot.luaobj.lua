@@ -67,7 +67,18 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 5,
       Distance = 5,
       DistanceVar = "Distance",
-      DistanceInner = 0
+      DistanceInner = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -193,18 +204,36 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 175,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "katarina_shadowStep_return.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Stun,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -227,6 +256,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 1.5,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -236,5 +266,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "drawabead"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_shadowstep_return.troy"
+    }
   }
 }

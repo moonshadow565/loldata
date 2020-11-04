@@ -1,6 +1,7 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
 BuffTextureName = "DrMundo_InfectedCleaver.dds"
 BuffName = "InfectedCleaverDebuff"
 SpellDamageRatio = 1
@@ -29,6 +30,14 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -194,6 +203,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -351,6 +361,7 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -520,6 +531,7 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
                   BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberOfStacks = 1,

@@ -3,18 +3,38 @@ DoesntTriggerSpellCasts = false
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "VoracityMarker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 15,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      DestVar = "DaggerBase",
+      SrcValueByLevel = {
+        50,
+        65,
+        80
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "KIDamage",
+      SrcValueByLevel = {
+        8,
+        12,
+        16,
+        20,
+        24
+      }
     }
   },
   {
@@ -29,7 +49,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "DamageTotal",
-      Src1Value = 0.5,
+      Src1Value = 0.55,
       Src2Value = 0,
       DestVar = "DamageVar",
       MathOp = MO_MULTIPLY
@@ -62,21 +82,21 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBMath,
         Params = {
-          DestVar = "DaggerBase",
-          SrcValueByLevel = {
-            50,
-            65,
-            80
-          }
+          Src1Var = "DamageVar",
+          Src2Var = "DaggerBase",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageToDeal",
+          MathOp = MO_ADD
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "DamageVar",
-          Src2Var = "DaggerBase",
+          Src1Var = "DamageToDeal",
+          Src2Var = "KIDamage",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "DamageToDeal",
@@ -101,6 +121,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -112,34 +133,32 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DaggerBase",
+          Src2Var = "KIDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageVar",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
           TargetVar = "Target",
-          DamageByLevel = {
-            50,
-            65,
-            80,
-            0,
-            0
-          },
           Damage = 0,
+          DamageVar = "DamageVar",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.3,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "voracitymarker"
     }
   }
 }

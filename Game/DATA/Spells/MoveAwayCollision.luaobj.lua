@@ -53,7 +53,16 @@ OnBuffActivateBuildingBlocks = {
       GravityVarTable = "InstanceVars",
       DistanceInner = 0,
       MovementType = FIRST_COLLISION_HIT,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }

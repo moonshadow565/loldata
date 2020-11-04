@@ -16,7 +16,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   }
 }
 TargetExecuteBuildingBlocks = {
@@ -40,6 +40,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -229,7 +230,8 @@ TargetExecuteBuildingBlocks = {
       ScaleTime = 0,
       ScaleTimeVar = "scaletime",
       TargetVar = "Attacker",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
@@ -277,6 +279,7 @@ BuffOnMoveEndBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Pantheon_AegisShield",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -313,6 +316,52 @@ BuffOnMoveEndBuildingBlocks = {
           TargetVar = "Caster",
           Duration = 1
         }
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }

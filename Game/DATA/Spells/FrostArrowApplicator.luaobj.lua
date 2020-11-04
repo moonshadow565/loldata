@@ -67,6 +67,7 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Chilled",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,

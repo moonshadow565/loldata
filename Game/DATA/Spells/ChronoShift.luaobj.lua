@@ -52,6 +52,10 @@ BuffOnPreDamageBuildingBlocks = {
     }
   },
   {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "CurHealth",
@@ -90,12 +94,13 @@ BuffOnPreDamageBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
-          AttackerVar = "Owner",
+          AttackerVar = "Caster",
           BuffName = "ChronoRevive",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -177,9 +182,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {

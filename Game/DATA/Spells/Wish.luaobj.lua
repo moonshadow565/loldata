@@ -42,12 +42,39 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIncHealth,
+    Function = BBGetPAROrHealth,
     Params = {
-      TargetVar = "Target",
-      Delta = 0,
-      DeltaVar = "HealthToHeal",
-      HealerVar = "Owner"
+      DestVar = "Temp1",
+      OwnerVar = "Target",
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Temp1",
+      Value2 = 1,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Target",
+          Delta = 0,
+          DeltaVar = "HealthToHeal",
+          HealerVar = "Owner"
+        }
+      },
+      {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Target",
+          SourceVar = "Owner"
+        }
+      }
     }
   }
 }

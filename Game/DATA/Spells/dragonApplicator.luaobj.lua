@@ -13,7 +13,11 @@ BuffOnDeathBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBForEachChampion,
-        Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
+        Params = {
+          IteratorVar = "Unit",
+          Team = TEAM_ORDER,
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
             Function = BBSetVarInTable,
@@ -74,7 +78,8 @@ BuffOnDeathBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Unit",
               BuffName = "CrestofCrushingWrath",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -98,7 +103,11 @@ BuffOnDeathBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBForEachChampion,
-        Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
+        Params = {
+          IteratorVar = "Unit",
+          Team = TEAM_CHAOS,
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
             Function = BBSetVarInTable,
@@ -159,7 +168,8 @@ BuffOnDeathBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Unit",
               BuffName = "CrestofCrushingWrath",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberOfStacks = 1,

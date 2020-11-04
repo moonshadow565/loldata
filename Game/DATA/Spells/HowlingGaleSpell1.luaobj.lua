@@ -51,11 +51,11 @@ BuffOnSpellHitBuildingBlocks = {
           AttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            80,
-            110,
-            140,
-            170,
-            200
+            85,
+            115,
+            145,
+            175,
+            205
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

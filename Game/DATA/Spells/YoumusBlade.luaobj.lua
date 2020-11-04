@@ -41,7 +41,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "summoner_cast.troy",
+      EffectName = "spectral_fury_cas.troy",
       Flags = 0,
       EffectIDVar = "ar",
       TargetObjectVar = "Target",
@@ -268,7 +268,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_cast.troy"
+      Name = "spectral_fury_cas.troy"
     }
   },
   {

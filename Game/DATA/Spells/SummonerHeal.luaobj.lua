@@ -165,6 +165,14 @@ TargetExecuteBuildingBlocks = {
               DeltaVar = "SecondaryHeal",
               HealerVar = "Owner"
             }
+          },
+          {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Target",
+              SourceVar = "Attacker"
+            }
           }
         }
       }
@@ -205,6 +213,14 @@ TargetExecuteBuildingBlocks = {
               DeltaVar = "SecondaryHeal",
               HealerVar = "Owner"
             }
+          },
+          {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Target",
+              SourceVar = "Attacker"
+            }
           }
         }
       }
@@ -225,9 +241,10 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Target",
           BuffName = "SummonerHealCheck",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

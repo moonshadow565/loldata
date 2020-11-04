@@ -5,65 +5,45 @@ IsDamagingSpell = false
 BuffTextureName = "Katarina_KillerInstincts.dds"
 BuffName = "KillerInstinct"
 SpellToggleSlot = 3
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "katarina_killerInstinct_buf.troy",
-      Flags = 0,
-      EffectIDVar = "KIRHand",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "R_hand",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBSetVarInTable,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "katarina_killerInstinct_buf.troy",
-      Flags = 0,
-      EffectIDVar = "KILHand",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "L_hand",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      DestVar = "BonusDamage",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        8,
+        12,
+        16,
+        20,
+        24
+      }
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
+BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBMath,
     Params = {
-      EffectIDVar = "KILHand",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "KIRHand",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "katarina_killerinstinct_buf.troy"
+      Src1Var = "BonusDamage",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_ADD
     }
   }
 }

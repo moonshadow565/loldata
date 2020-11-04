@@ -66,14 +66,15 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Spell2",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = true
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBIf,
@@ -150,7 +151,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 185,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -176,6 +178,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "SlashBeenHit",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
@@ -200,6 +203,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = true
                 }
@@ -498,6 +502,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -512,6 +517,52 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

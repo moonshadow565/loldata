@@ -12,6 +12,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -94,7 +102,8 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Death",
       ScaleTime = 4,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
@@ -335,7 +344,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBPlayAnimation,
@@ -343,12 +352,13 @@ OnBuffDeactivateBuildingBlocks = {
       AnimationName = "idle1",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

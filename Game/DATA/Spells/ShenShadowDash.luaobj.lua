@@ -37,6 +37,7 @@ BuffOnCollisionBuildingBlocks = {
                       AttackerVar = "Owner",
                       BuffName = "ShenShadowDashCooldown",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Internal,
                       MaxStack = 1,
                       NumberOfStacks = 1,
@@ -66,6 +67,7 @@ BuffOnCollisionBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "ShenShadowDashTaunt",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Taunt,
                       MaxStack = 1,
                       NumberOfStacks = 1,
@@ -109,7 +111,7 @@ BuffOnCollisionBuildingBlocks = {
                             Function = BBIncPAR,
                             Params = {
                               TargetVar = "Owner",
-                              Delta = 40,
+                              Delta = 50,
                               PARType = PAR_ENERGY
                             }
                           },
@@ -221,25 +223,17 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = true}
   },
   {
-    Function = BBPushCharacterData,
+    Function = BBPlayAnimation,
     Params = {
-      SkinName = "ShenShadowDash",
+      AnimationName = "Dash",
+      ScaleTime = 0,
       TargetVar = "Owner",
-      IDVar = "iD",
-      IDVarTable = "InstanceVars",
-      OverrideSpells = false
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBPopCharacterData,
-    Params = {
-      TargetVar = "Owner",
-      IDVar = "iD",
-      IDVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBStartTrackingCollisions,
     Params = {TargetVar = "Owner", Value = false}
@@ -250,6 +244,10 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "SelfParticle",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner", Blend = true}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -418,7 +416,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 150,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -436,6 +435,7 @@ SelfExecuteBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "ShenShadowDashCooldown",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -465,6 +465,7 @@ SelfExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "ShenShadowDashTaunt",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Taunt,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -543,6 +544,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -560,7 +562,8 @@ BuffOnMoveEndBuildingBlocks = {
       CenterVar = "Owner",
       Range = 200,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -578,6 +581,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "ShenShadowDashCooldown",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -607,6 +611,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "ShenShadowDashTaunt",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Taunt,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -702,18 +707,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdash"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "shenshadowdash"
     }
   }
 }

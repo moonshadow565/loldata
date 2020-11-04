@@ -70,6 +70,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   TargetVar = "Attacker",
                   PosVar = "Attacker",
                   EndPosVar = "Attacker",
+                  OverrideCastPosition = false,
                   SlotNumber = 0,
                   SlotType = ExtraSlots,
                   OverrideForceLevel = 1,
@@ -97,6 +98,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -257,6 +259,52 @@ TargetExecuteBuildingBlocks = {
       MovementOrdersType = CANCEL_ORDER,
       IdealDistance = 0,
       IdealDistanceVar = "Distance"
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
     }
   }
 }
