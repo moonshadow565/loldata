@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "zyragraspingroots"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "championchampiondelta"
     }
   },

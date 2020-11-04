@@ -7,6 +7,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "ashecritchance"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "focus"}
   },
   {
