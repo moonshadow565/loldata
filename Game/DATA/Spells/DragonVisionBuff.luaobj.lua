@@ -1,2 +1,0 @@
-BuffTextureName = "Summoner_clairvoyance.dds"
-BuffName = "Dragon Vision Buff"

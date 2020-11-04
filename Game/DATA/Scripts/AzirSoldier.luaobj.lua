@@ -52,7 +52,7 @@ function L0_0(A0_2, A1_3, A2_4)
         else
           L3_5 = ORDER_HOLD
           if A0_2 == L3_5 then
-            L3_5 = true
+            L3_5 = false
             SearchForTargets = L3_5
             L3_5 = false
             SearchIgnoresAzirMovement = L3_5

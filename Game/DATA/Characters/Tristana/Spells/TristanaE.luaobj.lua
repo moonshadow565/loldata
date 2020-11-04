@@ -3,6 +3,6 @@ BuffName = "Detonating Shot"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "Tristana_SOONSkin03",
-  "Tristana_SOONSkin06"
+  "Tristana_Skin03",
+  "Tristana_Skin06"
 }

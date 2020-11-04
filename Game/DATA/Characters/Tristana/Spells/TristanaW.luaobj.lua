@@ -9,6 +9,6 @@ AutoCooldownByLevel = {
   12
 }
 SpellFXOverrideSkins = {
-  "Tristana_SOONSkin03",
-  "Tristana_SOONSkin06"
+  "Tristana_Skin03",
+  "Tristana_Skin06"
 }

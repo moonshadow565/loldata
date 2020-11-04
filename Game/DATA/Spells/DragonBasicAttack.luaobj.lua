@@ -1,1 +1,0 @@
-SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
