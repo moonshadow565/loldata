@@ -1,0 +1,159 @@
+AutoBuffActivateEffect = "Global_Freeze.troy"
+ItemOnHitUnitBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "HitResult",
+          Value2 = HIT_Miss,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIf,
+                    Params = {Src1Var = "Owner", CompareOp = CO_IS_RANGED},
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Target",
+                          AttackerVar = "Target",
+                          BuffName = "Internal_30Slow",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 2,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBElse,
+                    Params = {},
+                    SubBlocks = {
+                      {
+                        Function = BBIfHasBuff,
+                        Params = {
+                          OwnerVar = "Owner",
+                          AttackerVar = "Nothing",
+                          BuffName = "JudicatorRighteousFury"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Target",
+                              AttackerVar = "Target",
+                              BuffName = "Internal_30Slow",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 2,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
+                        }
+                      },
+                      {
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Target",
+                              AttackerVar = "Target",
+                              BuffName = "Internal_40Slow",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 2,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Owner",
+                      BuffName = "ItemSlow",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Slow,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 2,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_30slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "judicatorrighteousfury"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "internal_40slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "itemslow"}
+  }
+}

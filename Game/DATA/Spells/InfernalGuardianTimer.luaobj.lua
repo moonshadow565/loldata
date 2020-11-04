@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "Annie_GuardianIncinerate.dds"
+BuffName = "InfernalGuardianTimer"
+AutoBuffActivateEffect = ""
+PersistsThroughDeath = true
+NonDispellable = true

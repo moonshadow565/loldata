@@ -1,0 +1,10 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+BuffTextureName = "1036_Long_Sword.dds"
+BuffName = "WormRecouperate"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+NonDispellable = true

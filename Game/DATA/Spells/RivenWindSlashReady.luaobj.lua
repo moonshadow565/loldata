@@ -1,0 +1,12 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+BuffTextureName = "RivenWindScar.dds"
+BuffName = "RivenWindScarReady"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+SpellToggleSlot = 3
+PersistsThroughDeath = true
+NonDispellable = true
