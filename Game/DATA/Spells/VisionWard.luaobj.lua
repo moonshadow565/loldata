@@ -43,6 +43,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 600,
       DamageType = TRUE_DAMAGE,
@@ -55,32 +56,40 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetMagicImmune
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 2,
+      TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBApplyStealth,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Attacker",
+          Src1Var = "LifeTime",
+          Value2 = 2,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyStealth,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 300
+            }
+          }
+        }
+      },
+      {
+        Function = BBIncPAR,
+        Params = {
           TargetVar = "Owner",
-          Duration = 300
+          Delta = -1,
+          PARType = PAR_SHIELD
         }
       }
     }
@@ -108,7 +117,7 @@ SelfExecuteBuildingBlocks = {
       Rooted = true,
       Silenced = false,
       Invulnerable = false,
-      MagicImmune = false,
+      MagicImmune = true,
       IgnoreCollision = false,
       Placemarker = false,
       VisibilitySize = 0,

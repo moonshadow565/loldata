@@ -32,22 +32,13 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBSetBuffToolTipVar,
+    Function = BBIncMaxHealth,
     Params = {
-      Value = 0,
-      ValueVar = "APMod",
-      ValueVarTable = "InstanceVars",
-      Index = 1
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
+      Delta = 0,
       DeltaVar = "HPMod",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      IncCurrentHealth = false
     }
   },
   {
@@ -58,6 +49,15 @@ BuffOnUpdateStatsBuildingBlocks = {
       ValueVarTable = "InstanceVars",
       Index = 2
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "APMod",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -67,18 +67,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       Stat = GetFlatHPPoolMod,
       TargetVar = "Owner",
       DestVar = "CurrentHP"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurrentHP",
-      Src2Var = "HPMod",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "CurrentHP",
-      MathOp = MO_SUBTRACT
     }
   },
   {

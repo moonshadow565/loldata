@@ -49,6 +49,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 40,
                       DamageType = MAGIC_DAMAGE,
@@ -100,21 +101,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   InclusiveBuffFilter = true
                 },
                 SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 40,
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_PERIODIC,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 0,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  },
                   {
                     Function = BBSpellBuffAdd,
                     Params = {

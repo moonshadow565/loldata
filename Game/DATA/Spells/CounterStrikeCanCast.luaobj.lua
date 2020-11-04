@@ -1,6 +1,7 @@
 BuffTextureName = "Armsmaster_Disarm.dds"
-BuffName = ""
+BuffName = "Counter Strike Can Cast"
 AutoBuffActivateEffect = ""
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -37,13 +38,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "RemoveMe",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
@@ -51,6 +45,25 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "RemoveMe",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
     }
   }
 }

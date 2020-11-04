@@ -36,6 +36,10 @@ SelfExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", Type = BUFF_Silence}
   },
   {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",

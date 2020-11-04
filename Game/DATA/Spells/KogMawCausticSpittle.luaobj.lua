@@ -4,6 +4,12 @@ IsDamagingSpell = true
 BuffTextureName = "KogMaw_CausticSpittle.dds"
 BuffName = "KogMawCausticSpittle"
 PersistsThroughDeath = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {Value = 10, Index = 1}
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -33,7 +39,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "AttackSpeed",
       Delta = 0
@@ -81,12 +87,6 @@ TargetExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {Value = 10, Index = 1}
   }
 }
 BuffOnLevelUpSpellBuildingBlocks = {

@@ -44,6 +44,18 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "NumChampions",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 5,
+      Src2Value = 0,
+      DestVar = "NumChampions",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_MIN
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -87,6 +99,16 @@ BuffOnUpdateStatsBuildingBlocks = {
           DestVar = "NumChampions"
         }
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "NumChampions",
+      Src1Value = 5,
+      Src2Value = 0,
+      DestVar = "NumChampions",
+      MathOp = MO_MIN
     }
   },
   {

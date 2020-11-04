@@ -52,7 +52,7 @@ BuffOnHitUnitBuildingBlocks = {
                   Src1Var = "BaseDamage",
                   Src1VarTable = "InstanceVars",
                   Src1Value = 0,
-                  Src2Value = 1.3,
+                  Src2Value = 1.5,
                   DestVar = "PercentBase",
                   MathOp = MO_MULTIPLY
                 }
@@ -120,7 +120,7 @@ BuffOnHitUnitBuildingBlocks = {
                   Src1Var = "BaseDamage",
                   Src1VarTable = "InstanceVars",
                   Src1Value = 0,
-                  Src2Value = 0.8,
+                  Src2Value = 1,
                   DestVar = "PercentBase",
                   MathOp = MO_MULTIPLY
                 }

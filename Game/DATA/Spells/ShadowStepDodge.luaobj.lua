@@ -31,17 +31,25 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnPreDamageBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIncStat,
     Params = {
-      Src1Var = "DamageReduction",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
+      Stat = IncPercentPhysicalReduction,
+      TargetVar = "Owner",
+      DeltaVar = "DamageReduction",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMagicReduction,
+      TargetVar = "Owner",
+      DeltaVar = "DamageReduction",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
