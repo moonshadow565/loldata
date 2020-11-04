@@ -19,8 +19,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1Value = 0,
-      Src2Value = 5,
-      DestVar = "DamageToDeal",
+      Src2Value = 6,
+      DestVar = "ResistanceShred",
       MathOp = MO_MULTIPLY
     }
   },
@@ -28,7 +28,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetBuffToolTipVar,
     Params = {
       Value = 0,
-      ValueVar = "DamageToDeal",
+      ValueVar = "ResistanceShred",
       Index = 1
     }
   }

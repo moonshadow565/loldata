@@ -4,6 +4,9 @@ BuffTextureName = "Teemo_TranquilizingShot.dds"
 BuffName = "Blind"
 AutoBuffActivateEffect = "Global_miss.troy"
 AutoBuffActivateAttachBoneName = "head"
+SpellFXOverrideSkins = {
+  "AstronautTeemo"
+}
 PopupMessage1 = "game_floatingtext_Blinded"
 OnBuffActivateBuildingBlocks = {
   {
@@ -40,10 +43,10 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
         1.5,
+        1.75,
         2,
-        2.5,
-        3,
-        3.5
+        2.25,
+        2.5
       },
       TickRate = 0,
       CanMitigateDuration = false

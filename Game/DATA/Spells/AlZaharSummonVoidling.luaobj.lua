@@ -1,6 +1,7 @@
 BuffTextureName = "AlZahar_VoidlingReady.dds"
 BuffName = "AlZaharSummonVoidlingReady"
 AutoBuffActivateEffect = "Voidling_Ready.troy"
+NonDispellable = true
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBIf,
@@ -132,39 +133,21 @@ BuffOnSpellCastBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "malzaharvoidling"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharvoidling"
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "Malzaharvoidling"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "MalzaharVoidlingBasicAttack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "MalzaharVoidlingBasicAttack2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "MalzaharVoidlingBasicAttack3"
     }
   },
   {

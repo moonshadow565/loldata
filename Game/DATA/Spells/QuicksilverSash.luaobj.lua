@@ -26,6 +26,31 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBDispellNegativeBuffs,
     Params = {AttackerVar = "Owner"}
+  },
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "Slot", Info = GetSpellSlot}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Slot",
+      Src1Value = 0,
+      Src2Value = 4,
+      DestVar = "Slot",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 105,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
   }
 }
 PreLoadBuildingBlocks = {

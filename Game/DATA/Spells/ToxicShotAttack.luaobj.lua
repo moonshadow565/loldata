@@ -4,6 +4,9 @@ BuffTextureName = "Teemo_PoisonedDart.dds"
 BuffName = "Toxic Shot"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "AstronautTeemo"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBIf,
@@ -46,6 +49,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "AttackDamage",

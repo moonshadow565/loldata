@@ -482,12 +482,6 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnLaunchAttackBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

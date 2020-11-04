@@ -461,41 +461,99 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {},
             SubBlocks = {
               {
+                Function = BBCanSeeTarget,
+                Params = {
+                  ViewerVar = "Owner",
+                  TargetVar = "Unit",
+                  ResultVar = "canSee"
+                }
+              },
+              {
                 Function = BBIf,
-                Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+                Params = {
+                  Src1Var = "canSee",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
                 SubBlocks = {
                   {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 0,
-                      DamageVar = "CritMinion",
-                      DamageType = PHYSICAL_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 0,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
+                    Function = BBIf,
+                    Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+                    SubBlocks = {
+                      {
+                        Function = BBApplyDamage,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CallForHelpAttackerVar = "Attacker",
+                          TargetVar = "Unit",
+                          Damage = 0,
+                          DamageVar = "CritMinion",
+                          DamageType = PHYSICAL_DAMAGE,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                          PercentOfAttack = 1,
+                          SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 0,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
+                        }
+                      },
+                      {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Unit",
+                          EffectName = "garen_bladestormCrit_tar.troy",
+                          Flags = 0,
+                          EffectIDVar = "BSCritPH",
+                          TargetObjectVar = "Unit",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWTeamOverrideVar = "TeamID",
+                          FOWVisibilityRadius = 10,
+                          SendIfOnScreenOrDiscard = true
+                        }
+                      }
                     }
                   },
                   {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Unit",
-                      EffectName = "garen_bladestormCrit_tar.troy",
-                      Flags = 0,
-                      EffectIDVar = "BSCritPH",
-                      TargetObjectVar = "Unit",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWTeamOverrideVar = "TeamID",
-                      FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                    Function = BBElse,
+                    Params = {},
+                    SubBlocks = {
+                      {
+                        Function = BBApplyDamage,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CallForHelpAttackerVar = "Attacker",
+                          TargetVar = "Unit",
+                          Damage = 0,
+                          DamageVar = "DamageToDeal",
+                          DamageType = PHYSICAL_DAMAGE,
+                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                          PercentOfAttack = 1,
+                          SpellDamageRatio = 0,
+                          PhysicalDamageRatio = 0,
+                          IgnoreDamageIncreaseMods = false,
+                          IgnoreDamageCrit = false
+                        }
+                      },
+                      {
+                        Function = BBSpellEffectCreate,
+                        Params = {
+                          BindObjectVar = "Unit",
+                          EffectName = "garen_keeper0fPeace_tar_01.troy",
+                          Flags = 0,
+                          EffectIDVar = "SamPH",
+                          TargetObjectVar = "Target",
+                          SpecificUnitOnlyVar = "Owner",
+                          SpecificTeamOnly = TEAM_UNKNOWN,
+                          UseSpecificUnit = false,
+                          FOWTeam = TEAM_UNKNOWN,
+                          FOWTeamOverrideVar = "TeamID",
+                          FOWVisibilityRadius = 10,
+                          SendIfOnScreenOrDiscard = true
+                        }
+                      }
                     }
                   }
                 }
@@ -505,37 +563,101 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBApplyDamage,
+                    Function = BBGetStatus,
                     Params = {
-                      AttackerVar = "Attacker",
-                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
-                      Damage = 0,
-                      DamageVar = "DamageToDeal",
-                      DamageType = PHYSICAL_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 0,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
+                      DestVar = "isStealthed",
+                      Status = GetStealthed
                     }
                   },
                   {
-                    Function = BBSpellEffectCreate,
+                    Function = BBIf,
                     Params = {
-                      BindObjectVar = "Unit",
-                      EffectName = "garen_keeper0fPeace_tar_01.troy",
-                      Flags = 0,
-                      EffectIDVar = "SamPH",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWTeamOverrideVar = "TeamID",
-                      FOWVisibilityRadius = 10,
-                      SendIfOnScreenOrDiscard = true
+                      Src1Var = "isStealthed",
+                      Value2 = false,
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBIf,
+                        Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+                        SubBlocks = {
+                          {
+                            Function = BBApplyDamage,
+                            Params = {
+                              AttackerVar = "Attacker",
+                              CallForHelpAttackerVar = "Attacker",
+                              TargetVar = "Unit",
+                              Damage = 0,
+                              DamageVar = "CritMinion",
+                              DamageType = PHYSICAL_DAMAGE,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                              PercentOfAttack = 1,
+                              SpellDamageRatio = 0,
+                              PhysicalDamageRatio = 0,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
+                            }
+                          },
+                          {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Unit",
+                              EffectName = "garen_bladestormCrit_tar.troy",
+                              Flags = 0,
+                              EffectIDVar = "BSCritPH",
+                              TargetObjectVar = "Unit",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWTeamOverrideVar = "TeamID",
+                              FOWVisibilityRadius = 10,
+                              SendIfOnScreenOrDiscard = true
+                            }
+                          }
+                        }
+                      },
+                      {
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
+                          {
+                            Function = BBApplyDamage,
+                            Params = {
+                              AttackerVar = "Attacker",
+                              CallForHelpAttackerVar = "Attacker",
+                              TargetVar = "Unit",
+                              Damage = 0,
+                              DamageVar = "DamageToDeal",
+                              DamageType = PHYSICAL_DAMAGE,
+                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                              PercentOfAttack = 1,
+                              SpellDamageRatio = 0,
+                              PhysicalDamageRatio = 0,
+                              IgnoreDamageIncreaseMods = false,
+                              IgnoreDamageCrit = false
+                            }
+                          },
+                          {
+                            Function = BBSpellEffectCreate,
+                            Params = {
+                              BindObjectVar = "Unit",
+                              EffectName = "garen_keeper0fPeace_tar_01.troy",
+                              Flags = 0,
+                              EffectIDVar = "SamPH",
+                              TargetObjectVar = "Target",
+                              SpecificUnitOnlyVar = "Owner",
+                              SpecificTeamOnly = TEAM_UNKNOWN,
+                              UseSpecificUnit = false,
+                              FOWTeam = TEAM_UNKNOWN,
+                              FOWTeamOverrideVar = "TeamID",
+                              FOWVisibilityRadius = 10,
+                              SendIfOnScreenOrDiscard = true
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }

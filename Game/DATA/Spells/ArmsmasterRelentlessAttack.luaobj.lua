@@ -31,6 +31,14 @@ TargetExecuteBuildingBlocks = {
             },
             SubBlocks = {
               {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetFlatPhysicalDamageMod,
+                  TargetVar = "Owner",
+                  DestVar = "BonusAttackDamage"
+                }
+              },
+              {
                 Function = BBGetSlotSpellInfo,
                 Params = {
                   DestVar = "Level",
@@ -44,43 +52,52 @@ TargetExecuteBuildingBlocks = {
               {
                 Function = BBSetVarInTable,
                 Params = {
-                  DestVar = "EmpowerTwoDamage",
+                  DestVar = "BonusDamage",
                   SrcValueByLevel = {
-                    40,
-                    60,
-                    80,
-                    100,
-                    120
+                    75,
+                    110,
+                    145,
+                    180,
+                    215
                   }
                 }
               },
               {
-                Function = BBForEachUnitInTargetArea,
+                Function = BBMath,
                 Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Target",
-                  Range = 375,
-                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Unit",
-                  InclusiveBuffFilter = true
-                },
-                SubBlocks = {
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Unit",
-                      Damage = 0,
-                      DamageVar = "EmpowerTwoDamage",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  }
+                  Src1Var = "BonusAttackDamage",
+                  Src1Value = 0,
+                  Src2Value = 0.4,
+                  DestVar = "PhysicalBonus",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "PhysicalBonus",
+                  Src2Var = "BonusDamage",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "AOEDmg",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "AOEDmg",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.4,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               },
               {
@@ -105,6 +122,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "BaseAttackDamage",
@@ -132,6 +150,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
                 140,

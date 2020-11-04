@@ -1,5 +1,6 @@
 BuffTextureName = "AlZahar_VoidlingCharging.dds"
 BuffName = "AlZaharSummonVoidlingBuff"
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetBuffCountFromCaster,

@@ -1,5 +1,6 @@
 BuffTextureName = "Lich_Defied.dds"
 BuffName = "Death Defied Buff"
+PersistsThroughDeath = true
 NonDispellable = true
 BuffOnAllowAddBuildingBlocks = {
   {
@@ -96,14 +97,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetInvulnerable
     }
   },
   {
@@ -220,6 +213,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBShowHealthBar,
+    Params = {UnitVar = "Owner", Show = false}
+  },
+  {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Suppression}
   },
@@ -302,6 +299,185 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_SpellImmunity}
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost0",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            20,
+            26,
+            32,
+            38,
+            44
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost0",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "cost0ToInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 0,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "cost0ToInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost2",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            30,
+            42,
+            54,
+            66,
+            78
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost2",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "cost2ToInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 2,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "cost2ToInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost3",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            150,
+            175,
+            200
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost3",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "cost3ToInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 3,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "cost3ToInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetPARCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 1,
+      SlotType = SpellSlots,
+      Cost = -100,
+      PARType = PAR_MANA
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -471,19 +647,59 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBShowHealthBar,
+    Params = {UnitVar = "Owner", Show = true}
+  },
+  {
+    Function = BBForceDead,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
+    Function = BBSpellBuffRemove,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
-      Damage = 10000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      AttackerVar = "Owner",
+      BuffName = "Defile"
+    }
+  },
+  {
+    Function = BBSetPARCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 0,
+      SlotType = SpellSlots,
+      Cost = 0,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBSetPARCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 1,
+      SlotType = SpellSlots,
+      Cost = 0,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBSetPARCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 2,
+      SlotType = SpellSlots,
+      Cost = 0,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBSetPARCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -513,14 +729,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetInvulnerable
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
@@ -538,6 +746,186 @@ BuffOnUpdateStatsBuildingBlocks = {
           State = true
         }
       }
+    }
+  }
+}
+BuffOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost0",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            20,
+            26,
+            32,
+            38,
+            44
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost0",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "costInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 0,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "costInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost2",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            30,
+            42,
+            54,
+            66,
+            78
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost2",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "costInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 2,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "costInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "cost3",
+          DestVarTable = "InstanceVars",
+          SrcValueByLevel = {
+            150,
+            175,
+            200
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "cost3",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "costInc",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetPARCostInc,
+        Params = {
+          SpellSlotOwnerVar = "Owner",
+          SpellSlot = 3,
+          SlotType = SpellSlots,
+          Cost = 0,
+          CostVar = "costInc",
+          PARType = PAR_MANA
+        }
+      }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
     }
   }
 }
@@ -565,5 +953,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "mordekaiserironman"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "defile"}
   }
 }

@@ -12,6 +12,9 @@ AutoCooldownByLevel = {
   75,
   60
 }
+SpellFXOverrideSkins = {
+  "GangsterTwitch"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -77,12 +80,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -427,6 +427,9 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.RespawnTime = 75
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.CampLevel = 1
   end
   L3 = PredefinedCamps
   L3 = L3[2]

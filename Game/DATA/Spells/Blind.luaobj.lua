@@ -9,6 +9,10 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "MissChance",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

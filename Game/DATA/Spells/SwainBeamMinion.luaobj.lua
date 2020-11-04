@@ -67,23 +67,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Attacker",
-      EffectName = "Global_Slow.troy",
-      Flags = 0,
-      EffectIDVar = "AParticle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Attacker",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Attacker",
       EffectName = "swain_disintegrationBeam_beam.troy",
       Flags = 0,
       EffectIDVar = "BParticle",
@@ -135,13 +118,6 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "SlowPercent",
-      RequiredVarTable = "InstanceVars"
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -179,13 +155,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "AParticle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
       EffectIDVar = "DParticle",
       EffectIDVarTable = "InstanceVars"
     }
@@ -213,18 +182,6 @@ OnBuffDeactivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Attacker",
-      DeltaVar = "SlowPercent",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }
@@ -259,16 +216,60 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBSpellBuffRemove,
+            Function = BBIfHasBuff,
             Params = {
-              TargetVar = "Attacker",
+              OwnerVar = "Attacker",
               AttackerVar = "Nothing",
               BuffName = "SwainBeamDamage"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamage"
+                }
+              }
             }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Nothing",
+              BuffName = "SwainBeamDamageMinion"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamage"
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Owner",
+              BuffName = "Slow"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Owner",
+                  BuffName = "Slow"
+                }
+              }
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -277,16 +278,60 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
         SubBlocks = {
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBSpellBuffRemove,
+            Function = BBIfHasBuff,
             Params = {
-              TargetVar = "Attacker",
+              OwnerVar = "Attacker",
               AttackerVar = "Nothing",
               BuffName = "SwainBeamDamage"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamage"
+                }
+              }
             }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Nothing",
+              BuffName = "SwainBeamDamageMinion"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Attacker",
+                  BuffName = "SwainBeamDamageMinion"
+                }
+              }
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Owner",
+              BuffName = "Slow"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Owner",
+                  BuffName = "Slow"
+                }
+              }
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -294,12 +339,6 @@ BuffOnUpdateActionsBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_slow.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -335,5 +374,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "swainbeamdamage"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swainbeamdamageminion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

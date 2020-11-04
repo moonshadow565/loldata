@@ -10,13 +10,46 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPushCharacterFade,
+    Function = BBGetSkinID,
     Params = {
-      TargetVar = "Owner",
-      FadeAmount = 0.2,
-      fadeTime = 0.2,
-      IDVar = "ID",
-      IDVarTable = "InstanceVars"
+      UnitVar = "Owner",
+      SkinIDVar = "TeemoSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPushCharacterFade,
+        Params = {
+          TargetVar = "Owner",
+          FadeAmount = 0.3,
+          fadeTime = 0.2,
+          IDVar = "ID",
+          IDVarTable = "InstanceVars"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBPushCharacterFade,
+        Params = {
+          TargetVar = "Owner",
+          FadeAmount = 0.3,
+          fadeTime = 0.2,
+          IDVar = "ID",
+          IDVarTable = "InstanceVars"
+        }
+      }
     }
   },
   {
@@ -56,7 +89,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

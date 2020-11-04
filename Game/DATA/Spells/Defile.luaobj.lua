@@ -8,6 +8,7 @@ AutoBuffActivateAttachBoneName = "L_weapon"
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 SpellToggleSlot = 3
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -193,63 +194,73 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBSetVarInTable,
+        Function = BBIfNotHasBuff,
         Params = {
-          DestVar = "ManaCost",
-          SrcValue = 0,
-          SrcValueByLevel = {
-            30,
-            42,
-            54,
-            66,
-            78
-          }
-        }
-      },
-      {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "OwnerMana",
           OwnerVar = "Owner",
-          Function = GetPAR,
-          PARType = PAR_MANA
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "OwnerMana",
-          Src2Var = "ManaCost",
-          CompareOp = CO_LESS_THAN
+          CasterVar = "Owner",
+          BuffName = "DeathDefiedBuff"
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBMath,
+            Function = BBSetVarInTable,
             Params = {
-              Src2Var = "ManaCost",
-              Src1Value = -1,
-              Src2Value = 0,
-              DestVar = "NegManaCost",
-              MathOp = MO_MULTIPLY
+              DestVar = "ManaCost",
+              SrcValue = 0,
+              SrcValueByLevel = {
+                30,
+                42,
+                54,
+                66,
+                78
+              }
             }
           },
           {
-            Function = BBIncPAR,
+            Function = BBGetPAROrHealth,
             Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              PARType = PAR_MANA,
-              DeltaVar = "NegManaCost"
+              DestVar = "OwnerMana",
+              OwnerVar = "Owner",
+              Function = GetPAR,
+              PARType = PAR_MANA
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "OwnerMana",
+              Src2Var = "ManaCost",
+              CompareOp = CO_LESS_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "ManaCost",
+                  Src1Value = -1,
+                  Src2Value = 0,
+                  DestVar = "NegManaCost",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBIncPAR,
+                Params = {
+                  TargetVar = "Owner",
+                  Delta = 0,
+                  PARType = PAR_MANA,
+                  DeltaVar = "NegManaCost"
+                }
+              }
             }
           }
         }
@@ -354,6 +365,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "defile_green_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deathdefiedbuff"
     }
   },
   {

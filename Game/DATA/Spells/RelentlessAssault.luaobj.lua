@@ -1,30 +1,14 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 BuffTextureName = "Armsmaster_CoupDeGrace.dds"
 BuffName = "Relentless Assault"
-SpellToggleSlot = 4
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "LastHitTime",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "NumSwings",
-      RequiredVarTable = "InstanceVars"
-    }
-  }
-}
+OnBuffActivateBuildingBlocks = {}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
       Src1Var = "NumSwings",
-      Src1VarTable = "InstanceVars",
+      Src1VarTable = "CharVars",
       Value2 = 0,
       CompareOp = CO_GREATER_THAN
     },
@@ -55,7 +39,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "NumSwings",
-          Src1VarTable = "InstanceVars",
+          Src1VarTable = "CharVars",
           Src2Var = "AttackSpeedPerLevel",
           Src1Value = 0,
           Src2Value = 0,
@@ -85,7 +69,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {
       Src1Var = "TempTime",
       Src2Var = "LastHitTime",
-      Src2VarTable = "InstanceVars",
+      Src2VarTable = "CharVars",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "TimeSinceLastHit",
@@ -104,7 +88,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "NumSwings",
-          DestVarTable = "InstanceVars",
+          DestVarTable = "CharVars",
           SrcValue = 0
         }
       }
@@ -130,59 +114,61 @@ BuffOnHitUnitBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET}
+          },
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
             SubBlocks = {
               {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "RelentlessAssaultDebuff",
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 8,
+                  NumberOfStacks = 1,
+                  Duration = 2.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBGetBuffCountFromCaster,
+                Params = {
+                  DestVar = "Count",
+                  TargetVar = "Attacker",
+                  CasterVar = "Attacker",
+                  BuffName = "RelentlessAssaultDebuff"
+                }
+              },
+              {
                 Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+                Params = {
+                  Src1Var = "Count",
+                  Value2 = 2,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
                 SubBlocks = {
                   {
                     Function = BBSpellBuffAdd,
                     Params = {
-                      TargetVar = "Attacker",
-                      AttackerVar = "Attacker",
-                      BuffName = "RelentlessAssaultDebuff",
-                      BuffAddType = BUFF_STACKS_AND_RENEWS,
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "RelentlessAssaultMarker",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Internal,
-                      MaxStack = 8,
+                      MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 2.5,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  },
-                  {
-                    Function = BBGetBuffCountFromCaster,
-                    Params = {
-                      DestVar = "Count",
-                      TargetVar = "Attacker",
-                      CasterVar = "Attacker",
-                      BuffName = "RelentlessAssaultDebuff"
-                    }
-                  },
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "Count",
-                      Value2 = 2,
-                      CompareOp = CO_GREATER_THAN_OR_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Owner",
-                          AttackerVar = "Owner",
-                          BuffName = "RelentlessAssaultMarker",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 2.5,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      }
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -194,12 +180,43 @@ BuffOnHitUnitBuildingBlocks = {
     }
   }
 }
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Duration",
+      SrcValueByLevel = {
+        5,
+        6.5,
+        8
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "ArmsmasterRelentlessMR",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationVar = "Duration",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
 BuffOnLaunchAttackBuildingBlocks = {
   {
     Function = BBGetTime,
     Params = {
       DestVar = "LastHitTime",
-      DestVarTable = "InstanceVars"
+      DestVarTable = "CharVars"
     }
   },
   {
@@ -208,29 +225,44 @@ BuffOnLaunchAttackBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "ArmsmasterRelentlessCounter",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 10,
+          NumberOfStacks = 1,
+          Duration = 2.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "NumSwings",
+          Src1VarTable = "CharVars",
+          Value2 = 9,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBMath,
             Params = {
               Src1Var = "NumSwings",
-              Src1VarTable = "InstanceVars",
-              Value2 = 9,
-              CompareOp = CO_LESS_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "NumSwings",
-                  Src1VarTable = "InstanceVars",
-                  Src1Value = 0,
-                  Src2Value = 1,
-                  DestVar = "NumSwings",
-                  DestVarTable = "InstanceVars",
-                  MathOp = MO_ADD
-                }
-              }
+              Src1VarTable = "CharVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "NumSwings",
+              DestVarTable = "CharVars",
+              MathOp = MO_ADD
             }
           }
         }
@@ -249,6 +281,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "relentlessassaultmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "armsmasterrelentlessmr"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "armsmasterrelentlesscounter"
     }
   }
 }

@@ -137,6 +137,14 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
   }
 }
 PreLoadBuildingBlocks = {
