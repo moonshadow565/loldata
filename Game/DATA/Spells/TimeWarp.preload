@@ -1,3 +1,7 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_cas_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_beam_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="timewarpslow"}}, 
 }

@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="chronorefresh_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_w_chronorefresh_tar.troy"}}, 
 }

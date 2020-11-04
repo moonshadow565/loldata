@@ -723,8 +723,11 @@ function L0_0(A0_217, A1_218)
   L3_220.SpellVars = L4_221
   L3_220.WorldVars = L4_221
   L3_220.Target = L4_221
+  L3_220[L4_221] = L5_222
   L3_220.Attacker = L4_221
+  L3_220[L4_221] = L5_222
   L3_220.Owner = L4_221
+  L3_220[L4_221] = L5_222
   L3_220.Caster = L4_221
   L3_220.GoldRedirectTarget = L4_221
   L3_220.Unit = L4_221
@@ -1997,55 +2000,61 @@ function L0_0(A0_533, A1_534)
   SetShowHealthBarToChampion(unit, A1_534.Show, L3_536, L2_535, A1_534.ApplyToSpectator)
 end
 BBSetShowHealthBarToChampion = L0_0
-function L0_0(A0_537, A1_538, A2_539)
-  if A0_537.EmoteId == A1_538.EmoteId then
-    ExecuteBuildingBlocks(A2_539, A0_537)
-    A0_537.LastIfSucceeded = true
+function L0_0(A0_537, A1_538)
+  if GetParam("Vector", A0_537, A1_538) ~= nil then
+    GetTable(A0_537, A1_538.DestVarTable, false)[A1_538.DestVar] = math.sqrt(GetParam("Vector", A0_537, A1_538).x * GetParam("Vector", A0_537, A1_538).x + GetParam("Vector", A0_537, A1_538).y * GetParam("Vector", A0_537, A1_538).y + GetParam("Vector", A0_537, A1_538).z * GetParam("Vector", A0_537, A1_538).z)
+  end
+end
+BBGetVectorLength = L0_0
+function L0_0(A0_539, A1_540, A2_541)
+  if A0_539.EmoteId == A1_540.EmoteId then
+    ExecuteBuildingBlocks(A2_541, A0_539)
+    A0_539.LastIfSucceeded = true
   else
-    A0_537.LastIfSucceeded = false
+    A0_539.LastIfSucceeded = false
   end
 end
 BBIfEmoteIs = L0_0
-function L0_0(A0_540, A1_541, A2_542)
-  if A0_540.EmoteId ~= A1_541.EmoteId then
-    ExecuteBuildingBlocks(A2_542, A0_540)
-    A0_540.LastIfSucceeded = true
+function L0_0(A0_542, A1_543, A2_544)
+  if A0_542.EmoteId ~= A1_543.EmoteId then
+    ExecuteBuildingBlocks(A2_544, A0_542)
+    A0_542.LastIfSucceeded = true
   else
-    A0_540.LastIfSucceeded = false
+    A0_542.LastIfSucceeded = false
   end
 end
 BBIfEmoteIsNot = L0_0
-function L0_0(A0_543, A1_544)
-  local L2_545, L3_546, L4_547, L5_548
-  L2_545 = GetTable
-  L3_546 = A0_543
-  L4_547 = A1_544.String1VarTable
-  L5_548 = false
-  L2_545 = L2_545(L3_546, L4_547, L5_548)
-  L3_546 = A1_544.String1Var
-  L3_546 = L2_545[L3_546]
-  L4_547 = GetTable
-  L5_548 = A0_543
-  L4_547 = L4_547(L5_548, A1_544.String2VarTable, false)
-  L5_548 = A1_544.String2Var
-  L5_548 = L4_547[L5_548]
-  GetTable(A0_543, A1_544.ResultVarTable, false)[A1_544.ResultVar] = L3_546 .. L5_548
+function L0_0(A0_545, A1_546)
+  local L2_547, L3_548, L4_549, L5_550
+  L2_547 = GetTable
+  L3_548 = A0_545
+  L4_549 = A1_546.String1VarTable
+  L5_550 = false
+  L2_547 = L2_547(L3_548, L4_549, L5_550)
+  L3_548 = A1_546.String1Var
+  L3_548 = L2_547[L3_548]
+  L4_549 = GetTable
+  L5_550 = A0_545
+  L4_549 = L4_549(L5_550, A1_546.String2VarTable, false)
+  L5_550 = A1_546.String2Var
+  L5_550 = L4_549[L5_550]
+  GetTable(A0_545, A1_546.ResultVarTable, false)[A1_546.ResultVar] = L3_548 .. L5_550
 end
 BBConcatenateStrings = L0_0
-function L0_0(A0_549, A1_550)
-  local L2_551, L3_552
-  L2_551 = GetTable
-  L3_552 = A0_549
-  L2_551 = L2_551(L3_552, A1_550.VariableVarTable, false)
-  L3_552 = A1_550.VariableVar
-  L3_552 = L2_551[L3_552]
-  GetTable(A0_549, A1_550.ResultVarTable, false)[A1_550.ResultVar] = "(" .. L3_552 .. ")"
+function L0_0(A0_551, A1_552)
+  local L2_553, L3_554
+  L2_553 = GetTable
+  L3_554 = A0_551
+  L2_553 = L2_553(L3_554, A1_552.VariableVarTable, false)
+  L3_554 = A1_552.VariableVar
+  L3_554 = L2_553[L3_554]
+  GetTable(A0_551, A1_552.ResultVarTable, false)[A1_552.ResultVar] = "(" .. L3_554 .. ")"
 end
 BBEncaseInParantheses = L0_0
-function L0_0(A0_553, A1_554)
-  BBGetMinionKills(A0_553, A1_554)
-  A0_553.MinionKillSource = GetParam("MinionKillTarget")
-  A0_553.MinionKills = A0_553.MinionsKilled + GetParam("MinionKills", A0_553, A1_554)
-  BBSetMinionKills(A0_553, A1_554)
+function L0_0(A0_555, A1_556)
+  BBGetMinionKills(A0_555, A1_556)
+  A0_555.MinionKillSource = GetParam("MinionKillTarget")
+  A0_555.MinionKills = A0_555.MinionsKilled + GetParam("MinionKills", A0_555, A1_556)
+  BBSetMinionKills(A0_555, A1_556)
 end
 BBIncreaseMinionKills = L0_0
