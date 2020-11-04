@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="smitten"}}, 
-{Function=BBPreloadSpell, Params={Name="s5_summonersmiteaoe_regen"}}, 
-}

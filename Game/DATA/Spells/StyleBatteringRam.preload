@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="stylebatteringramtwo"}}, 
-{Function=BBPreloadSpell, Params={Name="stylebatteringram"}}, 
-}

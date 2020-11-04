@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="s5_summonersmiteplayerganker"}}, 
-{Function=BBPreloadSpell, Params={Name="summonersmite"}}, 
-}

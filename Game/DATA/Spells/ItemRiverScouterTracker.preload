@@ -1,7 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="global_trinket_itemminimovingclairvoyance_burst.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="global_trinket_itemminimovingclairvoyance_burstred.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="global_trinket_itemminimovingclairvoyance.troy"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
-{Function=BBPreloadCharacter, Params={Name="spellbook1"}}, 
-}

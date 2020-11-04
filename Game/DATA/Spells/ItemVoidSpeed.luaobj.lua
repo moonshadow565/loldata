@@ -1,2 +1,0 @@
-BuffTextureName = "2053_Cloth_And_Mantle.dds"
-BuffName = "ItemVoidSpeed"

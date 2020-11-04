@@ -1,2 +1,0 @@
-NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false

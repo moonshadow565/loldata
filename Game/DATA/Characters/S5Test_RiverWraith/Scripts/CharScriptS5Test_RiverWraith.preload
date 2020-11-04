@@ -1,6 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="regenerationruneaura"}}, 
-{Function=BBPreloadSpell, Params={Name="monsterminiondamageamp"}}, 
-{Function=BBPreloadParticle, Params={Name="spirit_animal_skin.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="broken_crab.troy"}}, 
-}

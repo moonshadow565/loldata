@@ -1,2 +1,0 @@
-BuffName = "ItemDangerAlert"
-NonDispellable = true

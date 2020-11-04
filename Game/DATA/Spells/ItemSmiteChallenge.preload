@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="brandblaze_hotfoot_zombie.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="global_ss_smite_duel_challenged.troy"}}, 
-}

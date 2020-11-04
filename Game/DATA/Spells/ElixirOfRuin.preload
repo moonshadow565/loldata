@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="elixirofruinaura"}}, 
-{Function=BBPreloadParticle, Params={Name="global_item_elixirofruin_tar.troy"}}, 
-}
