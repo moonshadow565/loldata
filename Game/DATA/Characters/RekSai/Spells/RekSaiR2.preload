@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="reksai_base_r_traveling.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_plasma_idle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_r_end.troy"}}, 
+}

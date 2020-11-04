@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaipassive"}}, 
+{Function=BBPreloadSpell, Params={Name="reksairuncyclemanager"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaieready"}}, 
+{Function=BBPreloadSpell, Params={Name="reksairsteroid"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaiw"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_e_bite_cas.troy"}}, 
+}

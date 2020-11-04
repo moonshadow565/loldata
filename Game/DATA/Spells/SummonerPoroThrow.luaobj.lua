@@ -1,5 +1,5 @@
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-IsDeathRecapSource = true
 BuffTextureName = "Trailblazer_Poro_Icon.dds"
+IsDeathRecapSource = true
 NonDispellable = true

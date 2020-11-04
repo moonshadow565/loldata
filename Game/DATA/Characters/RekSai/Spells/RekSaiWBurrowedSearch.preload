@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="reksaiwburrowedfound"}}, 
+{Function=BBPreloadParticle, Params={Name="temp_reksai_w_cas.troy"}}, 
+}
