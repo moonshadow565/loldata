@@ -6,6 +6,9 @@ BuffTextureName = "JarvanIV_DragonStrike.dds"
 SpellFXOverrideSkins = {
   "LubuJarvanIV"
 }
+SpellVOOverrideSkins = {
+  "LubuJarvanIV"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

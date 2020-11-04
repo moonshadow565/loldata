@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   8,
   4
 }
+SpellFXOverrideSkins = {
+  "FireworksCorki"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

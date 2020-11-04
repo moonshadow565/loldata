@@ -8,7 +8,11 @@ SpellFXOverrideSkins = {
   "SightWardStone",
   "SightWardSpider",
   "SightWardTree",
-  "SightWardGhost"
+  "SightWardGhost",
+  "SightWardSnowMan",
+  "SightWardGingerBread",
+  "SightWardLantern",
+  "SightWardBanner"
 }
 PreLoadBuildingBlocks = {
   {

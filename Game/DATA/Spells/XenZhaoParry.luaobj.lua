@@ -8,6 +8,9 @@ BuffName = "XenZhaoParry"
 SpellFXOverrideSkins = {
   "ZhaoYunXinZhao"
 }
+SpellVOOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

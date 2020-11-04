@@ -5,6 +5,9 @@ SpellDamageRatio = 0.5
 SpellFXOverrideSkins = {
   "ZhaoYunXinZhao"
 }
+SpellVOOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -8,6 +8,9 @@ BuffName = "JarvanIVDemacianStandard"
 SpellFXOverrideSkins = {
   "LubuJarvanIV"
 }
+SpellVOOverrideSkins = {
+  "LubuJarvanIV"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -1,5 +1,8 @@
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
+SpellFXOverrideSkins = {
+  "FireworksCorki"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

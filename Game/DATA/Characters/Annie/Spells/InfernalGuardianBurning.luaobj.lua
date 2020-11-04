@@ -1,5 +1,5 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Annie_R2.dds"
+BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "Infernal Guardian"
 PreLoadBuildingBlocks = {
   {

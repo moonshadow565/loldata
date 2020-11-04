@@ -1,3 +1,3 @@
 SpellVOOverrideSkins = {
-  "LubuJarvanIV"
+  "ZhaoYunXinZhao"
 }

@@ -1,3 +1,6 @@
+SpellVOOverrideSkins = {
+  "LubuJarvanIV"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
