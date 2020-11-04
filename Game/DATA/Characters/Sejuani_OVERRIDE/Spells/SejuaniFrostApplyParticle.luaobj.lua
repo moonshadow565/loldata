@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuanifrostapply_tar.troy"
+    }
+  }
+}

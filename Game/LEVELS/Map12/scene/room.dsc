@@ -17,7 +17,6 @@ LevelProp_HA_AP_BridgeLaneStatue3.sco -100
 Turret_T1_C_07.sco -100
 LevelProp_HA_AP_Chains2.sco -100
 __NAV_C09.sco -100
-LevelProp_HA_AP_HeroTower.sco -100
 Turret_T2_L_04.sco -100
 __NAV_C015.sco -100
 LevelProp_HA_AP_Chains_Long.sco -100
@@ -37,6 +36,7 @@ __NAV_C08.sco -100
 LevelProp_HA_AP_Chains3.sco -100
 LevelProp_HA_AP_Poro1.sco -100
 __Spawn_T1.sco -100
+LevelProp_HA_AP_HeroTower.sco -100
 __LevelSize_.sco -100
 Info_OrderRandomThingy01.sco -100
 __NAV_C04.sco -100
