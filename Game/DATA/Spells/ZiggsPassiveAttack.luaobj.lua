@@ -9,7 +9,8 @@ IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
-  "ZiggsPoolParty"
+  "ZiggsPoolParty",
+  "ZiggsSnowday"
 }
 PreLoadBuildingBlocks = {
   {

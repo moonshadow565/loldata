@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r_spheres_q5.troy"
+      Name = "syndra_r3_spheres_q5.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r_spheresenemy_q5.troy"
+      Name = "syndra_r3_spheresenemy_q5.troy"
     }
   },
   {

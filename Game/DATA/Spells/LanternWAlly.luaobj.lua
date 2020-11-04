@@ -23,25 +23,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "irelia_gotasu_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "irelia_gotasu_cast_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "irelia_gotasu_cast_02.troy"
+      Name = "lanterndashsound.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "lanternwallydash"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lanternwallydashparticle"
     }
   }
 }

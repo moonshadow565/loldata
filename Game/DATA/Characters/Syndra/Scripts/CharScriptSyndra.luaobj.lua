@@ -60,5 +60,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "syndra_e5_dialogue.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "syndra_r3_dialogue.troy"
+    }
   }
 }

@@ -21,5 +21,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "vi_e_minion_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "vieattack"}
   }
 }

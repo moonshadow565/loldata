@@ -13,5 +13,6 @@ SpellToggleSlot = 2
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
-  "ZiggsPoolParty"
+  "ZiggsPoolParty",
+  "ZiggsSnowday"
 }
