@@ -7,11 +7,3 @@ SpellFXOverrideSkins = {
   "PhoenixQuinn"
 }
 AutoBuffActivateEvent = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_end.troy"
-    }
-  }
-}

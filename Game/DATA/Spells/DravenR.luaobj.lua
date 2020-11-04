@@ -29,6 +29,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "draven_gladiator_r_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "draven_r_missile_recall_sound.troy"
     }
   },

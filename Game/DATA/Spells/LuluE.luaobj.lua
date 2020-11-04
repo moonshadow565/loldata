@@ -1,6 +1,4 @@
 NotSingleTargetSpell = false
-AutoBuffActivateEffect = "Chicken_buf.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

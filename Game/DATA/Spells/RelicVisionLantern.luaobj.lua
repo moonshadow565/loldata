@@ -31,6 +31,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "trinkettotemlvl3audio"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "wardbounty"}
   },
   {
@@ -49,6 +55,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "masteryscoutbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
     }
   }
 }

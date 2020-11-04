@@ -1,4 +1,3 @@
-BuffName = "RivenPassive"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {

@@ -65,6 +65,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraeimmunitystun"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "syndra_e_impact.troy"

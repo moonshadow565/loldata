@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Armsmaster_CoupDeGrace.dds"
 BuffName = "JaxPassive"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
