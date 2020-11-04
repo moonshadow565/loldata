@@ -1,4 +1,3 @@
-PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
