@@ -1,6 +1,8 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="s5_itemfarmsmitebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="smitedamagetrackertrailblazer"}}, 
+{Function=BBPreloadSpell, Params={Name="itemsunfirecapeparticle"}}, 
+{Function=BBPreloadSpell, Params={Name="itemsunfirecapepulse"}}, 
 {Function=BBPreloadSpell, Params={Name="smitedamagetracker"}}, 
 {Function=BBPreloadSpell, Params={Name="itemmonstershred"}}, 
 {Function=BBPreloadSpell, Params={Name="enchantment_juggernaut"}}, 

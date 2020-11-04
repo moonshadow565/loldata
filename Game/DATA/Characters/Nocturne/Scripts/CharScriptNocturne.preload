@@ -8,4 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="nocturneduskbringer"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneumbrabladestooltip"}}, 
+{Function=BBPreloadSpell, Params={Name="nocturneehastemanager"}}, 
 }
