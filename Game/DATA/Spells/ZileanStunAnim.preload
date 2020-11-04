@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_skin05_e_stun.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_e_stun.troy"}}, 
 }
