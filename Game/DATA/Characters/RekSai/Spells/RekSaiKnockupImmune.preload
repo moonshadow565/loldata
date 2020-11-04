@@ -1,3 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_tar_knockupimmune.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_tar_knockupimmune_rank2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_tar_knockupimmune_rank3.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_tar_knockupimmune_rank4.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_tar_knockupimmune_rank5.troy"}}, 
 }

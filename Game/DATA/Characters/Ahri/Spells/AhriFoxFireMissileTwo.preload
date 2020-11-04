@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ahrisoulcrushercounter"}}, 
 {Function=BBPreloadSpell, Params={Name="ahrifoxfiremissiletwo"}}, 
 {Function=BBPreloadSpell, Params={Name="ahrisoulcrusher3"}}, 
+{Function=BBPreloadSpell, Params={Name="ahrifoxfirewilldie"}}, 
 }

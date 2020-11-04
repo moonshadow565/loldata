@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tristana_base_r_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_r_tar_dust.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_r_tar_adjacent.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanavormultipleenemies"}}, 
+}

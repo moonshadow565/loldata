@@ -1,0 +1,15 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_lng_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_launch.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_mid_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_shrt_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_trail_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanawtrailsound"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_skin06_w_land.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_land.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_land_hit_e.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanawslow"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_tar_flash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tristana_base_w_land_hit.troy"}}, 
+}
