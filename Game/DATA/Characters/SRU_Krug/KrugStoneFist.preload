@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="sru_krugmini"}}, 
+{Function=BBPreloadParticle, Params={Name="turntostone.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_krug_death_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_krug_death_2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="cassdeathdust.troy"}}, 
+}

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="itemfaithshaker"}}, 
+{Function=BBPreloadSpell, Params={Name="itemfaithshakerstun"}}, 
+{Function=BBPreloadSpell, Params={Name="itemfaithshakeramplify"}}, 
 }

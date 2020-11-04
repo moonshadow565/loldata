@@ -1,4 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="regenerationruneaura"}}, 
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
+{Function=BBPreloadCharacter, Params={Name="s5_ghostpuppy"}}, 
+{Function=BBPreloadSpell, Params={Name="s5ghostpuppybuff"}}, 
 }

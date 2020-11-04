@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="trinket_bluescouter"}}, 
+{Function=BBPreloadSpell, Params={Name="itemriverscoutertracker"}}, 
+}
