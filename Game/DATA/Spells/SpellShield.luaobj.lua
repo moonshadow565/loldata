@@ -89,6 +89,10 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBIncMana,
+        Params = {TargetVar = "Owner", Delta = 150}
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
@@ -250,14 +254,6 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "EnhancedRegen"
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -265,12 +261,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "spelleffect_proc.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "enhancedregen"
     }
   }
 }

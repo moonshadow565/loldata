@@ -35,11 +35,11 @@ BuffOnKillBuildingBlocks = {
       DestVar = "CritDamageMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.02,
+        0.015,
+        0.0225,
         0.03,
-        0.04,
-        0.05,
-        0.06
+        0.0375,
+        0.045
       }
     }
   },
@@ -74,7 +74,7 @@ BuffOnKillBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 10,
+          MaxStack = 8,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
@@ -95,7 +95,7 @@ BuffOnKillBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 10,
+          MaxStack = 8,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
@@ -110,22 +110,7 @@ BuffOnKillBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 10,
-          NumberStacks = 1,
-          Duration = 15,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Bloodlust",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 10,
+          MaxStack = 8,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
@@ -175,11 +160,11 @@ BuffOnHitUnitBuildingBlocks = {
           DestVar = "CritDamageMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            0.02,
+            0.015,
+            0.0225,
             0.03,
-            0.04,
-            0.05,
-            0.06
+            0.0375,
+            0.045
           }
         }
       },
@@ -214,7 +199,7 @@ BuffOnHitUnitBuildingBlocks = {
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_CombatEnchancer,
-              MaxStack = 10,
+              MaxStack = 8,
               NumberStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",
@@ -235,7 +220,7 @@ BuffOnHitUnitBuildingBlocks = {
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_CombatEnchancer,
-              MaxStack = 10,
+              MaxStack = 8,
               NumberStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",
@@ -250,22 +235,7 @@ BuffOnHitUnitBuildingBlocks = {
               BuffName = "Bloodlust",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_CombatEnchancer,
-              MaxStack = 10,
-              NumberStacks = 1,
-              Duration = 15,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Bloodlust",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 10,
+              MaxStack = 8,
               NumberStacks = 1,
               Duration = 15,
               BuffVarsTable = "NextBuffVars",

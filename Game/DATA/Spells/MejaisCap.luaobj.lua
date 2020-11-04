@@ -1,6 +1,16 @@
-BuffTextureName = "3041_Mejais_Soulstealer.dds"
-BuffName = "MejaisCap"
+BuffTextureName = ""
+BuffName = ""
 Nondispellable = true
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentCooldownMod,
+      TargetVar = "Owner",
+      Delta = -0.1
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -37,7 +47,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Count",
-          Value2 = 12,
+          Value2 = 20,
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
@@ -59,13 +69,13 @@ BuffOnKillBuildingBlocks = {
         Function = BBIncHealth,
         Params = {
           TargetVar = "Owner",
-          Delta = 250,
+          Delta = 200,
           HealerVar = "Owner"
         }
       },
       {
         Function = BBIncMana,
-        Params = {TargetVar = "Owner", Delta = 250}
+        Params = {TargetVar = "Owner", Delta = 200}
       },
       {
         Function = BBSpellEffectCreate,
@@ -88,21 +98,6 @@ BuffOnKillBuildingBlocks = {
 }
 BuffOnAssistBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "MejaisStats",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
-      BuffType = BUFF_Internal,
-      MaxStack = 12,
-      NumberStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -122,13 +117,13 @@ BuffOnAssistBuildingBlocks = {
     Function = BBIncHealth,
     Params = {
       TargetVar = "Owner",
-      Delta = 250,
+      Delta = 200,
       HealerVar = "Owner"
     }
   },
   {
     Function = BBIncMana,
-    Params = {TargetVar = "Owner", Delta = 250}
+    Params = {TargetVar = "Owner", Delta = 200}
   }
 }
 PreLoadBuildingBlocks = {

@@ -125,9 +125,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "NumBloodlusts",
       SrcValueByLevel = {
-        3,
-        5,
-        7
+        4,
+        6,
+        8
       }
     }
   },
@@ -190,11 +190,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "CritDamageMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.02,
+        0.015,
+        0.0225,
         0.03,
-        0.04,
-        0.05,
-        0.06
+        0.0375,
+        0.045
       }
     }
   },
@@ -214,7 +214,7 @@ TargetExecuteBuildingBlocks = {
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatEnchancer,
-          MaxStack = 10,
+          MaxStack = 8,
           NumberStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",

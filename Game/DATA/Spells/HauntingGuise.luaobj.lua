@@ -4,7 +4,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.09
+      Delta = -0.1
     }
   },
   {
@@ -12,7 +12,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatMagicPenetrationMod,
       TargetVar = "Owner",
-      Delta = 15
+      Delta = 20
     }
   }
 }

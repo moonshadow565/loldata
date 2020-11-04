@@ -37,9 +37,9 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "AoEDamage",
       SrcValueByLevel = {
-        0.75,
-        0.75,
-        0.75
+        0.65,
+        0.65,
+        0.65
       }
     }
   },
@@ -172,7 +172,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELL,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0.2,
+                      SpellDamageRatio = 0.15,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

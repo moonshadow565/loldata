@@ -17,11 +17,11 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        70,
-        115,
-        160,
-        205,
-        250
+        75,
+        125,
+        175,
+        225,
+        275
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -51,7 +51,7 @@ TargetExecuteBuildingBlocks = {
       Src1Var = "percentOfAttack",
       Src1VarTable = "CharVars",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.4,
       DestVar = "percentOfAttack",
       DestVarTable = "CharVars",
       MathOp = MO_MAX

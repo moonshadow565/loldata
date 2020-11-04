@@ -125,9 +125,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "AoEDamage",
       SrcValueByLevel = {
-        0.75,
-        0.75,
-        0.75
+        0.65,
+        0.65,
+        0.65
       }
     }
   },
@@ -282,7 +282,7 @@ TargetExecuteBuildingBlocks = {
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0.33,
+                      SpellDamageRatio = 0.2475,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

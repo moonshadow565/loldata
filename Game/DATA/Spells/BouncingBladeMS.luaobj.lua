@@ -8,7 +8,7 @@ BuffOnHealBuildingBlocks = {
     Params = {
       Src1Var = "Health",
       Src1Value = 0,
-      Src2Value = 0.4,
+      Src2Value = 0.35,
       DestVar = "EffectiveHeal",
       MathOp = MO_MULTIPLY
     }

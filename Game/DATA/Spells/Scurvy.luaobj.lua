@@ -15,7 +15,8 @@ OnBuffActivateBuildingBlocks = {
       SpellSlot = 1,
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1
+      AutoAttackSpellLevel = 1,
+      CancelAttack = false
     }
   },
   {
@@ -30,7 +31,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -52,24 +53,24 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "tooltipAmount",
           SrcValueByLevel = {
+            5,
+            6,
             6,
             7,
             8,
             9,
             10,
+            10,
             11,
             12,
             13,
+            14,
             14,
             15,
             16,
             17,
             18,
-            19,
-            20,
-            21,
-            22,
-            23
+            18
           }
         }
       },

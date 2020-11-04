@@ -1,5 +1,8 @@
-NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
+IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
@@ -47,6 +50,16 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 0,
       DestVar = "damageToDeal",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "damageToDeal",
+      Src1Value = 0,
+      Src2Value = 200,
+      DestVar = "damageToDeal",
+      MathOp = MO_MAX
     }
   },
   {

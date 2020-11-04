@@ -17,28 +17,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
-      DestVar = "SlotName",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellName
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "SlotName2",
-      SpellSlotValue = 1,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellName
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
       DestVar = "CurrentCooldown",
       SpellSlotValue = 0,
       SpellbookType = SPELLBOOK_SUMMONER,
@@ -61,29 +39,19 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "SlotName",
-      Value2 = "SummonerBoost",
-      CompareOp = CO_EQUAL
+      Src1Var = "CurrentCooldown",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSetSlotSpellCooldownTime,
         Params = {
-          Src1Var = "CurrentCooldown",
-          Value2 = 6,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 6,
-              SpellbookType = SPELLBOOK_SUMMONER,
-              SlotType = SpellSlots,
-              SpellSlotValue = 0,
-              OwnerVar = "Owner"
-            }
-          }
+          SrcValue = 6,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
         }
       }
     }
@@ -91,29 +59,19 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "SlotName2",
-      Value2 = "SummonerBoost",
-      CompareOp = CO_EQUAL
+      Src1Var = "CurrentCooldown2",
+      Value2 = 6,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSetSlotSpellCooldownTime,
         Params = {
-          Src1Var = "CurrentCooldown2",
-          Value2 = 6,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 6,
-              SpellbookType = SPELLBOOK_SUMMONER,
-              SlotType = SpellSlots,
-              SpellSlotValue = 1,
-              OwnerVar = "Owner"
-            }
-          }
+          SrcValue = 6,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          SpellSlotValue = 1,
+          OwnerVar = "Owner"
         }
       }
     }

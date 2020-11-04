@@ -1,26 +1,5 @@
 BuffTextureName = "Judicator_DivineBlessing.dds"
 BuffName = "Holy Fervor"
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "AttackSpeedIncrease",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
 BuffOnDeathBuildingBlocks = {
   {
     Function = BBIf,
@@ -44,14 +23,6 @@ BuffOnDeathBuildingBlocks = {
               BuffName = "HolyFervorAura"
             },
             SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "AttackSpeedIncrease",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 0.25
-                }
-              },
               {
                 Function = BBSpellBuffAdd,
                 Params = {

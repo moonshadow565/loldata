@@ -18,14 +18,15 @@ OnBuffActivateBuildingBlocks = {
       SpellSlot = 1,
       SlotType = ExtraSlots,
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1
+      AutoAttackSpellLevel = 1,
+      CancelAttack = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", CancelAttack = false}
   }
 }
 BuffOnPreAttackBuildingBlocks = {

@@ -24,7 +24,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = -0.5
+      Delta = -0.65
     }
   },
   {
@@ -41,7 +41,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = 0.5
+      Delta = 0.65
     }
   }
 }
@@ -69,7 +69,7 @@ BuffOnHealBuildingBlocks = {
     Params = {
       Src1Var = "Health",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.35,
       DestVar = "EffectiveHeal",
       MathOp = MO_MULTIPLY
     }

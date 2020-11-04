@@ -1,18 +1,45 @@
-BuffTextureName = "3138_Leviathan.dds"
-BuffName = "LeviathanCap"
+BuffTextureName = ""
+BuffName = ""
 AutoBuffActivateEffect = "Aegis_buf.troy"
 Nondispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "LeviathanCheck"
+    },
     SubBlocks = {
       {
-        Function = BBIfNotHasBuff,
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.9,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetBuffCountFromAll,
         Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "LeviathanCheck"
+          DestVar = "Count",
+          TargetVar = "Owner",
+          BuffName = "LeviathanStats"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Count",
+          Value2 = 20,
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
@@ -20,67 +47,19 @@ BuffOnUpdateStatsBuildingBlocks = {
             Params = {TargetVar = "Owner"}
           }
         }
-      },
-      {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 0.9,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = true
-        },
-        SubBlocks = {
-          {
-            Function = BBGetBuffCountFromAll,
-            Params = {
-              DestVar = "Count",
-              TargetVar = "Owner",
-              BuffName = "LeviathanStats"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Count",
-              Value2 = 10,
-              CompareOp = CO_NOT_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffRemoveCurrent,
-                Params = {TargetVar = "Owner"}
-              }
-            }
-          },
-          {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 1000,
-              Flags = "AffectFriends AffectHeroes AlwaysSelf ",
-              IteratorVar = "Unit"
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "LeviathanAura",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
-            }
-          }
-        }
       }
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "DamageAmount",
+      Src1Value = 0.85,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_MULTIPLY
     }
   }
 }
@@ -95,12 +74,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "leviathanstats"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leviathanaura"
     }
   }
 }

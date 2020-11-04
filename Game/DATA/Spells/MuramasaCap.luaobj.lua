@@ -1,5 +1,5 @@
-BuffTextureName = "3034_Kenyus_Kukri.dds"
-BuffName = "MuramasaCap"
+BuffTextureName = ""
+BuffName = ""
 AutoBuffActivateEffect = "Aura_Offense.troy"
 Nondispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
@@ -8,7 +8,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.2
+      Delta = 0.15
     }
   },
   {
@@ -48,7 +48,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Count",
-          Value2 = 12,
+          Value2 = 20,
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {

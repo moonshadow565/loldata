@@ -453,7 +453,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberStacks = 1,
-              Duration = 3,
+              Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }

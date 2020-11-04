@@ -5,7 +5,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.3,
+      TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -21,7 +21,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 0.4,
+          Duration = 1.2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -38,7 +38,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Count",
-          Value2 = 12,
+          Value2 = 20,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -49,7 +49,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "MejaisCap",
               BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Aura,
+              BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberStacks = 1,
               Duration = 25000,
@@ -161,6 +161,44 @@ ItemOnDeathBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "MejaisStats",
               NumStacks = 4
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Count",
+          Value2 = 5.5,
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveStacks,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "MejaisStats",
+              NumStacks = 5
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Count",
+          Value2 = 7,
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemoveStacks,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "MejaisStats",
+              NumStacks = 6
             }
           }
         }

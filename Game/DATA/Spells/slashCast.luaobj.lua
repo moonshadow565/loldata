@@ -71,7 +71,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 550,
+      Value2 = 650,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -79,7 +79,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 575,
+          Distance = 645,
           OffsetAngle = 0,
           PositionVar = "TargetPos"
         }

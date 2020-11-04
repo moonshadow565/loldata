@@ -16,7 +16,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBIncHealth,
         Params = {
           TargetVar = "Owner",
-          Delta = 350,
+          Delta = 300,
           HealerVar = "Owner"
         }
       },

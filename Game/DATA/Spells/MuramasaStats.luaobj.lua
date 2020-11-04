@@ -1,3 +1,5 @@
+BuffTextureName = "3034_Kenyus_Kukri.dds"
+BuffName = "MuramasaCap"
 PersistsThroughDeath = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
@@ -5,7 +7,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = 4
+      Delta = 2
     }
   },
   {
@@ -13,7 +15,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatCritDamageMod,
       TargetVar = "Owner",
-      Delta = 0.04
+      Delta = 0.02
     }
   },
   {
@@ -29,6 +31,40 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {TargetVar = "Owner"}
       }
     }
+  },
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "MuramasaStats"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Count",
+      Src1Value = 2,
+      Src2Value = 0,
+      DestVar = "ValueDisplay",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ValueDisplay",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ValueDisplay",
+      Index = 2
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -36,6 +72,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "muramasacheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "muramasastats"
     }
   }
 }

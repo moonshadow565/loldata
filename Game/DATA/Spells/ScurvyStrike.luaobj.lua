@@ -23,7 +23,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -48,24 +50,24 @@ TargetExecuteBuildingBlocks = {
               DestVar = "DotDamage",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
+                5,
+                6,
                 6,
                 7,
                 8,
                 9,
                 10,
+                10,
                 11,
                 12,
                 13,
+                14,
                 14,
                 15,
                 16,
                 17,
                 18,
-                19,
-                20,
-                21,
-                22,
-                23
+                18
               }
             }
           },
@@ -79,7 +81,7 @@ TargetExecuteBuildingBlocks = {
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberStacks = 1,
-              Duration = 8,
+              Duration = 10,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }

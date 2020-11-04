@@ -1,3 +1,5 @@
+BuffTextureName = ""
+BuffName = ""
 PersistsThroughDeath = true
 Nondispellable = true
 BuffOnKillBuildingBlocks = {
@@ -12,8 +14,23 @@ BuffOnKillBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "LeviathanStats",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
-          BuffType = BUFF_Internal,
-          MaxStack = 10,
+          BuffType = BUFF_Aura,
+          MaxStack = 20,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "LeviathanStats",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 20,
           NumberStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
@@ -31,8 +48,8 @@ BuffOnAssistBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "LeviathanStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
-      BuffType = BUFF_Internal,
-      MaxStack = 10,
+      BuffType = BUFF_Aura,
+      MaxStack = 20,
       NumberStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",

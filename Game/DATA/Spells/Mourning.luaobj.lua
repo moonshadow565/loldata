@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = -0.5
+      Delta = -0.65
     }
   }
 }
@@ -18,25 +18,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = 0.5
-    }
-  }
-}
-BuffOnHealBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Health",
-      Src1Value = 0,
-      Src2Value = 0.5,
-      DestVar = "EffectiveHeal",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetReturnValue,
-    Params = {
-      SrcVar = "EffectiveHeal"
+      Delta = 0.65
     }
   }
 }
@@ -55,7 +37,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Attacker",
           TargetVar = "Owner",
-          Damage = 6,
+          Damage = 4,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
@@ -64,6 +46,24 @@ BuffOnUpdateActionsBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
+    }
+  }
+}
+BuffOnHealBuildingBlocks = {
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Health",
+      Src1Value = 0,
+      Src2Value = 0.35,
+      DestVar = "EffectiveHeal",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetReturnValue,
+    Params = {
+      SrcVar = "EffectiveHeal"
     }
   }
 }
