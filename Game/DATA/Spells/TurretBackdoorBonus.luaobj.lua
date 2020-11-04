@@ -4,7 +4,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Owner",
-      Delta = -250
+      Delta = -200
     }
   },
   {
@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = -250
+      Delta = -200
     }
   },
   {
@@ -29,7 +29,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 250
+      Delta = 200
     }
   },
   {
@@ -37,7 +37,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = 250
+      Delta = 200
     }
   }
 }

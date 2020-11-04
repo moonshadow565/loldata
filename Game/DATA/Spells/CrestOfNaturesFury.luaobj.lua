@@ -21,17 +21,17 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
     Params = {
-      Stat = IncPermanentPercentPhysicalDamageMod,
+      Stat = IncPermanentPercentAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.24
+      Delta = 0.2
     }
   },
   {
     Function = BBIncPermanentStat,
     Params = {
-      Stat = IncPermanentPercentMagicDamageMod,
+      Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = 0.24
+      Delta = -0.1
     }
   }
 }
@@ -39,17 +39,17 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
     Params = {
-      Stat = IncPermanentPercentMagicDamageMod,
+      Stat = IncPermanentPercentAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = -0.24
+      Delta = -0.2
     }
   },
   {
     Function = BBIncPermanentStat,
     Params = {
-      Stat = IncPermanentPercentPhysicalDamageMod,
+      Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
-      Delta = -0.24
+      Delta = 0.1
     }
   },
   {

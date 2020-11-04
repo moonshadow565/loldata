@@ -6,7 +6,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatMPRegenMod,
       TargetVar = "Owner",
-      Delta = 5
+      Delta = 3.5
     }
   },
   {
@@ -103,7 +103,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatMPRegenMod,
       TargetVar = "Owner",
-      Delta = -5
+      Delta = -3.5
     }
   },
   {
@@ -166,7 +166,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           Src1Var = "Health",
           Src1Value = 0,
-          Src2Value = 0.05,
+          Src2Value = 0.035,
           DestVar = "HealthInc",
           MathOp = MO_MULTIPLY
         }

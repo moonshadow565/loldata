@@ -311,7 +311,7 @@ BuffOnPreAttackBuildingBlocks = {
         Params = {
           AttackerVar = "Attacker",
           CenterVar = "Owner",
-          Range = 450,
+          Range = 400,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit"
         },

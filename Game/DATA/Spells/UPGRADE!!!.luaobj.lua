@@ -115,7 +115,8 @@ TargetExecuteBuildingBlocks = {
               SkinName = "H28GEvolutionTurretLvl3",
               TargetVar = "Target",
               IDVar = "CasterID",
-              IDVarTable = "InstanceVars"
+              IDVarTable = "InstanceVars",
+              OverrideSpells = false
             }
           },
           {
@@ -191,7 +192,8 @@ TargetExecuteBuildingBlocks = {
               SkinName = "H28GEvolutionTurretLvl2",
               TargetVar = "Target",
               IDVar = "CasterID",
-              IDVarTable = "InstanceVars"
+              IDVarTable = "InstanceVars",
+              OverrideSpells = false
             }
           },
           {
@@ -246,6 +248,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "h28gevolutionturret"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "uraniumrounds"
@@ -285,6 +293,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "h28gevolutionturretlvl2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "refreshultimate"
     }
   }
 }

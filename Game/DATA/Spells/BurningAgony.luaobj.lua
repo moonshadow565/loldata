@@ -25,11 +25,11 @@ BuffOnAllowAddBuildingBlocks = {
       DestVar = "DurationMod",
       SrcValue = 0,
       SrcValueByLevel = {
-        0.8,
         0.75,
         0.7,
         0.65,
-        0.6
+        0.6,
+        0.55
       }
     }
   },
@@ -288,7 +288,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
-              Range = 300,
+              Range = 325,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit"
             },

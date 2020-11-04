@@ -238,7 +238,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 575,
+      Value2 = 500,
       CompareOp = CO_GREATER_THAN
     },
     SubBlocks = {
@@ -250,7 +250,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 575,
+          Distance = 500,
           OffsetAngle = 0,
           PositionVar = "CastPos"
         }
@@ -288,7 +288,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberStacks = 1,
-      Duration = 5.5,
+      Duration = 4.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

@@ -190,6 +190,67 @@ BuffOnPreDamageBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AbilityPower"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseHealth",
+      SrcValueByLevel = {
+        100,
+        150,
+        200,
+        250,
+        300
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPower",
+      Src2Var = "BaseHealth",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "ShieldHealth",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ShieldHealth",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "ShieldHealth"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_SpellImmunity,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        4,
+        5,
+        6,
+        7,
+        8
+      },
+      TickRate = 0
+    }
+  },
+  {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Target", Type = BUFF_Stun}
   },
@@ -236,66 +297,5 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Target", Type = BUFF_Damage}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BaseHealth",
-      SrcValueByLevel = {
-        100,
-        150,
-        200,
-        250,
-        300
-      }
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "AbilityPower"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AbilityPower",
-      Src2Var = "BaseHealth",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "ShieldHealth",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ShieldHealth",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "ShieldHealth"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_SpellImmunity,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        4,
-        5,
-        6,
-        7,
-        8
-      },
-      TickRate = 0
-    }
   }
 }

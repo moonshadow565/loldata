@@ -23,7 +23,8 @@ OnBuffActivateBuildingBlocks = {
       SkinName = "Armordillo_DBC",
       TargetVar = "Owner",
       IDVar = "CasterID",
-      IDVarTable = "InstanceVars"
+      IDVarTable = "InstanceVars",
+      OverrideSpells = false
     }
   },
   {
@@ -127,7 +128,9 @@ BuffOnBeingHitBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_REACTIVE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.25
+          SpellDamageRatio = 0.25,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -227,7 +230,7 @@ SelfExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
       Name = "armordillo_dbc"
     }

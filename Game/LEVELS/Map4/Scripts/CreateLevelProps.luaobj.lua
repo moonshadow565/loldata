@@ -61,29 +61,15 @@ function L0()
   L1 = "Turret_T1_C_01"
   L2 = "OrderTurretAngel"
   L3 = TEAM_ORDER
-  L4 = 5
-  L5 = 0
-  L0(L1, L2, L3, L4, L5)
-  L0 = CreateChildTurret
-  L1 = "Turret_T1_C_02"
-  L2 = "OrderTurretAngel"
-  L3 = TEAM_ORDER
   L4 = 4
-  L5 = 2
+  L5 = 0
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret
   L1 = "Turret_T2_C_01"
   L2 = "ChaosTurretNormal"
   L3 = TEAM_CHAOS
-  L4 = 5
-  L5 = 0
-  L0(L1, L2, L3, L4, L5)
-  L0 = CreateChildTurret
-  L1 = "Turret_T2_C_02"
-  L2 = "ChaosTurretNormal"
-  L3 = TEAM_CHAOS
   L4 = 4
-  L5 = 2
+  L5 = 0
   L0(L1, L2, L3, L4, L5)
   L0 = CreateChildTurret
   L1 = "Turret_OrderTurretShrine"
