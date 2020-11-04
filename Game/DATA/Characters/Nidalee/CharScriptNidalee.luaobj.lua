@@ -22,13 +22,35 @@ PreLoadBuildingBlocks = {
     Params = {Name = "prowl"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_cougar_e.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_cougar_e_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
-    Params = {Name = "pouncems"}
+    Params = {Name = "swipe"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "nidalee_base_cougar_e_buf.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swipeblocker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "pouncems"}
   }
 }

@@ -3,13 +3,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_w_active_hit_life.troy"
+      Name = "Aatrox_Base_W_Active_Hit_Life.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_w_active_hit_power.troy"
+      Name = "Aatrox_Base_W_Active_Hit_Power.troy"
     }
   }
 }

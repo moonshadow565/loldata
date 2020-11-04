@@ -10,7 +10,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_e_glow.troy"
+      Name = "Aatrox_Base_E_Glow.troy"
     }
   }
 }

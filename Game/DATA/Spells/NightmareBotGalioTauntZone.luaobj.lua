@@ -26,15 +26,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "galiobulwark"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_builingstatue_impact_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galiobulwark"
     }
   }
 }

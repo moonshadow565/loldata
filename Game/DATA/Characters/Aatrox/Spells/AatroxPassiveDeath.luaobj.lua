@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_passive_death_activate.troy"
+      Name = "Aatrox_Base_Passive_Death_Activate.troy"
     }
   },
   {

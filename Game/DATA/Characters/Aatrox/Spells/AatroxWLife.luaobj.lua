@@ -28,11 +28,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "aatroxwonhlife"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "aatrox_w_life_self.troy"
-    }
   }
 }

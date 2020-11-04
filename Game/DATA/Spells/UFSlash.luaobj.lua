@@ -3,13 +3,14 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 SpellFXOverrideSkins = {
   "ReefMalphite",
-  "GlacialMalphite"
+  "GlacialMalphite",
+  "MalphiteSkin06"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "unstoppableforce_cas.troy"
+      Name = "malphite_base_unstoppableforce_cas.troy"
     }
   },
   {
@@ -22,6 +23,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "malphite_glacial_unstopable_force_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "malphite_base_unstoppableforce_tar.troy"
     }
   },
   {

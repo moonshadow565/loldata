@@ -6,19 +6,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_w_weaponlifer.troy"
+      Name = "Aatrox_Base_W_WeaponLifeR.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_w_weaponlife_glow.troy"
+      Name = "Aatrox_Base_W_weaponlife_glow.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "aatrox_w_weaponpowerr.troy"
+      Name = "Aatrox_Base_W_WeaponPowerR.troy"
     }
   }
 }

@@ -1,7 +1,8 @@
 BuffTextureName = "Malphite_SeismicShard.dds"
 BuffName = "SeismicShard"
 SpellFXOverrideSkins = {
-  "GlacialMalphite"
+  "GlacialMalphite",
+  "MalphiteSkin06"
 }
 PreLoadBuildingBlocks = {
   {
@@ -19,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "seismicshard_tar.troy"
+      Name = "malphite_base_seismicshard_tar.troy"
     }
   }
 }
