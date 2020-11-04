@@ -32,9 +32,6 @@ function L0_0(A0_1, A1_2)
   if GetState() == AI_HALTED then
     return false
   end
-  if A0_1 == LOST_VISIBILITY then
-    return false
-  end
   newTarget = FindTargetInAcR()
   if newTarget == nil then
     if GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then

@@ -11,6 +11,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "braum_base_q_hit_monster_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "braum_base_q_hit_tar.troy"
     }
   },
