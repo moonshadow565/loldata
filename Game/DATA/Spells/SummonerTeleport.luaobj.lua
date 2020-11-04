@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 BuffTextureName = "Summoner_teleport.dds"
 BuffName = "Teleport"
+SpellFXOverrideSkins = {
+  "OktoberGragas"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

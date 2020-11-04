@@ -11,17 +11,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "talon_ult_sound.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talonshadowassaultmisone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talonshadowassaultbuff"
-    }
   }
 }

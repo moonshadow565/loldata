@@ -6,7 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 1.5
 BuffTextureName = "Pantheon_GrandSkyfall.dds"
 BuffName = "Pantheon Grand Skyfall"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

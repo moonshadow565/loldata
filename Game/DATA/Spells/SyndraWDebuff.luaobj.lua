@@ -9,9 +9,7 @@ AutoCooldownByLevel = {
   12
 }
 IsDeathRecapSource = true
-SpellFXOverrideSkins = {
-  "RocketTristana"
-}
+SpellFXOverrideSkins = {""}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

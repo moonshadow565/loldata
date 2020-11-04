@@ -11,7 +11,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xerathbasicattack_tar.troy"
+      Name = "xerathcritattack_tar.troy"
     }
   }
 }

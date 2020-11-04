@@ -6,15 +6,10 @@ IsDamagingSpell = false
 BuffTextureName = "Armsmaster_Disarm.dds"
 BuffName = "JaxEvasion"
 AutoBuffActivateEffect = "JaxDodger.troy"
-AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = "jax_immortal_e_cas_02.troy"
+AutoBuffActivateAttachBoneName2 = "R_hand"
 OnPreDamagePriority = 3
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jaxdodger.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

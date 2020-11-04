@@ -12,31 +12,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturret"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "h28gevolutionturretspell1"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "h28gevolutionturretspell2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturretspell3"
+      Name = "ifhasbuffcheck"
     }
   },
   {

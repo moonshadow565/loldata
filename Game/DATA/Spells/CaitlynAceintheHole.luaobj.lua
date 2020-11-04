@@ -7,7 +7,6 @@ BuffTextureName = "Caitlyn_AceintheHole.dds"
 BuffName = "CaitlynAceintheHole"
 AutoBuffActivateEffect = "caitlyn_ace_target_indicator.troy"
 AutoBuffActivateEffect2 = "caitlyn_ace_target_indicator_02.troy"
-AutoBuffActivateAttachBoneName2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

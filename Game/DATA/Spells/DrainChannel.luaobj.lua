@@ -6,7 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 5
 BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
 BuffName = "Drain"
-AutoBuffActivateEffect = ""
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks"

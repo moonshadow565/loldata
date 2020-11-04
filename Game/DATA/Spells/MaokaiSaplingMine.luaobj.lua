@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Bowmaster_ArchersMark.dds"
-BuffName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

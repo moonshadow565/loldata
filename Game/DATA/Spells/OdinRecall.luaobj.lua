@@ -4,6 +4,9 @@ CastingBreaksStealth = true
 ChannelDuration = 4.5
 BuffTextureName = "RecallHome.dds"
 BuffName = "Recall"
+SpellFXOverrideSkins = {
+  "OktoberGragas"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

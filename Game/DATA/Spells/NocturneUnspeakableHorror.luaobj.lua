@@ -1,9 +1,6 @@
 DoesntBreakShields = false
 BuffTextureName = "Nocturne_UnspeakableHorror.dds"
 BuffName = "NocturneUnspeakableHorror"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
