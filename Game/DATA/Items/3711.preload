@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 
 {Function=BBPreloadSpell, Params={Name="itemjunglenail"}}, 
 {Function=BBPreloadSpell, Params={Name="itemjungletooth"}}, 
 {Function=BBPreloadSpell, Params={Name="itemghostwardcharge"}}, 

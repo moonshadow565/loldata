@@ -1,4 +1,4 @@
-BuffTextureName = "Caitlyn_Headshot2.dds"
+BuffTextureName = "Caitlyn_Headshot.dds"
 BuffName = "CaitlynHeadshotReady"
 SpellFXOverrideSkins = {
   "CaitlynSkin06"

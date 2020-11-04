@@ -1,2 +1,2 @@
-BuffTextureName = "Caitlyn_Headshot.dds"
+BuffTextureName = "Caitlyn_HeadshotGrey.dds"
 BuffName = "CaitlynHeadshotCount"
