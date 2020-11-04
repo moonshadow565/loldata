@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="isninja"}}, 
 {Function=BBPreloadSpell, Params={Name="kennendoublestrikeproc"}}, 
 {Function=BBPreloadSpell, Params={Name="kennenbringthelight"}}, 
+{Function=BBPreloadParticle, Params={Name="twitch_base_e_range_indicator.troy"}}, 
 }
