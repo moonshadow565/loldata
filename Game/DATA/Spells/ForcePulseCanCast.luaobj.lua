@@ -1,3 +1,10 @@
 BuffTextureName = "Kassadin_ForcePulse.dds"
 BuffName = "ForcePulseAvailable"
-AutoBuffActivateEffect = "ForcewalkReady.troy"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kassadin_base_e_ready_buf.troy"
+    }
+  }
+}

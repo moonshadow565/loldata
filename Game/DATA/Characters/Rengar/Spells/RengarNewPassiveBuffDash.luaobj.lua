@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengar_leapstart.troy"
+      Name = "Rengar_Base_P_Leap_Grass.troy"
     }
   },
   {
@@ -30,13 +30,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarqmax_tar.troy"
+      Name = "Rengar_Base_Q_Max_Tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarq_tar.troy"
+      Name = "Rengar_Base_Q_Tar.troy"
     }
   },
   {
@@ -66,7 +66,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengar_leapend.troy"
+      Name = "Rengar_Base_P_Leap_Dust.troy"
     }
   }
 }

@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengare_tar.troy"
+      Name = "Rengar_Base_E_Tar.troy"
     }
   }
 }

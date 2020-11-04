@@ -41,6 +41,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "threshecastbuff"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "thresh_e_warn_green.troy"
@@ -50,12 +56,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "thresh_e_warn_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threshecastbuff"
     }
   },
   {

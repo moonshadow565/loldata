@@ -11,6 +11,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sonasongofdiscordauraself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sonasongofdiscordaurab"
     }
   }

@@ -20,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riftwalk_flash.troy"
+      Name = "kassadin_base_r_appear.troy"
     }
   }
 }

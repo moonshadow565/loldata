@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengarr_cast.troy"
+      Name = "Rengar_Base_R_Cas.troy"
     }
   },
   {

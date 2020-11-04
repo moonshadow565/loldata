@@ -1,6 +1,6 @@
 BuffTextureName = "RengarQ.dds"
 BuffName = "RengarQBuff"
-AutoBuffActivateEffect = "RengarQReady_Sword.troy"
+AutoBuffActivateEffect = "Rengar_Base_Q_Buf_Blade.troy"
 AutoBuffActivateAttachBoneName = "Weapon"
-AutoBuffActivateEffect2 = "RengarQReady_Claw.troy"
+AutoBuffActivateEffect2 = "Rengar_Base_Q_Buf_Claw.troy"
 AutoBuffActivateAttachBoneName2 = "L_Hand"

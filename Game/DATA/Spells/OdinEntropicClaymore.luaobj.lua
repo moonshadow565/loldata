@@ -1,5 +1,6 @@
 BuffTextureName = "3184_Entropy.dds"
 BuffName = "OdinEntropicClaymore"
+DoesntTriggerSpellCasts = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

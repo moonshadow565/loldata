@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Soraka_Starcall.dds"
+BuffTextureName = "Soraka_Q.dds"
 BuffName = "Starcall"
 SpellDamageRatio = 0.35
 PreLoadBuildingBlocks = {

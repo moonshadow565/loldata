@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "threshq"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thresh_q_stab_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "threshqselfroot"

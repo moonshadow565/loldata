@@ -2,12 +2,6 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {"PaxSona"}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sonapowerchord_songofselerity_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
@@ -21,6 +15,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonasongpcdeathrecapfix"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonapowerchorddebuffslow"
     }
   }
 }
