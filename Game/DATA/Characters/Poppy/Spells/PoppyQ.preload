@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="poppy_base_q_hit.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="poppy_base_q_hit2.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="poppy_base_q_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="poppyqslow"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_red.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyqspell"}}, 
 }

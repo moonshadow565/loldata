@@ -20,6 +20,7 @@ function L0_0(A0_2, A1_3, A2_4)
   L3_5.InstanceVars = L4_6
   L3_5.CharVars = L4_6
   L3_5.NextBuffVars = L4_6
+  L3_5.NextSpellVars = L4_6
   L3_5.AvatarVars = L4_6
   L3_5.SpellVars = L4_6
   L3_5.WorldVars = L4_6
@@ -834,6 +835,7 @@ function L0_0(A0_262, A1_263)
   L3_265.InstanceVars = L4_266
   L3_265.CharVars = L4_266
   L3_265.NextBuffVars = L4_266
+  L3_265.NextSpellVars = L4_266
   L3_265.AvatarVars = L4_266
   L3_265.SpellVars = L4_266
   L3_265.WorldVars = L4_266

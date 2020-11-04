@@ -1,6 +1,7 @@
 MAX_ENGAGE_DISTANCE = 2500
 FEAR_WANDER_DISTANCE = 500
 DELAY_FIND_ENEMIES = 0.25
+DELAY_WAIT_FOR_ATTACK = 0.1
 CENTER_LANE = 1
 START_ASLEEP_TIME = 90
 ASLEEP_TIME_DEFAULT_LANE = 125
@@ -11,6 +12,8 @@ function OnPostInit()
   if GetMissionTime() < START_ASLEEP_TIME then
     SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_ASLEEP)
   end
+  InitTimer("TimerWaitForAttackFinish", DELAY_WAIT_FOR_ATTACK, true)
+  StopTimer("TimerWaitForAttackFinish")
 end
 function OnTauntBegin()
   if GetState() == AI_HALTED then
@@ -115,6 +118,12 @@ function IsNochaseRegionForMinions(A0_3)
   L1_4 = false
   return L1_4
 end
+function TimerWaitForAttackFinish()
+  if LastAutoAttackFinished() == true then
+    StopTimer("TimerWaitForAttackFinish")
+    FindTargetOrMove()
+  end
+end
 function TimerFindEnemies()
   local L0_5, L1_6, L2_7
   L0_5 = GetState
@@ -189,8 +198,6 @@ function TimerFindEnemies()
       if L2_7 == false then
         L2_7 = TurnOffAutoAttack
         L2_7(STOPREASON_MOVING)
-        L2_7 = 0
-        LastAttackScan = L2_7
       end
     end
   end
@@ -209,7 +216,8 @@ function FindTargetOrMove()
   L1_9 = L1_9()
   if L1_9 ~= nil then
     if LastAutoAttackFinished() == false then
-      InitTimer("TimerFindEnemies", DELAY_FIND_ENEMIES, true)
+      ResetAndStartTimer("TimerWaitForAttackFinish")
+      ResetAndStartTimer("TimerFindEnemies")
       return
     end
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_9)
@@ -218,7 +226,6 @@ function FindTargetOrMove()
     TurnOffAutoAttack(STOPREASON_MOVING)
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
     StopTimer("TimerAntiKite")
-    LastAttackScan = 0
   end
 end
 function TimerMoveForward()
@@ -229,6 +236,5 @@ function TimerMoveForward()
     FindTargetOrMove()
   elseif GetState() == AI_ATTACKMOVESTATE then
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
-    LastAttackScan = 0
   end
 end
