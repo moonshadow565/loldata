@@ -38,13 +38,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "threesistersinitial"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "threesistersinitial"
+      Name = "crestbigmarker"
     }
   },
   {
@@ -63,12 +57,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "lissandratauntbrand"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crestbigmarker"
     }
   }
 }

@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "resistantskindragon"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   },

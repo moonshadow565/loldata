@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Blitzcrank_ManaBarrier.dds"
 BuffName = "ManaBarrier"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   0,
   0,

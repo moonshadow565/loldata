@@ -22,18 +22,8 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trundleqdebuff"
+      Name = "trundleqreset"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "trundle_q_bite_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "trundleq"}
   },
   {
     Function = BBPreloadParticle,
@@ -44,7 +34,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trundleqreset"
+      Name = "trundleqdebuff"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trundle_q_bite_tar.troy"
     }
   }
 }

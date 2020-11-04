@@ -6,5 +6,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "trundleqdebuff_buf.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "trundleq"}
   }
 }

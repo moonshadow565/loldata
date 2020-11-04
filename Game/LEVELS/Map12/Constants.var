@@ -161,7 +161,7 @@ ann_AutoWelcome                         =                 1 ; Do we automaticall
 ; FOW
 
 ; Shop VO Variables
-shopvo_GlobalCooldown                   =             5.000 ; Minimum time between VO events
+shopvo_GlobalCooldown                   =             7.000 ; Minimum time between VO events
 shopvo_RichPlayer                       =          3000.000 ; How much gold the player needs to be considered rich
 shopvo_OpenVOChance                     =             0.000 ; Percentage chance(0->1) to play VO when the shop becomes open for business
 shopvo_OpenVOInitialDelay               =            60.000 ; How long to wait until before the Shop Open VO can play

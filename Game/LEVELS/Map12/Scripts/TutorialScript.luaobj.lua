@@ -2503,13 +2503,13 @@ function L0()
   L0 = RegisterOnUnitNearUnitCallback
   L1 = playerID
   L2 = firstOrderTurret
-  L3 = 900
+  L3 = 1000
   L4 = "EventMinionAttack"
   L0(L1, L2, L3, L4)
   L0 = RegisterOnUnitNearUnitCallback
   L1 = playerID
   L2 = secondOrderTurret
-  L3 = 600
+  L3 = 700
   L4 = "EventStayBehind"
   L0(L1, L2, L3, L4)
 end

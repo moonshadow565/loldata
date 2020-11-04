@@ -36,9 +36,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "ha_ap_chaosturret"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "testturretlock"
+      Name = "howlingabyssturretskinswap"
     }
   }
 }

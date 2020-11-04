@@ -14,6 +14,7 @@ __Spawn_T1.sco -100
 LevelProp_HA_AP_BridgeLaneStatue6.sco -100
 LevelProp_HA_AP_ShpNorth.sco -100
 Info_OrderRandomThingy02.sco -100
+LevelProp_HA_AP_Chains_Long1.sco -100
 AIPath.sco -100
 LevelProp_HA_AP_Chains4.sco -100
 LevelProp_HA_AP_BridgeLaneStatue4.sco -100
@@ -34,6 +35,7 @@ LevelProp_HA_AP_Chains_Long3.sco -100
 Info_HealthPack01.sco -100
 OrderShop01.sco -100
 __NAV_C014.sco -100
+__NAV_C010.sco -100
 __Spawn_T2.sco -100
 Turret_T2_L_04.sco -100
 LevelProp_HA_AP_ShpSouth.sco -100
@@ -43,13 +45,11 @@ __NAV_C012.sco -100
 ____P_Order_Spawn_Barracks__C01.sco -100
 LevelProp_HA_AP_Viking.sco -100
 LevelProp_HA_AP_Poro3.sco -100
-__NAV_C010.sco -100
 __NAV_C05.sco -100
-LevelProp_HA_AP_Chains_Long1.sco -100
 LevelProp_HA_AP_Hermit.sco -100
 Turret_T2_L_01.sco -100
 Turret_OrderTurretShrine.sco -100
-LevelProp_HA_AP_Poro6.sco -100
+LevelProp_HA_AP_Cutaway.sco -100
 LevelProp_HA_AP_BridgeLaneStatue8.sco -100
 LevelProp_HA_AP_PeriphBridge.sco -100
 Turret_T2_L_02.sco -100
@@ -63,6 +63,7 @@ __NAV_C013.sco -100
 Turret_T2_L_03.sco -100
 LevelProp_HA_AP_Poro.sco -100
 HQ_T2.sco -100
+LevelProp_HA_AP_Poro6.sco -100
 Turret_T1_C_07.sco -100
 Barracks_T2_C1.sco -100
 __NAV_C03.sco -100

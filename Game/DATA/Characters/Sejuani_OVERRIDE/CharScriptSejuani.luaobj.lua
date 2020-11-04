@@ -62,12 +62,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "threesistersinitial"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "threesisters"
     }
   },

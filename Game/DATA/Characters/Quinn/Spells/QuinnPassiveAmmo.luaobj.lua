@@ -5,5 +5,7 @@ BuffTextureName = "Quinn_W.dds"
 BuffName = "QuinnPassiveAmmo"
 AutoBuffActivateEffect = "QuinnPBuff.troy"
 AutoBuffActivateAttachBoneName = "Weapon_Top"
+AutoBuffActivateEffect2 = "Sivir_PassiveHaste.troy"
+AutoBuffActivateAttachBoneName2 = "C_Buffbone_Glb_Center_Loc"
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
