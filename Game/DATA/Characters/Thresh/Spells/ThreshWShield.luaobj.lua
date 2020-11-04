@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Armsmaster_CoupDeGrace.dds"
+BuffTextureName = "Thresh_W.dds"
 BuffName = "ThreshWShield"
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true

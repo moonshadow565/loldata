@@ -9,6 +9,9 @@ AutoCooldownByLevel = {
   90,
   90
 }
+SpellFXOverrideSkins = {
+  "MetalWingedJudicator"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

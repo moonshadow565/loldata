@@ -1,5 +1,5 @@
-BuffTextureName = "Maokai_ArcaneSmash.dds"
-BuffName = "MaokaiStun"
+BuffTextureName = "Thresh_E.dds"
+BuffName = "ThreshEStun"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

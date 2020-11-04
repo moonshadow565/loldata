@@ -8,7 +8,10 @@ BuffName = "JudicatorRighteousFury"
 AutoBuffActivateEffect = "Flamesword.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 AutoBuffActivateEffect2 = "RighteousFuryHalo_buf.troy"
-AutoBuffActivateAttachBoneName2 = "head"
+AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"
+SpellFXOverrideSkins = {
+  "MetalWingedJudicator"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

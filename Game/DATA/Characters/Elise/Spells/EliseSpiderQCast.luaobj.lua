@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "elisespiderqtarget"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"

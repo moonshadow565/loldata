@@ -1,5 +1,5 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Nautilus_StaggeringBlow.dds"
+BuffTextureName = "Thresh_Passive.dds"
 BuffName = "ThreshPassiveSoulsGain"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
