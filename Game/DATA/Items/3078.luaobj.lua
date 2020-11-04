@@ -4,10 +4,10 @@ AutoBuffActivateEffect = "Global_Slow.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "sheen"}
+    Params = {Name = "itemphage"}
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "itemphage"}
+    Params = {Name = "sheen"}
   }
 }
