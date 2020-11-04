@@ -16,7 +16,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "heimerdingerqult"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "heimerdingere"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerq"
     }
   },
   {

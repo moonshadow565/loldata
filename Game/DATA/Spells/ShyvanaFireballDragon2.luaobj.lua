@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
@@ -8,19 +9,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shyvanafireballparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballmissileminion"
+      Name = "shyvanafireballdragonfxmissile"
     }
   }
 }

@@ -7,7 +7,8 @@ BuffName = "Recall"
 SpellFXOverrideSkins = {
   "OktoberGragas",
   "MetalWingedJudicator",
-  "ClericSoraka"
+  "ClericSoraka",
+  "SpiritUdyr"
 }
 SpellVOOverrideSkins = {
   "ZombieBrand",

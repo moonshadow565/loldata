@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 SpellDamageRatio = 0.5
 IsDeathRecapSource = true
@@ -8,6 +9,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "syndraeimmunity"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraeimmunitystun"
     }
   },
   {
@@ -44,42 +51,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "syndraedebuff"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "syndra_e5_trail.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "syndra_e_trail.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "syndra_ehit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "syndra_e_impact.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndraebump"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndraqspell"
     }
   }
 }

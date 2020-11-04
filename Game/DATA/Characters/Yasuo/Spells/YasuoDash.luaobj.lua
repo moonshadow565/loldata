@@ -1,0 +1,76 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffName = "XenZhaoSweep"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoq3wautosmartcast"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_e_dash.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_base_e_dash.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuodashghosted"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "yasuoq3w"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoisincombat"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuodashwrapper"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuodashwrapperchaos"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuodashscalar"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_e_dash_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_base_e_dash_hit.troy"
+    }
+  }
+}

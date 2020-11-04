@@ -6,5 +6,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "thresh_spinningscythe_passive.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "threshqpassive4"
+    }
   }
 }

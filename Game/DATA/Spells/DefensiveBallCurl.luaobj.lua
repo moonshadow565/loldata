@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "rammusdbc"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "defensiveballcurlcancel"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "defensiveballcurl_buf.troy"

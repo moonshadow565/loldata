@@ -27,6 +27,22 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nocturneduskbringerhaste"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nocturneduskbringer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "apbonusdamagetotowers"
     }
   },

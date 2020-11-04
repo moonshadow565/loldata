@@ -8,12 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "blindmonkwonedash"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "blindmonkwoneshield"
     }
   }

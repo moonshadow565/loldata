@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "masterybladeweaving"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masterybladeweavecd"
+    }
   }
 }

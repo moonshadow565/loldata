@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "globaldummyknockback"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "trundlewallbounce"
     }
   },

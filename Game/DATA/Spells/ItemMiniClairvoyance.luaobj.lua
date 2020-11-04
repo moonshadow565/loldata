@@ -43,15 +43,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trinketorblvl1audio"
+      Name = "itemclairvoyancesight"
     }
   }
 }

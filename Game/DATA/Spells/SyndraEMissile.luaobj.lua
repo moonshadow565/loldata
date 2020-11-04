@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 SpellDamageRatio = 0.5
 IsDeathRecapSource = true
@@ -8,6 +9,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "syndraeimmunity"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraeimmunitystun"
     }
   },
   {
@@ -62,12 +69,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "syndra_ehit.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndraeimmunitystun"
     }
   },
   {

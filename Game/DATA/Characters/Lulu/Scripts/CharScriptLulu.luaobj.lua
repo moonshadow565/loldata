@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "luluskin04recallhookup"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "lulufaerieoverridetemp"
     }
   }

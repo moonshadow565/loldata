@@ -1,4 +1,4 @@
-BuffTextureName = "Summoner_BattleCry.dds"
+BuffTextureName = "RagebladeEnrage.dds"
 BuffName = "RagebladeEnrage"
 AutoBuffActivateEffect = "summoner_battlecry.troy"
 AutoBuffActivateEffect2 = "summoner_battlecry_oc.troy"

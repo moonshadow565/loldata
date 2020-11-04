@@ -62,30 +62,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_r_ground1.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_r_ground2.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_r_ground3.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_r_ground4.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "lissandrardamage"

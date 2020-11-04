@@ -12,12 +12,6 @@ SpellFXOverrideSkins = {
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "quinnetarget"

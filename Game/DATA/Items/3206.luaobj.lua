@@ -2,14 +2,18 @@ PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "itemspiritstonewraithupgrade"
-    }
+    Params = {Name = "itementrap"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "itemmonsterdamageamp"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemspiritconservation"
     }
   }
 }
