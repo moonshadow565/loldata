@@ -1,4 +1,4 @@
-BuffTextureName = "Sona_HymnofValorGold.dds"
+BuffTextureName = "Sona_Q_Gold.dds"
 BuffName = "SonaQProcAttacker"
 AutoBuffActivateEffect = "Sona_Base_Q_Buff.troy"
 AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Sona_Crescendo.dds"
+BuffTextureName = "Sona_R.dds"
 BuffName = "SonaR"
 AutoBuffActivateEffect2 = "LOC_Stun.troy"
 AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"

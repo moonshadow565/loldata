@@ -1,4 +1,4 @@
-BuffTextureName = "Sona_PowerChord.dds"
+BuffTextureName = "Sona_Passive.dds"
 BuffName = "SonaPassiveCount"
 PreLoadBuildingBlocks = {
   {

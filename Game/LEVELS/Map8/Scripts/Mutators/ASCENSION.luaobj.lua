@@ -1,10 +1,10 @@
 function ASCENSIONOnInit()
   PreloadCharacter("Xerath")
-  PreloadSpell("AscRandomRespawn")
+  PreloadSpell("AscRespawn")
   PreloadSpell("AscDefenseBuff")
   PreloadSpell("AscOffenseBuff")
   PreloadSpell("AscDebugEvent")
-  ApplyPersistentBuffToAllChampions("AscRandomRespawn", false)
+  ApplyPersistentBuffToAllChampions("AscRespawn", false)
   ApplyPersistentBuffToAllChampions("AscDefenseBuff", false)
   ApplyPersistentBuffToAllChampions("AscDebugEvent", false)
 end

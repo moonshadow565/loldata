@@ -1,2 +1,2 @@
-BuffTextureName = "Sona_PowerChordCharged.dds"
+BuffTextureName = "Sona_Passive_Charged.dds"
 BuffName = "SonaPassiveDebuff"

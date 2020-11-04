@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
+BuffTextureName = "Sona_W_Gold.dds"
 BuffName = "SonaWShield"
 SpellToggleSlot = 4
 SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
@@ -23,11 +23,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sonaariaofperserverancesound.troy"
-    }
   }
 }

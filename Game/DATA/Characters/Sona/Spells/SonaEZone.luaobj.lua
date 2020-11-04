@@ -1,4 +1,4 @@
-BuffTextureName = "Sona_SongofDiscord.dds"
+BuffTextureName = "Sona_E.dds"
 BuffName = "SonaEZone"
 AutoBuffActivateEffect = "Global_Haste.troy"
 SpellFXOverrideSkins = {"PaxSona"}
