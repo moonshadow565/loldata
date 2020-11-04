@@ -15,6 +15,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "drainchannel"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "fearmonger_marker"
     }
   },

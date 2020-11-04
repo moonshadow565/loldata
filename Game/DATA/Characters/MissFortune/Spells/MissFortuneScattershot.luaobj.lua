@@ -3,6 +3,9 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "MissFortuneSkin07"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

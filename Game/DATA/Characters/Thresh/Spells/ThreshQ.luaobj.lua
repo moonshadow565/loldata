@@ -14,6 +14,16 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "thresh_q_voice_special_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "thresh_q_whip_break_beam.troy"
     }
   },

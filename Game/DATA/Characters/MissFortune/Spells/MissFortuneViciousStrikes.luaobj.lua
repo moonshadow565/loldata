@@ -2,11 +2,26 @@ BuffTextureName = "MissFortune_ImpureShots.dds"
 BuffName = "MissFortuneViciousStrikes"
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "MissFortuneSkin07"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "MissFortune_Base_W_buf.troy"
+      Name = "missfortune_base_w_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "missfortune_base_w_buf_rweapon.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "missfortune_base_w_buf_lweapon.troy"
     }
   },
   {

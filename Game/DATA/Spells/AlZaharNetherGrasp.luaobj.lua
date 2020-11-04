@@ -7,7 +7,7 @@ ChannelDuration = 2.5
 BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGrasp"
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
-AutoBuffActivateAttachBoneName2 = "root"
+AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {

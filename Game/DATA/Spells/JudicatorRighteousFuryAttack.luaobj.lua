@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 SpellFXOverrideSkins = {
-  "MetalWingedJudicator"
+  "MetalWingedJudicator",
+  "KayleSkin07"
 }

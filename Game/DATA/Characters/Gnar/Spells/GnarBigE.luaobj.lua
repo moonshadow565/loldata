@@ -1,0 +1,43 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gnar_base_e_big_aoe.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gnarbigemarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gnarbig_base_e_land_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gnarbigiscasting"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gnartransform"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "gnarbige"}
+  }
+}
