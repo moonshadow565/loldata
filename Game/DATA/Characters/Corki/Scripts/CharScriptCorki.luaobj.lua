@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "corkideathparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rapidreload"
     }
   },
@@ -28,5 +22,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "corkimissilebarragenc"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "crashboom.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

@@ -5,8 +5,14 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Ezreal_EssenceFlux.dds"
 BuffName = "EzrealEssenceFluxBuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 SpellFXOverrideSkins = {
   "CyberEzreal"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_bow_yellow.troy"
+    }
+  }
 }

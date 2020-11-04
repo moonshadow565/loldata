@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "cantattack"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_bow_huge.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"

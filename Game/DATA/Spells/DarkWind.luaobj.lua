@@ -4,6 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Fiddlesticks_DarkWind.dds"
 BuffName = "Silence"
 AutoBuffActivateEffect = "LOC_Silence.troy"
+AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Silenced"
 ChainMissileParameters = {
   MaximumHits = {

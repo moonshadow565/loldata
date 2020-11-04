@@ -1,11 +1,15 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
+PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
-PopupMessage1 = "game_floatingtext_Snared"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_bow.troy"
+    }
+  }
+}
