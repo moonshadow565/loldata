@@ -70,11 +70,11 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        65,
-        110,
-        155,
-        200,
-        245
+        50,
+        90,
+        130,
+        170,
+        210
       }
     }
   },
@@ -97,7 +97,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "TotalDamage",
-      Src1Value = 0.3,
+      Src1Value = 0.5,
       Src2Value = 0,
       DestVar = "TotalDamage",
       MathOp = MO_MULTIPLY
@@ -134,7 +134,7 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -157,7 +157,7 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -193,10 +193,10 @@ OnBuffActivateBuildingBlocks = {
               Damage = 0,
               DamageVar = "DamageToDeal",
               DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }

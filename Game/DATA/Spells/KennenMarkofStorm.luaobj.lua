@@ -52,10 +52,11 @@ OnBuffActivateBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 12,
+          Duration = 8,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -186,7 +187,8 @@ OnBuffActivateBuildingBlocks = {
                   Duration = 7,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -261,7 +263,8 @@ OnBuffActivateBuildingBlocks = {
                   Duration = 7,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

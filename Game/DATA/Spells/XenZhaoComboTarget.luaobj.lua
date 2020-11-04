@@ -61,17 +61,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -131,11 +120,11 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           DestVar = "CooldownByLevel",
           SrcValueByLevel = {
-            12,
-            11,
             10,
-            9,
-            8
+            10,
+            10,
+            10,
+            10
           }
         }
       },
@@ -236,7 +225,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

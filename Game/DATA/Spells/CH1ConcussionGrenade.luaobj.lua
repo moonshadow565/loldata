@@ -48,21 +48,57 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellCast,
+    Function = BBIfHasBuff,
     Params = {
-      CasterVar = "Owner",
-      TargetVar = "Other2",
-      PosVar = "TargetPos",
-      EndPosVar = "TargetPos",
-      OverrideCastPosition = false,
-      SlotNumber = 0,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 0,
-      OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = false,
-      FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UpgradeBuff"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Other2",
+          PosVar = "TargetPos",
+          EndPosVar = "TargetPos",
+          OverrideCastPosition = false,
+          SlotNumber = 3,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = false,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Other2",
+          PosVar = "TargetPos",
+          EndPosVar = "TargetPos",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = false,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
     }
   },
   {
@@ -79,7 +115,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

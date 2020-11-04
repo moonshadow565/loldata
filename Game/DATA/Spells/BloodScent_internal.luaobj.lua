@@ -3,6 +3,7 @@ CastingBreaksStealth = false
 BuffTextureName = "20.dds"
 BuffName = "Blood Awareness"
 SpellToggleSlot = 3
+PersistsThroughDeath = true
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTime,
@@ -135,7 +136,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       },
                       {
@@ -166,7 +168,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }

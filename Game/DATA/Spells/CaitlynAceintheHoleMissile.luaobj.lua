@@ -1,4 +1,5 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
@@ -32,33 +33,48 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         250,
-        400,
-        550
+        475,
+        700
       }
     }
   },
   {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "totalDmg"}
+  },
+  {
     Function = BBGetStat,
     Params = {
-      Stat = GetFlatPhysicalDamageMod,
+      Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
-      DestVar = "PhysPreMod"
+      DestVar = "baseDmg"
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src2Var = "PhysPreMod",
+      Src1Var = "totalDmg",
+      Src2Var = "baseDmg",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusDmg",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "bonusDmg",
       Src1Value = 2,
       Src2Value = 0,
-      DestVar = "PhysPostMod",
+      DestVar = "PhysPreMod",
       MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "PhysPostMod",
+      Src1Var = "PhysPreMod",
       Src2Var = "BaseDamage",
       Src1Value = 0,
       Src2Value = 0,
@@ -75,7 +91,7 @@ TargetExecuteBuildingBlocks = {
       Damage = 0,
       DamageVar = "DamageToDeal",
       DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 0,
@@ -114,6 +130,52 @@ TargetExecuteBuildingBlocks = {
     Params = {
       MissileIDVar = "MissileNetworkID"
     }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "CaitlynAceInTheHole"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Target",
+          AttackerVar = "Attacker",
+          BuffName = "CaitlynAceInTheHole"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Owner",
+          Range = 25000,
+          Flags = "AffectEnemies AffectHeroes ",
+          IteratorVar = "Unit",
+          BuffNameFilter = "CaitlynAceintheHole",
+          InclusiveBuffFilter = true
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "CaitlynAceInTheHole"
+            }
+          }
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -127,6 +189,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "caitlynaceinthehole"
     }
   }
 }
