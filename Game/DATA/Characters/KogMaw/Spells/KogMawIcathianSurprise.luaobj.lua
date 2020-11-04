@@ -11,6 +11,9 @@ AutoBuffActivateEffect2 = "KogMawIcathianSurprise_splats.troy"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
+SpellVOOverrideSkins = {
+  "KogmawSkin08"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

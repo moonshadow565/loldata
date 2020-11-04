@@ -1,6 +1,7 @@
 NotSingleTargetSpell = false
 BuffTextureName = "Soraka_E.dds"
 BuffName = "Equinox"
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "SorakaSkin04"
@@ -12,10 +13,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sorakaepacify"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sorakae"}
   },
   {
     Function = BBPreloadSpell,

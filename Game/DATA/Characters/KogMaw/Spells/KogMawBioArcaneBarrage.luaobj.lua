@@ -12,3 +12,6 @@ AutoBuffActivateEffect3 = "KogMaw_Fossile_Eye_Glow.troy"
 AutoBuffActivateAttachBoneName3 = "Fossil_EyeL"
 AutoBuffActivateEffect4 = "KogMaw_Fossile_Eye_Glow.troy"
 AutoBuffActivateAttachBoneName4 = "Fossil_EyeR"
+SpellVOOverrideSkins = {
+  "KogmawSkin08"
+}

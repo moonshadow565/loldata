@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 BuffTextureName = "MonkeyKingCyclone.dds"
 BuffName = "MonkeyKingSpinToWin"
+SpellFXOverrideSkins = {
+  "MonkeyKingSkin04"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

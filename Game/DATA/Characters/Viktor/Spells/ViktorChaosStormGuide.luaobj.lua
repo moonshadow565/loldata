@@ -21,12 +21,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "viktorchaosstormhighlight"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "viktorchaosstormguide"
     }
   },

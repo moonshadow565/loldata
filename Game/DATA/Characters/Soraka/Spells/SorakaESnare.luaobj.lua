@@ -1,3 +1,6 @@
+BuffTextureName = "Soraka_E.dds"
+BuffName = "SorakaESnare"
+PopupMessage1 = "game_floatingtext_Rooted"
 SpellFXOverrideSkins = {
   "SorakaSkin04"
 }

@@ -1,3 +1,6 @@
+BuffTextureName = "Soraka_E.dds"
+BuffName = "SorakaEPacify"
+PopupMessage1 = "game_floatingtext_Silenced"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

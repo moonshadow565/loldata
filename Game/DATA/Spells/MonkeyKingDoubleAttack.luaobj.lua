@@ -8,6 +8,9 @@ AutoBuffActivateEffect2 = "monkey_king_crushingBlow_buf_self.troy"
 AutoBuffActivateAttachBoneName2 = "weapon_b_bend3"
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "MonkeyKingSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

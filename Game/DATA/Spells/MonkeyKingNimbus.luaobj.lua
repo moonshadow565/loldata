@@ -19,6 +19,9 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellFXOverrideSkins = {
+  "MonkeyKingSkin04"
+}
 SpellVOOverrideSkins = {
   "MonkeyKingSkin04"
 }
