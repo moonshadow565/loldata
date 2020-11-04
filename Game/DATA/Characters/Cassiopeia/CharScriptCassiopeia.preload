@@ -9,4 +9,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="cassiopeia_base_p_deadlycadenceceremony.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="cassiopeiapoisonticker3"}}, 
 {Function=BBPreloadSpell, Params={Name="cassiopeiapoisonticker4"}}, 
+{Function=BBPreloadParticle, Params={Name="cassiopeia_base_q_hit_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="cassiopeia_base_q_hit_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="cassnoxious_tar.troy"}}, 
 }
