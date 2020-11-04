@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="teleporthome_shortimproved.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="teleportarrive.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="recallends"}}, 
 }

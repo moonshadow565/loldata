@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="bardwactualhealing"}}, 
-{Function=BBPreloadParticle, Params={Name="bard_base_w_pack.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_w_pack_base.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_w_pack_charging.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_w_team_ring_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_w_pack_charged.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_w_pack_disappear.troy"}}, 
