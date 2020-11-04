@@ -19,5 +19,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sru_inhibitor_order_tower_beam_lvl3_minion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_inhibitor_order_tower_beam_lvl4_minion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_inhibitor_order_tower_beam_lvl5_minion.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="s5test_towerwrath"}}, 
 }

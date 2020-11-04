@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
-{Function=BBPreloadSpell, Params={Name="summonersnowball"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_summonersnowball_throw.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_summonersnowball_notrail.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ha_summonersnowball_throw.troy"}}, 

@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ashe_base_r_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="enchantedcrystalarrow"}}, 
+{Function=BBPreloadSpell, Params={Name="asheqcastready"}}, 
+{Function=BBPreloadSpell, Params={Name="asheq"}}, 
 }

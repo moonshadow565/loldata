@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="masteryrunicshield"}}, 
-{Function=BBPreloadSpell, Params={Name="masteryrunicshieldmanager"}}, 
-}
