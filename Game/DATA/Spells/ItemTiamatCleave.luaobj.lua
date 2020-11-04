@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tiamatmelee_itm_hydra_active.troy"
+      Name = "akali_mark_impact_tar.troy"
     }
   },
   {

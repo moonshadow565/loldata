@@ -8,9 +8,6 @@ AutoCooldownByLevel = {
   80,
   80
 }
-SpellFXOverrideSkins = {
-  "VarusAscended"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
