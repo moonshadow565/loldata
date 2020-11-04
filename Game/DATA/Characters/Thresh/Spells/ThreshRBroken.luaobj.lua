@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_Thresh_wallcrumble.troy"
+      Name = "temp_thresh_wallcrumble.troy"
     }
   },
   {

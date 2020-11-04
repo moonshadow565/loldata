@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "threshrbroken"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "thresh_r_wall_break.troy"
