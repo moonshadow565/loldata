@@ -1,13 +1,17 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Kassadin_ForcePulse.dds"
-BuffName = "ForcePulse"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "karmachakra"
+      Name = "karma_heavenlywave_self_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_heavenlywave_ally_heal.troy"
     }
   },
   {

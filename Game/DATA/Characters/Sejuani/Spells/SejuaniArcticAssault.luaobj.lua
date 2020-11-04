@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_arctic_assault_cas_04.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sejuaniarcticassault"
@@ -46,12 +40,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "sejuani_arcticassault_impact.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuaniarcticassaultbuff"
     }
   }
 }

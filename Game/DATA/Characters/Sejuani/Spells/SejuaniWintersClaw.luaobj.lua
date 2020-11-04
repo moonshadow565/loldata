@@ -23,18 +23,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuaniwintersclawbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuaniwintersclawdmg"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "sejuani_wintersclaw_cas.troy"

@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sejuani_GlacialPrison.dds"
 BuffName = "SejuaniGlacialPrison"
+AutoBuffActivateEffect = "Stun_glb.troy"
 AutoBuffActivateAttachBoneName = "BUFFBONE_GLB_GROUND_LOC"
 AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Stunned"
