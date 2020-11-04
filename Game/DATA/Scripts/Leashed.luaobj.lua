@@ -110,6 +110,7 @@ function OnTargetLost(A0_10, A1_11)
 end
 function TimerRetreat()
   SetTimerDelay("TimerFrustrationSearch", DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME)
+  StartTimer("TimerFrustrationSearch")
   FindNewTarget()
 end
 function AttackTarget(A0_14)
@@ -410,6 +411,8 @@ function TimerAttack()
   if L0_46 ~= L1_47 then
     L1_47 = AI_TAUNTED
   elseif L0_46 == L1_47 then
+    L1_47 = StartTimer
+    L1_47("TimerFrustrationSearch")
     L1_47 = GetTarget
     L1_47 = L1_47()
     if L1_47 ~= nil then
@@ -420,6 +423,9 @@ function TimerAttack()
       end
     else
       FindNewTarget()
+      if L1_47 == nil then
+        SetCharVar("WillBeFrustrated", 1.01)
+      end
     end
   end
 end
@@ -477,8 +483,10 @@ function StopLeashing()
   StopTimer("TimerAttack")
 end
 function StartLeashing()
-  ResetAndStartTimer("TimerFrustrationSearch")
-  ResetAndStartTimer("TimerAttack")
+  if GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
+    ResetAndStartTimer("TimerFrustrationSearch")
+    ResetAndStartTimer("TimerAttack")
+  end
 end
 function EnterStasis()
   local L1_53

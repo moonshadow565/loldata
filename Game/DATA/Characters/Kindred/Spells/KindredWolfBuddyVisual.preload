@@ -4,5 +4,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kindredwolf_base_i_trail_nonkindred.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kindredwolf_base_i_avatar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="kindredrecallreturnbuff"}}, 
 {Function=BBPreloadParticle, Params={Name="kindredwolf_skin01_recall_trail.troy"}}, 
 }

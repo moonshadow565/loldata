@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Tristana_ExplosiveShot.dds"
 BuffName = "Detonating Shot"
