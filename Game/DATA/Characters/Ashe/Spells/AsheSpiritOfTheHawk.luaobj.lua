@@ -4,3 +4,4 @@ IsDamagingSpell = true
 SpellDamageRatio = 0.5
 PersistsThroughDeath = true
 NonDispellable = true
+DoesntBreakShields = true

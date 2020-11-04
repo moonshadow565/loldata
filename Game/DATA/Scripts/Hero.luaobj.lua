@@ -129,15 +129,19 @@ function OnOrder(A0_0, A1_1, A2_2)
   if A0_0 == L4_4 then
     L4_4 = ClickCloseToTargetAttackMove
     if L4_4 then
-      L4_4 = FindTargetNearestPosition
-      L4_4 = L4_4(A2_2, ATTACKMOVE_CLICK_TARGET_DISTANCE)
-      newTarget = L4_4
-      L4_4 = newTarget
-      if L4_4 ~= nil then
-        L4_4 = GetPos
-        L4_4 = L4_4(newTarget)
-        if GetAttackRange() + ATTACKMOVE_CLICK_TARGET_RANGE_ADDITION < DistanceBetweenObjectBounds(me, newTarget) and IsDistanceBetweenObjectBoundAndPointLessThan(newTarget, A2_2, ATTACKMOVE_CLICK_TARGET_FAR_RANGE_CLICK_TOLERANCE) == false then
-          newTarget = nil
+      L4_4 = IsTargetedAttackMoveEnabled
+      L4_4 = L4_4()
+      if L4_4 then
+        L4_4 = FindTargetNearestPosition
+        L4_4 = L4_4(A2_2, ATTACKMOVE_CLICK_TARGET_DISTANCE)
+        newTarget = L4_4
+        L4_4 = newTarget
+        if L4_4 ~= nil then
+          L4_4 = GetPos
+          L4_4 = L4_4(newTarget)
+          if GetAttackRange() + ATTACKMOVE_CLICK_TARGET_RANGE_ADDITION < DistanceBetweenObjectBounds(me, newTarget) and IsDistanceBetweenObjectBoundAndPointLessThan(newTarget, A2_2, ATTACKMOVE_CLICK_TARGET_FAR_RANGE_CLICK_TOLERANCE) == false then
+            newTarget = nil
+          end
         end
       end
     else

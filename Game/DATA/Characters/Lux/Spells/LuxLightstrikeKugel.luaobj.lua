@@ -2,5 +2,6 @@ BuffTextureName = "LuxLightStrikeKugel.dds"
 BuffName = "LuxEEnd"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "SteelLegionLux"
+  "SteelLegionLux",
+  "LuxSkin06"
 }

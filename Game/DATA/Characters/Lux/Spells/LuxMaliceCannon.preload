@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonpartfix2"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonbeam"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonball"}}, 
-{Function=BBPreloadParticle, Params={Name="luxmalicecannon_steellegion_beammiddle.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="luxmalicecannon_beammiddle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lux_skin05_r_mis_beam_middle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lux_base_r_mis_beam_middle.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannon"}}, 
 }

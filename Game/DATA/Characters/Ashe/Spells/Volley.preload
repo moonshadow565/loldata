@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="volley"}}, 
-{Function=BBPreloadSpell, Params={Name="volleyattackwithsound"}}, 
 }

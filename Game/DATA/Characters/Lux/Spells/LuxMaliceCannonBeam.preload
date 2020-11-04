@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="luxmalicecannon_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lux_base_r_mis_beam.troy"}}, 
 }

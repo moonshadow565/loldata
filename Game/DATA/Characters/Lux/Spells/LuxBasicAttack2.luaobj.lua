@@ -1,3 +1,4 @@
 SpellFXOverrideSkins = {
-  "SteelLegionLux"
+  "SteelLegionLux",
+  "LuxSkin06"
 }

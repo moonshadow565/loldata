@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="asheqbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="asheqattack"}}, 
+{Function=BBPreloadSpell, Params={Name="asheqcastready"}}, 
+}
