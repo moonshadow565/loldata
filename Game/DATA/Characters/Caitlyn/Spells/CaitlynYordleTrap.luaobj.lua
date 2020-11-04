@@ -4,30 +4,30 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
-AutoBuffActivateEffect2 = "caitlyn_yordleTrap_set.troy"
+AutoBuffActivateEffect2 = "caitlyn_Base_yordleTrap_set.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_yordletrap_idle_green.troy"
+      Name = "caitlyn_base_yordletrap_idle_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_yordletrap_idle_red.troy"
+      Name = "caitlyn_base_yordletrap_idle_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_yordletrap_trigger_sound.troy"
+      Name = "caitlyn_base_yordletrap_trigger_sound.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_yordletrap_trigger_02.troy"
+      Name = "caitlyn_base_yordletrap_trigger_02.troy"
     }
   },
   {

@@ -26,13 +26,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_w_heal.troy"
+      Name = "Nami_Base_W_heal.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_w_tar_ally.troy"
+      Name = "Nami_Base_W_tar_ally.troy"
     }
   },
   {

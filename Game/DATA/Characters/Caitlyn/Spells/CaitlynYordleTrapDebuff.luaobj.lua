@@ -5,5 +5,5 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
 BuffName = "CaitlynYordleTrap"
-AutoBuffActivateEffect = "caitlyn_yordleTrap_impact_debuf.troy"
+AutoBuffActivateEffect = "caitlyn_Base_yordleTrap_impact_debuf.troy"
 PopupMessage1 = "game_floatingtext_Snared"

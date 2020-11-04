@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemtwinshadowscdr"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightbringer"
+    }
   }
 }

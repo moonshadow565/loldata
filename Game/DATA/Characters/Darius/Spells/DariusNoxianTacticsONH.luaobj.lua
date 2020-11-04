@@ -11,7 +11,8 @@ AutoBuffActivateEffect4 = "darius_Base_W_weapon_04.troy"
 AutoBuffActivateAttachBoneName4 = "BUFFBONE_CSTM_WEAPON_9"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Darius_ZaunKnight"
+  "Darius_ZaunKnight",
+  "DariusSkin04"
 }
 PreLoadBuildingBlocks = {
   {

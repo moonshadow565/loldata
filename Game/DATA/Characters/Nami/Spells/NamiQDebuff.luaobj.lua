@@ -1,7 +1,5 @@
 BuffTextureName = "NamiQ.dds"
 BuffName = "NamiQtt"
-AutoBuffActivateEffect = "Nami_Q_debuff.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 AutoBuffActivateEffect2 = "LOC_Stun.troy"
 AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_CENTER_LOC"
 PopupMessage1 = "game_floatingtext_Stunned"
@@ -16,7 +14,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_q_pop.troy"
+      Name = "Nami_Base_Q_pop.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_base_q_debuff.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nami_base_q_pop.troy"
     }
   },
   {

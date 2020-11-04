@@ -1,3 +1,3 @@
 BuffTextureName = "NamiPassive.dds"
 BuffName = "NamiPassivett"
-AutoBuffActivateEffect = "Nami_Passive_buf.troy"
+AutoBuffActivateEffect = "Nami_Base_P_buf.troy"

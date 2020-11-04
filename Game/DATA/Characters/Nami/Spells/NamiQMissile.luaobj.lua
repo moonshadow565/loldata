@@ -13,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_q_tar.troy"
+      Name = "nami_base_q_tar.troy"
     }
   },
   {
@@ -31,13 +31,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_koi_q_tar_ground.troy"
+      Name = "nami_skin01_q_aoe_ground.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_q_tar_ground.troy"
+      Name = "nami_base_q_aoe_ground.troy"
     }
   }
 }

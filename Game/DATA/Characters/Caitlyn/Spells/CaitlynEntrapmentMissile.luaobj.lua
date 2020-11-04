@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = ""
 BuffName = ""
-AutoBuffActivateEffect = "caitlyn_entrapment_slow.troy"
+AutoBuffActivateEffect = "caitlyn_Base_entrapment_slow.troy"
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
@@ -13,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_entrapment_tar.troy"
+      Name = "caitlyn_Base_entrapment_tar.troy"
     }
   }
 }

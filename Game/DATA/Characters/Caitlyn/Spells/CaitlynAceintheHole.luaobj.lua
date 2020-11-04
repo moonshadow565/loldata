@@ -9,13 +9,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_ace_target_indicator.troy"
+      Name = "caitlyn_Base_ace_Target_indicator.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_ace_target_indicator_02.troy"
+      Name = "caitlyn_Base_ace_Target_indicator_02.troy"
     }
   },
   {
@@ -33,7 +33,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_laser_beam_01.troy"
+      Name = "caitlyn_Base_laser_beam_01.troy"
     }
   },
   {
