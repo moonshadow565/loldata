@@ -3,9 +3,10 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffName = "XerathArcaneBarrage2"
-IsDeathRecapSource = true
-SpellFXOverrideSkins = {
-  "IronForgeXerath",
-  "XerathSkin04"
+AutoCooldownByLevel = {
+  24,
+  22,
+  20,
+  18,
+  16
 }

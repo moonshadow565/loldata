@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="xerathqanimations"}}, 
 {Function=BBPreloadSpell, Params={Name="xerathqlaunchsound"}}, 
+{Function=BBPreloadSpell, Params={Name="xerathqlaunchmovespeedreduction"}}, 
 {Function=BBPreloadSpell, Params={Name="xeratharcanopulsechargeup"}}, 
 {Function=BBPreloadSpell, Params={Name="xerathqvfx"}}, 
 {Function=BBPreloadSpell, Params={Name="xeratharcanopulse2"}}, 
