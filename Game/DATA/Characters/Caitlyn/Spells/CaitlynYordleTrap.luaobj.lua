@@ -9,25 +9,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_Base_yordleTrap_idle_green.troy"
+      Name = "caitlyn_base_yordletrap_idle_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_Base_yordleTrap_idle_red.troy"
+      Name = "caitlyn_base_yordletrap_idle_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_Base_yordleTrap_trigger_sound.troy"
+      Name = "caitlyn_base_yordletrap_trigger_sound.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_Base_yordleTrap_trigger_02.troy"
+      Name = "caitlyn_base_yordletrap_trigger_02.troy"
     }
   },
   {
