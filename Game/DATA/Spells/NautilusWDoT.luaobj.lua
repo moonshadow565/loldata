@@ -22,6 +22,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nautilus_w_dmg_indicator_astro.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nautilus_w_dmg_indicator_base.troy"
     }
   }

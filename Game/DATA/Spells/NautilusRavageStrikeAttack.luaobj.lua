@@ -1,9 +1,18 @@
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "NautilusAstronaut"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "nautiluspassivecheck"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_astro_passive_impact.troy"
     }
   },
   {
@@ -16,6 +25,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "nautiluspassiveroot"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nautilus_astro_w_aoe_dot_impact.troy"
     }
   },
   {

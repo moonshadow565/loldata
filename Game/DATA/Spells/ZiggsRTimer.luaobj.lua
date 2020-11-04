@@ -5,6 +5,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "ziggsr_flames_green_team_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsr_flames_red_team_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "ziggsr_flames_green_team.troy"
     }
   },

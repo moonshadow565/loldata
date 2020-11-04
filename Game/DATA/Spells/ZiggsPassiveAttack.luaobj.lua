@@ -8,7 +8,8 @@ BuffName = "ZiggsPassiveBuff"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "ZiggsMadScientist"
+  "ZiggsMadScientist",
+  "ZiggsPoolParty"
 }
 PreLoadBuildingBlocks = {
   {

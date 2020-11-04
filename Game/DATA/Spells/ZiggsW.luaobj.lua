@@ -1,13 +1,20 @@
 BuffTextureName = "ZiggsW.dds"
 BuffName = "ZiggsW"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {
+  "ZiggsPoolParty"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "ziggswtoggle"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsw_mis_ground_pool.troy"
     }
   },
   {
@@ -61,6 +68,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "ziggsw"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsw_tar_pool.troy"
+    }
   },
   {
     Function = BBPreloadParticle,

@@ -4,10 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "ZiggsE.dds"
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
@@ -24,6 +20,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ziggsesubsequent"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsemine_pool.troy"
     }
   },
   {
@@ -48,6 +50,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggse_mis_small_general.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggse_mis_small_pool.troy"
     }
   },
   {

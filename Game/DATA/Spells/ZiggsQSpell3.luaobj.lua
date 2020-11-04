@@ -1,7 +1,14 @@
 SpellFXOverrideSkins = {
-  "ZiggsMadScientist"
+  "ZiggsMadScientist",
+  "ZiggsPoolParty"
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsq_tar_pool.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -12,6 +19,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggsqexplosion_scientist.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsqexplosion_pool.troy"
     }
   },
   {
