@@ -354,6 +354,17 @@ function HaltAI()
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   NetSetState(AI_HALTED)
 end
+function StopLeashing()
+  OutOfCombatRegen:Stop()
+  SetLeashCounter(0)
+  StopTimer("TimerRetreat")
+  StopTimer("TimerAttack")
+end
+function StartLeashing()
+  SetLeashCounter(0)
+  ResetAndStartTimer("TimerRetreat")
+  ResetAndStartTimer("TimerAttack")
+end
 function EnterStasis()
   local L1_29
   L1_29 = true

@@ -8,5 +8,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="swain_metamorph_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="swainbeamtransition"}}, 
 {Function=BBPreloadParticle, Params={Name="swain_grand_metamorh_human.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="swainmetamorphism"}}, 
 }

@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="internal_40slow"}}, 
 {Function=BBPreloadSpell, Params={Name="itemslow"}}, 
 {Function=BBPreloadSpell, Params={Name="rylaivisualslow"}}, 
-{Function=BBPreloadSpell, Params={Name="rylaivisualslowaoe"}}, 
 {Function=BBPreloadSpell, Params={Name="internal_20slow"}}, 
+{Function=BBPreloadSpell, Params={Name="rylaivisualslowaoe"}}, 
 {Function=BBPreloadSpell, Params={Name="rylaivisualslowdot"}}, 
 }

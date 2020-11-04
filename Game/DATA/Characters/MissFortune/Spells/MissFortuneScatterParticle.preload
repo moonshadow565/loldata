@@ -1,5 +1,9 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit_water_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit_dirt_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit_both_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit_water.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit_dirt.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="missfortune_base_e_hit.troy"}}, 
 }

@@ -24,4 +24,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistarchannelandcastmanager"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_q_mis_precast.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistamysticshot"}}, 
+{Function=BBPreloadSpell, Params={Name="kalistaqqueued"}}, 
 }

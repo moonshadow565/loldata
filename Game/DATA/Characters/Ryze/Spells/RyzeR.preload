@@ -8,6 +8,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_avatar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_scroll.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_skin07_r_glow.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzerq"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzerw"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzere"}}, 

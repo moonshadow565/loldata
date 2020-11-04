@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="gangplank_base_e_timer4.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_e_timer3.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_e_timer2.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankebarreldecaysound"}}, 
+}

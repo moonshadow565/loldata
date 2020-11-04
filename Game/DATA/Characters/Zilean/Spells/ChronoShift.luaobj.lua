@@ -1,5 +1,4 @@
 BuffTextureName = "Zilean_R.dds"
-BuffName = "Chrono Shift"
 AutoCooldownByLevel = {
   160,
   140,

@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="nocturnepassiveready.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturnepassivecooldownmarker"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneumbrabladesattack"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturnepassivecooldown"}}, 

@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="missfortunescattershotslow"}}, 
-{Function=BBPreloadSpell, Params={Name="missfortunescattershot"}}, 
+{Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar_large.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_e_unit_tar.troy"}}, 
 }

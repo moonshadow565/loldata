@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="malphite_base_enrage_glow.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_enrage_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_skin06_enrage_glow.troy"}}, 
 }

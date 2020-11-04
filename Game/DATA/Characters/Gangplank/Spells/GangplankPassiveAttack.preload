@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="gangplank_base_p_buf.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankpassiveattackcd"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankpassiveattackdot"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankpassivevokill"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_p_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankpassivehaste"}}, 
+}

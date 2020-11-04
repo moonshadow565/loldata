@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="gangplank_base_e_detonate.troy"}}, 
+}

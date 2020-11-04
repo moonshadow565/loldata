@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="isninja"}}, 
 {Function=BBPreloadSpell, Params={Name="zedmarker"}}, 
 {Function=BBPreloadSpell, Params={Name="zedpassivetooltip"}}, 
+{Function=BBPreloadSpell, Params={Name="zedshurikenmistwo"}}, 
 {Function=BBPreloadSpell, Params={Name="zedultbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="zedult"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_ultsink.troy"}}, 

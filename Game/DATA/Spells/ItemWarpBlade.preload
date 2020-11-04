@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="item_mirage_blade_disappear.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_mirage_blade_appear.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_mirage_blade_marker.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_watched.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bilgewatermercenary13indicatorring.troy"}}, 
+}

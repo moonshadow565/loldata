@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_aoe_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_aoe_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_point_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_point_red.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankrwaveimpactsound"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankrslow"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_fire_sound_order.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_fire_sound_chaos.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+}

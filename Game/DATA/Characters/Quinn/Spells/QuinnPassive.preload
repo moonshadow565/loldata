@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="quinnwpassive"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnwrecentattack"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_base_respawn.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnmissileinflight"}}, 
