@@ -7,7 +7,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandblaze_hotfoot_zombie.troy"
+      Name = "tt_blackfiretorch.troy"
     }
   }
 }

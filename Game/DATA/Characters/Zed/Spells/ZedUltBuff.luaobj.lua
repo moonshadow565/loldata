@@ -1,5 +1,5 @@
 BuffTextureName = "shadowninja_R2.dds"
-BuffName = "ZedUltBuff"
+BuffName = "ZedRHandler"
 SpellToggleSlot = 4
 PreLoadBuildingBlocks = {
   {
