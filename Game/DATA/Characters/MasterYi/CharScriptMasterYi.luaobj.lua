@@ -6,19 +6,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "doublestrikestacks"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "doublestrike"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "doublestrikeicon"
+      Name = "alphastrike"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "alphastrike"
+      Name = "masteryipassive"
     }
   },
   {
@@ -31,6 +37,30 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "masteryiwujudeactivated"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalruncyclemanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masteryiblademanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masteryitauntmanager"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "masteryi_base_r_onbuffkill.troy"
     }
   }
 }

@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "soraka_infuse_ally_tar.troy"
+      Name = "athenesunholygrail_manarestore_tar.troy"
     }
   }
 }

@@ -6,7 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "OriannaCommandRedact.dds"
 BuffName = "OrianaRedactShield"
 AutoBuffActivateEffect = "OrianaProtectShield.troy"
-AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
 PreLoadBuildingBlocks = {

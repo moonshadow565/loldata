@@ -1,2 +1,2 @@
-BuffTextureName = "DoubleStrike_Counter.dds"
-BuffName = "DoubleStrikeCharge"
+BuffTextureName = "MasterYi_Passive1.dds"
+BuffName = "DoubleStrikeReady"

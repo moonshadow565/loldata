@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_r_buf.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "nasusult"}
   },
@@ -26,6 +32,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nassus_godofdeath_transform.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deathingodofdeath"
     }
   }
 }

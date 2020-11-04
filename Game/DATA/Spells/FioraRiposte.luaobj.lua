@@ -8,8 +8,6 @@ AutoBuffActivateEffect2 = "Fiora_Parry_buf2.troy"
 AutoBuffActivateAttachBoneName2 = "Sword_b"
 AutoBuffActivateEffect3 = "Fiora_Parry_buf3.troy"
 AutoBuffActivateAttachBoneName3 = "C_BUFFBONE_GLB_CENTER_LOC"
-AutoBuffActivateEffect4 = ""
-AutoBuffActivateAttachBoneName4 = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {

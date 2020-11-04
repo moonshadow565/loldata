@@ -11,12 +11,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_thresh_wzonearms.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "hecarim_q_tar.troy"
     }
   },
