@@ -16,9 +16,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "chilled"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "flashfrost"}
   }
 }

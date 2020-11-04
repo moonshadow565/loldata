@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Irelia_Bladesurge.dds"
 BuffName = "IreliaGatotsu"
-AutoBuffActivateEffect = ""
 ChainMissileParameters = {
   MaximumHits = {
     10,
