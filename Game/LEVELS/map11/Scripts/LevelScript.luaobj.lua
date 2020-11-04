@@ -20,7 +20,7 @@ INCREASE_CANNON_RATE_TIMER2 = 2100
 MINION_HEALTH_DENIAL_PERCENT = 0
 UPGRADE_MINION_TIMER = 90
 UPGRADE_MINION_ITERATIONS_FOR_LATE_SCALING = 6
-TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION = 0
+TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION = 3
 EXP_GIVEN_RADIUS = 1400
 GOLD_GIVEN_RADIUS = 1250
 DISABLE_MINION_SPAWN_BASE_TIME = 300
@@ -48,7 +48,7 @@ MeleeDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 13,
   HPUpgradeGrowth = 0.2,
-  HPUpgradeLate = 6,
+  HPUpgradeLate = TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION * 2,
   HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
@@ -77,7 +77,7 @@ CasterDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 10,
   HPUpgradeGrowth = 0.2,
-  HPUpgradeLate = 3,
+  HPUpgradeLate = TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION * 1,
   HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
@@ -106,7 +106,7 @@ CannonDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 23,
   HPUpgradeGrowth = 0.3,
-  HPUpgradeLate = 9,
+  HPUpgradeLate = TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION * 3,
   HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
@@ -1029,16 +1029,16 @@ function HandleDestroyedObject(A0_143)
 end
 function SetLaneExposed(A0_147, A1_148, A2_149)
   if A0_147 == TEAM_ORDER then
-    if A1_148 == RIGHT_LANE then
+    if A1_148 == LEFT_LANE then
       SetWorldVar("OrderTopLaneExposed", A2_149)
-    elseif A1_148 == LEFT_LANE then
+    elseif A1_148 == RIGHT_LANE then
       SetWorldVar("OrderBotLaneExposed", A2_149)
     else
       SetWorldVar("OrderMidLaneExposed", A2_149)
     end
-  elseif A1_148 == RIGHT_LANE then
-    SetWorldVar("ChaosTopLaneExposed", A2_149)
   elseif A1_148 == LEFT_LANE then
+    SetWorldVar("ChaosTopLaneExposed", A2_149)
+  elseif A1_148 == RIGHT_LANE then
     SetWorldVar("ChaosBotLaneExposed", A2_149)
   else
     SetWorldVar("ChaosMidLaneExposed", A2_149)
@@ -1046,16 +1046,16 @@ function SetLaneExposed(A0_147, A1_148, A2_149)
 end
 function SetLaneTowerCount(A0_150, A1_151, A2_152)
   if A0_150 == TEAM_ORDER then
-    if A1_151 == RIGHT_LANE then
+    if A1_151 == LEFT_LANE then
       SetWorldVar("OrderTopLaneTowerCount", A2_152)
-    elseif A1_151 == LEFT_LANE then
+    elseif A1_151 == RIGHT_LANE then
       SetWorldVar("OrderBotLaneTowerCount", A2_152)
     else
       SetWorldVar("OrderMidLaneTowerCount", A2_152)
     end
-  elseif A1_151 == RIGHT_LANE then
-    SetWorldVar("ChaosTopLaneTowerCount", A2_152)
   elseif A1_151 == LEFT_LANE then
+    SetWorldVar("ChaosTopLaneTowerCount", A2_152)
+  elseif A1_151 == RIGHT_LANE then
     SetWorldVar("ChaosBotLaneTowerCount", A2_152)
   else
     SetWorldVar("ChaosMidLaneTowerCount", A2_152)

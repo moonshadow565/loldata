@@ -6,5 +6,7 @@ BuffName = "Dark Binding"
 AutoBuffActivateEffect = "DarkBinding_tar.troy"
 PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
-  "KogMawSkin08"
+  "KogMawSkin08",
+  "BadSantaVeigar",
+  "VeigarSkin08"
 }
