@@ -9,5 +9,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nidalee_bushwhack_trigger_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nidaleepassivemonsterroot"}}, 
 {Function=BBPreloadSpell, Params={Name="noxious trap"}}, 
-{Function=BBPreloadCharacter, Params={Name="nidalee_spear"}}, 
+{Function=BBPreloadCharacter, Params={Name="nidaleespear"}}, 
 }

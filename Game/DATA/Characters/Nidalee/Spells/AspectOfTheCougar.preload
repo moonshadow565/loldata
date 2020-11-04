@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadCharacter, Params={Name="nidalee_cougar"}}, 
+{Function=BBPreloadCharacter, Params={Name="nidaleecougar"}}, 
 {Function=BBPreloadParticle, Params={Name="nidalee_base_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="aspectofthehuntress"}}, 
 {Function=BBPreloadSpell, Params={Name="aspectofthecougar"}}, 
