@@ -23,7 +23,6 @@ ChainMissileParameters = {
   CanHitSameTarget = 1,
   CanHitSameTargetConsecutively = 0
 }
-TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -184,7 +183,7 @@ TargetExecuteBuildingBlocks = {
               Damage = 0,
               DamageVar = "Damage",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.33,
               IgnoreDamageIncreaseMods = false,

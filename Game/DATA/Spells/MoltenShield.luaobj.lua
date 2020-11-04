@@ -83,9 +83,11 @@ BuffOnTakeDamageBuildingBlocks = {
                   DamageVar = "DamageReturn",
                   DamageVarTable = "InstanceVars",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_REACTIVE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2
+                  SpellDamageRatio = 0.2,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }

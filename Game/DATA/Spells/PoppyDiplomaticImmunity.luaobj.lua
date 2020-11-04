@@ -35,8 +35,28 @@ BuffOnAllowAddBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
+            Function = BBIf,
+            Params = {
+              Src1Var = "Type",
+              Value2 = BUFF_CombatEnchancer,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSetReturnValue,
+                Params = {SrcValue = true}
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSetReturnValue,
+                Params = {SrcValue = false}
+              }
+            }
           }
         }
       }
@@ -281,7 +301,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {

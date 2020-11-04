@@ -14,13 +14,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       Delta = -150
     }
-  },
-  {
-    Function = BBDebugSay,
-    Params = {
-      OwnerVar = "Owner",
-      ToSay = "Backdoor Bonus Activated"
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {

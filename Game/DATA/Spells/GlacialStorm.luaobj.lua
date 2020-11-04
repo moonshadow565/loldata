@@ -234,7 +234,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Multiplier",
-      Src1Value = 10,
+      Src1Value = 6,
       Src2Value = 0,
       DestVar = "NewCooldown",
       MathOp = MO_MULTIPLY
@@ -420,7 +420,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageVar = "DamagePerLevel",
               DamageVarTable = "InstanceVars",
               DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PERIODIC,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.125,
               IgnoreDamageIncreaseMods = false,
@@ -536,9 +536,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            25,
             35,
-            45
+            50,
+            65
           }
         }
       },

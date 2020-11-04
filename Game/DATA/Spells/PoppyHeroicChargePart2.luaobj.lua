@@ -1,3 +1,4 @@
+BuffTextureName = "Poppy_HeroicCharge.dds"
 AutoBuffActivateEffect = "HeroicCharge_cas2.troy"
 OnBuffActivateBuildingBlocks = {
   {
@@ -93,7 +94,8 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 0,
       MoveBackBy = 0,
       MovementType = FIRST_COLLISION_HIT,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
     }
   },
   {
@@ -153,7 +155,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "DistanceVar",
-      Value2 = 100,
+      Value2 = 75,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     }
   },
@@ -220,6 +222,10 @@ BuffOnMoveEndBuildingBlocks = {
             }
           },
           {
+            Function = BBElse,
+            Params = {}
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
@@ -228,7 +234,7 @@ BuffOnMoveEndBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

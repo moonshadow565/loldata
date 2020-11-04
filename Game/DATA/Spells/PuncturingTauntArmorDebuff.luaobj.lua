@@ -14,6 +14,16 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "Taunt"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -24,5 +34,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "taunt"}
   }
 }

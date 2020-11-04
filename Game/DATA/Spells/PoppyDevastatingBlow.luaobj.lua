@@ -270,10 +270,10 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         20,
+        40,
         60,
-        100,
-        140,
-        180
+        80,
+        100
       }
     }
   },
@@ -285,7 +285,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

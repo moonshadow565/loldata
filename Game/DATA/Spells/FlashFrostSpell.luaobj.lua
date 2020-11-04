@@ -23,7 +23,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.5
+      SpellDamageRatio = 0.5,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

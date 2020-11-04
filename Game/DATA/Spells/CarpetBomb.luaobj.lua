@@ -54,14 +54,44 @@ OnBuffActivateBuildingBlocks = {
       SpeedVar = "SlashSpeed",
       SpeedVarTable = "InstanceVars",
       Gravity = 0,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "corki_valkrie_speed.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "root",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "Spell2", TargetVar = "Owner"}
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBIf,
@@ -234,56 +264,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Damage,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillMove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "corki_valkrie_speed.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "root",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillMove",
-          DestVarTable = "InstanceVars",
-          SrcValue = false
         }
       }
     }
@@ -512,7 +496,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
@@ -528,7 +512,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
@@ -536,15 +520,13 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "dangerzone"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -554,6 +536,14 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "dangerzone"}
   },
   {
     Function = BBPreloadSpell,

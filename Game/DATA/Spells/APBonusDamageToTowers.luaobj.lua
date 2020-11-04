@@ -31,7 +31,7 @@ OnBuffActivateBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 3
@@ -67,7 +67,7 @@ OnBuffActivateBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 3
@@ -94,7 +94,7 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {
           Src1Var = "AbilityPower",
           Src1Value = 0,
-          Src2Value = 4,
+          Src2Value = 2.5,
           DestVar = "DamageToAdd",
           MathOp = MO_DIVIDE
         }
@@ -108,6 +108,47 @@ BuffOnHitUnitBuildingBlocks = {
           Src2Value = 0,
           DestVar = "DamageAmount",
           MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_AI},
+        SubBlocks = {
+          {
+            Function = BBGetStat,
+            Params = {
+              Stat = GetFlatMagicDamageMod,
+              TargetVar = "Owner",
+              DestVar = "AbilityPower"
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "AbilityPower",
+              Src1Value = 0,
+              Src2Value = 2.5,
+              DestVar = "DamageToAdd",
+              MathOp = MO_DIVIDE
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageToAdd",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_ADD
+            }
+          }
         }
       }
     }

@@ -1,5 +1,6 @@
 BuffTextureName = "Averdrian_AstralBeam.dds"
 BuffName = "Exalted with Baron Nashor"
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,

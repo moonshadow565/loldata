@@ -5,22 +5,6 @@ BuffName = "Elixer of Fortitude"
 AutoBuffActivateEffect = "PotionofGiantStrength_itm.troy"
 PersistsThroughDeath = true
 NonDispellable = true
-TargetExecuteBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 240,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetLevel,
@@ -93,6 +77,22 @@ OnBuffDeactivateBuildingBlocks = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
       Delta = -20
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 240,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }

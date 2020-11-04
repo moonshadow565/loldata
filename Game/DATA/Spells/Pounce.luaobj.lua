@@ -26,14 +26,29 @@ OnBuffActivateBuildingBlocks = {
       UnitVar = "Target",
       TargetVar = "Pos",
       Speed = 900,
-      Gravity = 30,
+      Gravity = 15,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = POSTPONE_CURRENT_ORDER
+      MovementOrdersType = POSTPONE_CURRENT_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetPointByUnitFacingOffset,
@@ -60,7 +75,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -153,7 +168,7 @@ BuffOnMoveEndBuildingBlocks = {
           DamageVar = "PounceDamage",
           DamageVarTable = "CharVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.4,
           IgnoreDamageIncreaseMods = false,

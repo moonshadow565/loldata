@@ -30,9 +30,11 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageVar = "DamagePerTick",
           DamageVarTable = "InstanceVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_PERIODIC,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.3
+          SpellDamageRatio = 0.3,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }

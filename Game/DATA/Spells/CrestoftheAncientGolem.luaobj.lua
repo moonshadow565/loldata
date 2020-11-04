@@ -1,6 +1,7 @@
 BuffTextureName = "48thSlave_Tattoo.dds"
 BuffName = "CrestoftheAncientGolem"
 AutoBuffActivateEffect = ""
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -178,6 +179,59 @@ BuffOnDeathBuildingBlocks = {
         Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "NewDuration",
+              SrcValue = 150
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "MonsterBuffs"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "NewDuration",
+                  Src1Value = 1.15,
+                  Src2Value = 0,
+                  DestVar = "NewDuration",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "MonsterBuffs2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.3,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Attacker",
@@ -185,9 +239,10 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 150,
+              NumberOfStacks = 1,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "NewDuration",
               TickRate = 0
             }
           }
@@ -201,6 +256,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "neutralmonster_buf_blue_defense.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs2"
     }
   }
 }

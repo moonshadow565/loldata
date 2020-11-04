@@ -33,7 +33,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatAttackRangeMod,
       TargetVar = "Owner",
-      Delta = 525
+      Delta = 375
     }
   },
   {
@@ -79,7 +79,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

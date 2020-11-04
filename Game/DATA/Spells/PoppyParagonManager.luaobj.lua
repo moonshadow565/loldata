@@ -12,7 +12,7 @@ BuffOnHitUnitBuildingBlocks = {
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
       MaxStack = 10,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -27,7 +27,7 @@ BuffOnHitUnitBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -58,7 +58,7 @@ BuffOnHitUnitBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -117,7 +117,7 @@ BuffOnBeingHitBuildingBlocks = {
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
       MaxStack = 10,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -132,7 +132,7 @@ BuffOnBeingHitBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -163,7 +163,7 @@ BuffOnBeingHitBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -217,6 +217,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "poppyparagonstats"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "poppyparagonicon"
     }
   },
   {

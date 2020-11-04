@@ -1,4 +1,4 @@
-BuffTextureName = "Voidwalker_Netherburn.dds"
+BuffTextureName = "Kassadin_VoidStone.dds"
 BuffName = "VoidStone"
 PersistsThroughDeath = true
 Nondispellable = true

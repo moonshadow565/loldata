@@ -1,4 +1,4 @@
-BuffTextureName = "Averdrian_ConsumeSpirit.dds"
+BuffTextureName = "Kassadin_ForcePulse.dds"
 BuffName = "ForcePulse"
 OnBuffActivateBuildingBlocks = {
   {

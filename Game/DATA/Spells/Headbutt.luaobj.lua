@@ -42,25 +42,6 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Value2 = 650,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "Spell2",
-              ScaleTime = 1,
-              TargetVar = "Owner",
-              Loop = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Distance",
           Value2 = 175,
           CompareOp = CO_LESS_THAN_OR_EQUAL
         },
@@ -110,7 +91,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Stun,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -156,7 +137,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -169,7 +150,19 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       Speed = 1500,
       Gravity = 2,
-      MoveBackBy = 150
+      MoveBackBy = 150,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Attacker",
+      Loop = false
     }
   }
 }

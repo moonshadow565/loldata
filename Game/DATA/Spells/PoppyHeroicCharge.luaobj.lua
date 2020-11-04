@@ -72,7 +72,8 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 0,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
     }
   },
   {
@@ -90,6 +91,15 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "RunUlt",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   }
 }
@@ -116,15 +126,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "RunUlt",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
-        }
-      },
       {
         Function = BBSetVarInTable,
         Params = {
@@ -263,9 +264,9 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
@@ -281,7 +282,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -298,7 +299,7 @@ BuffOnMoveEndBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -363,6 +364,10 @@ BuffOnMoveEndBuildingBlocks = {
             }
           },
           {
+            Function = BBUnlockAnimation,
+            Params = {OwnerVar = "Owner"}
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
@@ -371,7 +376,7 @@ BuffOnMoveEndBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -383,15 +388,6 @@ BuffOnMoveEndBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "Spell4",
-              ScaleTime = 0,
-              TargetVar = "Owner",
-              Loop = false
-            }
-          },
           {
             Function = BBSpellEffectCreate,
             Params = {
@@ -451,6 +447,14 @@ BuffOnMoveEndBuildingBlocks = {
                         }
                       },
                       {
+                        Function = BBApplySilence,
+                        Params = {
+                          AttackerVar = "Owner",
+                          TargetVar = "Unit",
+                          Duration = 0.01
+                        }
+                      },
+                      {
                         Function = BBGetPointByUnitFacingOffset,
                         Params = {
                           UnitVar = "Owner",
@@ -494,7 +498,7 @@ BuffOnMoveEndBuildingBlocks = {
                           BuffAddType = BUFF_REPLACE_EXISTING,
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -507,9 +511,9 @@ BuffOnMoveEndBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "PoppyHeroicChargePart2",
                           BuffAddType = BUFF_REPLACE_EXISTING,
-                          BuffType = BUFF_Internal,
+                          BuffType = BUFF_Stun,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -530,7 +534,7 @@ BuffOnMoveEndBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

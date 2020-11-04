@@ -9,9 +9,9 @@ SetVarsByLevelBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "RallyMagicDamageMod",
+      DestVar = "RallyAPMod",
       DestVarTable = "AvatarVars",
-      SrcValue = 0.2
+      SrcValue = 70
     }
   },
   {
@@ -20,14 +20,6 @@ SetVarsByLevelBuildingBlocks = {
       DestVar = "RallyDurationBonus",
       DestVarTable = "AvatarVars",
       SrcValueByLevel = {5, 10}
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "RallyArmorBonus",
-      DestVarTable = "AvatarVars",
-      SrcValueByLevel = {10, 20}
     }
   }
 }

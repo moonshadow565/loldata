@@ -16,6 +16,59 @@ BuffOnDeathBuildingBlocks = {
         Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
         SubBlocks = {
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "NewDuration",
+              SrcValue = 120
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Unit",
+              AttackerVar = "Unit",
+              BuffName = "MonsterBuffs"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "NewDuration",
+                  Src1Value = 1.15,
+                  Src2Value = 0,
+                  DestVar = "NewDuration",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "MonsterBuffs2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.3,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Unit",
@@ -24,9 +77,10 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 120,
+              NumberOfStacks = 1,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "NewDuration",
               TickRate = 0
             }
           }
@@ -47,6 +101,59 @@ BuffOnDeathBuildingBlocks = {
         Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
         SubBlocks = {
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "NewDuration",
+              SrcValue = 120
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Unit",
+              AttackerVar = "Unit",
+              BuffName = "MonsterBuffs"
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "NewDuration",
+                  Src1Value = 1.15,
+                  Src2Value = 0,
+                  DestVar = "NewDuration",
+                  MathOp = MO_MULTIPLY
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "MonsterBuffs2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "NewDuration",
+                      Src1Value = 1.3,
+                      Src2Value = 0,
+                      DestVar = "NewDuration",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Unit",
@@ -55,9 +162,10 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 120,
+              NumberOfStacks = 1,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "NewDuration",
               TickRate = 0
             }
           }
@@ -67,6 +175,18 @@ BuffOnDeathBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterbuffs2"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

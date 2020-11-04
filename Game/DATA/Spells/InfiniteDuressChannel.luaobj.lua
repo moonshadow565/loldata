@@ -55,12 +55,12 @@ ChannelingUpdateActionsBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
         SubBlocks = {
           {
             Function = BBStopChanneling,
             Params = {
-              CasterVar = "Attacker",
+              CasterVar = "Owner",
               StopCondition = ChannelingStopCondition_Cancel,
               StopSource = ChannelingStopSource_Die
             }
@@ -90,7 +90,7 @@ ChannelingUpdateActionsBuildingBlocks = {
               {
                 Function = BBStopChanneling,
                 Params = {
-                  CasterVar = "Attacker",
+                  CasterVar = "Owner",
                   StopCondition = ChannelingStopCondition_Cancel,
                   StopSource = ChannelingStopSource_Casting
                 }
@@ -112,7 +112,7 @@ ChannelingUpdateActionsBuildingBlocks = {
               {
                 Function = BBGetTotalAttackDamage,
                 Params = {
-                  TargetVar = "Attacker",
+                  TargetVar = "Owner",
                   DestVar = "TotalAttackDamage"
                 }
               },
@@ -141,7 +141,7 @@ ChannelingUpdateActionsBuildingBlocks = {
               {
                 Function = BBApplyDamage,
                 Params = {
-                  AttackerVar = "Attacker",
+                  AttackerVar = "Owner",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -193,7 +193,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                   {
                     Function = BBStopChanneling,
                     Params = {
-                      CasterVar = "Attacker",
+                      CasterVar = "Owner",
                       StopCondition = ChannelingStopCondition_Success,
                       StopSource = ChannelingStopSource_TimeCompleted
                     }
