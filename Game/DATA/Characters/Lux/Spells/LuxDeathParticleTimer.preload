@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="luxdeathparticle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lux_base_death_1.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="luxdeathparticle"}}, 
 }
