@@ -245,7 +245,7 @@ BuffOnMoveSuccessBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -272,12 +272,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "monkeyking_q_self_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingnimbuskick"
     }
   },
   {

@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "SurprisePartyFiddlesticks"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -266,6 +269,77 @@ TargetExecuteBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "FiddlesticksSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FiddlesticksSkinID",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Party_DarkWind_tar.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "DarkWind_tar.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -278,5 +352,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "darkwind"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "party_darkwind_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darkwind_tar.troy"
+    }
   }
 }

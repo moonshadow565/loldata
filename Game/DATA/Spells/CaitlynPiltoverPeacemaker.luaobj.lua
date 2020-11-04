@@ -67,7 +67,11 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -78,10 +82,10 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           DamageByLevel = {
             20,
-            65,
-            110,
-            155,
-            200
+            60,
+            100,
+            140,
+            180
           },
           Damage = 0,
           DamageVar = "BaseDamage",
@@ -148,7 +152,11 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -159,10 +167,10 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               DamageByLevel = {
                 20,
-                65,
-                110,
-                155,
-                200
+                60,
+                100,
+                140,
+                180
               },
               Damage = 0,
               DamageVar = "BaseDamage",
@@ -241,7 +249,11 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -252,10 +264,10 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   DamageByLevel = {
                     20,
-                    65,
-                    110,
-                    155,
-                    200
+                    60,
+                    100,
+                    140,
+                    180
                   },
                   Damage = 0,
                   DamageVar = "BaseDamage",

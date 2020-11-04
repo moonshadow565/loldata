@@ -121,6 +121,43 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "FiddlesticksSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FiddlesticksSkinID",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellIcon,
+        Params = {
+          SlotNumber = 2,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          IconIndex = 2
+        }
+      },
+      {
+        Function = BBSetSlotSpellIcon,
+        Params = {
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner",
+          IconIndex = 2
+        }
+      }
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {

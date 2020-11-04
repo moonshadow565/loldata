@@ -79,7 +79,26 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 3.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeceiveCritBonus",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -123,13 +142,14 @@ BuffOnPreAttackBuildingBlocks = {
       BuffName = "DeceiveCritBonus",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

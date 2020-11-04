@@ -150,9 +150,9 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "CooldownVal",
       SrcValueByLevel = {
-        60,
-        50,
-        40,
+        75,
+        65,
+        55,
         13,
         12
       }
@@ -884,25 +884,25 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talonshadowassaultmarker"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "talonshadowassaultmisbuff"
+      Name = "talonshadowassaultmarker"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "talon_ult_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "talonshadowassaultmisbuff"
     }
   },
   {

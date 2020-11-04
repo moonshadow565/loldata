@@ -122,21 +122,12 @@ OnBuffActivateBuildingBlocks = {
           Range = 360,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          BuffNameFilter = "RivenMartyrDebuff",
           InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyStun,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Duration = 0.75
-            }
           },
           {
             Function = BBApplyDamage,
@@ -162,21 +153,17 @@ OnBuffActivateBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "RivenMartyrDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBApplyStun,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Duration = 0.75
+                }
+              }
             }
           }
         }
@@ -259,21 +246,12 @@ OnBuffActivateBuildingBlocks = {
           Range = 300,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          BuffNameFilter = "RivenMartyrDebuff",
           InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyStun,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Duration = 0.75
-            }
           },
           {
             Function = BBApplyDamage,
@@ -299,21 +277,17 @@ OnBuffActivateBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "RivenMartyrDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBApplyStun,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Duration = 0.75
+                }
+              }
             }
           }
         }
@@ -354,12 +328,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "exile_w_cast_ult_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rivenmartyrdebuff"
     }
   },
   {

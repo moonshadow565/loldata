@@ -186,11 +186,41 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "shacoDamageTaken",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.85,
+            0.85,
+            0.85
+          }
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Other1",
           AttackerVar = "Attacker",
           BuffName = "HallucinateFull",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 18,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Other1",
+          BuffName = "Hallucinate",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Internal,

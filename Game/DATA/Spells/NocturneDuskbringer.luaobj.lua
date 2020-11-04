@@ -125,6 +125,45 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          OrientTowardsVar = "OrientationPoint",
+          FollowsGroundTilt = true,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "NocturneSkinID",
+      Value1 = 0,
+      Value2 = 4,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "NocturneDuskbringer_path_ghost_green.troy",
+          EffectNameForOtherTeam = "NocturneDuskbringer_path_ghost_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          EffectID2Var = "Particle",
+          EffectID2VarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 240,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           OrientTowardsVar = "OrientationPoint",
           FollowsGroundTilt = true,
           FacesTarget = false
@@ -155,6 +194,8 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 240,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           OrientTowardsVar = "OrientationPoint",
           FollowsGroundTilt = true,
           FacesTarget = false
@@ -737,6 +778,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -788,6 +831,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -813,6 +858,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -855,6 +902,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -960,6 +1009,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -979,6 +1030,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -1030,6 +1083,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -1055,6 +1110,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = false,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -1113,6 +1170,8 @@ TargetExecuteBuildingBlocks = {
                       FOWTeamOverrideVar = "TeamID",
                       FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true,
+                      PersistsThroughReconnect = false,
+                      BindFlexToOwnerPAR = false,
                       FollowsGroundTilt = false,
                       FacesTarget = false
                     }
@@ -1161,6 +1220,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nocturneduskbringer_path_frost_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturneduskbringer_path_ghost_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturneduskbringer_path_ghost_red.troy"
     }
   },
   {

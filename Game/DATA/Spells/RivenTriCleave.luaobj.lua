@@ -43,15 +43,11 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = false}
+    Params = {TargetVar = "Owner", Reset = true}
   },
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
-  },
-  {
-    Function = BBStopMoveBlock,
-    Params = {TargetVar = "Owner"}
   },
   {
     Function = BBGetBuffCountFromCaster,
@@ -270,6 +266,14 @@ SelfExecuteBuildingBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {DestVar = "LockOn", SrcValue = true}
+          },
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Unit",
+              Order = AI_ATTACKTO
+            }
           }
         }
       }
@@ -310,6 +314,14 @@ SelfExecuteBuildingBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {DestVar = "LockOn", SrcValue = true}
+          },
+          {
+            Function = BBIssueOrder,
+            Params = {
+              WhomToOrderVar = "Owner",
+              TargetOfOrderVar = "Unit",
+              Order = AI_ATTACKTO
+            }
           }
         }
       }
@@ -651,7 +663,7 @@ SelfExecuteBuildingBlocks = {
           Gravity = 15,
           MoveBackBy = 15,
           MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersType = POSTPONE_CURRENT_ORDER,
           MovementOrdersFacing = KEEP_CURRENT_FACING,
           IdealDistance = 275
         }
@@ -773,7 +785,7 @@ SelfExecuteBuildingBlocks = {
           Gravity = 15,
           MoveBackBy = 15,
           MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersType = POSTPONE_CURRENT_ORDER,
           MovementOrdersFacing = KEEP_CURRENT_FACING,
           IdealDistance = 275
         }
@@ -866,7 +878,7 @@ SelfExecuteBuildingBlocks = {
           Gravity = 75,
           MoveBackBy = 15,
           MovementType = FURTHEST_WITHIN_RANGE,
-          MovementOrdersType = CANCEL_ORDER,
+          MovementOrdersType = POSTPONE_CURRENT_ORDER,
           MovementOrdersFacing = KEEP_CURRENT_FACING,
           IdealDistance = 375
         }

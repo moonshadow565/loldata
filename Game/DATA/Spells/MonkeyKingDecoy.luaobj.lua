@@ -21,6 +21,41 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhosted
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ManaCost",
+      SrcValueByLevel = {
+        50,
+        55,
+        60,
+        65,
+        70
+      }
+    }
+  },
+  {
+    Function = BBMove,
+    Params = {
+      UnitVar = "Owner",
+      TargetVar = "OwnerFacing",
+      Speed = 3000,
+      Gravity = 0,
+      MoveBackBy = 0,
+      MovementType = FIRST_WALL_HIT,
+      MovementOrdersType = POSTPONE_CURRENT_ORDER,
+      MovementOrdersFacing = FACE_MOVEMENT_DIRECTION,
+      IdealDistance = 0
+    }
+  },
+  {
     Function = BBCloneUnitPet,
     Params = {
       UnitToCloneVar = "Owner",
@@ -31,6 +66,34 @@ SelfExecuteBuildingBlocks = {
       DamageBonus = 0,
       ShowMinimapIcon = true,
       DestVar = "Other1"
+    }
+  },
+  {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Other1",
+      TargetOfOrderVar = "Other1",
+      Order = AI_HOLD
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "idle1",
+      ScaleTime = 0,
+      TargetVar = "Other1",
+      Loop = false,
+      Blend = false,
+      Lock = false
+    }
+  },
+  {
+    Function = BBIncPAR,
+    Params = {
+      TargetVar = "Other1",
+      Delta = 0,
+      PARType = PAR_MANA,
+      DeltaVar = "ManaCost"
     }
   },
   {

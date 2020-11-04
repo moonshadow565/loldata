@@ -234,7 +234,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "XerathIdle.troy",
+      EffectName = "XerathIdle-thin.troy",
       Flags = 0,
       EffectIDVar = "Particle11",
       EffectIDVarTable = "InstanceVars",
@@ -257,7 +257,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "XerathIdle.troy",
+      EffectName = "XerathIdle-thin.troy",
       Flags = 0,
       EffectIDVar = "Particle12",
       EffectIDVarTable = "InstanceVars",
@@ -280,7 +280,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "XerathIdle.troy",
+      EffectName = "XerathIdle-thin.troy",
       Flags = 0,
       EffectIDVar = "Particle13",
       EffectIDVarTable = "InstanceVars",
@@ -303,7 +303,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "XerathIdle.troy",
+      EffectName = "XerathIdle-thin.troy",
       Flags = 0,
       EffectIDVar = "Particle14",
       EffectIDVarTable = "InstanceVars",
@@ -427,7 +427,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Xerathidle.troy"
+      Name = "xerathidle.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerathidle-thin.troy"
     }
   }
 }

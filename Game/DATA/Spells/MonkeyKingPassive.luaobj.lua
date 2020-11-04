@@ -46,7 +46,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {

@@ -4,20 +4,9 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "CritDmgBonus",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "DCooldown",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetDodgePiercing,
-    Params = {TargetVar = "Owner", Value = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -85,23 +74,12 @@ OnBuffDeactivateBuildingBlocks = {
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
-  },
-  {
-    Function = BBSetDodgePiercing,
-    Params = {TargetVar = "Owner", Value = false}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatCritChanceMod,
-      TargetVar = "Owner",
-      Delta = 1
-    }
-  },
   {
     Function = BBSetStatus,
     Params = {
@@ -154,31 +132,8 @@ BuffOnSpellCastBuildingBlocks = {
 }
 BuffOnPreAttackBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "CritDmgBonus",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "CritDmgBonus",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "DeceiveCritBonus",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 10,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 SelfExecuteBuildingBlocks = {
@@ -210,7 +165,11 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -309,17 +268,12 @@ SelfExecuteBuildingBlocks = {
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deceivecritbonus"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

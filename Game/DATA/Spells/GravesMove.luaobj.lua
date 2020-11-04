@@ -89,6 +89,49 @@ OnBuffActivateBuildingBlocks = {
       Blend = false,
       Lock = true
     }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.4,
+        0.5,
+        0.6,
+        0.7,
+        0.8
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "GravesMoveSteroid",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -125,38 +168,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBStopMove,
     Params = {TargetVar = "Owner"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.4,
-        0.5,
-        0.6,
-        0.7,
-        0.8
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "GravesMoveSteroid",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 4,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

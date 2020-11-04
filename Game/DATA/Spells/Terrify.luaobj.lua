@@ -1,5 +1,8 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
+SpellFXOverrideSkins = {
+  "SurprisePartyFiddlesticks"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBApplyAssistMarker,

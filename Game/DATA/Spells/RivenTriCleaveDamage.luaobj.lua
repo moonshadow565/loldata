@@ -553,6 +553,24 @@ OnBuffDeactivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RivenTriCleaveGhost",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.25,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -1115,21 +1133,27 @@ BuffOnMoveSuccessBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "RivenKnockback",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Stun,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "RivenKnockback",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Stun,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.25,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
             }
           }
         }
@@ -1333,21 +1357,27 @@ BuffOnMoveFailureBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Owner",
-              BuffName = "RivenKnockback",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Stun,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.25,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false,
-              IsHiddenOnClient = false
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "RivenKnockback",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Stun,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.25,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
             }
           }
         }
@@ -1408,6 +1438,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "riventricleaveunlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "riventricleaveghost"
     }
   },
   {
