@@ -2,16 +2,16 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "NamiE.dds"
 BuffName = "NamiEtt"
-AutoBuffActivateEffect = "Nami_E_buf.troy"
+AutoBuffActivateEffect = "Nami_Base_E_buf.troy"
 AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
-AutoBuffActivateEffect2 = "Nami_E_buf.troy"
+AutoBuffActivateEffect2 = "Nami_Base_E_buf.troy"
 AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_e_counter3.troy"
+      Name = "Nami_Base_E_counter_03.troy"
     }
   },
   {
@@ -27,25 +27,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_koi_e_cas.troy"
+      Name = "Nami_Skin01_E_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_e_cas.troy"
+      Name = "Nami_Base_E_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_e_counter2.troy"
+      Name = "Nami_Base_E_counter_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_e_counter1.troy"
+      Name = "Nami_Base_E_counter_01.troy"
     }
   },
   {

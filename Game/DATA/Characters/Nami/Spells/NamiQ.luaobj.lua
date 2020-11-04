@@ -24,13 +24,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_q_ground_green.troy"
+      Name = "Nami_Base_Q_indicator_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_q_ground_red.troy"
+      Name = "Nami_Base_Q_indicator_red.troy"
     }
   }
 }

@@ -20,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nami_w_tar.troy"
+      Name = "Nami_Base_W_tar.troy"
     }
   },
   {
