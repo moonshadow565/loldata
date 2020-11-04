@@ -11,12 +11,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kassadin_base_e_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
   }

@@ -70,12 +70,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "spellbook1"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_skin01_r_impact_tar.troy"
