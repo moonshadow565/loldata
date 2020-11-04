@@ -1,7 +1,6 @@
 NotSingleTargetSpell = true
 BuffTextureName = "Voidwalker_NullBlade.dds"
-BuffName = "NetherBlade"
-AutoBuffActivateEffect = ""
+BuffName = "NetherBladeArmorPen"
 SpellToggleSlot = 2
 NonDispellable = true
 PreLoadBuildingBlocks = {
@@ -12,9 +11,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "netherblade_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "netherbladebuff"
+      Name = "netherblade"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kassadin_netherblade.troy"
     }
   }
 }
