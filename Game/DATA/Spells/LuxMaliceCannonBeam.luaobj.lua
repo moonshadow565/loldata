@@ -7,6 +7,24 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBForNClosestUnitsInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectEnemies AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Unit", DestVar = "EnemyTeam"}
+      }
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "TeamOfOwner",
@@ -15,16 +33,9 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "TeamChaosID",
-          SrcValue = TEAM_CHAOS
-        }
-      },
-      {
         Function = BBAddUnitPerceptionBubble,
         Params = {
-          TeamVar = "TeamChaosID",
+          TeamVar = "EnemyTeam",
           Radius = 10,
           TargetVar = "Owner",
           Duration = 2,
@@ -38,14 +49,14 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBAddUnitPerceptionBubble,
         Params = {
-          TeamVar = "TeamChaosID",
+          TeamVar = "EnemyTeam",
           Radius = 10,
           TargetVar = "Attacker",
           Duration = 2,
           SpecificUnitsClientOnlyVar = "Nothing",
           RevealSpecificUnitOnlyVar = "Nothing",
           RevealSteath = false,
-          BubbleIDVar = "b",
+          BubbleIDVar = "a",
           BubbleIDVarTable = "InstanceVars"
         }
       }
@@ -56,30 +67,23 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "TeamOrderID",
-          SrcValue = TEAM_ORDER
-        }
-      },
-      {
         Function = BBAddUnitPerceptionBubble,
         Params = {
-          TeamVar = "TeamOrderID",
+          TeamVar = "EnemyTeam",
           Radius = 10,
           TargetVar = "Owner",
           Duration = 2,
           SpecificUnitsClientOnlyVar = "Nothing",
           RevealSpecificUnitOnlyVar = "Nothing",
           RevealSteath = false,
-          BubbleIDVar = "a",
+          BubbleIDVar = "b",
           BubbleIDVarTable = "InstanceVars"
         }
       },
       {
         Function = BBAddUnitPerceptionBubble,
         Params = {
-          TeamVar = "TeamOrderID",
+          TeamVar = "EnemyTeam",
           Radius = 10,
           TargetVar = "Attacker",
           Duration = 2,
