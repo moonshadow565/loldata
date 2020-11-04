@@ -67,5 +67,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "karthus_base_q_ring_red.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastesounddummy"
+    }
   }
 }
