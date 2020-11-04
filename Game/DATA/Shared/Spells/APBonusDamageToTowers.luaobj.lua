@@ -12,7 +12,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "fortifycheck"
+      Name = "summonersmitegold"
     }
   },
   {

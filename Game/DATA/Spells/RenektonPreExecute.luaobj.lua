@@ -3,11 +3,12 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Renekton_Execute.dds"
 BuffName = "RenektonExecuteReady"
 AutoBuffActivateEffect = "Renekton_Weapon_Hot.troy"
-AutoBuffActivateAttachBoneName = "head"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+AutoBuffActivateEffect2 = "Renekton_Runewars_Rage_Skin.troy"
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {
+  "RenektonSkin06"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

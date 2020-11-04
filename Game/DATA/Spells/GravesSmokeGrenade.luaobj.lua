@@ -1,3 +1,6 @@
+SpellFXOverrideSkins = {
+  "GravesSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

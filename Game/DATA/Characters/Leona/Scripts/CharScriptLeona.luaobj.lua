@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "leonasunlightpassive"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalrecallfacingsouth"
+    }
   }
 }

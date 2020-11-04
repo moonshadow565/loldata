@@ -6,6 +6,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "leona_shieldofdaybreak_cas_skin04.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "leona_shieldofdaybreak_cas.troy"
     }
   },

@@ -4,9 +4,10 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "RapidFire"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
+SpellFXOverrideSkins = {
+  "GravesSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
