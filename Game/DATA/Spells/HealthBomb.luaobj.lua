@@ -7,7 +7,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_supportbomb.troy"
+      Name = "global_item_fom_bomb.troy"
     }
   },
   {
@@ -17,19 +17,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_supportshield.troy"
+      Name = "global_item_fom_shield.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_supportdetonate.troy"
+      Name = "global_item_fom_detonate.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "temp_supportdetonatehit.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_hit.troy"
     }
   },
   {
