@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Ekko.EkkoFunctions"}}, 
-{Function=BBPreloadParticle, Params={Name="ekko_base_q_return_catch.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_q_mis_return_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_q_return_catch.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkoqcatchvo"}}, 
 }

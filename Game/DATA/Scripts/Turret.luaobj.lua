@@ -34,7 +34,7 @@ function OnTargetLost(A0_0, A1_1)
   if #turretTargetList > 0 then
     newTarget = turretTargetList[1]
   else
-    newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Ward)
+    newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Special_TurretIgnores)
   end
   if newTarget == nil then
     if GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then
@@ -109,7 +109,7 @@ function TimerFindEnemies()
     if #turretTargetList > 0 then
       newTarget = turretTargetList[1]
     else
-      newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Ward)
+      newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Special_TurretIgnores)
     end
     if newTarget == nil then
       TurnOffAutoAttack(STOPREASON_TARGET_LOST)
