@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="npcinitializertt"}}, 
 {Function=BBPreloadSpell, Params={Name="agitatedidle"}}, 
 }

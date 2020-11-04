@@ -3,7 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="karma_base_q_impact_r_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_base_q_impact_red_r_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_base_q_impact_r_02.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="karma_base_p_refresh.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="karmapassiveprocessor"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_base_q_unit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="karmaqmissilemantra"}}, 
 }

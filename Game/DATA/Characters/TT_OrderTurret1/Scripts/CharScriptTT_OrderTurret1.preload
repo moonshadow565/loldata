@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="turretprebonus"}}, 
+{Function=BBPreloadSpell, Params={Name="turretpackage"}}, 
+}

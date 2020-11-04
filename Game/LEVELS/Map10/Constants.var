@@ -35,11 +35,11 @@ dr_HeroToHero                                      =                            
 dr_BuildingToHero                                  =                                         1.050 ;  
 dr_UnitToHero                                      =                                         0.600 ;  
 dr_HeroToUnit                                      =                                         1.000 ;  
-dr_BuildingToUnit                                  =                                         1.250 ;  
+dr_BuildingToUnit                                  =                                         1.200 ;  
 dr_UnitToUnit                                      =                                         1.000 ;  
 dr_HeroToBuilding                                  =                                         1.000 ;  
 dr_BuildingToBuilding                              =                                         1.000 ;  
-dr_UnitToBuilding                                  =                                         0.500 ;  
+dr_UnitToBuilding                                  =                                         0.600 ;  
 
 ; obj_AI_Base variables
 ai_DrawTargetLines                                 =                                             0 ; Render AI Helper lines to targets
@@ -101,13 +101,13 @@ aiExp_bonusExpLaneLevelDeltaMin                    =                            
 ; This is the same as above except in the negative.
 
 ; This changes XP gained based on how many levels ABOVE the target you are
-aiExp_bonusExpNegativePercentPerNeutralMinionLevel =                                        -0.100 ; Bonus Experience Percentage per neutral minion level behind, negative in order to diminish farming the jungle
+aiExp_bonusExpNegativePercentPerNeutralMinionLevel =                                         0.000 ; Bonus Experience Percentage per neutral minion level behind, negative in order to diminish farming the jungle
 aiExp_bonusExpNegativePercentPerLaneMinionLevel    =                                         0.000 ; Bonus Experience Percentage per lane minion level behind
-aiExp_bonusExpNegativeLevelDeltaCap                =                                             5 ; The maximum delta in minion levels where XP can be granted.
-aiExp_bonusExpNegativeNeutralLevelDeltaMin         =                                             2 ; Minimum level difference before you get bonus jungle XP
-aiExp_bonusExpNegativeNeutralLevelDeltaOffset      =                                            -1 ; After we've reached the minimal difference, offset the delta by this amount
-aiExp_bonusExpNegativeLaneLevelStart               =                                           100 ; Minimum level of lane minion before XP kicks in
-aiExp_bonusExpNegativeLaneLevelDeltaMin            =                                           100 ; Minimum level difference before you get bonus lane XP
+aiExp_bonusExpNegativeLevelDeltaCap                =                                             0 ; The maximum delta in minion levels where XP can be granted.
+aiExp_bonusExpNegativeNeutralLevelDeltaMin         =                                             0 ; Minimum level difference before you get bonus jungle XP
+aiExp_bonusExpNegativeNeutralLevelDeltaOffset      =                                             0 ; After we've reached the minimal difference, offset the delta by this amount
+aiExp_bonusExpNegativeLaneLevelStart               =                                             0 ; Minimum level of lane minion before XP kicks in
+aiExp_bonusExpNegativeLaneLevelDeltaMin            =                                             0 ; Minimum level difference before you get bonus lane XP
 ai_PostAvoidanceRotFilterStrength                  =                                         0.200 ; After movement change due to avoidance calc, time to reach target actual rotation (correction speed, NOT ZERO!)
 ai_PostAvoidanceRotFilterStrengthAccel             =                                         0.125 ; After movement change due to avoidance calc, time to reach correction speed (NOT ZERO!)
 
@@ -185,24 +185,24 @@ hud_DefaultBlinkCount                              =                            
 ; Barracks Variables
 bar_bSpawnEnabled                                  =                                             1 ; Enable/disable spawn from barracks
 bar_Armor                                          =                                             0 ; armor
-bar_MaxHP                                          =                                          4000 ; max hp
+bar_MaxHP                                          =                                          3000 ; max hp
 bar_MaxHPTutorial                                  =                                          7000 ; max hp for tutorial mode
 
 ; Inhibitor (BarracksDampener) variables
-inhib_UseDeathAndRespawnAnimations                 =                                             1 ; Flag to tell the Inhib to use its death and respawn animations
+inhib_UseDeathAndRespawnAnimations                 =                                             0 ; Flag to tell the Inhib to use its death and respawn animations
 
 ; obj_Building variables
-events_TimerForBuildingKillCredit                  =                                        20.000 ; Amount of time for a hero attack to be counted towards a building kill credit
+events_TimerForBuildingKillCredit                  =                                        10.000 ; Amount of time for a hero attack to be counted towards a building kill credit
 
 ; Spawn Point variables
 sp_RegenRadius                                     =                                       600.000 ; The spawn point will heal units in this radius.
-sp_HealthRegenPercent                              =                                         0.021 ; The percentage of max HP a unit will regenerate per tick.  A float value between 0.0 and 1.0.
+sp_HealthRegenPercent                              =                                         0.142 ; The percentage of max HP a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_HealthRegenPercentARAM                          =                                         0.000 ; Same as above, for ARAM. Needed because we use the same map for ARAM as we do the tutorial
-sp_HPMaxPenaltyRegenPercent                        =                                         0.021 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
-sp_ManaRegenPercent                                =                                         0.021 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
-sp_RegenTickInterval                               =                                         0.250 ; Interval between spawn point regen ticks.
+sp_HPMaxPenaltyRegenPercent                        =                                         0.080 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
+sp_ManaRegenPercent                                =                                         0.142 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
+sp_RegenTickInterval                               =                                         1.000 ; Interval between spawn point regen ticks.
 
 ; obj_HQ variables
-hq_EoGUseNexusDeathAnimation                       =                                             1 ; Flag to tell the Nexus to use its death animation at EoG
+hq_EoGUseNexusDeathAnimation                       =                                             0 ; Flag to tell the Nexus to use its death animation at EoG
 hq_EoGPanTime                                      =                                         3.000 ; Time it takes to pan to the Nexus during the EoG ceremony
 hq_EoGNexusChangeSkinTime                          =                                         3.500 ; Time before the explosion effect and the skin swap is played on Nexus during the EoG ceremony

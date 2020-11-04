@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ekkor"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_rewindindicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_r_rewindindicator_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_timedevice_active.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="ekko"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkorminion"}}, 

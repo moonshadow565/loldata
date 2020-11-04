@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="tt_spiderbosslines"}}, 
-{Function=BBPreloadSpell, Params={Name="tt_spiderbossminionswap"}}, 
-}
