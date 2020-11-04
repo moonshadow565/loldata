@@ -69,11 +69,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cryo_crystalize.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crystallizeblackicemarker"
-    }
   }
 }
