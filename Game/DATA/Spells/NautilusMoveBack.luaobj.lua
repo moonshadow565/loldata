@@ -1,2 +1,0 @@
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
-BuffName = "Stun"

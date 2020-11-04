@@ -1,5 +1,0 @@
-BuffTextureName = "Sona_SongofDiscord.dds"
-BuffName = "SonaSongofDiscordAuraB"
-AutoBuffActivateEffect = "SonaSongofDiscord_tar.troy"
-AutoBuffActivateAttachBoneName = "head"
-AutoBuffActivateEffect2 = ""

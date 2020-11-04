@@ -5,6 +5,12 @@ NonDispellable = true
 OnPreDamagePriority = 8
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "steamgolemshield_hit.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "manabarrier"
@@ -14,12 +20,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "manabarriercooldown"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "steamgolemshield_hit.troy"
     }
   }
 }

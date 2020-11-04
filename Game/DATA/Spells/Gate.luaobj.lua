@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Cardmaster_Premonition.dds"
 BuffName = "Gate"
-AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   100,
   85,

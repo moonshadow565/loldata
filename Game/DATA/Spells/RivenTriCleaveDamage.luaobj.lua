@@ -69,48 +69,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "exile_q_02_detonate_ult.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_02_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_01_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_03_detonate_ult.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "exile_q_03_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "riventricleavedamagedebuff2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rivenknockback"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "bunny_q_02_detonate_ult.troy"
     }
   },
@@ -136,6 +94,78 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "exile_bunny_q_03_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "riventricleavedamagedebuff2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rivenknockback"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_01_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_02_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_01_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_03_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_03_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_q_03_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_q_03_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_q_02_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_q_02_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_q_01_detonate.troy"
     }
   }
 }

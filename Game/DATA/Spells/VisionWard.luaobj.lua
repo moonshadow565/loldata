@@ -6,7 +6,9 @@ AutoBuffActivateEffect = "Ward_Vision_Idle.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "stealth"}
+    Params = {
+      Name = "sightwardstealth"
+    }
   },
   {
     Function = BBPreloadSpell,

@@ -4,6 +4,12 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dravenspinningreturncatch"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "draven_q_tar.troy"
@@ -18,11 +24,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "dravendot"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravenspinningreturncatch"
-    }
   }
 }

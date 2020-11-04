@@ -1,1 +1,0 @@
-BuffName = "Full Automatic"
