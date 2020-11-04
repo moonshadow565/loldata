@@ -1,11 +1,4 @@
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ironstylusaura"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

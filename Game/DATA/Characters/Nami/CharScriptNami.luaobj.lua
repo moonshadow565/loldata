@@ -1,0 +1,30 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "namipassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "namirunspeed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "namijoke"}
+  }
+}

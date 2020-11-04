@@ -54,5 +54,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "wormcooldown"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterminiondamageamp"
+    }
   }
 }

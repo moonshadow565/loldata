@@ -1,0 +1,8 @@
+BuffTextureName = "Summoner_BattleCry.dds"
+BuffName = "SummonerBattleCry"
+AutoBuffActivateEffect = "OntheHunt_buf.troy"
+AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateEffect2 = "summoner_battlecry.troy"
+AutoBuffActivateEffect3 = "summoner_battlecry_oc.troy"
+AutoBuffActivateEffect4 = "TEMP_ItemRagebladeEnrage.troy"
+AutoBuffActivateAttachBoneName4 = "BUFFBONE_GLB_WEAPON_1"

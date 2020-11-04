@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Summoner_revive.dds"
+BuffName = "ItemMiraclePermanentBoost"
+SpellToggleSlot = 1
+PersistsThroughDeath = true
+NonDispellable = true
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

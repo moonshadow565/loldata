@@ -6,9 +6,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "judicatorrighteousfury"
+      Name = "globalhit_physical.troy"
     }
   }
 }

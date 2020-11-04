@@ -16,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "revivemarker"
+      Name = "summonerrevivemarker"
     }
   }
 }

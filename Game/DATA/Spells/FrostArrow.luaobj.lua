@@ -9,8 +9,6 @@ PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "frostarrowapplicator"
-    }
+    Params = {Name = "frostarrow"}
   }
 }

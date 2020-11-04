@@ -5,11 +5,13 @@ NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "slow"}
+    Params = {Name = "cripple"}
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "cripple"}
+    Params = {
+      Name = "crippleslow"
+    }
   },
   {
     Function = BBPreloadParticle,
@@ -19,6 +21,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "blackomen"}
+    Params = {Name = "slow"}
   }
 }

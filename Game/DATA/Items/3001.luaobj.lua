@@ -1,6 +1,4 @@
 AutoBuffActivateEffect = "Abyssalscepter_itm.troy"
-AutoItemActivateEffect = ""
-AutoAuraBuffName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

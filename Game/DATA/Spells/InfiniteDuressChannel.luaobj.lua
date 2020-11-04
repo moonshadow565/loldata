@@ -6,6 +6,7 @@ IsDamagingSpell = true
 ChannelDuration = 2.1
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
 BuffName = "Infinite Duress"
+NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

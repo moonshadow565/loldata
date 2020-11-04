@@ -14,3 +14,11 @@ SpellToggleSlot = 1
 PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = false
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "frostarrowapplicator"
+    }
+  }
+}

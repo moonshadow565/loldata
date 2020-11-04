@@ -4,8 +4,6 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "ViktorChaosStorm.dds"
 BuffName = "ViktorStormGuide"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 SpellDamageRatio = 0.5
 IsPetDurationBuff = true
 PreLoadBuildingBlocks = {
@@ -19,6 +17,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_chaosstorm_indicator_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "viktorchaosstormhighlight"
     }
   },
   {

@@ -1,16 +1,14 @@
-AutoBuffActivateEffect = ""
-AutoItemActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "aegisofthelegionauraself"
+      Name = "itemaegisofthelegionauraself"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "aegisofthelegionaurafriend"
+      Name = "itemaegisofthelegionaurafriend"
     }
   },
   {

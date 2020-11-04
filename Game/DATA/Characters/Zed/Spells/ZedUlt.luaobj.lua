@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zed_ultsink.troy"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {Name = "zedshadow"}
   }

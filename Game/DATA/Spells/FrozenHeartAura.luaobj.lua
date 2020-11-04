@@ -1,3 +1,16 @@
 BuffTextureName = "122_Frozen_Heart.dds"
 BuffName = "FrozenHeartAura"
-AutoBuffActivateEffect = ""
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "frozen_heart_overhead.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "frozen_heart_marker.troy"
+    }
+  }
+}

@@ -12,7 +12,6 @@ SpellFXOverrideSkins = {
   "MetalRammus",
   "RoboRammus"
 }
-AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

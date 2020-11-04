@@ -6,5 +6,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "blackcleaver"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemblackcleavershred"
+    }
   }
 }

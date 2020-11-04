@@ -7,9 +7,9 @@ BuffTextureName = "3114_Malady.dds"
 BuffName = "MaladySpell"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "maladycounter"
+      Name = "interventionheal_buf.troy"
     }
   }
 }

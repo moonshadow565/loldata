@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "3146_Hextech_Gunblade.dds"
-BuffName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

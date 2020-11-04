@@ -9,13 +9,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "internal_25slow"
+      Name = "internal_30slow"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "internal_35slow"
+      Name = "internal_20slow"
     }
   },
   {

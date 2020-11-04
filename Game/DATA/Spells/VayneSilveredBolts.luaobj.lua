@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Vayne_SilveredBolts.dds"
 BuffName = "VayneSilverBolts"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {""}
