@@ -5,4 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Nautilus_GrandLine.dds"
 BuffName = "NautilusMinorKnockUp"
+AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Knockup"
