@@ -3,6 +3,8 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+BuffTextureName = "GragasBarrelRoll.dds"
+BuffName = "GragasBarrelRoll"
 SpellToggleSlot = 1
 OnBuffActivateBuildingBlocks = {
   {
@@ -151,7 +153,8 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

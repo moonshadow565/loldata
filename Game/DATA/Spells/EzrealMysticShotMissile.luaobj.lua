@@ -208,11 +208,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "SpellBaseDamage",
       SrcValueByLevel = {
-        40,
-        65,
-        90,
-        115,
-        140
+        35,
+        55,
+        75,
+        95,
+        115
       }
     }
   },

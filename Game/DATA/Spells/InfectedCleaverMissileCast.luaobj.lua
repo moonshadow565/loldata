@@ -1,3 +1,6 @@
+SpellVOOverrideSkins = {
+  "CorporateMundo"
+}
 CanCastBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -15,11 +18,11 @@ CanCastBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        30,
         50,
+        60,
         70,
-        90,
-        110
+        80,
+        90
       }
     }
   },

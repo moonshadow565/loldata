@@ -25,9 +25,9 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       DestVar = "Factor",
       SrcValueByLevel = {
-        0.02083,
-        0.02083,
-        0.02083
+        0.01667,
+        0.02292,
+        0.02917
       }
     }
   },

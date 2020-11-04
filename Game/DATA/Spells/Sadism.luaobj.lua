@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   60
 }
 NonDispellable = true
+SpellVOOverrideSkins = {
+  "CorporateMundo"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -36,6 +39,7 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "SadismHeal",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -46,7 +50,8 @@ OnBuffActivateBuildingBlocks = {
         12,
         12
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -109,6 +114,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Haste,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -119,7 +125,8 @@ SelfExecuteBuildingBlocks = {
         12,
         12
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

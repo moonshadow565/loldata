@@ -3,6 +3,7 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "2026_Arcane_Protection_Potion.dds"
 BuffName = "OracleElixir"
 AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 NonDispellable = true
 PermeatesThroughDeath = true
 OnBuffActivateBuildingBlocks = {
@@ -41,12 +42,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
