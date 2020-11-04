@@ -3,9 +3,10 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = false
 IsDamagingSpell = false
-BuffTextureName = "Cryophoenix_Rebirth.dds"
+BuffTextureName = "Yeti_Shatter.dds"
 BuffName = "RebirthCooldown"
 PersistsThroughDeath = true
+NonDispellable = true
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -14,12 +15,14 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "RebirthReady",
       BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Aura,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

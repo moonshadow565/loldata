@@ -1,4 +1,4 @@
-BuffTextureName = "33.dds"
+BuffTextureName = "AkaliTwinDisciplines.dds"
 BuffName = "AkaliTwinAP"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
@@ -185,7 +185,7 @@ BuffOnHitUnitBuildingBlocks = {
       Damage = 0,
       DamageVar = "DamageToDeal",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 1,

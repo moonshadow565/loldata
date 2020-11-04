@@ -93,6 +93,62 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetNoRender
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhosted
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetTargetable
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetSuppressCallForHelp
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetIgnoreCallForHelp
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCallForHelpSuppresser
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetNoRender
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -108,6 +164,21 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Owner",
+      Damage = 10000,
+      DamageType = TRUE_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -143,9 +214,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               {
                 Function = BBIfNotHasBuff,
                 Params = {
-                  OwnerVar = "Attacker",
-                  CasterVar = "Attacker",
-                  BuffName = "AkaliHoldStealth"
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "Recall"
                 },
                 SubBlocks = {
                   {
@@ -153,63 +224,92 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       OwnerVar = "Attacker",
                       CasterVar = "Attacker",
-                      BuffName = "AkaliSBStealth"
+                      BuffName = "AkaliHoldStealth"
                     },
                     SubBlocks = {
                       {
-                        Function = BBGetTime,
+                        Function = BBIfNotHasBuff,
                         Params = {
-                          DestVar = "InitialTime",
-                          DestVarTable = "NextBuffVars"
+                          OwnerVar = "Attacker",
+                          CasterVar = "Attacker",
+                          BuffName = "AkaliSBStealth"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBGetTime,
+                            Params = {
+                              DestVar = "InitialTime",
+                              DestVarTable = "NextBuffVars"
+                            }
+                          },
+                          {
+                            Function = BBGetTime,
+                            Params = {
+                              DestVar = "TimeLastHit",
+                              DestVarTable = "NextBuffVars"
+                            }
+                          },
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Attacker",
+                              AttackerVar = "Attacker",
+                              BuffName = "AkaliSmokeBombInternal",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 0.25,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
                         }
                       },
                       {
-                        Function = BBGetTime,
-                        Params = {
-                          DestVar = "TimeLastHit",
-                          DestVarTable = "NextBuffVars"
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Attacker",
-                          AttackerVar = "Attacker",
-                          BuffName = "AkaliSmokeBombInternal",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Internal,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 0.25,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      }
-                    }
-                  },
-                  {
-                    Function = BBElse,
-                    Params = {},
-                    SubBlocks = {
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Attacker",
-                          AttackerVar = "Attacker",
-                          BuffName = "AkaliSBStealth",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_Aura,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 0.5,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Attacker",
+                              AttackerVar = "Attacker",
+                              BuffName = "AkaliSBStealth",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Aura,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 0.5,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
                         }
                       }
                     }
                   }
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffName = "AkaliSBBuff",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -230,12 +330,13 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffName = "AkaliSBDebuff",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_CombatDehancer,
+                  BuffType = BUFF_Slow,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -269,6 +370,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -293,7 +395,8 @@ SelfExecuteBuildingBlocks = {
         7.5,
         8
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -312,6 +415,10 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "recall"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "akaliholdstealth"
     }
@@ -326,6 +433,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "akalismokebombinternal"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "akalisbbuff"
     }
   },
   {

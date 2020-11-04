@@ -67,7 +67,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "MaxHP",
       Src1Value = 0,
-      Src2Value = 0.04,
+      Src2Value = 0.035,
       DestVar = "BonusDmgFromHP",
       MathOp = MO_MULTIPLY
     }

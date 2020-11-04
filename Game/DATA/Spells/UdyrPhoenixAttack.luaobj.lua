@@ -18,6 +18,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -54,7 +55,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "Count",
           Src1VarTable = "CharVars",
-          Value2 = 3,
+          Value2 = 4,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -91,6 +92,7 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Nothing",
               PosVar = "TargetPos",
               EndPosVar = "TargetPos",
+              OverrideCastPosition = false,
               SlotNumber = 0,
               SlotType = ExtraSlots,
               OverrideForceLevel = 1,

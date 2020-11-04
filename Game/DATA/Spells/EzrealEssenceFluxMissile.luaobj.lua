@@ -46,7 +46,8 @@ TargetExecuteBuildingBlocks = {
         0,
         0
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -101,6 +102,16 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 0,
       DestVar = "TotalHeal",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalHeal",
+      Src1Value = 0,
+      Src2Value = 0.7,
+      DestVar = "TotalHeal",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -189,7 +200,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -244,7 +256,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

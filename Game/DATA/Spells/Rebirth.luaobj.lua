@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "Rebirth"
+NonDispellable = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -217,12 +218,13 @@ OnBuffDeactivateBuildingBlocks = {
       BuffName = "RebirthCooldown",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

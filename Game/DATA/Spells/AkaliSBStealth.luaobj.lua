@@ -1,4 +1,4 @@
-BuffTextureName = "Jester_ManiacalCloak2.dds"
+BuffTextureName = "AkaliTwilightShroud.dds"
 BuffName = "AkaliTwilightShroud"
 AutoBuffActivateEffect = "akali_twilight_buf.troy"
 OnBuffActivateBuildingBlocks = {
@@ -99,7 +99,22 @@ OnBuffDeactivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Recall"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
     }
   }
 }
@@ -127,6 +142,20 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "MoveSpeedBuff",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Recall"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
     }
   }
 }
@@ -172,5 +201,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "akaliholdstealth"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "recall"}
   }
 }

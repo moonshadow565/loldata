@@ -4,7 +4,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 25,
+      TimeBetweenExecutions = 20,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -52,7 +52,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Level",
-          Value2 = 2,
+          Value2 = 3,
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -61,8 +61,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter2",
-              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffName = "AkaliShadowDanceCounter3",
+              BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
@@ -78,7 +78,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter"
+              BuffName = "AkaliShadowDanceCounter2"
             }
           }
         }
@@ -96,13 +96,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalishadowdancecounter2"
+      Name = "akalishadowdancecounter3"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalishadowdancecounter"
+      Name = "akalishadowdancecounter2"
     }
   }
 }

@@ -15,37 +15,47 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPushCharacterFade,
+    Function = BBIfNotHasBuff,
     Params = {
-      TargetVar = "Owner",
-      FadeAmount = 0.2,
-      fadeTime = 1.5,
-      IDVar = "ID"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillFade",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "akali_invis_cas.troy",
-      Flags = 0,
-      EffectIDVar = "abc",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Recall"
+    },
+    SubBlocks = {
+      {
+        Function = BBPushCharacterFade,
+        Params = {
+          TargetVar = "Owner",
+          FadeAmount = 0.2,
+          fadeTime = 1.5,
+          IDVar = "ID"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WillFade",
+          DestVarTable = "InstanceVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "akali_invis_cas.troy",
+          Flags = 0,
+          EffectIDVar = "abc",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
     }
   }
 }
@@ -59,26 +69,37 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "AkaliSBStealth",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "abc",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Recall"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "AkaliSBStealth",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.5,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
     }
   }
 }
@@ -95,6 +116,10 @@ BuffOnDeathBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "recall"}
+  },
   {
     Function = BBPreloadParticle,
     Params = {

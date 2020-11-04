@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "GSB_Stun.dds"
+BuffTextureName = "AkaliMota.dds"
 BuffName = "AkaliMota"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
@@ -21,6 +21,13 @@ OnBuffActivateBuildingBlocks = {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "EnergyReturn",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "VampPercent",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -102,11 +109,15 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnBeingHitBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      OwnerVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "AkaliTwinDisciplines"
+      Src1Var = "Caster",
+      Src2Var = "Attacker",
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
@@ -141,6 +152,120 @@ BuffOnBeingHitBuildingBlocks = {
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "VampPercent",
+              Src1VarTable = "InstanceVars",
+              Value2 = 0,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetFlatSpellBlockMod,
+                  TargetVar = "Owner",
+                  DestVar = "MR"
+                }
+              },
+              {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetFlatMagicDamageMod,
+                  TargetVar = "Attacker",
+                  DestVar = "APCoeff"
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "APCoeff",
+                  Src1Value = 0,
+                  Src2Value = 0.4,
+                  DestVar = "APCoeff",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "MR",
+                  Src1Value = 100,
+                  Src2Value = 0,
+                  DestVar = "Denominator",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "MR",
+                  Src2Var = "Denominator",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "Right",
+                  MathOp = MO_DIVIDE
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src2Var = "Right",
+                  Src1Value = 1,
+                  Src2Value = 0,
+                  DestVar = "DR",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "APCoeff",
+                  Src2Var = "MotaDamage",
+                  Src2VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "MotaDamage",
+                  DestVarTable = "InstanceVars",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "DR",
+                  Src2Var = "MotaDamage",
+                  Src2VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "DmgDealt",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "VampPercent",
+                  Src1VarTable = "InstanceVars",
+                  Src2Var = "DmgDealt",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "Health",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBIncHealth,
+                Params = {
+                  TargetVar = "Attacker",
+                  Delta = 0,
+                  DeltaVar = "Health",
+                  HealerVar = "Attacker"
+                }
+              }
             }
           },
           {
@@ -190,7 +315,8 @@ BuffOnBeingHitBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 0.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -247,6 +373,127 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "VampPercent",
+      Src1VarTable = "CharVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatSpellBlockMod,
+          TargetVar = "Target",
+          DestVar = "MR"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "APCoeff"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "APCoeff",
+          Src1Value = 0,
+          Src2Value = 0.4,
+          DestVar = "APCoeff",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "MR",
+          Src1Value = 100,
+          Src2Value = 0,
+          DestVar = "Denominator",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MR",
+          Src2Var = "Denominator",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "Right",
+          MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "Right",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "DR",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "APCoeff",
+          Src2Var = "MotaDamage",
+          Src2VarTable = "NextBuffVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "MotaDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DR",
+          Src2Var = "MotaDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DmgDealt",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "VampPercent",
+          Src1VarTable = "CharVars",
+          Src2Var = "DmgDealt",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "Health",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "Health",
+          HealerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "VampPercent",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "VampPercent",
+      SrcVarTable = "CharVars"
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -258,7 +505,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -282,7 +530,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 0.1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -299,12 +548,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "akali_markoftheassasin_marker_tar_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalitwindisciplines"
     }
   },
   {

@@ -1,4 +1,4 @@
-BuffTextureName = "MasterYi_LeapStrike.dds"
+BuffTextureName = "AkaliShadowDance.dds"
 BuffName = "AkaliShadowDance"
 OnBuffActivateBuildingBlocks = {
   {
@@ -119,6 +119,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "WillRemove",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
 BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
@@ -141,7 +158,8 @@ BuffOnMoveEndBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -162,6 +180,120 @@ BuffOnMoveEndBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "VampPercent",
+      Src1VarTable = "CharVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatSpellBlockMod,
+          TargetVar = "Caster",
+          DestVar = "MR"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "APCoeff"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "APCoeff",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "APCoeff",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "MR",
+          Src1Value = 100,
+          Src2Value = 0,
+          DestVar = "Denominator",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MR",
+          Src2Var = "Denominator",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "Right",
+          MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "Right",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "DR",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "APCoeff",
+          Src2Var = "DamageVar",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageVar",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DR",
+          Src2Var = "DamageVar",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DmgDealt",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "VampPercent",
+          Src1VarTable = "CharVars",
+          Src2Var = "DmgDealt",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "Health",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "Health",
+          HealerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "WillRemove",
@@ -175,23 +307,6 @@ BuffOnMoveEndBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "AkaliShadowDanceKick"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   }
 }

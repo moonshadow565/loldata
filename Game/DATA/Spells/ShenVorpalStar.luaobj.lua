@@ -68,7 +68,8 @@ BuffOnBeingHitBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 2.9,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -82,10 +83,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       DamageByLevel = {
         50,
-        100,
-        150,
-        200,
-        250
+        95,
+        140,
+        185,
+        230
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -159,7 +160,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

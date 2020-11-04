@@ -75,11 +75,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        50,
         100,
         150,
         200,
-        250
+        250,
+        300
       }
     }
   },
@@ -90,11 +90,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        50,
         100,
         150,
         200,
-        250
+        250,
+        300
       }
     }
   }
@@ -103,7 +103,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -144,11 +144,11 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "HealthTick",
       SrcValueByLevel = {
+        11.7,
         23.3,
-        46.6,
-        70,
-        93.3,
-        116.6
+        35,
+        46.7,
+        58.3
       }
     }
   },

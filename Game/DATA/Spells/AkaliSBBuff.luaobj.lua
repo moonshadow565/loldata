@@ -1,5 +1,5 @@
 BuffTextureName = "AkaliTwilightShroud.dds"
-BuffName = "AkaliTwilightShroudDebuff"
+BuffName = "AkaliTwilightShroudBuff"
 AutoBuffActivateEffect = "Global_Slow.troy"
 OnBuffActivateBuildingBlocks = {
   {
@@ -16,28 +16,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "MovementSpeed",
+      DestVar = "ArmorIncrease",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        -0.14,
-        -0.18,
-        -0.22,
-        -0.26,
-        -0.3
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeed",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        0,
-        0,
-        0,
-        0,
-        0
+        10,
+        20,
+        30,
+        40,
+        50
       }
     }
   }
@@ -46,19 +32,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
+      Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "MovementSpeed",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "AttackSpeed",
+      DeltaVar = "ArmorIncrease",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

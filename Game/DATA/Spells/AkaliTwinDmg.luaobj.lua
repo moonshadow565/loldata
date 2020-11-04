@@ -1,4 +1,4 @@
-BuffTextureName = "33.dds"
+BuffTextureName = "AkaliTwinDisciplines.dds"
 BuffName = "AkaliTwinDmg"
 AutoBuffActivateEffect = "akali_twinDisciplines_DMG_buf.troy"
 AutoBuffActivateAttachBoneName = "L_hand"
@@ -58,7 +58,7 @@ OnBuffActivateBuildingBlocks = {
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "VampPercent",
-      DestVarTable = "InstanceVars",
+      DestVarTable = "CharVars",
       MathOp = MO_ADD
     }
   },
@@ -66,7 +66,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "VampPercent",
-      Src2VarTable = "InstanceVars",
+      Src2VarTable = "CharVars",
       Src1Value = 100,
       Src2Value = 0,
       DestVar = "VampPercentTooltip",
@@ -79,17 +79,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Value = 0,
       ValueVar = "VampPercentTooltip",
+      ValueVarTable = "InstanceVars",
       Index = 1
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentSpellVampMod,
-      TargetVar = "Owner",
-      DeltaVar = "VampPercent",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }
@@ -146,7 +137,7 @@ BuffOnUpdateStatsBuildingBlocks = {
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "VampPercent",
-          DestVarTable = "InstanceVars",
+          DestVarTable = "CharVars",
           MathOp = MO_ADD
         }
       },
@@ -154,21 +145,12 @@ BuffOnUpdateStatsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "VampPercent",
-          Src2VarTable = "InstanceVars",
+          Src2VarTable = "CharVars",
           Src1Value = 100,
           Src2Value = 0,
           DestVar = "VampPercentTooltip",
+          DestVarTable = "InstanceVars",
           MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBIncStat,
-        Params = {
-          Stat = IncPercentSpellVampMod,
-          TargetVar = "Owner",
-          DeltaVar = "VampPercent",
-          DeltaVarTable = "InstanceVars",
-          Delta = 0
         }
       },
       {
@@ -176,6 +158,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           Value = 0,
           ValueVar = "VampPercentTooltip",
+          ValueVarTable = "InstanceVars",
           Index = 1
         }
       }
