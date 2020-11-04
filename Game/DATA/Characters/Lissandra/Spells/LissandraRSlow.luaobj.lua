@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Lissandra_Base_R_slow.troy"
+      Name = "lissandra_base_r_slow.troy"
     }
   }
 }

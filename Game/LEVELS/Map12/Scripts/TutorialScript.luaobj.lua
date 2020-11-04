@@ -346,13 +346,12 @@ function L0(A0)
 end
 ChangeObjectiveText = L0
 function L0()
-  local L0, L1, L2
+  local L0, L1
   L0 = objectiveString
   if L0 ~= "" then
     L0 = ShowObjectiveText
     L1 = objectiveString
-    L2 = false
-    L0(L1, L2)
+    L0(L1)
   end
 end
 ChangeObjectiveTextHelper = L0
@@ -1506,8 +1505,7 @@ function L0()
   local L0, L1, L2
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_minion_fight"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_AttackTraining"
   L2 = ""
@@ -1599,8 +1597,7 @@ function L0()
   L0(L1)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_level_up"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = RegisterOnSpellLevelupCallback
   L1 = 1
   L2 = "EventLevelUpGrats"
@@ -1721,8 +1718,7 @@ function L0()
   if not L0 then
     L0 = ShowObjectiveText
     L1 = "game_tutorial_objective_volley"
-    L2 = false
-    L0(L1, L2)
+    L0(L1)
     L0 = PlayTutorialAudioEvent
     L1 = "Tutorial_UseVolley"
     L2 = "EventSelectVolley"
@@ -1824,8 +1820,7 @@ function L0()
   L0(L1, L2)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_summoner_heal"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = LogTutorial
   L1 = "Unlocking summoner spells"
   L0(L1)
@@ -1952,8 +1947,7 @@ function L0()
   L0(L1, L2)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_recall"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_recall"
   L0(L1)
@@ -2267,8 +2261,7 @@ function L0()
   L0(L1, L2)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_camera_movement"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_camera_movement"
   L0(L1)
@@ -2563,8 +2556,7 @@ function L0()
   L0(L1, L2)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_minion_attack"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_minion_attack"
   L0(L1)
@@ -3108,8 +3100,7 @@ function L0()
   L0()
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_inhibitor_push"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_inhibitor_push"
   L0(L1)
@@ -3414,11 +3405,10 @@ function L0()
 end
 TutorialPhase1 = L0
 function L0()
-  local L0, L1, L2
+  local L0, L1
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_volley"
-  L2 = false
-  L0(L1, L2)
+  L0(L1)
   L0 = ShowAuxiliaryText
   L1 = "game_tutorial_auxiliary_volley"
   L0(L1)

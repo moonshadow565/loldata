@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "sr2_ordernexus"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nexusskinswap"
+    }
+  }
+}
