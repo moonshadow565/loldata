@@ -1,5 +1,5 @@
-AutoBuffActivateEffect = "ThreeSistersCrown.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = "Freljord_crown.troy"
+AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Overhead_Loc"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {

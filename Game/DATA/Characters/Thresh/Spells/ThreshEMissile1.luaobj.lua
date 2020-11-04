@@ -7,12 +7,6 @@ IsDeathRecapSource = true
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_essenceflux_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "threshe"}
   },
@@ -26,6 +20,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "thresh_e_hit_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_essenceflux_tar.troy"
     }
   },
   {

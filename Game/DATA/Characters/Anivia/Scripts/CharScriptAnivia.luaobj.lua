@@ -28,5 +28,23 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "globalrespawnanim"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aniviatauntsejuani"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aniviatauntashe"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aniviatauntlissandra"
+    }
   }
 }

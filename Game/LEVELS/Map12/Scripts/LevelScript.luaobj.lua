@@ -2383,10 +2383,10 @@ function L0_0(A0_59)
     L2_61, L3_62 = L3_62, L2_61
   end
   POST_GAME_EVENTS = {
-    [1] = {delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY, fadeMusic = true},
+    [1] = {delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY},
     [2] = {
       delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY + EOG_EASTER_EGG_MUSIC_FADE_TIME,
-      soundName = "LoL_Audio_en_US/Dialogue/TEMP-DONOTSHIP/freljordlore",
+      soundName = "LoL_Audio_en_US/Dialogue/Lissandra/freljordlore",
       cameraPath = L5_64,
       travelTime = EOG_EASTER_EGG_CAMERA_PATH_TIME
     }

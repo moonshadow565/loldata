@@ -96,5 +96,12 @@ function L0()
   L4 = 4
   L5 = 1
   L0(L1, L2, L3, L4, L5)
+  L0 = CreateChildTurret
+  L1 = "Turret_OrderTurretShrine"
+  L2 = "HA_AP_OrderShrineTurret"
+  L3 = TEAM_ORDER
+  L4 = 0
+  L5 = 1
+  L0(L1, L2, L3, L4, L5)
 end
 CreateLevelPropsTutorial = L0
