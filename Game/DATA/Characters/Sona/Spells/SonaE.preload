@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="sonae"}}, 
-{Function=BBPreloadSpell, Params={Name="sonaepassivecheck"}}, 
-{Function=BBPreloadSpell, Params={Name="sonaezone"}}, 
-}
