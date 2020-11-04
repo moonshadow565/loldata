@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffName = "XenZhaoSweep"
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -5,7 +5,7 @@ BuffTextureName = "Yasuo_Passive.dds"
 BuffName = "YasuoPassiveMSShieldOn"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {
-  "JannaForecast"
+  "YasuoSkin02"
 }
 SpellVOOverrideSkins = {
   "JannaForecast"
@@ -16,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_passive_activate.troy"
+      Name = "yasuo_base_passive_activate.troy"
     }
   },
   {
@@ -26,7 +26,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_passive_burst.troy"
+      Name = "yasuo_base_passive_burst.troy"
     }
   },
   {

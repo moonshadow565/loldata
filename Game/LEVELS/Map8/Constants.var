@@ -120,13 +120,6 @@ events_TimerForAssist                   =     10.000 ; Amount of time for someth
 ; Tutorial variables
 tut_TutorialModeOn                      =          0 ; Flag to turn TutorialMode On/Off
 
-; Audio variables
-aud_FMODMusicCueID                      =         13 ; FMOD ID for a music cue for the map's music.
-aud_FMODAmbientEvent                    =   map_snow ; FMOD event name for the map's ambient track.
-aud_FMODVictoryMusicCueID               =         23 ; FMOD ID for a Victory music cue for the map's music.
-aud_FMODDefeatMusicCueID                =         25 ; FMOD ID for a Defeat music cue for the map's music.
-aud_FMODReverbPreset                    = LoL_SummonersRift ; FMOD name of the reverb preset to be used on this map.
-
 ; HUD variables
 hud_BlinkFrequency                      =       1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
 hud_DefaultBlinkCount                   =          3 ; Sets the default number of pulses a HUD element will blink when highlighted.

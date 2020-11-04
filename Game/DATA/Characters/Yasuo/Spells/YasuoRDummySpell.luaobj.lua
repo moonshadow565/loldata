@@ -17,4 +17,9 @@ AutoCooldownByLevel = {
   120
 }
 NonDispellable = true
-SpellVOOverrideSkins = {"BroOlaf"}
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
+SpellVOOverrideSkins = {
+  "YasuoSkin02"
+}

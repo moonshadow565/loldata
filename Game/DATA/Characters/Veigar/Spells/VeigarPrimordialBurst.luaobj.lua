@@ -11,7 +11,11 @@ AutoCooldownByLevel = {
   8
 }
 SpellFXOverrideSkins = {
-  "BadSantaVeigar"
+  "BadSantaVeigar",
+  "VeigarSkin08"
+}
+SpellVOOverrideSkins = {
+  "VeigarSkin08"
 }
 SetSpellDamageRatio = 1
 PreLoadBuildingBlocks = {

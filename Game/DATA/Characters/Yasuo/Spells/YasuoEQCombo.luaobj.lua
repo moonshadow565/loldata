@@ -5,17 +5,14 @@ BuffTextureName = "AkaliCrescentSlash.dds"
 BuffName = "RenekthonCleaveReady"
 SpellToggleSlot = 1
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuoeqcomboanimlock"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin01_eq_swordglow.troy"
     }
   },
   {
@@ -27,25 +24,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_skin01_eq_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "yasuo_base_eq_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin01_eq3_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_eq3_cas.troy"
     }
   },
   {
@@ -57,7 +36,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_skin01_q_hit_tar.troy"
+      Name = "yasuo_base_q_hit_tar.troy"
     }
   },
   {
@@ -65,21 +44,15 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "yasuo_q_hit_tar.troy"
+      Name = "yasuoqprotect"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_base_ba_hit_tar_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuoqprotect"
     }
   },
   {
@@ -111,7 +84,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q_ready_sound.troy"
+      Name = "yasuo_base_q_ready_sound.troy"
     }
   },
   {

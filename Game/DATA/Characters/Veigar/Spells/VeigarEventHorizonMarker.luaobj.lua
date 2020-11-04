@@ -6,6 +6,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "veigar_skin08_e_glitch_buf.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "veigareventhorizonoutside"

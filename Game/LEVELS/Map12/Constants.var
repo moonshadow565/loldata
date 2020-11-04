@@ -174,15 +174,3 @@ shopvo_MenuCloseVOChance                =             1.000 ; Percentage chance(
 shopvo_PurchaseVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player purchases an item more expensive than shovo_PurchaseMinimumGold
 shovo_PurchaseMinimumGold               =               300 ; The minimum amount of gold an item has to cost to get VO
 shopvo_MultiMenuOpen                    =                 7 ; Number of times the menu has to be opened before leaving the shop area in which the VO will be played
-
-; Audio variables
-aud_FMODMusicCueID                      =                47 ; FMOD ID for a music cue for the map's music.
-aud_FMODAmbientEvent                    =             map12 ; FMOD event name for the map's ambient track.
-aud_FMODVictoryMusicCueID               =                50 ; FMOD ID for a Victory music cue for the map's music.
-aud_FMODDefeatMusicCueID                =                51 ; FMOD ID for a Defeat music cue for the map's music.
-aud_FMODReverbPreset                    = LoL_SummonersRift ; FMOD name of the reverb preset to be used on this map.
-aud_FMODMusicCueIDTutorial              =                47 ; Tutorial FMOD ID for a music cue for the map's music.
-aud_FMODAmbientEventTutorial            =          map_snow ; Tutorial FMOD event name for the map's ambient track.
-aud_FMODVictoryMusicCueIDTutorial       =                10 ; Tutorial FMOD ID for a Victory music cue for the map's music.
-aud_FMODDefeatMusicCueIDTutorial        =                 0 ; Tutorial FMOD ID for a Defeat music cue for the map's music.
-aud_FMODReverbPresetTutorial            =      ReverbPreset ; Tutorial FMOD name of the reverb preset to be used on this map.
