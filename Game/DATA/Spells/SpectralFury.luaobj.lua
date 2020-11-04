@@ -16,7 +16,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.7
+      Delta = 0.5
     }
   },
   {
@@ -24,7 +24,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.25
+      Delta = 0.2
     }
   }
 }
@@ -34,13 +34,13 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       Src1Var = "SpectralCount",
       Src1VarTable = "CharVars",
-      Value2 = 3,
+      Value2 = 2,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     }
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBElseIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_MELEE},
     SubBlocks = {
       {
         Function = BBGetBuffRemainingDuration,

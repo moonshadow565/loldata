@@ -42,7 +42,7 @@ BuffOnCollisionBuildingBlocks = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
                   BuffName = "ShenShadowDashTaunt",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   BuffType = BUFF_Taunt,
                   MaxStack = 1,
                   NumberOfStacks = 1,
@@ -393,6 +393,49 @@ SelfExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.1
     }
+  },
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 150,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
+        Function = BBApplyTaunt,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Duration = 0,
+          DurationVar = "tauntDuration",
+          DurationVarTable = "NextBuffVars"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "ShenShadowDashTaunt",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Taunt,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationVar = "tauntDuration",
+          DurationVarTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
@@ -401,7 +444,7 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 225,
+      Range = 200,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -426,7 +469,7 @@ BuffOnMoveEndBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "ShenShadowDashTaunt",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Taunt,
           MaxStack = 1,
           NumberOfStacks = 1,

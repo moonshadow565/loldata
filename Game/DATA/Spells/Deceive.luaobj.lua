@@ -4,30 +4,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "DCooldown",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStealthed
-    }
-  },
-  {
-    Function = BBPushCharacterFade,
-    Params = {
-      TargetVar = "Owner",
-      FadeAmount = 0.2,
-      fadeTime = 0,
-      IDVar = "ID"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "CastPos",
       RequiredVarTable = "InstanceVars"
     }
@@ -40,35 +16,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DCooldown",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBPushCharacterFade,
+    Params = {
+      TargetVar = "Owner",
+      FadeAmount = 0.2,
+      fadeTime = 0,
+      IDVar = "ID"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Teleported",
       DestVarTable = "InstanceVars",
       SrcValue = false
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
     }
   }
 }
@@ -183,10 +151,6 @@ BuffOnUpdateStatsBuildingBlocks = {
             }
           },
           {
-            Function = BBDestroyMissileForTarget,
-            Params = {TargetVar = "Owner"}
-          },
-          {
             Function = BBTeleportToPosition,
             Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
           },
@@ -197,31 +161,34 @@ BuffOnUpdateStatsBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = true
             }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanAttack
-            }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanCast
-            }
-          },
-          {
-            Function = BBSetStatus,
-            Params = {
-              TargetVar = "Owner",
-              SrcValue = true,
-              Status = SetCanMove
-            }
           }
+        }
+      }
+    }
+  }
+}
+BuffOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {
+      DestVar = "BeingCasted",
+      Info = GetSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BeingCasted",
+      Value2 = "TwoShivPoison",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Deceive"
         }
       }
     }
@@ -381,6 +348,10 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "deceive"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

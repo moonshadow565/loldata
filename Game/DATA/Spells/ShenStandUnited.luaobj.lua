@@ -107,6 +107,21 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "ShenStandUnitedShield",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 8.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "ShenStandUnitedTarget",
@@ -137,66 +152,13 @@ ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBTeleportToPosition,
     Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "baseShieldHealth",
-      SrcValueByLevel = {
-        400,
-        600,
-        800
-      }
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DestVar = "abilityPower"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "baseShieldHealth",
-      Src2Var = "abilityPower",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "shieldHealth",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "shieldHealth",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "shieldHealth"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ShenStandUnitedShield",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 40,
+      Src = 60,
       SlotNumber = 3,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,

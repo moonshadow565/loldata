@@ -158,7 +158,7 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {
                   Src1Var = "MaxHP",
                   Src1Value = 0,
-                  Src2Value = 0.03,
+                  Src2Value = 0.04,
                   DestVar = "BonusDmgFromHP",
                   MathOp = MO_MULTIPLY
                 }

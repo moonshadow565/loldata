@@ -186,14 +186,6 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Deceive"
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -208,9 +200,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "twoshivpoison"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "deceive"}
   }
 }
