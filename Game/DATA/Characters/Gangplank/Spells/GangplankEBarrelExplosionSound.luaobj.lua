@@ -1,5 +1,4 @@
-BuffTextureName = "GangplankBarrelSpell.dds"
-BuffName = "GangplankEShred"
 SpellFXOverrideSkins = {
-  "GangplankSkin05"
+  "GangplankSkin05",
+  "GangplankSkin06"
 }

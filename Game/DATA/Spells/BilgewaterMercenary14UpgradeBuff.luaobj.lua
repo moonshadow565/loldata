@@ -1,1 +1,1 @@
-BuffTextureName = "3614_Bilgewater_Mercenary_14.dds"
+BuffTextureName = "3614_Ocklepod.dds"
