@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = true
+IsDamagingSpell = true
+BuffTextureName = "DrMundo_InfectedCleaver.dds"
+BuffName = "InfectedCleaverDebuff"
+SpellDamageRatio = 1
+PopupMessage1 = "game_floatingtext_Slowed"
+SpellFXOverrideSkins = {"MundoMundo"}
+TriggersSpellCasts = false
