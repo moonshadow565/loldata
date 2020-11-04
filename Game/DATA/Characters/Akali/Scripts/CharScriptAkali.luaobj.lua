@@ -14,5 +14,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "isninja"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "akalishadowdance"
+    }
   }
 }

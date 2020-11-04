@@ -17,13 +17,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_Q_SingleEnemy_Tar.troy"
+      Name = "khazix_base_q_singleenemy_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_Q_MultiEnemy_Tar.troy"
+      Name = "khazix_base_q_multienemy_tar.troy"
     }
   }
 }

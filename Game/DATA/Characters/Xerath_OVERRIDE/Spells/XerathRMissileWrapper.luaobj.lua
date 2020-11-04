@@ -1,3 +1,5 @@
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
