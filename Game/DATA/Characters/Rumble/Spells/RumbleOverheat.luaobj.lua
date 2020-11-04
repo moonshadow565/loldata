@@ -1,6 +1,7 @@
 BuffTextureName = "Rumble_Junkyard Titan3.dds"
 BuffName = "RumbleOverheat"
-AutoBuffActivateEffect = "Silence_glb.troy"
+AutoBuffActivateEffect = "LOC_Silence.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_HEAD_LOC"
 AutoBuffActivateEffect2 = "rumble_overheat.troy"
 AutoBuffActivateAttachBoneName2 = "spine"
 AutoBuffActivateEffect3 = "rumble_overheat_lite.troy"

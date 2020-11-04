@@ -14,11 +14,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "kogmawcausticspittlecharged"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_mysticshot_tar.troy"
-    }
   }
 }

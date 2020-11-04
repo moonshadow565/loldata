@@ -14,13 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vampheal.troy"
+      Name = "global_lifesteal.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "meditate_eff.troy"
+      Name = "global_lifesteal_eff.troy"
     }
   }
 }

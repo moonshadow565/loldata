@@ -8,17 +8,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kassadin_base_q_shieldon.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "kassadin_base_q_shield.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "nulllance"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kassadin_base_q_shieldon.troy"
+    }
   }
 }

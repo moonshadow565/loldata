@@ -6,10 +6,6 @@ IsDamagingSpell = false
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "thresh_r_wall_teeth.troy"
@@ -62,5 +58,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "threshrcastsound.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }
