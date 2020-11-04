@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Zac_Base_P_Explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zac_base_p_explosion.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="zacrebirthbloblet"}}, 
 {Function=BBPreloadSpell, Params={Name="zacrebirthblob"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_rebirth_sound.troy"}}, 

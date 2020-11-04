@@ -247,6 +247,15 @@ function L0()
     L5 = NeutralMinionCamps
     L5 = L5[L4]
     L5.MinimapIcon = ""
+    L5 = NeutralMinionCamps
+    L5 = L5[L4]
+    L5.LeashRadius = 800
+    L5 = NeutralMinionCamps
+    L5 = L5[L4]
+    L6 = CampSpawnPoints
+    L6 = L6[L4]
+    L6 = L6[1]
+    L5.LeashCenter = L6
   end
   if L0 == "ARAM" or L0 == "KINGPORO" then
     L2[1] = L3

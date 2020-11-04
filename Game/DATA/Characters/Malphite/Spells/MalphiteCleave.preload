@@ -1,9 +1,10 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="malphite_base_cleaveenragedhit.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="malphite_base_w_cleave.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="globalhit_physical.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="malphite_base_enrage_glow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_w_tar_1.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_w_tar_2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_w_buf_body.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_w_buf_hands.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_skin06_w_buf_body.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_enrage_glow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_enrage_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="malphite_skin06_enrage_glow.troy"}}, 
 }

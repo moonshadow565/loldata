@@ -1,6 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="seismicshardbuff"}}, 
-{Function=BBPreloadSpell, Params={Name="seismicshard"}}, 
-{Function=BBPreloadParticle, Params={Name="seismicshard_tar_glacial.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="malphite_base_seismicshard_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="malphite_base_q_tar.troy"}}, 
 }
