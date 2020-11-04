@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = "Heimerdinger_H28GEvolutionTurret.dds"
+BuffTextureName = "Heimerdinger_Q1.dds"
 BuffName = "HeimerdingerQ"
 PreLoadBuildingBlocks = {
   {
@@ -15,13 +15,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_ult_turret_birth.troy"
+      Name = "heimerdinger_base_r_megaturret_spawn.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerrqengineaudio"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimer_q_ammo_spend.troy"
+      Name = "heimerdinger_base_q_ammo_spend.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerengineaudio"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerqspawndestroyaudio"
     }
   },
   {
@@ -69,37 +87,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "heimerdingerrocketcharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "heimerturrettimer"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimer_q_ammo1b.troy"
+      Name = "heimer_q_ammo1.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimer_q_ammo2b.troy"
+      Name = "heimer_q_ammo2.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimer_q_ammo3b.troy"
+      Name = "heimer_q_ammo3.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_r_cast.troy"
+      Name = "heimerdinger_base_r_cast.troy"
     }
   },
   {
@@ -129,19 +141,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemplacementmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "heimerdingerturretattackerlock"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "feelnopain_eff.troy"
     }
   },
   {

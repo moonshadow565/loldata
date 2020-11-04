@@ -23,13 +23,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_barrier.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_barrier_activate.troy"
+      Name = "global_ss_barrier.troy"
     }
   },
   {

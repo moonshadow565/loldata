@@ -22,7 +22,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_inversecharge.troy"
+      Name = "heimerdinger_base_q_turret_charge_up.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heimerdinger_base_r_megaturret_charge_up.troy"
     }
   }
 }

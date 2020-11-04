@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "trinkettotemlvl2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "dummywardtracker"
     }
   }

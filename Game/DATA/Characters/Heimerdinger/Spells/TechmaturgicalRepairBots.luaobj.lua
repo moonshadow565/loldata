@@ -1,4 +1,2 @@
-BuffTextureName = "Heimerdinger_TechmaturgicalRepairBots.dds"
+BuffTextureName = "Heimerdinger_Passive.dds"
 BuffName = "TechmaturgicalRepairBots"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""

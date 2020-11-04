@@ -20,18 +20,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "dianashieldbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dianaorbsbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "dianateleportbuff"
     }
   }

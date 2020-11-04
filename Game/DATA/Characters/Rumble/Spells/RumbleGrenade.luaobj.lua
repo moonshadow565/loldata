@@ -8,7 +8,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rumblegrenademissilemechdz"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumblegrenadedummyspelldz"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rumblegrenademissilemechbase"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumblegrenadedummyspell"
     }
   },
   {

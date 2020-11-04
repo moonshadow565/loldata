@@ -12,6 +12,8 @@ TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
+    Params = {
+      Name = "enchantedcrystalarrowslow"
+    }
   }
 }

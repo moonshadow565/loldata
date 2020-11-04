@@ -1,4 +1,4 @@
-BuffTextureName = "Heimerdinger_H28GEvolutionTurret.dds"
+BuffTextureName = "Heimerdinger_Q2.dds"
 BuffName = "HeimerdingerSuperTurret"
 PreLoadBuildingBlocks = {
   {

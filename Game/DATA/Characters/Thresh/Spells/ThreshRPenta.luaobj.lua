@@ -8,22 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "laywaste_point.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "caitlyn_laser_beam_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "thresh_r_wall_teeth.troy"
     }
   },
@@ -74,5 +58,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "threshrcastsound.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

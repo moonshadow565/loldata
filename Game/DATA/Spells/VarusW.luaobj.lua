@@ -9,7 +9,8 @@ SpellToggleSlot = 2
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "VarusAscended"
+  "VarusAscended",
+  "VarusSkin03"
 }
 PreLoadBuildingBlocks = {
   {

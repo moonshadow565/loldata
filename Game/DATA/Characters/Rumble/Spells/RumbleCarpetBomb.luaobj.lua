@@ -1,13 +1,10 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblecarpetbombeffect"
-    }
-  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
@@ -28,6 +25,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rumblecarpetbomb"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_trench_01.troy"
     }
   }
 }

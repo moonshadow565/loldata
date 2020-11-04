@@ -42,5 +42,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rumbleshieldbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumbleshielddummyspelldz"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumbleshielddummyspell"
+    }
   }
 }

@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "varus_skin03_w_detonate_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "varus_varusascended_wdetonate1.troy"
     }
   },
@@ -25,6 +31,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "varus_skin03_w_detonate_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "varus_varusascended_wdetonate2.troy"
     }
   },
@@ -32,6 +44,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "varuswdetonate2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varus_skin03_w_detonate_03.troy"
     }
   },
   {

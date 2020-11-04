@@ -8,5 +8,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "heimer_rocket_charge_01.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerengineaudio"
+    }
   }
 }

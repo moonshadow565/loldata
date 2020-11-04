@@ -1,4 +1,4 @@
-BuffTextureName = "Heimerdinger_H28GEvolutionTurret.dds"
+BuffTextureName = "Heimerdinger_Q1.dds"
 BuffName = "Heimerdinger Turret Ready"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {

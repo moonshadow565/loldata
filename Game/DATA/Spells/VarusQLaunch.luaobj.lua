@@ -6,5 +6,6 @@ BuffName = "VarusQ"
 SpellToggleSlot = 1
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "VarusAscended"
+  "VarusAscended",
+  "VarusSkin03"
 }

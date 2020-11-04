@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elixirsight_aura_02.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "odinminiontaunt"

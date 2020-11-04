@@ -21,7 +21,8 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 SpellFXOverrideSkins = {
-  "VarusAscended"
+  "VarusAscended",
+  "VarusSkin03"
 }
 SpellVOOverrideSkins = {
   "VarusAscended"
