@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xenziou_wind_chainattack01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "xenziou_chainattack_02.troy"
     }
   },

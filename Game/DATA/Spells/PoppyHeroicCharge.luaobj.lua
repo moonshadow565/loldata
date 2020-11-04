@@ -2,6 +2,8 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+BuffTextureName = "MasterYi_LeapStrike.dds"
+BuffName = "Alpha Striking"
 ChainMissileParameters = {
   MaximumHits = {
     4,

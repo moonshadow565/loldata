@@ -1,2 +1,0 @@
-BuffTextureName = "Trundle_Q.dds"
-BuffName = "TrundleQDebuff"

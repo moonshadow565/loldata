@@ -1,6 +1,0 @@
-SpellFXOverrideSkins = {
-  "BlackIceAnivia"
-}
-SpellVOOverrideSkins = {
-  "BlackIceAnivia"
-}

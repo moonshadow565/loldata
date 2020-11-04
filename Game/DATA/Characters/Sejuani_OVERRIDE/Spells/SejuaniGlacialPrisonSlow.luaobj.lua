@@ -1,9 +1,0 @@
-NotSingleTargetSpell = false
-DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
-IsDamagingSpell = true
-BuffTextureName = "Sejuani_R.dds"
-BuffName = "SejuaniGlacialPrison"
-AutoBuffActivateEffect = "Global_Freeze.troy"
-PopupMessage1 = "game_floatingtext_Slowed"

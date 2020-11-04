@@ -3,6 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Karma_E1.dds"
 BuffName = "KarmaQ"
+AutoBuffActivateEffect = "Highlander_buf.troy"
 AutoCooldownByLevel = {
   20,
   16,

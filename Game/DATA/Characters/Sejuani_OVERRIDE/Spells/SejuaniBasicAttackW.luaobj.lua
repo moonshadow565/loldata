@@ -1,5 +1,0 @@
-SpellFXOverrideSkins = {
-  "ZiggsMadScientist",
-  "ZiggsPoolParty",
-  "ZiggsSnowday"
-}

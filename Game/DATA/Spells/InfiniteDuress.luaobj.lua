@@ -5,8 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Wolfman_InfiniteDuress.dds"
 BuffName = "InfiniteDuress"
-AutoBuffActivateEffect = "LOC_Suppress.troy"
-AutoBuffActivateAttachBoneName = "head"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

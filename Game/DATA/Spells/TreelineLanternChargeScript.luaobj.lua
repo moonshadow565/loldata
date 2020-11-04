@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "treelinelanternreveal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "treelinelanterncapinterrupt"
     }
   },

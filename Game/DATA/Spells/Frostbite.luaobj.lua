@@ -3,13 +3,11 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-SpellFXOverrideSkins = {
-  "BlackIceAnivia"
-}
-SpellVOOverrideSkins = {
-  "BlackIceAnivia"
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "chilled"}
+  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -4,11 +4,7 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaScorchedEarth.dds"
 BuffName = "ShyvanaScorchedEarth"
-AutoBuffActivateEffect = "Shyvana_W_Burnout.troy"
-AutoBuffActivateAttachBoneName = "c_buffbone_glb_center_loc"
-SpellFXOverrideSkins = {
-  "FrostShyvana"
-}
+AutoBuffActivateEffect = "shyvana_scorchedEarth_01.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -19,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shyvana_w_tar.troy"
+      Name = "shyvana_scorchedearth_unit_tar.troy"
     }
   },
   {
