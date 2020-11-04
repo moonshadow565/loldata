@@ -6,6 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "ZyraE.dds"
 BuffName = "ZyraGraspingRootsHold"
 PopupMessage1 = "game_floatingtext_Snared"
+SpellFXOverrideSkins = {"ZyraSkin02"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -1,3 +1,4 @@
+SpellFXOverrideSkins = {"ZyraSkin02"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

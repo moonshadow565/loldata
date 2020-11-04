@@ -5,7 +5,8 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

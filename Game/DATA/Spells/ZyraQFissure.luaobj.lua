@@ -4,7 +4,8 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

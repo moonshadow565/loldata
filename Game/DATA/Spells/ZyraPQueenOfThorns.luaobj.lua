@@ -8,7 +8,8 @@ BuffName = "ZyraPQueenOfThorns"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

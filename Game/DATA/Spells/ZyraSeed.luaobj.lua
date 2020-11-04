@@ -21,7 +21,8 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 SpellFXOverrideSkins = {
-  "Zyra_hellvine"
+  "Zyra_hellvine",
+  "ZyraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
