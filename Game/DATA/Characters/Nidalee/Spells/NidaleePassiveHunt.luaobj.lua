@@ -1,3 +1,3 @@
 BuffTextureName = "Nidalee_Passive.dds"
-BuffName = "NidaleePassiveHunt"
+BuffName = "Prowl"
 PersistsThroughDeath = true
