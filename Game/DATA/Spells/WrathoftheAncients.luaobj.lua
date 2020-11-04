@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Averdrian_AstralBeam.dds"
+BuffTextureName = "ExaltedWithBaronNashor.dds"
 BuffName = "WrathoftheAncients"
 AutoBuffActivateEffect = "MouthFoam.troy"
 AutoBuffActivateAttachBoneName = "R_jaw"

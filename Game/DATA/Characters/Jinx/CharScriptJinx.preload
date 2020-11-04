@@ -20,5 +20,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="jinxqicon"}}, 
 {Function=BBPreloadSpell, Params={Name="jinxcaitagitate"}}, 
 {Function=BBPreloadSpell, Params={Name="jinxdancesfx"}}, 
-{Function=BBPreloadParticle, Params={Name="jinx_skin01_emote_dance_music_sound.troy"}}, 
 }

@@ -5,5 +5,9 @@ IsDamagingSpell = false
 BuffTextureName = "Bowmaster_ArchersMark.dds"
 BuffName = "Noxious Trap"
 SpellFXOverrideSkins = {
-  "AstronautTeemo"
+  "AstronautTeemo",
+  "TeemoSkin08"
+}
+SpellVOOverrideSkins = {
+  "TeemoSkin08"
 }

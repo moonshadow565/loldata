@@ -10,5 +10,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="braum_base_e_block_ba_cas2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="azirrdamage"}}, 
 {Function=BBPreloadSpell, Params={Name="azirrpushedbraum"}}, 
+{Function=BBPreloadSpell, Params={Name="zileanqenemybomb"}}, 
 {Function=BBPreloadSpell, Params={Name="braumespecialvobuff"}}, 
 }

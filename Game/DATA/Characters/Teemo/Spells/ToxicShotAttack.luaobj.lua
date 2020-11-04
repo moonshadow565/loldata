@@ -3,5 +3,9 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "Teemo_PoisonedDart.dds"
 BuffName = "Toxic Shot"
 SpellFXOverrideSkins = {
-  "AstronautTeemo"
+  "AstronautTeemo",
+  "TeemoSkin08"
+}
+SpellVOOverrideSkins = {
+  "TeemoSkin08"
 }

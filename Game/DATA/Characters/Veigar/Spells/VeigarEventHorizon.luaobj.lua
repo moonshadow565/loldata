@@ -11,9 +11,5 @@ AutoCooldownByLevel = {
   16
 }
 SpellFXOverrideSkins = {
-  "BadSantaVeigar",
-  "VeigarSkin08"
-}
-SpellVOOverrideSkins = {
-  "VeigarSkin08"
+  "BadSantaVeigar"
 }

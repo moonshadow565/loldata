@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="azirruncyclemanager"}}, 
 {Function=BBPreloadSpell, Params={Name="azirtowerbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="azirtowerbuffchaos"}}, 
+{Function=BBPreloadSpell, Params={Name="azirwhelper"}}, 
 {Function=BBPreloadSpell, Params={Name="azirq"}}, 
 {Function=BBPreloadSpell, Params={Name="azirr"}}, 
 {Function=BBPreloadSpell, Params={Name="azirrspawnsound"}}, 

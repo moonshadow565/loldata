@@ -1,2 +1,2 @@
-BuffTextureName = "Chronokeeper_Slow.dds"
+BuffTextureName = "Zilean_Passive.dds"
 BuffName = "Heightened Learning"

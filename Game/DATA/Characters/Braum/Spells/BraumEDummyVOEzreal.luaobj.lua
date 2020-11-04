@@ -17,3 +17,6 @@ AutoCooldownByLevel = {
   120
 }
 NonDispellable = true
+SpellVOOverrideSkins = {
+  "BraumSkin02"
+}

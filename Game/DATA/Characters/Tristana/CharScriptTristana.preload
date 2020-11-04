@@ -10,8 +10,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="globalruncyclemanager"}}, 
 {Function=BBPreloadParticle, Params={Name="tristana_base_ba_tar_e.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tristanaecharge"}}, 
-{Function=BBPreloadSpell, Params={Name="tristanaemarker"}}, 
 {Function=BBPreloadSpell, Params={Name="tristanavodamagetrackerbuff"}}, 
-{Function=BBPreloadParticle, Params={Name="tristana_base_ba_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tristanabasicattacksound"}}, 
 }

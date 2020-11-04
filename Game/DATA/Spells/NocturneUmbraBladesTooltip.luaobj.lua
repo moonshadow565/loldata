@@ -1,1 +1,2 @@
+BuffName = "NocturneUmbraBladesTooltip"
 PersistsThroughDeath = true

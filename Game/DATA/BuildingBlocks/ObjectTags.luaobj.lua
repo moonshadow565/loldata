@@ -58,9 +58,49 @@ L0[27] = L27
 L0[28] = L28
 UnitTags = L0
 L0 = {}
+L1 = "GameplayArea"
+L2 = "AREA_Platform"
+L3 = "AREA_Base"
+L4 = "AREA_Lane_Top"
+L5 = "AREA_Lane_Mid"
+L6 = "AREA_Lane_Bot"
+L7 = "AREA_Jungle_Top"
+L8 = "AREA_Jungle_Bot"
+L9 = "AREA_River_Top"
+L10 = "AREA_River_Bot"
+L11 = "AREA_BasePerimeter_Top"
+L12 = "AREA_BasePerimeter_Bot"
+L13 = "GameplayLane"
+L14 = "LANE_Top_Order"
+L15 = "LANE_Mid_Order"
+L16 = "LANE_Bot_Order"
+L17 = "LANE_Top_Chaos"
+L18 = "LANE_Mid_Chaos"
+L19 = "LANE_Bot_Chaos"
+L0[1] = L1
+L0[2] = L2
+L0[3] = L3
+L0[4] = L4
+L0[5] = L5
+L0[6] = L6
+L0[7] = L7
+L0[8] = L8
+L0[9] = L9
+L0[10] = L10
+L0[11] = L11
+L0[12] = L12
+L0[13] = L13
+L0[14] = L14
+L0[15] = L15
+L0[16] = L16
+L0[17] = L17
+L0[18] = L18
+L0[19] = L19
+RegionTags = L0
+L0 = {}
 UnitTagFlags = L0
 function L0()
-  local L0, L1, L2, L3, L4, L5, L6
+  local L0, L1, L2, L3, L4, L5, L6, L7, L8
   L0 = UnitTagFlags
   L0.None = 0
   L0 = 1
@@ -68,6 +108,13 @@ function L0()
     L6 = UnitTagFlags
     L6[L5] = L0
     L0 = L0 * 2
+  end
+  for L4, L5 in L1, L2, L3 do
+    L6 = _G
+    L7 = FNVHash
+    L8 = L5
+    L7 = L7(L8)
+    L6[L5] = L7
   end
 end
 _BuildTags = L0
