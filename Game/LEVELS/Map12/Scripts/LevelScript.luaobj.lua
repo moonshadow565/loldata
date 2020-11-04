@@ -2391,7 +2391,8 @@ function L0_0(A0_59)
     [1] = {delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY},
     [2] = {
       delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY + EOG_EASTER_EGG_MUSIC_FADE_TIME,
-      soundName = "LoL_Audio_en_US/Dialogue/Lissandra/freljordlore",
+      soundCharacterName = "Lissandra",
+      soundName = "freljordlore",
       cameraPath = L5_64,
       travelTime = EOG_EASTER_EGG_CAMERA_PATH_TIME
     }
@@ -2415,7 +2416,11 @@ function L0_0(A0_65, A1_66, A2_67)
         ClientSide_FadeOutMusic()
       end
       if _FORV_7_.soundName then
-        ClientSide_PlaySoundFile(_FORV_7_.soundName)
+        if _FORV_7_.soundCharacterName then
+          ClientSide_PlayGenericVOSoundFile(_FORV_7_.soundCharacterName, _FORV_7_.soundName)
+        else
+          ClientSide_PlaySoundFile(_FORV_7_.soundName)
+        end
       end
       table.remove(POST_GAME_EVENTS, L6_71)
       break
