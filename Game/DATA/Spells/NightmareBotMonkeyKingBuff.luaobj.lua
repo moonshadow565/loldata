@@ -4,12 +4,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotmonkeykingdoubleattack"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "nightmarebotmonkeykingdecoy"
     }
   },

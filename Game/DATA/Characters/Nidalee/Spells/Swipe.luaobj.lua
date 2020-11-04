@@ -12,9 +12,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "nidaleepassivehunted"
+      Name = "nidalee_base_cougar_e_buf.troy"
     }
   },
   {

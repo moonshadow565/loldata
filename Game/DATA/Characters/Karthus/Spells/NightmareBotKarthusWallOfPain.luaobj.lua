@@ -37,11 +37,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nightmarebotkarthuswallofpainbeam"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotkarthuswallofpain"
-    }
   }
 }

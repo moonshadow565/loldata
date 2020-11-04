@@ -29,11 +29,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nightmarebotblitzcrankrocketgrabmissile"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rocketgrab2"
-    }
   }
 }
