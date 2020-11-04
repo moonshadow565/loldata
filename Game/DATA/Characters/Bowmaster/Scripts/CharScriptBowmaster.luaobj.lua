@@ -107,6 +107,22 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "AD"}
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AD",
+      Index = 1,
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 SetVarsByLevelBuildingBlocks = {

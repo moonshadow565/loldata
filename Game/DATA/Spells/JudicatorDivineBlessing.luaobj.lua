@@ -33,11 +33,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.1,
         0.12,
-        0.14,
-        0.16,
-        0.18
+        0.12,
+        0.12,
+        0.12,
+        0.12
       }
     }
   },
@@ -94,7 +94,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.5,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }

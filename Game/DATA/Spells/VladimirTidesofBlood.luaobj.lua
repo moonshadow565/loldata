@@ -1,69 +1,61 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
+BuffTextureName = "Vladimir_TidesofBlood.dds"
 BuffName = ""
+AutoBuffActivateEffect = ""
 TriggersSpellCasts = true
-CanCastBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "temp", SrcValue = false}
-  },
-  {
-    Function = BBForEachUnitInTargetAreaRandom,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 515,
-      Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes NotAffectSelf ",
-      IteratorVar = "Unit",
-      MaximumUnitsToPick = 1,
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {DestVar = "temp", SrcValue = true}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "temp",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetBuffCountFromAll,
+    Params = {
+      DestVar = "Count",
+      TargetVar = "Owner",
+      BuffName = "VladimirTidesofBloodCost"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Count",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "Multiplier",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Multiplier",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "Multiplier",
+      MathOp = MO_ADD
+    }
+  },
   {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        60,
-        80,
-        100,
-        120,
-        140
+        40,
+        55,
+        70,
+        85,
+        100
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "HealthCost",
+      Src2Var = "Multiplier",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "HealthCost",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -134,63 +126,97 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 530,
-      Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Unit",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          OverrideCastPosition = false,
-          SlotNumber = 3,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 530,
+      Range = 570,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBSpellCast,
+        Function = BBCanSeeTarget,
         Params = {
-          CasterVar = "Owner",
-          TargetVar = "Unit",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          OverrideCastPosition = false,
-          SlotNumber = 4,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ViewerVar = "Owner",
+          TargetVar = "Target",
+          ResultVar = "CanSee"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CanSee",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Unit",
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              OverrideCastPosition = false,
+              SlotNumber = 4,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
+            }
+          }
         }
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "VladimirTidesofBloodCost",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 4,
+      NumberOfStacks = 1,
+      Duration = 7,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "VladimirTidesofBloodNuke",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 7,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirtidesofbloodcost"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirtidesofbloodnuke"
     }
   }
 }

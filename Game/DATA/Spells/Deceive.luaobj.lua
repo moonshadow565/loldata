@@ -37,6 +37,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -152,7 +153,8 @@ BuffOnPreAttackBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -163,11 +165,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        8.5,
-        8.5,
-        8.5,
-        8.5,
-        8.5
+        10,
+        10,
+        10,
+        10,
+        10
       }
     }
   },
@@ -253,6 +255,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -271,7 +274,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

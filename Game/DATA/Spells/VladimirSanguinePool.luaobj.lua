@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Heimerdinger_UPGRADE.dds"
+BuffTextureName = "Vladimir_SanguinePool.dds"
 BuffName = "VladimirSanguinePool"
 AutoBuffActivateEffect = ""
 TriggersSpellCasts = true
@@ -207,6 +207,14 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HasteBoost",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0.3
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -281,39 +289,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "UnlockAnimation",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 1,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2up",
-          ScaleTime = 0.5,
-          TargetVar = "Owner",
-          Loop = false,
-          Blend = true
-        }
-      }
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
@@ -330,35 +305,48 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted2",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HasteBoost",
+          DestVarTable = "InstanceVars",
+          SrcValue = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatAttackRangeMod,
+      TargetVar = "Owner",
+      Delta = -450
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "HasteBoost",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSilenced
     }
   },
   {
@@ -464,57 +452,18 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {
-      DestVar = "MaxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MaxHealth",
-      Src1Value = 0,
-      Src2Value = 0.15,
-      DestVar = "HealthCost",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "Temp1",
+      DestVar = "CurrentHealth",
       OwnerVar = "Owner",
       Function = GetHealth,
       PARType = PAR_MANA
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealthCost",
-      Src2Var = "Temp1",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Temp1",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "HealthCost",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
     Function = BBMath,
     Params = {
-      Src1Var = "HealthCost",
+      Src1Var = "CurrentHealth",
       Src1Value = 0,
-      Src2Value = -1,
+      Src2Value = -0.2,
       DestVar = "HealthCost",
       MathOp = MO_MULTIPLY
     }
@@ -551,10 +500,10 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.26,
-        -0.32,
-        -0.38,
-        -0.44,
+        -0.5,
+        -0.5,
+        -0.5,
+        -0.5,
         -0.5
       }
     }
@@ -564,10 +513,10 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "DamageTick",
       SrcValueByLevel = {
-        12,
-        24,
-        36,
-        48,
+        16,
+        27,
+        38,
+        49,
         60
       }
     }
@@ -585,7 +534,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Health",
       Src1Value = 0,
-      Src2Value = 0.02,
+      Src2Value = 0.03,
       DestVar = "HealthMod",
       MathOp = MO_MULTIPLY
     }

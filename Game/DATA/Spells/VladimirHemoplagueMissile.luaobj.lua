@@ -102,9 +102,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamagePerLevel",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        250,
-        350,
-        450
+        200,
+        300,
+        400
       }
     }
   },
@@ -114,9 +114,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.12,
-        -0.16,
-        -0.2
+        -0.1,
+        -0.14,
+        -0.18
       }
     }
   },
@@ -133,7 +133,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Target",
-      Range = 350,
+      Range = 375,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true

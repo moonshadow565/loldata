@@ -38,12 +38,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPushCharacterFade,
+    Function = BBSealSpellSlot,
     Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
       TargetVar = "Owner",
-      FadeAmount = 0.5,
-      fadeTime = 0,
-      IDVar = "fade"
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   }
 }
@@ -73,12 +84,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPushCharacterFade,
+    Function = BBSealSpellSlot,
     Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
       TargetVar = "Owner",
-      FadeAmount = 1,
-      fadeTime = 0,
-      IDVar = "fade"
+      State = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
     }
   }
 }
@@ -105,6 +127,26 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetTargetable
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   }
 }

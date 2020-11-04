@@ -34,52 +34,41 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetStat,
+        Function = BBGetTotalAttackDamage,
         Params = {
-          Stat = GetFlatMagicDamageMod,
           TargetVar = "Owner",
-          DestVar = "AbilityPower"
+          DestVar = "AttackDamage"
         }
       },
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "BonusDamage",
+          DestVar = "DamageMod",
           SrcValueByLevel = {
-            4,
-            10,
-            16,
-            22,
-            28
+            0.2,
+            0.25,
+            0.3,
+            0.35,
+            0.4
           }
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src2Var = "AbilityPower",
-          Src1Value = 0.3,
-          Src2Value = 0,
-          DestVar = "AbilityPower",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusDamage",
-          Src2Var = "AbilityPower",
+          Src1Var = "DamageMod",
+          Src2Var = "AttackDamage",
           Src1Value = 0,
           Src2Value = 0,
-          DestVar = "DamageToApply",
-          MathOp = MO_ADD
+          DestVar = "AttackDamage",
+          MathOp = MO_MULTIPLY
         }
       },
       {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "DamageToApply",
+          ValueVar = "AttackDamage",
           Index = 1,
           SlotNumber = 2,
           SlotType = SpellSlots,

@@ -1,4 +1,5 @@
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBMath,

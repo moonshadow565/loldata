@@ -1,60 +1,21 @@
-BuffTextureName = ""
-BuffName = "VladimirHemoplague"
+BuffTextureName = "Vladimir_HemoplagueImmune.dds"
+BuffName = ""
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,
     Params = {
-      DestVar = "MaxHealth",
-      OwnerVar = "Owner",
-      Function = GetMaxHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MaxHealth",
-      Src1Value = 0,
-      Src2Value = 0.15,
-      DestVar = "HealthCost",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "Temp1",
+      DestVar = "CurrentHealth",
       OwnerVar = "Owner",
       Function = GetHealth,
       PARType = PAR_MANA
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealthCost",
-      Src2Var = "Temp1",
-      CompareOp = CO_GREATER_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Temp1",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "HealthCost",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
     Function = BBMath,
     Params = {
-      Src1Var = "HealthCost",
+      Src1Var = "CurrentHealth",
       Src1Value = 0,
-      Src2Value = -1,
+      Src2Value = -0.15,
       DestVar = "HealthCost",
       MathOp = MO_MULTIPLY
     }

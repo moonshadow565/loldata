@@ -36,7 +36,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -52,7 +53,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -110,7 +112,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -152,6 +155,7 @@ ChannelingStartBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageToDeal",
@@ -260,12 +264,13 @@ ChannelingUpdateActionsBuildingBlocks = {
                   BuffName = "GlobalDrain",
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_Aura,
+                  BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0.01,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -307,6 +312,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",

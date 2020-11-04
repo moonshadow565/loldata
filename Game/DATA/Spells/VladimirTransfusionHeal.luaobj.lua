@@ -27,10 +27,10 @@ TargetExecuteBuildingBlocks = {
       SrcValue = 0,
       SrcValueByLevel = {
         17.5,
-        30,
-        42.5,
-        55,
-        67.5
+        28.75,
+        40,
+        51.25,
+        62.5
       }
     }
   },
@@ -47,7 +47,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.35,
+      Src2Value = 0.25,
       DestVar = "AbilityPowerMod",
       MathOp = MO_MULTIPLY
     }

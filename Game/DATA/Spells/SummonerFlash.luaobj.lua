@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -151,12 +152,14 @@ AdjustCastInfoBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "TestFlash",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -377,12 +380,14 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

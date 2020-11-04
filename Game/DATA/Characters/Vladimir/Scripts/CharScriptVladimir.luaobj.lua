@@ -1,3 +1,35 @@
+UpdateSelfBuffStatsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatHPPoolMod,
+      TargetVar = "Owner",
+      DestVar = "BonusHealth"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusHealth",
+      Src1Value = 0,
+      Src2Value = 0.15,
+      DestVar = "BonusHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusHealth",
+      Index = 1,
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Owner"
+    }
+  }
+}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -25,7 +57,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -130,7 +163,80 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
+CharOnHealBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VladimirTidesofBloodCost"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetBuffCountFromAll,
+        Params = {
+          DestVar = "Count",
+          TargetVar = "Owner",
+          BuffName = "VladimirTidesofBloodCost"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 0.08,
+          DestVar = "Heal%",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Heal%",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Heal%",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Health",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Health",
+              Src2Var = "Heal%",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "EffectiveHeal",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {
+              SrcVar = "EffectiveHeal"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladdeathparticle"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -147,6 +253,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirtidesofbloodcost"
     }
   }
 }

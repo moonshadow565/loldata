@@ -6,44 +6,64 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
+      SrcValue = true,
+      Status = SetStunned
     }
   },
   {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      }
     }
   }
 }
@@ -52,44 +72,130 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
+      SrcValue = false,
+      Status = SetStunned
     }
   },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
       SrcValue = true,
-      Status = SetCanCast
+      Status = SetStunned
     }
   },
   {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_SUMMONER,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      },
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      }
     }
   }
 }
