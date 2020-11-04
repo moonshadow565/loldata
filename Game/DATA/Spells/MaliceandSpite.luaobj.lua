@@ -6,6 +6,9 @@ AutoBuffActivateEffect2 = "Eve_ExudingEmbrace_tar.troy"
 AutoBuffActivateAttachBoneName2 = "r_foot"
 AutoBuffActivateEffect3 = "Eve_ExudingEmbrace_tar.troy"
 AutoBuffActivateAttachBoneName3 = "l_foot"
+AutoBuffActivateEffect4 = "Global_miss.troy"
+AutoBuffActivateAttachBoneName4 = "head"
+PopupMessage1 = "game_floatingtext_Blinded"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncStat,

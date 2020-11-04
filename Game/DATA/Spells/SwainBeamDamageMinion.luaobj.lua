@@ -40,7 +40,7 @@ OnBuffActivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.2,
+      SpellDamageRatio = 0.25,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -121,7 +121,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2,
+          SpellDamageRatio = 0.25,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -147,6 +147,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "swainbeamtransition"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swainbeamself"
     }
   }
 }

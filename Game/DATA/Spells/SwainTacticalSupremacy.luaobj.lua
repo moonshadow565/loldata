@@ -8,7 +8,7 @@ BuffOnKillBuildingBlocks = {
     Params = {
       DestVar = "ManaRegenPercent",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1.5
+      SrcValue = 1
     }
   },
   {

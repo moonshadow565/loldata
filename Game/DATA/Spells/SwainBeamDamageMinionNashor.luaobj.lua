@@ -11,8 +11,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
     Params = {
-      OwnerVar = "Attacker",
-      CasterVar = "Attacker",
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
       BuffName = "SwainMetamorphism"
     },
     SubBlocks = {
@@ -20,7 +20,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBPushCharacterData,
         Params = {
           SkinName = "Swain_noBird",
-          TargetVar = "Attacker",
+          TargetVar = "Owner",
           IDVar = "CasterID",
           IDVarTable = "InstanceVars",
           OverrideSpells = false
@@ -31,9 +31,9 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBApplyDamage,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Owner",
+      TargetVar = "Attacker",
       Damage = 0,
       DamageVar = "DamagePerHalfSecond",
       DamageVarTable = "InstanceVars",
@@ -51,30 +51,30 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
     Params = {
-      OwnerVar = "Attacker",
-      CasterVar = "Attacker",
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
       BuffName = "SwainMetamorphism"
     },
     SubBlocks = {
       {
         Function = BBPopAllCharacterData,
-        Params = {TargetVar = "Attacker"}
+        Params = {TargetVar = "Owner"}
       }
     }
   },
   {
     Function = BBIfHasBuff,
     Params = {
-      OwnerVar = "Attacker",
-      AttackerVar = "Attacker",
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "SwainBeamTransition"
     },
     SubBlocks = {
       {
         Function = BBSpellBuffRemove,
         Params = {
-          TargetVar = "Attacker",
-          AttackerVar = "Attacker",
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
           BuffName = "SwainBeamTransition"
         }
       }
@@ -83,8 +83,8 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "SwainBeamSelf"
     }
   }
@@ -92,7 +92,7 @@ OnBuffDeactivateBuildingBlocks = {
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
     SubBlocks = {
       {
         Function = BBSpellBuffRemoveCurrent,
@@ -112,9 +112,9 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Owner",
+          TargetVar = "Attacker",
           Damage = 0,
           DamageVar = "DamagePerHalfSecond",
           DamageVarTable = "InstanceVars",

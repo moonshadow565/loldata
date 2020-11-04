@@ -543,11 +543,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "StealthDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            40,
-            40,
-            40,
-            40,
-            40
+            30,
+            30,
+            30,
+            30,
+            30
           }
         }
       },

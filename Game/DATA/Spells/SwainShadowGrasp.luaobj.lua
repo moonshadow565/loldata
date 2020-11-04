@@ -100,14 +100,14 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning.troy",
+          EffectName = "Swain_shadowGrasp_warning_green.troy",
           Flags = 0,
           EffectIDVar = "GroundParticleEffect",
           EffectIDVarTable = "InstanceVars",
@@ -125,7 +125,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning.troy",
+          EffectName = "Swain_shadowGrasp_warning_red.troy",
           Flags = 0,
           EffectIDVar = "GroundParticleEffect2",
           EffectIDVarTable = "InstanceVars",
@@ -154,7 +154,7 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -178,14 +178,14 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning.troy",
+          EffectName = "Swain_shadowGrasp_warning_green.troy",
           Flags = 0,
           EffectIDVar = "GroundParticleEffect",
           EffectIDVarTable = "InstanceVars",
@@ -203,7 +203,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "Swain_shadowGrasp_warning.troy",
+          EffectName = "Swain_shadowGrasp_warning_red.troy",
           Flags = 0,
           EffectIDVar = "GroundParticleEffect2",
           EffectIDVarTable = "InstanceVars",
@@ -232,7 +232,7 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -257,6 +257,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a2",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -427,7 +434,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "swain_shadowgrasp_warning.troy"
+      Name = "swain_shadowgrasp_warning_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "swain_shadowgrasp_warning_red.troy"
     }
   },
   {

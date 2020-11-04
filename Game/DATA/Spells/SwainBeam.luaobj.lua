@@ -8,6 +8,24 @@ BuffName = ""
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "CasterID"}
+  },
+  {
+    Function = BBAddUnitPerceptionBubble,
+    Params = {
+      TeamVar = "CasterID",
+      Radius = 100,
+      TargetVar = "Owner",
+      Duration = 4,
+      SpecificUnitsClientOnlyVar = "Nothing",
+      RevealSpecificUnitOnlyVar = "Nothing",
+      RevealSteath = false,
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -268,6 +286,13 @@ OnBuffDeactivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBRemovePerceptionBubble,
+    Params = {
+      BubbleIDVar = "BubbleID",
+      BubbleIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -430,11 +455,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamagePerHalfSecond",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        25,
-        40,
-        55,
-        70,
-        85
+        30,
+        45,
+        60,
+        75,
+        90
       }
     }
   },
@@ -518,23 +543,6 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Owner",
-          BuffName = "SwainBeamDamageMinion",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffName = "SwainBeamSelf",
@@ -547,6 +555,56 @@ TargetExecuteBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Nothing",
+          BuffName = "ResistantSkin"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Target",
+              BuffName = "SwainBeamDamageMinionNashor",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "SwainBeamDamageMinion",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatDehancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
         }
       }
     }
@@ -630,7 +688,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "swainbeamself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "swainbeamminion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "resistantskin"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swainbeamdamageminionnashor"
     }
   }
 }

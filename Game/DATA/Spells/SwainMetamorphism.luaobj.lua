@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "SwainRavenousFlock.dds"
@@ -80,6 +80,66 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBForEachUnitInTargetAreaRandom,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 625,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 3,
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBCanSeeTarget,
+        Params = {
+          ViewerVar = "Owner",
+          TargetVar = "Unit",
+          ResultVar = "CanSee"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CanSee",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Unit",
+              OverrideCastPosition = false,
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = false,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -216,7 +276,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -307,20 +367,38 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSpellCast,
+            Function = BBCanSeeTarget,
             Params = {
-              CasterVar = "Owner",
+              ViewerVar = "Owner",
               TargetVar = "Unit",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 0,
-              OverrideForceLevelVar = "Level",
-              OverrideCoolDownCheck = false,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
+              ResultVar = "CanSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "CanSee",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Owner",
+                  TargetVar = "Unit",
+                  OverrideCastPosition = false,
+                  SlotNumber = 0,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = false,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              }
             }
           }
         }
@@ -334,7 +412,7 @@ AdjustCooldownBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GlacialStorm"
+      BuffName = "SwainMetamorphism"
     }
   },
   {
@@ -343,7 +421,7 @@ AdjustCooldownBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetReturnValue,
-        Params = {SrcValue = 0}
+        Params = {SrcValue = 0.5}
       }
     }
   }
@@ -377,9 +455,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCostInc",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            3,
-            5,
-            7
+            4,
+            7,
+            10
           }
         }
       },
@@ -389,9 +467,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            15,
             20,
-            25,
-            30
+            25
           }
         }
       },
@@ -447,13 +525,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "swainbeamtransition"
+      Name = "swainbeamself"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "glacialstorm"
+      Name = "swainbeamtransition"
     }
   },
   {
