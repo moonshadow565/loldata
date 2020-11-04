@@ -28,7 +28,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Src1Var = "AkaliAP",
       Src1VarTable = "InstanceVars",
-      Value2 = 20,
+      Value2 = 19.5,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -55,7 +55,8 @@ BuffOnUpdateStatsBuildingBlocks = {
           Duration = 1.1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -65,7 +66,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Src1Var = "AkaliDmg",
       Src1VarTable = "InstanceVars",
-      Value2 = 10,
+      Value2 = 9.5,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -92,7 +93,8 @@ BuffOnUpdateStatsBuildingBlocks = {
           Duration = 1.1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

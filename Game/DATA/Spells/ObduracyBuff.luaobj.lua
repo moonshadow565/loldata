@@ -67,39 +67,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Malphite_Enrage_buf.troy",
-      Flags = 0,
-      EffectIDVar = "SandRHand",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "R_thumb_b",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Malphite_Enrage_buf.troy",
-      Flags = 0,
-      EffectIDVar = "SandLHand",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "L_finger_b",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      UnitVar = "Owner",
+      SkinIDVar = "MalphiteSkinID"
     }
   },
   {
@@ -117,7 +88,100 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "MalphiteSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Malphite_Enrage_buf.troy",
+          Flags = 0,
+          EffectIDVar = "SandRHand",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "R_finger_b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Malphite_Enrage_buf.troy",
+          Flags = 0,
+          EffectIDVar = "SandLHand",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "L_finger_b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Malphite_Enrage_buf.troy",
+          Flags = 0,
+          EffectIDVar = "SandRHand",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "R_thumb_b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "Malphite_Enrage_buf.troy",
+          Flags = 0,
+          EffectIDVar = "SandLHand",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "L_finger_b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
+        }
+      }
     }
   }
 }
@@ -192,17 +256,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "malphite_enrage_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "malphite_enrage_glow.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "malphite_enrage_buf.troy"
+    }
   }
 }

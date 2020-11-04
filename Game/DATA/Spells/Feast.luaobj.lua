@@ -145,8 +145,8 @@ TargetExecuteBuildingBlocks = {
           DestVar = "FeastBase",
           SrcValueByLevel = {
             300,
-            550,
-            800
+            475,
+            650
           }
         }
       }
@@ -182,7 +182,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.7,
       DestVar = "HalfAbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -219,6 +219,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "TargetHealth",
@@ -261,7 +262,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -278,7 +280,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -291,6 +294,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "FeastHealth",

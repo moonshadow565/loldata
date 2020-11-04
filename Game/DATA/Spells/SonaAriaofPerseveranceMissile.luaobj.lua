@@ -17,7 +17,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "APMod",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.35,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY
     }
@@ -29,11 +29,11 @@ TargetExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "APMod",
       DeltaByLevel = {
-        30,
-        55,
-        80,
+        35,
+        70,
         105,
-        130
+        140,
+        175
       },
       HealerVar = "Attacker"
     }

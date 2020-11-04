@@ -30,6 +30,35 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   }
 }
+SetVarsByLevelBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "tooltipAmount",
+      DestVarTable = "CharVars",
+      SrcValueByLevel = {
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      }
+    }
+  }
+}
 CharOnHitUnitBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -146,6 +175,36 @@ CharOnHitUnitBuildingBlocks = {
 }
 CharOnPreAttackBuildingBlocks = {
   {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BrushCount",
+      SrcValueByLevel = {
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      }
+    }
+  },
+  {
     Function = BBIsInBrush,
     Params = {UnitVar = "Attacker", ResultVar = "IsInBrush"}
   },
@@ -170,7 +229,7 @@ CharOnPreAttackBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Count",
-          Value2 = 6,
+          Src2Var = "BrushCount",
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
@@ -284,6 +343,24 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "CaitlynHeadshotPassive",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {
@@ -339,6 +416,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "caitlynheadshotpassive"
     }
   }
 }

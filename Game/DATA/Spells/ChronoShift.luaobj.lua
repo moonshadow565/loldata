@@ -8,6 +8,7 @@ AutoCooldownByLevel = {
 }
 PersistsThroughDeath = true
 NonDispellable = true
+OnPreDamagePriority = 4
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -156,9 +157,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseHealthBoost",
       SrcValueByLevel = {
-        500,
-        750,
-        1000
+        600,
+        850,
+        1100
       }
     }
   },
@@ -177,7 +178,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPowerb",
       Src1Value = 0,
-      Src2Value = 3,
+      Src2Value = 2,
       DestVar = "AbilityPowerMod",
       MathOp = MO_MULTIPLY
     }
@@ -222,9 +223,9 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        10,
-        10,
-        10
+        7,
+        7,
+        7
       },
       TickRate = 0,
       CanMitigateDuration = false,

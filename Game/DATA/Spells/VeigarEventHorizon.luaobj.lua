@@ -139,9 +139,17 @@ OnBuffActivateBuildingBlocks = {
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0.25,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
+    }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "VeigarSkinID"
     }
   },
   {
@@ -153,45 +161,103 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          PosVarTable = "InstanceVars",
-          EffectName = "permission_desecrate_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Nothing",
-          TargetPosVar = "TargetPos",
-          TargetPosVarTable = "InstanceVars",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "VeigarSkinID",
+          Value2 = 4,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_red_cas_leprechaun.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_green_cas_leprechaun.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          PosVarTable = "InstanceVars",
-          EffectName = "permission_desecrate_green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Nothing",
-          TargetPosVar = "TargetPos",
-          TargetPosVarTable = "InstanceVars",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = false
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_red_cas.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_green_cas.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }
@@ -201,45 +267,103 @@ OnBuffActivateBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          PosVarTable = "InstanceVars",
-          EffectName = "permission_desecrate_red_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Nothing",
-          TargetPosVar = "TargetPos",
-          TargetPosVarTable = "InstanceVars",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "VeigarSkinID",
+          Value2 = 4,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_red_cas_leprechaun.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_green_cas_leprechaun.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          PosVarTable = "InstanceVars",
-          EffectName = "permission_desecrate_green_cas.troy",
-          Flags = 0,
-          EffectIDVar = "Particle2",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Nothing",
-          TargetPosVar = "TargetPos",
-          TargetPosVarTable = "InstanceVars",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
-          SendIfOnScreenOrDiscard = false
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_red_cas.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              PosVarTable = "InstanceVars",
+              EffectName = "permission_desecrate_green_cas.troy",
+              Flags = 0,
+              EffectIDVar = "Particle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Nothing",
+              TargetPosVar = "TargetPos",
+              TargetPosVarTable = "InstanceVars",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 900,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       }
     }
@@ -272,6 +396,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 1000,
       DamageType = TRUE_DAMAGE,
@@ -363,7 +488,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "Duration",
                   TickRate = 0.25,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -441,7 +567,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.1,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -460,6 +587,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "veigareventhorizonmarker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "permission_desecrate_red_cas_leprechaun.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "permission_desecrate_green_cas_leprechaun.troy"
     }
   },
   {

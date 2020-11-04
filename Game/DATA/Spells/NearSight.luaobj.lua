@@ -1,5 +1,6 @@
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "Nocturne_Paranoia.dds"
 BuffName = "NearSight"
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
