@@ -14,3 +14,6 @@ AutoCooldownByLevel = {
   18,
   14
 }
+SpellFXOverrideSkins = {
+  "VayneSkin06"
+}

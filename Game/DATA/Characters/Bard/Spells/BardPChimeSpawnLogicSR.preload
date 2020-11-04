@@ -1,6 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="bardpickup"}}, 
 {Function=BBPreloadSpell, Params={Name="bardpchimeminion"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
-{Function=BBPreloadSpell, Params={Name="bardpchimespawnzone"}}, 
 }

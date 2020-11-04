@@ -20,7 +20,8 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 SpellFXOverrideSkins = {
-  "IronForgeXerath"
+  "IronForgeXerath",
+  "XerathSkin04"
 }
 SpellVOOverrideSkins = {
   "XerathDarkIron"

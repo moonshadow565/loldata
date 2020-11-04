@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="amumu_skin08_r_cas_fail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="cursebandages_cas1.troy"}}, 
+}

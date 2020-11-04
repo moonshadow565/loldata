@@ -7,5 +7,6 @@ AutoBuffActivateEffect = "LOC_Stun.troy"
 AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Center_Loc"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
-  "IronForgeXerath"
+  "IronForgeXerath",
+  "XerathSkin04"
 }

@@ -1,6 +1,7 @@
 SpellFXOverrideSkins = {
   "GangsterTwitch",
-  "PunkTwitch"
+  "PunkTwitch",
+  "AmumuSkin08"
 }
 SpellVOOverrideSkins = {
   "BadrobotAmumu"

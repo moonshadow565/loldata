@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="amumu_skin08_i_sparkle.troy"}}, 
+}

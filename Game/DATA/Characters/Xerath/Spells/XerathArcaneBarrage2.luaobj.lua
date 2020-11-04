@@ -6,5 +6,6 @@ IsDamagingSpell = true
 BuffName = "XerathArcaneBarrage2"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "IronForgeXerath"
+  "IronForgeXerath",
+  "XerathSkin04"
 }

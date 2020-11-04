@@ -2,5 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
-  "IronForgeXerath"
+  "IronForgeXerath",
+  "XerathSkin04"
 }

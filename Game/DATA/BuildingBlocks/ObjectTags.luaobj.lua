@@ -13,21 +13,22 @@ L10 = "Monster_Large"
 L11 = "Special_AzirW"
 L12 = "Special_AzirR"
 L13 = "Special_EpicMonsterIgnores"
-L14 = "Special_SyndraSphere"
-L15 = "Special_TeleportTarget"
-L16 = "Special_Tunnel"
-L17 = "Special_TurretIgnores"
-L18 = "Special_Void"
-L19 = "Structure"
-L20 = "Structure_Inhibitor"
-L21 = "Structure_Nexus"
-L22 = "Structure_Turret"
-L23 = "Structure_Turret_Outer"
-L24 = "Structure_Turret_Inner"
-L25 = "Structure_Turret_Inhib"
-L26 = "Structure_Turret_Nexus"
-L27 = "Structure_Turret_Shrine"
-L28 = "Ward"
+L14 = "Special_Peaceful"
+L15 = "Special_SyndraSphere"
+L16 = "Special_TeleportTarget"
+L17 = "Special_Tunnel"
+L18 = "Special_TurretIgnores"
+L19 = "Special_Void"
+L20 = "Structure"
+L21 = "Structure_Inhibitor"
+L22 = "Structure_Nexus"
+L23 = "Structure_Turret"
+L24 = "Structure_Turret_Outer"
+L25 = "Structure_Turret_Inner"
+L26 = "Structure_Turret_Inhib"
+L27 = "Structure_Turret_Nexus"
+L28 = "Structure_Turret_Shrine"
+L29 = "Ward"
 L0[1] = L1
 L0[2] = L2
 L0[3] = L3
@@ -56,6 +57,7 @@ L0[25] = L25
 L0[26] = L26
 L0[27] = L27
 L0[28] = L28
+L0[29] = L29
 UnitTags = L0
 L0 = {}
 L1 = "GameplayArea"
@@ -120,6 +122,10 @@ L0[29] = L29
 L0[30] = L30
 RegionTags = L0
 L0 = {}
+L1 = "SPELL_TestTag"
+L0[1] = L1
+SpellTags = L0
+L0 = {}
 UnitTagFlags = L0
 function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8
@@ -130,6 +136,13 @@ function L0()
     L6 = UnitTagFlags
     L6[L5] = L0
     L0 = L0 * 2
+  end
+  for L4, L5 in L1, L2, L3 do
+    L6 = _G
+    L7 = FNVHash
+    L8 = L5
+    L7 = L7(L8)
+    L6[L5] = L7
   end
   for L4, L5 in L1, L2, L3 do
     L6 = _G
