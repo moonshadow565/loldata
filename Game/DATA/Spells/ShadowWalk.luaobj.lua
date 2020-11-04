@@ -44,7 +44,8 @@ OnBuffActivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = -60
+      Cost = -60,
+      PARType = PAR_MANA
     }
   }
 }
@@ -124,14 +125,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = 0
-    }
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -199,7 +194,7 @@ BuffOnSpellCastBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -241,7 +236,7 @@ BuffOnSpellCastBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -334,7 +329,7 @@ BuffOnPreAttackBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -394,8 +389,7 @@ TargetExecuteBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "evelyn_invis_cas.troy",
           Flags = 0,
-          EffectIDVar = "a",
-          EffectIDVarTable = "InstanceVars",
+          EffectIDVar = "Particle",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -474,7 +468,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

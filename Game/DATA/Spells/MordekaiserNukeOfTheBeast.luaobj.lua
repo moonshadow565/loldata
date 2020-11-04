@@ -39,19 +39,34 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBSetVarInTable,
     Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "BaseDamage",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      DestVar = "BaseDamage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "BaseDamage"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Target",
+      BuffName = "MordekaiserNukeOfTheBeastDmg",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffType = BUFF_Internal,
+      MaxStack = 5,
+      NumberOfStacks = 1,
+      Duration = 0.001,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisernukeofthebeastdmg"
     }
   }
 }

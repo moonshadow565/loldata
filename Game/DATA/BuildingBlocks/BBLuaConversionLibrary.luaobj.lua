@@ -314,3 +314,71 @@ function L0(A0, A1)
   L2(L3, L4)
 end
 TeleportToPosition = L0
+function L0(A0, A1, A2, A3, A4, A5)
+  local L6, L7, L8
+  L6 = {}
+  L6.Center = A0
+  passThroughParams = L6
+  L6 = {}
+  L6.UnitVar = "Nothing"
+  L6.CenterVar = "Center"
+  L6.Radius = A1
+  L6.ColorR = A2
+  L6.ColorG = A3
+  L6.ColorB = A4
+  L6.ColorA = A5
+  L6.DebugCircleIDVar = "DebugCircleID"
+  perBlockParams = L6
+  L6 = BBAddDebugCircle
+  L7 = passThroughParams
+  L8 = perBlockParams
+  L6(L7, L8)
+  L6 = passThroughParams
+  L6 = L6.DebugCircleID
+  return L6
+end
+AddDebugCircle = L0
+function L0(A0)
+  local L1, L2, L3
+  L1 = {}
+  L1.DebugCircleID = A0
+  passThroughParams = L1
+  L1 = {}
+  perBlockParams = L1
+  L1 = BBRemoveDebugCircle
+  L2 = passThroughParams
+  L3 = perBlockParams
+  L1(L2, L3)
+end
+RemoveDebugCircle = L0
+function L0(A0, A1)
+  local L2, L3, L4
+  L2 = {}
+  L2.DebugCircleID = A0
+  passThroughParams = L2
+  L2 = {}
+  L2.Radius = A1
+  perBlockParams = L2
+  L2 = BBModifyDebugCircleRadius
+  L3 = passThroughParams
+  L4 = perBlockParams
+  L2(L3, L4)
+end
+ModifyDebugCircleRadius = L0
+function L0(A0, A1, A2, A3, A4)
+  local L5, L6, L7
+  L5 = {}
+  L5.DebugCircleID = A0
+  passThroughParams = L5
+  L5 = {}
+  L5.ColorR = A1
+  L5.ColorG = A2
+  L5.ColorB = A3
+  L5.ColorA = A4
+  perBlockParams = L5
+  L5 = BBModifyDebugCircleColor
+  L6 = passThroughParams
+  L7 = perBlockParams
+  L5(L6, L7)
+end
+ModifyDebugCircleColor = L0

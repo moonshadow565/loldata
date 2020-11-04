@@ -92,17 +92,13 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
         Function = BBForEachUnitInTargetArea,
         Params = {
-          AttackerVar = "Caster",
+          AttackerVar = "Attacker",
           CenterVar = "Owner",
           Range = 350,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
@@ -121,14 +117,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           {
             Function = BBSpellBuffAdd,
             Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Caster",
+              TargetVar = "Attacker",
+              AttackerVar = "Unit",
               BuffName = "MordekaiserCreepingDeathDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Internal,
-              MaxStack = 1,
+              MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 1,
+              Duration = 0.001,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -217,18 +213,28 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "MordekaiserCreepingDeathDebuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 1,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_DIFFERENT_TEAM
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Target",
+              BuffName = "MordekaiserCreepingDeathDebuff",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              BuffType = BUFF_Internal,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 0.001,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
         }
       }
     }

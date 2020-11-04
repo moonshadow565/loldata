@@ -227,8 +227,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "AbsoluteZero_Slow",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              BuffName = "Chilled",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               BuffType = BUFF_Slow,
               MaxStack = 10,
               NumberOfStacks = 1,
@@ -343,6 +343,7 @@ ChannelingSuccessStopBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 2.5,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -415,6 +416,7 @@ ChannelingCancelStopBuildingBlocks = {
           PercentOfAttack = 0,
           PercentOfAttackVar = "TotalTime",
           SpellDamageRatio = 2.5,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -448,6 +450,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "absolutezero_slow"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "chilled"}
   },
   {
     Function = BBPreloadSpell,

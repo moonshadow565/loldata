@@ -157,36 +157,17 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "TarMaxHP",
-          OwnerVar = "Target",
-          Function = GetMaxHealth,
-          PARType = PAR_MANA
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "TarMaxHP",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "NomNom",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "NomNom",
+          DamageVar = "TargetHealth",
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -244,22 +225,12 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBMath,
-        Params = {
-          Src2Var = "FeastHealth",
-          Src1Value = 0.5,
-          Src2Value = 0,
-          DestVar = "FeastDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "FeastDamage",
+          DamageVar = "FeastHealth",
           DamageType = TRUE_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,

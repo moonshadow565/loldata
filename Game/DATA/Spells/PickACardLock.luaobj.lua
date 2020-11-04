@@ -4,7 +4,7 @@ IsDamagingSpell = false
 BuffTextureName = "CardMaster_FatesGambit.dds"
 BuffName = "Pick A Card"
 AutoBuffActivateEffect = ""
-SpellToggleSlot = 3
+SpellToggleSlot = 2
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSilenceSpellSlot,

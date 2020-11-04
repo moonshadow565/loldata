@@ -39,18 +39,17 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       State = true
     }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
+  },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "SpellCooldown",
-      SrcVar = "SpellCooldown",
-      SrcVarTable = "InstanceVars",
-      SrcValue = 0
+      DestVar = "WillRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
-  },
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBGetStat,
     Params = {
@@ -74,6 +73,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Src1Var = "Multiplier",
       Src2Var = "SpellCooldown",
+      Src2VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "NewCooldown",
@@ -101,6 +101,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "WillRemove",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -114,6 +131,14 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          },
           {
             Function = BBSpellBuffAdd,
             Params = {
@@ -154,13 +179,9 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBGetTotalAttackDamage,
-            Params = {TargetVar = "Owner", DestVar = "AD"}
-          },
-          {
             Function = BBMath,
             Params = {
-              Src1Var = "AD",
+              Src1Var = "DamageAmount",
               Src2Var = "BonusDamage",
               Src1Value = 0,
               Src2Value = 0,
@@ -254,14 +275,6 @@ BuffOnHitUnitBuildingBlocks = {
                 }
               },
               {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "MordekaiserMaceOfSpades"
-                }
-              },
-              {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Target",
@@ -275,22 +288,6 @@ BuffOnHitUnitBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
                   SendIfOnScreenOrDiscard = true
-                }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "BaseDamage",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
                 }
               }
             }
@@ -325,31 +322,30 @@ BuffOnHitUnitBuildingBlocks = {
                   FOWVisibilityRadius = 0,
                   SendIfOnScreenOrDiscard = true
                 }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "BaseDamage",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              },
-              {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "MordekaiserMaceOfSpades"
-                }
               }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "BaseDamage",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "BaseDamage"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Target",
+              BuffName = "MordekaiserMaceOfSpadesDmg",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0.001,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           }
         }
@@ -466,15 +462,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "mordekaisermaceofspades"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "mordakaiser_maceofspades_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisermaceofspadesdmg"
     }
   }
 }

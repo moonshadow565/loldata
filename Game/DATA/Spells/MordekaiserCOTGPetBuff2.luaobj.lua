@@ -263,180 +263,22 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Attacker",
-      DestVar = "MordAP"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "StatMultiplier",
-      SrcValueByLevel = {
-        0.65,
-        0.75,
-        0.85
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MordAP",
-      Src1Value = 0,
-      Src2Value = 0.001,
-      DestVar = "StatAPCoeff",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "StatAPCoeff",
-      Src2Var = "StatMultiplier",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "StatMultiplier",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Attacker", DestVar = "MordDamage"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "StatMultiplier",
-      Src2Var = "MordDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "MordDamage",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "StatMultiplier",
-      Src2Var = "MordAP",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "MordAP",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "MordDamage",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "MordAP",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "MordHealth",
-      OwnerVar = "Attacker",
-      Function = GetMaxHealth,
-      PARType = PAR_SHIELD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "StatMultiplier",
-      Src2Var = "MordHealth",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "MordHealth",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatHPPoolMod,
-      TargetVar = "Owner",
-      DeltaVar = "MordHealth",
-      Delta = 0
+      AttackerVar = "Attacker",
+      BuffName = "MordekaiserCOTGPetBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 30,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MordDamage",
-      Src2VarTable = "InstanceVars",
-      Src1Value = -1,
-      Src2Value = 0,
-      DestVar = "MordDamage",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "MordAP",
-      Src2VarTable = "InstanceVars",
-      Src1Value = -1,
-      Src2Value = 0,
-      DestVar = "MordAP",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatMagicDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "MordAP",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "MordDamage",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
   {
     Function = BBApplyDamage,
     Params = {
@@ -550,6 +392,46 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageToDeal",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DamageAmount"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Caster",
+      AttackerVar = "Target",
+      BuffName = "MordekaiserCOTGPetDmg",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.001,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -567,6 +449,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisercotgself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisercotgpetbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisercotgpetdmg"
     }
   }
 }

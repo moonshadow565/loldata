@@ -7,24 +7,28 @@ function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8, L9, L10
   if A0 ~= nil then
     L2 = gCurrentBuildingBlockString
+    A1.___BreakExecution___ = false
     for L6 = L3, L4, L5 do
-      gCurrentBuildingBlockNumber = L6
-      L7 = L2
-      L8 = "."
-      L9 = gCurrentBuildingBlockNumber
-      L7 = L7 .. L8 .. L9
-      gCurrentBuildingBlockString = L7
-      L7 = gCurrentBuildingBlockNumber
-      L7 = A0[L7]
-      gCurrentBuildingBlock = L7
-      L7 = gCurrentBuildingBlock
-      L7 = L7.Function
-      L8 = A1
-      L9 = gCurrentBuildingBlock
-      L9 = L9.Params
-      L10 = gCurrentBuildingBlock
-      L10 = L10.SubBlocks
-      L7(L8, L9, L10)
+      L7 = A1.___BreakExecution___
+      if false == L7 then
+        gCurrentBuildingBlockNumber = L6
+        L7 = L2
+        L8 = "."
+        L9 = gCurrentBuildingBlockNumber
+        L7 = L7 .. L8 .. L9
+        gCurrentBuildingBlockString = L7
+        L7 = gCurrentBuildingBlockNumber
+        L7 = A0[L7]
+        gCurrentBuildingBlock = L7
+        L7 = gCurrentBuildingBlock
+        L7 = L7.Function
+        L8 = A1
+        L9 = gCurrentBuildingBlock
+        L9 = L9.Params
+        L10 = gCurrentBuildingBlock
+        L10 = L10.SubBlocks
+        L7(L8, L9, L10)
+      end
     end
     gCurrentBuildingBlockString = L2
     gCurrentBuildingBlockNumber = L3
@@ -532,6 +536,10 @@ function L0(A0, A1, A2)
   end
 end
 BBIfHasBuff = L0
+function L0(A0, A1)
+  A0.___BreakExecution___ = true
+end
+BBBreakExecution = L0
 function L0(A0, A1, A2)
   local L3, L4, L5, L6, L7, L8
   L5 = A1.OwnerVar

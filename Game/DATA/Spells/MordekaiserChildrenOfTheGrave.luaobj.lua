@@ -39,7 +39,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
@@ -54,8 +54,8 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
+          TargetVar = "Attacker",
+          AttackerVar = "Owner",
           BuffName = "MordekaiserCOTGDot",
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Internal,
@@ -115,12 +115,48 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "LifestealPercent",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         0.03,
         0.035,
         0.04
       }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "MordAP"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MordAP",
+      Src1Value = 0,
+      Src2Value = 50000,
+      DestVar = "MordAP",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "LifestealPercent",
+      Src2Var = "MordAP",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "LifestealPercent",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifestealPercent",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "LifestealPercent"
     }
   },
   {

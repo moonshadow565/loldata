@@ -115,6 +115,7 @@ OnBuffDeactivateBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -183,16 +184,16 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
             Function = BBSpellBuffRemove,
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Attacker",
               BuffName = "SoulShackleSlow"
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -213,16 +214,16 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               },
               {
-                Function = BBSpellBuffRemoveCurrent,
-                Params = {TargetVar = "Owner"}
-              },
-              {
                 Function = BBSpellBuffRemove,
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Attacker",
                   BuffName = "SoulShackleSlow"
                 }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
               }
             }
           },
@@ -255,16 +256,16 @@ BuffOnUpdateActionsBuildingBlocks = {
                     }
                   },
                   {
-                    Function = BBSpellBuffRemoveCurrent,
-                    Params = {TargetVar = "Owner"}
-                  },
-                  {
                     Function = BBSpellBuffRemove,
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Attacker",
                       BuffName = "SoulShackleSlow"
                     }
+                  },
+                  {
+                    Function = BBSpellBuffRemoveCurrent,
+                    Params = {TargetVar = "Owner"}
                   }
                 }
               }
@@ -308,7 +309,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -358,7 +359,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -376,6 +377,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -401,11 +403,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "SoulShackleSlow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffName = "Slow",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -436,5 +438,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "soulshackles"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

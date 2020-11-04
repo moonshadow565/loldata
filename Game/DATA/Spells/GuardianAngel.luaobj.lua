@@ -101,10 +101,6 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
   },
   {

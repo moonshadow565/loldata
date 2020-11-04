@@ -7,7 +7,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "/",
+      RequiredVar = "DamagePerTick",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -63,6 +63,7 @@ OnBuffDeactivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_INTERNALRAW,
           PercentOfAttack = 1,
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -115,7 +116,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -130,7 +131,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -230,15 +231,39 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               },
               {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "AttackSpeedMod",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "AttackSpeedMod",
+                  SrcVarTable = "InstanceVars"
+                }
+              },
+              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Unit",
                   AttackerVar = "Attacker",
                   BuffName = "BantamTrapTarget",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  BuffType = BUFF_Damage,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 4,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "Slow",
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 4,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -266,6 +291,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_INTERNALRAW,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -344,7 +370,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 600,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -373,6 +399,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bantamtraptarget"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,

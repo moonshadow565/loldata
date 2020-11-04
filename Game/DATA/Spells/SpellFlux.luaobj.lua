@@ -29,7 +29,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "ResistanceMod",
       DestVarTable = "InstanceVars",
-      SrcValue = -15
+      SrcValue = -12
     }
   },
   {
@@ -186,6 +186,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.38,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -207,6 +208,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.38,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -282,6 +284,7 @@ TargetExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0.247,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

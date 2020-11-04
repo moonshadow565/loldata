@@ -14,9 +14,9 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBGetPAROrHealth,
         Params = {
-          DestVar = "CurrentEnergy",
+          DestVar = "MaxEnergy",
           OwnerVar = "Owner",
-          Function = GetPAR,
+          Function = GetMaxPAR,
           PARType = PAR_SHIELD
         }
       },
@@ -25,98 +25,50 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {TargetVar = "Owner", DestVar = "CharLevel"}
       },
       {
-        Function = BBIf,
+        Function = BBMath,
         Params = {
           Src1Var = "CharLevel",
-          Value2 = 6,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 150, Index = 1}
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 5, Index = 2}
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = -5,
-              PARType = PAR_SHIELD
-            }
-          }
+          Src1Value = 0,
+          Src2Value = 25,
+          DestVar = "ShieldMax",
+          MathOp = MO_MULTIPLY
         }
       },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "CharLevel",
-          Value2 = 12,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 300, Index = 1}
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 10, Index = 2}
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = -10,
-              PARType = PAR_SHIELD
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {CompareOp = CO_EQUAL},
-        SubBlocks = {
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 450, Index = 1}
-          },
-          {
-            Function = BBSetBuffToolTipVar,
-            Params = {Value = 15, Index = 2}
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = -15,
-              PARType = PAR_SHIELD
-            }
-          }
-        }
-      }
-    }
-  }
-}
-BuffOnDealDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "DamageType",
-      Value2 = MAGIC_DAMAGE,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src2Var = "DamageAmount",
-          Src1Value = 0.2,
-          Src2Value = 0,
-          DestVar = "ShieldDelta",
+          Src1Var = "ShieldMax",
+          Src1Value = 0,
+          Src2Value = 150,
+          DestVar = "ShieldMax",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "ShieldMax",
+          Index = 1
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MaxEnergy",
+          Src1Value = 0,
+          Src2Value = 0.02,
+          DestVar = "ShieldDecay",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ShieldDecay",
+          Src1Value = 0,
+          Src2Value = -1,
+          DestVar = "ShieldDecay",
           MathOp = MO_MULTIPLY
         }
       },
@@ -126,7 +78,7 @@ BuffOnDealDamageBuildingBlocks = {
           TargetVar = "Owner",
           Delta = 0,
           PARType = PAR_SHIELD,
-          DeltaVar = "ShieldDelta"
+          DeltaVar = "ShieldDecay"
         }
       }
     }

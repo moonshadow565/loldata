@@ -15,7 +15,7 @@ BuffOnHitUnitBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 5,
+          Duration = 7,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -30,7 +30,7 @@ BuffOnHitUnitBuildingBlocks = {
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 5,
+          Duration = 7,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

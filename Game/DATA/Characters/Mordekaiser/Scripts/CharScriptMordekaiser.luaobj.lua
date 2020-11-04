@@ -41,24 +41,46 @@ UpdateSelfBuffActionsBuildingBlocks = {
             }
           }
         }
+      }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "MordAP"
+    }
+  },
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MordAP",
+          Src1Value = 0,
+          Src2Value = 0.02,
+          DestVar = "TooltipDisplay",
+          MathOp = MO_MULTIPLY
+        }
       },
       {
-        Function = BBIfNotHasBuff,
+        Function = BBSetSpellToolTipVar,
         Params = {
-          OwnerVar = "Owner",
-          CasterVar = "Owner",
-          BuffName = "MordekaiserMaceOfSpades"
-        },
-        SubBlocks = {
-          {
-            Function = BBSilenceSpellSlot,
-            Params = {
-              SpellSlot = 0,
-              SlotType = SpellSlots,
-              TargetVar = "Owner",
-              State = false
-            }
-          }
+          Value = 0,
+          ValueVar = "TooltipDisplay",
+          Index = 1,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
         }
       }
     }
@@ -114,66 +136,26 @@ CharOnActivateBuildingBlocks = {
     Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
-      Delta = -150,
+      Delta = -175,
       PARType = PAR_SHIELD
     }
   }
 }
 CharOnLevelUpBuildingBlocks = {
   {
-    Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "CharLevel"}
-  },
-  {
-    Function = BBIf,
+    Function = BBIncPermanentFlatPARPoolMod,
     Params = {
-      Src1Var = "CharLevel",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIncPermanentFlatPARPoolMod,
-        Params = {
-          PARType = PAR_SHIELD,
-          TargetVar = "Owner",
-          Delta = 150
-        }
-      },
-      {
-        Function = BBIncPAR,
-        Params = {
-          TargetVar = "Owner",
-          Delta = -150,
-          PARType = PAR_SHIELD
-        }
-      }
+      PARType = PAR_SHIELD,
+      TargetVar = "Owner",
+      Delta = 25
     }
   },
   {
-    Function = BBElseIf,
+    Function = BBIncPAR,
     Params = {
-      Src1Var = "CharLevel",
-      Value2 = 11,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIncPermanentFlatPARPoolMod,
-        Params = {
-          PARType = PAR_SHIELD,
-          TargetVar = "Owner",
-          Delta = 150
-        }
-      },
-      {
-        Function = BBIncPAR,
-        Params = {
-          TargetVar = "Owner",
-          Delta = -150,
-          PARType = PAR_SHIELD
-        }
-      }
+      TargetVar = "Owner",
+      Delta = -25,
+      PARType = PAR_SHIELD
     }
   }
 }
@@ -184,7 +166,7 @@ CharOnResurrectBuildingBlocks = {
       DestVar = "Temp1",
       OwnerVar = "Owner",
       Function = GetPAR,
-      PARType = PAR_ENERGY
+      PARType = PAR_SHIELD
     }
   },
   {
@@ -202,7 +184,7 @@ CharOnResurrectBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
-      PARType = PAR_ENERGY,
+      PARType = PAR_SHIELD,
       DeltaVar = "Temp1"
     }
   }
@@ -230,12 +212,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaiserdeathparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "mordekaisermaceofspades"
     }
   },
   {

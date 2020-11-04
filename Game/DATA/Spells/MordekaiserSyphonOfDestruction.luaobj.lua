@@ -8,11 +8,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        20,
-        30,
-        40,
-        50,
-        60
+        24,
+        36,
+        48,
+        60,
+        72
       }
     }
   },
@@ -67,25 +67,18 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        65,
-        110,
-        155,
-        200,
-        245
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.25,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      TargetVar = "Owner",
+      AttackerVar = "Target",
+      BuffName = "MordekaiserSyphonDmg",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffType = BUFF_Internal,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 0.001,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   },
   {
@@ -127,6 +120,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mordekaisersyphondmg"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

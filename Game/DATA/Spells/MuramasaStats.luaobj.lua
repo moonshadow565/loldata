@@ -7,15 +7,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = 2
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatCritDamageMod,
-      TargetVar = "Owner",
-      Delta = 0.02
+      Delta = 5
     }
   },
   {
@@ -44,7 +36,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Count",
-      Src1Value = 2,
+      Src1Value = 5,
       Src2Value = 0,
       DestVar = "ValueDisplay",
       MathOp = MO_MULTIPLY
@@ -56,14 +48,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Value = 0,
       ValueVar = "ValueDisplay",
       Index = 1
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "ValueDisplay",
-      Index = 2
     }
   }
 }

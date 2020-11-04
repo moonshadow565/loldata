@@ -91,10 +91,10 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DamagePerTick",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            16,
-            32,
-            48,
-            64,
+            20,
+            35,
+            50,
+            65,
             80
           }
         }
