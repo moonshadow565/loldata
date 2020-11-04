@@ -15,12 +15,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaehastetracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "sonaezone"}
   }
 }

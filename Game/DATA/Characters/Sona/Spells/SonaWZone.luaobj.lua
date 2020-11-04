@@ -16,12 +16,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonawshieldtracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sonawshield"
     }
   },

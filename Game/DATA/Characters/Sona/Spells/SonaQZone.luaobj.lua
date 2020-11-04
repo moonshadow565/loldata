@@ -16,12 +16,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonaqproctracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sonaqprocattacker"
     }
   },

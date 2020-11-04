@@ -19,6 +19,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "gnarstun"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "vayne_e_terrain_tar.troy"
