@@ -6,7 +6,7 @@ IsDamagingSpell = false
 BuffTextureName = "BlindMonk_FistsOfFury.dds"
 BuffName = "UdyrPassiveBuff"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBIf,

@@ -1,7 +1,7 @@
 BuffTextureName = "Teemo_Camouflage.dds"
 BuffName = "Camouflage"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -10,12 +10,14 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "CamouflageCheck",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -74,12 +76,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CamouflageCheck",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 4,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -107,12 +111,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "CamouflageStealth",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Invisibility,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0.1
+              TickRate = 0.1,
+              CanMitigateDuration = false
             }
           }
         }
@@ -137,12 +143,14 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CamouflageCheck",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 4.5,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -176,12 +184,14 @@ BuffOnSpellCastBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "CamouflageCheck",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 4.5,
+              Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -201,12 +211,14 @@ BuffOnTakeDamageBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CamouflageCheck",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 4.5,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -224,12 +236,14 @@ BuffOnHitUnitBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CamouflageCheck",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 4.5,
+          Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -243,12 +257,14 @@ BuffOnLaunchAttackBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "CamouflageCheck",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 4.5,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -10,7 +10,7 @@ AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 SpellToggleSlot = 3
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,

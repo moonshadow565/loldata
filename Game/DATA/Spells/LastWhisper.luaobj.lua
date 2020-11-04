@@ -12,7 +12,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               Stat = IncPercentArmorPenetrationMod,
               TargetVar = "Owner",
-              Delta = 0.4
+              Delta = 0.26
             }
           }
         }

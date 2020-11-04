@@ -1,7 +1,7 @@
 BuffTextureName = "Armsmaster_MasterOfArms.dds"
 BuffName = "WeaponMastery"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

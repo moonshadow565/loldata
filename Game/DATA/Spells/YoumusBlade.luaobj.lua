@@ -1,5 +1,5 @@
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
@@ -7,14 +7,6 @@ OnBuffActivateBuildingBlocks = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
       Delta = -0.15
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatArmorPenetrationMod,
-      TargetVar = "Owner",
-      Delta = 20
     }
   }
 }
@@ -25,14 +17,6 @@ OnBuffDeactivateBuildingBlocks = {
       Stat = IncPermanentPercentCooldownMod,
       TargetVar = "Owner",
       Delta = 0.15
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatArmorPenetrationMod,
-      TargetVar = "Owner",
-      Delta = -20
     }
   }
 }
@@ -66,7 +50,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -261,6 +246,16 @@ SelfExecuteBuildingBlocks = {
           OwnerVar = "Owner"
         }
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentArmorPenetrationMod,
+      TargetVar = "Owner",
+      Delta = 0.13
     }
   }
 }

@@ -1,7 +1,7 @@
 BuffTextureName = "Jester_CarefulStrikes.dds"
 BuffName = "Backstab"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBGetCastInfo,

@@ -1,35 +1,5 @@
 PersistsThroughDeath = true
-Nondispellable = true
-SetVarsByLevelBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "VampPercent",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.06,
-        0.075,
-        0.075,
-        0.075,
-        0.075,
-        0.075,
-        0.075,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1,
-        0.1
-      }
-    }
-  }
-}
+NonDispellable = true
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -106,7 +76,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
@@ -158,7 +128,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotNumber = 3,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
+          TargetVar = "Attacker"
         }
       }
     }

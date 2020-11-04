@@ -3,4 +3,4 @@ BuffName = "CardMasterStack"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true

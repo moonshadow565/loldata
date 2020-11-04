@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+SpellVOOverrideSkins = {
+  "DandyChogath"
+}
 PopupMessage1 = "game_floatingtext_Silenced"
 TargetExecuteBuildingBlocks = {
   {
@@ -18,7 +21,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.7
+      SpellDamageRatio = 0.7,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

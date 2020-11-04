@@ -3,7 +3,7 @@ BuffName = "Consecration"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,

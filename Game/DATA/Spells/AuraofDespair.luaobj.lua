@@ -32,7 +32,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "InitialDamage",
       Src1Value = 0,
-      Src2Value = 0.01,
+      Src2Value = 0.012,
       DestVar = "InitialDamage",
       MathOp = MO_ADD
     }
@@ -223,7 +223,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "InitialDamage",
           Src1Value = 0,
-          Src2Value = 0.01,
+          Src2Value = 0.012,
           DestVar = "InitialDamage",
           MathOp = MO_ADD
         }

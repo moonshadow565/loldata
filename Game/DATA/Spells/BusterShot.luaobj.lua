@@ -212,7 +212,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Unit",
-          EffectName = "katarina_shadowStep_return.troy",
+          EffectName = "tristana_bustershot_unit_impact.troy",
           Flags = 0,
           EffectIDVar = "b",
           TargetObjectVar = "Unit",
@@ -236,7 +236,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -270,7 +271,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "katarina_shadowstep_return.troy"
+      Name = "tristana_bustershot_unit_impact.troy"
     }
   }
 }

@@ -1,6 +1,6 @@
 BuffTextureName = "AkaliTwilightShroud.dds"
 BuffName = "AkaliTwilightShroudBuff"
-AutoBuffActivateEffect = "Global_Slow.troy"
+AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

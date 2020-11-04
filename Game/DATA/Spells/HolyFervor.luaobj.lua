@@ -1,7 +1,7 @@
 BuffTextureName = "Judicator_DivineBlessing.dds"
 BuffName = "HolyFervor"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,

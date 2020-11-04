@@ -47,7 +47,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatDodgeMod,
       TargetVar = "Owner",
-      Delta = 0.02
+      Delta = 0.03
     }
   }
 }

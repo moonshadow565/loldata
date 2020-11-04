@@ -9,7 +9,7 @@ AutoCooldownByLevel = {
   75,
   60
 }
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

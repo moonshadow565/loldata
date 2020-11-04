@@ -24,9 +24,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatArmorPenetrationMod,
+      Stat = IncPercentArmorPenetrationMod,
       TargetVar = "Owner",
-      Delta = 30
+      Delta = 0.2
     }
   }
 }

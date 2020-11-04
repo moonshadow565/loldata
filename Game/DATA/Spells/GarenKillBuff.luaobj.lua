@@ -1,7 +1,7 @@
 BuffTextureName = "Garen_CommandingPresence.dds"
 BuffName = "GarenKillBuff"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBMath,

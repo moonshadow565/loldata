@@ -1,13 +1,21 @@
-UpdateSelfBuffStatsBuildingBlocks = {
+UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVar = "LastTime2Executed",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "AkaliDamageVar",
+          DestVarTable = "InstanceVars"
+        }
+      },
       {
         Function = BBMath,
         Params = {
@@ -58,27 +66,6 @@ UpdateSelfBuffStatsBuildingBlocks = {
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
-        }
-      }
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTime2Executed",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "AkaliDamageVar",
-          DestVarTable = "InstanceVars"
         }
       }
     }

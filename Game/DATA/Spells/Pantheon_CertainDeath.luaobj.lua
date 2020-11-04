@@ -1,3 +1,3 @@
 BuffName = "PantheonCertainDeath"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true

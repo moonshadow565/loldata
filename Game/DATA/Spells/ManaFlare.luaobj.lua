@@ -78,6 +78,7 @@ BuffOnKillBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaRestore",
       DeltaVarTable = "InstanceVars"
     }
@@ -121,12 +122,8 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Mana",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
+    Function = BBIfPARTypeEquals,
+    Params = {OwnerVar = "Target", PARType = PAR_MANA},
     SubBlocks = {
       {
         Function = BBMath,
@@ -142,6 +139,34 @@ TargetExecuteBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "BonusDamage",
+          Src2Var = "TotalDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TotalDamage",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "NoManaBonusDamage",
+          SrcValueByLevel = {
+            75,
+            150,
+            225
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "NoManaBonusDamage",
           Src2Var = "TotalDamage",
           Src1Value = 0,
           Src2Value = 0,
@@ -185,12 +210,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -200,12 +227,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Shadowbolt",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -218,7 +247,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1.2
+      SpellDamageRatio = 1.2,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

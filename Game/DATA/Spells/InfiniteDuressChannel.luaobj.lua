@@ -35,26 +35,20 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 1.7
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "InfiniteDuressSound",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1.9,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

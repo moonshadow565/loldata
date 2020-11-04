@@ -8,7 +8,7 @@ AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnKillBuildingBlocks = {
   {
     Function = BBIf,

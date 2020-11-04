@@ -1,7 +1,7 @@
 BuffTextureName = "33.dds"
 BuffName = "AkaliTwinDisciplines"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,

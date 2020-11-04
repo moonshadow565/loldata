@@ -10,7 +10,7 @@ AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 TriggersSpellCasts = true
 BuffOnUpdateStatsBuildingBlocks = {
   {

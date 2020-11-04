@@ -7,7 +7,7 @@ AutoBuffActivateEffect3 = "zhonya_ring_self_skin.troy"
 AutoBuffActivateAttachBoneName3 = "head"
 AutoBuffActivateEffect4 = "zhonyas_ring_activate.troy"
 AutoBuffActivateAttachBoneName4 = "head"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBDestroyMissileForTarget,

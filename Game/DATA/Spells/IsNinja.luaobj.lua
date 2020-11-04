@@ -1,7 +1,29 @@
 BuffTextureName = "GSB_stealth.dds"
 BuffName = "Is Ninja"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "damageMod",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatHPPoolMod,
+      TargetVar = "Owner",
+      DeltaVar = "damageMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -33,26 +55,21 @@ BuffOnUpdateActionsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBForEachChampion,
-            Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
+            Params = {
+              IteratorVar = "Unit",
+              Team = TEAM_ORDER,
+              BuffNameFilter = "IsNinja",
+              InclusiveBuffFilter = true
+            },
             SubBlocks = {
               {
-                Function = BBIfHasBuff,
+                Function = BBMath,
                 Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Unit",
-                  BuffName = "IsNinja"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBMath,
-                    Params = {
-                      Src1Var = "numOtherNinjas",
-                      Src1Value = 0,
-                      Src2Value = 1,
-                      DestVar = "numOtherNinjas",
-                      MathOp = MO_ADD
-                    }
-                  }
+                  Src1Var = "numOtherNinjas",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "numOtherNinjas",
+                  MathOp = MO_ADD
                 }
               }
             }
@@ -65,26 +82,21 @@ BuffOnUpdateActionsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBForEachChampion,
-            Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
+            Params = {
+              IteratorVar = "Unit",
+              Team = TEAM_CHAOS,
+              BuffNameFilter = "IsNinja",
+              InclusiveBuffFilter = true
+            },
             SubBlocks = {
               {
-                Function = BBIfHasBuff,
+                Function = BBMath,
                 Params = {
-                  OwnerVar = "Unit",
-                  AttackerVar = "Unit",
-                  BuffName = "IsNinja"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBMath,
-                    Params = {
-                      Src1Var = "numOtherNinjas",
-                      Src1Value = 0,
-                      Src2Value = 1,
-                      DestVar = "numOtherNinjas",
-                      MathOp = MO_ADD
-                    }
-                  }
+                  Src1Var = "numOtherNinjas",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "numOtherNinjas",
+                  MathOp = MO_ADD
                 }
               }
             }
@@ -102,28 +114,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           MathOp = MO_MULTIPLY
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "damageMod",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "damageMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
     }
   }
 }

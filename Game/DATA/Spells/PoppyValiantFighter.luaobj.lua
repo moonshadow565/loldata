@@ -1,7 +1,7 @@
 BuffTextureName = "Poppy_ValiantFighter.dds"
 BuffName = "PoppyValiantFighter"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,

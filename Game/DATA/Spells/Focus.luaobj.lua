@@ -1,7 +1,7 @@
 BuffTextureName = "Bowmaster_Bullseye.dds"
 BuffName = "Focus"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,

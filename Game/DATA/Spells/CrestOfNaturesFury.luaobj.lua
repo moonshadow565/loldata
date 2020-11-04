@@ -1,6 +1,6 @@
 BuffTextureName = "PlantKing_AnimateVitalis.dds"
 BuffName = "Crest Of Natures Fury"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

@@ -1,3 +1,4 @@
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

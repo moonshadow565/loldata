@@ -1,7 +1,7 @@
 BuffTextureName = ""
 BuffName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,

@@ -1,7 +1,7 @@
 BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = "Aura_Offense.troy"
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,

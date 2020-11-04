@@ -6,7 +6,7 @@ IsDamagingSpell = false
 BuffTextureName = "GemKnight_Gemcraft.dds"
 BuffName = "Gemcraft"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,

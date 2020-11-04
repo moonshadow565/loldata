@@ -4,7 +4,7 @@ BuffTextureName = "Bowmaster_IceArrow.dds"
 BuffName = "Frost Shot"
 SpellToggleSlot = 1
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 TriggersSpellCasts = false
 OnBuffActivateBuildingBlocks = {
   {

@@ -1,7 +1,7 @@
 BuffTextureName = "Minotaur_ColossalStrength.dds"
 BuffName = "Colossal Strength"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,

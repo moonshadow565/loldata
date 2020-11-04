@@ -148,15 +148,16 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
-          BuffName = "AbsoluteZero_Slow",
+          BuffName = "Chilled",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
-          MaxStack = 10,
+          MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -238,7 +239,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -291,11 +293,16 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 ChannelingSuccessStopBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -315,8 +322,9 @@ ChannelingSuccessStopBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -450,12 +458,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "absolutezero2_green_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "absolutezero_slow"
     }
   },
   {

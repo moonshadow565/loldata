@@ -1,20 +1,10 @@
-OnBuffActivateBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIncPermanentStat,
+    Function = BBIncStat,
     Params = {
-      Stat = IncPermanentPercentMagicPenetrationMod,
+      Stat = IncPercentMagicPenetrationMod,
       TargetVar = "Owner",
-      Delta = 0.4
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentPercentMagicPenetrationMod,
-      TargetVar = "Owner",
-      Delta = -0.4
+      Delta = 0.27
     }
   }
 }

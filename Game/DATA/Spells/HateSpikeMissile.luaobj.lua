@@ -19,6 +19,58 @@ TargetExecuteBuildingBlocks = {
     Params = {DestVar = "HSCounter", Info = GetCastSpellTargetsHitPlusOne}
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValueByLevel = {
+        40,
+        55,
+        70,
+        85,
+        100
+      }
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "APMod",
+      Src1Value = 0,
+      Src2Value = 0.28,
+      DestVar = "APVampBonus",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageAmount",
+      Src2Var = "APVampBonus",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalDamage",
+      Src1Value = 0,
+      Src2Value = 0.15,
+      DestVar = "HealAmount",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
@@ -29,12 +81,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Malice_marker",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -50,20 +104,26 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Owner",
+          AttackerVar = "Attacker",
           TargetVar = "Target",
-          DamageByLevel = {
-            12.5,
-            20,
-            27.5,
-            35,
-            42.5
-          },
           Damage = 0,
+          DamageVar = "DamageAmount",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.14
+          SpellDamageRatio = 0.28,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "HealAmount",
+          HealerVar = "Owner"
         }
       }
     }
@@ -75,20 +135,26 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Owner",
+          AttackerVar = "Attacker",
           TargetVar = "Target",
-          DamageByLevel = {
-            25,
-            40,
-            55,
-            70,
-            85
-          },
           Damage = 0,
+          DamageVar = "DamageAmount",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.28
+          SpellDamageRatio = 0.28,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "HealAmount",
+          HealerVar = "Owner"
         }
       }
     }

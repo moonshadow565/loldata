@@ -1,7 +1,7 @@
 BuffTextureName = "Armsmaster_MasterOfArms.dds"
 BuffName = "EquipmentMastery"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -62,23 +62,23 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMaxHealth,
+    Function = BBIncStat,
     Params = {
+      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
-      Delta = 0,
       DeltaVar = "APHealthAdded",
       DeltaVarTable = "InstanceVars",
-      IncCurrentHealth = false
+      Delta = 0
     }
   },
   {
-    Function = BBIncMaxHealth,
+    Function = BBIncStat,
     Params = {
+      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
-      Delta = 0,
       DeltaVar = "AttackHealthAdded",
       DeltaVarTable = "InstanceVars",
-      IncCurrentHealth = false
+      Delta = 0
     }
   }
 }

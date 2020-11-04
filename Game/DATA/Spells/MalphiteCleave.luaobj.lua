@@ -5,7 +5,7 @@ IsDamagingSpell = true
 BuffTextureName = "Malphite_BrutalStrikes.dds"
 BuffName = "MalphiteCleave"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

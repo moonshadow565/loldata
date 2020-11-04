@@ -5,7 +5,7 @@ BuffName = "Draw a Bead"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 TriggersSpellCasts = false
 OnBuffActivateBuildingBlocks = {
   {

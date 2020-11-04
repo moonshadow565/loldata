@@ -63,9 +63,7 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
+  },
   {
     Function = BBApplyDamage,
     Params = {
@@ -82,7 +80,9 @@ OnBuffDeactivateBuildingBlocks = {
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
-  },
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetStatus,
     Params = {
@@ -121,7 +121,8 @@ OnBuffDeactivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

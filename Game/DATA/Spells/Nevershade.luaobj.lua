@@ -1,7 +1,7 @@
 BuffTextureName = "DrMundo_AdrenalineRush.dds"
 BuffName = "Nevershade"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIf,

@@ -4,7 +4,7 @@ BuffTextureName = "Sivir_Ricochet.dds"
 BuffName = "Ricochet"
 SpellToggleSlot = 2
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

@@ -1,7 +1,7 @@
 BuffTextureName = "Tristana_ExplosiveShot.dds"
 BuffName = "Explosive Shot Debuff"
-AutoBuffActivateEffect = "ExplosiveShot_buf.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBApplyDamage,
@@ -12,9 +12,10 @@ OnBuffActivateBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -37,9 +38,10 @@ BuffOnUpdateActionsBuildingBlocks = {
       DamageVar = "DamageAmount",
       DamageVarTable = "InstanceVars",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

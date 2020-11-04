@@ -1,7 +1,7 @@
 BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = "Aegis_buf.troy"
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
