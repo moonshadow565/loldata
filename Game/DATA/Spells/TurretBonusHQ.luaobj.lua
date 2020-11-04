@@ -1,4 +1,4 @@
-BuffTextureName = "1020_Glowing_Orb.dds"
+BuffTextureName = "096_Eye_of_the_Observer.dds"
 BuffName = "Magical Sight"
 OnBuffActivateBuildingBlocks = {
   {

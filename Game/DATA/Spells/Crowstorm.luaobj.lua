@@ -108,36 +108,6 @@ OnBuffActivateBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 600,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "DamageAmount",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.175,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -163,7 +133,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
@@ -181,6 +151,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamageAmount",
@@ -272,6 +243,36 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   },
   {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "CastPos",
+      Range = 800,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "ParanoiaMissChance",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  },
+  {
     Function = BBTeleportToPosition,
     Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
   },
@@ -333,6 +334,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_flash.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "paranoiamisschance"
     }
   }
 }

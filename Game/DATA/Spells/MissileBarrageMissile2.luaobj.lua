@@ -18,9 +18,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "baseDamage",
       SrcValueByLevel = {
-        250,
-        400,
-        550
+        120,
+        190,
+        260
       }
     }
   },
@@ -35,7 +35,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "totalAttackDamage",
-      Src1Value = 0.4,
+      Src1Value = 0.2,
       Src2Value = 0,
       DestVar = "bonusAttackDamage",
       MathOp = MO_MULTIPLY
@@ -108,8 +108,8 @@ TargetExecuteBuildingBlocks = {
               DamageVar = "DamageAmount",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.6,
+              PercentOfAttack = 1.6,
+              SpellDamageRatio = 0.3,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -181,8 +181,8 @@ TargetExecuteBuildingBlocks = {
                   DamageVar = "DamageAmount",
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.6,
+                  PercentOfAttack = 1.6,
+                  SpellDamageRatio = 0.3,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
@@ -266,8 +266,8 @@ TargetExecuteBuildingBlocks = {
                       DamageVar = "DamageAmount",
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0.6,
+                      PercentOfAttack = 1.6,
+                      SpellDamageRatio = 0.3,
                       PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false

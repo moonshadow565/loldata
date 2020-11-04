@@ -62,12 +62,14 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 5000,
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -115,7 +117,8 @@ BuffOnUpdateActionsBuildingBlocks = {
       CenterVar = "Owner",
       Range = 180,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -141,12 +144,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "PoisonTrailMarker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -165,12 +170,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "PoisonTrailTarget",
               BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_CombatDehancer,
+              StacksExclusive = true,
+              BuffType = BUFF_Damage,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 2.1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

@@ -37,21 +37,59 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Owner", SkinIDVar = "XZSkinID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "xenZiou_SelfShield_01.troy",
-      Flags = 0,
-      EffectIDVar = "hi",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "C_BUFFBONE_GLB_CENTER_LOC",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "XZSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "xenZiou_SelfShield_01.troy",
+          Flags = 0,
+          EffectIDVar = "hi",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "C_root",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "xenZiou_SelfShield_01.troy",
+          Flags = 0,
+          EffectIDVar = "hi",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "C_BUFFBONE_GLB_CENTER_LOC",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
     }
   }
 }

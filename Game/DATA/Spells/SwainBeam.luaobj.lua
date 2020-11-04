@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
@@ -156,53 +156,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "SpellShield"
+      CasterVar = "Nothing",
+      BuffName = "SwainBeamDamage"
     },
     SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Attacker"}
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "BansheesVeil"
-    },
-    SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Attacker"}
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Attacker",
-      AttackerVar = "Nothing",
-      BuffName = "BlackShield"
-    },
-    SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Attacker"}
-      },
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
@@ -315,7 +275,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Value2 = 580,
+          Value2 = 605,
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
@@ -520,28 +480,12 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Target",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
           BuffName = "SwainBeamDamage",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Damage,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
@@ -571,12 +515,28 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
-          AttackerVar = "Other3",
+          AttackerVar = "Attacker",
           BuffName = "Slow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 100,
+          NumberOfStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Target",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
@@ -590,23 +550,6 @@ TargetExecuteBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Target",
-          BuffName = "SwainBeamMinion",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -676,7 +619,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
-              AttackerVar = "Other3",
+              AttackerVar = "Attacker",
               BuffName = "Slow",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
               StacksExclusive = true,
@@ -689,6 +632,23 @@ TargetExecuteBuildingBlocks = {
               CanMitigateDuration = false
             }
           }
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other3",
+          AttackerVar = "Target",
+          BuffName = "SwainBeamMinion",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 3,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -716,19 +676,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "spellshield"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bansheesveil"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "blackshield"
+      Name = "swainbeamdamage"
     }
   },
   {
@@ -746,12 +694,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainbeamdamage"
-    }
   },
   {
     Function = BBPreloadSpell,
@@ -776,12 +718,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "swainbeamminion"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "resistantskin"
     }
   },
@@ -789,6 +725,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "swainbeamdamageminionnashor"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swainbeamminion"
     }
   }
 }

@@ -119,7 +119,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 20,
+      OffsetAngle = 15,
       PositionVar = "Point1"
     }
   },
@@ -128,7 +128,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 12,
+      OffsetAngle = 9,
       PositionVar = "Point2"
     }
   },
@@ -137,7 +137,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 4,
+      OffsetAngle = 3,
       PositionVar = "Point3"
     }
   },
@@ -146,7 +146,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 356,
+      OffsetAngle = 357,
       PositionVar = "Point4"
     }
   },
@@ -155,7 +155,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 348,
+      OffsetAngle = 351,
       PositionVar = "Point5"
     }
   },
@@ -164,7 +164,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 500,
-      OffsetAngle = 340,
+      OffsetAngle = 345,
       PositionVar = "Point6"
     }
   },

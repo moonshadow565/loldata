@@ -3,6 +3,18 @@ CastingBreaksStealth = false
 BuffTextureName = "20.dds"
 BuffName = "Blood Awareness"
 SpellToggleSlot = 3
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 4,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 2,
+      OwnerVar = "Owner"
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -165,18 +177,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcValue = 4,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 2,
-      OwnerVar = "Owner"
     }
   }
 }

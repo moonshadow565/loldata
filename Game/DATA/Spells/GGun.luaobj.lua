@@ -54,12 +54,15 @@ BuffOnUpdateActionsBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "Pos",
           EndPosVar = "Pos",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 1,
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -67,19 +70,12 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Level",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "Level"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -92,7 +88,8 @@ TargetExecuteBuildingBlocks = {
         5,
         5.5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -24,7 +24,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "SpellVamp_Buff",
           DestVarTable = "NextBuffVars",
-          SrcValue = 0.15
+          SrcValue = 0.2
         }
       },
       {
