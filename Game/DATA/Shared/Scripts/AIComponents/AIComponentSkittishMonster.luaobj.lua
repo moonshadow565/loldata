@@ -1,203 +1,147 @@
-local L0, L1, L2
-L0 = {}
-L0.TimerCallbackName = "TimerSkittishMonster"
-SkittishMonster = L0
-L0 = RegisterForEvent
-L1 = "ComponentInit"
-L2 = SkittishMonster
-L0(L1, L2)
-L0 = RegisterForEvent
-L1 = "LeashedCallForHelp"
-L2 = SkittishMonster
-L0(L1, L2)
-L0 = RegisterForEvent
-L1 = "ComponentHalt"
-L2 = SkittishMonster
-L0(L1, L2)
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2, L3, L4
-  A0.timerDuration = 0.5
-  L1 = InitTimer
-  L2 = A0.TimerCallbackName
-  L3 = A0.timerDuration
-  L4 = true
-  L1(L2, L3, L4)
-  L1 = StopTimer
-  L2 = A0.TimerCallbackName
-  L1(L2)
-  L1 = {}
-  A0.Attackers = L1
-  A0.attackDuration = 5
-  A0.MeleeAttackers = 0
+SkittishMonster = {
+  TimerCallbackName = "TimerSkittishMonster"
+}
+RegisterForEvent("ComponentInit", SkittishMonster)
+RegisterForEvent("LeashedCallForHelp", SkittishMonster)
+RegisterForEvent("ComponentHalt", SkittishMonster)
+RegisterForEvent("SkittishResume", SkittishMonster)
+RegisterForEvent("SkittishPause", SkittishMonster)
+function SkittishMonster.ComponentInit(A0_0)
+  A0_0.timerDuration = 0.5
+  InitTimer(A0_0.TimerCallbackName, A0_0.timerDuration, true)
+  StopTimer(A0_0.TimerCallbackName)
+  A0_0.Attackers = {}
+  A0_0.attackDuration = 5
+  A0_0.MeleeAttackers = 0
+  A0_0.Enabled = true
 end
-L0.ComponentInit = L1
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2
-  L1 = Event
-  L2 = "WanderPause"
-  L1(L2)
-  L1 = ResetAndStartTimer
-  L2 = A0.TimerCallbackName
-  L1(L2)
+function SkittishMonster.Start(A0_1)
+  Event("WanderPause")
+  ResetAndStartTimer(A0_1.TimerCallbackName)
 end
-L0.Start = L1
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2
-  L1 = Event
-  L2 = "WanderResume"
-  L1(L2)
-  L1 = StopTimer
-  L2 = A0.TimerCallbackName
-  L1(L2)
+function SkittishMonster.SkittishResume(A0_2)
+  local L1_3
+  A0_2.Enabled = true
 end
-L0.Stop = L1
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2
-  L1 = A0.MeleeAttackers
-  if 0 < L1 then
-    L1 = Event
-    L2 = "MeleeAttacked"
-    L1(L2)
+function SkittishMonster.SkittishPause(A0_4)
+  local L1_5
+  A0_4.Enabled = false
+end
+function SkittishMonster.Stop(A0_6)
+  Event("WanderResume")
+  StopTimer(A0_6.TimerCallbackName)
+end
+function SkittishMonster.SendMeleeState(A0_7)
+  if A0_7.MeleeAttackers > 0 then
+    Event("MeleeAttacked")
   else
-    L1 = Event
-    L2 = "RangeAttacked"
-    L1(L2)
+    Event("RangeAttacked")
   end
 end
-L0.SendMeleeState = L1
-L0 = SkittishMonster
-function L1(A0, A1, A2)
-  local L3, L4, L5, L6, L7, L8, L9, L10
-  L3 = true
-  L7 = A2
-  L7, L8, L9, L10 = L6(L7)
-  if 250000 < L4 then
-    L3 = false
+function SkittishMonster.LeashedCallForHelp(A0_8, A1_9, A2_10)
+  local L3_11
+  L3_11 = A0_8.Enabled
+  if L3_11 == false then
+    return
   end
-  for L7, L8 in L4, L5, L6 do
-    L9 = L8.attacker
-    if L9 == A2 then
-      L9 = A0.attackDuration
-      L8.remainingTime = L9
-      L9 = L8.isMelee
-      if L3 ~= L9 then
-        if L3 == true then
-          L9 = A0.MeleeAttackers
-          L9 = L9 + 1
-          A0.MeleeAttackers = L9
+  L3_11 = true
+  if GetDistSquared(GetMyPos(), GetPos(A2_10)) > 250000 then
+    L3_11 = false
+  end
+  for _FORV_7_, _FORV_8_ in ipairs(A0_8.Attackers) do
+    if _FORV_8_.attacker == A2_10 then
+      _FORV_8_.remainingTime = A0_8.attackDuration
+      if L3_11 ~= _FORV_8_.isMelee then
+        if L3_11 == true then
+          A0_8.MeleeAttackers = A0_8.MeleeAttackers + 1
         else
-          L9 = A0.MeleeAttackers
-          L9 = L9 - 1
-          A0.MeleeAttackers = L9
+          A0_8.MeleeAttackers = A0_8.MeleeAttackers - 1
         end
       end
-      L8.isMelee = L3
-      L10 = A0
-      L9 = A0.SendMeleeState
-      L9(L10)
+      _FORV_8_.isMelee = L3_11
+      A0_8:SendMeleeState()
       return
     end
   end
-  if L4 == 0 then
-    L4(L5)
+  if #A0_8.Attackers == 0 then
+    A0_8:Start()
   end
-  L6.attacker = A2
-  L7 = A0.attackDuration
-  L6.remainingTime = L7
-  L6.isMelee = L3
-  L4[L5] = L6
-  if L3 == true then
-    A0.MeleeAttackers = L4
+  A0_8.Attackers[#A0_8.Attackers + 1] = {
+    attacker = A2_10,
+    remainingTime = A0_8.attackDuration,
+    isMelee = L3_11
+  }
+  if L3_11 == true then
+    A0_8.MeleeAttackers = A0_8.MeleeAttackers + 1
   end
-  L4(L5)
+  A0_8:SendMeleeState()
 end
-L0.LeashedCallForHelp = L1
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2
-  L1 = StopTimer
-  L2 = A0.TimerCallbackName
-  L1(L2)
+function SkittishMonster.ComponentHalt(A0_12)
+  StopTimer(A0_12.TimerCallbackName)
 end
-L0.ComponentHalt = L1
-function L0()
-  local L0, L1
-  L0 = SkittishMonster
-  L1 = L0
-  L0 = L0.Timer
-  L0(L1)
+function TimerSkittishMonster()
+  SkittishMonster:Timer()
 end
-TimerSkittishMonster = L0
-L0 = SkittishMonster
-function L1(A0)
-  local L1, L2, L3, L4, L5, L6, L7, L8, L9
-  L1 = GetState
-  L1 = L1()
-  L2 = AI_HALTED
-  if L1 == L2 then
+function SkittishMonster.Timer(A0_13)
+  local L1_14, L2_15, L3_16, L4_17, L5_18, L6_19
+  L1_14 = GetState
+  L1_14 = L1_14()
+  L2_15 = AI_HALTED
+  if L1_14 ~= L2_15 then
+    L2_15 = A0_13.Enabled
+  elseif L2_15 == false then
     return
   end
-  L2 = 1
+  L2_15 = 1
   while true do
-    L3 = A0.Attackers
-    L3 = #L3
-    if not (L2 <= L3) then
-      break
-    end
-    L3 = A0.Attackers
-    L3 = L3[L2]
-    L4 = L3.remainingTime
-    L5 = A0.timerDuration
-    L4 = L4 - L5
-    L3.remainingTime = L4
-    L4 = L3.remainingTime
-    if L4 <= 0 then
-      L4 = RemoveElement
-      L5 = A0.Attackers
-      L6 = L2
-      L4(L5, L6)
-      L4 = A0.Attackers
-      L4 = #L4
-      if L4 == 0 then
-        L5 = A0
-        L4 = A0.Stop
-        L4(L5)
-        return
+    L3_16 = A0_13.Attackers
+    L3_16 = #L3_16
+    if L2_15 <= L3_16 then
+      L3_16 = A0_13.Attackers
+      L3_16 = L3_16[L2_15]
+      L4_17 = L3_16.remainingTime
+      L5_18 = A0_13.timerDuration
+      L4_17 = L4_17 - L5_18
+      L3_16.remainingTime = L4_17
+      L4_17 = L3_16.remainingTime
+      if L4_17 <= 0 then
+        L4_17 = RemoveElement
+        L5_18 = A0_13.Attackers
+        L6_19 = L2_15
+        L4_17(L5_18, L6_19)
+        L4_17 = A0_13.Attackers
+        L4_17 = #L4_17
+        if L4_17 == 0 then
+          L5_18 = A0_13
+          L4_17 = A0_13.Stop
+          L4_17(L5_18)
+          return
+        end
+      else
+        L2_15 = L2_15 + 1
       end
-    else
-      L2 = L2 + 1
     end
   end
-  L3 = GetPos
-  L4 = A0.Attackers
-  L4 = L4[1]
-  L4 = L4.attacker
-  L3 = L3(L4)
-  L4 = GetMyPos
-  L4 = L4()
-  L5 = L4 - L3
-  L6 = L5
-  L5 = L5.normalize
-  L5 = L5(L6)
-  L6 = 600 * L5
-  L6 = L4 + L6
-  L7 = SetStateAndMove
-  L8 = AI_MOVE
-  L9 = L6
-  L7(L8, L9)
+  L3_16 = GetPos
+  L4_17 = A0_13.Attackers
+  L4_17 = L4_17[1]
+  L4_17 = L4_17.attacker
+  L3_16 = L3_16(L4_17)
+  L4_17 = GetMyPos
+  L4_17 = L4_17()
+  L5_18 = L4_17 - L3_16
+  L6_19 = L5_18
+  L5_18 = L5_18.normalize
+  L5_18 = L5_18(L6_19)
+  L6_19 = 600 * L5_18
+  L6_19 = L4_17 + L6_19
+  SetStateAndMove(AI_MOVE, L6_19)
 end
-L0.Timer = L1
-function L0(A0, A1)
-  local L2, L3, L4, L5, L6, L7
-  for L5 = L2, L3, L4 do
-    L6 = L5 - 1
-    L7 = A0[L5]
-    A0[L6] = L7
+function RemoveElement(A0_20, A1_21)
+  local L2_22, L3_23, L4_24, L5_25, L6_26
+  for L5_25 = A1_21 + 1, #A0_20 do
+    L6_26 = L5_25 - 1
+    A0_20[L6_26] = A0_20[L5_25]
   end
-  A0[L2] = nil
+  A0_20[L2_22] = nil
 end
-RemoveElement = L0

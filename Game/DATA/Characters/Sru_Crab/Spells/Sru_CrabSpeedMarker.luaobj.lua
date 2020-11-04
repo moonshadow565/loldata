@@ -1,4 +1,4 @@
 BuffTextureName = "Cardmaster_SealFate.dds"
 BuffName = "Second Sight"
-AutoBuffActivateEffect = "Global_SS_Ghost.troy"
+AutoBuffActivateEffect = "SRU_Crab_SpeedBuff.troy"
 PersistsThroughDeath = true

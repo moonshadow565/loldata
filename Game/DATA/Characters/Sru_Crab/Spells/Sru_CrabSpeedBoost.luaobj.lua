@@ -1,4 +1,5 @@
 BuffTextureName = "Crab_Circle_0.dds"
 BuffName = "Sru_CrabSpeedBoost"
-AutoBuffActivateEffect = "Global_SS_Ghost.troy"
+AutoBuffActivateEffect = "SRU_Crab_SpeedBuff.troy"
+AutoBuffActivateEffect2 = "SRU_CrabSpeedBoost_Audio.troy"
 PersistsThroughDeath = true

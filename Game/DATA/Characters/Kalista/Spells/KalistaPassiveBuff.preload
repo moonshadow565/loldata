@@ -6,6 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistavoenormal"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaexpungeparticle"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_r_buf_tell.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kalista_skin01_idle_spear_avatar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistapassivetestforboots"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaeslow"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaexpungeprotect"}}, 

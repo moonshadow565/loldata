@@ -15,7 +15,7 @@ L0 = AddComponent
 L1 = "DefaultFleeBehavior"
 L0(L1)
 L0 = AddComponent
-L1 = "DefaultTauntBehavior"
+L1 = "NonAggressiveTauntBehavior"
 L0(L1)
 L0 = AddComponent
 L1 = "WanderAlongPath"
@@ -164,6 +164,9 @@ function L0()
   L0 = Event
   L1 = "WanderPause"
   L0(L1)
+  L0 = Event
+  L1 = "SkittishPause"
+  L0(L1)
   L0 = SetStateAndMove
   L1 = AI_MOVE
   L2 = GetMyPos
@@ -175,6 +178,9 @@ function L0()
   local L0, L1, L2
   L0 = Event
   L1 = "WanderResume"
+  L0(L1)
+  L0 = Event
+  L1 = "SkittishResume"
   L0(L1)
   L0 = SetStateAndMove
   L1 = AI_MOVE
