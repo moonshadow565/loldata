@@ -4,5 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="malphiteshield"}}, 
 {Function=BBPreloadSpell, Params={Name="obduracy"}}, 
-{Function=BBPreloadSpell, Params={Name="obduracybuff"}}, 
+{Function=BBPreloadSpell, Params={Name="malphitedamagebuff"}}, 
 }
