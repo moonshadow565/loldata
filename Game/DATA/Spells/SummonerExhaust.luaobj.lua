@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 BuffTextureName = "Summoner_Exhaust.dds"
 BuffName = "SummonerExhaustDebuff"
-AutoBuffActivateEffect = "summoner_banish.troy"
+AutoBuffActivateEffect = "Global_ss_exhaust.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
