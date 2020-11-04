@@ -24,5 +24,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "curseofthesadmummycasteffects"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "disarm"}
   }
 }

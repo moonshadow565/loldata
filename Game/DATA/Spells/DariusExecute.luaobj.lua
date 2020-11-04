@@ -5,6 +5,12 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariusexecutemulticast"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_r_refresh_01.troy"
@@ -54,12 +60,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "dariusexecute"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dariusexecutereset"
     }
   },
   {

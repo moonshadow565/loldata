@@ -33,24 +33,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_flashback.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_cast.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_flash.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "paranoiamisschance"

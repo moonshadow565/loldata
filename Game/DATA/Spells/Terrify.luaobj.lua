@@ -9,5 +9,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "terrify_cas.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "terrify_tar.troy"
+    }
   }
 }
