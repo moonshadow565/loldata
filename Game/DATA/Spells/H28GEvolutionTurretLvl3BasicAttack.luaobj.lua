@@ -17,6 +17,22 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "Dmg"}
   },
   {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Dmg",
+          Src1Value = 0,
+          Src2Value = 2,
+          DestVar = "Dmg",
+          MathOp = MO_DIVIDE
+        }
+      }
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
@@ -27,6 +43,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.35,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -38,12 +55,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "UrAniumRoundsHit",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 30,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

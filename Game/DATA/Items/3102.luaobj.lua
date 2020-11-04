@@ -3,98 +3,43 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 9,
+      TimeBetweenExecutions = 2,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "BansheesVeilTimer"
+        },
         SubBlocks = {
           {
-            Function = BBIfHasBuff,
+            Function = BBSetVarInTable,
             Params = {
-              OwnerVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "BansheesVeil"
+              DestVar = "WillRemove",
+              DestVarTable = "NextBuffVars",
+              SrcValue = false
             }
           },
           {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "BansheesVeilTimer"
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "WillRemove",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = false
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "BansheesVeil",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberStacks = 1,
-                      Duration = 10,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            Function = BBIfHasBuff,
+            Function = BBSpellBuffAdd,
             Params = {
-              OwnerVar = "Owner",
+              TargetVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "BansheesVeilTimer"
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "BansheesVeil",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 10,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
+              BuffName = "BansheesVeil",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -104,26 +49,99 @@ UpdateSelfBuffActionsBuildingBlocks = {
 }
 OnActivateBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_HERO},
+    SubBlocks = {
+      {
+        Function = BBGetPetOwner,
+        Params = {PetVar = "Owner", DestVar = "Caster"}
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Caster",
+          AttackerVar = "Caster",
+          BuffName = "BansheesVeil"
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "NextBuffVars",
+              SrcValue = false
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "BansheesVeil",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Aura,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 10,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      }
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "BansheesVeil",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 10,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "BansheesVeil"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "BansheesVeilTimer"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "WillRemove",
+                  DestVarTable = "NextBuffVars",
+                  SrcValue = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "BansheesVeil",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -131,13 +149,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bansheesveil"
+      Name = "bansheesveiltimer"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bansheesveiltimer"
+      Name = "bansheesveil"
     }
   }
 }

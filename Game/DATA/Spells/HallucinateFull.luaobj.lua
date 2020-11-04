@@ -110,7 +110,8 @@ OnBuffDeactivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 300,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -129,10 +130,19 @@ OnBuffDeactivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
       }
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetInvulnerable
     }
   },
   {
@@ -141,10 +151,11 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       TargetVar = "Owner",
       Damage = 10000,
-      DamageType = TRUE_DAMAGE,
+      DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -198,6 +209,22 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TotalDamage",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "TotalDamage",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Caster",
@@ -205,9 +232,10 @@ BuffOnHitUnitBuildingBlocks = {
       Damage = 0,
       DamageVar = "TotalDamage",
       DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
+      SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = true,
       IgnoreDamageCrit = false
     }
@@ -275,12 +303,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "HallucinateApplicator",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

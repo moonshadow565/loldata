@@ -389,10 +389,10 @@ SelfExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        6,
-        6.5,
-        7,
-        7.5,
+        8,
+        8,
+        8,
+        8,
         8
       },
       TickRate = 0,

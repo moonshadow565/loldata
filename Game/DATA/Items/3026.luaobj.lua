@@ -10,52 +10,36 @@ UpdateSelfBuffActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "HasBeenRevived"
+        },
         SubBlocks = {
           {
-            Function = BBIfHasBuff,
+            Function = BBIfNotHasBuff,
             Params = {
               OwnerVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "HasBeenRevived"
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
+              CasterVar = "Owner",
+              BuffName = "GuardianAngel"
+            },
             SubBlocks = {
               {
-                Function = BBIfHasBuff,
+                Function = BBSpellBuffAdd,
                 Params = {
-                  OwnerVar = "Owner",
+                  TargetVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "GuardianAngel"
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "WillRevive",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberStacks = 1,
-                      Duration = 10,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  }
+                  BuffName = "WillRevive",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -67,65 +51,73 @@ UpdateSelfBuffActionsBuildingBlocks = {
 }
 ItemOnPreDamageBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
     Function = BBIf,
-    Params = {
-      Src1Var = "CurHealth",
-      Src2Var = "DamageAmount",
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
+    Params = {Value1 = DAMAGESOURCE_INTERNALRAW, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
     SubBlocks = {
       {
-        Function = BBIfHasBuff,
+        Function = BBGetPAROrHealth,
         Params = {
+          DestVar = "CurHealth",
           OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "GuardianAngel"
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBIf,
+        Params = {
+          Src1Var = "CurHealth",
+          Src2Var = "DamageAmount",
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
         SubBlocks = {
           {
             Function = BBIfHasBuff,
             Params = {
               OwnerVar = "Owner",
               AttackerVar = "Owner",
-              BuffName = "WillRevive"
-            },
+              BuffName = "GuardianAngel"
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBIfHasBuff,
                 Params = {
-                  Src1Var = "CurHealth",
-                  Src1Value = 0,
-                  Src2Value = 1,
-                  DestVar = "DamageAmount",
-                  MathOp = MO_SUBTRACT
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
+                  OwnerVar = "Owner",
                   AttackerVar = "Owner",
-                  BuffName = "GuardianAngel",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 4,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  BuffName = "WillRevive"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "CurHealth",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "GuardianAngel",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 4,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
                 }
               }
             }
@@ -137,28 +129,20 @@ ItemOnPreDamageBuildingBlocks = {
 }
 OnActivateBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "WillRevive"
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_HERO},
     SubBlocks = {
+      {
+        Function = BBGetPetOwner,
+        Params = {PetVar = "Owner", DestVar = "Caster"}
+      },
       {
         Function = BBIfHasBuff,
         Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "HasBeenRevived"
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
+          OwnerVar = "Caster",
+          AttackerVar = "Caster",
+          BuffName = "WillRevive"
+        },
         SubBlocks = {
           {
             Function = BBSpellBuffAdd,
@@ -167,12 +151,57 @@ OnActivateBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "WillRevive",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "WillRevive"
+        },
+        SubBlocks = {
+          {
+            Function = BBIfNotHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "HasBeenRevived"
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "WillRevive",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 10,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
             }
           }
         }

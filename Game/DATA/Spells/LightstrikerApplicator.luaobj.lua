@@ -31,15 +31,30 @@ BuffOnHitUnitBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_HERO},
+        SubBlocks = {
+          {
+            Function = BBGetPetOwner,
+            Params = {PetVar = "Attacker", DestVar = "Caster"}
+          }
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Attacker",
+          AttackerVar = "Caster",
           TargetVar = "Target",
           Damage = 100,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

@@ -173,6 +173,14 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Type = BUFF_Sleep}
   },
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "WillRevive"
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "CurrentCooldown",
@@ -431,14 +439,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "WillRevive"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -520,30 +520,20 @@ BuffOnUpdateStatsBuildingBlocks = {
       SrcValue = false,
       Status = SetTargetable
     }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      Delta = -100
-    }
-  },
-  {
-    Function = BBIncFlatPARRegenMod,
-    Params = {
-      PARType = PAR_MANA,
-      TargetVar = "Owner",
-      Delta = -100
-    }
   }
 }
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageAmount",
-      SrcValue = 0
+    Function = BBIf,
+    Params = {Value1 = DAMAGESOURCE_INTERNALRAW, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
     }
   }
 }
@@ -555,14 +545,14 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "willrevive"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "guardianangel_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "willrevive"}
   },
   {
     Function = BBPreloadSpell,

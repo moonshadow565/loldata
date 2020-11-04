@@ -142,7 +142,8 @@ OnBuffDeactivateBuildingBlocks = {
           CenterVar = "MissileEndPosition",
           Range = 210,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -153,6 +154,7 @@ OnBuffDeactivateBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
                 60,
@@ -202,12 +204,14 @@ OnBuffDeactivateBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -328,7 +332,8 @@ BuffOnMissileEndBuildingBlocks = {
           CenterVar = "MissileEndPosition",
           Range = 230,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -339,6 +344,7 @@ BuffOnMissileEndBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
                 60,
@@ -388,12 +394,14 @@ BuffOnMissileEndBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -451,7 +459,7 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTime,
         Params = {
-          SrcValue = 0.3,
+          SrcValue = 0.285,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
           SpellSlotValue = 0,
@@ -464,12 +472,14 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -487,7 +497,8 @@ SelfExecuteBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }

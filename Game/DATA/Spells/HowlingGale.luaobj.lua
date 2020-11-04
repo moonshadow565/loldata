@@ -155,6 +155,14 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "IdealDistance",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 100
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
@@ -377,10 +385,35 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Cooldown",
+      SrcValueByLevel = {
+        14,
+        13,
+        12,
+        11,
+        10
+      }
+    }
+  },
+  {
     Function = BBMath,
     Params = {
+      Src1Var = "Cooldown",
       Src2Var = "CooldownMod",
-      Src1Value = 10,
+      Src1Value = 0,
       Src2Value = 0,
       DestVar = "Cooldown",
       MathOp = MO_MULTIPLY

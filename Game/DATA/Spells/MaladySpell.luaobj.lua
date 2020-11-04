@@ -39,8 +39,45 @@ BuffOnBeingHitBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_HERO},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Caster", SrcVar = "Attacker"}
+      },
+      {
+        Function = BBGetPetOwner,
+        Params = {PetVar = "Attacker", DestVar = "Caster"}
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Caster", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Caster",
+              TargetVar = "Owner",
+              Damage = 0,
+              DamageVar = "DamageToDeal",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       }
     }

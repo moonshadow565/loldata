@@ -5,7 +5,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Src2Var = "MaxMana",
       Src2VarTable = "InstanceVars",
-      Src1Value = 0.025,
+      Src1Value = 0.03,
       Src2Value = 0,
       DestVar = "BonusAbilityPower",
       MathOp = MO_MULTIPLY
@@ -54,7 +54,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
