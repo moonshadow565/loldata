@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

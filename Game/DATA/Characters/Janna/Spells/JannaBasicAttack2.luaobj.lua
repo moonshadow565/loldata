@@ -1,0 +1,6 @@
+SpellFXOverrideSkins = {
+  "JannaForecast"
+}
+SpellVOOverrideSkins = {
+  "JannaForecast"
+}
