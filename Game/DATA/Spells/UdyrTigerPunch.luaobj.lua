@@ -79,16 +79,13 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
               BuffName = "UdyrTigerPunchBleed",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Damage,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -96,6 +93,10 @@ BuffOnHitUnitBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }
