@@ -18,6 +18,21 @@ CharOnSpellCastBuildingBlocks = {
           DestVarTable = "CharVars",
           SrcValue = 1
         }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CantAttack",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
       }
     }
   }
@@ -70,6 +85,7 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
@@ -81,6 +97,10 @@ CharOnDisconnectBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "cantattack"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

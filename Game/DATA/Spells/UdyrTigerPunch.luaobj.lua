@@ -79,6 +79,10 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
@@ -92,10 +96,6 @@ BuffOnHitUnitBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           }
         }
       }

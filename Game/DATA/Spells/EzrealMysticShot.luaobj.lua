@@ -39,7 +39,7 @@ SelfExecuteBuildingBlocks = {
         Function = BBGetPointByUnitFacingOffset,
         Params = {
           UnitVar = "Owner",
-          Distance = 1200,
+          Distance = 1050,
           OffsetAngle = 0,
           PositionVar = "TargetPos"
         }
@@ -53,6 +53,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,

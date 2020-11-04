@@ -25,9 +25,9 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "SpellCooldown",
       SrcValueByLevel = {
-        90,
-        75,
-        60
+        150,
+        135,
+        120
       }
     }
   },

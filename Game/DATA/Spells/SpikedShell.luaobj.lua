@@ -12,9 +12,8 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetStat,
+    Function = BBGetSpellBlock,
     Params = {
-      Stat = GetFlatSpellBlockMod,
       TargetVar = "Owner",
       DestVar = "MRAmount",
       DestVarTable = "InstanceVars"
@@ -73,9 +72,8 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBGetStat,
+    Function = BBGetSpellBlock,
     Params = {
-      Stat = GetFlatSpellBlockMod,
       TargetVar = "Owner",
       DestVar = "MRAmount",
       DestVarTable = "InstanceVars"

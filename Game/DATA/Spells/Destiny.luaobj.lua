@@ -6,9 +6,9 @@ AutoBuffActivateEffect = "DestinyEye.troy"
 AutoBuffActivateEffect2 = ""
 SpellDamageRatio = 0.75
 AutoCooldownByLevel = {
-  130,
-  110,
-  90
+  150,
+  135,
+  120
 }
 OnBuffActivateBuildingBlocks = {
   {
