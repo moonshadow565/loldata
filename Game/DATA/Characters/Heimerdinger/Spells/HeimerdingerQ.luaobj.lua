@@ -13,18 +13,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "turret_poof.troy"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_ult_turret_birth.troy"
@@ -34,12 +22,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimer_q_ammo_spend.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "heimerdinger_turret_birth.troy"
     }
   },
   {
@@ -58,12 +40,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "heimerdingerrocketchargemanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerrocketcharge"
     }
   },
   {
@@ -88,6 +64,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "heimerturretshutdown"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerrocketcharge"
     }
   },
   {
