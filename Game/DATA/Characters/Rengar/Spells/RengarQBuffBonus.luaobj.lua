@@ -1,4 +1,4 @@
-BuffTextureName = "RengarQ.dds"
+BuffTextureName = "RengarQReg.dds"
 BuffName = "RengarQBuffMAX"
 AutoBuffActivateEffect = "RengarQAttackSpeed.troy"
 AutoBuffActivateAttachBoneName = "R_Hand"

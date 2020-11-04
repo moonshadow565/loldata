@@ -55,6 +55,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "summonerteleporthaste"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "summonerteleport"
     }
   },

@@ -22,6 +22,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerturretlockon"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_base_e_tar.troy"
@@ -30,12 +36,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerturretlockon"
-    }
   },
   {
     Function = BBPreloadCharacter,

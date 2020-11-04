@@ -22,13 +22,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nocturneshroudofdarknessbuff"
+      Name = "unlockanimation"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "unlockanimation"
+      Name = "nocturneshroudofdarknessbuff"
     }
   }
 }
