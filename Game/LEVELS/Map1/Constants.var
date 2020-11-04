@@ -119,9 +119,8 @@ cam_KeyboardOrbitSpeedY                 =     50.000 ; Keyboard Orbit Speed y ax
 
 ; Cursor variables
 cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flashes when you cast a targeted spell
-cr_MouseScrollSpeed                     =   3900.000 ; Mouse Scroll Speed
-cr_KeyScrollSpeed                       =   1000.000 ; Key Scroll Speed
 cr_MoveClickRepeatRate                  =      0.250 ; How often do we moveclick when holding down the key
+cr_MouseScrollSpeed                     =   3900.000 ; Mouse Scroll Speed
 
 ; Attack Flags
 ca_RevealAttackerRange                  =    400.000 ; The range of reveal for attackers
