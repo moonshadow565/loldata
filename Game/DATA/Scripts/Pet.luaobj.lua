@@ -61,7 +61,6 @@ function L0_0(A0_2, A1_3)
     end
     TurnOffAutoAttack(STOPREASON_TARGET_LOST)
     SetStateAndCloseToTarget(AI_PET_HARDATTACK, A1_3)
-    AIScriptSpellBuffAdd(A1_3, me, "PetCommandParticle", 21, 45)
     return true
   end
   if A0_2 == ORDER_PETHARDMOVE then
