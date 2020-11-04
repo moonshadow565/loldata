@@ -10,6 +10,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="urgotswapdef"}}, 
 {Function=BBPreloadSpell, Params={Name="suppression"}}, 
 {Function=BBPreloadSpell, Params={Name="urgotswaptarget"}}, 
-{Function=BBPreloadSpell, Params={Name="urgotswap2"}}, 
 {Function=BBPreloadSpell, Params={Name="spellnostackcdreset"}}, 
 }

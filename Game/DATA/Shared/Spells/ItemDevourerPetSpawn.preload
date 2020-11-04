@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="sru_murkwolf"}}, 
+{Function=BBPreloadSpell, Params={Name="lulubuddypassive"}}, 
+{Function=BBPreloadCharacter, Params={Name="sru_murkwolfmini"}}, 
+{Function=BBPreloadSpell, Params={Name="itemdevourerpetpassive"}}, 
+{Function=BBPreloadSpell, Params={Name="lulue"}}, 
+{Function=BBPreloadSpell, Params={Name="itemdevourerpet"}}, 
+{Function=BBPreloadSpell, Params={Name="itemdevourerpettracker"}}, 
+}
