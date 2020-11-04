@@ -14,7 +14,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -30,7 +31,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -46,7 +48,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -65,72 +68,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
-    }
-  }
-}
-UpdateSelfBuffActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AP"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AP",
-          Src1Value = 0,
-          Src2Value = 0.5,
-          DestVar = "SoulShacklesFront",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AP",
-          Src1Value = 0,
-          Src2Value = 1.5,
-          DestVar = "SoulShacklesBack",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "SoulShacklesFront",
-          Index = 1,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "SoulShacklesBack",
-          Index = 2,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      }
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

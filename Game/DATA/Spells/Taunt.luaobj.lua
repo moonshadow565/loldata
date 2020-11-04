@@ -1,9 +1,17 @@
 BuffTextureName = "GSB_taunt.dds"
 BuffName = "Taunt"
-AutoBuffActivateEffect = "Global_Taunt_multi_unit.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Taunted"
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Owner",
+      StopCondition = ChannelingStopCondition_Cancel,
+      StopSource = ChannelingStopSource_StunnedOrSilencedOrTaunted
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {

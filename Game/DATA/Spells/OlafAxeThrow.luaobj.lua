@@ -140,10 +140,10 @@ BuffOnMissileEndBuildingBlocks = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.2,
-        -0.25,
-        -0.3,
-        -0.35,
+        -0.16,
+        -0.22,
+        -0.28,
+        -0.34,
         -0.4
       }
     }
@@ -174,6 +174,10 @@ BuffOnMissileEndBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
@@ -181,7 +185,7 @@ BuffOnMissileEndBuildingBlocks = {
           BuffName = "olafSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
+          BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 2.5,
@@ -240,6 +244,10 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -247,7 +255,7 @@ TargetExecuteBuildingBlocks = {
       BuffName = "olafSlow",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Slow,
       MaxStack = 100,
       NumberOfStacks = 1,
       Duration = 2.5,

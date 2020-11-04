@@ -6,31 +6,11 @@ IsDamagingSpell = true
 ChannelDuration = 2.5
 BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGrasp"
-AutoBuffActivateEffect = "Stun_glb.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
 PopupMessage1 = "game_floatingtext_Stunned"
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetStunned
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStunned
-    }
-  }
-}
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -126,13 +106,21 @@ ChannelingStartBuildingBlocks = {
       BuffName = "AlZaharNetherGrasp",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Stun,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = true
+    }
+  },
+  {
+    Function = BBApplyStun,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      Duration = 2.5
     }
   },
   {

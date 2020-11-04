@@ -1,12 +1,5 @@
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "RedCardDamage",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -20,7 +13,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTotalAttackDamage,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       DestVar = "AttackDamage"
     }
   },
@@ -160,6 +153,14 @@ OnBuffActivateBuildingBlocks = {
           CanMitigateDuration = false
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cardmasterslow"
     }
   }
 }

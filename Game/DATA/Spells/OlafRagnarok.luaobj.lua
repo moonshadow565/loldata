@@ -128,15 +128,8 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmPen",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.05, OwnerVar = "Owner"}
+    Params = {Scale = 1.1, OwnerVar = "Owner"}
   },
   {
     Function = BBOverrideAnimation,
@@ -219,18 +212,8 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorPenetrationMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmPen",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
     Function = BBSetScaleSkinCoef,
-    Params = {Scale = 1.05, OwnerVar = "Owner"}
+    Params = {Scale = 1.1, OwnerVar = "Owner"}
   }
 }
 BuffOnPreDamageBuildingBlocks = {
@@ -285,18 +268,6 @@ TargetExecuteBuildingBlocks = {
         25,
         45,
         65
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmPen",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        15,
-        25,
-        35
       }
     }
   },

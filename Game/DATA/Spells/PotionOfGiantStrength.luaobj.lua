@@ -32,6 +32,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Level",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "BonusDmg",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDmg",
+      Src1Value = 0,
+      Src2Value = 10,
+      DestVar = "BonusDmg",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIncPermanentStat,
     Params = {
       Stat = IncPermanentFlatHPPoolMod,
@@ -46,7 +67,9 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = 20
+      DeltaVar = "BonusDmg",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -59,6 +82,17 @@ OnBuffDeactivateBuildingBlocks = {
       Src1Value = -1,
       Src2Value = 0,
       DestVar = "BonusHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BonusDmg",
+      Src2VarTable = "InstanceVars",
+      Src1Value = -1,
+      Src2Value = 0,
+      DestVar = "BonusDmg",
       MathOp = MO_MULTIPLY
     }
   },
@@ -76,7 +110,8 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = -20
+      DeltaVar = "BonusDmg",
+      Delta = 0
     }
   }
 }
@@ -87,12 +122,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

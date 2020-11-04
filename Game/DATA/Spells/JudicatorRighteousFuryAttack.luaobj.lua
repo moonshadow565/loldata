@@ -61,11 +61,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        8,
-        14,
-        20,
-        26,
-        32
+        4,
+        10,
+        16,
+        22,
+        28
       }
     }
   },
@@ -73,7 +73,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AbilityPower",
-      Src1Value = 0.25,
+      Src1Value = 0.3,
       Src2Value = 0,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
@@ -97,7 +97,7 @@ TargetExecuteBuildingBlocks = {
       Src2Var = "DamageToApply",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "DamageToApply",
+      DestVar = "DamageToApplySlash",
       MathOp = MO_ADD
     }
   },
@@ -129,19 +129,51 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBApplyDamage,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageVar = "DamageToApply",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          Src1Var = "Unit",
+          Src2Var = "Target",
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DamageToApplySlash",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageVar = "DamageToApply",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
         }
       }
     }

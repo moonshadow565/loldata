@@ -2,100 +2,119 @@ BuffTextureName = "33.dds"
 BuffName = "AkaliTwinDisciplines"
 PersistsThroughDeath = true
 NonDispellable = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliAP",
+      DestVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliDmg",
+      DestVarTable = "InstanceVars"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIf,
     Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      Src1Var = "AkaliAP",
+      Src1VarTable = "InstanceVars",
+      Value2 = 20,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBGetStat,
+        Function = BBSetVarInTable,
         Params = {
-          Stat = GetFlatMagicDamageMod,
+          DestVar = "AkaliAP",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "AkaliAP",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
           TargetVar = "Owner",
-          DestVar = "AkaliAP"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "AkaliAP",
-          Value2 = 20,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "AkaliAP",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "AkaliAP"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AkaliTwinAP",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1.1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatPhysicalDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AkaliDmg"
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "AkaliDmg",
-          Value2 = 10,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "AkaliDmg",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "AkaliDmg"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AkaliTwinDmg",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 1.1,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
+          AttackerVar = "Owner",
+          BuffName = "AkaliTwinAP",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "AkaliDmg",
+      Src1VarTable = "InstanceVars",
+      Value2 = 10,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AkaliDmg",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "AkaliDmg",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "AkaliTwinDmg",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1.1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliAP",
+      DestVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliDmg",
+      DestVarTable = "InstanceVars"
     }
   }
 }

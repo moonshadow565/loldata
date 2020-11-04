@@ -24,7 +24,8 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Death",
       ScaleTime = 4,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
@@ -397,7 +398,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBPlayAnimation,
@@ -405,12 +406,13 @@ OnBuffDeactivateBuildingBlocks = {
       AnimationName = "idle1",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBSpellEffectCreate,
@@ -443,12 +445,14 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "HasBeenRevived",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -531,6 +535,15 @@ BuffOnUpdateStatsBuildingBlocks = {
       PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -100
+    }
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
     }
   }
 }

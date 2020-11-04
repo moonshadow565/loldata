@@ -190,11 +190,60 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnSpellCastBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBIf,
     Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      Src1Var = "SpellName",
+      Value2 = "ShadowWalk",
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CastingBreaksStealth",
+          Src1VarTable = "SpellVars",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "CastingBreaksStealth",
+          Src1VarTable = "SpellVars",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "DoesntTriggerSpellCasts",
+          Src1VarTable = "SpellVars",
+          Value2 = true,
+          CompareOp = CO_NOT_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      }
     }
   }
 }

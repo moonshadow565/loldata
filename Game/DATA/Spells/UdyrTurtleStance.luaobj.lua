@@ -371,13 +371,13 @@ SelfExecuteBuildingBlocks = {
       EffectName = "TurtleStance.troy",
       Flags = 0,
       EffectIDVar = "Turtleparticle",
-      TargetObjectVar = "Target",
+      TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   },
   {

@@ -1,5 +1,7 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Wolfman_SeverArmor.dds"
 AutoBuffActivateEffect = ""
@@ -86,35 +88,6 @@ TargetExecuteBuildingBlocks = {
       Src2Value = 0.4,
       DestVar = "SelfDamage",
       MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CurrentHealth",
-      Src2Var = "SelfDamage",
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "CurrentHealth",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "SelfDamage",
-          MathOp = MO_SUBTRACT
-        }
-      }
     }
   },
   {
@@ -222,12 +195,12 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBApplyDamage,
     Params = {
-      AttackerVar = "Owner",
-      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      TargetVar = "Target",
       Damage = 0,
-      DamageVar = "SelfDamage",
+      DamageVar = "BonusDamage",
       DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_DEFAULT,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 1,
@@ -239,11 +212,11 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
-      TargetVar = "Target",
+      TargetVar = "Attacker",
       Damage = 0,
-      DamageVar = "BonusDamage",
+      DamageVar = "SelfDamage",
       DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
+      SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       PhysicalDamageRatio = 1,

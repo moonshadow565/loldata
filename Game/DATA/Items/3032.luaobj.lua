@@ -3,7 +3,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 3,
+      TimeBetweenExecutions = 4,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -14,7 +14,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "CooldownResevoir",
           Src1VarTable = "InstanceVars",
-          Value2 = 2,
+          Value2 = 1,
           CompareOp = CO_LESS_THAN
         },
         SubBlocks = {
@@ -47,7 +47,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 800,
           Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -65,12 +66,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "ManaManipulatorAuraSelf",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 3.1,
+                  NumberOfStacks = 1,
+                  Duration = 4.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -86,12 +89,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "ManaManipulatorAuraFriend",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 3.1,
+                  NumberOfStacks = 1,
+                  Duration = 4.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -138,8 +143,9 @@ ItemOnSpellCastBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 900,
-              Flags = "AffectFriends AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -169,68 +175,14 @@ ItemOnSpellCastBuildingBlocks = {
                       AttackerVar = "Owner",
                       BuffName = "InnervatingLocketBuff",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_CombatEnchancer,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1.9,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBGetPAROrHealth,
-                    Params = {
-                      DestVar = "UnitHealth",
-                      OwnerVar = "Unit",
-                      Function = GetHealthPercent,
-                      PARType = PAR_MANA
-                    }
-                  },
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "UnitHealth",
-                      Value2 = 1,
-                      CompareOp = CO_NOT_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellEffectCreate,
-                        Params = {
-                          BindObjectVar = "Unit",
-                          EffectName = "InnervatingLocket_itm.troy",
-                          Flags = 0,
-                          EffectIDVar = "Particle",
-                          TargetObjectVar = "Target",
-                          SpecificUnitOnlyVar = "Owner",
-                          SpecificTeamOnly = TEAM_UNKNOWN,
-                          UseSpecificUnit = false,
-                          FOWTeam = TEAM_UNKNOWN,
-                          FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Owner",
-                          BuffName = "InnervatingLocketBuff",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_CombatEnchancer,
-                          MaxStack = 1,
-                          NumberStacks = 1,
-                          Duration = 1.9,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      }
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -248,7 +200,7 @@ OnActivateBuildingBlocks = {
     Params = {
       DestVar = "CooldownResevoir",
       DestVarTable = "InstanceVars",
-      SrcValue = 2
+      SrcValue = 1
     }
   }
 }

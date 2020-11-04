@@ -1,4 +1,8 @@
-DoesntTriggerSpellCasts = true
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
 ChannelDuration = 3
 BuffTextureName = "Pantheon_GrandSkyfall.dds"
 BuffName = "Pantheon Grand Skyfall"
@@ -119,7 +123,8 @@ ChannelingSuccessStopBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = true
+      ForceCastingOrChannelling = true,
+      UpdateAutoAttackTimer = false
     }
   },
   {

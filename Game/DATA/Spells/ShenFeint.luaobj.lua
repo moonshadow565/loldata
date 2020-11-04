@@ -48,7 +48,38 @@ OnBuffDeactivateBuildingBlocks = {
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
+    Params = {
+      Src1Var = "DamageBlock",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "DamageAmount",
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageBlock",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageBlock",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
         Function = BBMath,
@@ -63,13 +94,11 @@ BuffOnPreDamageBuildingBlocks = {
         }
       },
       {
-        Function = BBMath,
+        Function = BBSetVarInTable,
         Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_MAX
+          DestVar = "DamageBlock",
+          DestVarTable = "InstanceVars",
+          SrcValue = 0
         }
       },
       {
@@ -87,6 +116,10 @@ BuffOnPreDamageBuildingBlocks = {
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false
         }
+      },
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
       }
     }
   }
@@ -97,11 +130,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
-        40,
-        70,
+        50,
         100,
-        130,
-        160
+        150,
+        200,
+        250
       }
     }
   },
@@ -118,7 +151,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.6,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }

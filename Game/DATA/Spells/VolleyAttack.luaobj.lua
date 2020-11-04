@@ -66,7 +66,8 @@ TargetExecuteBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -98,10 +99,10 @@ TargetExecuteBuildingBlocks = {
               DestVar = "BonusDamage",
               SrcValueByLevel = {
                 40,
-                50,
-                60,
+                55,
                 70,
-                80
+                85,
+                100
               }
             }
           },
@@ -169,7 +170,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Target",
-                  AttackerVar = "Attacker",
+                  AttackerVar = "Owner",
                   BuffName = "FrostArrow",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
@@ -178,7 +179,8 @@ TargetExecuteBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -229,7 +231,8 @@ TargetExecuteBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 0.5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -261,10 +264,10 @@ TargetExecuteBuildingBlocks = {
                   DestVar = "BonusDamage",
                   SrcValueByLevel = {
                     40,
-                    50,
-                    60,
+                    55,
                     70,
-                    80
+                    85,
+                    100
                   }
                 }
               },
@@ -332,7 +335,7 @@ TargetExecuteBuildingBlocks = {
                     Function = BBSpellBuffAdd,
                     Params = {
                       TargetVar = "Target",
-                      AttackerVar = "Attacker",
+                      AttackerVar = "Owner",
                       BuffName = "FrostArrow",
                       BuffAddType = BUFF_RENEW_EXISTING,
                       StacksExclusive = true,
@@ -341,7 +344,8 @@ TargetExecuteBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 2,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -404,7 +408,8 @@ TargetExecuteBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 0.5,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   },
                   {
@@ -436,10 +441,10 @@ TargetExecuteBuildingBlocks = {
                       DestVar = "BonusDamage",
                       SrcValueByLevel = {
                         40,
-                        50,
-                        60,
+                        55,
                         70,
-                        80
+                        85,
+                        100
                       }
                     }
                   },
@@ -507,7 +512,7 @@ TargetExecuteBuildingBlocks = {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Target",
-                          AttackerVar = "Attacker",
+                          AttackerVar = "Owner",
                           BuffName = "FrostArrow",
                           BuffAddType = BUFF_RENEW_EXISTING,
                           StacksExclusive = true,
@@ -516,7 +521,8 @@ TargetExecuteBuildingBlocks = {
                           NumberOfStacks = 1,
                           Duration = 2,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }

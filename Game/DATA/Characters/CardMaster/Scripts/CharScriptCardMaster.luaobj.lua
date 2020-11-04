@@ -6,7 +6,8 @@ CharOnActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectFriends AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -16,12 +17,14 @@ CharOnActivateBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "SecondSight",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -30,6 +33,7 @@ CharOnActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -42,12 +46,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -57,12 +63,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -101,11 +109,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
-            60,
-            90,
-            120,
-            150,
-            180
+            55,
+            80,
+            105,
+            130,
+            155
           }
         }
       },
@@ -131,11 +139,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
+            0.03,
             0.06,
+            0.09,
             0.12,
-            0.18,
-            0.24,
-            0.3
+            0.15
           }
         }
       },
@@ -146,12 +154,14 @@ CharOnLevelUpSpellBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CardmasterStack",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

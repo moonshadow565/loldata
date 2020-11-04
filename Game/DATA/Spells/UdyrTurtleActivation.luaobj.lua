@@ -17,17 +17,34 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "TurtleStance_buf.troy",
+      EffectName = "TurtleStance.troy",
       Flags = 0,
-      EffectIDVar = "TurtleShield",
+      EffectIDVar = "Turtleparticle",
       EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
+      TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "TurtleStance_buf.troy",
+      Flags = 0,
+      EffectIDVar = "TurtleShield",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -36,6 +53,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "TurtleShield",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Turtleparticle",
       EffectIDVarTable = "InstanceVars"
     }
   }
@@ -104,6 +128,12 @@ BuffOnPreDamageBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "turtlestance.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

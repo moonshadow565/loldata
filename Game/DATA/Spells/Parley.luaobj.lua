@@ -42,6 +42,34 @@ BuffOnDeathBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatCritChanceMod,
+      TargetVar = "Attacker",
+      DestVar = "CritChance"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Critical}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBBreakSpellShields,
     Params = {TargetVar = "Target"}
   },
@@ -111,7 +139,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "BaseDamage",
-      Src1Value = 1.1,
+      Src1Value = 1,
       Src2Value = 0,
       DestVar = "BaseDamage",
       MathOp = MO_MULTIPLY
@@ -139,7 +167,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1.1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

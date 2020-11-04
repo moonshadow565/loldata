@@ -14,6 +14,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "EzrealRisingSpellForce",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
@@ -26,7 +27,8 @@ TargetExecuteBuildingBlocks = {
         0,
         0
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -217,8 +219,18 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "SpellBaseDamage",
       Src2Var = "BaseDamage",
+      Src1Value = 1.2,
+      Src2Value = 0,
+      DestVar = "AttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "SpellBaseDamage",
+      Src2Var = "AttackDamage",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "DamageVar",

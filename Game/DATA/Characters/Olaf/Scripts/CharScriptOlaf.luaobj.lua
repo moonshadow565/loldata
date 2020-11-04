@@ -45,11 +45,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "HealthPercent",
               SrcValueByLevel = {
-                0.004,
-                0.007,
-                0.01,
-                0.013,
-                0.016
+                0.003,
+                0.006,
+                0.009,
+                0.012,
+                0.015
               }
             }
           },
@@ -118,7 +118,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               Src1Var = "MaxHealth",
               Src1Value = 0,
-              Src2Value = 0.004,
+              Src2Value = 0.003,
               DestVar = "HealthDamage",
               MathOp = MO_MULTIPLY
             }
@@ -326,6 +326,67 @@ CharOnActivateBuildingBlocks = {
       SlotType = SpellSlots,
       SlotBook = SPELLBOOK_CHAMPION,
       TargetVar = "Owner"
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIncPermanentStat,
+        Params = {
+          Stat = IncPermanentFlatArmorPenetrationMod,
+          TargetVar = "Owner",
+          Delta = 10
+        }
+      }
+    }
+  }
+}
+CharOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Attacker",
+      Src2Var = "Owner",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPAROrHealth,
+        Params = {
+          DestVar = "CurrentHealth",
+          OwnerVar = "Owner",
+          Function = GetHealth,
+          PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CurrentHealth",
+          Src2Var = "DamageAmount",
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CurrentHealth",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
     }
   }
 }

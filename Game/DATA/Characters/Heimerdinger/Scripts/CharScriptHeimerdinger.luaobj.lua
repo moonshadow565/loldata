@@ -33,12 +33,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "UPGRADE!!!",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 20000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -78,7 +80,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   CenterVar = "Owner",
                   Range = 1000,
                   Flags = "AffectFriends AffectMinions AffectHeroes AffectTurrets AlwaysSelf ",
-                  IteratorVar = "Unit"
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -92,12 +95,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "TechmaturgicalRepairBots",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }
@@ -113,12 +118,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "TechmaturgicalRepairBots",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }
@@ -142,12 +149,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                               AttackerVar = "Owner",
                               BuffName = "TechmaturgicalRepairBots",
                               BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
                               BuffType = BUFF_Aura,
                               MaxStack = 1,
                               NumberOfStacks = 1,
                               Duration = 1,
                               BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
+                              TickRate = 0,
+                              CanMitigateDuration = false
                             }
                           }
                         }
@@ -169,7 +178,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   CenterVar = "Owner",
                   Range = 1000,
                   Flags = "AffectFriends AffectMinions AffectHeroes AffectTurrets AlwaysSelf ",
-                  IteratorVar = "Unit"
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -179,12 +189,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       AttackerVar = "Owner",
                       BuffName = "TechmaturgicalRepairBots",
                       BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -242,12 +254,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -257,12 +271,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -272,12 +288,31 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "HeimerdingerTurretDetonation",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "TechmaturgicalIcon",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -385,6 +420,7 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
@@ -434,6 +470,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "heimerdingerturretdetonation"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "techmaturgicalicon"
     }
   }
 }
