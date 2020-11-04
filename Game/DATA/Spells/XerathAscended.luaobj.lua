@@ -20,7 +20,7 @@ BuffOnUpdateStatsBuildingBlocks = {
       Src1Var = "APMod",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.15,
       DestVar = "ArmorBonus",
       MathOp = MO_MULTIPLY
     }

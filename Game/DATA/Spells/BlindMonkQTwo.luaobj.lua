@@ -218,11 +218,11 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BaseDamage",
                   SrcValueByLevel = {
-                    40,
-                    70,
-                    100,
-                    130,
-                    160
+                    50,
+                    80,
+                    110,
+                    140,
+                    170
                   }
                 }
               },
@@ -403,11 +403,11 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BaseDamage",
                   SrcValueByLevel = {
-                    40,
-                    70,
-                    100,
-                    130,
-                    160
+                    50,
+                    80,
+                    110,
+                    140,
+                    170
                   }
                 }
               },

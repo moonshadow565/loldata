@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "FrostFireBrand"
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -533,12 +536,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandablaze"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandconflagration_tar_frost.troy"
@@ -548,6 +545,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "brandconflagration_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "brandablaze"
     }
   }
 }

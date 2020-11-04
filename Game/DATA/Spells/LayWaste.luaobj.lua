@@ -78,7 +78,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       DestVar = "TeamOfOwner",
       DestVarTable = "InstanceVars"
     }
@@ -98,8 +98,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamOfOwner",
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVarTable = "InstanceVars",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -130,6 +133,8 @@ OnBuffDeactivateBuildingBlocks = {
       FOWTeamOverrideVarTable = "InstanceVars",
       FOWVisibilityRadius = 200,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }

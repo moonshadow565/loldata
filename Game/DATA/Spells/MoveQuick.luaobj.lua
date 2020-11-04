@@ -4,6 +4,7 @@ BuffTextureName = "Teemo_MoveQuick.dds"
 BuffName = "Move Quick2"
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {"SuperTeemo"}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffClear,
@@ -257,12 +258,6 @@ TargetExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomovequickspeed"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "movequick_buf2.troy"
@@ -271,7 +266,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "teemomovequickdebuff"
+      Name = "teemomovequickspeed"
     }
   }
 }

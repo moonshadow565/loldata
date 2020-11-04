@@ -188,6 +188,27 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "Xerath_Barrage_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      },
+      {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Unit"}
       },
@@ -228,7 +249,7 @@ OnBuffDeactivateBuildingBlocks = {
               BuffType = BUFF_Stun,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2,
+              Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = true,
@@ -319,7 +340,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Attacker",
-      EffectName = "Leona_SolarFlare_cas.troy",
+      EffectName = "Xarin_E_cas.troy",
       Flags = 0,
       EffectIDVar = "a",
       BoneName = "root",
@@ -464,6 +485,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_barrage_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "xarinbolt"}
   },
@@ -490,7 +517,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "leona_solarflare_cas.troy"
+      Name = "xarin_e_cas.troy"
     }
   },
   {

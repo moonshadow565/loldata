@@ -1,6 +1,5 @@
 SpellFXOverrideSkins = {
-  "GangsterTwitch",
-  "PunkTwitch"
+  "FrostFireBrand"
 }
 TargetExecuteBuildingBlocks = {
   {
