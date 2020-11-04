@@ -3,6 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="azir_base_r_soldiercape_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="globalwallmarker"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_r_soldier_dissipate.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="azirrinareatrigger"}}, 
+{Function=BBPreloadModule, Params={Name="Azir.AzirFunctionModule"}}, 
 {Function=BBPreloadSpell, Params={Name="azirrhaste"}}, 
 }
