@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "tt_spiderbosssingedchaos"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hpbyplayerlevel"
     }
   },

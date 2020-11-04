@@ -6,9 +6,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "jayce_wall_accel_buf.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   }
 }

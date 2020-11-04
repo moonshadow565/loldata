@@ -3,6 +3,9 @@ BuffName = "SejuaniNorthernWinds"
 AutoBuffActivateAttachBoneName = "l_hand"
 AutoBuffActivateAttachBoneName2 = "r_hand"
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {
+  "SejuaniSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -42,6 +45,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "sejuani_w_pulse_weapon.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuaniskin04sejuaniw1_sound.troy"
     }
   },
   {

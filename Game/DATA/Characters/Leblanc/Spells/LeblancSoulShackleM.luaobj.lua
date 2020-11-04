@@ -17,10 +17,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblanc_shackle_self_idle_ult.troy"
@@ -36,6 +32,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblanc_shackle_tar_blood.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "leblanc_shackle_indicator_ult.troy"
     }
   },
   {

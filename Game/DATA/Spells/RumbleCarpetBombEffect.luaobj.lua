@@ -1,7 +1,6 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "034_Steel_Shield.dds"
 BuffName = "Danger Zone"
-AutoBuffActivateEffect = "pirate_attack_buf_01.troy"
 AutoBuffActivateAttachBoneName = "head"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {

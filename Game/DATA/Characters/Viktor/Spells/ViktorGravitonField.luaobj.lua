@@ -53,6 +53,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "viktorgravitonfielddebuffslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "viktorgravitonfieldnostun"
     }
   },

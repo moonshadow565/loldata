@@ -1,4 +1,5 @@
 DoesntTriggerSpellCasts = true
+SpellToggleSlot = 2
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -16,6 +17,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ziggswtoggle"
     }
   }
 }

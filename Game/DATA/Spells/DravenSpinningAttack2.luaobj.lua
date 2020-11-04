@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gladiatordravenleftaxereturn"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "draven_q_tar_shadow.troy"

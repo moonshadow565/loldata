@@ -15,7 +15,7 @@ L0_0 = 1150
 RELEASH_RADIUS = L0_0
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
-L0_0 = 0.05
+L0_0 = 0.125
 REGEN_PERCENT_PER_SECOND = L0_0
 L0_0 = 9000
 VERY_FAR_DISTANCE = L0_0
@@ -28,7 +28,7 @@ function L0_0(A0_2)
   InitTimer("TimerRetreat", 0.5, true)
   InitTimer("TimerAttack", 0, true)
   InitTimer("TimerFeared", 0.5, true)
-  InitTimer("TimerRegen", 0.5, true)
+  InitTimer("TimerRegen", 1, true)
   InitTimer("TimerTaunt", 0.5, true)
   InitTimer("TimerFlee", 0.5, true)
   StopTimer("TimerFlee")
@@ -38,7 +38,6 @@ function L0_0(A0_2)
 end
 OnInit = L0_0
 function L0_0()
-  TimerRegen()
   SetStateAndMoveToLeashedPos(AI_RETREAT)
 end
 Retreat = L0_0

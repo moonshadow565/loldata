@@ -1,10 +1,11 @@
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "Infernal Guardian"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "MakerViktor"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

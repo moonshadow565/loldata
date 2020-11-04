@@ -17,10 +17,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "vielevel"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "vipassiveready"
     }

@@ -11,13 +11,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "bootshomeguardheal"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "bootshomeguardspeed"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bootshomeguardheal"
+      Name = "bootshomeguardcounter"
     }
   }
 }

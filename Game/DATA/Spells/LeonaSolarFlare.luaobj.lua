@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "leona_solarflare_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "leona_solarbarrier_tar.troy"
     }
   },
@@ -49,6 +43,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "leona_solarflare_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "leona_solarflare_cas.troy"
     }
   },
@@ -59,12 +59,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leonasolarflare"
-    }
   },
   {
     Function = BBPreloadSpell,

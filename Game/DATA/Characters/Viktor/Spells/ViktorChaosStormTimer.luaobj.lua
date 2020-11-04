@@ -5,6 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "ViktorChaosStormGuide.dds"
 BuffName = "ViktorStormTimer"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true

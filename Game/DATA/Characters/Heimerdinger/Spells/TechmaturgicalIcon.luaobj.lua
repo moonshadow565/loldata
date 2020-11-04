@@ -23,12 +23,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerturretready"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "upgrade!!!"}
   }
 }

@@ -5,5 +5,19 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sejuani_R.dds"
 BuffName = "SejuaniGlacialPrison"
-AutoBuffActivateEffect = "Global_Freeze.troy"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_slow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_freeze.troy"
+    }
+  }
+}

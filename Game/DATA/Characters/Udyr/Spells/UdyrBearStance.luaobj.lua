@@ -16,11 +16,11 @@ SpellVOOverrideSkins = {"SpiritUdyr"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "udyrult"}
+    Params = {Name = "udyrturtle"}
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "udyrturtle"}
+    Params = {Name = "udyrult"}
   },
   {
     Function = BBPreloadCharacter,

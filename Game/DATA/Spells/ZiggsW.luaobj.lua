@@ -7,12 +7,6 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ziggswtoggle"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggsw_mis_ground_pool.troy"
@@ -37,6 +31,24 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ziggsw_manualquack_pool.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "moveawaycollision"
@@ -49,21 +61,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "ziggsmoveawaycollision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
     }
   },
   {
@@ -80,6 +80,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggsw_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ziggswtoggle"
     }
   }
 }

@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "jaycerunspeed"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jayceeflashlock"
+    }
   }
 }

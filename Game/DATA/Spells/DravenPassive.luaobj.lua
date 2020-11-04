@@ -4,6 +4,12 @@ PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dravenpassivestacks"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "draven_recall_sound.troy"
@@ -31,6 +37,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "dravenspinningattack2crit"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_base_p.troy"
     }
   }
 }

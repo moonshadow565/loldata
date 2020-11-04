@@ -22,6 +22,10 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "wardbounty"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "sharedwardbuff"
     }
@@ -42,6 +46,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "masteryscoutbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemghostwardgetcount"
     }
   }
 }

@@ -29,6 +29,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "itempromotecd"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "itempromote"
     }
   }

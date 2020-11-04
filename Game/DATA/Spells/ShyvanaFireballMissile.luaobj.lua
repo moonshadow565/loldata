@@ -53,13 +53,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shyvana_flamebreath_reignite.troy"
+      Name = "shyvana_flamebreath_reignite_shadow.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shyvana_flamebreath_reignite_shadow.troy"
+      Name = "shyvana_flamebreath_reignite.troy"
     }
   },
   {

@@ -38,11 +38,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hallucinateapplicator"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shacodummycommandparticle"
-    }
   }
 }
