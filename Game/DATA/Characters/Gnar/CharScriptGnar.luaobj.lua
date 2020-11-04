@@ -48,6 +48,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "gnarbigiscasting"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "gnartransform"
     }
   },

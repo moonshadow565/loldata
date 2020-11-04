@@ -8,7 +8,8 @@ BuffName = "JudicatorRighteousFury"
 AutoBuffActivateEffect = "Flamesword.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 SpellFXOverrideSkins = {
-  "MetalWingedJudicator"
+  "MetalWingedJudicator",
+  "KayleSkin07"
 }
 PreLoadBuildingBlocks = {
   {

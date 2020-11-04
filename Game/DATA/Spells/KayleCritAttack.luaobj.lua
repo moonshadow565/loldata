@@ -1,3 +1,4 @@
 SpellFXOverrideSkins = {
-  "MetalWingedJudicator"
+  "MetalWingedJudicator",
+  "KayleSkin07"
 }

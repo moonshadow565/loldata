@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Pantheon_Base_R_indicator_green.troy"
+      Name = "pantheon_base_r_indicator_green.troy"
     }
   }
 }
