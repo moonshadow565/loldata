@@ -81,6 +81,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrphoenixstancecounter"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_spiritguard_audio_phoenixbreathattack.troy"

@@ -1,7 +1,5 @@
 BuffTextureName = "Galio_RighteousGust.dds"
 BuffName = "GalioRighteousGustHaste"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -10,7 +8,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_windTunnel_speed_buf_team_red.troy"
+    }
   }
 }

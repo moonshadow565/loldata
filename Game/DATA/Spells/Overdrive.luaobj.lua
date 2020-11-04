@@ -11,7 +11,8 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "PiltoverCustomsBlitz",
-  "iBlitz"
+  "iBlitz",
+  "BlitzcrankSkin08"
 }
 PreLoadBuildingBlocks = {
   {
@@ -30,6 +31,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "steamgolem_piltover_overdrive_tires.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "overdrive_buf_blitcrank_skin08.troy"
     }
   }
 }

@@ -3,6 +3,12 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Hecarim_SpiritofDread.dds"
 BuffName = "HecarimW"
+SpellFXOverrideSkins = {
+  "HecarimArcade"
+}
+SpellVOOverrideSkins = {
+  "HecarimArcade"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -15,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "hecarim_defile_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarim_skn3_w_debuff"
     }
   },
   {

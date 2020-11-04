@@ -2,12 +2,6 @@ BuffTextureName = "Ezreal_RisingSpellForce.dds"
 BuffName = "EzrealRisingSpellForce"
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ezrealrisingspellforce"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_glow1.troy"

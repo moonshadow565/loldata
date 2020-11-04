@@ -4,7 +4,10 @@ BuffTextureName = "Hecarim_Rampage.dds"
 BuffName = "HecarimRapidSlash"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "RocketTristana"
+  "HecarimArcade"
+}
+SpellVOOverrideSkins = {
+  "HecarimArcade"
 }
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {

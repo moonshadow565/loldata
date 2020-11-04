@@ -1,0 +1,6 @@
+SpellFXOverrideSkins = {
+  "HecarimArcade"
+}
+SpellVOOverrideSkins = {
+  "HecarimArcade"
+}

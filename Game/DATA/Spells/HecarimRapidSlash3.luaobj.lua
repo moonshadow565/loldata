@@ -1,0 +1,8 @@
+BuffTextureName = "BlindMonk_FistsOfFury.dds"
+BuffName = "HecarimRapidSlash3"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""

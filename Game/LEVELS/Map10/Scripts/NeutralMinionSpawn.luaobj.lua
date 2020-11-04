@@ -541,6 +541,9 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.CampLevel = 1
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.TimerType = ""
   end
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -695,8 +698,11 @@ function L0(A0)
           L12 = L12.AliveTracker
           L12[L11] = true
         end
-        L11 = false
-        L8(L9, L10, L11)
+        L11 = NeutralMinionCamps
+        L11 = L11[A0]
+        L11 = L11.GroupDelaySpawnTime
+        L12 = false
+        L8(L9, L10, L11, L12)
       else
         if L1 <= L8 and L3 == false then
           L3 = true
@@ -750,8 +756,10 @@ function L0(A0, A1, A2)
       end
     end
     if L3 == true then
-      L8 = false
-      L5(L6, L7, L8)
+      L8 = NeutralMinionCamps
+      L8 = L8[L4]
+      L8 = L8.GroupsRespawnTime
+      L5(L6, L7, L8, L9)
     end
   end
 end

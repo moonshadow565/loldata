@@ -58,12 +58,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "ezreal_cyber_1"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_pulsefire_upgrayedd.troy"
@@ -94,12 +88,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "ezreal_cyber_2"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_pulsefire_upgraeddd_model2.troy"
@@ -115,12 +103,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_cyberezreal_upgrade2.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "ezreal_cyber_3"
     }
   },
   {
