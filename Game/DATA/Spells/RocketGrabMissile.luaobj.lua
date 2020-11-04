@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "fistreturn_iblitz_mis.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "fistreturn_mis.troy"
     }
   },
