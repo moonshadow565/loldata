@@ -65,7 +65,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -130,113 +131,50 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBApplyDamage,
     Params = {
-      Src1Var = "PhysPostMod",
-      Src2Var = "APPostMod",
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            350,
-            500,
-            650
-          },
-          Damage = 0,
-          DamageVar = "BonusDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 0,
-          PercentOfAttackVar = "percentOfAttack",
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
+      AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        350,
+        500,
+        650
       },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "percentOfAttack",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 0.92,
-          DestVar = "percentOfAttack",
-          DestVarTable = "CharVars",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "percentOfAttack",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 0.3,
-          DestVar = "percentOfAttack",
-          DestVarTable = "CharVars",
-          MathOp = MO_MAX
-        }
-      }
+      Damage = 0,
+      DamageVar = "BonusDamage",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 0,
+      PercentOfAttackVar = "percentOfAttack",
+      SpellDamageRatio = 0.9,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            350,
-            500,
-            650
-          },
-          Damage = 0,
-          DamageVar = "APPostMod",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-          PercentOfAttack = 0,
-          PercentOfAttackVar = "percentOfAttack",
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "percentOfAttack",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 0.92,
-          DestVar = "percentOfAttack",
-          DestVarTable = "CharVars",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "percentOfAttack",
-          Src1VarTable = "CharVars",
-          Src1Value = 0,
-          Src2Value = 0.3,
-          DestVar = "percentOfAttack",
-          DestVarTable = "CharVars",
-          MathOp = MO_MAX
-        }
-      }
+    Function = BBMath,
+    Params = {
+      Src1Var = "percentOfAttack",
+      Src1VarTable = "CharVars",
+      Src1Value = 0,
+      Src2Value = 0.92,
+      DestVar = "percentOfAttack",
+      DestVarTable = "CharVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "percentOfAttack",
+      Src1VarTable = "CharVars",
+      Src1Value = 0,
+      Src2Value = 0.3,
+      DestVar = "percentOfAttack",
+      DestVarTable = "CharVars",
+      MathOp = MO_MAX
     }
   }
 }

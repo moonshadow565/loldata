@@ -10,6 +10,7 @@ AutoCooldownByLevel = {
   20,
   15
 }
+SpellVOOverrideSkins = {"NunuBot"}
 UpdateBuffsBuildingBlocks = {
   {
     Function = BBIncStat,
@@ -36,7 +37,8 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {

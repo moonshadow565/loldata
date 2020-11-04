@@ -48,7 +48,8 @@ BuffOnDealDamageBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "teamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -65,7 +66,8 @@ BuffOnDealDamageBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "teamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
@@ -73,7 +75,7 @@ BuffOnDealDamageBuildingBlocks = {
                 Params = {
                   Src1Var = "DamageAmount",
                   Src1Value = 0,
-                  Src2Value = 0.5,
+                  Src2Value = 0.65,
                   DestVar = "manaRestore",
                   MathOp = MO_MULTIPLY
                 }

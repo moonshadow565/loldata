@@ -37,24 +37,24 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "tooltipAmount",
           SrcValueByLevel = {
-            5,
-            6,
             6,
             7,
             8,
             9,
             10,
-            10,
             11,
             12,
             13,
-            14,
             14,
             15,
             16,
             17,
             18,
-            18
+            19,
+            20,
+            21,
+            22,
+            23
           }
         }
       },
@@ -119,24 +119,24 @@ BuffOnHitUnitBuildingBlocks = {
                   DestVar = "DotDamage",
                   DestVarTable = "NextBuffVars",
                   SrcValueByLevel = {
-                    5,
-                    6,
                     6,
                     7,
                     8,
                     9,
                     10,
-                    10,
                     11,
                     12,
                     13,
-                    14,
                     14,
                     15,
                     16,
                     17,
                     18,
-                    18
+                    19,
+                    20,
+                    21,
+                    22,
+                    23
                   }
                 }
               },
@@ -147,12 +147,15 @@ BuffOnHitUnitBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "ScurvyStrikeParticle",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 1,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -162,12 +165,15 @@ BuffOnHitUnitBuildingBlocks = {
                   AttackerVar = "Target",
                   BuffName = "Internal_50MS",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -177,12 +183,15 @@ BuffOnHitUnitBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "GrievousWound",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 10,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }

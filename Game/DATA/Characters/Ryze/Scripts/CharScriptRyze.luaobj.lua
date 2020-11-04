@@ -22,7 +22,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "Mana",
           Src1Value = 0,
-          Src2Value = 0.1,
+          Src2Value = 0.08,
           DestVar = "BonusDamage",
           MathOp = MO_MULTIPLY
         }

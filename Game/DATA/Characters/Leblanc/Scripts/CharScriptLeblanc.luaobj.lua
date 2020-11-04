@@ -68,7 +68,7 @@ CharOnSpellCastBuildingBlocks = {
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
                   OwnerVar = "Owner",
-                  BroadcastEvent = false
+                  BroadcastEvent = true
                 }
               },
               {
@@ -134,7 +134,7 @@ CharOnSpellCastBuildingBlocks = {
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
                   OwnerVar = "Owner",
-                  BroadcastEvent = false
+                  BroadcastEvent = true
                 }
               },
               {
@@ -192,16 +192,6 @@ CharOnSpellCastBuildingBlocks = {
                 }
               },
               {
-                Function = BBSealSpellSlot,
-                Params = {
-                  SpellSlot = 3,
-                  SpellbookType = SPELLBOOK_CHAMPION,
-                  SlotType = SpellSlots,
-                  TargetVar = "Owner",
-                  State = false
-                }
-              },
-              {
                 Function = BBSetSlotSpellCooldownTimeVer2,
                 Params = {
                   Src = 0,
@@ -210,7 +200,17 @@ CharOnSpellCastBuildingBlocks = {
                   SlotType = SpellSlots,
                   SpellbookType = SPELLBOOK_CHAMPION,
                   OwnerVar = "Owner",
-                  BroadcastEvent = false
+                  BroadcastEvent = true
+                }
+              },
+              {
+                Function = BBSealSpellSlot,
+                Params = {
+                  SpellSlot = 3,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  TargetVar = "Owner",
+                  State = false
                 }
               }
             }
@@ -305,26 +305,6 @@ CharOnActivateBuildingBlocks = {
       DestVar = "lastCast",
       DestVarTable = "CharVars",
       SrcValue = 0
-    }
-  }
-}
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
     }
   }
 }
@@ -441,6 +421,26 @@ CharOnLevelUpSpellBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

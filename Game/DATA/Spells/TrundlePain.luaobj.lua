@@ -97,14 +97,14 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "asdf",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "head",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -243,7 +243,8 @@ OnBuffActivateBuildingBlocks = {
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -496,7 +497,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

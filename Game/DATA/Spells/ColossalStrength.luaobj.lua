@@ -2,43 +2,13 @@ BuffTextureName = "Minotaur_ColossalStrength.dds"
 BuffName = "Colossal Strength"
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnHitUnitBuildingBlocks = {
+OnBuffActivateBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "BaseBlockAmount",
-          Src2VarTable = "CharVars",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "BaseBlockAmount",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "BaseBlockAmount",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "BaseBlockAmount",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BaseBlockAmount",
-          Src2Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
-        }
-      }
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "lastF1",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
     }
   }
 }
@@ -46,7 +16,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 10,
+      TimeBetweenExecutions = 5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -59,42 +29,118 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "CurrentDamage",
+          DestVar = "DamageByRank",
           SrcValueByLevel = {
+            10,
+            11,
+            12,
+            12,
+            13,
+            14,
+            15,
+            15,
+            16,
+            17,
+            18,
+            18,
+            19,
             20,
-            20,
-            20,
-            20,
-            20,
-            20,
-            40,
-            40,
-            40,
-            40,
-            40,
-            40,
-            60,
-            60,
-            60,
-            60,
-            60,
-            60
+            21,
+            21,
+            22,
+            23
           }
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalAttackDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseAttackDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetFlatMagicDamageMod,
+          TargetVar = "Owner",
+          DestVar = "abilityPower"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalAttackDamage",
+          Src2Var = "baseAttackDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusAttackDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusAttackDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "attackDamageToAdd",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "abilityPower",
+          Src1Value = 0,
+          Src2Value = 0.1,
+          DestVar = "abilityPowerToAdd",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageByRank",
+          Src2Var = "abilityPowerToAdd",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "damageToDeal",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "damageToDeal",
+          Src2Var = "attackDamageToAdd",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "CurrentDamage",
+          MathOp = MO_ADD
         }
       },
       {
         Function = BBIf,
         Params = {
           Src1Var = "CurrentDamage",
-          Src2Var = "LastDamage",
+          Src2Var = "lastF1",
           Src2VarTable = "InstanceVars",
-          CompareOp = CO_GREATER_THAN
+          CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {
-              DestVar = "LastDamage",
+              DestVar = "lastF1",
               DestVarTable = "InstanceVars",
               SrcVar = "CurrentDamage"
             }
@@ -106,19 +152,17 @@ BuffOnUpdateActionsBuildingBlocks = {
               ValueVar = "CurrentDamage",
               Index = 1
             }
+          },
+          {
+            Function = BBSetBuffToolTipVar,
+            Params = {
+              Value = 0,
+              ValueVar = "DamageByRank",
+              Index = 2
+            }
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LastDamage",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
     }
   }
 }

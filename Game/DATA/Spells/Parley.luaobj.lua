@@ -91,10 +91,10 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         4,
-        7,
+        6,
+        8,
         10,
-        13,
-        16
+        12
       }
     }
   },
@@ -111,7 +111,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -120,10 +121,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "ParBaseDamage",
       SrcValueByLevel = {
         20,
-        55,
-        90,
-        120,
-        150
+        45,
+        70,
+        95,
+        120
       }
     }
   },
@@ -160,6 +161,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageVar",

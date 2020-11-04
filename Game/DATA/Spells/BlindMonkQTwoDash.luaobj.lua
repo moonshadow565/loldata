@@ -46,82 +46,20 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Distance",
-      Src1Value = 0,
-      Src2Value = 50,
-      DestVar = "DistanceCheck",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBGetPointByUnitFacingOffset,
+    Function = BBMoveToUnit,
     Params = {
       UnitVar = "Owner",
-      Distance = 0,
-      DistanceVar = "DistanceCheck",
-      OffsetAngle = 0,
-      PositionVar = "PathablePoint"
-    }
-  },
-  {
-    Function = BBIsPathable,
-    Params = {
-      DestPosVar = "PathablePoint",
-      ResultVar = "PathableVar"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PathableVar",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Attacker",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MovementOrdersType = CANCEL_ORDER,
-          MoveBackBy = 50,
-          MaxTrackDistance = 0,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars",
-          TimeOverride = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMoveToUnit,
-        Params = {
-          UnitVar = "Owner",
-          TargetVar = "Attacker",
-          Speed = 0,
-          SpeedVar = "dashSpeed",
-          SpeedVarTable = "InstanceVars",
-          Gravity = 0,
-          MovementOrdersType = CANCEL_ORDER,
-          MoveBackBy = 0,
-          MaxTrackDistance = 0,
-          IdealDistance = 0,
-          IdealDistanceVar = "Distance",
-          IdealDistanceVarTable = "InstanceVars",
-          TimeOverride = 0
-        }
-      }
+      TargetVar = "Attacker",
+      Speed = 0,
+      SpeedVar = "dashSpeed",
+      SpeedVarTable = "InstanceVars",
+      Gravity = 0,
+      MovementOrdersType = CANCEL_ORDER,
+      MoveBackBy = 0,
+      MaxTrackDistance = 2000,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance",
+      TimeOverride = 0
     }
   },
   {

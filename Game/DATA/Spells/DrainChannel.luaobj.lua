@@ -9,6 +9,17 @@ BuffName = "Drain"
 AutoBuffActivateEffect = ""
 ChannelingStartBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
@@ -29,7 +40,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -46,7 +58,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -65,7 +78,8 @@ ChannelingStartBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -80,7 +94,13 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "DrainPercent",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1
+      SrcValueByLevel = {
+        0.6,
+        0.65,
+        0.7,
+        0.75,
+        0.8
+      }
     }
   },
   {
@@ -105,7 +125,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -126,7 +147,7 @@ ChannelingStartBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.24,
+      Src2Value = 0.25,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -182,7 +203,7 @@ ChannelingUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Value2 = 700,
+          Value2 = 650,
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
@@ -232,11 +253,28 @@ ChannelingUpdateActionsBuildingBlocks = {
             Params = {},
             SubBlocks = {
               {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 1,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Owner",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "DrainPercent",
                   DestVarTable = "NextBuffVars",
-                  SrcValue = 1
+                  SrcValueByLevel = {
+                    0.6,
+                    0.65,
+                    0.7,
+                    0.75,
+                    0.8
+                  }
                 }
               },
               {
@@ -261,7 +299,8 @@ ChannelingUpdateActionsBuildingBlocks = {
                   Duration = 0.01,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -290,7 +329,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Params = {
                   Src1Var = "AbilityPower",
                   Src1Value = 0,
-                  Src2Value = 0.24,
+                  Src2Value = 0.25,
                   DestVar = "BonusDamage",
                   MathOp = MO_MULTIPLY
                 }

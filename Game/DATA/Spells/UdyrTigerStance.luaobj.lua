@@ -38,7 +38,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -57,44 +58,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "passiveAttackSpeed",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Udyr_Tiger_buf.troy",
-      Flags = 0,
-      EffectIDVar = "lhand",
-      EffectIDVarTable = "CharVars",
-      BoneName = "L_Finger",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Udyr_Tiger_buf_R.troy",
-      Flags = 0,
-      EffectIDVar = "rhand",
-      EffectIDVarTable = "CharVars",
-      BoneName = "R_Finger",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -106,21 +69,20 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBIfNotHasBuff,
     Params = {
-      Src1Var = "hitOnce",
-      Src1VarTable = "CharVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "UdyrTigerPunch"
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectRemove,
-        Params = {EffectIDVar = "lhand", EffectIDVarTable = "CharVars"}
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {EffectIDVar = "rhand", EffectIDVarTable = "CharVars"}
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "UdyrTigerShred"
+        }
       }
     }
   }
@@ -463,32 +425,6 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "hitOnce",
-      DestVarTable = "CharVars",
-      SrcValue = true
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UdyrTigerPunch",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "passiveAttackSpeed",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
@@ -518,6 +454,24 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UdyrTigerPunch",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
@@ -535,7 +489,26 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UdyrTigerShred",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -588,15 +561,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "udyr_tiger_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_tiger_buf_r.troy"
+      Name = "udyrtigerpunch"
     }
   },
   {
@@ -621,12 +588,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "udyrturtlestance"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrtigerpunch"
     }
   },
   {

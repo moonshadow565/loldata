@@ -24,22 +24,12 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "BonusDamage",
+      RequiredVar = "bonusDamage",
       RequiredVarTable = "InstanceVars"
     }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "BonusDamage",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
   {
     Function = BBIncStat,
     Params = {
@@ -56,6 +46,16 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncPercentPhysicalReduction,
       TargetVar = "Owner",
       DeltaVar = "DamageReduction",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "bonusDamage",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -117,7 +117,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BonusDamage",
+      DestVar = "bonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         60,
@@ -144,7 +144,34 @@ SelfExecuteBuildingBlocks = {
         8
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "AlistarTrample",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = false,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alistartrample"
     }
   }
 }

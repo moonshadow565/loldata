@@ -302,24 +302,16 @@ BuffOnHitUnitBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "XenZhaoBattleCryPassive"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "SelfASMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.2,
+        0.25,
         0.3,
-        0.4,
-        0.5,
-        0.6,
-        0.7
+        0.35,
+        0.4
       }
     }
   },
@@ -376,12 +368,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_battle_cry_weapon_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaobattlecrypassive"
     }
   }
 }

@@ -75,7 +75,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "MRByLevel",
+      DeltaVar = "TotalMR",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -137,6 +137,14 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Count",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0
+    }
   },
   {
     Function = BBForEachUnitInTargetArea,
@@ -272,6 +280,24 @@ SelfExecuteBuildingBlocks = {
       },
       {
         Function = BBIf,
+        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src2Var = "Count",
+              Src2VarTable = "NextBuffVars",
+              Src1Value = 1,
+              Src2Value = 0,
+              DestVar = "Count",
+              DestVarTable = "NextBuffVars",
+              MathOp = MO_ADD
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
         Params = {
           Src1Var = "IsStealthed",
           Value2 = false,
@@ -369,9 +395,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MRByLevel",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        30,
-        40,
-        50,
+        25,
+        25,
+        25,
         60,
         70
       }
@@ -381,14 +407,109 @@ SelfExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ArmorAmount",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        30,
-        40,
-        50,
+        25,
+        25,
+        25,
         60,
         70
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ScalingArmor",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        7,
+        10,
+        13
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ScalingMR",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        7,
+        10,
+        13
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Count",
+      Src1VarTable = "NextBuffVars",
+      Src2Var = "ScalingMR",
+      Src2VarTable = "NextBuffVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CountMR",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CountMR",
+      Src1VarTable = "NextBuffVars",
+      Src2Var = "MRByLevel",
+      Src2VarTable = "NextBuffVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalMR",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Count",
+      Src1VarTable = "NextBuffVars",
+      Src2Var = "ScalingArmor",
+      Src2VarTable = "NextBuffVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CountArmor",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CountArmor",
+      Src1VarTable = "NextBuffVars",
+      Src2Var = "ArmorAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalArmor",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_ADD
     }
   },
   {
@@ -400,23 +521,6 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
       BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 6,

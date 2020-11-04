@@ -213,8 +213,8 @@ CanCastBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "TargetPos"}
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "TargetPos"}
   },
   {
     Function = BBSetVarInTable,
