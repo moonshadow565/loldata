@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "xerath_base_e_explosion.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "xerath_base_e_tar.troy"
     }
   },
@@ -20,12 +26,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xerathmagechains"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xerath_base_e_explosion.troy"
     }
   }
 }

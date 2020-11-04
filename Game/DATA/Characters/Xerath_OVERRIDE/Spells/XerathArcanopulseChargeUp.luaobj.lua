@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 BuffTextureName = "Xerath_Q1.dds"
 SpellToggleSlot = 1
@@ -36,12 +36,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xerathqlaunchsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xerathqlaunchmovespeedreduction"
     }
   },
   {

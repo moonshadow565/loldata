@@ -8,3 +8,17 @@ PopupMessage1 = "game_floatingtext_Slowed"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_w_tar_directhit.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_w_tar.troy"
+    }
+  }
+}
