@@ -46,11 +46,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "khazix_e_unit_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixelanding"
-    }
   }
 }
