@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="reksaiw"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_w_buf_tremorsense_ring.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_w_buf_knockup_ring.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_w_plasma_idle.troy"}}, 
