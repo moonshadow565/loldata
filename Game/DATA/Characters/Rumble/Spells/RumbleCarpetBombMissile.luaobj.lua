@@ -74,6 +74,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_teamid_red.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   },
