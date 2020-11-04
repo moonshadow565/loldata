@@ -1,3 +1,3 @@
-BuffTextureName = "Mordekaiser_COTG.dds"
+BuffTextureName = "MordekaiserRDragon.dds"
 BuffName = "MordekaiserCOTGDragonDebuff"
 OnPreDamagePriority = 10

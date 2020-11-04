@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="camouflagebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="teemo_base_p_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="teemo_base_p_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="teemo_base_w_buf_weapon.troy"}}, 

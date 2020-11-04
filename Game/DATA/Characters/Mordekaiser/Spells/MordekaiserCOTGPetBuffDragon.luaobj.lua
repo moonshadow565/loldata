@@ -1,4 +1,4 @@
-BuffTextureName = "DarkChampion_EndlessRage.dds"
+BuffTextureName = "MordekaiserRDragon.dds"
 BuffName = "MordekaiserChildrenOfTheGravePetBuff"
 IsPetDurationBuff = true
 PersistsThroughDeath = true
