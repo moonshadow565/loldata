@@ -31,6 +31,7 @@ LevelProp_HA_AP_Poro.sco -100
 LevelProp_HA_AP_Poro6.sco -100
 Turret_T1_C_09.sco -100
 LevelProp_bw_anclantern2.sco -100
+LevelProp_HABW_Banner3.sco -100
 LevelProp_bw_bottle5.sco -100
 LevelProp_BW_shortrope1.sco -100
 LevelProp_bw_anclantern1.sco -100
@@ -45,7 +46,6 @@ LevelProp_BW_boat2.sco -100
 LevelProp_bw_bottle6.sco -100
 Turret_T2_L_02.sco -100
 LevelProp_BW_shrkhk1.sco -100
-LevelProp_HABW_Banner3.sco -100
 LevelProp_BW_Lantern3.sco -100
 LevelProp_BW_dblrope4.sco -100
 LevelProp_BW_boat4.sco -100
