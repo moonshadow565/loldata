@@ -3,5 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="trinketlenslvl3audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemblackout"}}, 
 {Function=BBPreloadParticle, Params={Name="spotter_marker.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="trinket-yikes.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="trinketsweeperpersistvfx"}}, 
 }

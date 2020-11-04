@@ -2,4 +2,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="quinnrfinale"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_base_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnrchannel"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnvalorselfslow"}}, 
 }

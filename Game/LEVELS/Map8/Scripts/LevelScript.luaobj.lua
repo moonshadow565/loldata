@@ -443,25 +443,19 @@ end
 function OnLevelInitServer()
   InitTimer("AllowDamageOnBuildings", 1, false)
 end
-function OnGameStartup()
-  LuaForEachChampion(TEAM_UNKNOWN, "ApplyBountyTrackerBuff")
-end
-function ApplyBountyTrackerBuff(A0_7)
-  ApplyPersistentBuff(A0_7, "S6_BountyTracker", false, 1, 1)
-end
 function OnPostLevelLoad()
   LoadLevelScriptIntoScript("CreateLevelProps.lua")
   CreateLevelProps()
 end
-function OppositeTeam(A0_8)
-  if A0_8 == TEAM_CHAOS then
+function OppositeTeam(A0_7)
+  if A0_7 == TEAM_CHAOS then
     return TEAM_ORDER
   else
     return TEAM_CHAOS
   end
 end
 function UpgradeMinionTimer()
-  local L0_9, L1_10
+  local L0_8, L1_9
 end
 function AllowDamageOnBuildings()
   orderTurret = GetTurret(TEAM_ORDER, 0, 1)
@@ -471,38 +465,38 @@ function AllowDamageOnBuildings()
   SetInvulnerable(chaosTurret, true)
   SetTargetable(chaosTurret, false)
 end
-function GetMinionSpawnInfo(A0_11, A1_12, A2_13, A3_14, A4_15)
-  local L5_16
-  L5_16 = SpawnTable
-  TableForBarrack = L5_16
-  L5_16 = TableForBarrack
-  L5_16 = L5_16.DidPowerGroup
-  if L5_16 then
-    L5_16 = TableForBarrack
-    L5_16.NumOfCannonMinionsPerWave = TableForBarrack.NumOfCannonMinionsPerWave - 1
-    L5_16 = TableForBarrack
-    L5_16.DidPowerGroup = false
+function GetMinionSpawnInfo(A0_10, A1_11, A2_12, A3_13, A4_14)
+  local L5_15
+  L5_15 = SpawnTable
+  TableForBarrack = L5_15
+  L5_15 = TableForBarrack
+  L5_15 = L5_15.DidPowerGroup
+  if L5_15 then
+    L5_15 = TableForBarrack
+    L5_15.NumOfCannonMinionsPerWave = TableForBarrack.NumOfCannonMinionsPerWave - 1
+    L5_15 = TableForBarrack
+    L5_15.DidPowerGroup = false
   end
-  L5_16 = CANNON_MINION_SPAWN_FREQUENCY
-  L5_16 = A1_12 % L5_16
-  if L5_16 == 0 then
-    L5_16 = TableForBarrack
-    L5_16.NumOfCannonMinionsPerWave = TableForBarrack.NumOfCannonMinionsPerWave + 1
-    L5_16 = TableForBarrack
-    L5_16.DidPowerGroup = true
+  L5_15 = CANNON_MINION_SPAWN_FREQUENCY
+  L5_15 = A1_11 % L5_15
+  if L5_15 == 0 then
+    L5_15 = TableForBarrack
+    L5_15.NumOfCannonMinionsPerWave = TableForBarrack.NumOfCannonMinionsPerWave + 1
+    L5_15 = TableForBarrack
+    L5_15.DidPowerGroup = true
   end
-  L5_16 = 0
-  if A3_14 == TEAM_ORDER then
-    L5_16 = OrderBarracksBonuses[A0_11 + 1]
+  L5_15 = 0
+  if A3_13 == TEAM_ORDER then
+    L5_15 = OrderBarracksBonuses[A0_10 + 1]
   else
-    L5_16 = ChaosBarracksBonuses[A0_11 + 1]
+    L5_15 = ChaosBarracksBonuses[A0_10 + 1]
   end
   TableForBarrack.ExpRadius = EXP_GIVEN_RADIUS
   lNumOfMeleeMinionsPerWave = TableForBarrack.NumOfMeleeMinionsPerWave
   lNumOfCasterMinionsPerWave = TableForBarrack.NumOfCasterMinionsPerWave
   lNumOfCannonMinionsPerWave = TableForBarrack.NumOfCannonMinionsPerWave
   lNumOfSuperMinionsPerWave = TableForBarrack.NumOfSuperMinionsPerWave
-  if A4_15 ~= LAST_WAVE then
+  if A4_14 ~= LAST_WAVE then
     BARRACKSCOUNT = 6
     totalMinionsRemaining = MAX_MINIONS_EVER - GetTotalTeamMinionsSpawned()
     if totalMinionsRemaining <= BARRACKSCOUNT * 7 then
@@ -516,7 +510,7 @@ function GetMinionSpawnInfo(A0_11, A1_12, A2_13, A3_14, A4_15)
     else
       SPECIAL_MINION_MODE = ""
     end
-    LAST_WAVE = A4_15
+    LAST_WAVE = A4_14
   end
   if SPECIAL_MINION_MODE == "2MeleeMinions" then
     lNumOfMeleeMinionsPerWave = math.max(2 - lNumOfSuperMinionsPerWave, 0)
@@ -528,24 +522,24 @@ function GetMinionSpawnInfo(A0_11, A1_12, A2_13, A3_14, A4_15)
     lNumOfCannonMinionsPerWave = 0
     lNumOfSuperMinionsPerWave = 0
   end
-  if L5_16.WillSpawnSuperMinion == 1 then
-    if A3_14 == TEAM_ORDER and totalNumberOfChaosBarracks == 0 or A3_14 == TEAM_CHAOS and totalNumberOfOrderBarracks == 0 then
+  if L5_15.WillSpawnSuperMinion == 1 then
+    if A3_13 == TEAM_ORDER and totalNumberOfChaosBarracks == 0 or A3_13 == TEAM_CHAOS and totalNumberOfOrderBarracks == 0 then
       lNumOfSuperMinionsPerWave = 2
     else
       lNumOfSuperMinionsPerWave = 1
     end
     lNumOfCannonMinionsPerWave = 0
   end
-  if A3_14 == TEAM_ORDER then
-    L5_16.MeleeMinionName = OrderNames.MeleeMinionName
-    L5_16.CasterMinionName = OrderNames.CasterMinionName
-    L5_16.CannonMinionName = OrderNames.CannonMinionName
-    L5_16.SuperMinionName = OrderNames.SuperMinionName
+  if A3_13 == TEAM_ORDER then
+    L5_15.MeleeMinionName = OrderNames.MeleeMinionName
+    L5_15.CasterMinionName = OrderNames.CasterMinionName
+    L5_15.CannonMinionName = OrderNames.CannonMinionName
+    L5_15.SuperMinionName = OrderNames.SuperMinionName
   else
-    L5_16.MeleeMinionName = ChaosNames.MeleeMinionName
-    L5_16.CasterMinionName = ChaosNames.CasterMinionName
-    L5_16.CannonMinionName = ChaosNames.CannonMinionName
-    L5_16.SuperMinionName = ChaosNames.SuperMinionName
+    L5_15.MeleeMinionName = ChaosNames.MeleeMinionName
+    L5_15.CasterMinionName = ChaosNames.CasterMinionName
+    L5_15.CannonMinionName = ChaosNames.CannonMinionName
+    L5_15.SuperMinionName = ChaosNames.SuperMinionName
   end
   ReturnTable = {
     NumOfMeleeMinionsPerWave = lNumOfMeleeMinionsPerWave,
@@ -554,79 +548,79 @@ function GetMinionSpawnInfo(A0_11, A1_12, A2_13, A3_14, A4_15)
     NumOfSuperMinionsPerWave = lNumOfSuperMinionsPerWave,
     WaveSpawnRate = TableForBarrack.WaveSpawnRate,
     SingleMinionSpawnDelay = TableForBarrack.SingleMinionSpawnDelay,
-    MeleeMinionName = L5_16.MeleeMinionName,
-    CasterMinionName = L5_16.CasterMinionName,
-    CannonMinionName = L5_16.CannonMinionName,
-    SuperMinionName = L5_16.SuperMinionName,
-    IsDestroyed = L5_16.IsDestroyed,
-    MeleeMinionArmor = L5_16.MeleeMinionArmor,
-    MeleeMinionMagicResistance = L5_16.MeleeMinionMagicResistance,
-    MeleeHPBonus = L5_16.MeleeHPBonus,
-    MeleeDamageBonus = L5_16.MeleeDamageBonus,
-    MeleeExpGiven = L5_16.MeleeExpGiven,
-    MeleeGoldGiven = L5_16.MeleeGoldGiven,
-    CasterMinionArmor = L5_16.CasterMinionArmor,
-    CasterMinionMagicResistance = L5_16.CasterMinionMagicResistance,
-    CasterHPBonus = L5_16.CasterHPBonus,
-    CasterDamageBonus = L5_16.CasterDamageBonus,
-    CasterExpGiven = L5_16.CasterExpGiven,
-    CasterGoldGiven = L5_16.CasterGoldGiven,
-    CannonMinionArmor = L5_16.CannonMinionArmor,
-    CannonMinionMagicResistance = L5_16.CannonMinionMagicResistance,
-    CannonHPBonus = L5_16.CannonHPBonus,
-    CannonDamageBonus = L5_16.CannonDamageBonus,
-    CannonExpGiven = L5_16.CannonExpGiven,
-    CannonGoldGiven = L5_16.CannonGoldGiven,
-    SuperMinionArmor = L5_16.SuperMinionArmor,
-    SuperMinionMagicResistance = L5_16.SuperMinionMagicResistance,
-    SuperHPBonus = L5_16.SuperHPBonus,
-    SuperDamageBonus = L5_16.SuperDamageBonus,
-    SuperExpGiven = L5_16.SuperExpGiven,
-    SuperGoldGiven = L5_16.SuperGoldGiven,
+    MeleeMinionName = L5_15.MeleeMinionName,
+    CasterMinionName = L5_15.CasterMinionName,
+    CannonMinionName = L5_15.CannonMinionName,
+    SuperMinionName = L5_15.SuperMinionName,
+    IsDestroyed = L5_15.IsDestroyed,
+    MeleeMinionArmor = L5_15.MeleeMinionArmor,
+    MeleeMinionMagicResistance = L5_15.MeleeMinionMagicResistance,
+    MeleeHPBonus = L5_15.MeleeHPBonus,
+    MeleeDamageBonus = L5_15.MeleeDamageBonus,
+    MeleeExpGiven = L5_15.MeleeExpGiven,
+    MeleeGoldGiven = L5_15.MeleeGoldGiven,
+    CasterMinionArmor = L5_15.CasterMinionArmor,
+    CasterMinionMagicResistance = L5_15.CasterMinionMagicResistance,
+    CasterHPBonus = L5_15.CasterHPBonus,
+    CasterDamageBonus = L5_15.CasterDamageBonus,
+    CasterExpGiven = L5_15.CasterExpGiven,
+    CasterGoldGiven = L5_15.CasterGoldGiven,
+    CannonMinionArmor = L5_15.CannonMinionArmor,
+    CannonMinionMagicResistance = L5_15.CannonMinionMagicResistance,
+    CannonHPBonus = L5_15.CannonHPBonus,
+    CannonDamageBonus = L5_15.CannonDamageBonus,
+    CannonExpGiven = L5_15.CannonExpGiven,
+    CannonGoldGiven = L5_15.CannonGoldGiven,
+    SuperMinionArmor = L5_15.SuperMinionArmor,
+    SuperMinionMagicResistance = L5_15.SuperMinionMagicResistance,
+    SuperHPBonus = L5_15.SuperHPBonus,
+    SuperDamageBonus = L5_15.SuperDamageBonus,
+    SuperExpGiven = L5_15.SuperExpGiven,
+    SuperGoldGiven = L5_15.SuperGoldGiven,
     ExperienceRadius = TableForBarrack.ExpRadius
   }
   return ReturnTable
 end
-function DeactivateCorrectStructure(A0_17, A1_18, A2_19)
+function DeactivateCorrectStructure(A0_16, A1_17, A2_18)
 end
-function GetLuaBarracks(A0_20, A1_21)
-  local L2_22, L3_23, L4_24
-  L3_23 = TEAM_ORDER
-  if A0_20 == L3_23 then
-    L3_23 = OrderBarracksBonuses
-    L4_24 = A1_21 + 1
-    L2_22 = L3_23[L4_24]
+function GetLuaBarracks(A0_19, A1_20)
+  local L2_21, L3_22, L4_23
+  L3_22 = TEAM_ORDER
+  if A0_19 == L3_22 then
+    L3_22 = OrderBarracksBonuses
+    L4_23 = A1_20 + 1
+    L2_21 = L3_22[L4_23]
   else
-    L3_23 = ChaosBarracksBonuses
-    L4_24 = A1_21 + 1
-    L2_22 = L3_23[L4_24]
+    L3_22 = ChaosBarracksBonuses
+    L4_23 = A1_20 + 1
+    L2_21 = L3_22[L4_23]
   end
-  return L2_22
+  return L2_21
 end
-function GetDisableMinionSpawnTime(A0_25, A1_26)
-  barrack = GetLuaBarracks(A1_26, A0_25)
+function GetDisableMinionSpawnTime(A0_24, A1_25)
+  barrack = GetLuaBarracks(A1_25, A0_24)
   return DISABLE_MINION_SPAWN_BASE_TIME + DISABLE_MINION_SPAWN_MAG_TIME * barrack.NumOfSpawnDisables
 end
-function DisableBarracksSpawn(A0_27, A1_28)
-  cLangBarracks = GetBarracks(A1_28, A0_27)
-  luaBarrack = GetLuaBarracks(A1_28, A0_27)
-  SetDisableMinionSpawn(cLangBarracks, GetDisableMinionSpawnTime(A0_27, A1_28))
+function DisableBarracksSpawn(A0_26, A1_27)
+  cLangBarracks = GetBarracks(A1_27, A0_26)
+  luaBarrack = GetLuaBarracks(A1_27, A0_26)
+  SetDisableMinionSpawn(cLangBarracks, GetDisableMinionSpawnTime(A0_26, A1_27))
   luaBarrack.NumOfSpawnDisables = luaBarrack.NumOfSpawnDisables + 1
 end
 BonusesCounter = 0
-function ApplyBarracksDestructionBonuses(A0_29, A1_30)
+function ApplyBarracksDestructionBonuses(A0_28, A1_29)
 end
 ReductionCounter = 0
-function ApplyBarracksRespawnReductions(A0_31, A1_32)
+function ApplyBarracksRespawnReductions(A0_30, A1_31)
 end
 ReactiveCounter = 0
-function BarrackReactiveEvent(A0_33, A1_34)
+function BarrackReactiveEvent(A0_32, A1_33)
 end
 DisactivatedCounter = 0
-function HandleDestroyedObject(A0_35)
-  local L1_36
-  L1_36 = true
-  return L1_36
+function HandleDestroyedObject(A0_34)
+  local L1_35
+  L1_35 = true
+  return L1_35
 end
 TEAM_UNKNOWN = 0
 EOG_PAN_TO_NEXUS_TIME = 3
@@ -635,14 +629,14 @@ EOG_SCOREBOARD_PHASE_DELAY_TIME = 3
 EOG_NEXUS_REVIVE_TIME = 5
 EOG_ALIVE_NEXUS_SKIN = 0
 EOG_DESTROYED_NEXUS_SKIN = 1
-function EndOfGameCeremony(A0_37, A1_38)
-  winningTeam = A0_37
+function EndOfGameCeremony(A0_36, A1_37)
+  winningTeam = A0_36
   if winningTeam == TEAM_ORDER then
     losingTeam = TEAM_CHAOS
   else
     losingTeam = TEAM_ORDER
   end
-  losingHQPosition = GetPosition(A1_38)
+  losingHQPosition = GetPosition(A1_37)
   orderHQ = GetHQ(TEAM_ORDER)
   SetInvulnerable(orderHQ, true)
   SetTargetable(orderHQ, false)
@@ -666,9 +660,9 @@ function EndOfGameCeremony(A0_37, A1_38)
   LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
   InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
 end
-function ChampionEoGCeremony(A0_39)
-  MoveCameraFromCurrentPositionToPoint(A0_39, losingHQPosition, EOG_PAN_TO_NEXUS_TIME, true)
-  SetGreyscaleEnabledWhenDead(A0_39, false)
+function ChampionEoGCeremony(A0_38)
+  MoveCameraFromCurrentPositionToPoint(A0_38, losingHQPosition, EOG_PAN_TO_NEXUS_TIME, true)
+  SetGreyscaleEnabledWhenDead(A0_38, false)
 end
 function DestroyNexusPhase()
   SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)

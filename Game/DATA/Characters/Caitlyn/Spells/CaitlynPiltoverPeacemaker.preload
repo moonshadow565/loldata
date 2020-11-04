@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_peacemaker_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_peacemaker_tar_02.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynpiltoverpeacemaker2"}}, 
 {Function=BBPreloadSpell, Params={Name="cantattack"}}, 
 }
