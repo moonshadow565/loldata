@@ -30,9 +30,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "vi_passive_buff_deactivate.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   }
 }
