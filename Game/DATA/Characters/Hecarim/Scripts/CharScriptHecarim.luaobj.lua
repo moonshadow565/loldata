@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hecarimpassive"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimarcadeqtailanimation"
+    }
   }
 }
