@@ -46,6 +46,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trundlecircleslow"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "trundlewall"
