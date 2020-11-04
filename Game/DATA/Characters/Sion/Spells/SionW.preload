@@ -9,6 +9,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sion_base_w_nova.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_w_nova_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="sionwsoundhit"}}, 
-{Function=BBPreloadSpell, Params={Name="sionw"}}, 
 {Function=BBPreloadSpell, Params={Name="sionwsoundexplosion"}}, 
 }
