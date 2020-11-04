@@ -249,53 +249,5 @@ TargetExecuteBuildingBlocks = {
       },
       TickRate = 0
     }
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Stun}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Slow}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Snare}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Sleep}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Taunt}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Polymorph}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Net}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Fear}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_NearSight}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Silence}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_CombatDehancer}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Target", Type = BUFF_Damage}
   }
 }
