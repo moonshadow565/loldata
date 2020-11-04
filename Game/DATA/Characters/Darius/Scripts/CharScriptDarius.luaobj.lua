@@ -48,6 +48,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "dariusrecalloverridebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "dariusaxegrabarmorpen"
     }
   }
