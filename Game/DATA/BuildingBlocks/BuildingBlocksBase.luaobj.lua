@@ -1167,6 +1167,9 @@ function L0(A0, A1, A2)
     L7 = L7(L8, L9, L10)
     L8 = A1.TickTimeVar
     L8 = L7[L8]
+    if L8 ~= nil then
+      L6 = L8
+    end
   end
   L7 = A1.TrackTimeVar
   L7 = L3[L7]

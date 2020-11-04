@@ -58,13 +58,13 @@ ai_MinionTargetingHeroBoost             =     150.000 ; Additional distance adde
 ai_TargetMaxNumAttackers                =           5 ; Maximun number of attackers already attacking target
 
 ; Spell Vamp variables
-sv_SpellRatio                           =        1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELL
-sv_SpellAoERatio                        =        0.333 ; Spell Vamp ratio for DAMAGESOURCE_SPELLAOE
-sv_SpellPersistRatio                    =        1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELLPERSIST
-sv_PeriodicRatio                        =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_PERIODIC
-sv_ProcRatio                            =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_PROC
-sv_ReactiveRatio                        =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_REACTIVE
-sv_OnDeathRatio                         =        0.000 ; Spell Vamp ratio for DAMAGESOURCE_ONDEATH
+sv_SpellRatio                           =       1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELL
+sv_SpellAoERatio                        =       0.333 ; Spell Vamp ratio for DAMAGESOURCE_SPELLAOE
+sv_SpellPersistRatio                    =       1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELLPERSIST
+sv_PeriodicRatio                        =       0.000 ; Spell Vamp ratio for DAMAGESOURCE_PERIODIC
+sv_ProcRatio                            =       0.000 ; Spell Vamp ratio for DAMAGESOURCE_PROC
+sv_ReactiveRatio                        =       0.000 ; Spell Vamp ratio for DAMAGESOURCE_REACTIVE
+sv_OnDeathRatio                         =       0.000 ; Spell Vamp ratio for DAMAGESOURCE_ONDEATH
 
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =      90.000 ; Delay before first ambient gold tick

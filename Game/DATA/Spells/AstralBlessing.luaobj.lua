@@ -47,10 +47,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "HealthToRestore",
       SrcValueByLevel = {
         80,
-        135,
-        190,
-        245,
-        300
+        130,
+        180,
+        230,
+        280
       }
     }
   },

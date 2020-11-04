@@ -53,7 +53,7 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMovementSpeedMod,
+      Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MoveSpeedMod",
       Delta = 0
@@ -65,6 +65,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 300,
       DamageType = MAGIC_DAMAGE,
@@ -89,7 +90,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      BuffName = "BilgewaterCutlass",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
       StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 1,
@@ -106,6 +108,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "global_slow.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bilgewatercutlass"
     }
   }
 }

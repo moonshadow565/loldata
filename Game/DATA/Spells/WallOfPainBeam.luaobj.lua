@@ -116,44 +116,6 @@ OnBuffActivateBuildingBlocks = {
           FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "wallofpain__new_beam.troy",
-          Flags = 0,
-          EffectIDVar = "ParticleID4",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "middle",
-          TargetObjectVar = "Attacker",
-          TargetBoneName = "middle",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "wallofpain__new_beam.troy",
-          Flags = 0,
-          EffectIDVar = "ParticleID5",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "top",
-          TargetObjectVar = "Attacker",
-          TargetBoneName = "top",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
       }
     }
   },
@@ -240,44 +202,6 @@ OnBuffActivateBuildingBlocks = {
           BoneName = "bottom",
           TargetObjectVar = "Attacker",
           TargetBoneName = "bottom",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "wallofpain__new_beam.troy",
-          Flags = 0,
-          EffectIDVar = "ParticleID4",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "middle",
-          TargetObjectVar = "Attacker",
-          TargetBoneName = "middle",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "wallofpain__new_beam.troy",
-          Flags = 0,
-          EffectIDVar = "ParticleID5",
-          EffectIDVarTable = "InstanceVars",
-          BoneName = "top",
-          TargetObjectVar = "Attacker",
-          TargetBoneName = "top",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
