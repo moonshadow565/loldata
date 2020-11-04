@@ -16,6 +16,10 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "namie"}
   },
   {
@@ -51,10 +55,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nami_e_mis_ally.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,

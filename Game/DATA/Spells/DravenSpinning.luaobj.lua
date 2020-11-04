@@ -10,12 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_skn2_weaponglow01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "draven_q_buf.troy"
     }
   },
