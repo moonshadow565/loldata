@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="tt_speedshrine_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="temp_akalipoof2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="akali_base_w_speedlines_01.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="akali_base_w_poof_01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="globalstealthscreentint"}}, 
 }

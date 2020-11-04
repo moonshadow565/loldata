@@ -3,6 +3,9 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Voidwalker_Riftwalk.dds"
+BuffTextureName = "Kassadin_R.dds"
 BuffName = "RiftWalk"
+SpellFXOverrideSkins = {
+  "KassadinSkin05"
+}
 AutoBuffActivateEvent = ""

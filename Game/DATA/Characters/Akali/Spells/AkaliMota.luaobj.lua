@@ -6,5 +6,8 @@ IsDamagingSpell = true
 BuffTextureName = "AkaliMota.dds"
 BuffName = "AkaliMota"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "Akaliskin07"
+}
 Nondispellable = true
 TriggersSpellCasts = true

@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="itemmagicshankmis"}}, 
+{Function=BBPreloadParticle, Params={Name="item_magicshank_impact_02.troy"}}, 
+}

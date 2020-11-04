@@ -1,6 +1,9 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Averdrian_AstralBeam.dds"
+BuffTextureName = "Kassadin_Q.dds"
 BuffName = "NullLance"
-AutoBuffActivateEffect = "Null_Lance_buf.troy"
+AutoBuffActivateEffect = "Kassadin_Base_E_buf.troy"
+SpellFXOverrideSkins = {
+  "KassadinSkin05"
+}

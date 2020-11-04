@@ -19,6 +19,8 @@ INCREASE_CANNON_RATE_TIMER = 1200
 INCREASE_CANNON_RATE_TIMER2 = 2100
 MINION_HEALTH_DENIAL_PERCENT = 0
 UPGRADE_MINION_TIMER = 90
+UPGRADE_MINION_ITERATIONS_FOR_LATE_SCALING = 6
+TOWER_DAMAGE_PER_UPGRADE_MINION_ITERATION = 0
 EXP_GIVEN_RADIUS = 1400
 GOLD_GIVEN_RADIUS = 1250
 DISABLE_MINION_SPAWN_BASE_TIME = 300
@@ -28,6 +30,7 @@ ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION = 11
 LAST_WAVE = -1
 SPECIAL_MINION_MODE = "none"
 HQTurretAttackable = false
+UpgradedMinionIterations = 0
 DoLuaLevel("BBLuaConversionLibrary")
 DoLuaLevel("WallVisionBearers")
 SpawnTable = {
@@ -45,6 +48,8 @@ MeleeDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 13,
   HPUpgradeGrowth = 0.2,
+  HPUpgradeLate = 6,
+  HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
   DamageUpgrade = 0.5,
@@ -72,6 +77,8 @@ CasterDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 10,
   HPUpgradeGrowth = 0.2,
+  HPUpgradeLate = 3,
+  HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
   DamageUpgrade = 1,
@@ -99,6 +106,8 @@ CannonDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 23,
   HPUpgradeGrowth = 0.3,
+  HPUpgradeLate = 9,
+  HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
   DamageUpgrade = 1.5,
@@ -126,6 +135,8 @@ SuperDefaultMinionInfo = {
   HPBonus = 0,
   HPUpgrade = 100,
   HPUpgradeGrowth = 0,
+  HPUpgradeLate = 0,
+  HPUpgradeGrowthLate = 0,
   HPInhibitor = 0,
   DamageBonus = 0,
   DamageUpgrade = 5,
@@ -421,6 +432,9 @@ function OnPostLevelLoad()
   end
   L0_33(L1_34)
   L0_33(L1_34)
+  L0_33(L1_34, L2_35)
+  L0_33(L1_34, L2_35)
+  L0_33(L1_34, L2_35)
 end
 function OnGameStartup()
   local L0_38
@@ -433,9 +447,11 @@ end
 function SetShieldBuffsOnSecondaryTurrets(A0_39)
   local L1_40, L2_41, L3_42, L4_43
   for L4_43 = RIGHT_LANE, LEFT_LANE do
-    innerTurret = GetTurret(A0_39, L4_43, MIDDLE_TOWER)
-    ApplyPersistentBuff(innerTurret, "SRTurretSecondaryShielder", false, 1, 1)
-    AddBuffCounter(innerTurret, "SRTurretSecondaryShielder", L4_43, 2)
+    if L4_43 ~= CENTER_LANE then
+      innerTurret = GetTurret(A0_39, L4_43, MIDDLE_TOWER)
+      ApplyPersistentBuff(innerTurret, "SRTurretSecondaryShielder", false, 1, 1)
+      AddBuffCounter(innerTurret, "SRTurretSecondaryShielder", L4_43, 2)
+    end
   end
 end
 SPELLBOOK_SUMMONER = 1
@@ -470,6 +486,8 @@ function OppositeTeam(A0_49)
 end
 function UpgradeMinionTimer()
   local L0_50, L1_51, L2_52, L3_53, L4_54, L5_55, L6_56, L7_57, L8_58, L9_59, L10_60, L11_61
+  UpgradedMinionIterations = L1_51
+  L1_51(L2_52, L3_53)
   for L4_54 = 1, 2 do
     if L4_54 == 1 then
       L0_50 = OrderBarracksBonuses
@@ -481,10 +499,12 @@ function UpgradeMinionTimer()
       L11_61 = L0_50[L8_58]
       L11_61 = L11_61.MinionInfoTable
       for _FORV_15_, _FORV_16_ in pairs(L11_61) do
-        _FORV_16_.HPBonus = _FORV_16_.HPBonus + _FORV_16_.HPUpgrade
+        if UpgradedMinionIterations >= UPGRADE_MINION_ITERATIONS_FOR_LATE_SCALING then
+        end
+        _FORV_16_.HPBonus = _FORV_16_.HPBonus + (_FORV_16_.HPUpgrade + _FORV_16_.HPUpgradeLate)
+        _FORV_16_.HPUpgrade = _FORV_16_.HPUpgrade + (_FORV_16_.HPUpgradeGrowth + _FORV_16_.HPUpgradeGrowthLate)
         _FORV_16_.DamageBonus = _FORV_16_.DamageBonus + _FORV_16_.DamageUpgrade
         _FORV_16_.GoldBonus = _FORV_16_.GoldBonus + _FORV_16_.GoldUpgrade
-        _FORV_16_.HPUpgrade = _FORV_16_.HPUpgrade + _FORV_16_.HPUpgradeGrowth
         if _FORV_16_.GoldBonus > _FORV_16_.GoldMaximumBonus then
           _FORV_16_.GoldBonus = _FORV_16_.GoldMaximumBonus
         end
