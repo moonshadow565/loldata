@@ -73,6 +73,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "xerathrmsbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "xerathlocusofpower2"
     }
   },
