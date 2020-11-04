@@ -42,7 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_gold.troy"
+      Name = "draven_base_p.troy"
     }
   }
 }

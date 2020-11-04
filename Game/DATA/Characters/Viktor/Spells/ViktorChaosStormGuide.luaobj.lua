@@ -40,5 +40,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "viktorexpirationtimer"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "viktor_skn3_rosition.troy"
+    }
   }
 }

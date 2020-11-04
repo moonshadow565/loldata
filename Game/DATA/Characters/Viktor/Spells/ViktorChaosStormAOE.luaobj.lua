@@ -3,6 +3,9 @@ BuffTextureName = "Annie_GuardianIncinerate.dds"
 BuffName = "Infernal Guardian"
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "MakerViktor"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
