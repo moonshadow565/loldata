@@ -122,6 +122,10 @@ L0[29] = L29
 L0[30] = L30
 RegionTags = L0
 L0 = {}
+L1 = "SPELL_TestTag"
+L0[1] = L1
+SpellTags = L0
+L0 = {}
 UnitTagFlags = L0
 function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8
@@ -132,6 +136,13 @@ function L0()
     L6 = UnitTagFlags
     L6[L5] = L0
     L0 = L0 * 2
+  end
+  for L4, L5 in L1, L2, L3 do
+    L6 = _G
+    L7 = FNVHash
+    L8 = L5
+    L7 = L7(L8)
+    L6[L5] = L7
   end
   for L4, L5 in L1, L2, L3 do
     L6 = _G
