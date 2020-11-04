@@ -1,3 +1,5 @@
+BuffTextureName = "Sivir_Sprint.dds"
+BuffName = "SivirPassive"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {

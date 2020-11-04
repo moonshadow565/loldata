@@ -18,7 +18,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "positivechampiondelta"
+      Name = "masterysiegecommanderdebuff"
     }
   }
 }

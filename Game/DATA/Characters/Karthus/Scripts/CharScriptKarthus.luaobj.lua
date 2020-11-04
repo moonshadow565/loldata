@@ -20,7 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "crestbigmarker"
+      Name = "championchampiondelta"
     }
   }
 }
