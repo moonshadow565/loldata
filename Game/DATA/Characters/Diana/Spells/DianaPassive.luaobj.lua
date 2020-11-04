@@ -22,25 +22,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_passive.troy"
+      Name = "diana_base_p.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_basicattack_tar.troy"
+      Name = "diana_base_ba_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_e_precas_valkyrie.troy"
+      Name = "diana_skin01_e_precas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_e_precas.troy"
+      Name = "diana_base_e_precas.troy"
     }
   }
 }

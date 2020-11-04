@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   6
 }
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "RivenSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

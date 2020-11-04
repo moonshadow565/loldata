@@ -6,13 +6,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_w_shield.troy"
+      Name = "Diana_Base_W_Shield.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_w_shield_refreshed.troy"
+      Name = "Diana_Base_W_Refreshed.troy"
     }
   }
 }

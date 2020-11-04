@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "expirationtimer"
+      Name = "expirationtimernoghost"
     }
   },
   {
@@ -75,6 +75,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "threshwlanternreturn"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
     }
   },
   {

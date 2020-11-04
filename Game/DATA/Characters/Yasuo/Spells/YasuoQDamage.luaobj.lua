@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "temp_yasuo_q_tar_blood.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuoqprotect"

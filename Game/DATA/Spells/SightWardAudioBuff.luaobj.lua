@@ -13,5 +13,6 @@ SpellFXOverrideSkins = {
   "SightWardLux",
   "SightWardS3Champ",
   "SightWardCandycane",
-  "SightWardSeason3"
+  "SightWardSeason3",
+  "SightWardHorseGong"
 }

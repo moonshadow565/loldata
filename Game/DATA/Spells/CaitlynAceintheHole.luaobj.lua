@@ -5,9 +5,19 @@ IsDamagingSpell = true
 ChannelDuration = 1
 BuffTextureName = "Caitlyn_AceintheHole.dds"
 BuffName = "CaitlynAceintheHole"
-AutoBuffActivateEffect = "caitlyn_ace_target_indicator.troy"
-AutoBuffActivateEffect2 = "caitlyn_ace_target_indicator_02.troy"
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "caitlyn_ace_target_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "caitlyn_ace_target_indicator_02.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

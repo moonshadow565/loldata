@@ -12,7 +12,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorknockupcombo"
+      Name = "yasuorknockupcomboself"
     }
   },
   {

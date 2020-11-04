@@ -7,7 +7,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_r_end.troy"
+      Name = "diana_base_r_end.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "Diana_Base_R_Cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diana_skin01_r_teleport_success.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diana_base_r_teleport_success.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dianaarccatch"
     }
   },
   {
@@ -19,43 +43,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_diana_lance_tar.troy"
+      Name = "diana_skin01_r_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "diana_r_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_teleport_success_valkyrie.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_teleport_success.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dianaarccatch"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_tar_valkyrie.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_tar.troy"
+      Name = "diana_base_r_tar.troy"
     }
   }
 }

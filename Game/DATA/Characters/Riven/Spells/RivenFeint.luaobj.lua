@@ -7,6 +7,9 @@ BuffTextureName = "RivenPathoftheExile.dds"
 BuffName = "RivenFeint"
 AutoBuffActivateEffect = "Riven_Base_E_Shield.troy"
 OnPreDamagePriority = 3
+SpellFXOverrideSkins = {
+  "RivenSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
