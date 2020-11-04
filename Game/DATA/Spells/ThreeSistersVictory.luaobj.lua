@@ -1,3 +1,5 @@
+AutoBuffActivateEffect = "ThreeSistersCrown.troy"
+AutoBuffActivateAttachBoneName = "head"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {

@@ -1,43 +1,22 @@
 DoesntBreakShields = true
-BuffTextureName = "Sejuani_Permafrost.dds"
+BuffTextureName = "Sejuani_E_Bright.dds"
 BuffName = "SejuaniFrostArctic"
-AutoBuffActivateEffect = "Sejuani_Frost_Arctic.troy"
+AutoBuffActivateEffect = "Global_Freeze.troy"
 PopupMessage1 = "game_floatingtext_Slowed"
+SpellVOOverrideSkins = {
+  "SejuaniClassic"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sejuani_frost_arctic_overhead.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuanifrost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuanifrostchaos"
+      Name = "sejuani_e_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sejuani_wintersclaw_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_wintersclaw_cas_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_wintersclaw_tar.troy"
+      Name = "sejuani_e_cas_02.troy"
     }
   },
   {
@@ -47,9 +26,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "sejuaniwintersclawchaos"
+      Name = "sejuani_e_tar.troy"
     }
   }
 }

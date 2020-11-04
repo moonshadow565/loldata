@@ -1,17 +1,27 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Trundle_Bite.dds"
+BuffTextureName = "Trundle_Q.dds"
 BuffName = "TrundleTrollSmash"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
+SpellVOOverrideSkins = {
+  "ClassicTrundle"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "trundle_trollsmash_buf.troy"
+      Name = "temp_trundle_q_ampedq.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trundle_q_trollsmash_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trundleqslow"
     }
   }
 }

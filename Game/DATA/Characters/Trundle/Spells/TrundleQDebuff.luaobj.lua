@@ -1,4 +1,4 @@
-BuffTextureName = "Trundle_Bite.dds"
+BuffTextureName = "Trundle_Q.dds"
 BuffName = "TrundleQDebuff"
 PreLoadBuildingBlocks = {
   {

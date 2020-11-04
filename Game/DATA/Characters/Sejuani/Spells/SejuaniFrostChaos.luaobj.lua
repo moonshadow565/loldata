@@ -1,11 +1,22 @@
-BuffTextureName = "Sejuani_Frost.dds"
+BuffTextureName = "Sejuani_E_debuff.dds"
 BuffName = "SejuaniFrost"
-AutoBuffActivateEffect = "Sejuani_Frost.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sejuani_frost_overhead.troy"
+      Name = "sejuani_e_buf_champ.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuani_e_ice_champ.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuani_e_buf_minion.troy"
     }
   }
 }

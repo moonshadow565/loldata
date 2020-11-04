@@ -1,17 +1,53 @@
-BuffTextureName = "Sejuani_NorthernWinds.dds"
+BuffTextureName = "Sejuani_W2.dds"
 BuffName = "SejuaniNorthernWinds"
-AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = "l_hand"
+AutoBuffActivateAttachBoneName2 = "r_hand"
+SpellToggleSlot = 2
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "sejuani_northernwinds_aura.troy"
+      Name = "sejuaninorthernwindsend"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sejuaninorthernwindsenrage"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sejuaninorthernwinds_tar.troy"
+      Name = "sejuani_w_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuani_w_pulse.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuani_w_pulse_weapon.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuaniw1_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sejuani_w_tar.troy"
     }
   }
 }

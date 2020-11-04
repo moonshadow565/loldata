@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "Rebirth"
-PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
   "AniviaEggBlackIce"

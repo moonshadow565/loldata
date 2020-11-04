@@ -752,9 +752,9 @@ function L0()
   L4 = "Dragon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 9260
+  L7 = 9460
   L8 = 57.0709
-  L9 = 8990
+  L9 = 9190
   L6 = L6(L7, L8, L9)
   L7 = TEAM_CHAOS
   L8 = false
@@ -770,9 +770,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 9055
+  L7 = 9255
   L8 = 58
-  L9 = 8330.6
+  L9 = 8530.6
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -788,9 +788,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8763.7
+  L7 = 8963.7
   L8 = 58
-  L9 = 8644.9
+  L9 = 8844.9
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -806,9 +806,9 @@ function L0()
   L4 = "Blue_Minion_MechCannon"
   L5 = "minion.lua"
   L6 = Make3DPoint
-  L7 = 8564.2
+  L7 = 8764.2
   L8 = 58
-  L9 = 8854
+  L9 = 9054
   L6 = L6(L7, L8, L9)
   L7 = TEAM_ORDER
   L8 = false
@@ -1473,7 +1473,28 @@ function L0()
     L16 = nil
     L4 = L4(L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16)
     testbear1 = L4
+    L4 = TutorialSpellBuffAdd
+    L5 = playerID
+    L6 = testbear1
+    L7 = "TutorialMinionBuff"
+    L8 = BUFF_RENEW_EXISTING
+    L9 = BUFF_CombatEnhancer
+    L10 = 1
+    L11 = 1
+    L12 = 25000
+    L13 = buffVarsTable
+    L14 = 0
+    L4(L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   end
+  L3 = "TutorialMinionBuff"
+  L4 = BUFF_RENEW_EXISTING
+  L5 = BUFF_CombatEnhancer
+  L6 = 1
+  L7 = 1
+  L8 = 25000
+  L9 = buffVarsTable
+  L10 = 0
+  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
   L0(L1)
   L0(L1, L2)
   L0(L1)

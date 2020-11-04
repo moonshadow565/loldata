@@ -2352,49 +2352,54 @@ EOG_EASTER_EGG_CAMERA_PATH_TIME = L0_0
 L0_0 = 4
 EOG_EASTER_EGG_MUSIC_FADE_TIME = L0_0
 function L0_0(A0_59)
-  local L1_60, L2_61, L3_62, L4_63
-  L1_60 = Make3DPoint
-  L2_61 = 2586
-  L3_62 = 0
-  L4_63 = 1986
-  L1_60 = L1_60(L2_61, L3_62, L4_63)
+  local L1_60, L2_61, L3_62, L4_63, L5_64
+  L1_60 = GetGameMode
+  L1_60 = L1_60()
+  if L1_60 == "TUTORIAL" then
+    return
+  end
   L2_61 = Make3DPoint
-  L3_62 = 10702
+  L3_62 = 2586
   L4_63 = 0
-  L2_61 = L2_61(L3_62, L4_63, 10193)
-  L3_62 = {
-    L4_63,
+  L5_64 = 1986
+  L2_61 = L2_61(L3_62, L4_63, L5_64)
+  L3_62 = Make3DPoint
+  L4_63 = 10702
+  L5_64 = 0
+  L3_62 = L3_62(L4_63, L5_64, 10193)
+  L4_63 = {
+    L5_64,
     Make3DPoint(2500, 0, 2000),
     Make3DPoint(2500, 0, 2000)
   }
-  L4_63 = Make3DPoint
-  L4_63 = L4_63(5700, 0, 6900)
-  L4_63 = {
+  L5_64 = Make3DPoint
+  L5_64 = L5_64(5700, 0, 6900)
+  L5_64 = {
     Make3DPoint(5700, 0, 6900),
     Make3DPoint(10700, 0, 10700),
     Make3DPoint(10700, 0, 10700)
   }
   if A0_59 == TEAM_CHAOS then
-    L1_60, L2_61 = L2_61, L1_60
+    L2_61, L3_62 = L3_62, L2_61
   end
   POST_GAME_EVENTS = {
     [1] = {delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY, fadeMusic = true},
     [2] = {
       delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY + EOG_EASTER_EGG_MUSIC_FADE_TIME,
       soundName = "LoL_Audio_en_US/Dialogue/TEMP-DONOTSHIP/freljordlore",
-      cameraPath = L4_63,
+      cameraPath = L5_64,
       travelTime = EOG_EASTER_EGG_CAMERA_PATH_TIME
     }
   }
 end
 PostGameSetup = L0_0
-function L0_0(A0_64, A1_65, A2_66)
-  local L3_67, L4_68, L5_69, L6_70
-  if A1_65 ~= A2_66 then
+function L0_0(A0_65, A1_66, A2_67)
+  local L3_68, L4_69, L5_70, L6_71
+  if A1_66 ~= A2_67 then
     return
   end
-  for L6_70, _FORV_7_ in L3_67(L4_68) do
-    if A0_64 > _FORV_7_.delay then
+  for L6_71, _FORV_7_ in L3_68(L4_69) do
+    if A0_65 > _FORV_7_.delay then
       if _FORV_7_.cameraLocation then
         ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_7_.cameraLocation, _FORV_7_.travelTime)
       end
@@ -2407,7 +2412,7 @@ function L0_0(A0_64, A1_65, A2_66)
       if _FORV_7_.soundName then
         ClientSide_PlaySoundFile(_FORV_7_.soundName)
       end
-      table.remove(POST_GAME_EVENTS, L6_70)
+      table.remove(POST_GAME_EVENTS, L6_71)
       break
     end
   end
