@@ -1424,6 +1424,7 @@ function L0()
   L0.SpawnDuration = 6.5
   L0.UseSummonerScript = true
   L0.MinimapIcon = "Dragon"
+  L0.EmptyVisibilityToAll = true
   L0.Name = "Chaos Blue"
   L0.TimerType = L1
   L3 = CAMPTYPE_BLUEBUFF
@@ -1493,6 +1494,7 @@ function L0()
   L0.SpectatorKillEvents = L1
   L0.SpawnDuration = 8.5
   L0.UseSummonerScript = true
+  L0.EmptyVisibilityToAll = true
   L0.MinimapIcon = "Baron"
   L0.Name = "Order OwlBear"
   L3 = CAMPTYPE_OWLBEAR

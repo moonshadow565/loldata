@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_channel.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_pointer.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_channeltarget.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchrallycamerasnap"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchnewrpartone"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchreactivater"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchrallyindicator"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_selfping.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_audio_allyultreminder.troy"}}, 
+}

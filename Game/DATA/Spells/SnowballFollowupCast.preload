@@ -1,9 +1,10 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="bw_poro_poroexplosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bw_shipspawn.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_poroexplosion.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="globalpolymorphhasbegun"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_iceblast_mis.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="iceblast_mis.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bw_poro_poroexplosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bw_summoner_snowball_arrive_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="summoner_snowball_arrive_sound.troy"}}, 
 }

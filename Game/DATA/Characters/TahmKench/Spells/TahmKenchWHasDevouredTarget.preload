@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="tahmkenchincombat"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchwallydash"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_speedbuff_matoverride.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_devourfalloff_ally.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_devourfalloff_enemy.troy"}}, 
+{Function=BBPreloadModule, Params={Name="TahmKench.TahmKenchFunctions"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchwselfhaste"}}, 
+}

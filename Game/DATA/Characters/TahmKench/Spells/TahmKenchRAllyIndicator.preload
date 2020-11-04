@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_indicator.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchrallyclick"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_devouravatar_ally.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchwallybeingdevoured"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchallylookingtor"}}, 
+}

@@ -7,8 +7,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zac_base_p_chunk_selfhighlight.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_skn1_w_chunk_timeout.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_skn1_w_chunk_timeout_ot.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="zac_base_w_chunk_timeout.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="zac_base_w_chunk_timeout_ot.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_skn1_w_chunk_death.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_skn1_w_chunk_death_ot.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zac_base_w_chunk_death.troy"}}, 

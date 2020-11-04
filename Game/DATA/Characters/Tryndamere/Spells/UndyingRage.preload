@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="undyingrage_glow.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="undyingrage"}}, 
 }

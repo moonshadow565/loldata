@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_target_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_r_target.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchrallycamerasnap"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchrcasting"}}, 
+}

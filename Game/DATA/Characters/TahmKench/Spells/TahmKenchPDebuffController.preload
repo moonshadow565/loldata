@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="tahmkenchpdevourable"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchincombat"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_p_marker01.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_p_marker02.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_p_marker03.troy"}}, 
+}

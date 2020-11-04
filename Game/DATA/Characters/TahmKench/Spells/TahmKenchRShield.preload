@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="TahmKench_Base_E_Shield.troy"}},
+}
