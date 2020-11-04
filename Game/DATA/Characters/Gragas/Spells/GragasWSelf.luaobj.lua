@@ -1,16 +1,16 @@
 BuffTextureName = "GragasDrunkenRage.dds"
-BuffName = "GragasDrunkenRageSelf"
+BuffName = "GragasWSelf"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Gragas_Base_W_Buf_Bubbles.troy"
+      Name = "gragas_base_w_buf_bubbles.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Gragas_Base_W_Cas.troy"
+      Name = "gragas_base_w_cas.troy"
     }
   }
 }

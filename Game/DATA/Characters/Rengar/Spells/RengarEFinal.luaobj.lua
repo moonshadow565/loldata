@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rengareslow"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_base_e_tar.troy"
+    }
   }
 }

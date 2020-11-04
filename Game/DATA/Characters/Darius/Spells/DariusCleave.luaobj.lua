@@ -10,13 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_q_aoe_cast.troy"
+      Name = "darius_Base_Q_aoe_cast.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_q_aoe_cast_mist.troy"
+      Name = "darius_Base_Q_aoe_cast_mist.troy"
     }
   },
   {
@@ -26,13 +26,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_atomic_mist_02.troy"
+      Name = "Darius_Skin02_W_Atomic_Mist_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_q_impact_spray.troy"
+      Name = "darius_Base_Q_impact_spray.troy"
     }
   },
   {
@@ -60,13 +60,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_q_tar_inner.troy"
+      Name = "darius_Base_Q_tar_inner.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_q_tar.troy"
+      Name = "darius_Base_Q_tar.troy"
     }
   },
   {

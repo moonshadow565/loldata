@@ -7,9 +7,19 @@ BuffTextureName = "GragasBodySlam.dds"
 BuffName = "GragasBodySlam"
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "gragase"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_base_e_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragaseholder"
     }
   },
   {
@@ -22,6 +32,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_base_e_tar_ground.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasestun"
     }
   }
 }

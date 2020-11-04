@@ -1,5 +1,5 @@
 BuffTextureName = "GragasBodySlam.dds"
-BuffName = "PowerballStun"
+BuffName = "MoveAway"
 SpellFXOverrideSkins = {
   "MetalRammus",
   "RoboRammus"

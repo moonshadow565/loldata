@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffName = "XenZhaoSweep"
 SpellFXOverrideSkins = {"FizzSkin04"}
+SpellVOOverrideSkins = {"FizzSkin04"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

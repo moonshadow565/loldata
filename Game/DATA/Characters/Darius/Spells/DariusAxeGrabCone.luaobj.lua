@@ -4,19 +4,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_e_tar.troy"
+      Name = "Darius_Base_E_Tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_e_tar_02.troy"
+      Name = "darius_Base_E_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_e_tar_unit_trail.troy"
+      Name = "darius_Base_E_tar_unit_trail.troy"
     }
   },
   {
@@ -28,13 +28,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_e_activate_zaunknight.troy"
+      Name = "Darius_Skin02_e_activate_zaunKnight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_atomic_mist_03.troy"
+      Name = "Darius_Skin02_W_Atomic_Mist_03.troy"
     }
   },
   {
@@ -46,7 +46,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_axegrab_collision.troy"
+      Name = "Darius_Base_E_Axegrab_Collision.troy"
     }
   }
 }
