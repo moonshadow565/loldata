@@ -10,17 +10,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemmonsterdamageamp"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemferalconservation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemjunglestatstracker"
-    }
   }
 }
