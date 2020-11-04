@@ -38,7 +38,7 @@ BuffOnSpellCastBuildingBlocks = {
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_Aura,
               MaxStack = 6,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -76,7 +76,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8
+      SpellDamageRatio = 0.8,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -108,10 +111,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "Slow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberStacks = 1,
+      MaxStack = 100,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

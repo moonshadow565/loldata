@@ -495,13 +495,13 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.RespawnTime = 300
-  L0.GroupDelaySpawnTime = 300
+  L0.GroupDelaySpawnTime = 180
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2
   L0.GroupsChance = L1
   L0.RespawnTime = 240
-  L0.GroupDelaySpawnTime = 50
+  L0.GroupDelaySpawnTime = 30
   L1[1] = L2
   L0.Groups = L1
   L1[1] = L2

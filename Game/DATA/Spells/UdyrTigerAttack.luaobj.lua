@@ -120,6 +120,7 @@ OnBuffDeactivateBuildingBlocks = {
               PercentOfAttack = 0,
               PercentOfAttackVar = "CritDamage",
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -150,6 +151,7 @@ OnBuffDeactivateBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 0.33,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -181,6 +183,7 @@ OnBuffDeactivateBuildingBlocks = {
               PercentOfAttack = 0,
               PercentOfAttackVar = "CritDamage",
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -211,6 +214,7 @@ OnBuffDeactivateBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 0.33,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -295,91 +299,109 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBElse,
-    Params = {},
+    Function = BBElseIf,
+    Params = {
+      Value1 = HitResult,
+      Value2 = HIT_Miss,
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+        Params = {
+          Value1 = HitResult,
+          Value2 = HIT_Dodge,
+          CompareOp = CO_NOT_EQUAL
+        },
         SubBlocks = {
           {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "BaseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 0,
-              PercentOfAttackVar = "CritDamage",
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+            Function = BBIf,
+            Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "BaseDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 0,
+                  PercentOfAttackVar = "CritDamage",
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
+          },
           {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "BaseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 0.33,
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "BaseDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 0.33,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
-        SubBlocks = {
+          },
           {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "BaseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 0,
-              PercentOfAttackVar = "CritDamage",
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+            Function = BBIf,
+            Params = {Src1Var = "CritChance", CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "BaseDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 0,
+                  PercentOfAttackVar = "CritDamage",
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
+          },
           {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "BaseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_PROC,
-              PercentOfAttack = 0.33,
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "BaseDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_PROC,
+                  PercentOfAttack = 0.33,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              }
             }
           }
         }
@@ -397,6 +419,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 0.33,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

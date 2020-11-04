@@ -8,7 +8,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.25
+      Delta = 0.15
     }
   },
   {
@@ -32,7 +32,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.25
+      Delta = 0.15
     }
   }
 }

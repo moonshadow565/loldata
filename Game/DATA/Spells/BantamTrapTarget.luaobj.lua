@@ -29,6 +29,7 @@ OnBuffActivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.16,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -60,18 +61,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "MoveSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -94,6 +83,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.16,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

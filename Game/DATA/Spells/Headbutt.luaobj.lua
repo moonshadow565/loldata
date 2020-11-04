@@ -20,6 +20,16 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation"
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
@@ -46,10 +56,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           CompareOp = CO_LESS_THAN_OR_EQUAL
         },
         SubBlocks = {
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Owner"}
@@ -101,6 +107,10 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -231,17 +241,13 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
-      BuffName = "UnlockAnimation"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "unlockanimation"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

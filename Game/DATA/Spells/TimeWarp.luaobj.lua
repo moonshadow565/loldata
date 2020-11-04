@@ -72,6 +72,14 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
           DestVar = "SpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValue = -0.55
@@ -83,7 +91,7 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffName = "TimeWarpSlow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,

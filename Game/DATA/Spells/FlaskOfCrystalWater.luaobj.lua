@@ -14,20 +14,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PercentMana",
-      Value2 = 0.99,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  },
-  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
@@ -38,7 +24,11 @@ BuffOnUpdateActionsBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIncPAR,
-        Params = {TargetVar = "Owner", Delta = 5}
+        Params = {
+          TargetVar = "Owner",
+          Delta = 5,
+          PARType = PAR_MANA
+        }
       }
     }
   }
@@ -89,7 +79,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Heal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

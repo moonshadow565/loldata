@@ -267,8 +267,27 @@ BuffOnMoveEndBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.8,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MoveSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MoveSpeedMod",
+          SrcVarTable = "InstanceVars",
+          SrcValue = -0.6
         }
       },
       {
@@ -277,7 +296,7 @@ BuffOnMoveEndBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "RocketJumpSlow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,

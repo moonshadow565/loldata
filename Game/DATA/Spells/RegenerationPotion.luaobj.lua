@@ -34,20 +34,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "PercentHealth",
-      Value2 = 0.99,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  },
-  {
     Function = BBExecutePeriodically,
     Params = {
       TimeBetweenExecutions = 1,
@@ -131,7 +117,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Heal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 20,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

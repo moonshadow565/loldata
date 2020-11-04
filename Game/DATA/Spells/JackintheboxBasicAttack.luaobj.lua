@@ -29,10 +29,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "Dmg",
       SrcValueByLevel = {
         35,
-        60,
-        80,
-        100,
-        125
+        55,
+        75,
+        95,
+        115
       }
     }
   },
@@ -46,7 +46,8 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.35,
+      SpellDamageRatio = 0.25,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

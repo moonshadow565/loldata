@@ -63,7 +63,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "AP",
           Src1Value = 0,
-          Src2Value = 0.4,
+          Src2Value = 0.55,
           DestVar = "APDamage",
           MathOp = MO_MULTIPLY
         }
@@ -131,6 +131,7 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

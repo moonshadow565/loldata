@@ -1,189 +1,40 @@
-UpdateSelfBuffActionsBuildingBlocks = {
+CharOnActivateBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBForEachUnitInTargetArea,
     Params = {
-      TimeBetweenExecutions = 5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 25000,
+      Flags = "AffectFriends AffectHeroes ",
+      IteratorVar = "Unit"
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CritChanceMod",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "CriticalChance",
-              SrcVarTable = "CharVars"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "CritChanceMod",
-              Src1VarTable = "NextBuffVars",
-              Src2Var = "LastCritChanceMod",
-              Src2VarTable = "CharVars",
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBForEachUnitInTargetArea,
-                Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Owner",
-                  Range = 20000,
-                  Flags = "AffectFriends AffectHeroes ",
-                  IteratorVar = "Unit"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "SecondSight",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberStacks = 1,
-                      Duration = 6,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBForEachUnitInTargetArea,
-                Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Owner",
-                  Range = 20000,
-                  Flags = "AffectFriends AffectHeroes ",
-                  IteratorVar = "Unit"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "SecondSight",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberStacks = 1,
-                      Duration = 6,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
+        Function = BBSpellBuffAdd,
         Params = {
-          DestVar = "LastCritChanceMod",
-          DestVarTable = "CharVars",
-          SrcVar = "CriticalChance",
-          SrcVarTable = "CharVars"
+          TargetVar = "Unit",
+          AttackerVar = "Owner",
+          BuffName = "SecondSight",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
     }
-  }
-}
-SetVarsByLevelBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "CriticalChance",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        0.03,
-        0.03,
-        0.03,
-        0.03,
-        0.03,
-        0.03,
-        0.04,
-        0.04,
-        0.04,
-        0.04,
-        0.04,
-        0.04,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05,
-        0.05
-      }
-    }
-  }
-}
-CharOnSpellCastBuildingBlocks = {
-  {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "SpellName", Info = GetSpellName}
   },
   {
-    Function = BBIf,
+    Function = BBSilenceSpellSlot,
     Params = {
-      Src1Var = "SpellName",
-      Value2 = "WildCards",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Cooldown",
-          SpellSlotValue = 2,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellCooldownTime
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Cooldown",
-          Value2 = 0.01,
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetSlotSpellCooldownTime,
-            Params = {
-              SrcValue = 0.1,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              SpellSlotValue = 2,
-              OwnerVar = "Owner"
-            }
-          }
-        }
-      }
+      SpellSlot = 2,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
-  }
-}
-CharOnActivateBuildingBlocks = {
+  },
   {
     Function = BBSpellBuffAdd,
     Params = {
@@ -193,7 +44,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -208,7 +59,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -217,9 +68,92 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "LastCritChanceMod",
+      DestVar = "Count",
       DestVarTable = "CharVars",
       SrcValue = 0
+    }
+  }
+}
+CharOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamage",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0,
+          SrcValueByLevel = {
+            60,
+            90,
+            120,
+            150,
+            180
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CooldownBonus",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0,
+          SrcValueByLevel = {
+            -0.03,
+            -0.06,
+            -0.09,
+            -0.12,
+            -0.15
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedBonus",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0,
+          SrcValueByLevel = {
+            0.06,
+            0.12,
+            0.18,
+            0.24,
+            0.3
+          }
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "CardmasterStack",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   }
 }
@@ -231,12 +165,14 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }
@@ -257,6 +193,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cardmasterstack"
     }
   }
 }

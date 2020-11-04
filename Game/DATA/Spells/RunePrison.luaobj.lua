@@ -99,6 +99,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.2,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -173,6 +174,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0.15,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -201,7 +203,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_Net,
+      BuffType = BUFF_Snare,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,

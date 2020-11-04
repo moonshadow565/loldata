@@ -49,6 +49,52 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {OwnerVar = "Owner"}
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetPointByUnitFacingOffset,
@@ -98,10 +144,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 BuffOnMoveEndBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
-  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -177,52 +219,10 @@ BuffOnMoveEndBuildingBlocks = {
         }
       }
     }
-  }
-}
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
   },
   {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanCast",
-      Status = GetCanCast
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanCast",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

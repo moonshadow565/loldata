@@ -246,7 +246,7 @@ BuffOnPreAttackBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 1
@@ -338,11 +338,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "CritDmgBonus",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.5,
-        -0.3,
-        -0.1,
-        0.1,
-        0.3
+        -0.6,
+        -0.4,
+        -0.2,
+        0,
+        0.2
       }
     }
   },
@@ -354,7 +354,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

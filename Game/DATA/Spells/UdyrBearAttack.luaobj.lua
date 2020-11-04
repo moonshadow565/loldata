@@ -18,6 +18,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -43,6 +44,28 @@ TargetExecuteBuildingBlocks = {
             Params = {},
             SubBlocks = {
               {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "UdyrBearStunCheck",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationByLevel = {
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                  },
+                  TickRate = 0
+                }
+              },
+              {
                 Function = BBBreakSpellShields,
                 Params = {TargetVar = "Target"}
               },
@@ -63,28 +86,6 @@ TargetExecuteBuildingBlocks = {
                   SlotType = SpellSlots,
                   OwnerVar = "Owner",
                   Function = GetSlotSpellLevel
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffName = "UdyrBearStunCheck",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 0,
-                  BuffVarsTable = "NextBuffVars",
-                  DurationByLevel = {
-                    5,
-                    5,
-                    5,
-                    5,
-                    5
-                  },
-                  TickRate = 0
                 }
               },
               {

@@ -140,7 +140,10 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_RAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -290,7 +293,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.0625
+                  SpellDamageRatio = 0.0625,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               },
               {
@@ -315,10 +321,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                   TargetVar = "Unit",
                   AttackerVar = "Attacker",
                   BuffName = "Chilled",
-                  BuffAddType = BUFF_RENEW_EXISTING,
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
                   BuffType = BUFF_Slow,
-                  MaxStack = 1,
-                  NumberStacks = 1,
+                  MaxStack = 100,
+                  NumberOfStacks = 1,
                   Duration = 3,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
