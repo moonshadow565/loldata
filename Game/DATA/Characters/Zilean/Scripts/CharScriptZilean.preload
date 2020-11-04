@@ -19,6 +19,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_timebombgroundred.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_indicator_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_indicator_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_q_landing_audio.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_cas_warning_ally.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_cas_warning_enemy.troy"}}, 
