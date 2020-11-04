@@ -12,5 +12,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "witsendcounter"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "maladycounter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "maladyspell"
+    }
   }
 }

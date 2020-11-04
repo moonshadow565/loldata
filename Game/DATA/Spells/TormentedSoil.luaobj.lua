@@ -3,7 +3,22 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "GhostBrideMorgana"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "morgana_skin06_w_tar_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "morgana_skin06_w_tar_red.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

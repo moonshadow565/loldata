@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rodofages_itm.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "catalystheal"
+    }
+  }
+}

@@ -1,4 +1,4 @@
-DoesntBreakShields = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
 BuffName = "KhazixWMissile"
@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "khazix_w_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "khazixwslow"
     }
   },
   {

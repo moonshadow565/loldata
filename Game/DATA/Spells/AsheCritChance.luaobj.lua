@@ -1,2 +1,2 @@
-BuffTextureName = "Bowmaster_Bullseye.dds"
+BuffTextureName = "Bowmaster_BullseyeStack.dds"
 BuffName = "AsheCritChance"

@@ -18,5 +18,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zed_ult_pop_nokill.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zed_base_r_buf_tell.troy"
+    }
   }
 }
