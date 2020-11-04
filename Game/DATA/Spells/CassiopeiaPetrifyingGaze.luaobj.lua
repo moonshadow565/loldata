@@ -133,7 +133,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -148,8 +149,8 @@ TargetExecuteBuildingBlocks = {
           DestVar = "MoveSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            -0.4,
-            -0.5,
+            -0.6,
+            -0.6,
             -0.6
           }
         }
@@ -168,7 +169,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = true
+          CanMitigateDuration = true,
+          IsHiddenOnClient = false
         }
       },
       {

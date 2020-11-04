@@ -95,6 +95,52 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Attacker",
+      Value2 = true,
+      CompareOp = CO_IS_TYPE_TURRET
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "DamageType",
+          Value2 = TRUE_DAMAGE,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamageAmount",
+              SrcValue = 0
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamageAmount",
+              SrcValue = 1
+            }
+          }
+        }
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -189,6 +235,12 @@ SelfExecuteBuildingBlocks = {
       ForceCastingOrChannelling = false,
       UpdateAutoAttackTimer = false
     }
+  }
+}
+BuffOnHealBuildingBlocks = {
+  {
+    Function = BBSetReturnValue,
+    Params = {SrcValue = 0}
   }
 }
 PreLoadBuildingBlocks = {

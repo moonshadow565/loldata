@@ -72,6 +72,7 @@ DISABLE_MINION_SPAWN_BASE_TIME = 300
 DISABLE_MINION_SPAWN_MAG_TIME = 0
 LAST_WAVE = -1
 SPECIAL_MINION_MODE = "none"
+HQTurretAttackable = false
 OrderNames = {
   MeleeMinionName = "Blue_Minion_Basic",
   ArcherMinionName = "Blue_Minion_Wizard",
@@ -884,58 +885,7 @@ function HandleDestroyedObject(_ARG_0_)
       OrderBuildingStatus[GetDampenerType(_ARG_0_) % TEAM_CHAOS - TEAM_ORDER + 1].Barracks = false
     end
   else
+    Log("Could not find Linking barracks!")
   end
   return true
-end
-TEAM_UNKNOWN = 0
-EOG_PAN_TO_NEXUS_TIME = 3
-EOG_NEXUS_EXPLOSION_TIME = EOG_PAN_TO_NEXUS_TIME + 0.5
-EOG_SCOREBOARD_PHASE_DELAY_TIME = 3
-EOG_NEXUS_REVIVE_TIME = 5
-EOG_ALIVE_NEXUS_SKIN = 0
-EOG_DESTROYED_NEXUS_SKIN = 1
-function EndOfGameCeremony(_ARG_0_, _ARG_1_)
-  winningTeam = _ARG_0_
-  if winningTeam == TEAM_ORDER then
-    losingTeam = TEAM_CHAOS
-  else
-    losingTeam = TEAM_ORDER
-  end
-  losingHQPosition = GetPosition(_ARG_1_)
-  orderHQ = GetHQ(TEAM_ORDER)
-  SetInvulnerable(orderHQ, true)
-  SetTargetable(orderHQ, false)
-  SetBuildingHealthRegenEnabled(orderHQ, false)
-  chaosHQ = GetHQ(TEAM_CHAOS)
-  SetInvulnerable(chaosHQ, true)
-  SetTargetable(chaosHQ, false)
-  SetBuildingHealthRegenEnabled(chaosHQ, false)
-  SetInputLockingFlag(INPUT_CAMERALOCKING, true)
-  SetInputLockingFlag(INPUT_CAMERAMOVEMENT, true)
-  SetInputLockingFlag(INPUT_ABILITIES, true)
-  SetInputLockingFlag(INPUT_SUMMONERSPELLS, true)
-  SetInputLockingFlag(INPUT_MOVEMENT, true)
-  SetInputLockingFlag(INPUT_SHOP, true)
-  SetInputLockingFlag(INPUT_CHAT, true)
-  SetInputLockingFlag(INPUT_MINIMAPMOVEMENT, true)
-  DisableHUDForEndOfGame()
-  ToggleBarracks()
-  CloseShop()
-  HaltAllAI()
-  LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
-  InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
-end
-function ChampionEoGCeremony(_ARG_0_)
-  MoveCameraFromCurrentPositionToPoint(_ARG_0_, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
-  SetGreyscaleEnabledWhenDead(_ARG_0_, false)
-end
-function DestroyNexusPhase()
-  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
-  InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
-end
-function ScoreboardPhase()
-  EndGame(winningTeam)
-end
-function TestReviveNexus()
-  SetHQCurrentSkin(losingTeam, EOG_ALIVE_NEXUS_SKIN)
 end

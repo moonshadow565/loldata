@@ -20,12 +20,16 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
-      Damage = 70,
+      Damage = 90,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -35,12 +39,14 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "WrathDebuff",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 10,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

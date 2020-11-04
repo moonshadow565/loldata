@@ -8,6 +8,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Particle",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
@@ -30,24 +37,6 @@ OnBuffActivateBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "pantheon_grandskyfall_tar_green.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
       {
         Function = BBSpellEffectCreate,
         Params = {
@@ -79,29 +68,11 @@ OnBuffActivateBuildingBlocks = {
           PosVar = "TargetPos",
           EffectName = "pantheon_grandskyfall_tar_red.troy",
           Flags = 0,
-          EffectIDVar = "Particle",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_ORDER,
-          UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "pantheon_grandskyfall_tar_green.troy",
-          Flags = 0,
           EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
-          SpecificTeamOnly = TEAM_CHAOS,
+          SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 500,
@@ -148,12 +119,6 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "pantheon_grandskyfall_tar_green.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -56,7 +56,7 @@ OnBuffActivateBuildingBlocks = {
           Flags = 0,
           EffectIDVar = "hi",
           EffectIDVarTable = "InstanceVars",
-          BoneName = "C_root",
+          BoneName = "root",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -120,5 +120,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xenziou_selfshield_01.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

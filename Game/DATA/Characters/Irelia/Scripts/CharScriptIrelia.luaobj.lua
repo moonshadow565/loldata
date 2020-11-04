@@ -405,6 +405,38 @@ UpdateSelfBuffStatsBuildingBlocks = {
     }
   }
 }
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "BonusAD"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusAD",
+      Src1Value = 0,
+      Src2Value = 0.6,
+      DestVar = "BonusAD",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusAD",
+      Index = 1,
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,

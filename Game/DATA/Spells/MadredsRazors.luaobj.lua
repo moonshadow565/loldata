@@ -16,39 +16,13 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
                 SubBlocks = {
                   {
-                    Function = BBIfNotHasBuff,
+                    Function = BBMath,
                     Params = {
-                      OwnerVar = "Owner",
-                      CasterVar = "Owner",
-                      BuffName = "UdyrTigerStance"
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBMath,
-                        Params = {
-                          Src1Var = "DamageAmount",
-                          Src1Value = 0,
-                          Src2Value = 500,
-                          DestVar = "DamageAmount",
-                          MathOp = MO_ADD
-                        }
-                      }
-                    }
-                  },
-                  {
-                    Function = BBElse,
-                    Params = {},
-                    SubBlocks = {
-                      {
-                        Function = BBMath,
-                        Params = {
-                          Src1Var = "DamageAmount",
-                          Src1Value = 0,
-                          Src2Value = 1500,
-                          DestVar = "DamageAmount",
-                          MathOp = MO_ADD
-                        }
-                      }
+                      Src1Var = "DamageAmount",
+                      Src1Value = 0,
+                      Src2Value = 500,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
                     }
                   }
                 }
@@ -57,14 +31,6 @@ BuffOnHitUnitBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrtigerstance"
     }
   }
 }

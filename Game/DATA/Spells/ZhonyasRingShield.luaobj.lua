@@ -1,4 +1,4 @@
-BuffTextureName = "3089_Zhonyas_Ring_of_the_Mindreamer.dds"
+BuffTextureName = "3157_Zhonyas_Hourglass.dds"
 BuffName = "Zhonyas Ring"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = "zhonyas_cylinder.troy"

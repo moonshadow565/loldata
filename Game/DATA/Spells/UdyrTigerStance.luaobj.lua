@@ -52,14 +52,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "hitOnce",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "passiveAttackSpeed",
@@ -73,7 +65,7 @@ OnBuffActivateBuildingBlocks = {
       EffectName = "Udyr_Tiger_buf.troy",
       Flags = 0,
       EffectIDVar = "lhand",
-      EffectIDVarTable = "InstanceVars",
+      EffectIDVarTable = "CharVars",
       BoneName = "L_Finger",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
@@ -92,7 +84,7 @@ OnBuffActivateBuildingBlocks = {
       EffectName = "Udyr_Tiger_buf_R.troy",
       Flags = 0,
       EffectIDVar = "rhand",
-      EffectIDVarTable = "InstanceVars",
+      EffectIDVarTable = "CharVars",
       BoneName = "R_Finger",
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
@@ -117,30 +109,20 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "hitOnce",
-      Src1VarTable = "InstanceVars",
+      Src1VarTable = "CharVars",
       Value2 = true,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "lhand",
-          EffectIDVarTable = "InstanceVars"
-        }
+        Params = {EffectIDVar = "lhand", EffectIDVarTable = "CharVars"}
       },
       {
         Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "rhand",
-          EffectIDVarTable = "InstanceVars"
-        }
+        Params = {EffectIDVar = "rhand", EffectIDVarTable = "CharVars"}
       }
     }
-  },
-  {
-    Function = BBRemoveOverrideAutoAttack,
-    Params = {OwnerVar = "Owner", CancelAttack = true}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -160,7 +142,7 @@ BuffOnHitUnitBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "hitOnce",
-      Src1VarTable = "InstanceVars",
+      Src1VarTable = "CharVars",
       Value2 = true,
       CompareOp = CO_EQUAL
     },
@@ -169,7 +151,7 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "hitOnce",
-          DestVarTable = "InstanceVars",
+          DestVarTable = "CharVars",
           SrcValue = false
         }
       },
@@ -194,10 +176,10 @@ BuffOnHitUnitBuildingBlocks = {
           DestVar = "baseDamage",
           SrcValueByLevel = {
             40,
-            80,
-            120,
-            160,
-            200
+            90,
+            140,
+            190,
+            240
           }
         }
       },
@@ -210,7 +192,7 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {
           Src1Var = "TAD",
           Src1Value = 0,
-          Src2Value = 0.5,
+          Src2Value = 1.7,
           DestVar = "DotDamage",
           MathOp = MO_MULTIPLY
         }
@@ -253,23 +235,6 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
             SubBlocks = {
               {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Target",
-                  EffectName = "udyr_tiger_claw_tar.troy",
-                  Flags = 0,
-                  EffectIDVar = "a",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
-                }
-              },
-              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Target",
@@ -283,7 +248,8 @@ BuffOnHitUnitBuildingBlocks = {
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -291,22 +257,12 @@ BuffOnHitUnitBuildingBlocks = {
         }
       },
       {
-        Function = BBRemoveOverrideAutoAttack,
-        Params = {OwnerVar = "Owner", CancelAttack = false}
+        Function = BBSpellEffectRemove,
+        Params = {EffectIDVar = "lhand", EffectIDVarTable = "CharVars"}
       },
       {
         Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "lhand",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "rhand",
-          EffectIDVarTable = "InstanceVars"
-        }
+        Params = {EffectIDVar = "rhand", EffectIDVarTable = "CharVars"}
       }
     }
   }
@@ -505,6 +461,14 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "hitOnce",
+      DestVarTable = "CharVars",
+      SrcValue = true
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -518,7 +482,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -527,11 +492,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "passiveAttackSpeed",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.15,
         0.2,
         0.25,
         0.3,
-        0.35
+        0.35,
+        0.4
       }
     }
   },
@@ -548,7 +513,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -631,12 +597,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "udyr_tiger_buf_r.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_tiger_claw_tar.troy"
     }
   },
   {

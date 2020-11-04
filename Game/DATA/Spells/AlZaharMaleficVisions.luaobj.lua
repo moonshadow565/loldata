@@ -281,27 +281,6 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Target"}
   },
   {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Owner",
-      CenterVar = "Owner",
-      Range = 3000,
-      Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit",
-      BuffNameFilter = "AlZaharRecentVis",
-      InclusiveBuffFilter = true
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffClear,
-        Params = {
-          TargetVar = "Unit",
-          BuffName = "AlZaharRecentVis"
-        }
-      }
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",

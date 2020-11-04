@@ -49,10 +49,33 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "Target"}
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Owner",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 225,
+      DestVar = "finalDistance",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBGetPointByUnitFacingOffset,
     Params = {
-      UnitVar = "Target",
-      Distance = -100,
+      UnitVar = "Owner",
+      Distance = 0,
+      DistanceVar = "finalDistance",
       OffsetAngle = 0,
       PositionVar = "TargetPos"
     }
@@ -145,7 +168,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
