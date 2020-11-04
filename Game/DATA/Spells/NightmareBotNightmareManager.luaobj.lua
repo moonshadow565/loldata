@@ -89,5 +89,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nightmarebotminionpushbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotlanedragon"
+    }
   }
 }

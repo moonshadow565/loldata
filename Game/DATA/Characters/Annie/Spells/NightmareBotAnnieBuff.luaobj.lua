@@ -5,6 +5,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nightmarebotanniew"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "nightmarebotannieinfernalguardian"
     }
   },

@@ -64,5 +64,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "braum_base_p_poro_mustache.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "braumporomustachebuff"
+    }
   }
 }

@@ -73,6 +73,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "draven_skin03_q_reticlecatchsuccess.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "draven_base_q_catch_indicator.troy"
     }
   },
