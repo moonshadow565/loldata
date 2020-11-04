@@ -1802,9 +1802,19 @@ function L0_0(A0_498, A1_499)
 end
 BBConcatenateStrings = L0_0
 function L0_0(A0_504, A1_505)
-  BBGetMinionKills(A0_504, A1_505)
-  A0_504.MinionKillSource = GetParam("MinionKillTarget")
-  A0_504.MinionKills = A0_504.MinionsKilled + GetParam("MinionKills", A0_504, A1_505)
-  BBSetMinionKills(A0_504, A1_505)
+  local L2_506, L3_507
+  L2_506 = GetTable
+  L3_507 = A0_504
+  L2_506 = L2_506(L3_507, A1_505.VariableVarTable, false)
+  L3_507 = A1_505.VariableVar
+  L3_507 = L2_506[L3_507]
+  GetTable(A0_504, A1_505.ResultVarTable, false)[A1_505.ResultVar] = "(" .. L3_507 .. ")"
+end
+BBEncaseInParantheses = L0_0
+function L0_0(A0_508, A1_509)
+  BBGetMinionKills(A0_508, A1_509)
+  A0_508.MinionKillSource = GetParam("MinionKillTarget")
+  A0_508.MinionKills = A0_508.MinionsKilled + GetParam("MinionKills", A0_508, A1_509)
+  BBSetMinionKills(A0_508, A1_509)
 end
 BBIncreaseMinionKills = L0_0

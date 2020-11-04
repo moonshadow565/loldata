@@ -6,3 +6,9 @@ IsDamagingSpell = true
 BuffTextureName = "Skarner_R.dds"
 BuffName = "SkarnerImpale"
 PopupMessage1 = "game_floatingtext_Suppressed"
+SpellFXOverrideSkins = {
+  "SkarnerSkin03"
+}
+SpellVOOverrideSkins = {
+  "SkarnerSkin03"
+}

@@ -6,5 +6,8 @@ IsDamagingSpell = true
 BuffTextureName = "Skarner_Q.dds"
 BuffName = "SkarnerVirulentSlash"
 SpellFXOverrideSkins = {
-  "ReefMalphite"
+  "SkarnerSkin03"
+}
+SpellVOOverrideSkins = {
+  "SkarnerSkin03"
 }

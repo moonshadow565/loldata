@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = true

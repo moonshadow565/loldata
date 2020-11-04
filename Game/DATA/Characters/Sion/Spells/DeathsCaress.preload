@@ -1,5 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="deathscaress"}}, 
-{Function=BBPreloadParticle, Params={Name="deathscaress_nova.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="deathscaressfull"}}, 
-}
