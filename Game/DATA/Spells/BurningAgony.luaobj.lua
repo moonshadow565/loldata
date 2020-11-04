@@ -231,6 +231,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "DamageToDeal",
@@ -273,10 +274,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           DestVar = "HealthCost",
           SrcValueByLevel = {
             20,
-            27.5,
+            25,
+            30,
             35,
-            42.5,
-            50
+            40
           }
         }
       },
@@ -354,6 +355,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -407,11 +409,11 @@ CanCastBuildingBlocks = {
         Params = {
           DestVar = "HealthCost",
           SrcValueByLevel = {
-            15,
+            20,
             25,
+            30,
             35,
-            45,
-            55
+            40
           }
         }
       },

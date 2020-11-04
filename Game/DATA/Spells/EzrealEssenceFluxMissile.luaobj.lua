@@ -199,13 +199,14 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           DamageByLevel = {
-            75,
-            125,
-            175,
-            225,
-            275
+            80,
+            130,
+            180,
+            230,
+            280
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

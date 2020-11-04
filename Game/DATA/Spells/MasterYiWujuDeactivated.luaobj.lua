@@ -1,5 +1,5 @@
-AutoBuffActivateEffect = "YiGlowBlade.troy"
-AutoBuffActivateAttachBoneName = "weaponstreak"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {

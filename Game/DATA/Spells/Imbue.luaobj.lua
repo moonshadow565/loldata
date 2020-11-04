@@ -10,11 +10,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseHealAmount",
       SrcValueByLevel = {
-        100,
-        145,
-        190,
-        235,
-        280
+        80,
+        120,
+        160,
+        200,
+        240
       }
     }
   },
@@ -30,7 +30,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AP",
-      Src1Value = 0.9,
+      Src1Value = 1.1,
       Src2Value = 0,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY

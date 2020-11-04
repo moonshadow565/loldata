@@ -71,6 +71,67 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnTakeDamageBuildingBlocks = {
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "targetHealth",
+      OwnerVar = "Owner",
+      Function = GetHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "targetHealth",
+      Value2 = 0,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "VladimirSanguinePool"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "VladimirSanguinePool"
+            }
+          }
+        }
+      },
+      {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Caster",
+          TargetVar = "Owner",
+          PosVar = "Owner",
+          EndPosVar = "Owner",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 1,
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -137,53 +198,17 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
-BuffOnTakeDamageBuildingBlocks = {
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "targetHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "targetHealth",
-      Value2 = 0,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Caster",
-          TargetVar = "Owner",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          OverrideCastPosition = false,
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 1,
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
-        }
-      }
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisercotgdot"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirsanguinepool"
     }
   }
 }

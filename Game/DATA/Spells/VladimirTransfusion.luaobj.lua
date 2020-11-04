@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = ""
@@ -82,46 +83,126 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBIfHasBuff,
     Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        70,
-        115,
-        160,
-        205,
-        250
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.6,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      OwnerVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "SpellShield"
+    },
+    SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      }
     }
   },
   {
-    Function = BBSpellCast,
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Target",
+          AttackerVar = "Target",
+          BuffName = "BansheesVeil"
+        },
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Target",
+              AttackerVar = "Nothing",
+              BuffName = "BlackShield"
+            },
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  DamageByLevel = {
+                    70,
+                    115,
+                    160,
+                    205,
+                    250
+                  },
+                  Damage = 0,
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0.6,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellCast,
+                Params = {
+                  CasterVar = "Attacker",
+                  TargetVar = "Owner",
+                  PosVar = "Attacker",
+                  EndPosVar = "Owner",
+                  OverrideCastPosition = true,
+                  OverrideCastPosVar = "TargetPos",
+                  SlotNumber = 1,
+                  SlotType = ExtraSlots,
+                  OverrideForceLevel = 0,
+                  OverrideForceLevelVar = "Level",
+                  OverrideCoolDownCheck = true,
+                  FireWithoutCasting = true,
+                  UseAutoAttackSpell = false,
+                  ForceCastingOrChannelling = false,
+                  UpdateAutoAttackTimer = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
     Params = {
-      CasterVar = "Attacker",
-      TargetVar = "Owner",
-      PosVar = "Attacker",
-      EndPosVar = "Owner",
-      OverrideCastPosition = true,
-      OverrideCastPosVar = "TargetPos",
-      SlotNumber = 1,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 0,
-      OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      Name = "spellshield"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bansheesveil"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "blackshield"
     }
   }
 }
