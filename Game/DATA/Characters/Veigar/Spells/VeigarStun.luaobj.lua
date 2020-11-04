@@ -7,5 +7,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "loc_stun.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "veigar_skin08_e_glitch_buf.troy"
+    }
   }
 }

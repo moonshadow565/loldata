@@ -14,7 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "veigar_base_w_cas.troy"
+      Name = "veigar_base_w_cas_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "veigar_base_w_cas_red.troy"
     }
   },
   {
@@ -27,6 +33,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "veigar_base_w_aoe_explosion.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "veigar_base_w_aoe_explosionred.troy"
     }
   },
   {
