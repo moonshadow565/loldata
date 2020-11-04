@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntTriggerSpellCasts = false
+BuffTextureName = "Averdrian_AstralBeam.dds"
+BuffName = "WrathoftheAncients"
+AutoBuffActivateEffect = "MouthFoam.troy"
+AutoBuffActivateAttachBoneName = "R_jaw"
+AutoBuffActivateEffect2 = "MouthFoam.troy"
+AutoBuffActivateAttachBoneName2 = "L_jaw"
+SpellDamageRatio = 0.35

@@ -1,0 +1,6 @@
+BuffTextureName = "3057_Sheen.dds"
+BuffName = "Sheen"
+AutoBuffActivateEffect = "enrage_buf.troy"
+AutoBuffActivateAttachBoneName = "l_hand"
+AutoBuffActivateEffect2 = "enrage_buf.troy"
+AutoBuffActivateAttachBoneName2 = "r_hand"
