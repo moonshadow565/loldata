@@ -56,6 +56,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "tt_vo_l_thresh.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "tt_vo_l_generic1.troy"
     }
   },
@@ -117,6 +123,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tt_vo_r_yorick.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tt_vo_r_thresh.troy"
     }
   },
   {
