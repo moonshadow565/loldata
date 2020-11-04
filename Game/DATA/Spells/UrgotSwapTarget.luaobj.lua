@@ -14,6 +14,26 @@ AutoCooldownByLevel = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -31,6 +51,26 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {

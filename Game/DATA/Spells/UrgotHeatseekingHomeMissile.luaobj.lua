@@ -7,6 +7,10 @@ SpellDamageRatio = 0.5
 TriggersSpellCasts = false
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -42,11 +46,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "scaling",
       SrcValueByLevel = {
-        0.6,
-        0.6,
-        0.6,
-        0.6,
-        0.6
+        0.7,
+        0.7,
+        0.7,
+        0.7,
+        0.7
       }
     }
   },
@@ -112,10 +116,10 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             -0.2,
-            -0.22,
-            -0.24,
-            -0.26,
-            -0.28
+            -0.25,
+            -0.3,
+            -0.35,
+            -0.4
           }
         }
       },
@@ -156,6 +160,23 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "UrgotHeatSeekingMissile_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBDestroyMissile,
     Params = {
       MissileIDVar = "MissileNetworkID"
@@ -177,6 +198,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "urgotentropypassive"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "urgotheatseekingmissile_tar.troy"
     }
   }
 }

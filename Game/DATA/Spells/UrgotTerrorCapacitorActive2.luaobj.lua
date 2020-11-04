@@ -36,14 +36,27 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      Src2Var = "DmgPercentInc",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 100,
-      Src2Value = 0,
-      DestVar = "DmgPercentInc",
-      MathOp = MO_MULTIPLY
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "SlowPercent",
+      SrcValueByLevel = {
+        20,
+        25,
+        30,
+        35,
+        40
+      }
     }
   },
   {
@@ -59,7 +72,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetBuffToolTipVar,
     Params = {
       Value = 0,
-      ValueVar = "DmgPercentInc",
+      ValueVar = "SlowPercent",
       Index = 2
     }
   }

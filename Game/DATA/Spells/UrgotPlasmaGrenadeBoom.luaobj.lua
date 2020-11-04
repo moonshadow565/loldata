@@ -23,11 +23,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "buffDuration",
       SrcValueByLevel = {
-        4,
-        4,
-        4,
-        4,
-        4
+        5,
+        5,
+        5,
+        5,
+        5
       }
     }
   },
@@ -63,11 +63,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "dmg",
       SrcValueByLevel = {
-        80,
-        130,
-        180,
-        230,
-        280
+        100,
+        155,
+        210,
+        265,
+        320
       }
     }
   },
@@ -109,18 +109,8 @@ TargetExecuteBuildingBlocks = {
       Src2Var = "remainder",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "time",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "time",
-      Src1Value = 0,
-      Src2Value = 0.5,
       DestVar = "ticks",
-      MathOp = MO_DIVIDE
+      MathOp = MO_SUBTRACT
     }
   },
   {

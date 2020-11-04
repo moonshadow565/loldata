@@ -12,6 +12,20 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "BaseDamageAmount",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "BonusDamage",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -286,13 +300,27 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "FinalDamage",
+      Src1Var = "BaseDamageAmount",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
       Src2Value = 2.5,
-      DestVar = "FinalDamage",
+      DestVar = "BaseDamageAmount",
       DestVarTable = "InstanceVars",
       MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BaseDamageAmount",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "BonusDamage",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "FinalDamage",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
     }
   },
   {
@@ -392,7 +420,7 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "ADRatio", SrcValue = 0.5}
+    Params = {DestVar = "ADRatio", SrcValue = 0.6}
   },
   {
     Function = BBGetStat,
@@ -464,6 +492,26 @@ SelfExecuteBuildingBlocks = {
         120,
         160
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseDamageAmount",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        80,
+        120,
+        160
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BonusDamage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "BonusDamage"
     }
   },
   {

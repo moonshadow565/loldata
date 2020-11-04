@@ -25,15 +25,14 @@ BuffOnAllowAddBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSay,
+            Function = BBMath,
             Params = {
-              OwnerVar = "Owner",
-              ToSay = "game_lua_Highlander"
+              Src1Var = "Duration",
+              Src1Value = 0,
+              Src2Value = 0.5,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
             }
-          },
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
           }
         }
       }

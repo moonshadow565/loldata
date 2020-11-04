@@ -109,7 +109,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ArtilleryADRatio",
-      SrcValue = 0.5
+      SrcValue = 0.6
     }
   },
   {
