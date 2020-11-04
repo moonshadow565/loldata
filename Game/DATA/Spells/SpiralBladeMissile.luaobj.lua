@@ -1,6 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+CastingBreaksStealth = true
 SpellDamageRatio = 0.5
 TargetExecuteBuildingBlocks = {
   {

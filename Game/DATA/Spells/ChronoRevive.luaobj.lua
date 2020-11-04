@@ -435,6 +435,15 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      SrcValue = 0
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

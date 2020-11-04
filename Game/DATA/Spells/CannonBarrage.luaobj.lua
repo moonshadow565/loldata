@@ -329,15 +329,13 @@ BuffOnUpdateStatsBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "CannonPosition",
           EndPosVar = "CannonPosition",
-          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          UseAutoAttackSpell = false
         }
       }
     }
