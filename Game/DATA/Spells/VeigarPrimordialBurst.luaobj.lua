@@ -10,4 +10,7 @@ AutoCooldownByLevel = {
   10,
   8
 }
+SpellFXOverrideSkins = {
+  "BadSantaVeigar"
+}
 SetSpellDamageRatio = 1

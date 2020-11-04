@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "syndrawspellslotsafeguard"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "syndrawtooltip"
     }
   },

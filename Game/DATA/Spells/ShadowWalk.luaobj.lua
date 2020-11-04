@@ -29,6 +29,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "shadowwalkrevealedwarning"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "evelynnstealth"
     }
   }

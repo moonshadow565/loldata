@@ -24,6 +24,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "katarina_shadowstep_cyber_return.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "katarina_shadowstep_xmas_return.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "katarina_shadowstep_return.troy"
     }
   },

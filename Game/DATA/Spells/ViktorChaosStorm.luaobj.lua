@@ -13,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "infernalguardian"
+      Name = "viktorchaosstorm"
     }
   },
   {

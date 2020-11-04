@@ -5,7 +5,8 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "CandyCaneFiddlesticks"
 }
 PreLoadBuildingBlocks = {
   {

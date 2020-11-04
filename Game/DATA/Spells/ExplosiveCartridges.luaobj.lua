@@ -10,7 +10,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tiamatmelee_itm.troy"
+      Name = "heimer_cleave.troy"
     }
   }
 }

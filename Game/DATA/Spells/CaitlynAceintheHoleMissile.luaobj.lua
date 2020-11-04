@@ -5,6 +5,12 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "caitlynteamwork"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "caitlyn_ace_tar.troy"
@@ -13,13 +19,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "caitlynaceinthehole"
+      Name = "viblocksound"
     }
   }
 }

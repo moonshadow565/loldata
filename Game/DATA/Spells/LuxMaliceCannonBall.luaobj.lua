@@ -1,5 +1,6 @@
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

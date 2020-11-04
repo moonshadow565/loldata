@@ -8,7 +8,8 @@ BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
 BuffName = "Drain"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "CandyCaneFiddlesticks"
 }
 PreLoadBuildingBlocks = {
   {

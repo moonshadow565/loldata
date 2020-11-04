@@ -8,7 +8,8 @@ BuffName = "Silence"
 AutoBuffActivateEffect = "Global_Silence.troy"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "CandyCaneFiddlesticks"
 }
 PreLoadBuildingBlocks = {
   {

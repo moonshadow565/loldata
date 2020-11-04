@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "alzaharsummonvoidling"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "alzaharvoidlingcount"
     }
   }

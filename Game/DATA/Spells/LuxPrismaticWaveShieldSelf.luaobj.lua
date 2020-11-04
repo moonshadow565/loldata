@@ -6,8 +6,10 @@ IsDamagingSpell = false
 BuffTextureName = "LuxPrismaWrap.dds"
 BuffName = "LuxShield"
 AutoBuffActivateEffect = "LuxPrismaticWave_shieldself.troy"
-AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}
 DoOnPreDamageInExpirationOrder = true
 PreLoadBuildingBlocks = {
   {

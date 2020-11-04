@@ -2,8 +2,10 @@ NotSingleTargetSpell = true
 BuffTextureName = "LuxCrashingBlitz2.dds"
 BuffName = "LuxLightBindingMis"
 AutoBuffActivateEffect = "LuxLightBinding_tar.troy"
-AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Snared"
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

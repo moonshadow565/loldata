@@ -1,0 +1,4 @@
+SpellFXOverrideSkins = {
+  "CandyCaneFiddlesticks"
+}
+SpellVOOverrideSkins = {"BroOlaf"}

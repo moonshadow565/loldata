@@ -1,1 +1,4 @@
 DoesntTriggerSpellCasts = true
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}

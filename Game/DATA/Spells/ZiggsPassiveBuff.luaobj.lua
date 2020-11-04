@@ -6,3 +6,6 @@ IsDamagingSpell = true
 BuffTextureName = "ZiggsPassiveReady.dds"
 BuffName = "ZiggsPassiveBuff"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "ZiggsSnowday"
+}

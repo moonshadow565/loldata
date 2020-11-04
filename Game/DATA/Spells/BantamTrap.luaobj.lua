@@ -52,6 +52,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "slow"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "noxious trap"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "teemomushroom"
