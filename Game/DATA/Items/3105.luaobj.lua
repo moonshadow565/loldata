@@ -44,7 +44,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 1200,
-              Flags = "AffectFriends AffectHeroes ",
+              Flags = "AffectFriends AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
               InclusiveBuffFilter = true
             },
@@ -113,7 +113,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 1200,
-              Flags = "AffectFriends AffectHeroes ",
+              Flags = "AffectFriends AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
               InclusiveBuffFilter = true
             },

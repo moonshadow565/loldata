@@ -42,30 +42,34 @@ BuffOnPreDamageBuildingBlocks = {
             }
           },
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "AttackSpeedBoost",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "AttackSpeedBoost"
-            }
-          },
-          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "VoidStoneAttackSpeedBoost",
-              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 5,
+              Duration = 4,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedBoost",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
     }
   }
 }

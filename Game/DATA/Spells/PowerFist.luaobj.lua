@@ -126,6 +126,10 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
@@ -148,14 +152,16 @@ BuffOnHitUnitBuildingBlocks = {
               BindObjectVar = "Target",
               EffectName = "Powerfist_tar.troy",
               Flags = 0,
+              EffectIDVar = "asf",
               BoneName = "head",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           }
         }

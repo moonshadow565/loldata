@@ -47,6 +47,17 @@ BuffOnUpdateStatsBuildingBlocks = {
         }
       },
       {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Attacker",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "HealthPerStack",

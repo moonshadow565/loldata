@@ -105,6 +105,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -114,6 +115,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -179,6 +181,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -188,6 +191,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -393,6 +397,10 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Owner",
@@ -439,8 +447,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   }
                 }
@@ -477,8 +486,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   }
                 }
@@ -521,8 +531,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   }
                 }
@@ -559,8 +570,9 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   }
                 }
@@ -656,7 +668,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

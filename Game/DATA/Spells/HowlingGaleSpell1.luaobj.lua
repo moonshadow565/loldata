@@ -5,6 +5,29 @@ BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 AutoBuffActivateEffect = "DarkBinding_tar.troy"
 AutoBuffActivateEffect2 = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Speed",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Gravity",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "IdealDistance",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
 BuffOnSpellHitBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
@@ -44,6 +67,15 @@ BuffOnSpellHitBuildingBlocks = {
       DestVar = "Gravity",
       DestVarTable = "NextBuffVars",
       SrcVar = "Gravity",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "IdealDistance",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "IdealDistance",
       SrcVarTable = "InstanceVars"
     }
   },
@@ -283,22 +315,6 @@ BuffOnSpellHitBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Speed",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Gravity",
-      RequiredVarTable = "InstanceVars"
     }
   }
 }

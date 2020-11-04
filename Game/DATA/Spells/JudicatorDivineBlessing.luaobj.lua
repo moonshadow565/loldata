@@ -33,11 +33,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.1,
         0.12,
         0.14,
         0.16,
-        0.18,
-        0.2
+        0.18
       }
     }
   },

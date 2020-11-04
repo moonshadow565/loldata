@@ -127,6 +127,7 @@ ChannelingStartBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageToDeal",
@@ -233,6 +234,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -279,6 +281,14 @@ ChannelingSuccessStopBuildingBlocks = {
   }
 }
 ChannelingCancelStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Stun"
+    }
+  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -337,5 +347,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "alzaharnethergrasp"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stun"}
   }
 }

@@ -30,6 +30,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "IdealDistance",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Position",
@@ -51,7 +58,8 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0
+      IdealDistance = 0,
+      IdealDistanceVar = "IdealDistance"
     }
   },
   {

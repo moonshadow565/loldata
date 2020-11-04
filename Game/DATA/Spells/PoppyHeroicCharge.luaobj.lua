@@ -19,6 +19,10 @@ ChainMissileParameters = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "TargetPos",
@@ -89,8 +93,9 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -346,6 +351,10 @@ TargetExecuteBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -404,6 +413,7 @@ BuffOnMoveEndBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Caster",
               Damage = 0,
               DamageVar = "DamageTwo",
@@ -464,8 +474,9 @@ BuffOnMoveEndBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -499,6 +510,7 @@ BuffOnMoveEndBuildingBlocks = {
                         Function = BBApplyDamage,
                         Params = {
                           AttackerVar = "Owner",
+                          CallForHelpAttackerVar = "Attacker",
                           TargetVar = "Unit",
                           Damage = 0,
                           DamageVar = "Damage",

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "3069_Sword_of_Light_and_Shadow.dds"
@@ -21,6 +21,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 4,
           DamageType = MAGIC_DAMAGE,

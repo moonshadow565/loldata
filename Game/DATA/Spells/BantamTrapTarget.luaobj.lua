@@ -10,13 +10,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "MoveSpeedMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",

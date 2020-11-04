@@ -4,6 +4,10 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DoOnce",
@@ -50,7 +54,8 @@ OnBuffActivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 12,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -93,8 +98,9 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -162,7 +168,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
         }
       },

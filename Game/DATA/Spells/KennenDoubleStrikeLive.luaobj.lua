@@ -1,8 +1,12 @@
 BuffTextureName = "Kennen_ElectricalSurge.dds"
 BuffName = "KennenDoubleStrikeLive"
-AutoBuffActivateEffect = "kennen_ds_proc.troy"
-AutoBuffActivateAttachBoneName = "BUFFBONE__HAND_R"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -23,6 +27,42 @@ OnBuffActivateBuildingBlocks = {
       AutoAttackSpellLevel = 0,
       AutoAttackSpellLevelVar = "Level",
       CancelAttack = true
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "kennen_ds_proc.troy",
+      Flags = 0,
+      EffectIDVar = "asdf1",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE__HAND_R",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "asdf1",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kennen_ds_proc.troy"
     }
   }
 }

@@ -88,7 +88,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 430,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -127,6 +128,14 @@ TargetExecuteBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "Distance",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 900
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "IdealDistance",
           DestVarTable = "NextBuffVars",
           SrcValue = 900
         }
@@ -208,12 +217,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "MoveAwayCollision",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -223,6 +234,7 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "GragasExplosiveCaskDebuff",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -233,7 +245,8 @@ TargetExecuteBuildingBlocks = {
             4,
             5
           },
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

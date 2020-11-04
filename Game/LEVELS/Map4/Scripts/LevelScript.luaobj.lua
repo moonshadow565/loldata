@@ -141,14 +141,12 @@ L0_0 = 1250
 EXP_GIVEN_RADIUS = L0_0
 L0_0 = 300
 DISABLE_MINION_SPAWN_BASE_TIME = L0_0
-L0_0 = 90
+L0_0 = 0
 DISABLE_MINION_SPAWN_MAG_TIME = L0_0
 L0_0 = -1
 LAST_WAVE = L0_0
 L0_0 = "none"
 SPECIAL_MINION_MODE = L0_0
-L0_0 = false
-HQTurretAttackable = L0_0
 L0_0 = {}
 L0_0.MeleeMinionName = "Blue_Minion_Basic"
 L0_0.ArcherMinionName = "Blue_Minion_Wizard"
@@ -1719,287 +1717,74 @@ ApplyBarracksDestructionBonuses = L0_0
 L0_0 = 0
 ReductionCounter = L0_0
 function L0_0(A0_54, A1_55)
-  local L2_56, L3_57, L4_58, L5_59, L6_60, L7_61, L8_62
+  local L2_56, L3_57, L4_58, L5_59, L6_60, L7_61, L8_62, L9_63, L10_64
   ReductionCounter = L2_56
   for L5_59 = 1, 3 do
-    L6_60 = TEAM_ORDER
     if A0_54 == L6_60 then
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeHPBonus
-      L8_62 = MELEE_HEALTH_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.MeleeHPBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeDamageBonus
-      L8_62 = MELEE_DAMAGE_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.MeleeDamageBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.ArcherHPBonus
-      L8_62 = ARCHER_HEALTH_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.ArcherHPBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.ArcherDamageBonus
-      L8_62 = ARCHER_DAMAGE_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.ArcherDamageBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.CasterHPBonus
-      L8_62 = CASTER_HEALTH_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.CasterHPBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.CasterDamageBonus
-      L8_62 = CASTER_DAMAGE_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.CasterDamageBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.SuperHPBonus
-      L8_62 = SUPER_HEALTH_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.SuperHPBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.SuperDamageBonus
-      L8_62 = SUPER_DAMAGE_INHIBITOR
-      L7_61 = L7_61 - L8_62
       L6_60.SuperDamageBonus = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeExpGiven
-      L8_62 = MELEE_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.MeleeExpGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeGoldGiven
-      L8_62 = MELEE_GOLD_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.MeleeGoldGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.ArcherExpGiven
-      L8_62 = ARCHER_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.ArcherExpGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeGoldGiven
-      L8_62 = ARCHER_GOLD_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.ArcherGoldGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.CasterExpGiven
-      L8_62 = CASTER_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.CasterExpGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeGoldGiven
-      L8_62 = CASTER_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.CasterGoldGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.SuperExpGiven
-      L8_62 = SUPER_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.SuperExpGiven = L7_61
-      L6_60 = OrderBarracksBonuses
-      L6_60 = L6_60[L5_59]
-      L7_61 = OrderBarracksBonuses
-      L7_61 = L7_61[L5_59]
-      L7_61 = L7_61.MeleeGoldGiven
-      L8_62 = SUPER_EXP_INHIBITOR
-      L7_61 = L7_61 + L8_62
       L6_60.SuperGoldGiven = L7_61
-      L6_60 = A1_55 + 1
       if L5_59 == L6_60 then
-        L6_60 = OrderBarracksBonuses
-        L6_60 = L6_60[L5_59]
         L6_60.WillSpawnSuperMinion = 0
-        L6_60 = NumberOfOrderSuperMinions
-        L6_60 = L6_60 - 1
         NumberOfOrderSuperMinions = L6_60
       end
-    else
-      L6_60 = TEAM_CHAOS
-      if A0_54 == L6_60 then
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeHPBonus
-        L8_62 = MELEE_HEALTH_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.MeleeHPBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeDamageBonus
-        L8_62 = MELEE_DAMAGE_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.MeleeDamageBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.ArcherHPBonus
-        L8_62 = ARCHER_HEALTH_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.ArcherHPBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.ArcherDamageBonus
-        L8_62 = ARCHER_DAMAGE_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.ArcherDamageBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.CasterHPBonus
-        L8_62 = CASTER_HEALTH_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.CasterHPBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.CasterDamageBonus
-        L8_62 = CASTER_DAMAGE_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.CasterDamageBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.SuperHPBonus
-        L8_62 = SUPER_HEALTH_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.SuperHPBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.SuperDamageBonus
-        L8_62 = SUPER_DAMAGE_INHIBITOR
-        L7_61 = L7_61 - L8_62
-        L6_60.SuperDamageBonus = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeExpGiven
-        L8_62 = MELEE_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.MeleeExpGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeGoldGiven
-        L8_62 = MELEE_GOLD_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.MeleeGoldGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.ArcherExpGiven
-        L8_62 = ARCHER_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.ArcherExpGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeGoldGiven
-        L8_62 = ARCHER_GOLD_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.ArcherGoldGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.CasterExpGiven
-        L8_62 = CASTER_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.CasterExpGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeGoldGiven
-        L8_62 = CASTER_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.CasterGoldGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.SuperExpGiven
-        L8_62 = SUPER_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.SuperExpGiven = L7_61
-        L6_60 = ChaosBarracksBonuses
-        L6_60 = L6_60[L5_59]
-        L7_61 = ChaosBarracksBonuses
-        L7_61 = L7_61[L5_59]
-        L7_61 = L7_61.MeleeGoldGiven
-        L8_62 = SUPER_EXP_INHIBITOR
-        L7_61 = L7_61 + L8_62
-        L6_60.SuperGoldGiven = L7_61
-        L6_60 = A1_55 + 1
-        if L5_59 == L6_60 then
-          L6_60 = ChaosBarracksBonuses
-          L6_60 = L6_60[L5_59]
-          L6_60.WillSpawnSuperMinion = 0
-          L6_60 = NumberOfChaosSuperMinions
-          L6_60 = L6_60 - 1
-          NumberOfChaosSuperMinions = L6_60
+      if L6_60 == 0 then
+        HQ = L6_60
+        L6_60(L7_61, L8_62)
+        L6_60(L7_61, L8_62)
+        for L9_63 = RIGHT_LANE, LEFT_LANE do
+          L10_64 = GetTurret
+          L10_64 = L10_64(TEAM_CHAOS, L9_63, HQ_TOWER2)
+          if L10_64 ~= Nil then
+            SetInvulnerable(L10_64, true)
+            SetTargetable(L10_64, false)
+          end
+        end
+      end
+    elseif A0_54 == L6_60 then
+      L6_60.MeleeHPBonus = L7_61
+      L6_60.MeleeDamageBonus = L7_61
+      L6_60.ArcherHPBonus = L7_61
+      L6_60.ArcherDamageBonus = L7_61
+      L6_60.CasterHPBonus = L7_61
+      L6_60.CasterDamageBonus = L7_61
+      L6_60.SuperHPBonus = L7_61
+      L6_60.SuperDamageBonus = L7_61
+      L6_60.MeleeExpGiven = L7_61
+      L6_60.MeleeGoldGiven = L7_61
+      L6_60.ArcherExpGiven = L7_61
+      L6_60.ArcherGoldGiven = L7_61
+      L6_60.CasterExpGiven = L7_61
+      L6_60.CasterGoldGiven = L7_61
+      L6_60.SuperExpGiven = L7_61
+      L6_60.SuperGoldGiven = L7_61
+      if L5_59 == L6_60 then
+        L6_60.WillSpawnSuperMinion = 0
+        NumberOfChaosSuperMinions = L6_60
+      end
+      if L6_60 == 0 then
+        HQ = L6_60
+        L6_60(L7_61, L8_62)
+        L6_60(L7_61, L8_62)
+        L9_63 = HQ_TOWER2
+        if L6_60 ~= L7_61 then
+          L9_63 = true
+          L7_61(L8_62, L9_63)
+          L9_63 = false
+          L7_61(L8_62, L9_63)
         end
       end
     end
@@ -2008,76 +1793,146 @@ end
 ApplyBarracksRespawnReductions = L0_0
 L0_0 = 0
 ReactiveCounter = L0_0
-function L0_0(A0_63, A1_64)
-  local L2_65
+function L0_0(A0_65, A1_66)
+  local L2_67
   ReactiveCounter = ReactiveCounter + 1
-  L2_65 = OppositeTeam(A0_63)
-  dampener = GetDampener(A0_63, A1_64)
+  L2_67 = OppositeTeam(A0_65)
+  dampener = GetDampener(A0_65, A1_66)
   SetInvulnerable(dampener, false)
   SetTargetable(dampener, true)
-  ApplyBarracksRespawnReductions(L2_65, A1_64)
+  ApplyBarracksRespawnReductions(L2_67, A1_66)
 end
 BarrackReactiveEvent = L0_0
 L0_0 = 0
 DisactivatedCounter = L0_0
-function L0_0(A0_66)
-  local L1_67, L2_68, L3_69, L4_70, L5_71
-  HQType = L1_67
-  if L1_67 ~= L2_68 then
-  elseif L1_67 == L2_68 then
-    if L1_67 == L2_68 then
-      L1_67(L2_68, L3_69)
+function L0_0(A0_68)
+  local L1_69, L2_70, L3_71
+  L1_69 = GetHQType
+  L2_70 = A0_68
+  L1_69 = L1_69(L2_70)
+  HQType = L1_69
+  L1_69 = HQType
+  L2_70 = ORDER_HQ
+  if L1_69 ~= L2_70 then
+    L1_69 = HQType
+    L2_70 = CHAOS_HQ
+  elseif L1_69 == L2_70 then
+    L1_69 = HQType
+    L2_70 = CHAOS_HQ
+    if L1_69 == L2_70 then
+      L1_69 = EndOfGameCeremony
+      L2_70 = TEAM_ORDER
+      L3_71 = A0_68
+      L1_69(L2_70, L3_71)
     else
-      L1_67(L2_68, L3_69)
+      L1_69 = EndOfGameCeremony
+      L2_70 = TEAM_CHAOS
+      L3_71 = A0_68
+      L1_69(L2_70, L3_71)
     end
     return
   end
-  if L1_67 then
-    barrack = L1_67
-    barrackTeam = L1_67
-    barrackLane = L1_67
-    L1_67(L2_68, L3_69)
-    L1_67(L2_68, L3_69)
-    L1_67(L2_68, L3_69)
-    L1_67(L2_68, L3_69)
-    DisactivatedCounter = L1_67
-    for L4_70 = RIGHT_LANE, LEFT_LANE do
-      L5_71 = GetTurret
-      L5_71 = L5_71(barrackTeam, L4_70, HQ_TOWER2)
-      if L5_71 ~= Nil then
-        SetInvulnerable(L5_71, false)
-        SetTargetable(L5_71, true)
-      else
-      end
-    end
-    HQTurretAttackable = L1_67
-    if L2_68 == L3_69 then
+  L1_69 = IsDampener
+  L2_70 = A0_68
+  L1_69 = L1_69(L2_70)
+  if L1_69 then
+    L1_69 = GetLinkedBarrack
+    L2_70 = A0_68
+    L1_69 = L1_69(L2_70)
+    barrack = L1_69
+    L1_69 = GetTeamID
+    L2_70 = barrack
+    L1_69 = L1_69(L2_70)
+    barrackTeam = L1_69
+    L1_69 = GetLane
+    L2_70 = A0_68
+    L1_69 = L1_69(L2_70)
+    barrackLane = L1_69
+    L1_69 = DisableBarracksSpawn
+    L2_70 = barrackLane
+    L3_71 = barrackTeam
+    L1_69(L2_70, L3_71)
+    L1_69 = SetDampenerState
+    L2_70 = A0_68
+    L3_71 = DampenerRegenerationState
+    L1_69(L2_70, L3_71)
+    L1_69 = SetInvulnerable
+    L2_70 = A0_68
+    L3_71 = true
+    L1_69(L2_70, L3_71)
+    L1_69 = SetTargetable
+    L2_70 = A0_68
+    L3_71 = false
+    L1_69(L2_70, L3_71)
+    L1_69 = DisactivatedCounter
+    L1_69 = L1_69 + 1
+    DisactivatedCounter = L1_69
+    L1_69 = GetTurret
+    L2_70 = barrackTeam
+    L3_71 = 0
+    L1_69 = L1_69(L2_70, L3_71, 4)
+    L2_70 = Nil
+    if L1_69 ~= L2_70 then
+      L2_70 = SetInvulnerable
+      L3_71 = L1_69
+      L2_70(L3_71, false)
+      L2_70 = SetTargetable
+      L3_71 = L1_69
+      L2_70(L3_71, true)
     else
+      L2_70 = GetHQ
+      L3_71 = barrackTeam
+      L2_70 = L2_70(L3_71)
+      L3_71 = SetInvulnerable
+      L3_71(L2_70, false)
+      L3_71 = SetTargetable
+      L3_71(L2_70, true)
     end
-    L4_70 = barrackLane
-    L2_68(L3_69, L4_70)
+    L2_70 = nil
+    L3_71 = barrackTeam
+    if L3_71 == TEAM_CHAOS then
+      L2_70 = TEAM_ORDER
+    else
+      L2_70 = TEAM_CHAOS
+    end
+    L3_71 = ApplyBarracksDestructionBonuses
+    L3_71(L2_70, barrackLane)
   end
-  if L1_67 then
-    L4_70 = A0_66
-    L4_70 = DeactivateCorrectStructure
-    L5_71 = L1_67
-    L4_70(L5_71, L2_68, L3_69)
+  L1_69 = IsTurretAI
+  L2_70 = A0_68
+  L1_69 = L1_69(L2_70)
+  if L1_69 then
+    L1_69 = GetTeamID
+    L2_70 = A0_68
+    L1_69 = L1_69(L2_70)
+    L2_70 = GetObjectLaneId
+    L3_71 = A0_68
+    L2_70 = L2_70(L3_71)
+    L3_71 = GetTurretPosition
+    L3_71 = L3_71(A0_68)
+    DeactivateCorrectStructure(L1_69, L2_70, L3_71)
     return
   end
-  if L1_67 > -1 then
-    L4_70 = TEAM_CHAOS
-    L5_71 = TEAM_CHAOS
-    L5_71 = L1_67 % L5_71
-    if L5_71 >= RIGHT_LANE and L5_71 <= LEFT_LANE then
-      ChaosBuildingStatus[L5_71 + 1].Barracks = false
+  L1_69 = GetDampenerType
+  L2_70 = A0_68
+  L1_69 = L1_69(L2_70)
+  if L1_69 > -1 then
+    L2_70 = 0
+    L3_71 = TEAM_ORDER
+    if L1_69 % TEAM_CHAOS >= RIGHT_LANE and L1_69 % TEAM_CHAOS <= LEFT_LANE then
+      L2_70 = ChaosBarracksBonuses[L1_69 % TEAM_CHAOS + 1]
+      ChaosBuildingStatus[L1_69 % TEAM_CHAOS + 1].Barracks = false
     else
-      L5_71 = L5_71 - TEAM_ORDER
-      L4_70 = TEAM_ORDER
-      OrderBuildingStatus[L5_71 + 1].Barracks = false
+      L3_71 = TEAM_CHAOS
+      L2_70 = OrderBarracksBonuses[L1_69 % TEAM_CHAOS - TEAM_ORDER + 1]
+      OrderBuildingStatus[L1_69 % TEAM_CHAOS - TEAM_ORDER + 1].Barracks = false
     end
   else
-    L2_68(L3_69)
+    L2_70 = Log
+    L3_71 = "Could not find Linking barracks!"
+    L2_70(L3_71)
   end
-  return L2_68
+  L2_70 = true
+  return L2_70
 end
 HandleDestroyedObject = L0_0

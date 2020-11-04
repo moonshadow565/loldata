@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Shen_StandUnited.dds"
 BuffName = "Shen Stand United Shield"
-AutoBuffActivateEffect = "Shen_StandUnited_shield_v2.troy"
+AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = "DeathsCaress_buf.prt"
 OnBuffActivateBuildingBlocks = {
   {
@@ -27,6 +27,28 @@ OnBuffActivateBuildingBlocks = {
       Duration = 10,
       TargetVar = "Owner",
       SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Shen_StandUnited_shield_v2.troy",
+      Flags = 0,
+      EffectIDVar = "Shieldz",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -99,6 +121,23 @@ BuffOnPreDamageBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Shieldz",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shen_standunited_shield_v2.troy"
     }
   }
 }

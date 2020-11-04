@@ -146,6 +146,10 @@ BuffOnBeingHitBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBGetTeamID,
+                    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+                  },
+                  {
                     Function = BBSetVarInTable,
                     Params = {
                       DestVar = "DoOnce",
@@ -192,7 +196,8 @@ BuffOnBeingHitBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true
                     }
                   },

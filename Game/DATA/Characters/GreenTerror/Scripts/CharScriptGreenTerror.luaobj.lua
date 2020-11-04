@@ -274,25 +274,6 @@ CharOnActivateBuildingBlocks = {
     }
   }
 }
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
-    }
-  }
-}
 CharOnLevelUpSpellBuildingBlocks = {
   {
     Function = BBIf,
@@ -338,6 +319,126 @@ CharOnLevelUpSpellBuildingBlocks = {
               CanMitigateDuration = false
             }
           }
+        }
+      }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
+    }
+  }
+}
+CharOnHitUnitBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VorpalSpikes"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 550,
+          OffsetAngle = 0,
+          PositionVar = "castPosition"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Target",
+          PosVar = "castPosition",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
+    }
+  }
+}
+CharOnMissBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VorpalSpikes"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 550,
+          OffsetAngle = 0,
+          PositionVar = "castPosition"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Target",
+          PosVar = "castPosition",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }

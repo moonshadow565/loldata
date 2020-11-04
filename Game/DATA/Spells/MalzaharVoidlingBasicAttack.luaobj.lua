@@ -9,7 +9,7 @@ TargetExecuteBuildingBlocks = {
       Skin = "Malzahar",
       Team = TEAM_UNKNOWN,
       TeamVar = "teamID",
-      DestVar = "Attacker"
+      DestVar = "Other1"
     }
   },
   {
@@ -19,7 +19,8 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBApplyDamage,
     Params = {
-      AttackerVar = "Attacker",
+      AttackerVar = "Other1",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "Dmg",
@@ -36,6 +37,6 @@ TargetExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "Malzahar"}
+    Params = {Name = "malzahar"}
   }
 }

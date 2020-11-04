@@ -49,6 +49,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -97,8 +98,8 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSpawnMinion,
     Params = {
-      Name = "SightWard",
-      Skin = "SightWard",
+      Name = "VisionWard",
+      Skin = "VisionWard",
       AiScript = "idle.lua",
       PosVar = "TargetPos",
       Team = TEAM_UNKNOWN,
@@ -109,6 +110,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = false,
       IgnoreCollision = false,
+      Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -120,22 +122,79 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 210,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
+      AttackerVar = "Attacker",
+      BuffName = "ItemPlacementMissile",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 7,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "ItemPlacementMissile",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Nothing",
+      PosVar = "TargetPos",
+      EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
+      SlotNumber = 7,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "sightward"}
+    Params = {Name = "visionward"}
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "sightward"}
+    Params = {Name = "visionward"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemplacementmissile"
+    }
   }
 }

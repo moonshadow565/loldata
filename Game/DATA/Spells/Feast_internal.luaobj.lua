@@ -14,19 +14,7 @@ OnBuffActivateBuildingBlocks = {
       Scale = 0,
       ScaleVar = "CurSkinScale",
       ScaleVarTable = "InstanceVars",
-      BBoxDeltaVar = "currentScaleDelta",
       OwnerVar = "Owner"
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBOverrideCastRange,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 3,
-      SlotType = SpellSlots,
-      Range = 275
     }
   }
 }
@@ -149,7 +137,6 @@ BuffOnUpdateStatsBuildingBlocks = {
           Scale = 0,
           ScaleVar = "CurSkinScale",
           ScaleVarTable = "InstanceVars",
-          BBoxDeltaVar = "bbDelta",
           OwnerVar = "Owner"
         }
       },
@@ -182,48 +169,6 @@ BuffOnUpdateStatsBuildingBlocks = {
           TargetVar = "Owner",
           DeltaVar = "BonusHealth",
           Delta = 0
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "rangeIncByLvl",
-          SrcValueByLevel = {
-            20,
-            24,
-            32
-          }
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "rangeIncByLvl",
-          Src2Var = "Count",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "castRangeDelta",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "castRangeDelta",
-          Src1Value = 275,
-          Src2Value = 0,
-          DestVar = "newCastRange",
-          MathOp = MO_ADD
-        }
-      },
-      {
-        Function = BBOverrideCastRange,
-        Params = {
-          SpellSlotOwnerVar = "Owner",
-          SpellSlot = 3,
-          SlotType = SpellSlots,
-          Range = 0,
-          RangeVar = "newCastRange"
         }
       }
     }

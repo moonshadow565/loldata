@@ -69,10 +69,9 @@ SUPER_GOLD_INHIBITOR = 0
 SUPER_EXP_INHIBITOR = 0
 EXP_GIVEN_RADIUS = 1250
 DISABLE_MINION_SPAWN_BASE_TIME = 300
-DISABLE_MINION_SPAWN_MAG_TIME = 90
+DISABLE_MINION_SPAWN_MAG_TIME = 0
 LAST_WAVE = -1
 SPECIAL_MINION_MODE = "none"
-HQTurretAttackable = false
 OrderNames = {
   MeleeMinionName = "Blue_Minion_Basic",
   ArcherMinionName = "Blue_Minion_Wizard",
@@ -776,6 +775,21 @@ function ApplyBarracksRespawnReductions(_ARG_0_, _ARG_1_)
         totalNumberOfChaosBarracks = totalNumberOfChaosBarracks + 1
         OrderBarracksBonuses[_FORV_5_].WillSpawnSuperMinion = 0
       end
+      if totalNumberOfChaosBarracks == 3 then
+        HQ = GetHQ(TEAM_CHAOS)
+        SetInvulnerable(HQ, true)
+        SetTargetable(HQ, false)
+        for _FORV_9_ = RIGHT_LANE, LEFT_LANE do
+          if GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER1) ~= Nil then
+            SetInvulnerable(GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER1), true)
+            SetTargetable(GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER1), false)
+          end
+          if GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER2) ~= Nil then
+            SetInvulnerable(GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER2), true)
+            SetTargetable(GetTurret(TEAM_CHAOS, _FORV_9_, HQ_TOWER2), false)
+          end
+        end
+      end
     elseif _ARG_0_ == TEAM_CHAOS then
       ChaosBarracksBonuses[_FORV_5_].MeleeHPBonus = ChaosBarracksBonuses[_FORV_5_].MeleeHPBonus - MELEE_HEALTH_INHIBITOR
       ChaosBarracksBonuses[_FORV_5_].MeleeDamageBonus = ChaosBarracksBonuses[_FORV_5_].MeleeDamageBonus - MELEE_DAMAGE_INHIBITOR
@@ -796,6 +810,20 @@ function ApplyBarracksRespawnReductions(_ARG_0_, _ARG_1_)
       if _FORV_5_ == _ARG_1_ + 1 then
         totalNumberOfOrderBarracks = totalNumberOfOrderBarracks + 1
         ChaosBarracksBonuses[_FORV_5_].WillSpawnSuperMinion = 0
+      end
+      if totalNumberOfOrderBarracks == 3 then
+        SetInvulnerable(GetHQ(TEAM_ORDER), true)
+        SetTargetable(GetHQ(TEAM_ORDER), false)
+        for _FORV_10_ = RIGHT_LANE, LEFT_LANE do
+          if GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER1) ~= Nil then
+            SetInvulnerable(GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER1), true)
+            SetTargetable(GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER1), false)
+          end
+          if GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER2) ~= Nil then
+            SetInvulnerable(GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER2), true)
+            SetTargetable(GetTurret(TEAM_ORDER, _FORV_10_, HQ_TOWER2), false)
+          end
+        end
       end
     end
   end
@@ -828,19 +856,18 @@ function HandleDestroyedObject(_ARG_0_)
     SetInvulnerable(_ARG_0_, true)
     SetTargetable(_ARG_0_, false)
     DisactivatedCounter = DisactivatedCounter + 1
-    for _FORV_4_ = RIGHT_LANE, LEFT_LANE do
-      if GetTurret(barrackTeam, _FORV_4_, HQ_TOWER1) ~= Nil then
-        SetInvulnerable(GetTurret(barrackTeam, _FORV_4_, HQ_TOWER1), false)
-        SetTargetable(GetTurret(barrackTeam, _FORV_4_, HQ_TOWER1), true)
-      else
-      end
-      if GetTurret(barrackTeam, _FORV_4_, HQ_TOWER2) ~= Nil then
-        SetInvulnerable(GetTurret(barrackTeam, _FORV_4_, HQ_TOWER2), false)
-        SetTargetable(GetTurret(barrackTeam, _FORV_4_, HQ_TOWER2), true)
-      else
-      end
+    if GetTurret(barrackTeam, 1, HQ_TOWER1) ~= Nil then
+      SetInvulnerable(GetTurret(barrackTeam, 1, HQ_TOWER1), false)
+      SetTargetable(GetTurret(barrackTeam, 1, HQ_TOWER1), true)
     end
-    HQTurretAttackable = _FOR_
+    if GetTurret(barrackTeam, 1, HQ_TOWER2) ~= Nil then
+      SetInvulnerable(GetTurret(barrackTeam, 1, HQ_TOWER2), false)
+      SetTargetable(GetTurret(barrackTeam, 1, HQ_TOWER2), true)
+    end
+    if GetTurret(barrackTeam, 1, HQ_TOWER1) == Nil and GetTurret(barrackTeam, 1, HQ_TOWER2) == Nil then
+      SetInvulnerable(GetHQ(barrackTeam), false)
+      SetTargetable(GetHQ(barrackTeam), true)
+    end
     if barrackTeam == TEAM_CHAOS then
     else
     end
@@ -857,7 +884,6 @@ function HandleDestroyedObject(_ARG_0_)
       OrderBuildingStatus[GetDampenerType(_ARG_0_) % TEAM_CHAOS - TEAM_ORDER + 1].Barracks = false
     end
   else
-    Log("Could not find Linking barracks!")
   end
   return true
 end

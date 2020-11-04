@@ -1,3 +1,4 @@
+DoesntTriggerSpellCasts = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBMath,
@@ -47,12 +48,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ZhonyasRingShield",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invulnerability,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

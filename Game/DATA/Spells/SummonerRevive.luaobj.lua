@@ -44,10 +44,31 @@ AdjustCooldownBuildingBlocks = {
         }
       },
       {
+        Function = BBIf,
+        Params = {
+          Src1Var = "HasRune5378",
+          Src1VarTable = "AvatarVars",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CooldownMultiplier",
+              Src1Value = 0,
+              Src2Value = 0.04,
+              DestVar = "CooldownMultiplier",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      },
+      {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 510,
+          Src1Value = 540,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -131,14 +152,41 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "ReviveMarker",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 120,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 2.2
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "SummonerReviveSpeedBoost",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Haste,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 12,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -153,6 +201,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "revivemarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "summonerrevivespeedboost"
     }
   }
 }
