@@ -10,18 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nocturneparanoia"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneparanoiatargeting"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "unstoppableforcemarker"
     }
   },

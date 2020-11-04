@@ -19,17 +19,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "leblanc_displace_aoe_tar_ult.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorbm"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorb"
-    }
   }
 }

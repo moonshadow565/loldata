@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fizz_ultimatemissile_orbit_lobster.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "fizzmoveback"

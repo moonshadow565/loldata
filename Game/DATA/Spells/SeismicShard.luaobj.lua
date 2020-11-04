@@ -6,5 +6,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "seismicshardbuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "seismicshard"
+    }
   }
 }

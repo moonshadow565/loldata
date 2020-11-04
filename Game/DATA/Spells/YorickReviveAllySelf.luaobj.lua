@@ -58,9 +58,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yorickradelay"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "luluq"}
   }
 }

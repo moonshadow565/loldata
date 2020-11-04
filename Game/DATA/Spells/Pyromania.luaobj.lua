@@ -3,10 +3,6 @@ BuffName = "Pyromania"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "pyromania"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "pyromania_particle"
     }

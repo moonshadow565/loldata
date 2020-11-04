@@ -5,6 +5,8 @@ AutoBuffActivateEffect = "Card_Blue.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
+    Params = {
+      Name = "bluecardattack"
+    }
   }
 }

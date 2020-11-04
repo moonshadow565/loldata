@@ -10,37 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "odinguardiansuppressionorder"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinguardiansuppressionchaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinguardiansuppression"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "prilisasblessing"
+      Name = "odincapturesoundfilling"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "odincapturesoundemptying"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odincapturesoundfilling"
     }
   }
 }

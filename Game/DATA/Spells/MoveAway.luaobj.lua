@@ -6,4 +6,3 @@ IsDamagingSpell = false
 BuffTextureName = "Minotaur_TriumphantRoar.dds"
 BuffName = "MoveAway"
 NonDispellable = true
-PopupMessage1 = "game_floatingtext_Knockup"

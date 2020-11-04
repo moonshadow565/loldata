@@ -13,11 +13,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "trundle_trollsmash_buf.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "trundletrollsmash"
-    }
   }
 }

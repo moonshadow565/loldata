@@ -3,11 +3,15 @@ L0_0 = 2500
 MAX_ENGAGE_DISTANCE = L0_0
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
+L0_0 = 2000
+FLEE_RUN_DISTANCE = L0_0
 function L0_0()
   SetState(AI_IDLE)
   InitTimer("TimerFindEnemies", 0, true)
   InitTimer("TimerFeared", 1, true)
+  InitTimer("TimerFlee", 1, true)
   StopTimer("TimerFeared")
+  StopTimer("TimerFlee")
   return false
 end
 OnInit = L0_0
@@ -87,6 +91,33 @@ function L0_0()
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
 TimerFeared = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+  SetRoamState(RUN_IN_FEAR)
+  TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
+  ResetAndStartTimer("TimerFlee")
+end
+OnFleeBegin = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  StopTimer("TimerFlee")
+  FindTargetOrMove()
+end
+OnFleeEnd = L0_0
+function L0_0()
+  if GetState() == AI_HALTED then
+    return
+  end
+  fleePoint = MakeFleePoint()
+  SetStateAndMove(AI_FLEEING, fleePoint)
+end
+TimerFlee = L0_0
 function L0_0()
   if GetState() == AI_HALTED then
     return
@@ -196,7 +227,7 @@ function L0_0(A0_8)
   if GetState() == AI_HALTED then
     return
   end
-  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED then
+  if GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A0_8)
     return false
   end
@@ -215,12 +246,15 @@ function L0_0(A0_9)
   if L1_10 ~= L2_11 then
     L2_11 = AI_FEARED
     if L1_10 ~= L2_11 then
-      L2_11 = FindTargetInAcR
-      L2_11 = L2_11()
-      if L2_11 ~= nil then
-        SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_11)
+      L2_11 = AI_FLEEING
+      if L1_10 ~= L2_11 then
+        L2_11 = FindTargetInAcR
+        L2_11 = L2_11()
+        if L2_11 ~= nil then
+          SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L2_11)
+        end
+        return false
       end
-      return false
     end
   end
   L2_11 = true

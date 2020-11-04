@@ -24,12 +24,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "destiny_marker"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "gatemarker_green.troy"

@@ -18,6 +18,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "leonasunlight"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "leona_zenithblade_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "leonazenithbladeroot"
     }
   },
@@ -30,13 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leonasunlight"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leona_zenithblade_sound.troy"
+      Name = "leonazenithbladebuffchaos"
     }
   },
   {

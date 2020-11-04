@@ -8,7 +8,6 @@ SpellFXOverrideSkins = {
   "RocketTristana"
 }
 TriggersSpellCasts = true
-PopupMessage1 = "game_floatingtext_Knockup"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

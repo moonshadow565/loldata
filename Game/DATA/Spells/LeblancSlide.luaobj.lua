@@ -30,19 +30,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancslidewallfix"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancslidem"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "leblancslidemove"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leblancslidewallfix"
     }
   }
 }

@@ -5,7 +5,6 @@ IsDamagingSpell = true
 BuffTextureName = "Vayne_Condemn.dds"
 BuffName = "VayneCondemn"
 TriggersSpellCasts = true
-PopupMessage1 = "game_floatingtext_Knockup"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

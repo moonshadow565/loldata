@@ -23,12 +23,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "garenslash3"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "garenfastmove"
     }
   }

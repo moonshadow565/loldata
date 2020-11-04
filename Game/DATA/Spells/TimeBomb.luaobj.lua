@@ -27,13 +27,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "timebombcountdown"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "timebomb"}
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "zilean"}
   }
 }

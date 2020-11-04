@@ -9,7 +9,6 @@ AutoCooldownByLevel = {
   16,
   14
 }
-PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

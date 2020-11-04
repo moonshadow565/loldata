@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "karmaonemantraparticle"
+      Name = "karmatwomantraparticle"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "karmatwomantraparticle"
+      Name = "karmaonemantraparticle"
     }
   }
 }

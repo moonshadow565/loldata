@@ -1,12 +1,12 @@
 BuffTextureName = "Pantheon_AOZ.dds"
 BuffName = "PantheonAegisShield"
-AutoBuffActivateEffect = "pantheon_aoz_passive.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "pantheon_aegisshield"
+      Name = "pantheon_aoz_passive.troy"
     }
   }
 }

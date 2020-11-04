@@ -107,5 +107,35 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rivenknockback"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bunny_q_02_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_bunny_q_02_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_bunny_q_01_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bunny_q_03_detonate_ult.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "exile_bunny_q_03_detonate.troy"
+    }
   }
 }

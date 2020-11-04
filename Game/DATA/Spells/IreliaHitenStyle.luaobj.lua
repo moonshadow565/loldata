@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "irelia_hitenstlye_passive_glow_end.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "ireliahitenstylecharged"

@@ -1406,7 +1406,7 @@ function L0(A0, A1)
 end
 BBAlert = L0
 function L0(A0, A1)
-  local L2, L3, L4, L5, L6, L7
+  local L2, L3, L4, L5, L6, L7, L8
   L2 = A1.ToSay
   L3 = GetTable
   L4 = A0
@@ -1432,14 +1432,19 @@ function L0(A0, A1)
   else
     L4 = A0.Owner
   end
+  L5 = A1.TextType
+  if L5 == nil then
+    A1.TextType = 0
+  end
   L5 = Say
   L6 = L4
   L7 = L2
-  L5(L6, L7)
+  L8 = A1.TextType
+  L5(L6, L7, L8)
 end
 BBSay = L0
 function L0(A0, A1)
-  local L2, L3, L4, L5, L6, L7
+  local L2, L3, L4, L5, L6, L7, L8
   L2 = A1.ToSay
   L3 = GetTable
   L4 = A0
@@ -1465,10 +1470,15 @@ function L0(A0, A1)
   else
     L4 = A0.Owner
   end
+  L5 = A1.TextType
+  if L5 == nil then
+    A1.TextType = 0
+  end
   L5 = Say
   L6 = L4
   L7 = L2
-  L5(L6, L7)
+  L8 = A1.TextType
+  L5(L6, L7, L8)
 end
 BBDebugSay = L0
 function L0(A0, A1)

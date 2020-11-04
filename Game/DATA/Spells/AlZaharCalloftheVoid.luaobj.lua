@@ -31,7 +31,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "expirationtimer"
+      Name = "ifhasbuffcheck"
     }
   },
   {

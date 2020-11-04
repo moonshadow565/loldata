@@ -16,9 +16,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "teleportarrive.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "recall"}
   }
 }
