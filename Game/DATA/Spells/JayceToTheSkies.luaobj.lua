@@ -28,6 +28,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "jayce_jump_land_skn2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "jayce_jump_land.troy"
     }
   },

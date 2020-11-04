@@ -14,6 +14,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "jayce_accel_gate_start_skn2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jayce_accel_gate_start_red_skn2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "jayce_accel_gate_start.troy"
     }
   },
@@ -33,6 +45,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "jayce_accel_gate_end_red_skn1.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jayce_accel_gate_end_skn2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jayce_accel_gate_end_red_skn2.troy"
     }
   },
   {
