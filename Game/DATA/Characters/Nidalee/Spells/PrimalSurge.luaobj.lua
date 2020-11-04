@@ -6,9 +6,9 @@ IsDamagingSpell = false
 BuffTextureName = "Nidalee_PrimalSurge.dds"
 BuffName = "PrimalSurge"
 AutoBuffActivateEffect3 = "nidalee_primal_surge_attack_buf.troy"
-AutoBuffActivateAttachBoneName3 = "L_hand"
+AutoBuffActivateAttachBoneName3 = "L_BUFFBONE_GLB_HAND_LOC"
 AutoBuffActivateEffect4 = "nidalee_primal_surge_attack_buf.troy"
-AutoBuffActivateAttachBoneName4 = "R_hand"
+AutoBuffActivateAttachBoneName4 = "R_BUFFBONE_GLB_HAND_LOC"
 SpellFXOverrideSkins = {
   "HeadhunterNidalee"
 }
