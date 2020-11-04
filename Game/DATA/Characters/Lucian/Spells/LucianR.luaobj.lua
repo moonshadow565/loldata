@@ -20,6 +20,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "lucianrmissile"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lucianrmissileoffhand"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "lucianpassivebuff"
     }
   },
