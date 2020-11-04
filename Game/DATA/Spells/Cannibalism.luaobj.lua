@@ -105,7 +105,7 @@ BuffOnPreDealDamageBuildingBlocks = {
                     Params = {
                       AttackerVar = "Owner",
                       CenterVar = "Owner",
-                      Range = 400,
+                      Range = 350,
                       Flags = "AffectFriends AffectMinions AffectHeroes NotAffectSelf ",
                       IteratorVar = "Unit",
                       InclusiveBuffFilter = true
@@ -197,8 +197,8 @@ TargetExecuteBuildingBlocks = {
       DestVar = "HealPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.5,
-        0.5,
+        0.25,
+        0.375,
         0.5
       }
     }
@@ -210,8 +210,8 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         0.5,
-        0.6,
-        0.7
+        0.5,
+        0.5
       }
     }
   },

@@ -979,7 +979,7 @@ BuffOnMoveSuccessBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "Range", SrcValue = 240}
+        Params = {DestVar = "Range", SrcValue = 265}
       },
       {
         Function = BBIfHasBuff,
@@ -1205,7 +1205,7 @@ BuffOnMoveFailureBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetVarInTable,
-        Params = {DestVar = "Range", SrcValue = 240}
+        Params = {DestVar = "Range", SrcValue = 265}
       },
       {
         Function = BBIfHasBuff,

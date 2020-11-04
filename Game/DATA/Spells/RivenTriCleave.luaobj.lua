@@ -175,11 +175,11 @@ SelfExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "Distance", SrcValue = 225}
+    Params = {DestVar = "Distance", SrcValue = 240}
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "MaxRange", SrcValue = 225}
+    Params = {DestVar = "MaxRange", SrcValue = 240}
   },
   {
     Function = BBIf,
@@ -624,7 +624,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           UnitVar = "Owner",
           TargetVar = "Pos",
-          Speed = 800,
+          Speed = 825,
           Gravity = 15,
           MoveBackBy = 15,
           MovementType = FURTHEST_WITHIN_RANGE,
@@ -746,7 +746,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           UnitVar = "Owner",
           TargetVar = "Pos",
-          Speed = 800,
+          Speed = 825,
           Gravity = 15,
           MoveBackBy = 15,
           MovementType = FURTHEST_WITHIN_RANGE,

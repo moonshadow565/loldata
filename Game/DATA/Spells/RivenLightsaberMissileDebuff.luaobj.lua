@@ -7,6 +7,10 @@ AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBIf,
     Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
@@ -24,7 +28,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
           PersistsThroughReconnect = false,
           BindFlexToOwnerPAR = false,
@@ -48,7 +53,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
       PersistsThroughReconnect = false,
       BindFlexToOwnerPAR = false,
