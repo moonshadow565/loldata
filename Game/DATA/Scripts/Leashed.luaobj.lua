@@ -13,6 +13,7 @@ AddComponent("OutOfCombatRegen")
 AddComponent("DefaultFearBehavior")
 AddComponent("DefaultFleeBehavior")
 AddComponent("DefaultTauntBehavior")
+inStasis = false
 function OnInit(A0_0)
   Event("ComponentInit")
   SetState(AI_ATTACK)
@@ -171,6 +172,10 @@ function OnTargetLost(A0_14, A1_15)
   if L2_16 == L3_17 then
     return
   end
+  L3_17 = inStasis
+  if L3_17 == true then
+    return
+  end
   L3_17 = GetOwner
   L3_17 = L3_17(A1_15)
   if L3_17 == nil then
@@ -198,6 +203,10 @@ function TimerRetreat()
   L0_18 = L0_18()
   L1_19 = AI_HALTED
   if L0_18 == L1_19 then
+    return
+  end
+  L1_19 = inStasis
+  if L1_19 == true then
     return
   end
   L1_19 = GetDistToLeashedPos
@@ -251,6 +260,10 @@ function TimerAttack()
   L0_23 = L0_23()
   L1_24 = AI_HALTED
   if L0_23 == L1_24 then
+    return
+  end
+  L1_24 = inStasis
+  if L1_24 == true then
     return
   end
   L1_24 = GetRoamState
@@ -328,4 +341,13 @@ function HaltAI()
   StopTimer("TimerAttack")
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   NetSetState(AI_HALTED)
+end
+function EnterStasis()
+  local L1_29
+  L1_29 = true
+  inStasis = L1_29
+end
+function ExitStasis()
+  inStasis = false
+  FindNewTarget()
 end

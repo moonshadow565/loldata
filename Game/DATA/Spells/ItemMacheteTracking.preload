@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_krug"}}, 
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_gromp"}}, 
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_murkwolf"}}, 
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_razorbeak"}}, 
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_red"}}, 
+{Function=BBPreloadSpell, Params={Name="itemmachetetracking_blue"}}, 
+}

@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="auraofdespair"}}, 
+{Function=BBPreloadSpell, Params={Name="amumuvfxmanagerskin08"}}, 
+}

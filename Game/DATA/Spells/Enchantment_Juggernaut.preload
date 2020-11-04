@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="itemsunfirecapeaura"}}, 
+{Function=BBPreloadModule, Params={Name="Global.UniquePassiveImmolate"}}, 
 {Function=BBPreloadSpell, Params={Name="itemjuggernautincombat"}}, 
 }

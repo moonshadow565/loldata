@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="amumu_skin08_q_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="amumu_base_q_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="amumu_sadrobot_bandagetoss_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bandagetoss_tar.troy"}}, 
+}
