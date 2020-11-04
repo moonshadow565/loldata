@@ -1,6 +1,9 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

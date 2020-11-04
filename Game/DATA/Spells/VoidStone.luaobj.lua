@@ -8,5 +8,23 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "voidstoneattackspeedboost"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kassadin_base_q_shieldon.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "turntransparent.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kassadin_base_r_vanish.troy"
+    }
   }
 }

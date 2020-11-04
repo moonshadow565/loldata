@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   8,
   4
 }
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -28,12 +31,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rumbleflamethrowerbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblemechvo_q"
     }
   },
   {
