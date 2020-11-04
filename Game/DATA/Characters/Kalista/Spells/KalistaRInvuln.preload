@@ -11,4 +11,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistarallylineupdater"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_r_indicator_ring_grow.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="crowstorm"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 }

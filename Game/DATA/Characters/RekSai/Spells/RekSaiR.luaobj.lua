@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 SpellFXOverrideSkins = {
-  "BlackIceAnivia"
+  "RekSaiSkin01"
 }
 SpellVOOverrideSkins = {
   "BlackIceAnivia"

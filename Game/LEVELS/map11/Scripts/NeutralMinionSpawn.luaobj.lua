@@ -1375,6 +1375,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
@@ -1383,6 +1384,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 1
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
@@ -1402,6 +1404,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
   L3 = CAMPTYPE_DRAGON
   L1[1] = L2
@@ -1435,6 +1438,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
   L3 = CAMPTYPE_WRAITHS2
   L1[1] = L2
@@ -1443,6 +1447,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.67
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
@@ -1462,6 +1467,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
   L3 = CAMPTYPE_NASHOR
   L1[1] = L2
@@ -1485,6 +1491,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
   L3 = CAMPTYPE_OWLBEAR
   L1[1] = L2
@@ -1493,6 +1500,7 @@ function L0()
   L0.GroupsChance = L1
   L0.GroupDelaySpawnTime = 100
   L0.GroupDelaySpawnTime = 15
+  L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
   L3 = CAMPTYPE_CRAB
   L1[1] = L2

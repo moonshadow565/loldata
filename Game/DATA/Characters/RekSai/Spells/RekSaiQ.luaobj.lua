@@ -6,5 +6,8 @@ IsDamagingSpell = false
 BuffTextureName = "RekSai_Q1.dds"
 BuffName = "RekSaiQ"
 SpellFXOverrideSkins = {
-  "ReksaiSkin01"
+  "RekSaiSkin01"
+}
+SpellVOOverrideSkins = {
+  "RekSaiSkin01"
 }

@@ -1,5 +1,6 @@
 SkittishMonster = {
-  TimerCallbackName = "TimerSkittishMonster"
+  TimerCallbackName = "TimerSkittishMonster",
+  MeleeRange = 350
 }
 RegisterForEvent("ComponentInit", SkittishMonster)
 RegisterForEvent("LeashedCallForHelp", SkittishMonster)
@@ -13,6 +14,7 @@ function SkittishMonster.ComponentInit(A0_0)
   A0_0.Attackers = {}
   A0_0.attackDuration = 5
   A0_0.MeleeAttackers = 0
+  A0_0.MeleeRangeSq = A0_0.MeleeRange * A0_0.MeleeRange
   A0_0.Enabled = true
 end
 function SkittishMonster.Start(A0_1)
@@ -45,7 +47,7 @@ function SkittishMonster.LeashedCallForHelp(A0_8, A1_9, A2_10)
     return
   end
   L3_11 = true
-  if GetDistSquared(GetMyPos(), GetPos(A2_10)) > 250000 then
+  if GetDistSquared(GetMyPos(), GetPos(A2_10)) > A0_8.MeleeRangeSq then
     L3_11 = false
   end
   for _FORV_7_, _FORV_8_ in ipairs(A0_8.Attackers) do

@@ -1,3 +1,3 @@
 SpellFXOverrideSkins = {
-  "ReksaiSkin01"
+  "RekSaiSkin01"
 }

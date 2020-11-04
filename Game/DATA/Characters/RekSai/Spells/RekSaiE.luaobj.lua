@@ -2,6 +2,9 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "RekSaiSkin01"
+}
 SpellVOOverrideSkins = {
-  "ReksaiSkin01"
+  "RekSaiSkin01"
 }
