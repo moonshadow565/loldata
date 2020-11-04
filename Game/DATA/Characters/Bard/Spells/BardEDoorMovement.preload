@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="bard_base_e_traveler.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_e_audio_enter_travel_exit.troy"}}, 
 }
