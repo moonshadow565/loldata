@@ -58,11 +58,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "MaxHealth",
           SrcValue = 0,
           SrcValueByLevel = {
-            0.06,
-            0.09,
-            0.12,
-            0.15,
-            0.18
+            0.08,
+            0.11,
+            0.14,
+            0.17,
+            0.2
           }
         }
       },
@@ -84,10 +84,10 @@ TargetExecuteBuildingBlocks = {
           SrcValue = 0,
           SrcValueByLevel = {
             75,
-            115,
-            155,
-            195,
-            235
+            125,
+            175,
+            225,
+            275
           }
         }
       },
@@ -147,10 +147,10 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           DamageByLevel = {
             75,
-            115,
-            155,
-            195,
-            235
+            125,
+            175,
+            225,
+            275
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,

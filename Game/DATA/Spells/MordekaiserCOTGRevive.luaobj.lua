@@ -12,7 +12,8 @@ TargetExecuteBuildingBlocks = {
       PosVar = "Pos",
       HealthBonus = 0,
       DamageBonus = 0,
-      DestVar = "Other1"
+      DestVar = "Other1",
+      CopyItems = false
     }
   },
   {

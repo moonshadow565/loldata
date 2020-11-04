@@ -7,6 +7,22 @@ AutoBuffActivateAttachBoneName = "r_hand"
 AutoBuffActivateEffect2 = "Global_DmgHands_buf.troy"
 AutoBuffActivateAttachBoneName2 = "l_hand"
 TriggersSpellCasts = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedVar",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedOther",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIf,
@@ -52,11 +68,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedVar",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.4,
-        0.45,
         0.5,
         0.55,
-        0.6
+        0.6,
+        0.65,
+        0.7
       }
     }
   },
@@ -66,11 +82,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "AttackSpeedOther",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.2,
-        0.225,
         0.25,
         0.275,
-        0.3
+        0.3,
+        0.325,
+        0.35
       }
     }
   },
@@ -93,27 +109,11 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 9,
+          Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedVar",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedOther",
-      RequiredVarTable = "InstanceVars"
     }
   }
 }

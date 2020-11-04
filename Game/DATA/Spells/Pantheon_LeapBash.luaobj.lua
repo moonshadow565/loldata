@@ -43,7 +43,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 10,
+      Duration = 0.4,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -261,10 +261,6 @@ BuffOnMoveEndBuildingBlocks = {
       ObjectVar1 = "Caster",
       ObjectVar2 = "Owner"
     }
-  },
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   },
   {
     Function = BBIf,
