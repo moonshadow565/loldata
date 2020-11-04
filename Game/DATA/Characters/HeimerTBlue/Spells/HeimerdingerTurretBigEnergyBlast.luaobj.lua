@@ -6,11 +6,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "skarner_fracture_tar_consume.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "BigEnergyBlast.troy"
-    }
   }
 }
