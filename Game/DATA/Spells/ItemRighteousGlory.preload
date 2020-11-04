@@ -6,4 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="global_item_righteousglory_allycas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="global_item_righteousglory_aoe.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
+{Function=BBPreloadParticle, Params={Name="global_item_righteousglory_tar.troy"}}, 
 }
