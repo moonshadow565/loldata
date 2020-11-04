@@ -23,27 +23,6 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Type",
-          Value2 = BUFF_CombatDehancer,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSay,
-            Params = {
-              OwnerVar = "Owner",
-              ToSay = "game_lua_BlackShield_immune"
-            }
-          },
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
           Value2 = BUFF_Fear,
           CompareOp = CO_EQUAL
         },
@@ -212,6 +191,27 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBElseIf,
         Params = {
           Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
           Value2 = BUFF_Suppression,
           CompareOp = CO_EQUAL
         },
@@ -292,23 +292,6 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanMove
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ShieldHealth",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   }
 }
@@ -453,6 +436,23 @@ TargetExecuteBuildingBlocks = {
       },
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ShieldHealth",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
     }
   }
 }

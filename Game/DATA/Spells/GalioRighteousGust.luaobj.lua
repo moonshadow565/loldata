@@ -224,17 +224,17 @@ BuffOnSpellHitBuildingBlocks = {
       CallForHelpAttackerVar = "Other1",
       TargetVar = "Target",
       DamageByLevel = {
-        70,
-        115,
-        160,
-        205,
-        250
+        65,
+        110,
+        155,
+        200,
+        245
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8,
+      SpellDamageRatio = 0.65,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

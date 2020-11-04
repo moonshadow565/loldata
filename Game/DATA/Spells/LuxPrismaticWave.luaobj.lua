@@ -65,7 +65,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.35,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }

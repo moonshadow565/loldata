@@ -178,7 +178,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 500,
-      Flags = "AffectEnemies AffectMinions AffectHeroes ",
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },

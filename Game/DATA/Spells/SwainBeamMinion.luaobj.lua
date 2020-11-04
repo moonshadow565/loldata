@@ -211,7 +211,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Distance",
-          Value2 = 675,
+          Value2 = 605,
           CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {

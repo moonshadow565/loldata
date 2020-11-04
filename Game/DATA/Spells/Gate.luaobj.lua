@@ -34,6 +34,10 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -52,6 +56,10 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -70,6 +78,10 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -88,6 +100,10 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -106,6 +122,10 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       },
@@ -124,6 +144,32 @@ BuffOnAllowAddBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = 1
             }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
           }
         }
       }

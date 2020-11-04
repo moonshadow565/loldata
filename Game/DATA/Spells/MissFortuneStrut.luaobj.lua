@@ -401,26 +401,27 @@ BuffOnUpdateStatsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBMath,
             Params = {
               Src1Var = "MoveSpeedMod",
               Src1VarTable = "InstanceVars",
-              Value2 = 70,
-              CompareOp = CO_LESS_THAN_OR_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "MoveSpeedMod",
-                  Src1VarTable = "InstanceVars",
-                  Src1Value = 0,
-                  Src2Value = 3.93,
-                  DestVar = "MoveSpeedMod",
-                  DestVarTable = "InstanceVars",
-                  MathOp = MO_ADD
-                }
-              }
+              Src1Value = 0,
+              Src2Value = 3.93,
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_ADD
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "MoveSpeedMod",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 70,
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_MIN
             }
           }
         }

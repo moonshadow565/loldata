@@ -35,7 +35,7 @@ SpellOnMissileEndBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.3,
+      Src2Value = 0.35,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }
@@ -112,7 +112,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "AbilityPower",
           Src1Value = 0,
-          Src2Value = 0.3,
+          Src2Value = 0.35,
           DestVar = "BonusHealth",
           MathOp = MO_MULTIPLY
         }

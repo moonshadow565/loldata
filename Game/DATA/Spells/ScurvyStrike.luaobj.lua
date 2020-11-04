@@ -17,6 +17,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "AttackDamage",
@@ -79,12 +80,14 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "ScurvyStrikeParticle",
               BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_CombatDehancer,
+              StacksExclusive = true,
+              BuffType = BUFF_Damage,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -94,12 +97,14 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Internal_50MS",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -109,12 +114,14 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "GrievousWound",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

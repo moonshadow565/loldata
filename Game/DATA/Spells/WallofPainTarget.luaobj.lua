@@ -1,15 +1,8 @@
 BuffTextureName = "Lich_WallOfPain.dds"
-BuffName = "Wall of Pain"
+BuffName = "Wall of Pain Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
 OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmorMod",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBRequireVar,
     Params = {
@@ -23,6 +16,14 @@ OnBuffActivateBuildingBlocks = {
       Duration = 10,
       TargetVar = "Owner",
       SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "numTicks",
+      DestVarTable = "InstanceVars",
+      SrcValue = 20
     }
   }
 }
@@ -39,15 +40,38 @@ BuffOnUpdateStatsBuildingBlocks = {
       {
         Function = BBMath,
         Params = {
-          Src1Var = "MoveSpeedMod",
+          Src1Var = "numTicks",
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
-          Src2Value = 0.025,
-          DestVar = "MoveSpeedMod",
+          Src2Value = 1,
+          DestVar = "numTicks",
           DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
+          MathOp = MO_SUBTRACT
         }
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "numTicks",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 20,
+      DestVar = "curSlowPercent",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "curSlowPercent",
+      Src2Var = "MoveSpeedMod",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "speedMod",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -55,28 +79,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "MoveSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatSpellBlockMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
-      DeltaVarTable = "InstanceVars",
+      DeltaVar = "speedMod",
       Delta = 0
     }
   }

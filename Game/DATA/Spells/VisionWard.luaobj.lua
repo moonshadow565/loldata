@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "096_Eye_of_the_Observer.dds"
-BuffName = "Magical Sight"
+BuffName = "Magical Sight Ward"
 AutoBuffActivateEffect = "ICU.troy"
 OnBuffActivateBuildingBlocks = {
   {
