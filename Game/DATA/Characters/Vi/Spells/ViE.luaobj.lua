@@ -15,12 +15,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "vi_skin02_flash_01.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "vipassivebuff"
