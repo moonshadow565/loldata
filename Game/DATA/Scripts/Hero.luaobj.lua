@@ -145,7 +145,10 @@ function OnOrder(A0_0, A1_1, A2_2)
       newTarget = L4_4
     end
     L4_4 = newTarget
-    if L4_4 == nil then
+    if L4_4 ~= nil then
+      L4_4 = IsValidEnemy
+      L4_4 = L4_4(newTarget)
+    elseif not L4_4 then
       L4_4 = FindTargetInAcR
       L4_4 = L4_4()
       newTarget = L4_4
