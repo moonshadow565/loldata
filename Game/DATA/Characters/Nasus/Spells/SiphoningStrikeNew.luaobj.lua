@@ -3,6 +3,9 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Nasus_SiphoningStrike.dds"
 BuffName = "SiphoningStrike"
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "NasusSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

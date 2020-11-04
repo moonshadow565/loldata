@@ -1,9 +1,9 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Tristana_headshot.dds"
-BuffName = ""
 AutoBuffActivateEffect = "rapidfire_buf.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 TriggersSpellCasts = true

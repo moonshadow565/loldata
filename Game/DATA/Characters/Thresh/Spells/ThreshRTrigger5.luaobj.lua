@@ -41,5 +41,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "thresh_r_wall.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thresh_skin02_r_sparks.troy"
+    }
   }
 }

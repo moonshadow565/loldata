@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "olafignorecollision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "olafaxethrowdamage"
     }
   },

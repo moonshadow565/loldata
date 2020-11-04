@@ -2,13 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "garenjusticeprecast"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garenrecouperateon"
+      Name = "garenpassiveheal"
     }
   },
   {
@@ -26,7 +20,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "garencommandkill"
+      Name = "garenruncyclemanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenwpassive"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_base_interactive3_sound.troy"
     }
   }
 }

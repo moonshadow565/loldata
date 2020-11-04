@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "jinxqramp"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jinxqrampcontroller"
+    }
+  }
+}

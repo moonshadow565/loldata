@@ -1,0 +1,16 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "jinxmine"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "jinxemine"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jinx_e_sound.troy"
+    }
+  }
+}

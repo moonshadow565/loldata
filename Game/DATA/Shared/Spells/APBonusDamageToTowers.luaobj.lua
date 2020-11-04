@@ -12,6 +12,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "summonersmitegold"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "positivechampiondelta"
     }
   }

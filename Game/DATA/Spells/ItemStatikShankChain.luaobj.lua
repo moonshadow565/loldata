@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemstatikshankchain"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "kennen_btl_tar.troy"

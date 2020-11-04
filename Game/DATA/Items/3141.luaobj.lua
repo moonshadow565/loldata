@@ -11,5 +11,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "muramasacap"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "muramasastats"
+    }
   }
 }

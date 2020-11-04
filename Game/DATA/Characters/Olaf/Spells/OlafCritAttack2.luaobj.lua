@@ -1,0 +1,2 @@
+SpellFXOverrideSkins = {}
+SpellVOOverrideSkins = {"BroOlaf"}

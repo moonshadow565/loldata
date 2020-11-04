@@ -14,11 +14,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lucian_p_sound_only.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemhurricaneattack"
-    }
   }
 }

@@ -11,6 +11,12 @@ AutoBuffActivateEffect2 = "nassus_godofDeath_overhead.troy"
 AutoBuffActivateAttachBoneName2 = "R_hand"
 AutoBuffActivateEffect3 = "nassus_godofDeath_overhead.troy"
 AutoBuffActivateAttachBoneName3 = "L_hand"
+SpellFXOverrideSkins = {
+  "NasusSkin05"
+}
+SpellVOOverrideSkins = {
+  "NasusSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jinx_skin01_emote_dance_music_sound.troy"
+    }
+  }
+}

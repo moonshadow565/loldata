@@ -6,6 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Vayne_SilveredBolts.dds"
 BuffName = "VayneSilverBolts"
 SpellToggleSlot = 2
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {""}
 PreLoadBuildingBlocks = {

@@ -4,9 +4,6 @@ BuffTextureName = "20.dds"
 BuffName = "Blood Awareness"
 SpellToggleSlot = 3
 PersistsThroughDeath = true
-SpellVOOverrideSkins = {
-  "HyenaWarwick"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

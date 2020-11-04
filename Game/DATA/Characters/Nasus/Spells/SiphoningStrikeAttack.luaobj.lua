@@ -5,6 +5,12 @@ BuffName = "SiphoningStrike"
 AutoBuffActivateEffect = "nassus_siphonStrike_buf.troy"
 AutoBuffActivateAttachBoneName = "weapon_b"
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "NasusSkin05"
+}
+SpellVOOverrideSkins = {
+  "NasusSkin05"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

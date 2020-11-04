@@ -19,5 +19,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "phosphorusbombblind"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
   }
 }

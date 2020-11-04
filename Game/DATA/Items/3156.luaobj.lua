@@ -32,5 +32,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "phasebladebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hexdrinkertimercd"
+    }
   }
 }
