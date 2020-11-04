@@ -1,11 +1,9 @@
-SpellFXOverrideSkins = {
-  "CaitlynSkin06"
-}
+BuffTextureName = "Wolfman_Bloodscent.dds"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_base_headshot_tar.troy"
+      Name = "wolfman_bloodscent_marker.troy"
     }
   }
 }

@@ -14,13 +14,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Vladimir_Base_R_AoE_nova.troy"
+      Name = "vladimir_base_r_aoe_nova.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "vladimirhemoplaguedebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "vladimirhemoplaguedamageamp"
     }
   }
 }

@@ -13,6 +13,12 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_base_cougar_e_buf.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "pounceenabler"

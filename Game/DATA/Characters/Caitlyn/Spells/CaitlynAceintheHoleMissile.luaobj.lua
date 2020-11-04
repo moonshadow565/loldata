@@ -3,6 +3,9 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
+SpellFXOverrideSkins = {
+  "CaitlynSkin06"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -13,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "caitlyn_Base_ace_tar.troy"
+      Name = "caitlyn_base_ace_tar.troy"
     }
   },
   {

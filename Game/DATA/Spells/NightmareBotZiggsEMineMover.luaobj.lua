@@ -23,7 +23,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ziggsesubsequent"
+      Name = "nightmarebotziggseminemoverrecentlyhit"
     }
   },
   {

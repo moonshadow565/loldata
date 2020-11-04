@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotspiritviktordeathrayfixmissile"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_skn3_beamorigin.troy"
