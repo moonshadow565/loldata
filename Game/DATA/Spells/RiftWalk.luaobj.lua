@@ -8,19 +8,13 @@ BuffName = "RiftWalk"
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riftwalk_flashback.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "riftwalk"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riftwalk_flash.troy"
+      Name = "temp_kassadin_r.troy"
     }
   }
 }

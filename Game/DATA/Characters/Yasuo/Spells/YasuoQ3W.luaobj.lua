@@ -35,9 +35,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuoq3wautosmartcast"
-    }
+    Params = {Name = "yasuoq3w"}
   },
   {
     Function = BBPreloadParticle,

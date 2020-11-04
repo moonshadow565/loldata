@@ -8,5 +8,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "voidstoneattackspeedboost"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riftwalk_flashback.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riftwalk_flash.troy"
+    }
   }
 }
