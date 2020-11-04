@@ -39,30 +39,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zyra_seed_death_sound.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_w_seedtrap_trigger_hellvine.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zyra_w_seedtrap_trigger.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraseedtrapvision"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "zyra_seed_indicator_hellvine.troy"
     }
   },
@@ -82,6 +58,30 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_seed_indicator_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_seed_death_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_w_seedtrap_trigger_hellvine.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_w_seedtrap_trigger.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraseedtrapvision"
     }
   },
   {

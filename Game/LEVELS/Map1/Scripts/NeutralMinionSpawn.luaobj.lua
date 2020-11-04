@@ -907,6 +907,18 @@ L2[1] = L3
 L0[L1] = L2
 PredefinedCampKillEventsForSpectator = L0
 L0 = {}
+L1 = CAMPTYPE_DRAGON
+L2 = {}
+L3 = "EVENT_ON_KILL_DRAGON_STEAL"
+L2[1] = L3
+L0[L1] = L2
+L1 = CAMPTYPE_NASHOR
+L2 = {}
+L3 = "EVENT_ON_KILL_WORM_STEAL"
+L2[1] = L3
+L0[L1] = L2
+PredefinedCampKillEventsForSteal = L0
+L0 = {}
 L1 = {}
 L0[1] = L1
 L1 = {}
@@ -1035,6 +1047,7 @@ function L0()
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
+  L0.KillStealEvents = L1
   L0.TimerType = "Dragon"
   L3 = CAMPTYPE_BLUEBUFF
   L1[1] = L2
@@ -1087,6 +1100,7 @@ function L0()
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_NASHOR_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
+  L0.KillStealEvents = L1
   L0.TimerType = "Baron"
 end
 NeutralMinionInit = L0

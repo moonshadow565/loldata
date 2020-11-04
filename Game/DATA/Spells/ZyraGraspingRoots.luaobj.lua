@@ -9,10 +9,6 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_e_sequence_impact_hellvine.troy"

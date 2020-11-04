@@ -32,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "monkeykingspinmarkerorder"
+      Name = "monkeykingspinmarker"
     }
   },
   {
@@ -45,12 +45,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "monkeykingspinknockup"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingspinmarkerchaos"
     }
   },
   {

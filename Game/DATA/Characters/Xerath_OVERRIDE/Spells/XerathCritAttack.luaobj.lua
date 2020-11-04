@@ -1,0 +1,11 @@
+SpellFXOverrideSkins = {
+  "IronForgeXerath"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_ba_tar_crit.troy"
+    }
+  }
+}

@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "skarnerrroot"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "apbonusdamagetotowers"
     }
   }

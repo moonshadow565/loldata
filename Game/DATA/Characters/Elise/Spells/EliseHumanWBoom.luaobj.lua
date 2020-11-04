@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "elise_human_volatile_detonate_skin02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "elise_human_volatile_detonate.troy"
     }
   },

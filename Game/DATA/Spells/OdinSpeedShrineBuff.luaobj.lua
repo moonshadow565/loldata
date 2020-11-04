@@ -1,6 +1,5 @@
 BuffTextureName = "Odin_SpeedShrine.dds"
 BuffName = "OdinSpeedShrineBuff"
-AutoBuffActivateEffect = ""
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {

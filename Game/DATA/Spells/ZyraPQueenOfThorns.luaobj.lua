@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_skin02_passive_ground.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "zyraseed"}
   },

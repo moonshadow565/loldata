@@ -3,6 +3,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
+      Name = "zyrapassive"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
       Name = "zyrathornplant"
     }
   },

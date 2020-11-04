@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "threshqfakeknockup"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "threshq"}
   },
   {

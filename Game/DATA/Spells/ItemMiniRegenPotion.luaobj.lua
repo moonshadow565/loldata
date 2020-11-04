@@ -2,8 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "2009_Mini_Pot.dds"
 BuffName = "ItemMiniRegenPotion"
-AutoBuffActivateEffect = "Regenerationpotion_itm.troy"
-AutoBuffActivateEffect2 = "ManaPotion_itm.troy"
+AutoBuffActivateEffect = "GLOBAL_Item_HealthPotion.troy"
+AutoBuffActivateEffect2 = "GLOBAL_Item_ManaPotion.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

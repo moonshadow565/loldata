@@ -80,6 +80,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sonahymnofvalorauraself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sonahymnofvaloraurab"
     }
   },

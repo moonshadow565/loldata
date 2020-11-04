@@ -1,7 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
 BuffName = "GalioRighteousGustMissile"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {

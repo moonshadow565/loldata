@@ -44,12 +44,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "tormentedsoildebuff"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "firefeet_buf.troy"

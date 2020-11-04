@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vi_skin02_e_cas.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "vieattack"}
   }

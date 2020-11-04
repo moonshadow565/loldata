@@ -34,11 +34,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "syndrawmana"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndrawspeed"
-    }
   }
 }

@@ -8,7 +8,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globaldrain"
+      Name = "ahriorbvamp"
     }
   },
   {

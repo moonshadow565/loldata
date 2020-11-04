@@ -9,5 +9,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yorickreviveallyself"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "spellnostackcdreset"
+    }
   }
 }

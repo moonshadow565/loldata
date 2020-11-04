@@ -12,12 +12,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "forcepulsechaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "voidstone"}
   },
   {
