@@ -50,7 +50,10 @@ OnBuffActivateBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -103,7 +106,7 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Attacker",
       CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
-      Damage = 100,
+      Damage = 120,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
@@ -128,17 +131,14 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lightningrodchain"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -148,6 +148,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightningrodchain"
+    }
   },
   {
     Function = BBPreloadParticle,

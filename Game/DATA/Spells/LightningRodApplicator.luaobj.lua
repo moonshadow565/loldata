@@ -1,3 +1,4 @@
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -10,29 +11,12 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AttackCounter",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "AttackCounter",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_ADD
-    }
-  },
-  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "AttackCounter",
-      Src1VarTable = "InstanceVars",
-      Value2 = 4,
-      CompareOp = CO_EQUAL
-    },
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
         Function = BBIf,
@@ -40,7 +24,12 @@ BuffOnHitUnitBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+            Params = {
+              Src1Var = "AttackCounter",
+              Src1VarTable = "InstanceVars",
+              Value2 = 3,
+              CompareOp = CO_EQUAL
+            },
             SubBlocks = {
               {
                 Function = BBIf,
@@ -90,7 +79,10 @@ BuffOnHitUnitBuildingBlocks = {
                           FOWTeamOverrideVar = "TeamID",
                           FOWVisibilityRadius = 10,
                           SendIfOnScreenOrDiscard = true,
-                          FollowsGroundTilt = false
+                          PersistsThroughReconnect = false,
+                          BindFlexToOwnerPAR = false,
+                          FollowsGroundTilt = false,
+                          FacesTarget = false
                         }
                       },
                       {
@@ -136,6 +128,24 @@ BuffOnHitUnitBuildingBlocks = {
                 }
               }
             }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "AttackCounter",
+                  Src1VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 1,
+                  DestVar = "AttackCounter",
+                  DestVarTable = "InstanceVars",
+                  MathOp = MO_ADD
+                }
+              }
+            }
           }
         }
       }
@@ -152,5 +162,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lightningrodchain"
+    }
   }
 }

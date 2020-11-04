@@ -101,7 +101,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBSetScaleSkinCoef,
-            Params = {Scale = 1.3, OwnerVar = "Owner"}
+            Params = {Scale = 1.1, OwnerVar = "Owner"}
           }
         }
       },
@@ -111,7 +111,7 @@ BuffOnUpdateStatsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBSetScaleSkinCoef,
-            Params = {Scale = 1.15, OwnerVar = "Owner"}
+            Params = {Scale = 1.05, OwnerVar = "Owner"}
           }
         }
       }

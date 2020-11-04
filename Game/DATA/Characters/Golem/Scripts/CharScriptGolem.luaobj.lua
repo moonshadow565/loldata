@@ -44,7 +44,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "expPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1.75
+      SrcValue = 1.55
     }
   },
   {

@@ -44,7 +44,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "expPerMinute",
       DestVarTable = "NextBuffVars",
-      SrcValue = 1.65
+      SrcValue = 1.5
     }
   },
   {
@@ -96,7 +96,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = 5
+      Delta = 2
     }
   },
   {

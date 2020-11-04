@@ -90,6 +90,14 @@ CharOnActivateBuildingBlocks = {
       CanMitigateDuration = false,
       IsHiddenOnClient = false
     }
+  },
+  {
+    Function = BBIncPermanentStat,
+    Params = {
+      Stat = IncPermanentFlatHPPoolMod,
+      TargetVar = "Owner",
+      Delta = 100
+    }
   }
 }
 PreLoadBuildingBlocks = {
