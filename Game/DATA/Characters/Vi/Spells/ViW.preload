@@ -1,9 +1,9 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="viwbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="viw"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_armorshred_hold.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_armorshred.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_armorshred_hold.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_armorshred.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="viwshred"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_armorshred_minion.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_armorshred_dragon.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_armorshred_minion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_armorshred_dragon.troy"}}, 
 }

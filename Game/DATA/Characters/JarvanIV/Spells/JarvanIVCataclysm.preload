@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="jarvancataclysm_sound.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="jarvanivcataclysm"}}, 
 {Function=BBPreloadSpell, Params={Name="jarvanivcataclysmsilence"}}, 
 {Function=BBPreloadSpell, Params={Name="unstoppableforcemarker"}}, 
 {Function=BBPreloadSpell, Params={Name="jarvanivcataclysmvisibility"}}, 

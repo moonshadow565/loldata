@@ -6,5 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="viqvfx"}}, 
 {Function=BBPreloadSpell, Params={Name="viqdash"}}, 
 {Function=BBPreloadSpell, Params={Name="viqrefresh"}}, 
-{Function=BBPreloadParticle, Params={Name="vi_q_expire.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Vi_Base_q_expire.troy"}}, 
 }

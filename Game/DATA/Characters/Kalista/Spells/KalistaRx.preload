@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="kalistar"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistaraestheticmis"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavorallylowhealth"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavornormal"}}, 

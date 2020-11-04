@@ -3,7 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kalistacoopstrikeally"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_recall_mist.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_skin01_idle_spear_avatar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="kalistapassivetestforboots"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoehighstack"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoenormal"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_e_spear_out_sound.troy"}}, 
@@ -15,4 +14,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kalista_base_e_tar_lethal.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistavoassistally"}}, 
 {Function=BBPreloadParticle, Params={Name="kalista_base_recall_mist_fountain.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kalistapaltarallyroot"}}, 
+{Function=BBPreloadSpell, Params={Name="kalistapbondingrootally"}}, 
+{Function=BBPreloadSpell, Params={Name="kalistapinvocation"}}, 
 }
