@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarupdatetrophycharges"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "rengar_vo_trophy1.troy"
