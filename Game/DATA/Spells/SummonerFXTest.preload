@@ -1,6 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="crest_skin07_01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="crest_skin06_01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="crest_skin05_01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="crest_skin04_01.troy"}}, 
-}

@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="jinx_e_fire.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Jinx_Base_E_Fire.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadSpell, Params={Name="jinxefireburn"}}, 
 }

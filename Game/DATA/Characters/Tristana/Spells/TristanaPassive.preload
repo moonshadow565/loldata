@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tristana_base_p_explosion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanavomanykills"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanavotowerkill"}}, 
+}

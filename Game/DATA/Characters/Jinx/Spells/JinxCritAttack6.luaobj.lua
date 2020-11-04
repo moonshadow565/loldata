@@ -1,3 +1,1 @@
-SpellFXOverrideSkins = {
-  "LucianSkin01"
-}
+SpellFXOverrideSkins = {"JinxSkin02"}

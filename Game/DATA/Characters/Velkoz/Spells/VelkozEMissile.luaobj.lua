@@ -4,5 +4,6 @@ IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
 SpellFXOverrideSkins = {
-  "VelkozSkin01"
+  "VelkozSkin01",
+  "VelkozSkin02"
 }

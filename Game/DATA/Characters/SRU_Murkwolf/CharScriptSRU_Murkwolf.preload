@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="regenerationruneaura"}}, 
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_junglebuff_wolf_marker.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_junglebuff_wolf_buff_flash.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="sru_spiritwolf"}}, 
 {Function=BBPreloadSpell, Params={Name="s5ghostpuppybuff"}}, 
-{Function=BBPreloadParticle, Params={Name="sru_junglebuff_wolf_buff_flash.troy"}}, 
 }

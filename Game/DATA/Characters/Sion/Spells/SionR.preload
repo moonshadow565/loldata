@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="vi_q_mis_child.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_r_globalsound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="sionrsoundglobal"}}, 
 {Function=BBPreloadSpell, Params={Name="sionrselfbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="sionrsoundfireball"}}, 
 {Function=BBPreloadParticle, Params={Name="sion_base_r_explosion.troy"}}, 
