@@ -29,5 +29,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rengarrunspeed"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarpassiverootcheck"
+    }
   }
 }

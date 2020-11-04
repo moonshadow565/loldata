@@ -5,5 +5,5 @@ BuffTextureName = "BlindMonkETwo.dds"
 BuffName = "BlindMonkCripple"
 AutoBuffActivateEffect = "blindMonk_E_tempestFist_cripple.troy"
 AutoBuffActivateEffect2 = "blindMonk_E_tempestFist_cripple_02.troy"
-PopupMessage1 = "game_floatingtext_Slowed"
 SpellDamageRatio = 1
+PopupMessage1 = "game_floatingtext_Slowed"
