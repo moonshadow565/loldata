@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="ryzepassivecharged"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzepassiveshield"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzepassivestack"}}, 
+}

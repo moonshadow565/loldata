@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ryze_base_p_shield.troy"}}, 
+}

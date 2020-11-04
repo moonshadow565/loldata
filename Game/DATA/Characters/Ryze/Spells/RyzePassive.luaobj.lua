@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "Ryze_SpellStrike.dds"
+BuffName = "RyzePassive"
+PersistsThroughDeath = true
+NonDispellable = true

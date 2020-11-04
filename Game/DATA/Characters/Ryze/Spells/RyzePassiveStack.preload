@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ryze_base_p_stack_01.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_p_stack_02.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_p_stack_03.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_p_stack_04.troy"}}, 
+}

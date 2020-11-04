@@ -352,6 +352,11 @@ function PreloadBarrackCharacters(A0_23)
     end
   end
 end
+function SetMutatorGlobals()
+  if GetMutatorParameterFloat("InitialMinionSpawnTime") > 0 then
+    INITIAL_TIME_TO_SPAWN = GetMutatorParameterFloat("InitialMinionSpawnTime")
+  end
+end
 function OnLevelInit()
   local L0_26, L1_27, L2_28, L3_29, L4_30, L5_31, L6_32
   for L5_31, L6_32 in L2_28(L3_29) do
@@ -360,6 +365,7 @@ function OnLevelInit()
   for L5_31, L6_32 in L2_28(L3_29) do
     PreloadBarrackCharacters(L6_32)
   end
+  L2_28()
   L2_28(L3_29)
   L2_28(L3_29)
   L2_28(L3_29)

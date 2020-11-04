@@ -1,5 +1,8 @@
 FEAR_WANDER_DISTANCE = 500
 FLEE_RUN_DISTANCE = 2000
+ATTACKMOVE_CLICK_TARGET_DISTANCE = 250
+ATTACKMOVE_CLICK_TARGET_RANGE_ADDITION = 50
+ATTACKMOVE_CLICK_TARGET_FAR_RANGE_CLICK_TOLERANCE = 100
 STATE_STRINGS = {
   [0] = "AI_IDLE",
   "AI_SOFTATTACK",
@@ -21,6 +24,7 @@ STATE_STRINGS = {
   "AI_HALTED",
   "AI_SIEGEATTACK"
 }
+ClickCloseToTargetAttackMove = false
 function CalculateAttackTimer()
   checkAttackTimer = 1.6 / (GetPercentAttackSpeedMod() + 1)
   if checkAttackTimer < 0.5 then
@@ -37,6 +41,7 @@ function OnInit()
   InitTimer("TimerFlee", 0.5, true)
   StopTimer("TimerFeared")
   StopTimer("TimerFlee")
+  ClickCloseToTargetAttackMove = GetIsGameFeatureEnabled("ClickCloseToTargetAttackMove")
   return false
 end
 function OnOrder(A0_0, A1_1, A2_2)
@@ -122,9 +127,29 @@ function OnOrder(A0_0, A1_1, A2_2)
   end
   L4_4 = ORDER_ATTACKMOVE
   if A0_0 == L4_4 then
-    L4_4 = FindTargetInAcR
-    L4_4 = L4_4()
-    newTarget = L4_4
+    L4_4 = ClickCloseToTargetAttackMove
+    if L4_4 then
+      L4_4 = FindTargetNearestPosition
+      L4_4 = L4_4(A2_2, ATTACKMOVE_CLICK_TARGET_DISTANCE)
+      newTarget = L4_4
+      L4_4 = newTarget
+      if L4_4 ~= nil then
+        L4_4 = GetPos
+        L4_4 = L4_4(newTarget)
+        if GetAttackRange() + ATTACKMOVE_CLICK_TARGET_RANGE_ADDITION < DistanceBetweenObjectBounds(me, newTarget) and IsDistanceBetweenObjectBoundAndPointLessThan(newTarget, A2_2, ATTACKMOVE_CLICK_TARGET_FAR_RANGE_CLICK_TOLERANCE) == false then
+          newTarget = nil
+        end
+      end
+    else
+      L4_4 = nil
+      newTarget = L4_4
+    end
+    L4_4 = newTarget
+    if L4_4 == nil then
+      L4_4 = FindTargetInAcR
+      L4_4 = L4_4()
+      newTarget = L4_4
+    end
     L4_4 = newTarget
     if L4_4 ~= nil then
       L4_4 = SetStateAndCloseToTarget

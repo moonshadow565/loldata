@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "Ryze_R.dds"
+BuffName = "RyzeR"
+AutoBuffActivateEffect = "Ryze_Skin07_R_Glow.troy"
+AutoBuffActivateAttachBoneName = "bag_d"
+NonDispellable = true

@@ -2,4 +2,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="cripple"}}, 
 {Function=BBPreloadParticle, Params={Name="randuinsomen_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
+{Function=BBPreloadSpell, Params={Name="randuinsomenbuff"}}, 
 }
