@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_relic.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_leapswipe.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_taravatar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_ba_turret_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_ba_tower.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_w_tower_tar.troy"}}, 
+}

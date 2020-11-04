@@ -19,6 +19,14 @@ function L0_0()
 end
 OnInit = L0_0
 function L0_0()
+  StopTimer("TimerUpdate")
+end
+Disable = L0_0
+function L0_0()
+  ResetAndStartTimer("TimerUpdate")
+end
+Enable = L0_0
+function L0_0()
   local L0_3, L1_4, L2_5, L3_6, L4_7, L5_8, L6_9, L7_10, L8_11, L9_12, L10_13, L11_14, L12_15, L13_16, L14_17
   L0_3 = LoadTask
   L1_4 = "TaskPushLane.lua"

@@ -1,3 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Azir.AzirFunctionModule"}}, 
+{Function=BBPreloadSpell, Params={Name="azirspellqueueq"}}, 
+{Function=BBPreloadSpell, Params={Name="azirspellqueuee"}}, 
+{Function=BBPreloadSpell, Params={Name="azirq"}}, 
+{Function=BBPreloadSpell, Params={Name="azire"}}, 
 }

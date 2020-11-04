@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_ba_1.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_ba_swipe3.troy"}}, 
+}

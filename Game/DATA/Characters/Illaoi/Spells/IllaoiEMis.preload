@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="illaoiespirit"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_tar_minion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_miss.troy"}}, 
+}

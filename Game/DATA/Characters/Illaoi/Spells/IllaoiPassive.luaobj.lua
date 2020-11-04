@@ -1,0 +1,2 @@
+BuffName = "IllaoiPassive"
+PersistsThroughDeath = true

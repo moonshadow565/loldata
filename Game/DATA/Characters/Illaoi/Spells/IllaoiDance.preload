@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_tentacle_dance1.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_tentacle_dance2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_tentacle_dance3.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_tentacle_dance4.troy"}}, 
+}

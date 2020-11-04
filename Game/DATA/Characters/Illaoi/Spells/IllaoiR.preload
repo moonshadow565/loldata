@@ -1,0 +1,16 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_tar_minion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_impact.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_z_tentacletrail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_tentacleburst.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="illaoiminion"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoir2"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleminion"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoirmarker"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_jumpdust.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_jumptrail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_illaoibuff.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_r_illaoibuffglow.troy"}}, 
+}

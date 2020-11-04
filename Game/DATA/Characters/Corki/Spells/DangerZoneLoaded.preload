@@ -1,4 +1,6 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="corki_skin06_w_aoe_groundx.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_skin06_w_aoe_ground_enemyx.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_w_aoe_ground.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_w_aoe_ground_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dangerzoneloadedtarget"}}, 

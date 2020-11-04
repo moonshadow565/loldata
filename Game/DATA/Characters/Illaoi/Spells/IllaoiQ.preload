@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_tarminion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_tardirectional.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_taravatardirectional.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentaclerecentattack"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleheal"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_indicatorblu.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_indicatorred.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_q_tentacle.troy"}}, 
+}

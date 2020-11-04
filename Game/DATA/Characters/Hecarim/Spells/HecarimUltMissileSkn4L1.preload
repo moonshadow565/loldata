@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="hecarim_r_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="hecarim_base_r_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissile"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimult"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimvision"}}, 

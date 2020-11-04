@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="illaoiminion"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentaclespawntrail.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_p_tentaclespawn.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentacleminion"}}, 
+{Function=BBPreloadSpell, Params={Name="illaoitentaclespawncooldown"}}, 
+}
