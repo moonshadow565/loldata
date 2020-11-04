@@ -74,7 +74,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.7,
       DestVar = "AbilityPowerMod",
       MathOp = MO_MULTIPLY
     }

@@ -11,17 +11,6 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseDamage",
@@ -42,24 +31,10 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "scaling",
-      SrcValueByLevel = {
-        0.7,
-        0.7,
-        0.7,
-        0.7,
-        0.7
-      }
-    }
-  },
-  {
     Function = BBMath,
     Params = {
-      Src1Var = "scaling",
       Src2Var = "AttackDamage",
-      Src1Value = 0,
+      Src1Value = 0.7,
       Src2Value = 0,
       DestVar = "BonusAD",
       MathOp = MO_MULTIPLY
@@ -77,60 +52,136 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
-  },
-  {
-    Function = BBApplyDamage,
+    Function = BBGetStatus,
     Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "TotalDamage",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = true
+      DestVar = "IsStealthed",
+      Status = GetStealthed
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBIf,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "UrgotTerrorCapacitorActive2"
+      Src1Var = "IsStealthed",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
+      },
+      {
+        Function = BBApplyDamage,
         Params = {
-          DestVar = "MoveSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            -0.2,
-            -0.25,
-            -0.3,
-            -0.35,
-            -0.4
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "TotalDamage",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = true
+        }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "UrgotTerrorCapacitorActive2"
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValueByLevel = {
+                -0.2,
+                -0.25,
+                -0.3,
+                -0.35,
+                -0.4
+              }
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "Slow",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 100,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
           }
+        }
+      },
+      {
+        Function = BBDestroyMissile,
+        Params = {
+          MissileIDVar = "MissileNetworkID"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BloodSlash.troy",
+          Flags = 0,
+          EffectIDVar = "asdf1",
+          BoneName = "spine",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "UrgotHeatSeekingMissile_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "Slow",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          AttackerVar = "Owner",
+          BuffName = "UrgotEntropyPassive",
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Slow,
-          MaxStack = 100,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1.5,
+          Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -139,43 +190,279 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "UrgotEntropyPassive",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 2.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "UrgotHeatSeekingMissile_tar.troy",
-      Flags = 0,
-      EffectIDVar = "asdf",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
-    Function = BBDestroyMissile,
-    Params = {
-      MissileIDVar = "MissileNetworkID"
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "TotalDamage",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELL,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = true
+            }
+          },
+          {
+            Function = BBIfHasBuff,
+            Params = {
+              OwnerVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "UrgotTerrorCapacitorActive2"
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "MoveSpeedMod",
+                  DestVarTable = "NextBuffVars",
+                  SrcValueByLevel = {
+                    -0.2,
+                    -0.25,
+                    -0.3,
+                    -0.35,
+                    -0.4
+                  }
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "Slow",
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Slow,
+                  MaxStack = 100,
+                  NumberOfStacks = 1,
+                  Duration = 1.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBDestroyMissile,
+            Params = {
+              MissileIDVar = "MissileNetworkID"
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "BloodSlash.troy",
+              Flags = 0,
+              EffectIDVar = "asdf1",
+              BoneName = "spine",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "UrgotHeatSeekingMissile_tar.troy",
+              Flags = 0,
+              EffectIDVar = "asdf",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Owner",
+              BuffName = "UrgotEntropyPassive",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatDehancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 2.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBCanSeeTarget,
+            Params = {
+              ViewerVar = "Owner",
+              TargetVar = "Target",
+              ResultVar = "CanSee"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "CanSee",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Damage = 0,
+                  DamageVar = "TotalDamage",
+                  DamageType = PHYSICAL_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 0,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = true
+                }
+              },
+              {
+                Function = BBIfHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UrgotTerrorCapacitorActive2"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "MoveSpeedMod",
+                      DestVarTable = "NextBuffVars",
+                      SrcValueByLevel = {
+                        -0.2,
+                        -0.25,
+                        -0.3,
+                        -0.35,
+                        -0.4
+                      }
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Attacker",
+                      BuffName = "Slow",
+                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Slow,
+                      MaxStack = 100,
+                      NumberOfStacks = 1,
+                      Duration = 1.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBDestroyMissile,
+                Params = {
+                  MissileIDVar = "MissileNetworkID"
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "BloodSlash.troy",
+                  Flags = 0,
+                  EffectIDVar = "asdf1",
+                  BoneName = "spine",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "UrgotHeatSeekingMissile_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "asdf",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Owner",
+                  BuffName = "UrgotEntropyPassive",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -191,15 +478,21 @@ PreLoadBuildingBlocks = {
     Params = {Name = "slow"}
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "urgotentropypassive"
+      Name = "bloodslash.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "urgotheatseekingmissile_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "urgotentropypassive"
     }
   }
 }

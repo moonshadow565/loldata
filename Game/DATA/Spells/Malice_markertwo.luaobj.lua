@@ -10,7 +10,8 @@ BuffOnDeathBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -41,18 +42,13 @@ BuffOnDeathBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBSetSlotSpellCooldownTime,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Unit",
-                  BuffName = "MaliceandSpiteCanCast",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 180,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  SrcValue = 0,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  SpellSlotValue = 3,
+                  OwnerVar = "Unit"
                 }
               }
             }
@@ -67,12 +63,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "silentkiller"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "maliceandspitecancast"
     }
   }
 }

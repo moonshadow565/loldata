@@ -57,7 +57,8 @@ OnBuffDeactivateBuildingBlocks = {
       Silenced = true,
       Invulnerable = false,
       MagicImmune = false,
-      IgnoreCollision = true,
+      IgnoreCollision = false,
+      Placemarker = false,
       VisibilitySize = 500,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Attacker"
@@ -79,12 +80,14 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "JackInTheBox",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 90,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -150,33 +150,147 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
-      {
-        Function = BBSetVarInTable,
+        Function = BBGetStatus,
         Params = {
-          DestVar = "TickDamage",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "TickDamage"
+          TargetVar = "Unit",
+          DestVar = "IsStealthed",
+          Status = GetStealthed
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Owner",
-          BuffName = "UrgotCorrosiveDebuff",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "buffDuration",
-          TickRate = 0,
-          CanMitigateDuration = true
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "TickDamage",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "TickDamage"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "UrgotCorrosiveDebuff",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatDehancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "buffDuration",
+              TickRate = 0,
+              CanMitigateDuration = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "TickDamage",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "TickDamage"
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Owner",
+                  BuffName = "UrgotCorrosiveDebuff",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationVar = "buffDuration",
+                  TickRate = 0,
+                  CanMitigateDuration = true
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBCanSeeTarget,
+                Params = {
+                  ViewerVar = "Owner",
+                  TargetVar = "Unit",
+                  ResultVar = "CanSee"
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "CanSee",
+                  Value2 = true,
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBBreakSpellShields,
+                    Params = {TargetVar = "Unit"}
+                  },
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {
+                      DestVar = "TickDamage",
+                      DestVarTable = "NextBuffVars",
+                      SrcVar = "TickDamage"
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "UrgotCorrosiveDebuff",
+                      BuffAddType = BUFF_REPLACE_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 0,
+                      BuffVarsTable = "NextBuffVars",
+                      DurationVar = "buffDuration",
+                      TickRate = 0,
+                      CanMitigateDuration = true
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }

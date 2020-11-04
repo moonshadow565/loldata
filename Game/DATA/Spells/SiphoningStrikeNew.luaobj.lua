@@ -78,6 +78,10 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetDodgePiercing,
     Params = {TargetVar = "Owner", Value = true}
+  },
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

@@ -48,32 +48,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
-CanCastBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MaliceandSpiteCanCast"
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = true}
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -82,30 +56,18 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "MaliceandSpite",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MaliceandSpiteCanCast"
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "maliceandspitecancast"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

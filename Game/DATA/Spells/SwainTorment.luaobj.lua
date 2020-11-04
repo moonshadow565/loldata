@@ -135,7 +135,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLPERSIST,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.15,
+          SpellDamageRatio = 0.2,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -151,11 +151,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DoTDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        18,
-        27.5,
-        37,
-        46.5,
-        56
+        18.75,
+        28.75,
+        38.75,
+        48.75,
+        58.75
       }
     }
   },

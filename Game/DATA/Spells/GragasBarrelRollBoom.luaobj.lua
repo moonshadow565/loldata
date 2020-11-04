@@ -118,13 +118,28 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ASDebuff",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -0.2,
+        -0.25,
+        -0.3,
+        -0.35,
+        -0.4
+      }
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Attacker",
       Range = 300,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -135,6 +150,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
             100,
@@ -151,6 +167,30 @@ OnBuffDeactivateBuildingBlocks = {
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Unit",
+          AttackerVar = "Attacker",
+          BuffName = "GragasExplosiveCaskDebuff",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0,
+          BuffVarsTable = "NextBuffVars",
+          DurationByLevel = {
+            3,
+            3,
+            3,
+            3,
+            3
+          },
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -220,11 +260,11 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       DestVar = "CooldownVar",
       SrcValueByLevel = {
-        12,
         11,
         10,
         9,
-        8
+        8,
+        7
       }
     }
   },
@@ -298,6 +338,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Attacker",
       Damage = 5000,
       DamageType = TRUE_DAMAGE,
@@ -307,6 +348,16 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifeTime",
+      DestVarTable = "InstanceVars",
+      SrcVar = "LifeTime"
     }
   }
 }
@@ -330,16 +381,6 @@ BuffOnSpellCastBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifeTime",
-      DestVarTable = "InstanceVars",
-      SrcVar = "LifeTime"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -351,6 +392,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_barrelfoam.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasexplosivecaskdebuff"
     }
   },
   {

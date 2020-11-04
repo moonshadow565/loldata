@@ -10,6 +10,7 @@ AutoCooldownByLevel = {
   0,
   0
 }
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -53,25 +54,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "ManaShield",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "ManaBurn",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPAR,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      PARType = PAR_MANA,
-      DeltaVar = "ManaBurn"
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ManaShield",
@@ -81,16 +63,6 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBIncPAR,
-    Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      PARType = PAR_MANA,
-      DeltaVar = "ManaShield",
-      DeltaVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBSpellEffectRemove,
     Params = {

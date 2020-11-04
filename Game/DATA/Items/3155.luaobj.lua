@@ -1,71 +1,89 @@
-ItemOnPreDamageBuildingBlocks = {
+ItemOnTakeDamageBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
       CasterVar = "Owner",
-      BuffName = "Hexdrinker"
+      BuffName = "HexdrinkerTimer"
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "DamageType",
-          Value2 = MAGIC_DAMAGE,
-          CompareOp = CO_EQUAL
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "Hexdrinker"
         },
         SubBlocks = {
           {
             Function = BBIf,
             Params = {
-              Src1Var = "DamageAmount",
-              Value2 = 0,
-              CompareOp = CO_GREATER_THAN
+              Src1Var = "DamageType",
+              Value2 = MAGIC_DAMAGE,
+              CompareOp = CO_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBIf,
                 Params = {
                   Src1Var = "DamageAmount",
-                  Src1Value = 0,
-                  Src2Value = 0.041667,
-                  DestVar = "StatBoost",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "StatBoost",
-                  Src1Value = 0,
-                  Src2Value = 25,
-                  DestVar = "StatBoost",
-                  MathOp = MO_MIN
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "StatBoost",
-                  DestVarTable = "NextBuffVars",
-                  SrcVar = "StatBoost"
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Owner",
-                  BuffName = "Hexdrinker",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_CombatEnchancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 8,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  Value2 = 0,
+                  CompareOp = CO_GREATER_THAN
+                },
+                SubBlocks = {
+                  {
+                    Function = BBGetPAROrHealth,
+                    Params = {
+                      DestVar = "HealthPercent",
+                      OwnerVar = "Owner",
+                      Function = GetHealthPercent,
+                      PARType = PAR_MANA
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "HealthPercent",
+                      Value2 = 0.4,
+                      CompareOp = CO_LESS_THAN_OR_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Owner",
+                          AttackerVar = "Owner",
+                          BuffName = "Hexdrinker",
+                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_CombatEnchancer,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 4,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      },
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Owner",
+                          AttackerVar = "Owner",
+                          BuffName = "HexdrinkerTimer",
+                          BuffAddType = BUFF_REPLACE_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Internal,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 60,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -76,6 +94,12 @@ ItemOnPreDamageBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hexdrinkertimer"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "hexdrinker"}

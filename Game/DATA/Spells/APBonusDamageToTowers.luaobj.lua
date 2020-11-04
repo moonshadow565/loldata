@@ -239,6 +239,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "disconnecttimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "fortifycheck"
     }
   }

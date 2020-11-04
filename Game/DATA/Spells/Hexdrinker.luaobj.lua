@@ -1,21 +1,43 @@
-BuffTextureName = "3021_Fleshrender.dds"
+BuffTextureName = "3155_Hexdrinker.dds"
 BuffName = "HexdrunkEmpowered"
+AutoBuffActivateEffect = "Global_Spellimmunity.troy"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBRequireVar,
+    Function = BBIncStat,
     Params = {
-      RequiredVar = "StatBoost",
-      RequiredVarTable = "InstanceVars"
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      Delta = 80
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = 30
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBSpellBuffAdd,
     Params = {
-      DestVar = "StatBoost",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HexdrinkerTimerCD",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 56,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -23,111 +45,25 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatPhysicalDamageMod,
+      Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "StatBoost",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Delta = 80
     }
   },
   {
-    Function = BBSetBuffToolTipVar,
+    Function = BBIncStat,
     Params = {
-      Value = 0,
-      ValueVar = "StatBoost",
-      ValueVarTable = "InstanceVars",
-      Index = 1
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "DamageType",
-      Value2 = MAGIC_DAMAGE,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "DamageAmount",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0.041667,
-              DestVar = "StatBoostInc",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "StatBoost",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "StatBoostInc",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "StatBoost",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "StatBoost",
-              Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 25,
-              DestVar = "StatBoost",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_MIN
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "StatBoost",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "StatBoost",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Hexdrinker",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 8,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      }
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      Delta = 30
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "hexdrinker"}
+    Params = {
+      Name = "hexdrinkertimercd"
+    }
   }
 }

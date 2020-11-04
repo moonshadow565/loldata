@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-CastingBreaksStealth = true
+CastingBreaksStealth = false
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

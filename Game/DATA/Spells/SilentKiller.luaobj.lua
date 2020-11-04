@@ -2,29 +2,6 @@ BuffTextureName = "Evelynn_Stalk.dds"
 BuffName = "Silent Killer"
 PersistsThroughDeath = true
 Nondispellable = true
-BuffOnDealDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "Malice_marker",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
-    }
-  }
-}
 BuffOnBeingHitBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -69,11 +46,39 @@ BuffOnBeingHitBuildingBlocks = {
     }
   }
 }
-PreLoadBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "malice_marker"
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "MaliceHeal",
+          DeltaVarTable = "CharVars",
+          HealerVar = "Owner"
+        }
+      }
+    }
+  }
+}
+BuffOnAssistBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          DeltaVar = "MaliceHeal",
+          DeltaVarTable = "CharVars",
+          HealerVar = "Owner"
+        }
+      }
     }
   }
 }

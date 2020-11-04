@@ -405,7 +405,7 @@ BuffOnUpdateStatsBuildingBlocks = {
             Params = {
               Src1Var = "MoveSpeedMod",
               Src1VarTable = "InstanceVars",
-              Value2 = 80,
+              Value2 = 70,
               CompareOp = CO_LESS_THAN_OR_EQUAL
             },
             SubBlocks = {

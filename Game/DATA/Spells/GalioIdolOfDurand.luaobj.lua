@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-ChannelDuration = 2.5
+ChannelDuration = 2
 BuffTextureName = "Galio_IdolOfDurand.dds"
 BuffName = "GalioIdolOfDurand"
 AutoBuffActivateEffect = ""
@@ -381,7 +381,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {
                   AttackerVar = "Owner",
                   TargetVar = "Unit",
-                  Duration = 2.5
+                  Duration = 1.5
                 }
               },
               {
@@ -395,7 +395,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffType = BUFF_Taunt,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 2.5,
+                  Duration = 1.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false
@@ -468,7 +468,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       TargetVar = "Target",
-      Duration = 2.5
+      Duration = 2
     }
   },
   {
@@ -482,7 +482,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -499,7 +499,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -517,7 +517,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
