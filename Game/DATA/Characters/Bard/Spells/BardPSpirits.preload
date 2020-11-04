@@ -8,6 +8,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear_others.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_appear_sound_others.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bardpspiritmissile"}}, 
 {Function=BBPreloadSpell, Params={Name="bardpspiritmissilepicker_hack"}}, 
 {Function=BBPreloadSpell, Params={Name="bardpspirithandlerecall"}}, 

@@ -1,10 +1,10 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
+{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrmissilefixedtraveltime"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrmissilerange1"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrmissilerange2"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrmissilerange3"}}, 
-{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_tar_warn_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_tar_warn_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_tar_green.troy"}}, 
