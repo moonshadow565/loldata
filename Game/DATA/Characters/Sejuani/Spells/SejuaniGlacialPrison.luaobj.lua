@@ -18,12 +18,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sejuaniglacialprisondetonate"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sejuaniglacialprisoncheck"
     }
   }

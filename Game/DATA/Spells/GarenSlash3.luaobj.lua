@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_steellegion_decisive_strike_electric.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "garenfastmove"

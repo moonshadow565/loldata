@@ -3,7 +3,6 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Cryophoenix_FrigidOrb.dds"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
