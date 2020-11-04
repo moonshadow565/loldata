@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="malzahar_base_e_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharrecentvis"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharmaleficvisions"}}, 
 {Function=BBPreloadSpell, Params={Name="alzaharsummonvoidling"}}, 

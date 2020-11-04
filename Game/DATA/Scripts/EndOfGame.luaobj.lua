@@ -5,10 +5,6 @@ L0 = 2
 EOG_SCOREBOARD_PHASE_DELAY_TIME = L0
 L0 = 10
 EOG_NEXUS_REVIVE_TIME = L0
-L0 = 1
-EOG_MAIN_SFX_FADE_DELAY_TIME = L0
-L0 = 2
-EOG_MAIN_SFX_FADE_DURATION = L0
 L0 = 0
 EOG_ALIVE_NEXUS_SKIN = L0
 L0 = 1
@@ -107,11 +103,6 @@ function L0(A0, A1)
   L4 = "ChampionEoGCeremony"
   L2(L3, L4)
   L2 = InitTimer
-  L3 = "FadeOutMainSFXPhase"
-  L4 = EOG_MAIN_SFX_FADE_DELAY_TIME
-  L5 = false
-  L2(L3, L4, L5)
-  L2 = InitTimer
   L3 = "DestroyNexusPhase"
   L4 = GetEoGNexusChangeSkinTime
   L4 = L4()
@@ -134,13 +125,6 @@ function L0(A0)
   L1(L2, L3)
 end
 ChampionEoGCeremony = L0
-function L0()
-  local L0, L1
-  L0 = FadeOutMainSFX
-  L1 = EOG_MAIN_SFX_FADE_DURATION
-  L0(L1)
-end
-FadeOutMainSFXPhase = L0
 function L0()
   local L0, L1, L2, L3
   L0 = GetEoGUseNexusDeathAnimation

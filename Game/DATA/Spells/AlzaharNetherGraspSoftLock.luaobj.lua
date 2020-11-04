@@ -6,5 +6,5 @@ IsDamagingSpell = true
 ChannelDuration = 2.5
 BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGrasp"
-AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
+AutoBuffActivateEffect2 = "Malzahar_Base_R_tar.troy"
 AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_HEAD_LOC"

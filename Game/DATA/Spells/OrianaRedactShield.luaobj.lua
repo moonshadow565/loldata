@@ -5,7 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "OriannaCommandRedact.dds"
 BuffName = "OrianaRedactShield"
-AutoBuffActivateEffect = "OrianaProtectShield.troy"
-AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Center_Loc"
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true

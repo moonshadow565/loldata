@@ -2,5 +2,5 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "EliseSpiderW.dds"
 BuffName = "BuffEliseSkitter"
-AutoBuffActivateEffect = "Elise_spider_W_move_buf.troy"
+AutoBuffActivateEffect = "EliseSpider_Base_W_buf_move.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_LAYOUT_LOC"
