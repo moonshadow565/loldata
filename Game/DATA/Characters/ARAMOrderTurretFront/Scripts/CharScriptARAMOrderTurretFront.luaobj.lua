@@ -28,5 +28,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "turretdamagemanager"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "turretglowparticle"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "turretpackage"
+    }
   }
 }

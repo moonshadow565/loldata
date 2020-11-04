@@ -1,38 +1,38 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "turretprebonus"
+      Name = "order_turret_crystal.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "chaos_turret_crystal.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretbonushealth"
+      Name = "negativeturretdelta"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretchampiondelta"
+      Name = "positiveturretdelta"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretassistmanager"
+      Name = "turretbackdoorbonus"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "turretdamagemanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "turretpackage"
+      Name = "turretdamagemarker"
     }
   }
 }
