@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemdisable"
+      Name = "itemdisableshacobox"
     }
   },
   {

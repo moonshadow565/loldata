@@ -1,7 +1,5 @@
-NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
-IsDamagingSpell = true
-PopupMessage1 = "game_floatingtext_Snared"
+BuffTextureName = "GnarBig_R.dds"
+BuffName = "GnarR"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }

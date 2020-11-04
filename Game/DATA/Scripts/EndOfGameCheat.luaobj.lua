@@ -68,15 +68,15 @@ function L0(A0, A1)
   L2()
   L2 = LuaForEachChampion
   L3 = TEAM_UNKNOWN
-  L4 = "CheatChampionEoGCeremony"
+  L4 = "CheatChampionEoGCeremonyServer"
   L2(L3, L4)
   L2 = InitTimer
-  L3 = "CheatDestroyNexusPhase"
+  L3 = "CheatDestroyNexusPhaseServer"
   L4 = EOG_NEXUS_EXPLOSION_TIME
   L5 = false
   L2(L3, L4, L5)
 end
-CheatEndOfGameCeremony = L0
+CheatEndOfGameCeremonyServer = L0
 function L0(A0)
   local L1, L2, L3, L4
   L1 = MoveCameraFromCurrentPositionToPoint
@@ -89,7 +89,7 @@ function L0(A0)
   L3 = false
   L1(L2, L3)
 end
-CheatChampionEoGCeremony = L0
+CheatChampionEoGCeremonyServer = L0
 function L0()
   local L0, L1, L2, L3
   L0 = SetHQCurrentSkin
@@ -102,17 +102,17 @@ function L0()
   L3 = EOG_MINION_FADE_TIME
   L0(L1, L2, L3)
   L0 = InitTimer
-  L1 = "CheatStopRenderingMinionsPhase"
+  L1 = "CheatStopRenderingMinionsPhaseServer"
   L2 = EOG_MINION_FADE_TIME
   L3 = false
   L0(L1, L2, L3)
   L0 = InitTimer
-  L1 = "CheatRevertEoGSettings"
+  L1 = "CheatRevertEoGSettingsServer"
   L2 = EOG_NEXUS_REVIVE_TIME
   L3 = false
   L0(L1, L2, L3)
 end
-CheatDestroyNexusPhase = L0
+CheatDestroyNexusPhaseServer = L0
 function L0()
   local L0, L1, L2
   L0 = SetMinionsNoRender
@@ -120,7 +120,7 @@ function L0()
   L2 = true
   L0(L1, L2)
 end
-CheatStopRenderingMinionsPhase = L0
+CheatStopRenderingMinionsPhaseServer = L0
 function L0()
   local L0, L1, L2, L3
   L0 = SetBarracksSpawnEnabled
@@ -136,4 +136,25 @@ function L0()
   L2 = EOG_ALIVE_NEXUS_SKIN
   L0(L1, L2)
 end
-CheatRevertEoGSettings = L0
+CheatRevertEoGSettingsServer = L0
+function L0()
+  local L0, L1, L2, L3
+  L0 = ClientCheat_ShowHud
+  L1 = false
+  L0(L1)
+  L0 = InitTimer
+  L1 = "CheatRevertEoGSettingsClient"
+  L2 = EOG_NEXUS_EXPLOSION_TIME
+  L3 = EOG_NEXUS_REVIVE_TIME
+  L2 = L2 + L3
+  L3 = false
+  L0(L1, L2, L3)
+end
+CheatEndOfGameCeremonyClient = L0
+function L0()
+  local L0, L1
+  L0 = ClientCheat_ShowHud
+  L1 = true
+  L0(L1)
+end
+CheatRevertEoGSettingsClient = L0
