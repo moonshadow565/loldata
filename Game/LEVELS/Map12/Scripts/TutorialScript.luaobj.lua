@@ -526,32 +526,32 @@ function L0()
   L1 = LogTutorial
   L2 = "Locking player input"
   L1(L2)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_CAMERALOCKING
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_CAMERA_LOCKING
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_CAMERAMOVEMENT
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_CAMERA_MOVEMENT
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_ABILITIES
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_ABILITIES
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_SUMMONERSPELLS
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_SUMMONER_SPELLS
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_MOVEMENT
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_MOVEMENT
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_SHOP
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_SHOP
   L3 = true
   L1(L2, L3)
-  L1 = SetInputLockingFlag
-  L2 = INPUT_MINIMAPMOVEMENT
+  L1 = SetInputLockFlag
+  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
   L3 = true
   L1(L2, L3)
   L1 = TutorialSpellBuffAdd
@@ -1170,19 +1170,19 @@ function L0()
   L0 = LockCamera
   L1 = true
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = true
   L0(L1, L2)
   L0 = LogTutorial
   L1 = "Freeing player movement"
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MOVEMENT
   L2 = false
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
   L2 = false
   L0(L1, L2)
 end
@@ -1259,16 +1259,16 @@ function L0()
   L0 = LogTutorial
   L1 = "Locking movement"
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = true
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MOVEMENT
   L2 = true
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
   L2 = true
   L0(L1, L2)
   L0 = LogTutorial
@@ -1386,16 +1386,16 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking movement"
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = true
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MOVEMENT
   L2 = false
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
   L2 = false
   L0(L1, L2)
   L0 = LogTutorial
@@ -1594,8 +1594,8 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking abilities"
   L0(L1)
-  L0 = ToggleInputLockingFlag
-  L1 = INPUT_ABILITIES
+  L0 = ToggleInputLockFlag
+  L1 = INPUT_LOCK_ABILITIES
   L0(L1)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_level_up"
@@ -1829,8 +1829,8 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking summoner spells"
   L0(L1)
-  L0 = ToggleInputLockingFlag
-  L1 = INPUT_SUMMONERSPELLS
+  L0 = ToggleInputLockFlag
+  L1 = INPUT_LOCK_SUMMONER_SPELLS
   L0(L1)
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_HUD
@@ -1994,12 +1994,12 @@ function L0()
   L0 = LogTutorial
   L1 = "Locking movement"
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MOVEMENT
   L2 = true
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MINIMAPMOVEMENT
   L2 = true
   L0(L1, L2)
   L0 = LogTutorial
@@ -2082,8 +2082,8 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking Item Shop"
   L0(L1)
-  L0 = ToggleInputLockingFlag
-  L1 = INPUT_SHOP
+  L0 = ToggleInputLockFlag
+  L1 = INPUT_LOCK_SHOP
   L0(L1)
   L0 = PingMinimapPosition
   L1 = playerID
@@ -2200,12 +2200,12 @@ function L0()
   L1 = "Tutorial_EnemyDefenses"
   L2 = "EventUnlockCamera"
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = false
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERAMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_MOVEMENT
   L2 = false
   L0(L1, L2)
   L0 = LogTutorial
@@ -2312,12 +2312,12 @@ function L0()
   L0(L1)
   L0 = 0
   continueNunuPinging = L0
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = true
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERAMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_MOVEMENT
   L2 = true
   L0(L1, L2)
   L0 = MoveCameraFromCurrentPositionToPoint
@@ -2425,12 +2425,12 @@ function L0()
   L0 = UnRegisterOnUnitKilledCallback
   L1 = allyID
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERALOCKING
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_LOCKING
   L2 = false
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CAMERAMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CAMERA_MOVEMENT
   L2 = false
   L0(L1, L2)
   L0 = AddPosPerceptionBubble
@@ -2521,12 +2521,12 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking movement"
   L0(L1)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MOVEMENT
   L2 = false
   L0(L1, L2)
-  L0 = SetInputLockingFlag
-  L1 = INPUT_MINIMAPMOVEMENT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
   L2 = false
   L0(L1, L2)
   L0 = SetInvulnerable

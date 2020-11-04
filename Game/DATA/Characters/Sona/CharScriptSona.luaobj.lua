@@ -2,6 +2,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sonahymnofvaloraura"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseveranceaura"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonasongofdiscordaura"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sonahymnofvalorsound"
     }
   },
@@ -20,25 +38,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonapassivecount"
+      Name = "sonapowerchordcount"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonawpassivecheck"
+      Name = "sonaariaofperseverancecheck"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonaqpassivecheck"
+      Name = "sonahymnofvalorcheck"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonaepassivecheck"
+      Name = "sonasongofdiscordcheck"
     }
   },
   {
@@ -50,7 +68,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "sonasoundoff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sonapassive"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvaloraurab"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseveranceaurab"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonasongofdiscordaurab"
     }
   }
 }

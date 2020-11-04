@@ -23,9 +23,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "muramanaazurestacks"
-    }
+    Params = {Name = "muramana"}
   },
   {
     Function = BBPreloadParticle,
