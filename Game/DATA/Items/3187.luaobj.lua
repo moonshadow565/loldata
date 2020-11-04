@@ -4,11 +4,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hextechsweeper"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinlightbringer"
-    }
   }
 }

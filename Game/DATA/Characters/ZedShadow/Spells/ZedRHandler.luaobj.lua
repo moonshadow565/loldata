@@ -3,9 +3,9 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "2.dds"
-BuffName = "ZedWHandler"
-SpellToggleSlot = 2
+BuffTextureName = "shadowninja_R2.dds"
+BuffName = "ZedRHandler"
+SpellToggleSlot = 4
 SpellFXOverrideSkins = {
   "ReefMalphite",
   "GlacialMalphite"

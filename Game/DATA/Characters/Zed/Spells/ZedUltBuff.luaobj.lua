@@ -1,3 +1,6 @@
+BuffTextureName = "shadowninja_R2.dds"
+BuffName = "ZedUltBuff"
+SpellToggleSlot = 4
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
