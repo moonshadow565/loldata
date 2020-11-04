@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "threshwzonebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "championchampiondelta"
     }
   },

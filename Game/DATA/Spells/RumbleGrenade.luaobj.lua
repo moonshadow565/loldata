@@ -3,8 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Rumble_Electro Harpoon.dds"
 BuffName = "RumbleGrenade"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 SpellToggleSlot = 3
 PreLoadBuildingBlocks = {
   {

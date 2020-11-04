@@ -12,13 +12,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "infernalguardian_tar_frost.troy"
+      Name = "annie_skin05_r_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "infernalguardian_tar.troy"
+      Name = "annie_skin02_r_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "annie_skin09_r_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "annie_r_cas.troy"
     }
   },
   {

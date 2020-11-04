@@ -5,8 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Teemo_TranquilizingShot.dds"
 BuffName = "Blind"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 1
 PreLoadBuildingBlocks = {
   {

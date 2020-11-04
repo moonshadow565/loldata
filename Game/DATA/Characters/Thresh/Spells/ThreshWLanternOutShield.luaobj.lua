@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "Threshlantern"
+      Name = "threshlantern"
     }
   },
   {
@@ -12,39 +12,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Thresh_wdotaura.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Threshwzonebuff"
+      Name = "threshwzonebuff"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "firefeet_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Thresh_lanterninitial.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengarpassivebuff.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Thresh_wring.troy"
+      Name = "temp_thresh_wring.troy"
     }
   },
   {
@@ -56,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_Thresh_windicatorfar.troy"
+      Name = "temp_thresh_windicatorfar.troy"
     }
   },
   {
@@ -68,7 +44,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_Thresh_windicatormedium.troy"
+      Name = "temp_thresh_windicatormedium.troy"
     }
   },
   {
@@ -80,13 +56,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_Thresh_windicatornear.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Thresh_lanterncountdown.troy"
+      Name = "temp_thresh_windicatornear.troy"
     }
   },
   {
@@ -98,13 +68,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Threshwlanternreturn"
+      Name = "threshwlanternreturn"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Threshpassivesoulsgain"
+      Name = "threshpassivesoulsgain"
     }
   }
 }

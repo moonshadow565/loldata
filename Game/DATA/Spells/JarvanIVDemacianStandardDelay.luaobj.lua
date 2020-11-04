@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "jarvandemacianstandard_hit_lubu.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "jarvandemacianstandard_hit.troy"
     }
   },

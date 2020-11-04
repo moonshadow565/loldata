@@ -1,5 +1,10 @@
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvan_lubu_demacianstandard_flag_hit_sound.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

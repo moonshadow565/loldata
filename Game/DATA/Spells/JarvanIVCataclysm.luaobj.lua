@@ -58,5 +58,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "globalwallpush"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jarvaniv_lubu_wall_grnd_decal.troy"
+    }
   }
 }

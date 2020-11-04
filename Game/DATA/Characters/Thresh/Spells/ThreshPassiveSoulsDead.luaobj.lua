@@ -20,11 +20,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "thresh_soul_giant.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
-    }
   }
 }

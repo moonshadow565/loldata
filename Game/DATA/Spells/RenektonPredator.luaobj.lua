@@ -1,7 +1,5 @@
 BuffTextureName = "Renekton_Predator.dds"
 BuffName = "RenektonPredator"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

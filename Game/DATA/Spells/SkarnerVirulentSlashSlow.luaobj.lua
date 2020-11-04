@@ -1,5 +1,4 @@
 BuffTextureName = "Chronokeeper_Timestop.dds"
 BuffName = "SkarnerVirulentSlashSlow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
-AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Slowed"

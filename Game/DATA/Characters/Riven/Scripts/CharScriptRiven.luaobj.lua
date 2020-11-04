@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rivenpassive"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rivenqlockout"
+    }
   }
 }

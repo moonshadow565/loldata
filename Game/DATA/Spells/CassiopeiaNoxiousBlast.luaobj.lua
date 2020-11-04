@@ -54,5 +54,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "expirationtimer"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cass_skn4_castglow.troy"
+    }
   }
 }

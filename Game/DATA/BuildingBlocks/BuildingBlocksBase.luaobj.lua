@@ -3,6 +3,10 @@ L0_0 = -1
 gCurrentBuildingBlockNumber = L0_0
 L0_0 = ""
 gCurrentBuildingBlockString = L0_0
+L0_0 = {}
+functionToStringMap = L0_0
+L0_0 = false
+functionToStringMapInitialized = L0_0
 function L0_0(A0_2, A1_3)
   local L2_4, L3_5, L4_6, L5_7, L6_8, L7_9, L8_10, L9_11, L10_12, L11_13, L12_14
   if A0_2 ~= nil then
@@ -14,10 +18,18 @@ function L0_0(A0_2, A1_3)
         gCurrentBuildingBlockNumber = L6_8
         gCurrentBuildingBlock = L8_10
         if L8_10 then
-          for L11_13, L12_14 in L8_10(L9_11) do
-            if type(L12_14) == "function" and L12_14 == gCurrentBuildingBlock.Function then
-              gCurrentBuildingBlockString = L11_13
+          if not L8_10 then
+            for L11_13, L12_14 in L8_10(L9_11) do
+              if type(L12_14) == "function" then
+                functionToStringMap[L12_14] = L11_13
+                if L12_14 == gCurrentBuildingBlock.Function then
+                  gCurrentBuildingBlockString = L11_13
+                end
+              end
             end
+            functionToStringMapInitialized = L8_10
+          else
+            gCurrentBuildingBlockString = L8_10
           end
         else
           gCurrentBuildingBlockString = L8_10

@@ -5,6 +5,12 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "XinZhao_CrescentSweep.dds"
 BuffName = "XenZhaoParry"
+SpellFXOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
+SpellVOOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

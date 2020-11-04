@@ -1,5 +1,8 @@
 BuffTextureName = "XinZhao_ThreeTalon.dds"
 BuffName = "XenZhaoComboAutoFinish"
+SpellFXOverrideSkins = {
+  "ZhaoYunXinZhao"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

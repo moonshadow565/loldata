@@ -1,6 +1,5 @@
 BuffTextureName = "Chronokeeper_Timestop.dds"
 BuffName = "KarmaMantraSBSlow"
-AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {

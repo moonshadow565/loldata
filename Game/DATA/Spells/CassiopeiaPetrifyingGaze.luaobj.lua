@@ -3,10 +3,10 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "Cassiopeia_PetrifyingGaze.dds"
 BuffName = "Stun"
 AutoBuffActivateEffect = "Stun_glb.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellDamageRatio = 1
 PopupMessage1 = "game_floatingtext_Stunned"
 PreLoadBuildingBlocks = {
@@ -19,7 +19,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "turntostonejade.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "turnback.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "turnbackjade.troy"
     }
   }
 }

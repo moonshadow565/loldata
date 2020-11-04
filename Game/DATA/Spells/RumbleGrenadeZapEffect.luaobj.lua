@@ -1,4 +1,3 @@
-BuffTextureName = "Heimerdinger_HextechMicroRockets.dds"
 BuffName = "RumbleGrenadeAmmo"
 AutoBuffActivateEffect = "Aegis_buf.troy"
 AutoBuffActivateEffect2 = ""

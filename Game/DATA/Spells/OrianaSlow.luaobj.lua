@@ -1,5 +1,4 @@
 BuffTextureName = "Chronokeeper_Timestop.dds"
 BuffName = "OrianaDissonanceEnemy"
 AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
-AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Slowed"
