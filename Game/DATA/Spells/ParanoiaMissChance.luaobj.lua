@@ -1,5 +1,5 @@
 BuffTextureName = "Fiddlesticks_Paranoia.dds"
-BuffName = "Paranoia"
+BuffName = "Paranoia Aura"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

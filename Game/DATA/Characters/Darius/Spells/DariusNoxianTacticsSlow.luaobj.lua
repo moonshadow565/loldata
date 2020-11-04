@@ -5,7 +5,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_w_tar.troy"
+      Name = "darius_Base_W_tar.troy"
     }
   }
 }

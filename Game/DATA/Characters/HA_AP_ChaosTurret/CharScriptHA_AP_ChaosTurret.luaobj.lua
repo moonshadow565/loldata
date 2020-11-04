@@ -36,6 +36,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "turretpackage"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "ha_ap_chaosturret"

@@ -8,6 +8,8 @@ AutoCooldownByLevel = {
   14,
   12
 }
+SpellFXOverrideSkins = {"FizzSkin04"}
+SpellVOOverrideSkins = {"FizzSkin04"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

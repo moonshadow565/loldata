@@ -2,7 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Rengartrophy"
+      Name = "rengartrophy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarupdatetrophycharges"
     }
   }
 }

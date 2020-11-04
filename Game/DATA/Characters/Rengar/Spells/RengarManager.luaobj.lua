@@ -1,4 +1,3 @@
-PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

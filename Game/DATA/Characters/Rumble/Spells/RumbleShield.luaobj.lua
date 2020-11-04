@@ -6,6 +6,9 @@ IsDamagingSpell = false
 BuffTextureName = "Rumble_Scrap Shield.dds"
 BuffName = "RumbleShield"
 OnPreDamagePriority = 3
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -41,18 +44,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rumbleshieldbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleshielddummyspelldz"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleshielddummyspell"
     }
   }
 }

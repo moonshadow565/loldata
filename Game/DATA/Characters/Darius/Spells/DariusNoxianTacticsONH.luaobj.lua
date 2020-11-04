@@ -2,12 +2,12 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Darius_Icon_Hamstring.dds"
 BuffName = "DariusNoxianTacticsActive"
-AutoBuffActivateEffect = "darius_W_weapon_01.troy"
+AutoBuffActivateEffect = "darius_Base_W_weapon_01.troy"
 AutoBuffActivateAttachBoneName = "weapon"
-AutoBuffActivateEffect2 = "darius_W_weapon_01.troy"
+AutoBuffActivateEffect2 = "darius_Base_W_weapon_01.troy"
 AutoBuffActivateAttachBoneName2 = "L_BUFFBONE_GLB_HAND_LOC"
-AutoBuffActivateEffect3 = "darius_W_weapon_03.troy"
-AutoBuffActivateEffect4 = "darius_W_weapon_04.troy"
+AutoBuffActivateEffect3 = "darius_Base_W_weapon_03.troy"
+AutoBuffActivateEffect4 = "darius_Base_W_weapon_04.troy"
 AutoBuffActivateAttachBoneName4 = "BUFFBONE_CSTM_WEAPON_9"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
@@ -17,31 +17,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_w_weapon_02.troy"
+      Name = "darius_Base_W_weapon_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_w_weapon_02_norse_king.troy"
+      Name = "darius_Base_W_weapon_02_Norse_King.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_w_activate_zaunknight.troy"
+      Name = "Darius_Skin02_W_Activate_ZaunKnight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_atomic_mist.troy"
+      Name = "Darius_Skin02_W_Atomic_Mist.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_frost_mist.troy"
+      Name = "Darius_Base_Frost_Mist.troy"
     }
   },
   {

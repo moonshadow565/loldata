@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Summoner_teleport.dds"
+BuffName = "SummonerTeleportHaste"
+AutoBuffActivateEffect = "Interventionspeed_buf.troy"
+SpellDamageRatio = 1

@@ -11,13 +11,14 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "SyndraJusticar"
+  "SyndraJusticar",
+  "SyndraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_rhit.troy"
+      Name = "syndra_base_r_tar.troy"
     }
   },
   {

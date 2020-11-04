@@ -2,7 +2,7 @@ AutoBuffActivateEffect = "maokai_sapling_activated_indicator.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "ZiggsMadScientist"
+  "SyndraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
@@ -20,25 +20,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q5_fall.troy"
+      Name = "syndra_base_q_lv5_aoe_gather.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q5_fall_enemy.troy"
+      Name = "syndra_base_q_lv5_aoe_gather_enemy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_fall.troy"
+      Name = "syndra_base_q_aoe_gather.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_fall_enemy.troy"
+      Name = "syndra_base_q_aoe_gather_enemy.troy"
     }
   }
 }

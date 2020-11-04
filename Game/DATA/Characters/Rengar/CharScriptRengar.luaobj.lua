@@ -9,13 +9,43 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rengarnewpassive"
+      Name = "rengarpassivebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarpassivebuffvisible"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_vo_trophy2.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengar3stackcombatmanager"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarferocitymanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarpassive"
     }
   },
   {
@@ -28,6 +58,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rengarpassiverootcheck"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_base_e_buff_lines.troy"
     }
   }
 }

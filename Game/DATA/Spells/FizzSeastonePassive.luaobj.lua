@@ -10,6 +10,7 @@ AutoBuffActivateAttachBoneName = "BUFFBONE_CSTM_WEAPON_1"
 AutoBuffActivateEffect2 = "Fizz_SeastonePassive.troy"
 AutoBuffActivateAttachBoneName2 = "Chest"
 SpellToggleSlot = 2
+SpellFXOverrideSkins = {"FizzSkin04"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

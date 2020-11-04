@@ -17,6 +17,9 @@ AutoCooldownByLevel = {
   120
 }
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 SpellVOOverrideSkins = {
   "RumbleSkin03"
 }

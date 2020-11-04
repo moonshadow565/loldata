@@ -26,6 +26,60 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_cannon_ball_team_id_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_cannon_ball_team_id_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_pineapple_team_id_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_pineapple_team_id_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_tar_team_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_tar_team_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_teamid_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_ult_impact_burn_teamid_red.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   },

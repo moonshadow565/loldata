@@ -4,6 +4,9 @@ IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "RumbleSkin03"
 }
+SpellVOOverrideSkins = {
+  "RumbleSkin03"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -31,6 +34,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "rumble_skin03_r_trench_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_team_id_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_team_id_red.troy"
     }
   }
 }

@@ -10,7 +10,8 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "RocketTristana"
+  "RocketTristana",
+  "SyndraSkin02"
 }
 PreLoadBuildingBlocks = {
   {

@@ -6,13 +6,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_hit_first.troy"
+      Name = "syndra_base_q_tar_sound.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_hit.troy"
+      Name = "syndra_base_q_tar.troy"
     }
   },
   {
@@ -30,25 +30,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q5_land.troy"
+      Name = "syndra_base_q_lv5_aoe_explode.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_land.troy"
+      Name = "syndra_base_q_aoe_explode.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere5_idle.troy"
+      Name = "syndra_base_q_lv5_idle.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere5_enemy_idle.troy"
+      Name = "syndra_base_q_lv5_idle_enemy.troy"
     }
   },
   {
@@ -58,43 +58,43 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere_idle.troy"
+      Name = "syndra_base_q_idle.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere_enemy_idle.troy"
+      Name = "syndra_base_q_idle_enemy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere_timewarning.troy"
+      Name = "syndra_base_q_timer.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_darksphere_timewarningred.troy"
+      Name = "syndra_base_q_timer_enemy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_sphereindicator.troy"
+      Name = "syndra_base_e_sphereindicator.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_sphereout.troy"
+      Name = "syndra_base_q_spheredeath.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_sphereoutred.troy"
+      Name = "syndra_base_q_spheredeath_enemy.troy"
     }
   }
 }

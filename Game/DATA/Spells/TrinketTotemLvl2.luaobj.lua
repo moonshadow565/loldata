@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "trinkettotemlvl2audio"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sharedwardbuff"
     }
   },

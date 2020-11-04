@@ -14,25 +14,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_refresh_01.troy"
+      Name = "darius_Base_r_refresh_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_activate_zaunknight.troy"
+      Name = "darius_Skin02_R_activate_zaunKnight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_blood_spatter_self.troy"
+      Name = "darius_Base_R_blood_spatter_self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_atomic_mist_04.troy"
+      Name = "Darius_Skin02_W_Atomic_Mist_04.troy"
     }
   },
   {
@@ -54,7 +54,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_tar.troy"
+      Name = "darius_Base_R_tar.troy"
     }
   },
   {
@@ -66,13 +66,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_tar_02.troy"
+      Name = "darius_Base_R_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_r_tar_03.troy"
+      Name = "darius_Base_R_tar_03.troy"
     }
   }
 }

@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "GragasBarrelRoll.dds"
+BuffName = "GragasQ"
+SpellToggleSlot = 1
+PersistsThroughDeath = true

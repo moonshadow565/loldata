@@ -10,7 +10,8 @@ AutoCooldownByLevel = {
 }
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "SyndraJusticar"
+  "SyndraJusticar",
+  "SyndraSkin02"
 }
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
@@ -29,13 +30,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "syndraemissile3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "syndraemissile2"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_ecast.troy"
+      Name = "syndra_base_e_cas.troy"
     }
   }
 }

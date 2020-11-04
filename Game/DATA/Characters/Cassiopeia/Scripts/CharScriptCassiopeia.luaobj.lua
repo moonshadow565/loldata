@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "cassiopeiadeadlycadence"
     }
   },
@@ -20,11 +26,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "apbonusdamagetotowers"
-    }
   }
 }

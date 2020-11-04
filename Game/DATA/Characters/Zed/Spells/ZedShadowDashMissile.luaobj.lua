@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "zedwcloneswapevfx"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "zedwshadowbuff"
     }
   },
@@ -41,7 +47,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Zed_Base_W_Tar.troy"
+      Name = "zed_base_w_tar.troy"
     }
   },
   {
@@ -51,7 +57,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Zed_Base_E_Cas.troy"
+      Name = "zed_base_e_cas.troy"
     }
   },
   {

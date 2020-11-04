@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "RengarEReg.dds"
 BuffName = "RengarERoot"
@@ -32,7 +32,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Rengar_Base_E_Max_Tar.troy"
+      Name = "rengar_base_e_max_tar.troy"
     }
   }
 }

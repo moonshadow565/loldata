@@ -1,4 +1,4 @@
 BuffTextureName = "Fiddlesticks_Paranoia.dds"
-BuffName = "Paranoia Aura"
+BuffName = "Paranoia"
 PersistsThroughDeath = true
 NonDispellable = true
