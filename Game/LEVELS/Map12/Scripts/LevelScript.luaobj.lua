@@ -139,8 +139,6 @@ L0_0 = 0
 DISABLE_MINION_SPAWN_MAG_TIME = L0_0
 L0_0 = -1
 LAST_WAVE = L0_0
-L0_0 = "none"
-SPECIAL_MINION_MODE = L0_0
 L0_0 = false
 HQTurretAttackable = L0_0
 L0_0 = {}
@@ -649,32 +647,6 @@ function L0_0(A0_14, A1_15, A2_16, A3_17, A4_18)
     L6_20 = MAX_MINIONS_EVER
     L6_20 = L6_20 - GetTotalTeamMinionsSpawned()
     totalMinionsRemaining = L6_20
-    L6_20 = totalMinionsRemaining
-    if L6_20 <= BARRACKSCOUNT * 7 then
-      L6_20 = totalMinionsRemaining
-      if L6_20 <= 0 then
-        L6_20 = "None"
-        SPECIAL_MINION_MODE = L6_20
-      else
-        L6_20 = totalMinionsRemaining
-        if L6_20 >= BARRACKSCOUNT * 3 then
-          L6_20 = "3Archers"
-          SPECIAL_MINION_MODE = L6_20
-        else
-          L6_20 = totalMinionsRemaining
-          if L6_20 >= BARRACKSCOUNT then
-            L6_20 = "SpecialPowerMinion"
-            SPECIAL_MINION_MODE = L6_20
-          else
-            L6_20 = "None"
-            SPECIAL_MINION_MODE = L6_20
-          end
-        end
-      end
-    else
-      L6_20 = ""
-      SPECIAL_MINION_MODE = L6_20
-    end
     LAST_WAVE = A4_18
   end
   L6_20 = L5_19.WillSpawnSuperMinion

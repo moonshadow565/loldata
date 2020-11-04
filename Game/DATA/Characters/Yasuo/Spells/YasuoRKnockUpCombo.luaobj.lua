@@ -44,6 +44,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuorknockupcombow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "tempyasuormissile"
     }
   },

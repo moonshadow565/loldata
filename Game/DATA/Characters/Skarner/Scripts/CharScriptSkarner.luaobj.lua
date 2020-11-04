@@ -2,25 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "skarnerbrushcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnerimpaleflashlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lulupassive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "luluskin04recallhookup"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lulufaerieoverridetemp"
     }
   }
 }
