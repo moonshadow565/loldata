@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_passive_refresh.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "karmaspiritbindslow"
