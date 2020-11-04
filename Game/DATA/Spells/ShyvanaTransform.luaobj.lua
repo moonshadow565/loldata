@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaDragonsDescent.dds"
 BuffName = "ShyvanaTransform"
-PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
@@ -71,12 +70,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shyvana_ult_transform_end.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "shyvana_dragon_e_cone.troy"
     }
   }
 }
