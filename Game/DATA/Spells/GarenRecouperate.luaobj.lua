@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_Perseverance.dds"
-BuffName = "GarenRecouperate"
+BuffName = "GarenPassive"
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarnewpassivebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "rengarr"}
+  }
+}

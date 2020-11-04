@@ -8,11 +8,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "garenrecoupdebuff"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garenrecouperate1"
-    }
   }
 }

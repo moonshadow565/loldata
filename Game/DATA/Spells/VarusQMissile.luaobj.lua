@@ -40,5 +40,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varusqhitminion.troy"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
   }
 }

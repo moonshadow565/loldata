@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Armordillo_RecklessCharge.dds"
 BuffName = "Tremors2"
-AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {"RoboRammus"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

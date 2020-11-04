@@ -1,0 +1,6 @@
+BuffTextureName = "RengarQ.dds"
+BuffName = "RengarQBuff"
+AutoBuffActivateEffect = "RengarQAttackSpeed.troy"
+AutoBuffActivateAttachBoneName = "R_Hand"
+AutoBuffActivateEffect2 = "RengarQAttackSpeed.troy"
+AutoBuffActivateAttachBoneName2 = "L_Hand"
