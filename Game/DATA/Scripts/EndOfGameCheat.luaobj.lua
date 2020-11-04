@@ -138,25 +138,3 @@ function L0()
   L0(L1, L2)
 end
 CheatRevertEoGSettingsServer = L0
-function L0()
-  local L0, L1, L2, L3
-  L0 = ClientCheat_ShowHud
-  L1 = false
-  L0(L1)
-  L0 = InitTimer
-  L1 = "CheatRevertEoGSettingsClient"
-  L2 = GetEoGNexusChangeSkinTime
-  L2 = L2()
-  L3 = EOG_NEXUS_REVIVE_TIME
-  L2 = L2 + L3
-  L3 = false
-  L0(L1, L2, L3)
-end
-CheatEndOfGameCeremonyClient = L0
-function L0()
-  local L0, L1
-  L0 = ClientCheat_ShowHud
-  L1 = true
-  L0(L1)
-end
-CheatRevertEoGSettingsClient = L0

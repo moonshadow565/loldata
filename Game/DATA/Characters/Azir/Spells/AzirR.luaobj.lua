@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "azirrallyghost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "azirrbump"}
   },
   {

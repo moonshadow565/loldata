@@ -10,13 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cass_skn4_petrify_cas.troy"
+      Name = "cassiopeia_skin04_r_petrify_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cass_skn4_castglow.troy"
+      Name = "cassiopeia_skin04_r_castglow.troy"
     }
   },
   {
@@ -42,7 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "casspetrifymiss_tar.troy"
+      Name = "cassiopeia_base_r_petrifymiss_tar.troy"
     }
   },
   {

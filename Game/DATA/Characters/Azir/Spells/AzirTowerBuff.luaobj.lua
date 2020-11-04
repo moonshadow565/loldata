@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "azirtowerclicker"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azirischannelingpassive"
+    }
   }
 }
