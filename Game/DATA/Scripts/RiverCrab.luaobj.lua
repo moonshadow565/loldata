@@ -32,6 +32,14 @@ L0 = RegisterForEvent
 L1 = "RiverCornered"
 L2 = RiverCrab
 L0(L1, L2)
+L0 = RegisterForEvent
+L1 = "MeleeAttacked"
+L2 = RiverCrab
+L0(L1, L2)
+L0 = RegisterForEvent
+L1 = "RangeAttacked"
+L2 = RiverCrab
+L0(L1, L2)
 function L0(A0)
   local L1, L2, L3, L4
   L1 = CreateRiverRegions
@@ -59,6 +67,14 @@ function L0(A0)
   L1 = SpellIncLevel
   L2 = 0
   L1(L2)
+  L1 = SpellIncLevel
+  L2 = 1
+  L1(L2)
+  L1 = Event
+  L2 = "WanderPause"
+  L1(L2)
+  L1 = RiverCrab
+  L1.InMelee = true
 end
 OnInit = L0
 function L0()
@@ -82,16 +98,88 @@ end
 HaltAI = L0
 L0 = RiverCrab
 function L1(A0)
-  local L1, L2, L3
+  local L1
+  A0.InMelee = true
+end
+L0.MeleeAttacked = L1
+L0 = RiverCrab
+function L1(A0)
+  local L1
+  A0.InMelee = false
+end
+L0.RangeAttacked = L1
+L0 = RiverCrab
+function L1(A0)
+  local L1, L2, L3, L4, L5, L6, L7
   L1 = SetStateAndMove
   L2 = AI_MOVE
   L3 = River
   L3 = L3.CenterPos
   L1(L2, L3)
-  L1 = ServerCastSpellOnPos
-  L2 = 0
+  L1 = A0.InMelee
+  if L1 == true then
+    L1 = ServerCastSpellOnPos
+    L2 = 0
+    L3 = River
+    L3 = L3.CenterPos
+    L1(L2, L3)
+  else
+    L1 = ServerCastSpellOnPos
+    L2 = 1
+    L3 = River
+    L3 = L3.CenterPos
+    L1(L2, L3)
+  end
+  L1 = GetWaypoint
+  L1 = L1()
+  L2 = GetMyPos
+  L2 = L2()
   L3 = River
   L3 = L3.CenterPos
-  L1(L2, L3)
+  L3 = L2 - L3
+  L4 = L3
+  L3 = L3.normalize
+  L3 = L3(L4)
+  L3 = L3 * 400
+  L3 = L2 + L3
+  L4 = GetDistSquared
+  L5 = L2
+  L6 = L1
+  L4 = L4(L5, L6)
+  L5 = GetDistSquared
+  L6 = L3
+  L7 = L1
+  L5 = L5(L6, L7)
+  if L4 > L5 then
+    L6 = River
+    L7 = River
+    L7 = L7.Dir
+    L7 = L7 * -1
+    L6.Dir = L7
+  end
 end
 L0.RiverCornered = L1
+function L0()
+  local L0, L1, L2
+  L0 = Event
+  L1 = "WanderPause"
+  L0(L1)
+  L0 = SetStateAndMove
+  L1 = AI_MOVE
+  L2 = GetMyPos
+  L2 = L2()
+  L0(L1, L2)
+end
+StopAI = L0
+function L0()
+  local L0, L1, L2
+  L0 = Event
+  L1 = "WanderResume"
+  L0(L1)
+  L0 = SetStateAndMove
+  L1 = AI_MOVE
+  L2 = GetWaypoint
+  L2 = L2()
+  L0(L1, L2)
+end
+StartAI = L0

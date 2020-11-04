@@ -29,6 +29,7 @@ function L1(A0)
   L1 = {}
   A0.Attackers = L1
   A0.attackDuration = 5
+  A0.MeleeAttackers = 0
 end
 L0.ComponentInit = L1
 L0 = SkittishMonster
@@ -54,23 +55,65 @@ function L1(A0)
 end
 L0.Stop = L1
 L0 = SkittishMonster
+function L1(A0)
+  local L1, L2
+  L1 = A0.MeleeAttackers
+  if 0 < L1 then
+    L1 = Event
+    L2 = "MeleeAttacked"
+    L1(L2)
+  else
+    L1 = Event
+    L2 = "RangeAttacked"
+    L1(L2)
+  end
+end
+L0.SendMeleeState = L1
+L0 = SkittishMonster
 function L1(A0, A1, A2)
-  local L3, L4, L5, L6, L7, L8
-  for L6, L7 in L3, L4, L5 do
-    L8 = L7.attacker
-    if L8 == A2 then
-      L8 = A0.attackDuration
-      L7.remainingTime = L8
+  local L3, L4, L5, L6, L7, L8, L9, L10
+  L3 = true
+  L7 = A2
+  L7, L8, L9, L10 = L6(L7)
+  if 250000 < L4 then
+    L3 = false
+  end
+  for L7, L8 in L4, L5, L6 do
+    L9 = L8.attacker
+    if L9 == A2 then
+      L9 = A0.attackDuration
+      L8.remainingTime = L9
+      L9 = L8.isMelee
+      if L3 ~= L9 then
+        if L3 == true then
+          L9 = A0.MeleeAttackers
+          L9 = L9 + 1
+          A0.MeleeAttackers = L9
+        else
+          L9 = A0.MeleeAttackers
+          L9 = L9 - 1
+          A0.MeleeAttackers = L9
+        end
+      end
+      L8.isMelee = L3
+      L10 = A0
+      L9 = A0.SendMeleeState
+      L9(L10)
       return
     end
   end
-  if L3 == 0 then
-    L3(L4)
+  if L4 == 0 then
+    L4(L5)
   end
-  L5.attacker = A2
-  L6 = A0.attackDuration
-  L5.remainingTime = L6
-  L3[L4] = L5
+  L6.attacker = A2
+  L7 = A0.attackDuration
+  L6.remainingTime = L7
+  L6.isMelee = L3
+  L4[L5] = L6
+  if L3 == true then
+    A0.MeleeAttackers = L4
+  end
+  L4(L5)
 end
 L0.LeashedCallForHelp = L1
 L0 = SkittishMonster
@@ -140,7 +183,7 @@ function L1(A0)
   L6 = L5
   L5 = L5.normalize
   L5 = L5(L6)
-  L6 = 400 * L5
+  L6 = 600 * L5
   L6 = L4 + L6
   L7 = SetStateAndMove
   L8 = AI_MOVE

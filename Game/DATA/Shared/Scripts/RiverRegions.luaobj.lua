@@ -329,3 +329,36 @@ function L0()
   L0.Dest = L1
 end
 IncrementWaypoint = L0
+function L0()
+  local L0, L1, L2, L3, L4, L5, L6
+  L0 = GetMyPos
+  L0 = L0()
+  L1 = GetDistSquared
+  L2 = L0
+  L3 = River
+  L3 = L3.Path
+  L3 = L3[1]
+  L1 = L1(L2, L3)
+  L2 = 1
+  L3 = 2
+  while true do
+    L4 = River
+    L4 = L4.Path
+    L4 = #L4
+    if not (L3 <= L4) then
+      break
+    end
+    L4 = GetDistSquared
+    L5 = L0
+    L6 = River
+    L6 = L6.Path
+    L6 = L6[L3]
+    L4 = L4(L5, L6)
+    if L1 > L4 then
+      L2 = L3
+      L1 = L4
+    end
+    L3 = L3 + 1
+  end
+end
+SeekWaypoint = L0

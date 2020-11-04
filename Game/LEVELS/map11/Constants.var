@@ -87,11 +87,20 @@ ca_RevealAttackerTimeOut                    =                                   
 ; obj_AI_Base variables
 
 ; Minion exp mods
+; This changes XP gained based on how many levels BELOW the target you are
 aiExp_bonusExpPercentPerNeutralMinionLevel  =                                         0.500 ; Bonus Experience Percentage per neutral minion level ahead
 aiExp_bonusExpPercentPerLaneMinionLevel     =                                         0.750 ; Bonus Experience Percentage per lane minion level ahead
 aiExp_bonusExpLevelDeltaCap                 =                                             5 ; The maximum delta in minion levels where XP can be granted.
 aiExp_bonusExpLaneLevelStart                =                                             5 ; Minimum level of lane minion before XP kicks in (to avoid lane starvation strategies)
 aiExp_bonusExpLaneLevelDeltaMin             =                                             1 ; Minimum level difference before you get bonus lane XP
+
+; This is the same as above except in the negative.
+; This changes XP gained based on how many levels ABOVE the target you are
+aiExp_bonusExpNegativePercentPerNeutralMinionLevel  =                                        -0.100 ; Bonus Experience Percentage per neutral minion level behind, negative in order to diminish farming the jungle
+aiExp_bonusExpNegativePercentPerLaneMinionLevel     =                                           0.0 ; Bonus Experience Percentage per lane minion level behind
+aiExp_bonusExpNegativeLevelDeltaCap                 =                                             5 ; The maximum delta in minion levels where XP can be granted.
+aiExp_bonusExpNegativeLaneLevelStart                =                                           100 ; Minimum level of lane minion before XP kicks in
+aiExp_bonusExpNegativeLaneLevelDeltaMin             =                                           100 ; Minimum level difference before you get bonus lane XP
 
 ; Global Character Data constants
 gcd_PercentCooldownModMinimum               =                                        -0.400 ; The lowest Cooldown Percent Mod bonus can go.
