@@ -6,5 +6,6 @@ SpellDamageRatio = 1
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
-  "CandyCaneFiddlesticks"
+  "CandyCaneFiddlesticks",
+  "FiddlesticksSkin08"
 }

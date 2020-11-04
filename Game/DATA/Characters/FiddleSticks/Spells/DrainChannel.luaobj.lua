@@ -9,5 +9,6 @@ BuffName = "Drain"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
-  "CandyCaneFiddlesticks"
+  "CandyCaneFiddlesticks",
+  "FiddlesticksSkin08"
 }

@@ -3,6 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="kassadin_base_idle_blade.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="voidstone"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
-{Function=BBPreloadSpell, Params={Name="kassadinriftwalk"}}, 
+{Function=BBPreloadSpell, Params={Name="riftwalk_urf"}}, 
 {Function=BBPreloadSpell, Params={Name="netherbladebuff"}}, 
 }

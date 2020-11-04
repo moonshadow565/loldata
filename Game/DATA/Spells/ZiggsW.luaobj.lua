@@ -3,5 +3,6 @@ BuffName = "ZiggsW"
 SpellToggleSlot = 2
 SpellFXOverrideSkins = {
   "ZiggsPoolParty",
-  "ZiggsSnowday"
+  "ZiggsSnowday",
+  "ZiggsSkin05"
 }

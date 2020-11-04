@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ziggse_mis_groundhit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_e_mis_groundhit.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsmirvzone"}}, 

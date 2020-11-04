@@ -1,5 +1,6 @@
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
   "ZiggsPoolParty",
-  "ZiggsSnowday"
+  "ZiggsSnowday",
+  "ZiggsSkin05"
 }

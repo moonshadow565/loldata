@@ -94,6 +94,8 @@ function FindTargetOrMove()
   L0_2 = L0_2()
   L1_3 = AI_HALTED
   if L0_2 == L1_3 then
+    L1_3 = TurnOffAutoAttack
+    L1_3(STOPREASON_MOVING)
     return
   end
   L1_3 = FindTargetInAcR
@@ -106,6 +108,7 @@ function FindTargetOrMove()
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_3)
     ResetAndStartTimer("TimerAntiKite")
   else
+    TurnOffAutoAttack(STOPREASON_MOVING)
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
     StopTimer("TimerAntiKite")
     LastAttackScan = 0

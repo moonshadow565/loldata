@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="awesomehealindicator"}}, 
+{Function=BBPreloadSpell, Params={Name="awesomeshieldindicator"}}, 
+{Function=BBPreloadSpell, Params={Name="hecarimrapidslash_urf"}}, 
+{Function=BBPreloadSpell, Params={Name="ezrealmysticshot_urf"}}, 
+{Function=BBPreloadSpell, Params={Name="summonersmiteinitializer"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_743.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_744.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_744_mat.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="globalnorenderifdead"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_745.troy"}}, 
+}
