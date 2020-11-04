@@ -4,14 +4,5 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Cassiopeia_DeadlyCadence.dds"
-BuffName = "CassiopeiaDeadlyCadence"
-PersistsThroughDeath = true
+BuffName = "CassiopeiaDamageControlMinion"
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "cassiopeiapoisonticker"
-    }
-  }
-}

@@ -2,6 +2,7 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -43,6 +44,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "cassiopeianoxiousblasthaste"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cassiotwinfang_refreshsound.troy"
     }
   },
   {

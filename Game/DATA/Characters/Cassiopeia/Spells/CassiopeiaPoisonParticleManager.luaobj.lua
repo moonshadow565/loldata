@@ -10,7 +10,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassio_q_buff.troy"
+      Name = "global_poison.troy"
     }
   }
 }

@@ -42,6 +42,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_q_tar01.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "azirsoldier"

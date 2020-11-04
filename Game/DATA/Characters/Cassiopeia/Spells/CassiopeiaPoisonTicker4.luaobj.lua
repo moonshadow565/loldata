@@ -3,24 +3,20 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+BuffTextureName = "Cassiopeia_DeadlyCadence4.dds"
+BuffName = "CassiopeiaPoisonTicker4"
 SpellDamageRatio = 1
+PersistsThroughDeath = true
+NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassiotwinfang_refreshsound.troy"
+      Name = "cassdeadlycadence_buf.troy"
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cassiopeia_base_e_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cassiopeia_base_passive_mana.troy"
-    }
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

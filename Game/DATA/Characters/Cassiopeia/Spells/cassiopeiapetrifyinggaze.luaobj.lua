@@ -31,6 +31,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapetrifyinggazestun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "slow"}
   },
   {

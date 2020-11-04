@@ -18,6 +18,16 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapoisonticker2"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "cassdeadlycadence_buf.troy"
@@ -26,5 +36,23 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "casspassiveceremony.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapoisonticker3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapoisonticker4"
+    }
   }
 }

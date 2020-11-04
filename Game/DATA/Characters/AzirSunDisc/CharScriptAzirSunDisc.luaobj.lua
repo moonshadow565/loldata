@@ -54,7 +54,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_skin01_p_tower_enemy.troy"
+      Name = "azir_base_p_tower_enemy.troy"
     }
   },
   {
@@ -67,6 +67,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "azir_base_p_sunddisc_idle.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_skin01_p_tower_enemy.troy"
     }
   },
   {
