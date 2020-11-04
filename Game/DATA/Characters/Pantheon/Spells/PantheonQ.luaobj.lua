@@ -5,18 +5,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "pantheonpassivecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonpassiveshield"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "masterattackspeedbuff"
     }
   },

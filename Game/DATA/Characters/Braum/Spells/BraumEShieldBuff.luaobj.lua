@@ -57,5 +57,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "braum_base_e_block_ba_cas2.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "braumespecialvobuff"
+    }
   }
 }

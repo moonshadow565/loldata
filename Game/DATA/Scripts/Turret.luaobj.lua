@@ -30,12 +30,10 @@ L0_0[0] = "AI_IDLE"
 DEBUG_MINION_STATE_TABLE = L0_0
 function L0_0(A0_1, A1_2)
   if GetState() == AI_HALTED then
-    return
+    return false
   end
   if A0_1 == LOST_VISIBILITY then
-    NetSetState(AI_HARDIDLE_ATTACKING)
-    SetTarget(A1_2)
-    return true
+    return false
   end
   newTarget = FindTargetInAcR()
   if newTarget == nil then

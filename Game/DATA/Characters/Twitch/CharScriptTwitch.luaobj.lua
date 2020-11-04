@@ -14,13 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "twitchdeadlyvenomchaos"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "twitchdeadlyvenominternalchaos"
+      Name = "twitchdeadlyvenomdamagemarker"
     }
   },
   {
