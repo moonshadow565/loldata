@@ -121,6 +121,18 @@ ItemOnSpellCastBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBMath,
+            Params = {
+              Src2Var = "CooldownResevoir",
+              Src2VarTable = "InstanceVars",
+              Src1Value = -1,
+              Src2Value = 0,
+              DestVar = "CooldownResevoir",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_ADD
+            }
+          },
+          {
             Function = BBForEachUnitInTargetArea,
             Params = {
               AttackerVar = "Owner",
@@ -131,139 +143,38 @@ ItemOnSpellCastBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBGetManaOrHealth,
-                Params = {
-                  DestVar = "UnitHealth",
-                  OwnerVar = "Unit",
-                  Function = GetHealthPercent
-                }
-              },
-              {
-                Function = BBGetManaOrHealth,
-                Params = {
-                  DestVar = "UnitMana",
-                  OwnerVar = "Unit",
-                  Function = GetManaPercent
-                }
-              },
-              {
                 Function = BBIf,
                 Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
                 SubBlocks = {
                   {
-                    Function = BBIf,
+                    Function = BBSpellEffectCreate,
                     Params = {
-                      Src1Var = "UnitHealth",
-                      Value2 = 1,
-                      CompareOp = CO_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBIf,
-                        Params = {
-                          Src1Var = "UnitMana",
-                          Value2 = 1,
-                          CompareOp = CO_EQUAL
-                        }
-                      },
-                      {
-                        Function = BBElse,
-                        Params = {},
-                        SubBlocks = {
-                          {
-                            Function = BBSpellEffectCreate,
-                            Params = {
-                              BindObjectVar = "Unit",
-                              EffectName = "InnervatingLocket_itm.troy",
-                              Flags = 0,
-                              EffectIDVar = "Particle",
-                              TargetObjectVar = "Target",
-                              SpecificUnitOnlyVar = "Owner",
-                              SpecificTeamOnly = TEAM_UNKNOWN,
-                              UseSpecificUnit = false,
-                              FOWTeam = TEAM_UNKNOWN,
-                              FOWVisibilityRadius = 0,
-                              SendIfOnScreenOrDiscard = false
-                            }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Unit",
-                              AttackerVar = "Owner",
-                              BuffName = "InnervatingLocketBuff",
-                              BuffAddType = BUFF_RENEW_EXISTING,
-                              BuffType = BUFF_CombatEnchancer,
-                              MaxStack = 1,
-                              NumberStacks = 1,
-                              Duration = 1.9,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
-                            }
-                          },
-                          {
-                            Function = BBMath,
-                            Params = {
-                              Src2Var = "CooldownResevoir",
-                              Src2VarTable = "InstanceVars",
-                              Src1Value = -1,
-                              Src2Value = 0,
-                              DestVar = "CooldownResevoir",
-                              DestVarTable = "InstanceVars",
-                              MathOp = MO_ADD
-                            }
-                          }
-                        }
-                      }
+                      BindObjectVar = "Unit",
+                      EffectName = "InnervatingLocket_itm.troy",
+                      Flags = 0,
+                      EffectIDVar = "Particle",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
                     }
                   },
                   {
-                    Function = BBElse,
-                    Params = {},
-                    SubBlocks = {
-                      {
-                        Function = BBSpellEffectCreate,
-                        Params = {
-                          BindObjectVar = "Unit",
-                          EffectName = "InnervatingLocket_itm.troy",
-                          Flags = 0,
-                          EffectIDVar = "Particle",
-                          TargetObjectVar = "Target",
-                          SpecificUnitOnlyVar = "Owner",
-                          SpecificTeamOnly = TEAM_UNKNOWN,
-                          UseSpecificUnit = false,
-                          FOWTeam = TEAM_UNKNOWN,
-                          FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Owner",
-                          BuffName = "InnervatingLocketBuff",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_CombatEnchancer,
-                          MaxStack = 1,
-                          NumberStacks = 1,
-                          Duration = 1.9,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      },
-                      {
-                        Function = BBMath,
-                        Params = {
-                          Src2Var = "CooldownResevoir",
-                          Src2VarTable = "InstanceVars",
-                          Src1Value = -1,
-                          Src2Value = 0,
-                          DestVar = "CooldownResevoir",
-                          DestVarTable = "InstanceVars",
-                          MathOp = MO_ADD
-                        }
-                      }
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Owner",
+                      BuffName = "InnervatingLocketBuff",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_CombatEnchancer,
+                      MaxStack = 1,
+                      NumberStacks = 1,
+                      Duration = 1.9,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
                     }
                   }
                 }
@@ -272,6 +183,14 @@ ItemOnSpellCastBuildingBlocks = {
                 Function = BBElse,
                 Params = {},
                 SubBlocks = {
+                  {
+                    Function = BBGetManaOrHealth,
+                    Params = {
+                      DestVar = "UnitHealth",
+                      OwnerVar = "Unit",
+                      Function = GetHealthPercent
+                    }
+                  },
                   {
                     Function = BBIf,
                     Params = {
@@ -328,7 +247,7 @@ OnActivateBuildingBlocks = {
     Params = {
       DestVar = "CooldownResevoir",
       DestVarTable = "InstanceVars",
-      SrcValue = 0
+      SrcValue = 2
     }
   }
 }

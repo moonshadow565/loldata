@@ -17,7 +17,9 @@ TargetExecuteBuildingBlocks = {
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -82,6 +84,42 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            -0.4,
+            -0.4,
+            -0.4,
+            -0.4,
+            -0.4
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "MoveSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            -0.7,
+            -0.7,
+            -0.7,
+            -0.7,
+            -0.7
+          }
+        }
+      },
+      {
+        Function = BBApplyStun,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Target",
+          Duration = 1.5
+        }
+      },
+      {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Owner",
@@ -96,11 +134,18 @@ TargetExecuteBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
-            Function = BBApplyStun,
+            Function = BBSpellBuffAdd,
             Params = {
-              AttackerVar = "Attacker",
               TargetVar = "Unit",
-              Duration = 1.5
+              AttackerVar = "Owner",
+              BuffName = "Slow",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Slow,
+              MaxStack = 1,
+              NumberStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           },
           {
@@ -119,7 +164,9 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.4
+              SpellDamageRatio = 0.4,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -151,5 +198,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "pickacard_yellow_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

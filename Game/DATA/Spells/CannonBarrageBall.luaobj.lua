@@ -87,23 +87,139 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       Delta = -0.9
     }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "teamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "pirate_cannonBarrage_point.troy",
+          Flags = 0,
+          EffectIDVar = "Boom",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "pirate_cannonBarrage_point.troy",
+          Flags = 0,
+          EffectIDVar = "Boom",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "teamID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "pirate_cannonBarrage_tar.troy",
-      Flags = 0,
-      EffectIDVar = "Boom",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "teamID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetChampionBySkinName,
+        Params = {
+          Skin = "Pirate",
+          Team = TEAM_ORDER,
+          DestVar = "Attacker"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "pirate_cannonBarrage_tar.troy",
+          Flags = 0,
+          EffectIDVar = "Boom",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetChampionBySkinName,
+        Params = {
+          Skin = "Pirate",
+          Team = TEAM_CHAOS,
+          DestVar = "Attacker"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "pirate_cannonBarrage_tar.troy",
+          Flags = 0,
+          EffectIDVar = "Boom",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 225,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {
@@ -149,7 +265,9 @@ OnBuffDeactivateBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -231,7 +349,7 @@ SelfExecuteBuildingBlocks = {
       IgnoreCollision = true,
       VisibilitySize = 0,
       DestVar = "Other3",
-      GoldRedirectTargetVar = "Owner"
+      GoldRedirectTargetVar = "Nothing"
     }
   },
   {
@@ -290,6 +408,16 @@ SelfExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pirate_cannonbarrage_point.troy"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "pirate"}
+  },
   {
     Function = BBPreloadParticle,
     Params = {

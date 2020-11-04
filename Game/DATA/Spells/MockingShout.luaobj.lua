@@ -234,7 +234,7 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 5,
+          Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -248,7 +248,7 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberStacks = 1,
-          Duration = 5,
+          Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
@@ -305,7 +305,7 @@ TargetExecuteBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberStacks = 1,
-              Duration = 5,
+              Duration = 4,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -319,7 +319,7 @@ TargetExecuteBuildingBlocks = {
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberStacks = 1,
-              Duration = 5,
+              Duration = 4,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
@@ -353,7 +353,7 @@ TargetExecuteBuildingBlocks = {
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberStacks = 1,
-              Duration = 5,
+              Duration = 4,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }

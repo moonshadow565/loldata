@@ -35,7 +35,17 @@ BuffOnHitUnitBuildingBlocks = {
                     Function = BBMath,
                     Params = {
                       Src2Var = "MaxHealth",
-                      Src1Value = 0.03,
+                      Src1Value = 4500,
+                      Src2Value = 0,
+                      DestVar = "MaxHealth",
+                      MathOp = MO_MIN
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "MaxHealth",
+                      Src1Value = 0.04,
                       Src2Value = 0,
                       DestVar = "Damage",
                       MathOp = MO_MULTIPLY

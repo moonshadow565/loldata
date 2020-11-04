@@ -59,21 +59,6 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanMove
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      Flags = 0,
-      EffectIDVar = "ajldjfio",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -137,7 +122,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "StunDuration",
       Src1Value = 0,
-      Src2Value = 3.5,
+      Src2Value = 4.5,
       DestVar = "StunDuration",
       MathOp = MO_MIN
     }
@@ -231,9 +216,9 @@ TargetExecuteBuildingBlocks = {
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
-                3.5,
-                3.5,
-                3.5
+                3,
+                4,
+                5
               },
               TickRate = 0
             }
@@ -304,9 +289,9 @@ TargetExecuteBuildingBlocks = {
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
-                3.5,
-                3.5,
-                3.5
+                3,
+                4,
+                5
               },
               TickRate = 0
             }

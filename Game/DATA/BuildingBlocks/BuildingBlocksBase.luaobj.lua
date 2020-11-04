@@ -950,6 +950,28 @@ function L0(A0, A1)
   L3 = A1.TargetVar
   if L3 ~= nil then
     L4 = A1.DestVar
+    L5 = GetSpellBlock
+    L6 = A0[L3]
+    L5 = L5(L6)
+    L2[L4] = L5
+  else
+    L4 = A1.DestVar
+    L5 = GetSpellBlock
+    L5 = L5()
+    L2[L4] = L5
+  end
+end
+BBGetSpellBlock = L0
+function L0(A0, A1)
+  local L2, L3, L4, L5, L6
+  L2 = GetTable
+  L3 = A0
+  L4 = A1.DestVarTable
+  L5 = false
+  L2 = L2(L3, L4, L5)
+  L3 = A1.TargetVar
+  if L3 ~= nil then
+    L4 = A1.DestVar
     L5 = GetTeamID
     L6 = A0[L3]
     L5 = L5(L6)

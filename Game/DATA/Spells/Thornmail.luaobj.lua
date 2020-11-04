@@ -42,7 +42,7 @@ BuffOnBeingHitBuildingBlocks = {
                 Params = {
                   Src1Var = "DamageAmount",
                   Src1Value = 0,
-                  Src2Value = 0.2,
+                  Src2Value = 0.25,
                   DestVar = "PercentDamageTaken",
                   MathOp = MO_MULTIPLY
                 }

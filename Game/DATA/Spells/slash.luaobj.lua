@@ -54,7 +54,9 @@ OnBuffActivateBuildingBlocks = {
       SpeedVar = "SlashSpeed",
       SpeedVarTable = "InstanceVars",
       Gravity = 0,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER
     }
   }
 }
@@ -376,10 +378,10 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
-        60,
-        105,
-        150,
-        195,
+        40,
+        90,
+        140,
+        185,
         240
       }
     }

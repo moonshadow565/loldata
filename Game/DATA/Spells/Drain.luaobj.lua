@@ -44,7 +44,8 @@ TargetExecuteBuildingBlocks = {
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = true
         }
       }
     }

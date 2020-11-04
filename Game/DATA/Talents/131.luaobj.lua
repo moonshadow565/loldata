@@ -11,7 +11,7 @@ SetVarsByLevelBuildingBlocks = {
     Params = {
       DestVar = "BoostCooldownBonus",
       DestVarTable = "AvatarVars",
-      SrcValue = 30
+      SrcValue = 20
     }
   }
 }

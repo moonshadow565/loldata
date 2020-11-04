@@ -166,7 +166,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "CooldownPerc",
-      Src1Value = 3,
+      Src1Value = 2.5,
       Src2Value = 0,
       DestVar = "CooldownPerc",
       MathOp = MO_MULTIPLY
@@ -232,11 +232,11 @@ SelfExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
+        2,
+        2.5,
         3,
-        3,
-        3,
-        3,
-        3
+        3.5,
+        4
       },
       TickRate = 0
     }

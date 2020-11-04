@@ -23,7 +23,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      Delta = 5
+      Delta = 6
     }
   },
   {
