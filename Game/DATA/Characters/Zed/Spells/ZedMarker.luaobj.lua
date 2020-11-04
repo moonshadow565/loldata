@@ -2,21 +2,3 @@ BuffName = "ZedMarker"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "zedpassive"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zed_passive_proc_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedpassivecd"
-    }
-  }
-}

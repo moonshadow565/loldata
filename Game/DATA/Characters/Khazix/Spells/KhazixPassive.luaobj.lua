@@ -9,29 +9,3 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "KhazixSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixpdamage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixhatred"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixhatredrengar"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "khazix_base_r_evo2_charactertexture.troy"
-    }
-  }
-}

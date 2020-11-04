@@ -14,29 +14,3 @@ PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktorqbuff"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_skin03_q_aug_buff.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_base_q_aug_buff.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_base_q_aug_attack_cas.troy"
-    }
-  }
-}

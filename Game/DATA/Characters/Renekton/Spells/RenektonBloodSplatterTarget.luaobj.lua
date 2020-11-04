@@ -1,16 +1,2 @@
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "renektonslicedice_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "renekton_volcanogod_renektonslicedice_tar.troy"
-    }
-  }
-}

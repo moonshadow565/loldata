@@ -11,9 +11,3 @@ SpellFXOverrideSkins = {
   "QuinnValor_Phoenix"
 }
 AutoBuffActivateEvent = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "quinne"}
-  }
-}

@@ -1,11 +1,3 @@
 SpellFXOverrideSkins = {
   "SteelLegionLux"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "luxmalicecannon_cas.troy"
-    }
-  }
-}

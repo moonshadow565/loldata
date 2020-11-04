@@ -19,23 +19,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lanterndashsound.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lanternwallydash"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lanternwallydashparticle"
-    }
-  }
-}

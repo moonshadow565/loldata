@@ -14,21 +14,3 @@ PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "viktor_reverb_shield.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktorpowertransferreturn"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "haste"}
-  }
-}

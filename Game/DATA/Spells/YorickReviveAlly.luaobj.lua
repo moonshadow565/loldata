@@ -3,17 +3,3 @@ BuffName = "MordekaiserCOTGDot"
 AutoBuffActivateEffect = "mordekeiser_cotg_tar.troy"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickreviveallyself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "spellnostackcdreset"
-    }
-  }
-}

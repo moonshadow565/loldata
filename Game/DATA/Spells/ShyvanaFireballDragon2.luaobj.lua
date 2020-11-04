@@ -5,11 +5,3 @@ IsDamagingSpell = true
 SpellFXOverrideSkins = {
   "FrostShyvana"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballdragonfxmissile"
-    }
-  }
-}

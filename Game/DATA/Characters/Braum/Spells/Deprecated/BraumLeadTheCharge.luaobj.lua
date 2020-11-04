@@ -10,11 +10,3 @@ AutoCooldownByLevel = {
   90
 }
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Braum_rbuffshout.troy"
-    }
-  }
-}

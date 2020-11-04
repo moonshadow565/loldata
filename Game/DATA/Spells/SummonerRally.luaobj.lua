@@ -1,33 +1,3 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_cast.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_flash.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "summonerbeacon"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "beaconauraap"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "beaconaura"}
-  }
-}

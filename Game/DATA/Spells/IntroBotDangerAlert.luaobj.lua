@@ -1,15 +1,1 @@
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "introbotdamageindicatorturret.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "introbotdamageindicatorminion.troy"
-    }
-  }
-}

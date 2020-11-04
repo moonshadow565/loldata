@@ -1,0 +1,11 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="KogMaw_Skin05_R_cas_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="KogMaw_Skin05_R_cas_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="KogMaw_Base_R_cas_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="KogMaw_Base_R_cas_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="KogMaw_Base_R_aoe_explosion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kogmawlivingartillerysight"}}, 
+{Function=BBPreloadParticle, Params={Name="KogMaw_Base_R_mis.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
+{Function=BBPreloadSpell, Params={Name="kogmawlivingartillerycost"}}, 
+}

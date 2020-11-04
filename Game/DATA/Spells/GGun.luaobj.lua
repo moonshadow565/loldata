@@ -14,11 +14,3 @@ SpellFXOverrideSkins = {
   "FireworksCorki"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "corki_gatlin_cas.troy"
-    }
-  }
-}

@@ -13,17 +13,3 @@ AutoCooldownByLevel = {
   50,
   50
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragaswself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragaswattackbuff"
-    }
-  }
-}

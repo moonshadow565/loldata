@@ -11,27 +11,3 @@ SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
   "CandyCaneFiddlesticks"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fearmonger_marker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {Name = "drain.troy"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "party_drainglow.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "globaldrain"
-    }
-  }
-}

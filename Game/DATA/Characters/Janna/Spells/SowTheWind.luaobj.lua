@@ -13,21 +13,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "JannaForecast"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sowthewind_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sowthewind_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  }
-}

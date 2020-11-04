@@ -9,29 +9,3 @@ SpellFXOverrideSkins = {
   "FrostShyvana"
 }
 TriggersSpellCasts = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballdragonfxmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shyvanafireballmissileminion"
-    }
-  }
-}

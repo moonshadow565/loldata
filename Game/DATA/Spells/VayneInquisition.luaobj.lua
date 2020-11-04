@@ -14,11 +14,3 @@ AutoCooldownByLevel = {
   18,
   14
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vayneinquisition"
-    }
-  }
-}

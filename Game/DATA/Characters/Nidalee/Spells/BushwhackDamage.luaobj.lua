@@ -8,17 +8,3 @@ BuffName = "BushwhackDamage"
 SpellFXOverrideSkins = {
   "HeadhunterNidalee"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_watched.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nidaleepassivehunted"
-    }
-  }
-}

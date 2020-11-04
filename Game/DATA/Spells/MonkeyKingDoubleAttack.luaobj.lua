@@ -2,32 +2,12 @@ DoesntBreakShields = true
 CastingBreaksStealth = false
 BuffTextureName = "MonkeyKingCrushingBlow.dds"
 BuffName = "MonkeyKingDoubleAttack"
-AutoBuffActivateEffect = "monkey_king_crushingBlow_buf_self.troy"
+AutoBuffActivateEffect = "MonkeyKing_Base_Q_Buf_A.troy"
 AutoBuffActivateAttachBoneName = "weapon_a_bend3"
-AutoBuffActivateEffect2 = "monkey_king_crushingBlow_buf_self.troy"
+AutoBuffActivateEffect2 = "MonkeyKing_Base_Q_Buf_B.troy"
 AutoBuffActivateAttachBoneName2 = "weapon_b_bend3"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
   "MonkeyKingSkin04"
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "monkey_king_crushingblow_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingdoubleattackdebuff"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "xenziou_battle_cry_weapon_01.troy"
-    }
-  }
 }

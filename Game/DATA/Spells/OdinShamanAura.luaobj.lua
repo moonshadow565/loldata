@@ -7,11 +7,3 @@ BuffTextureName = "Sona_SongofDiscordGold.dds"
 BuffName = "OdinShamanAura"
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sonasongofdiscord_aura.troy"
-    }
-  }
-}

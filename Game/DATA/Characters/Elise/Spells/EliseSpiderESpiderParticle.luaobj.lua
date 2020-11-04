@@ -8,11 +8,3 @@ AutoCooldownByLevel = {
   80,
   80
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_elise_webgate.troy"
-    }
-  }
-}

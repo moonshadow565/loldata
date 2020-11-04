@@ -13,11 +13,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "KhazixDroid"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixpdamage"
-    }
-  }
-}

@@ -10,11 +10,3 @@ AutoBuffActivateEffect3 = ""
 SpellToggleSlot = 1
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "renekton_rage_state.troy"
-    }
-  }
-}

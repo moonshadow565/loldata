@@ -1,8 +1,0 @@
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dorant2health"
-    }
-  }
-}

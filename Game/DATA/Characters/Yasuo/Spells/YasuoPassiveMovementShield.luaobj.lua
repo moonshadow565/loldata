@@ -1,15 +1,1 @@
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuopassivemscharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuopassivemsshieldon"
-    }
-  }
-}

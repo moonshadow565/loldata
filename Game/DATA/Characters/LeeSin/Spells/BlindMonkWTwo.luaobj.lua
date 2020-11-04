@@ -18,11 +18,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "blindmonk_w_ironwill_armor.troy"
-    }
-  }
-}

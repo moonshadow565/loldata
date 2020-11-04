@@ -6,17 +6,3 @@ AutoBuffActivateEffect4 = "yorick_ult_05.troy"
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 3
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yorick_ult_03_teamid_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yorick_ult_03_teamid_red.troy"
-    }
-  }
-}

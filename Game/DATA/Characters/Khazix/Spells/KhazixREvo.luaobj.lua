@@ -14,17 +14,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "KhazixDroid"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "khazix_base_r_evo2_charactertexture.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixpdamage"
-    }
-  }
-}

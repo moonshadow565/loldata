@@ -1,17 +1,3 @@
 SpellFXOverrideSkins = {
   "YasuoSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_r_indicator_beam.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_r_cantcast_beam.troy"
-    }
-  }
-}

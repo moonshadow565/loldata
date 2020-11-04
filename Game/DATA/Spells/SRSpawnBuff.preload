@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="sru_spawn_platform.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_pallybase_spawn_temp.troy"}}, 
+}

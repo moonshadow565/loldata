@@ -1,8 +1,0 @@
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "pantheon_grandskyfall_tar_red.troy"
-    }
-  }
-}

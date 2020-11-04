@@ -10,23 +10,3 @@ AutoCooldownByLevel = {
   14
 }
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_r_buf_lvl3.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_r_buf_lvl2.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_r_buf.troy"
-    }
-  }
-}

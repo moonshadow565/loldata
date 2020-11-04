@@ -14,29 +14,3 @@ NonDispellable = true
 SpellVOOverrideSkins = {
   "KarthusSkin04"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karthusfallenonetarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karthusfallenonecastsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karthusfallenonedamagesound"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "karthus_base_r_explosion.troy"
-    }
-  }
-}

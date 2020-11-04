@@ -1,22 +1,2 @@
 IsDeathRecapSource = true
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dummywardtracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemferalflarecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemferalflareattack"
-    }
-  }
-}

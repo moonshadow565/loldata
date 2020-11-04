@@ -11,25 +11,8 @@ AutoCooldownByLevel = {
   8
 }
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "LeblancSkin04"
+}
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leblanc_displace_aoe_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorbproc"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorbmproc"
-    }
-  }
-}

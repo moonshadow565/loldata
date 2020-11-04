@@ -8,11 +8,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "BloodkingVladimir"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "evelynn_r_shield.troy"
-    }
-  }
-}

@@ -2,29 +2,3 @@ SpellFXOverrideSkins = {
   "GangsterTwitch",
   "PunkTwitch"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "annie_skin02_basicattack_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "annie_skin05_basicattack_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "annie_skin09_basicattack_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "annie_basicattack_tar.troy"
-    }
-  }
-}

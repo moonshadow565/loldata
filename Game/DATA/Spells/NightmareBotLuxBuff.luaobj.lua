@@ -1,29 +1,3 @@
 BuffTextureName = "LuxFinaleFunkeln.dds"
 BuffName = "NightmareBotLuxBuff"
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotluxe"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotluxr"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotluxq"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nightmarebotluxrcannonmis"
-    }
-  }
-}

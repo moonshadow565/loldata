@@ -9,17 +9,3 @@ AutoCooldownByLevel = {
   10,
   10
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "asc_relic_sand_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "asc_relicprism_sand.troy"
-    }
-  }
-}

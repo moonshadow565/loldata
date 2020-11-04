@@ -7,23 +7,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "Zyra_hellvine"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyragraspingplantslow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraplantdrplant"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraplantdrzyra"
-    }
-  }
-}

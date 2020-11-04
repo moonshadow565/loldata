@@ -8,11 +8,3 @@ SpellVOOverrideSkins = {
   "Draven_SoulReaper",
   "DravenSkin03"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravenrdoublecast"
-    }
-  }
-}

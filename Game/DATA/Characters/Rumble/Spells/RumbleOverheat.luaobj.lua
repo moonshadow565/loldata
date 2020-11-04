@@ -12,23 +12,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "RumbleSkin03"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleoverheatsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleheatdelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbleheatingup"
-    }
-  }
-}

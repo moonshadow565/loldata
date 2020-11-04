@@ -19,11 +19,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "TryndamereDemonsword"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "undyingrage_glow.troy"
-    }
-  }
-}

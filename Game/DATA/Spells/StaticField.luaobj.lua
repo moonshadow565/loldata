@@ -6,17 +6,3 @@ AutoBuffActivateEffect = "StaticField_ready.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "staticfield_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "staticfield_nova.troy"
-    }
-  }
-}

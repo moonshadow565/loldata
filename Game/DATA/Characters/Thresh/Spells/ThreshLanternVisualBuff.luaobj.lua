@@ -10,35 +10,3 @@ AutoCooldownByLevel = {
   10,
   10
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "thresh_lanterntimer.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinminiontaunt"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "odinneutralguardian_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "odinneutralguardian_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "odinneutralguardian_stone.troy"
-    }
-  }
-}

@@ -8,11 +8,3 @@ BuffName = "Gemcraft"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "taric_gemstorm_tar.troy"
-    }
-  }
-}

@@ -7,11 +7,3 @@ SpellFXOverrideSkins = {
   "FrostShyvana",
   "AatroxSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "aatrox_base_e_glow.troy"
-    }
-  }
-}

@@ -841,11 +841,11 @@ function L0_0(A0_99, A1_100)
         L18_117 = L18_117(L8_107, L16_115, HQ_TOWER2)
         if L17_116 ~= Nil then
           SetInvulnerable(L17_116, true)
-          SetTargetable(L17_116, false)
+          SetNotTargetableToTeam(L17_116, true, A0_99)
         end
         if L18_117 ~= Nil then
           SetInvulnerable(L18_117, true)
-          SetTargetable(L18_117, false)
+          SetNotTargetableToTeam(L18_117, true, A0_99)
         end
       end
     end

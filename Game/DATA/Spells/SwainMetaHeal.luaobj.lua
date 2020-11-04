@@ -9,11 +9,3 @@ AutoCooldownByLevel = {
   0,
   0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "swain_heal.troy"
-    }
-  }
-}

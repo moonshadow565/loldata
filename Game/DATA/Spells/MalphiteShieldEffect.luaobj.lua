@@ -6,17 +6,3 @@ SpellFXOverrideSkins = {
   "MalphiteSkin06"
 }
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "malphiteshieldremoval"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "malphiteshieldbeenhit"
-    }
-  }
-}

@@ -1,22 +1,2 @@
 BuffTextureName = "LeonaSunlight.dds"
 BuffName = "LeonaSunlight"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leona_sunlight_champion.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leona_sunlight.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leonapassive_tar.troy"
-    }
-  }
-}

@@ -8,23 +8,3 @@ SpellFXOverrideSkins = {
   "Zyra_hellvine",
   "ZyraSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyragraspingplantslow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraplantdrplant"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyraplantdrzyra"
-    }
-  }
-}

@@ -5,66 +5,12 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "KogMaw_IcathianSurprise.dds"
 BuffName = "KogMawIcathianSurprise"
-AutoBuffActivateEffect = "KogMawIcathianSurprise_foam.troy"
+AutoBuffActivateEffect = "KogMaw_Base_P_foam.troy"
 AutoBuffActivateAttachBoneName = "C_Mouth_d"
-AutoBuffActivateEffect2 = "KogMawIcathianSurprise_splats.troy"
+AutoBuffActivateEffect2 = "KogMaw_Base_P_splats.troy"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true
 SpellVOOverrideSkins = {
   "KogmawSkin08"
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurprisesound"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kogmawdeathproc.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kogmawdeathbackbeam.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "unlockanimation"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "untargetable"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "kogmawdead"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kogmawdeath_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kogmawdead_idle.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurprise"
-    }
-  }
 }

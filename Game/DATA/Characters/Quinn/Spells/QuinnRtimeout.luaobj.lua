@@ -8,17 +8,3 @@ BuffName = "QuinnRForm"
 SpellToggleSlot = 4
 IsDeathRecapSource = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "quinnrtimeoutsupp"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemtiamatlock"
-    }
-  }
-}

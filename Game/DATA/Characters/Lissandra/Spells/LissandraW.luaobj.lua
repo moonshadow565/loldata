@@ -15,17 +15,3 @@ SpellFXOverrideSkins = {
   "lissandraSkin02"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_base_w_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lissandrawfrozen"
-    }
-  }
-}

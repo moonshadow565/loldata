@@ -11,11 +11,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "ZombieBrand"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lissandrarenemy"
-    }
-  }
-}

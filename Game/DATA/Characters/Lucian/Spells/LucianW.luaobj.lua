@@ -5,11 +5,3 @@ PopupMessage1 = "game_floatingtext_Snared"
 SpellFXOverrideSkins = {
   "LucianSkin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lucianwmissile"
-    }
-  }
-}

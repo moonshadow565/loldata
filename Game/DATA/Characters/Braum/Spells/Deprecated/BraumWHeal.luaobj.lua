@@ -5,11 +5,3 @@ BuffName = "Astral Blessing"
 SpellFXOverrideSkins = {
   "ClericSoraka"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "temp_Braum_wheal_buf.troy"
-    }
-  }
-}

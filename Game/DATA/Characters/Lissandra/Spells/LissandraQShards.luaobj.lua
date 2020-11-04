@@ -7,17 +7,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "Lissandra_skin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lissandra_base_q_tar2.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lissandraqshards"
-    }
-  }
-}

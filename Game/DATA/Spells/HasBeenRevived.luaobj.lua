@@ -4,9 +4,3 @@ BuffTextureName = "3026_Guardian_Angel_Charging.dds"
 BuffName = "HasBeenRevived"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "willrevive"}
-  }
-}

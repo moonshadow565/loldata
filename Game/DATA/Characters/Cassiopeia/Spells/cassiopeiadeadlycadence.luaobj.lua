@@ -7,11 +7,3 @@ BuffTextureName = "Cassiopeia_DeadlyCadence.dds"
 BuffName = "CassiopeiaDeadlyCadence"
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "cassiopeiapoisonticker"
-    }
-  }
-}

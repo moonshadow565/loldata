@@ -12,11 +12,3 @@ AutoCooldownByLevel = {
   10,
   10
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alistartrample"
-    }
-  }
-}

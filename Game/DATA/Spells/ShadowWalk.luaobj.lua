@@ -7,35 +7,3 @@ BuffName = "ShadowWalk"
 SpellToggleSlot = 2
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "evelynnwarning"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "evelynnstealthmarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "evelynnstealthring"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shadowwalkrevealedwarning"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "evelynnstealth"
-    }
-  }
-}

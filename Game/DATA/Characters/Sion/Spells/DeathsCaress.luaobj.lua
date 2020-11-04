@@ -9,23 +9,3 @@ AutoBuffActivateEffect = "DeathsCaress_buf.troy"
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deathscaress"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "deathscaress_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deathscaressfull"
-    }
-  }
-}

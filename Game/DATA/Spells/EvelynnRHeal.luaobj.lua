@@ -14,11 +14,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "BloodkingVladimir"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "evelynnrshield"
-    }
-  }
-}

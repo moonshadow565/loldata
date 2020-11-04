@@ -8,15 +8,3 @@ SpellFXOverrideSkins = {
   "RocketTristana"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "gnarredvfx"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "turntored.troy"
-    }
-  }
-}

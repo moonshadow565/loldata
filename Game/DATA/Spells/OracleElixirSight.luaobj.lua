@@ -5,11 +5,3 @@ BuffName = "OracleElixir"
 PersistsThroughDeath = true
 NonDispellable = true
 PermeatesThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oraclesightbubble"
-    }
-  }
-}

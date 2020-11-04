@@ -11,17 +11,3 @@ AutoBuffActivateAttachBoneName2 = "R_BUFFBONE_GLB_HAND_LOC"
 AutoBuffActivateEffect3 = "sword_of_the_divine_02.troy"
 AutoBuffActivateAttachBoneName3 = "L_BUFFBONE_GLB_HAND_LOC"
 AutoBuffActivateEffect4 = "sword_of_the_divine_01.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemsotddebuff"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sword_of_the_divine_03.troy"
-    }
-  }
-}

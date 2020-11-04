@@ -1,20 +1,2 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "slashbeenhit"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "bloodslash.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {Name = "slash.troy"}
-  }
-}

@@ -20,27 +20,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jarvangoldenaegis_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jarvangoldenaegis_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jarvangoldenaegis_tar.troy"
-    }
-  }
-}

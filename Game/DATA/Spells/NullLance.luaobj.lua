@@ -4,27 +4,3 @@ IsDamagingSpell = true
 BuffTextureName = "Averdrian_AstralBeam.dds"
 BuffName = "NullLance"
 AutoBuffActivateEffect = "Null_Lance_buf.troy"
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kassadinqcancelchannels"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kassadin_base_q_shield.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "nulllance"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "kassadin_base_q_shieldon.troy"
-    }
-  }
-}

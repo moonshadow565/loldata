@@ -10,11 +10,3 @@ AutoCooldownByLevel = {
   22,
   14
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spelleffect_proc.troy"
-    }
-  }
-}

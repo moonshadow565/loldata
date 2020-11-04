@@ -8,11 +8,3 @@ SpellToggleSlot = 3
 SpellFXOverrideSkins = {
   "AstronautTeemo"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "toxicshotparticle"
-    }
-  }
-}

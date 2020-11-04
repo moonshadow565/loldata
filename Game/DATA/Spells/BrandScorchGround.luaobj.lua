@@ -1,15 +1,1 @@
 AutoBuffActivateEffect = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "brandphscorchground.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandablaze"
-    }
-  }
-}

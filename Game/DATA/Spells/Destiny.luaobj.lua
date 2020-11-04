@@ -13,15 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "UnderworldTwistedFate"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "destiny_marker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "gate"}
-  }
-}

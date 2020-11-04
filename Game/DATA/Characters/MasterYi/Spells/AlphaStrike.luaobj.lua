@@ -17,39 +17,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alphastriketeleport"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_q_end.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alphastriketarget"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_q_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_q_ap_mis.troy"
-    }
-  }
-}

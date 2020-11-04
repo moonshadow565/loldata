@@ -10,23 +10,3 @@ AutoBuffActivateEffect3 = ""
 SpellToggleSlot = 3
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektondice"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonsliceanddicetimer"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonsliceanddice"
-    }
-  }
-}

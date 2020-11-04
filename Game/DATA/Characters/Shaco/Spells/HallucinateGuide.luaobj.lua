@@ -4,17 +4,3 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
 IsPetDurationBuff = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "petcommandparticle"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cursor_moveto.troy"
-    }
-  }
-}

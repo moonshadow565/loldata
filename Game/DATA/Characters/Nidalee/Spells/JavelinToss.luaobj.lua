@@ -16,17 +16,3 @@ SpellFXOverrideSkins = {
   "HeadhunterNidalee"
 }
 TriggersSpellCasts = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nidalee_base_q_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nidaleepassivehunted"
-    }
-  }
-}

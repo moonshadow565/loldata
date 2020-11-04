@@ -6,11 +6,3 @@ IsDamagingSpell = false
 BuffName = "WaypointBuff"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tutorial_waypoint_yellow.troy"
-    }
-  }
-}

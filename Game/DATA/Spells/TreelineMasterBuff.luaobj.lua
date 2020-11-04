@@ -1,35 +1,3 @@
 BuffTextureName = "TwistedAura.dds"
 BuffName = "TwistedAura"
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "treelinemasterbufft0"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "treelinemasterbufft1right"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "treelinemasterbufft1left"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "treelinemasterbufft2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ttspiderdancetoken"
-    }
-  }
-}

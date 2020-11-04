@@ -6,17 +6,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "FrostShyvana"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxeconemissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxeconemissile2"
-    }
-  }
-}

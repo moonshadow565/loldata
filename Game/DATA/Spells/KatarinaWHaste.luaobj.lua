@@ -3,11 +3,3 @@ BuffName = "KatarinaWHaste"
 SpellFXOverrideSkins = {
   "XmasKatarina"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_haste.troy"
-    }
-  }
-}

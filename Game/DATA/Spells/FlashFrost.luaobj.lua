@@ -12,15 +12,3 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "BlackIceAnivia"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cryo_flashfrost_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
-  }
-}

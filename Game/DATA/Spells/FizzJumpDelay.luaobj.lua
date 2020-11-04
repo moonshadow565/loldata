@@ -8,27 +8,3 @@ AutoCooldownByLevel = {
   14,
   12
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fizzjumptwo"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fizztrickslamsounddummy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fizztrickslam"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fizzjump"}
-  }
-}

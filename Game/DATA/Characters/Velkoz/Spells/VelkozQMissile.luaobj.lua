@@ -7,17 +7,3 @@ BuffName = "Dark Binding"
 SpellFXOverrideSkins = {
   "VelkozSkin01"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "velkozqmissiledamage"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "velkozqsplitactivate"
-    }
-  }
-}

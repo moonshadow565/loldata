@@ -19,15 +19,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fioraqcd"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "fioraqlunge"
-    }
-  }
-}

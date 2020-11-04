@@ -7,35 +7,3 @@ NonDispellable = true
 SpellFXOverrideSkins = {
   "AatroxSkin02"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxwparticler"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxwparticle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxwonhlifebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "aatroxwonhlife"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "aatrox_w_life_self.troy"
-    }
-  }
-}

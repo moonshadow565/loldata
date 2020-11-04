@@ -10,17 +10,3 @@ SpellFXOverrideSkins = {
   "ReefMalphite",
   "GlacialMalphite"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zed_stormblade_cloneswap.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "zed_base_cloneswap.troy"
-    }
-  }
-}

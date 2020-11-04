@@ -13,11 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "BloodkingVladimir"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "mastery_reaper_heal.troy"
-    }
-  }
-}

@@ -13,15 +13,3 @@ AutoBuffActivateAttachBoneName4 = "Bow_05"
 SpellToggleSlot = 1
 NonDispellable = true
 TriggersSpellCasts = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "frostarrowapplicator"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "frostarrow"}
-  }
-}

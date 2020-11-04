@@ -10,11 +10,3 @@ SpellVOOverrideSkins = {
   "BlackIceAnivia",
   "BirdCryophoenix"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "cryo_frostbite_chilled_tar.troy"
-    }
-  }
-}

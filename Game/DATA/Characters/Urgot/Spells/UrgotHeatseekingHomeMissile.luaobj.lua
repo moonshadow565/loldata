@@ -8,27 +8,3 @@ SpellFXOverrideSkins = {
   "BattlecastUrgot"
 }
 TriggersSpellCasts = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "urgotslow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "urgotentropypassive"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgotheatseekingmissile_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "urgotheatseekingmissile_battlecast_tar.troy"
-    }
-  }
-}

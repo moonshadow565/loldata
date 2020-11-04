@@ -10,21 +10,3 @@ SpellFXOverrideSkins = {
   "ReefMalphite",
   "GlacialMalphite"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "zedw2"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianaballindicatornear.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zedshadowdash"
-    }
-  }
-}

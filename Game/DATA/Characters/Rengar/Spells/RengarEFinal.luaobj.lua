@@ -10,23 +10,3 @@ AutoCooldownByLevel = {
   8
 }
 IsDeathRecapSource = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarmanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengareslow"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengar_base_e_tar.troy"
-    }
-  }
-}

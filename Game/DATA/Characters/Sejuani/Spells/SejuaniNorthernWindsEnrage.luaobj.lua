@@ -6,23 +6,3 @@ IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SejuaniSkin04"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_w_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_w_buf_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sejuaninorthernwinds"
-    }
-  }
-}

@@ -14,21 +14,3 @@ SpellVOOverrideSkins = {
   "ZombieBrand",
   "CyberNocturne"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "teleporthomeimproved.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "teleportarrive.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "recallends"}
-  }
-}

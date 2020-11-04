@@ -9,23 +9,3 @@ SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "HunterRengar"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarferocitymanagerincombat"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarr_internal"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengar_vo_second_stealth.troy"
-    }
-  }
-}

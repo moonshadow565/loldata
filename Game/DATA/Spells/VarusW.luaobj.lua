@@ -12,17 +12,3 @@ SpellFXOverrideSkins = {
   "VarusAscended",
   "VarusSkin03"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varuswdebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "varuswparticle"
-    }
-  }
-}

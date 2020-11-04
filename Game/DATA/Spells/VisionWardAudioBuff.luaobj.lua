@@ -24,5 +24,6 @@ SpellFXOverrideSkins = {
   "SightWardMecha",
   "SightWardShurimaRammus",
   "SightWardShurimaAmumu",
-  "SightWardShurima"
+  "SightWardShurima",
+  "SightWardS4Champ"
 }

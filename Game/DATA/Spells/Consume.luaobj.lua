@@ -10,35 +10,3 @@ AutoCooldownByLevel = {
   15
 }
 SpellVOOverrideSkins = {"NunuBot"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "meditate_eff.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nunuqbufflizard"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nunuqbuffgolem"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nunuqbuffwolf"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nunuqbuffwraith"
-    }
-  }
-}

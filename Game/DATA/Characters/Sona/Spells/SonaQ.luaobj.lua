@@ -7,25 +7,3 @@ BuffTextureName = "Sona_Q_Gold.dds"
 SpellToggleSlot = 4
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sonaq"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaqpassivecheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaqmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "sonaqzone"}
-  }
-}

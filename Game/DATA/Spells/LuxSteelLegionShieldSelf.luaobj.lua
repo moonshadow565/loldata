@@ -11,17 +11,3 @@ SpellFXOverrideSkins = {
   "SteelLegionLux"
 }
 DoOnPreDamageInExpirationOrder = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "shen_feint_self_deactivate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spelleffect_proc.troy"
-    }
-  }
-}

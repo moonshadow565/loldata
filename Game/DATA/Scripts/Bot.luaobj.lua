@@ -92,7 +92,7 @@ function L0_0()
   L14_17 = L10_13()
   for L13_16 = 1, #L9_12 do
     L14_17 = {}
-    L14_17.HeroID = L9_12[L13_16]
+    L14_17.HeroIDIndex = L13_16
     L14_17.Name = "Kill Hero " .. objGetName(L9_12[L13_16])
     setmetatable(L14_17, L4_7)
     table.insert(tasks, L14_17)

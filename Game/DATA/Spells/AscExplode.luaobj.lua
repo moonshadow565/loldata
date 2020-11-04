@@ -1,15 +1,1 @@
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leona_solarflare_cas_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "leona_solarflare_tar.troy"
-    }
-  }
-}

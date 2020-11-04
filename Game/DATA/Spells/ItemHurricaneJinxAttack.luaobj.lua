@@ -3,29 +3,3 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jinx_q_rocket_tar_unit.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemhurricanejinxattackmarker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jinx_hurricane_tar_unit.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "jinx_hurricane_tar.troy"
-    }
-  }
-}

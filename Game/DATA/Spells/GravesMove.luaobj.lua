@@ -8,17 +8,3 @@ BuffName = "Shen Shadow Dash"
 SpellFXOverrideSkins = {
   "GravesSkin05"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "graves_move_onbuffactivate.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gravesmovesteroid"
-    }
-  }
-}

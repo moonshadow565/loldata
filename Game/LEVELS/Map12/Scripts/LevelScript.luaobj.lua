@@ -816,11 +816,11 @@ function L0_0(A0_99, A1_100)
     L8_107(L9_108, false)
     if L8_107 ~= Nil then
       SetInvulnerable(L8_107, true)
-      SetTargetable(L8_107, false)
+      SetNotTargetableToTeam(L8_107, true, A0_99)
     end
     if L9_108 ~= Nil then
       SetInvulnerable(L9_108, true)
-      SetTargetable(L9_108, false)
+      SetNotTargetableToTeam(L9_108, true, A0_99)
     end
   end
 end
@@ -1126,9 +1126,6 @@ function L0_0(A0_125, A1_126, A2_127)
       end
       if _FORV_7_.cameraPath then
         ClientSide_CameraMoveCameraFromCurrentPositionAlongSpline(_FORV_7_.cameraPath, _FORV_7_.travelTime)
-      end
-      if _FORV_7_.fadeMusic then
-        ClientSide_FadeOutMusic()
       end
       if _FORV_7_.soundName then
         if _FORV_7_.soundCharacterName then

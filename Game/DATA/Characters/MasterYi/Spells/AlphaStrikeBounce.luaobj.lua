@@ -17,23 +17,3 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alphastriketarget"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "masteryi_base_q_ap_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemstatikshankcharge"
-    }
-  }
-}

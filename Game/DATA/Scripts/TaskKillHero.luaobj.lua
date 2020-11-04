@@ -15,107 +15,134 @@ TargetHealth = L0
 L0 = false
 ReducePriority = L0
 function L0(A0)
-  local L1, L2, L3, L4, L5
+  local L1, L2, L3, L4, L5, L6
   A0.Priority = 0
-  L1 = math
-  L1 = L1.max
-  L2 = GetDist
-  L3 = GetPos
-  L3 = L3()
-  L4 = GetPos
-  L5 = A0.HeroID
-  L4, L5 = L4(L5)
-  L2 = L2(L3, L4, L5)
-  L3 = 1
-  L1 = L1(L2, L3)
-  L2 = ReducePriority
-  if L2 == true then
-    A0.Priority = 0
-    return
-  end
-  L2 = IsDead
-  L3 = A0.HeroID
-  L2 = L2(L3)
-  if not L2 then
-    L2 = HERO_ENGAGE_DIST
-    if L1 < L2 then
-      A0.Priority = 0.5
-    else
-      L2 = HERO_ENGAGE_DIST
-      L2 = L2 * 2
-      if L1 < L2 then
-        L2 = HERO_ENGAGE_DIST
-        L2 = L1 - L2
+  L1 = GetHeroes
+  L2 = GetOtherTeam
+  L2, L3, L4, L5, L6 = L2()
+  L1 = L1(L2, L3, L4, L5, L6)
+  L2 = #L1
+  L3 = A0.HeroIDIndex
+  if L2 >= L3 then
+    L2 = math
+    L2 = L2.max
+    L3 = GetDist
+    L4 = GetPos
+    L4 = L4()
+    L5 = GetPos
+    L6 = A0.HeroIDIndex
+    L6 = L1[L6]
+    L5, L6 = L5(L6)
+    L3 = L3(L4, L5, L6)
+    L4 = 1
+    L2 = L2(L3, L4)
+    L3 = IsDead
+    L4 = A0.HeroIDIndex
+    L4 = L1[L4]
+    L3 = L3(L4)
+    if not L3 then
+      L3 = HERO_ENGAGE_DIST
+      if L2 < L3 then
+        A0.Priority = 0.5
+      else
         L3 = HERO_ENGAGE_DIST
-        L2 = L2 / L3
-        L2 = 1 - L2
-        L2 = 0.5 * L2
-        A0.Priority = L2
+        L3 = L3 * 2
+        if L2 < L3 then
+          L3 = HERO_ENGAGE_DIST
+          L3 = L2 - L3
+          L4 = HERO_ENGAGE_DIST
+          L3 = L3 / L4
+          L3 = 1 - L3
+          L3 = 0.5 * L3
+          A0.Priority = L3
+        end
       end
     end
   end
 end
 UpdatePriority = L0
 function L0(A0)
-  local L1, L2, L3, L4
-  L1 = TurnOffAutoAttack
-  L2 = STOPREASON_MOVING
-  L1(L2)
-  L1 = SetStateAndCloseToTarget
-  L2 = AI_FOLLOW_HERO
-  L3 = A0.HeroID
-  L1(L2, L3)
-  L1 = GetTargetHealth
-  L1 = L1()
-  TargetHealth = L1
-  L1 = InitTimer
-  L2 = "AntiKiteTimer"
-  L3 = 2
-  L4 = true
-  L1(L2, L3, L4)
+  local L1, L2, L3, L4, L5
+  L1 = GetHeroes
+  L2 = GetOtherTeam
+  L2, L3, L4, L5 = L2()
+  L1 = L1(L2, L3, L4, L5)
+  L2 = #L1
+  L3 = A0.HeroIDIndex
+  if L2 >= L3 then
+    L2 = TurnOffAutoAttack
+    L3 = STOPREASON_MOVING
+    L2(L3)
+    L2 = SetStateAndCloseToTarget
+    L3 = AI_FOLLOW_HERO
+    L4 = A0.HeroIDIndex
+    L4 = L1[L4]
+    L2(L3, L4)
+    L2 = GetTargetHealth
+    L2 = L2()
+    TargetHealth = L2
+    L2 = InitTimer
+    L3 = "AntiKiteTimer"
+    L4 = 2
+    L5 = true
+    L2(L3, L4, L5)
+  end
 end
 BeginTask = L0
 function L0(A0)
-  local L1, L2, L3, L4, L5
+  local L1, L2, L3, L4, L5, L6
   L1 = GetState
   L1 = L1()
-  L2 = GetDist
-  L3 = GetPos
-  L3 = L3()
-  L4 = GetPos
-  L5 = A0.HeroID
-  L4, L5 = L4(L5)
-  L2 = L2(L3, L4, L5)
-  L3 = AI_FOLLOW_HERO
-  if L1 == L3 then
-    L3 = HERO_FIGHT_DIST
-    if L2 < L3 then
-      L3 = SetStateAndCloseToTarget
-      L4 = AI_ATTACK_HERO
-      L5 = A0.HeroID
-      L3(L4, L5)
-    else
-      L3 = SetStateAndCloseToTarget
-      L4 = AI_FOLLOW_HERO
-      L5 = A0.HeroID
-      L3(L4, L5)
-    end
-  else
-    L3 = AI_ATTACK_HERO
-    if L1 == L3 then
-      L3 = HERO_FIGHT_DIST
-      if L2 < L3 then
-        L3 = TurnOnAutoAttack
-        L4 = A0.HeroID
-        L3(L4)
+  L2 = GetHeroes
+  L3 = GetOtherTeam
+  L3, L4, L5, L6 = L3()
+  L2 = L2(L3, L4, L5, L6)
+  L3 = #L2
+  L4 = A0.HeroIDIndex
+  if L3 >= L4 then
+    L3 = GetDist
+    L4 = GetPos
+    L4 = L4()
+    L5 = GetPos
+    L6 = A0.HeroIDIndex
+    L6 = L2[L6]
+    L5, L6 = L5(L6)
+    L3 = L3(L4, L5, L6)
+    L4 = AI_FOLLOW_HERO
+    if L1 == L4 then
+      L4 = HERO_FIGHT_DIST
+      if L3 < L4 then
+        L4 = SetStateAndCloseToTarget
+        L5 = AI_ATTACK_HERO
+        L6 = A0.HeroIDIndex
+        L6 = L2[L6]
+        L4(L5, L6)
       else
-        L3 = TurnOffAutoAttack
-        L4 = STOPREASON_MOVING
-        L3(L4)
-        L3 = SetStateAndCloseToTarget
-        L4 = AI_FOLLOW_HERO
-        L5 = A0.HeroID
-        L3(L4, L5)
+        L4 = SetStateAndCloseToTarget
+        L5 = AI_FOLLOW_HERO
+        L6 = A0.HeroIDIndex
+        L6 = L2[L6]
+        L4(L5, L6)
+      end
+    else
+      L4 = AI_ATTACK_HERO
+      if L1 == L4 then
+        L4 = HERO_FIGHT_DIST
+        if L3 < L4 then
+          L4 = TurnOnAutoAttack
+          L5 = A0.HeroIDIndex
+          L5 = L2[L5]
+          L4(L5)
+        else
+          L4 = TurnOffAutoAttack
+          L5 = STOPREASON_MOVING
+          L4(L5)
+          L4 = SetStateAndCloseToTarget
+          L5 = AI_FOLLOW_HERO
+          L6 = A0.HeroIDIndex
+          L6 = L2[L6]
+          L4(L5, L6)
+        end
       end
     end
   end

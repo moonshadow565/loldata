@@ -1,20 +1,2 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "spellbook1"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandscorchground"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "brandscorch"
-    }
-  }
-}

@@ -1,22 +1,2 @@
 SpellFXOverrideSkins = {"SpiritUdyr"}
 SpellVOOverrideSkins = {"SpiritUdyr"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_spirit_bear_slam.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "udyr_bear_slam.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrbearstuncheck"
-    }
-  }
-}

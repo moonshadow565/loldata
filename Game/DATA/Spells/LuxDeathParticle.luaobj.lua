@@ -1,9 +1,1 @@
 PersistsThroughDeath = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "lux_death.troy"
-    }
-  }
-}

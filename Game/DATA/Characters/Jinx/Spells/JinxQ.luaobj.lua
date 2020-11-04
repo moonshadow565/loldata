@@ -6,9 +6,3 @@ PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {"JinxSkin01"}
 TriggersSpellCasts = false
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "jinxqicon"}
-  }
-}

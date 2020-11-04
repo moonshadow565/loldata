@@ -1,21 +1,3 @@
 BuffTextureName = "Odin_SpeedShrine.dds"
 BuffName = "AramSpeedShrineBuff"
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "invis_runes_01.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "odin_speed_shrine_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  }
-}

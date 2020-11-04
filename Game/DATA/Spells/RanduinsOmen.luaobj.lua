@@ -2,25 +2,3 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 PersistsThroughDeath = true
 NonDispellable = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "cripple"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crippleslow"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "randuinsomen_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  }
-}

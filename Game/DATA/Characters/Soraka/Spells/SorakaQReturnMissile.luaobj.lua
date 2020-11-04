@@ -13,17 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "SorakaSkin04"
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_lifesteal.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_q_lifesteal_eff.troy"
-    }
-  }
-}

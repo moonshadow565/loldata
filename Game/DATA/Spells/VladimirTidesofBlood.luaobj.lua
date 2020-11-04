@@ -11,23 +11,3 @@ SpellVOOverrideSkins = {
   "BloodkingVladimir"
 }
 TriggersSpellCasts = true
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "vladimir_base_e_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vladimirtidesofbloodcost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vladimirtidesofbloodnuke"
-    }
-  }
-}

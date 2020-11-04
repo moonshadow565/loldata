@@ -7,11 +7,3 @@ AutoCooldownByLevel = {
   26,
   22
 }
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "chronorefresh_tar.troy"
-    }
-  }
-}
