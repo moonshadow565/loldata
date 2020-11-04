@@ -3,3 +3,11 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "quinnwdamage"
+    }
+  }
+}
