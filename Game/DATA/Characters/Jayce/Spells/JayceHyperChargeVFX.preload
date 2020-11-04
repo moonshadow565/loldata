@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="jayce_skin03_hex_buff_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_skin03_hex_buff_ready2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_skin03_hex_buff_ready3.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_base_hex_buff_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jayce_base_hex_buff_ready2.troy"}}, 
+}

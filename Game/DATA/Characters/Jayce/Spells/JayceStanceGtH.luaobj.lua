@@ -19,6 +19,10 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellFXOverrideSkins = {
+  "JayceSkin03"
+}
 SpellVOOverrideSkins = {
-  "Jayce_Sentinel"
+  "Jayce_Sentinel",
+  "JayceSkin03"
 }

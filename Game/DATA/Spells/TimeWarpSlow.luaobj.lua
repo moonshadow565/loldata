@@ -1,7 +1,4 @@
 BuffTextureName = "Zilean_E.dds"
 BuffName = "Slow"
-AutoBuffActivateEffect = "Zilean_Base_E_ChronoClockSlow_tar.troy"
 AutoBuffActivateEffect2 = "global_slow.troy"
-AutoBuffActivateEffect3 = "Zilean_Base_E_Slow.troy"
-AutoBuffActivateAttachBoneName3 = "C_BUFFBONE_GLB_CHEST_LOC"
 PopupMessage1 = "game_floatingtext_Slowed"

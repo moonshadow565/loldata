@@ -3,5 +3,6 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
   "ZiggsPoolParty",
-  "ZiggsSnowday"
+  "ZiggsSnowday",
+  "ZiggsSkin05"
 }

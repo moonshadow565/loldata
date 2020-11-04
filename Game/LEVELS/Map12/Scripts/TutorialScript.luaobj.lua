@@ -750,7 +750,7 @@ SpawnPerceptionBubbles = L0
 function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14
   L3 = "Dragon"
-  L4 = "Dragon"
+  L4 = "HA_ChaosMinionSuper"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 9460
@@ -768,7 +768,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Cannon duder"
-  L4 = "Blue_Minion_MechCannon"
+  L4 = "HA_OrderMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 9255
@@ -786,7 +786,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Cannon duder"
-  L4 = "Blue_Minion_MechCannon"
+  L4 = "HA_OrderMinionSiege"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 8963.7
@@ -804,7 +804,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Cannon duder"
-  L4 = "Blue_Minion_MechCannon"
+  L4 = "HA_OrderMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 8764.2
@@ -822,7 +822,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Walker"
-  L4 = "Red_Minion_Wizard"
+  L4 = "HA_ChaosMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 8193.92
@@ -840,7 +840,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Walker"
-  L4 = "Red_Minion_Wizard"
+  L4 = "HA_ChaosMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 7993.82
@@ -858,7 +858,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Walker"
-  L4 = "Red_Minion_Basic"
+  L4 = "HA_ChaosMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 7793.79
@@ -876,7 +876,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Walker"
-  L4 = "Red_Minion_Basic"
+  L4 = "HA_ChaosMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 7593.37
@@ -894,7 +894,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "Walker"
-  L4 = "Red_Minion_Basic"
+  L4 = "HA_ChaosMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 7393
@@ -912,7 +912,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "OrderMinion"
-  L4 = "Blue_Minion_Wizard"
+  L4 = "HA_OrderMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 1114.91
@@ -930,7 +930,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "OrderMinion"
-  L4 = "Blue_Minion_Wizard"
+  L4 = "HA_OrderMinionRanged"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 1372.04
@@ -948,7 +948,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "OrderMinion"
-  L4 = "Blue_Minion_Basic"
+  L4 = "HA_OrderMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 1615.44
@@ -966,7 +966,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "OrderMinion"
-  L4 = "Blue_Minion_Basic"
+  L4 = "HA_OrderMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 1852.58
@@ -984,7 +984,7 @@ function L0()
   L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14 = L2(L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14)
   L3 = "OrderMinion"
-  L4 = "Blue_Minion_Basic"
+  L4 = "HA_OrderMinionMelee"
   L5 = "minion.lua"
   L6 = Make3DPoint
   L7 = 2000
@@ -1456,7 +1456,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "MovingIWaypoint"
-    L6 = "Red_Minion_Wizard"
+    L6 = "HA_ChaosMinionRanged"
     L7 = "Aggro.lua"
     L8 = eventMinionFightSpawnPoints
     L8 = L8[L3]
@@ -1692,7 +1692,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "MovingIWaypoint"
-    L6 = "Red_Minion_Wizard"
+    L6 = "HA_ChaosMinionRanged"
     L7 = "Aggro.lua"
     L8 = eventChampionAbilitySpawnPoints
     L8 = L8[L3]
@@ -2396,7 +2396,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Basic"
+    L6 = "HA_ChaosMinionMelee"
     L7 = "minion.lua"
     L8 = eventMinionAttackChaosBasicSpawnPoints
     L8 = L8[L3]
@@ -2418,7 +2418,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Wizard"
+    L6 = "HA_ChaosMinionRanged"
     L7 = "minion.lua"
     L8 = eventMinionAttackChaosWizardSpawnPoints
     L8 = L8[L3]
@@ -2621,7 +2621,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "OrderMinion"
-    L6 = "Blue_Minion_Basic"
+    L6 = "HA_OrderMinionMelee"
     L7 = "minion.lua"
     L8 = orderBasicSpawnPoints
     L8 = L8[L3]
@@ -2643,7 +2643,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "OrderMinion"
-    L6 = "Blue_Minion_Wizard"
+    L6 = "HA_OrderMinionRanged"
     L7 = "minion.lua"
     L8 = orderWizardSpawnPoints
     L8 = L8[L3]
@@ -2705,7 +2705,7 @@ function L0()
   L0.z = L1
   L0 = SpawnMinion
   L1 = "OrderMinion"
-  L2 = "Blue_Minion_Basic"
+  L2 = "HA_OrderMinionMelee"
   L3 = "minion.lua"
   L4 = playerPos
   L5 = TEAM_ORDER
@@ -2747,7 +2747,7 @@ function L0()
     L0.z = L1
     L0 = SpawnMinion
     L1 = "OrderMinion"
-    L2 = "Red_Minion_Basic"
+    L2 = "HA_OrderMinionMelee"
     L3 = "minion.lua"
     L4 = playerPos
     L5 = TEAM_CHAOS
@@ -2788,7 +2788,7 @@ function L0()
   L0.z = L1
   L0 = SpawnMinion
   L1 = "OrderMinion"
-  L2 = "Blue_Minion_Wizard"
+  L2 = "HA_OrderMinionRanged"
   L3 = "minion.lua"
   L4 = playerPos
   L5 = TEAM_ORDER
@@ -2830,7 +2830,7 @@ function L0()
     L0.z = L1
     L0 = SpawnMinion
     L1 = "OrderMinion"
-    L2 = "Red_Minion_Wizard"
+    L2 = "HA_ChaosMinionRanged"
     L3 = "minion.lua"
     L4 = playerPos
     L5 = TEAM_CHAOS
@@ -2856,7 +2856,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Basic"
+    L6 = "HA_ChaosMinionMelee"
     L7 = "minion.lua"
     L8 = chaosBasicSpawnPoints
     L8 = L8[L3]
@@ -2873,7 +2873,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Wizard"
+    L6 = "HA_ChaosMinionRanged"
     L7 = "minion.lua"
     L8 = chaosWizardSpawnPoints
     L8 = L8[L3]
@@ -3184,7 +3184,7 @@ function L0()
   L0.z = L1
   L0 = SpawnMinion
   L1 = "OrderMinion"
-  L2 = "Blue_Minion_MechMelee"
+  L2 = "HA_OrderMinionSuper"
   L3 = "minion.lua"
   L4 = playerPos
   L5 = TEAM_ORDER
@@ -3244,7 +3244,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Basic"
+    L6 = "HA_ChaosMinionMelee"
     L7 = "minion.lua"
     L8 = chaosBasicFinalPoints
     L8 = L8[L3]
@@ -3261,7 +3261,7 @@ function L0()
   for L3 = L0, L1, L2 do
     L4 = SpawnMinion
     L5 = "ChaosMinion"
-    L6 = "Red_Minion_Wizard"
+    L6 = "HA_ChaosMinionRanged"
     L7 = "minion.lua"
     L8 = chaosWizardFinalPoints
     L8 = L8[L3]

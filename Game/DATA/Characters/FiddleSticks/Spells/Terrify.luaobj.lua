@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 SpellFXOverrideSkins = {
-  "SurprisePartyFiddlesticks"
+  "SurprisePartyFiddlesticks",
+  "FiddlesticksSkin08"
 }

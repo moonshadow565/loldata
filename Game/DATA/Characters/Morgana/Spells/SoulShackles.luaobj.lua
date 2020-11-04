@@ -8,3 +8,6 @@ AutoCooldownByLevel = {
   80,
   80
 }
+SpellFXOverrideSkins = {
+  "GhostBrideMorgana"
+}

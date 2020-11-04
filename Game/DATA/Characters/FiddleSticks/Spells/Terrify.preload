@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="terrify_cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="terrify_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiddlesticks_base_terrify_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiddlesticks_base_terrify_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="paranoiamisschance"}}, 
 {Function=BBPreloadSpell, Params={Name="fleeslow"}}, 
 }

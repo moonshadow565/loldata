@@ -31,6 +31,7 @@ end
 function Retreat()
   SetGhosted(true)
   SetStateAndMoveToLeashedPos(AI_RETREAT)
+  TurnOffAutoAttack(STOPREASON_MOVING)
 end
 function OnOrder(A0_2, A1_3)
   if GetState() == AI_HALTED then
@@ -166,6 +167,9 @@ function LeashedCallForHelp(A0_8, A1_9)
 end
 function OnTargetLost(A0_14, A1_15)
   local L2_16, L3_17
+  L2_16 = TurnOffAutoAttack
+  L3_17 = STOPREASON_MOVING
+  L2_16(L3_17)
   L2_16 = GetState
   L2_16 = L2_16()
   L3_17 = AI_HALTED
@@ -315,6 +319,9 @@ function FindNewTarget()
       L2_27 = AI_RETREAT
     end
   elseif L1_26 == L2_27 then
+    L1_26 = TurnOffAutoAttack
+    L2_27 = STOPREASON_MOVING
+    L1_26(L2_27)
     return
   end
   L1_26 = GetMyLeashedPos
@@ -331,6 +338,7 @@ function FindNewTarget()
     OutOfCombatRegen:Stop()
     SetStateAndCloseToTarget(AI_ATTACK, L2_27)
   else
+    TurnOffAutoAttack(STOPREASON_MOVING)
     OutOfCombatRegen:Start()
     Retreat()
   end

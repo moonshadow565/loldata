@@ -10,5 +10,6 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
-  "CandyCaneFiddlesticks"
+  "CandyCaneFiddlesticks",
+  "FiddlesticksSkin08"
 }

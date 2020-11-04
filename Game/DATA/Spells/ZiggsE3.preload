@@ -1,11 +1,11 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ziggse_mis_mineopen_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggse_mis_mineopen.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_e_minescatter.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_e_minescatter.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsemine"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsemine_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggssnowdayemine.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsemine.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsq_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_e_mine.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin04_w_mine.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_e_mine.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggseslow"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsesubsequent"}}, 
 }

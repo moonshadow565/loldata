@@ -10,5 +10,6 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
   "ZiggsPoolParty",
-  "ZiggsSnowday"
+  "ZiggsSnowday",
+  "ZiggsSkin05"
 }

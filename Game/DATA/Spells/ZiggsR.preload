@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ziggsr_green_preindicator_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsr_green_preindicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_r_landingzone_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_r_landingzone_green.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsrtimer"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsrboom"}}, 

@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_chronoclockslow_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_e_slow.troy"}}, 
+}

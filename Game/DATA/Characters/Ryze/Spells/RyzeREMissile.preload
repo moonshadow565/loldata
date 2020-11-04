@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_e_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_aoe_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzee"}}, 
+}

@@ -20,3 +20,6 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellFXOverrideSkins = {
+  "FiddlesticksSkin08"
+}

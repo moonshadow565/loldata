@@ -1,0 +1,17 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_deactivate.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzeq"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzew"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzee"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzeemissile"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzeemissilereturn"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzer"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzerq"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzerw"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzere"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzeremissile"}}, 
+{Function=BBPreloadSpell, Params={Name="ryzeremissilereturn"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_avatar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_r_buf_scroll.troy"}}, 
+}

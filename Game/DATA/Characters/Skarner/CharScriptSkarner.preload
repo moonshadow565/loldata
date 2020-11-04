@@ -11,5 +11,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="skarner_base_idle_r_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_idle_flame_l.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_idle_flame_r.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="skarnervirulentslash_urf"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerresurrection"}}, 
 }

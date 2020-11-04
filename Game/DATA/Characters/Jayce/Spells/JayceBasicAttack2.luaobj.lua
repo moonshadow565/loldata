@@ -1,3 +1,7 @@
+SpellFXOverrideSkins = {
+  "JayceSkin03"
+}
 SpellVOOverrideSkins = {
-  "Jayce_Sentinel"
+  "Jayce_Sentinel",
+  "JayceSkin03"
 }

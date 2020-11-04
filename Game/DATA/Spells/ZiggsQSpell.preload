@@ -1,11 +1,11 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ziggsqexplosion_scientist.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsqexplosion_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsqexplosion.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsq_tar_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsq_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Skin01_Q_Explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_Q_Explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Base_Q_Explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_Q_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Base_Q_tar.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsqbounce_pool.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="ziggsqbounce.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_Q_bounce.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Ziggs_Base_Q_bounce_01.troy"}}, 
 }

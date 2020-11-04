@@ -2,6 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="maokaisapmagic"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="maokaisapmagicpass"}}, 
-{Function=BBPreloadSpell, Params={Name="maokaisapling2cast"}}, 
+{Function=BBPreloadSpell, Params={Name="traplimiter_maokai"}}, 
 {Function=BBPreloadSpell, Params={Name="maokaigravediggerresurrection"}}, 
 }

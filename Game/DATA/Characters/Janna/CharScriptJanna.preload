@@ -6,5 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="forecastjannavo"}}, 
 {Function=BBPreloadSpell, Params={Name="forecastjannavospawn"}}, 
-{Function=BBPreloadSpell, Params={Name="jannahowlinggale"}}, 
+{Function=BBPreloadSpell, Params={Name="howlinggale_urf"}}, 
 }

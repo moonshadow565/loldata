@@ -11,5 +11,6 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "SurprisePartyFiddlesticks",
-  "CandyCaneFiddlesticks"
+  "CandyCaneFiddlesticks",
+  "FiddlesticksSkin08"
 }

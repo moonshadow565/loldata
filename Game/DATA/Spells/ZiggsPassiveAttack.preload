@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="ziggspassive_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_p_tar.troy"}}, 
 }
