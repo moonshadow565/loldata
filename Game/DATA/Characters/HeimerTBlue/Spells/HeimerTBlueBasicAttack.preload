@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="heimerdingerblueturretlasthit"}}, 
+{Function=BBPreloadSpell, Params={Name="heimerdingerultqdummyspell"}}, 
 {Function=BBPreloadParticle, Params={Name="heimer_cleave.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="heimerdingerultturretslow"}}, 
 }

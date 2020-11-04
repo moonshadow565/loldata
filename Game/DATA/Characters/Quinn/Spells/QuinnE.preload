@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="quinnedoublequinndebug"}}, 
+{Function=BBPreloadSpell, Params={Name="quinne"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnsuppressq"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnsuppressqrepeat"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnwpassive"}}, 

@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="varuseaoe.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="varusespellshieldcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="varuse"}}, 
 {Function=BBPreloadParticle, Params={Name="globalhit_orange_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_e_hit_sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="varuseslow"}}, 
@@ -8,6 +9,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="grievouswound"}}, 
 {Function=BBPreloadSpell, Params={Name="varusgrieviouswoundsminion"}}, 
 {Function=BBPreloadSpell, Params={Name="varuswdetonate"}}, 
+{Function=BBPreloadSpell, Params={Name="varusw"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_e_circle_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_e_circle_red.troy"}}, 
 }

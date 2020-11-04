@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_R_flames_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_R_flames_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Ziggs_Base_R_flames_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="Ziggs_Base_R_flames_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_r_flames_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_r_flames_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_r_flames_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_base_r_flames_red.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsrimpactsound"}}, 
 }

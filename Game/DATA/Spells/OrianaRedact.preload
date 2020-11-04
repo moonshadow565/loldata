@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="orianaghostself"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_z_ball_flash_reverse.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaghost"}}, 
+{Function=BBPreloadSpell, Params={Name="orianaredactcommand"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaredactshield"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaredactdamage"}}, 
 }

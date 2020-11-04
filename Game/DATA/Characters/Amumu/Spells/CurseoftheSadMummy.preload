@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="amumu_sadrobot_ultwrap.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="amumu_skin08_r_tar_ultwrap.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="cursebandages.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="curseofthesadmummy"}}, 
 {Function=BBPreloadSpell, Params={Name="disarm"}}, 
 {Function=BBPreloadSpell, Params={Name="curseofthesadmummycasteffects"}}, 
 }

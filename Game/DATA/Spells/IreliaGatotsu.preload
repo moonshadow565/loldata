@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="irelia_gotasu_cast_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="irelia_gotasu_cast_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ireliagatotsudash"}}, 
+{Function=BBPreloadSpell, Params={Name="ireliagatotsu"}}, 
 }

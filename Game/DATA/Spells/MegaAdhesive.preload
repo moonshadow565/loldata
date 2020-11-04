@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="megaadhesiveapplicator"}}, 
+{Function=BBPreloadSpell, Params={Name="megaadhesive"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 }

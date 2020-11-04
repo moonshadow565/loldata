@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="quinnvalor"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnrtimeout"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnr"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnsuppressq"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_base_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnspeedpart"}}, 
@@ -12,6 +13,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="quinn_base_r_end.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_r2_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnrdeath"}}, 
-{Function=BBPreloadSpell, Params={Name="quinnr"}}, 
 {Function=BBPreloadSpell, Params={Name="quinnrfinale"}}, 
 }

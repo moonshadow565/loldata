@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
+{Function=BBPreloadSpell, Params={Name="orianaredactcommand"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaredacttarget"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaredactshield"}}, 
 {Function=BBPreloadSpell, Params={Name="orianaghost"}}, 

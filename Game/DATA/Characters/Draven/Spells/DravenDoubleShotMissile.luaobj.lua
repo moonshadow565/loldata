@@ -7,5 +7,6 @@ AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
 SpellFXOverrideSkins = {
   "Draven_Gladiator",
-  "DravenSkin03"
+  "DravenSkin03",
+  "DravenSkin04"
 }

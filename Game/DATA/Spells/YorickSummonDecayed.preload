@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="yorick_necroexplosion_deactivate.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="yorickdecayedghoul"}}, 
+{Function=BBPreloadSpell, Params={Name="yorickdecayed"}}, 
 {Function=BBPreloadSpell, Params={Name="yorickdecayeddiseasecloud"}}, 
 {Function=BBPreloadSpell, Params={Name="yorickdecayedlogic"}}, 
 {Function=BBPreloadParticle, Params={Name="yorick_necroexplosion.troy"}}, 

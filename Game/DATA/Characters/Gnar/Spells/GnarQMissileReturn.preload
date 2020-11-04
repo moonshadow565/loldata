@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gnarqslow"}}, 
+{Function=BBPreloadSpell, Params={Name="gnarq"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarqmissile"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarwproc"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarwvisual"}}, 

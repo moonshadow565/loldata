@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="orianaglobalcooldown"}}, 
+{Function=BBPreloadSpell, Params={Name="orianadetonatecommand"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_z_shockwave_nova_ally.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_z_shockwave_nova.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="orianna_base_z_detonate_tar.troy"}}, 

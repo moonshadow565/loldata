@@ -9,6 +9,7 @@ PopupMessage1 = "game_floatingtext_Polymorphed"
 SpellFXOverrideSkins = {
   "luluDarkCandy",
   "luluClassic",
-  "luluSkin04"
+  "luluSkin04",
+  "LuluSkin05"
 }
 TriggersSpellCasts = true

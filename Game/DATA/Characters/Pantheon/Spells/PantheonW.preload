@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="pantheonw"}}, 
 {Function=BBPreloadParticle, Params={Name="pantheon_base_w_tar.troy"}}, 
 }

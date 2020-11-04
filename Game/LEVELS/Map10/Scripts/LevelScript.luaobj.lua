@@ -33,6 +33,8 @@ L0_0 = 720
 INCREASE_CANNON_RATE_TIMER = L0_0
 L0_0 = 0
 MINION_HEALTH_DENIAL_PERCENT = L0_0
+L0_0 = 95
+SMITE_CHARGE_START = L0_0
 L0_0 = 90
 UPGRADE_MINION_TIMER = L0_0
 L0_0 = 1400
@@ -498,6 +500,7 @@ OnLevelInitServer = L0_0
 function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua")
   CreateLevelProps()
+  SetWorldVar("SmiteChargeStart", SMITE_CHARGE_START)
 end
 OnPostLevelLoad = L0_0
 function L0_0(A0_34)

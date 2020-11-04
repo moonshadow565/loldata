@@ -6,6 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="rengar_base_q_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="temprengarqhit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarqbuffbonusmax"}}, 
+{Function=BBPreloadSpell, Params={Name="rengarq"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarqbuffbonus"}}, 
 {Function=BBPreloadParticle, Params={Name="bloodslash.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="rengar_base_p_leap_dust.troy"}}, 

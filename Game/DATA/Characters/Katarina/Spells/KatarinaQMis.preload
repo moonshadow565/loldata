@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="katarinaqinternalmark"}}, 
+{Function=BBPreloadSpell, Params={Name="katarinaq"}}, 
 {Function=BBPreloadSpell, Params={Name="katarinaqmarkspellshieldcheck"}}, 
 {Function=BBPreloadParticle, Params={Name="katarina_bouncingblades_tar_sand.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="katarina_base_bouncingblades_tar.troy"}}, 

@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gangplank_specialforces_r_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="pirate_cannonbarrage_tar.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
+{Function=BBPreloadSpell, Params={Name="cannonbarrage"}}, 
 }

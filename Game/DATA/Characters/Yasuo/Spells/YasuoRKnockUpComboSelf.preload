@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="yasuorknockupcomboself"}}, 
+{Function=BBPreloadSpell, Params={Name="yasuorknockupcombow"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuorarmorpen"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadCharacter, Params={Name="yasuo"}}, 

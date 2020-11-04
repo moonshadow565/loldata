@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="puncturingtauntarmordebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="puncturingtaunt"}}, 
 }

@@ -8,6 +8,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="brandpof_zombie_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="brandpof_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="brandablaze"}}, 
+{Function=BBPreloadSpell, Params={Name="brandfissure"}}, 
 {Function=BBPreloadParticle, Params={Name="brandcritattack_frost_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="brandcritattack_zombie_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="brandcritattack_tar.troy"}}, 

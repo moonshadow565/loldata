@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="slashbeenhit"}}, 
+{Function=BBPreloadSpell, Params={Name="slash"}}, 
 {Function=BBPreloadParticle, Params={Name="bloodslash.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="slash.troy"}}, 
 }

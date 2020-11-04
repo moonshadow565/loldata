@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="volibearwstats"}}, 
+{Function=BBPreloadSpell, Params={Name="volibearw"}}, 
 {Function=BBPreloadSpell, Params={Name="volibearwparticle"}}, 
 {Function=BBPreloadParticle, Params={Name="volibearw_tar.troy"}}, 
 }

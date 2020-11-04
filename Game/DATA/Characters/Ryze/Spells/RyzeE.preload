@@ -2,8 +2,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ryze_base_e_debuff.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_e_debuff_small.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzeemissile"}}, 
-{Function=BBPreloadParticle, Params={Name="ryze_base_e_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ryzee"}}, 
+{Function=BBPreloadParticle, Params={Name="ryze_base_e_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_e_hit_sound_multi.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ryze_base_e_hit_sound_single.troy"}}, 
 }

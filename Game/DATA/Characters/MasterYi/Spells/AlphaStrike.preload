@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="alphastriketeleport"}}, 
+{Function=BBPreloadSpell, Params={Name="alphastrike"}}, 
 {Function=BBPreloadParticle, Params={Name="masteryi_base_q_end.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="alphastriketarget"}}, 

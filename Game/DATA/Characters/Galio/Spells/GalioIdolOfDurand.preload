@@ -9,4 +9,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="galio_builingstatue_unit_impact_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="galio_gatekeeper_ult_unit_impact_01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="galioidolofdurandmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="galioidolofdurand"}}, 
 }

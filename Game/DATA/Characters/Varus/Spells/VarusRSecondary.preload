@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="varus_base_r_secondary_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_r_tendriltarget.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrspellshieldcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="varusr"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrspellshieldcheck2"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrroot"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrimmune"}}, 

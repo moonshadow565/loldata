@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="swain_torment_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="swain_torment_marker.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="swain_torment_dot.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="swaintorment"}}, 
 }

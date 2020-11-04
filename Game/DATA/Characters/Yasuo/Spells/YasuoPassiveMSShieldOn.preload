@@ -2,4 +2,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="yasuo_base_passive_activate.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadParticle, Params={Name="yasuo_base_passive_burst.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="yasuopassive"}}, 
 }

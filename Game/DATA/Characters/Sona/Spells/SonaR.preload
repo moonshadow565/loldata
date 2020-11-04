@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sona_base_r_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="sona_base_r_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="sonar"}}, 
 {Function=BBPreloadParticle, Params={Name="sona_base_r_cas.troy"}}, 
 }

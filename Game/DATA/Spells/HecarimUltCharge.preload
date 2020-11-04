@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unstoppableforcemarker"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4c"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultcharge"}}, 
+{Function=BBPreloadSpell, Params={Name="hecarimult"}}, 
 {Function=BBPreloadCharacter, Params={Name="spellbook1"}}, 
 {Function=BBPreloadSpell, Params={Name="hecarimultmissileskn4r1"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 

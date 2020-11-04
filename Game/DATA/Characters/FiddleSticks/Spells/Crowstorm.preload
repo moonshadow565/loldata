@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fiddlesticks_base_crowstorm6_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiddlesticks_base_crowstorm5_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="party_hornconfetti.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="crowstorm"}}, 
 }

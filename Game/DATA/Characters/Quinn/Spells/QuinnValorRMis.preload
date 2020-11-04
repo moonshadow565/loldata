@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="quinnvalorrmis"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnr"}}, 
 {Function=BBPreloadParticle, Params={Name="quinn_r_tar.troy"}}, 
 }

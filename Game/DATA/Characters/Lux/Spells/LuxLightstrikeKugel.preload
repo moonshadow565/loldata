@@ -4,8 +4,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="lux_base_e_tar_aoe_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="lux_base_e_tar_aoe_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
+{Function=BBPreloadSpell, Params={Name="luxlightstrikekugel"}}, 
 {Function=BBPreloadParticle, Params={Name="lux_base_e_tar_hit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="luxilluminatingfraulein"}}, 
-{Function=BBPreloadSpell, Params={Name="luxlightstrikekugel"}}, 
 {Function=BBPreloadParticle, Params={Name="lux_base_e_tar_nova.troy"}}, 
 }

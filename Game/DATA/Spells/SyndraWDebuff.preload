@@ -11,6 +11,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="syndra_base_w_lv5_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="syndra_base_w_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="syndrawslow"}}, 
+{Function=BBPreloadSpell, Params={Name="syndraw"}}, 
 {Function=BBPreloadSpell, Params={Name="burning"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 }

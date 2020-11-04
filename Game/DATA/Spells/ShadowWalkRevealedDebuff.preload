@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="evelyn_invis_exit_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="shadowwalkrestealthfadeout"}}, 
+{Function=BBPreloadSpell, Params={Name="evelynnpassive"}}, 
 }

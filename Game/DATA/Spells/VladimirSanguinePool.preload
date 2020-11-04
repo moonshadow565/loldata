@@ -3,5 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 {Function=BBPreloadParticle, Params={Name="vlad_bloodking_blood_skin.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="vladimirsanguinepoolparticle"}}, 
+{Function=BBPreloadSpell, Params={Name="vladimirsanguinepool"}}, 
 {Function=BBPreloadSpell, Params={Name="vladimirsanguinepoolslow"}}, 
 }

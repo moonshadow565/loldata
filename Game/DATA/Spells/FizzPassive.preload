@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="fizzseastonetrident"}}, 
+{Function=BBPreloadSpell, Params={Name="fizzseastonepassive"}}, 
 }

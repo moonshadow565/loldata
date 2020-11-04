@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="draincheck"}}, 
+{Function=BBPreloadSpell, Params={Name="drain"}}, 
 {Function=BBPreloadParticle, Params={Name="fiddlesticks_base_fearmonger_cas2.troy"}}, 
 }

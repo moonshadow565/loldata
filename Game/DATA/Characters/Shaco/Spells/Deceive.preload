@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="jackintheboxpoof2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="deceivefade"}}, 
+{Function=BBPreloadSpell, Params={Name="deceive"}}, 
 }

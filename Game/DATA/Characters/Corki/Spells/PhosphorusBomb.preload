@@ -2,5 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="corki_base_q_indicator_green.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="phosphorusbomb"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_q_indicator_red.troy"}}, 
 }

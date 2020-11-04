@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="morgana_base_w_tar_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_w_tar_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_w_buf.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tormentedsoil"}}, 
 }

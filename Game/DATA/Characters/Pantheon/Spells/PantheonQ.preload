@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="masterattackspeedbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="pantheonq"}}, 
 {Function=BBPreloadParticle, Params={Name="pantheon_base_q_tar.troy"}}, 
 }

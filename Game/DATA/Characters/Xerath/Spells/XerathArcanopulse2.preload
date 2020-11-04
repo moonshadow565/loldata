@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="xerathqsoundbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="xeratharcanopulsechargeup"}}, 
 {Function=BBPreloadParticle, Params={Name="xerath_skin03_q_longrange_warning_audio.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="xerath_base_q_longrange_warning_audio.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 

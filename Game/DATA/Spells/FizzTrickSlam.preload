@@ -4,5 +4,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fizz_trickslam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fizz_trickslam_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzwslow"}}, 
+{Function=BBPreloadSpell, Params={Name="fizzjump"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
 }

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="nocturneumbrablades"}}, 
+{Function=BBPreloadSpell, Params={Name="nocturneumbrabladesattack"}}, 
 }

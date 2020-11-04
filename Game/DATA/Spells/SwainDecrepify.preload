@@ -9,6 +9,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="swainbeamexpirationtimer"}}, 
 {Function=BBPreloadCharacter, Params={Name="swainbeam"}}, 
 {Function=BBPreloadSpell, Params={Name="swainbeamdamage"}}, 
+{Function=BBPreloadSpell, Params={Name="swaindecrepify"}}, 
 {Function=BBPreloadSpell, Params={Name="swainbeamself"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadSpell, Params={Name="swainbeamdamageminionnashor"}}, 

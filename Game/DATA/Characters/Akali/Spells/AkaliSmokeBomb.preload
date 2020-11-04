@@ -3,5 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="akali_base_smoke_bomb_tar_team_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="akali_base_smoke_bomb_tar_team_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="akaliwbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="akalismokebomb"}}, 
 {Function=BBPreloadSpell, Params={Name="akaliwdebuff"}}, 
 }

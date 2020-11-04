@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="varusrroot"}}, 
+{Function=BBPreloadSpell, Params={Name="varusr"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrspellshieldcheck"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrspellshieldcheck2"}}, 
 {Function=BBPreloadSpell, Params={Name="varusrmissile"}}, 
@@ -8,5 +9,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="varusrmissileend"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="varuswdetonate"}}, 
+{Function=BBPreloadSpell, Params={Name="varusw"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_r_hit_flash.troy"}}, 
 }

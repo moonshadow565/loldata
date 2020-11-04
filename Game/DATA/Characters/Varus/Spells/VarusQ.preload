@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqanimations"}}, 
 {Function=BBPreloadSpell, Params={Name="varusqlaunchsound"}}, 
-{Function=BBPreloadSpell, Params={Name="varusqlaunch"}}, 
 {Function=BBPreloadSpell, Params={Name="varusq"}}, 
+{Function=BBPreloadSpell, Params={Name="varusqlaunch"}}, 
 {Function=BBPreloadParticle, Params={Name="varus_base_q_expire.troy"}}, 
 }

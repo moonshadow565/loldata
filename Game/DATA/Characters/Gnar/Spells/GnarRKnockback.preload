@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gnarstun"}}, 
+{Function=BBPreloadSpell, Params={Name="gnarr"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_base_r_land_wall.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="leona_shieldofdaybreak_nova.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_base_r_land.troy"}}, 

@@ -5,6 +5,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fizz_skin04_r_aoe.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fizz_ultimatemissile_orbit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzmoveback"}}, 
+{Function=BBPreloadSpell, Params={Name="fizzmarinerdoom"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzmarinerdoomslow"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzshark"}}, 
 {Function=BBPreloadCharacter, Params={Name="fizzshark"}}, 

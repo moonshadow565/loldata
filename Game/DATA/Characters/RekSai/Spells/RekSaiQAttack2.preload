@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="reksai_base_q_main_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="reksaiqdamage"}}, 
+{Function=BBPreloadSpell, Params={Name="reksaiq"}}, 
 }

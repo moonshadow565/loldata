@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="cassiopeia_skin04_r_castglow.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="cassiopeiapetrifyinggaze"}}, 
 {Function=BBPreloadSpell, Params={Name="cassiopeiapetrifyinggazestun"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadParticle, Params={Name="cassiopeia_base_r_petrifymiss_tar.troy"}}, 

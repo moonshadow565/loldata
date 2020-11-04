@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
-{Function=BBPreloadParticle, Params={Name="Ziggs_Skin03_W_manualquack.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ziggs_skin03_w_manualquack.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggswtoggle"}}, 
 }

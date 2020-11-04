@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="vicompliment"}}, 
 {Function=BBPreloadSpell, Params={Name="virknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="vir"}}, 
 {Function=BBPreloadSpell, Params={Name="virknockdown"}}, 
 {Function=BBPreloadParticle, Params={Name="vi_r_dunktarget_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="vipassivebuff"}}, 

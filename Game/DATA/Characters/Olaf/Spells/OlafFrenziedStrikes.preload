@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="olaf_viciousstrikes_weapon_glow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="olaf_viciousstrikes_heal.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="olaffrenziedstrikes"}}, 
 }

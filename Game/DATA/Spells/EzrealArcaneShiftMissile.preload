@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ezrealrisingspellforce"}}, 
+{Function=BBPreloadSpell, Params={Name="ezrealarcaneshift"}}, 
 }
