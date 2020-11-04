@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "tt_spiderbosssingedorder"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hpbyplayerlevel"
     }
   },
@@ -33,12 +39,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "tt_bosscombat"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poisontrailtarget"
     }
   },
   {

@@ -11,12 +11,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "seismicshard"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "seismicshard_tar_glacial.troy"

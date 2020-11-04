@@ -10,11 +10,32 @@ AutoBuffActivateEffect3 = "darius_W_weapon_03.troy"
 AutoBuffActivateEffect4 = "darius_W_weapon_04.troy"
 AutoBuffActivateAttachBoneName4 = "BUFFBONE_CSTM_WEAPON_9"
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "Darius_ZaunKnight"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_w_weapon_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_w_activate_zaunknight.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_atomic_mist.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariuszauntubedrain"
     }
   }
 }

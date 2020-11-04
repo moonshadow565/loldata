@@ -1,6 +1,5 @@
 BuffTextureName = "Malphite_GraniteShield.dds"
 BuffName = "MalphiteObduracyEffect"
-AutoBuffActivateEffect = ""
 NonDispellable = true
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true

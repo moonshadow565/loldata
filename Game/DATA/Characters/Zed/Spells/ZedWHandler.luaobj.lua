@@ -1,0 +1,30 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "shadowninja_W2.dds"
+BuffName = "ZedWHandlerBuffName"
+SpellToggleSlot = 2
+SpellFXOverrideSkins = {
+  "ReefMalphite",
+  "GlacialMalphite"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "zedw2"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "orianaballindicatornear.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedshadowdash"
+    }
+  }
+}

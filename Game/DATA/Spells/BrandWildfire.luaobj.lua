@@ -6,6 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "Ryze_LightningFlux.dds"
 BuffName = "Spell Flux"
 SpellDamageRatio = 1
+PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "FrostFireBrand",
   "ZombieBrand"

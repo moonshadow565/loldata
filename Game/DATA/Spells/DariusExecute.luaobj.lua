@@ -1,5 +1,8 @@
 IsDamagingSpell = true
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "Darius_ZaunKnight"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -10,7 +13,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "darius_r_activate_zaunknight.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "darius_r_blood_spatter_self.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_atomic_mist_04.troy"
     }
   },
   {
