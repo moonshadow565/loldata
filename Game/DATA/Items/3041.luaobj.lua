@@ -9,5 +9,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "mejaiscap"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "mejaisstats"
+    }
   }
 }

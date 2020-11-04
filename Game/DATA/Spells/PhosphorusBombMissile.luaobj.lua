@@ -1,12 +1,12 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-SpellDamageRatio = 1
-SpellFXOverrideSkins = {
-  "FireworksCorki"
-}
+BuffTextureName = "Chronokeeper_Slow.dds"
+BuffName = "Slow"
+AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
+AutoBuffActivateAttachBoneName = "root"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -18,18 +18,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "phosphorusbombblind"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
     }
   }
 }
