@@ -1,4 +1,5 @@
 BuffTextureName = "Blitzcrank_ManaBarrier.dds"
+BuffName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 8
