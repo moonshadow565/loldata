@@ -21,5 +21,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "shyvanadoubleattackhit"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "rageblade"}
   }
 }

@@ -34,5 +34,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "turretglowparticle"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "outerturretbonus"
+    }
   }
 }

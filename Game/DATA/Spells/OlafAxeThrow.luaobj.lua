@@ -9,16 +9,6 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {"BroOlaf"}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "olafaxe"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "olafaxeexpirationtimer"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "olafslow"}
   },
@@ -26,6 +16,16 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "olafaxethrowdamage"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "olafaxe"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "olafaxeexpirationtimer"
     }
   },
   {

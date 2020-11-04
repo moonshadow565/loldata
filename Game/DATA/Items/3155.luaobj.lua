@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "hexdrinkertimer"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hexdrinkertomawreset"
+    }
   }
 }

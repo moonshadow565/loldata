@@ -18,6 +18,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "jayce_charged_hit_skn2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "jayce_charged_hit.troy"
     }
   }
