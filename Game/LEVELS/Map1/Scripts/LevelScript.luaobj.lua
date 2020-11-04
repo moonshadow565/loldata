@@ -398,6 +398,7 @@ function OnLevelInit()
   math.randomseed(os.time())
   LoadScriptIntoScript("NeutralMinionSpawn.lua")
   NeutralMinionInit()
+  LoadScriptIntoScript("Data\\Scripts\\EndOfGame.lua")
   SpawnTable.WaveSpawnRate = 30000
   SpawnTable.NumOfMeleeMinionsPerWave = 3
   SpawnTable.NumOfArcherMinionsPerWave = 3
@@ -822,63 +823,4 @@ function HandleDestroyedObject(_ARG_0_)
     Log("Could not find Linking barracks!")
   end
   return true
-end
-TEAM_UNKNOWN = 0
-EOG_PAN_TO_NEXUS_TIME = 3
-EOG_NEXUS_EXPLOSION_TIME = EOG_PAN_TO_NEXUS_TIME + 0.5
-EOG_SCOREBOARD_PHASE_DELAY_TIME = 5
-EOG_NEXUS_REVIVE_TIME = 10
-EOG_ALIVE_NEXUS_SKIN = 0
-EOG_DESTROYED_NEXUS_SKIN = 1
-EOG_MINION_FADE_AMOUNT = 0
-EOG_MINION_FADE_TIME = 2
-function EndOfGameCeremony(_ARG_0_, _ARG_1_)
-  winningTeam = _ARG_0_
-  if winningTeam == TEAM_ORDER then
-    losingTeam = TEAM_CHAOS
-  else
-    losingTeam = TEAM_ORDER
-  end
-  losingHQPosition = GetPosition(_ARG_1_)
-  orderHQ = GetHQ(TEAM_ORDER)
-  SetInvulnerable(orderHQ, true)
-  SetTargetable(orderHQ, false)
-  SetBuildingHealthRegenEnabled(orderHQ, false)
-  chaosHQ = GetHQ(TEAM_CHAOS)
-  SetInvulnerable(chaosHQ, true)
-  SetTargetable(chaosHQ, false)
-  SetBuildingHealthRegenEnabled(chaosHQ, false)
-  SetInputLockingFlag(INPUT_CAMERALOCKING, true)
-  SetInputLockingFlag(INPUT_CAMERAMOVEMENT, true)
-  SetInputLockingFlag(INPUT_ABILITIES, true)
-  SetInputLockingFlag(INPUT_SUMMONERSPELLS, true)
-  SetInputLockingFlag(INPUT_MOVEMENT, true)
-  SetInputLockingFlag(INPUT_SHOP, true)
-  SetInputLockingFlag(INPUT_MINIMAPMOVEMENT, true)
-  DisableHUDForEndOfGame()
-  SetBarracksSpawnEnabled(false)
-  CloseShop()
-  HaltAllAI()
-  LuaForEachChampion(TEAM_UNKNOWN, "ChampionEoGCeremony")
-  InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
-end
-function ChampionEoGCeremony(_ARG_0_)
-  MoveCameraFromCurrentPositionToPoint(_ARG_0_, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
-  SetGreyscaleEnabledWhenDead(_ARG_0_, false)
-end
-function DestroyNexusPhase()
-  SetHQCurrentSkin(losingTeam, EOG_DESTROYED_NEXUS_SKIN)
-  FadeMinions(losingTeam, EOG_MINION_FADE_AMOUNT, EOG_MINION_FADE_TIME)
-  InitTimer("StopRenderingMinionsPhase", EOG_MINION_FADE_TIME, false)
-  InitTimer("ScoreboardPhase", EOG_SCOREBOARD_PHASE_DELAY_TIME, false)
-end
-function StopRenderingMinionsPhase()
-  SetMinionsNoRender(losingTeam, true)
-end
-function ScoreboardPhase()
-  SetInputLockingFlag(INPUT_CHAT, true)
-  EndGame(winningTeam)
-end
-function TestReviveNexus()
-  SetHQCurrentSkin(losingTeam, EOG_ALIVE_NEXUS_SKIN)
 end

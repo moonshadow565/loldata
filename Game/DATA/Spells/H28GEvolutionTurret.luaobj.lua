@@ -141,9 +141,9 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBForNClosestUnitsInTargetArea,
         Params = {
-          AttackerVar = "Attacker",
+          AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 500,
+          Range = 550,
           Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
           IteratorVar = "Unit",
           MaximumUnitsToPick = 1

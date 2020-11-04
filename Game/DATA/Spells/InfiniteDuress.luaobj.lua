@@ -6,6 +6,14 @@ BuffTextureName = "Wolfman_InfiniteDuress.dds"
 BuffName = "Infinite Duress"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBApplyStun,
+    Params = {
+      AttackerVar = "Attacker",
+      TargetVar = "Owner",
+      Duration = 2.23
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "NumHitsRemaining",
@@ -93,7 +101,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_ATTACK,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0
+              SpellDamageRatio = 0,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -132,8 +142,20 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBStopChanneling,
@@ -141,6 +163,36 @@ BuffOnUpdateActionsBuildingBlocks = {
           CasterVar = "Attacker",
           StopCondition = ChannelingStopCondition_Success,
           StopSource = ChannelingStopSource_Die
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "InfiniteDuressHold"
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_NotCancelled,
+          StopSource = ChannelingStopSource_NotCancelled
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "InfiniteDuressHold"
         }
       },
       {
@@ -216,14 +268,6 @@ ChannelingStartBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
-  },
-  {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 2.23
-    }
   }
 }
 ChannelingSuccessStopBuildingBlocks = {
@@ -252,6 +296,13 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressHold"
     }
+  },
+  {
+    Function = BBStopCurrentOverrideAnimation,
+    Params = {
+      AnimationName = "Spell4_Loop",
+      TargetVar = "Attacker"
+    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -279,6 +330,49 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressHold"
+    }
+  },
+  {
+    Function = BBStopCurrentOverrideAnimation,
+    Params = {
+      AnimationName = "Spell4_Loop",
+      TargetVar = "Attacker"
+    }
+  }
+}
+ChannelingSuccessStopNotCancelledErrorBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "InfiniteDuress"
+    }
+  },
+  {
+    Function = BBStopCurrentOverrideAnimation,
+    Params = {
+      AnimationName = "Spell4_Loop",
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "InfiniteDuressHold"
+    }
+  }
+}
+ChannelingUpdateActionsBuildingBlocks = {
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell4_Loop",
+      ScaleTime = 0,
+      TargetVar = "Attacker",
+      Loop = true
     }
   }
 }

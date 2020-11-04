@@ -107,29 +107,17 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "CriticalDamageMod",
+      DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.04,
-        0.06,
-        0.08,
-        0.1,
-        0.12
-      }
+      SrcValue = 0.08
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "moveSpeedMod",
+      DestVar = "CriticalChanceMod",
       DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.02,
-        0.03,
-        0.04,
-        0.05,
-        0.06
-      }
+      SrcValue = 0.04
     }
   },
   {

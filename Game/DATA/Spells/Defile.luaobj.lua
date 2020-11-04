@@ -55,7 +55,9 @@ OnBuffActivateBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.2
+          SpellDamageRatio = 0.2,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
@@ -196,10 +198,10 @@ BuffOnUpdateActionsBuildingBlocks = {
           SrcValue = 0,
           SrcValueByLevel = {
             30,
-            45,
-            60,
-            75,
-            90
+            42,
+            54,
+            66,
+            78
           }
         }
       },
@@ -282,7 +284,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.2
+              SpellDamageRatio = 0.2,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }

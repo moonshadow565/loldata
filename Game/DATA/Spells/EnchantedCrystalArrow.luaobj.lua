@@ -3,8 +3,9 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Bowmaster_EnchantedArrow.dds"
 BuffName = "Enchanted Crystal Arrow"
-AutoBuffActivateEffect = "Iceblock_buf.troy"
+AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = "Stun_glb.troy"
+AutoBuffActivateAttachBoneName2 = "head"
 SpellDamageRatio = 0.5
 PopupMessage1 = "game_floatingtext_Stunned"
 TriggersSpellCasts = true
@@ -63,7 +64,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "IceBlock_death.troy",
       Flags = 0,
       EffectIDVar = "ajldjfio",
       TargetObjectVar = "Target",
@@ -174,7 +174,9 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1
+              SpellDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -260,7 +262,9 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5
+              SpellDamageRatio = 0.5,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -319,12 +323,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "iceblock_death.troy"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "chilled"}

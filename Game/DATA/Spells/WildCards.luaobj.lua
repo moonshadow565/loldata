@@ -69,13 +69,23 @@ BuffOnSpellHitBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.75
+          SpellDamageRatio = 0.75,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       }
     }
   }
 }
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Owner",
+      StopCondition = ChannelingStopCondition_NotCancelled,
+      StopSource = ChannelingStopSource_NotCancelled
+    }
+  },
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}

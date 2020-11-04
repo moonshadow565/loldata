@@ -3,9 +3,11 @@ L0_0 = 2500
 MAX_ENGAGE_DISTANCE = L0_0
 L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
+L0_0 = 0.25
+DELAY_FIND_ENEMIES = L0_0
 function L0_0()
   SetState(AI_IDLE)
-  InitTimer("TimerFindEnemies", 0, true)
+  InitTimer("TimerFindEnemies", DELAY_FIND_ENEMIES, true)
   InitTimer("TimerMoveForward", 0, true)
   InitTimer("TimerAntiKite", 4, false)
   InitTimer("TimerFeared", 1, true)
@@ -117,6 +119,7 @@ function L0_0()
     FindTargetOrMove()
   elseif GetState() == AI_ATTACKMOVESTATE then
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
+    LastAttackScan = 0
   end
 end
 TimerMoveForward = L0_0
@@ -168,6 +171,8 @@ function L0_0()
       if L1_5 == false then
         L1_5 = TurnOffAutoAttack
         L1_5(STOPREASON_MOVING)
+        L1_5 = 0
+        LastAttackScan = L1_5
       end
     end
   end
@@ -195,7 +200,7 @@ function L0_0()
   L1_7 = L1_7()
   if L1_7 then
     if LastAutoAttackFinished() == false then
-      InitTimer("TimerFindEnemies", 0.1, true)
+      InitTimer("TimerFindEnemies", DELAY_FIND_ENEMIES, true)
       return
     end
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_7)
@@ -203,6 +208,7 @@ function L0_0()
   else
     SetStateAndMoveToForwardNav(AI_ATTACKMOVESTATE)
     StopTimer("TimerAntiKite")
+    LastAttackScan = 0
   end
 end
 FindTargetOrMove = L0_0

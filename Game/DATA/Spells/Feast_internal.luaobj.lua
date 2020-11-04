@@ -15,6 +15,14 @@ OnBuffActivateBuildingBlocks = {
       ScaleVarTable = "InstanceVars",
       OwnerVar = "Owner"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseRange",
+      DestVarTable = "InstanceVars",
+      SrcValue = 275
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -25,6 +33,38 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       CasterVar = "Owner",
       BuffName = "Feast"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Count",
+      Src1Value = 30,
+      Src2Value = 0,
+      DestVar = "RangeMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "RangeMod",
+      Src2Var = "BaseRange",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "NewRange",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBOverrideCastRange,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Range = 0,
+      RangeVar = "NewRange"
     }
   },
   {
@@ -169,6 +209,17 @@ BuffOnUpdateStatsBuildingBlocks = {
           Delta = 0
         }
       }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBOverrideCastRange,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Range = 0
     }
   }
 }

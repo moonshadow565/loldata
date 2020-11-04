@@ -102,8 +102,8 @@ tut_TutorialModeOn                      =          0 ; Flag to turn TutorialMode
 ; Audio variables
 aud_FMODMusicCueID                      =          5 ; FMOD ID for a music cue for the map's music.
 aud_FMODAmbientEvent                    =   map_snow ; FMOD event name for the map's ambient track.
-aud_FMODVictoryMusicCueID               =          10 ; FMOD ID for a Victory music cue for the map's music.
-aud_FMODDefeatMusicCueID                =          11 ; FMOD ID for a Defeat music cue for the map's music.
+aud_FMODVictoryMusicCueID               =         10 ; FMOD ID for a Victory music cue for the map's music.
+aud_FMODDefeatMusicCueID                =         11 ; FMOD ID for a Defeat music cue for the map's music.
 
 ; HUD variables
 hud_BlinkFrequency                      =       1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
@@ -112,6 +112,10 @@ hud_DefaultBlinkCount                   =          3 ; Sets the default number o
 ; Camera Variables
 cam_KeyboardOrbitSpeedX                 =    100.000 ; Keyboard Orbit Speed x axis
 cam_KeyboardOrbitSpeedY                 =     50.000 ; Keyboard Orbit Speed y axis
+cam_MinX                                =    300.000 ; Minimum X position of camera
+cam_MinY                                =    300.000 ; Minimum Y position of camera
+cam_MaxX                                =  14545.000 ; Maximum X position of camera
+cam_MaxY                                =  14545.000 ; Maximum Y position of camera
 
 ; Cursor variables
 cr_SpellCastFlashTime                   =      2.000 ; How long the cursor flashes when you cast a targeted spell

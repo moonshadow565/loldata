@@ -46,7 +46,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "APTotal",
-      Src1Value = 0.5,
+      Src1Value = 0.4,
       Src2Value = 0,
       DestVar = "APVar",
       MathOp = MO_MULTIPLY
@@ -126,7 +126,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.5,
+          SpellDamageRatio = 0.4,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

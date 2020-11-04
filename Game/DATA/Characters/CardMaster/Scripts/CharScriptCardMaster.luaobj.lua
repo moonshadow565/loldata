@@ -136,6 +136,53 @@ SetVarsByLevelBuildingBlocks = {
     }
   }
 }
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "SpellName", Info = GetSpellName}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SpellName",
+      Value2 = "WildCards",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Cooldown",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellCooldownTime
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Cooldown",
+          Value2 = 0.01,
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetSlotSpellCooldownTime,
+            Params = {
+              SrcValue = 0.1,
+              SpellbookType = SPELLBOOK_CHAMPION,
+              SlotType = SpellSlots,
+              SpellSlotValue = 2,
+              OwnerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  }
+}
 CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
