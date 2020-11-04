@@ -148,7 +148,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "taricgemstorm.troy",
+      EffectName = "Xarin_Siege_buf.troy",
       Flags = 0,
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars",
@@ -158,6 +158,75 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Xarin_Siege_beam.troy",
+      Flags = 0,
+      EffectIDVar = "Particlea",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE_GLB_CHANNEL_LOC",
+      TargetObjectVar = "Owner",
+      TargetBoneName = "spine",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Xarin_Siege_beam.troy",
+      Flags = 0,
+      EffectIDVar = "Particleb",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE_CSTM_CHANNEL_2",
+      TargetObjectVar = "Owner",
+      TargetBoneName = "spine",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Xarin_Siege_beam.troy",
+      Flags = 0,
+      EffectIDVar = "Particlec",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE_CSTM_CHANNEL_3",
+      TargetObjectVar = "Owner",
+      TargetBoneName = "spine",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
       PersistsThroughReconnect = false,
@@ -204,6 +273,68 @@ OnBuffActivateBuildingBlocks = {
       ToOverrideAnim = "Idle4",
       OverrideAnim = "Spell2_chan",
       OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "FlashCheck",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FlashCheck",
+      Value2 = "SummonerFlash",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "FlashCheck",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FlashCheck",
+      Value2 = "SummonerFlash",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      }
     }
   }
 }
@@ -295,6 +426,27 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particlea",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particleb",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particlec",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -412,6 +564,68 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBClearOverrideAnimation,
     Params = {ToOverrideAnim = "Idle4", OwnerVar = "Owner"}
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "FlashCheck",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FlashCheck",
+      Value2 = "SummonerFlash",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 0,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "FlashCheck",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellName
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "FlashCheck",
+      Value2 = "SummonerFlash",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 1,
+          SpellbookType = SPELLBOOK_SUMMONER,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = false
+        }
+      }
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -462,7 +676,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "taricgemstorm.troy"
+      Name = "xarin_siege_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xarin_siege_beam.troy"
     }
   },
   {
