@@ -85,12 +85,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "syndrawbump"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "burning"}
   },
   {

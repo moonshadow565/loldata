@@ -10,6 +10,9 @@ AutoCooldownByLevel = {
   0
 }
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "SyndraJusticar"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

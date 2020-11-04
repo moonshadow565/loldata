@@ -9,6 +9,9 @@ AutoCooldownByLevel = {
   4
 }
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "SyndraJusticar"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "RengarEReg.dds"
 BuffName = "RengarEShred"
