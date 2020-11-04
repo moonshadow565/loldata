@@ -80,7 +80,8 @@ SpellOnMissileEndBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -103,7 +104,8 @@ SpellOnMissileEndBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -130,17 +132,17 @@ SpellOnMissileEndBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
-            60,
-            115,
-            170,
-            225,
-            280
+            80,
+            135,
+            190,
+            245,
+            300
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.75,
+          SpellDamageRatio = 0.8,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -161,7 +163,8 @@ SpellOnMissileEndBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -178,7 +181,8 @@ SpellOnMissileEndBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {

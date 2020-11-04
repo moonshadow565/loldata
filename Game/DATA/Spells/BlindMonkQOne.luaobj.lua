@@ -168,11 +168,11 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "BaseDamage",
           SrcValueByLevel = {
-            60,
-            90,
-            120,
-            150,
-            180
+            50,
+            80,
+            110,
+            140,
+            170
           }
         }
       },
@@ -188,16 +188,6 @@ TargetExecuteBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 0.8,
-          DestVar = "BonusAD80",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusAD80",
           Src2Var = "BaseDamage",
           Src1Value = 0,
           Src2Value = 0,
@@ -347,11 +337,11 @@ TargetExecuteBuildingBlocks = {
             Params = {
               DestVar = "BaseDamage",
               SrcValueByLevel = {
-                60,
-                90,
-                120,
-                150,
-                180
+                50,
+                80,
+                110,
+                140,
+                170
               }
             }
           },
@@ -367,16 +357,6 @@ TargetExecuteBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src1Var = "BonusAD",
-              Src1Value = 0,
-              Src2Value = 0.8,
-              DestVar = "BonusAD80",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "BonusAD80",
               Src2Var = "BaseDamage",
               Src1Value = 0,
               Src2Value = 0,
@@ -538,11 +518,11 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BaseDamage",
                   SrcValueByLevel = {
-                    60,
-                    90,
-                    120,
-                    150,
-                    180
+                    50,
+                    80,
+                    110,
+                    140,
+                    170
                   }
                 }
               },
@@ -558,16 +538,6 @@ TargetExecuteBuildingBlocks = {
                 Function = BBMath,
                 Params = {
                   Src1Var = "BonusAD",
-                  Src1Value = 0,
-                  Src2Value = 0.8,
-                  DestVar = "BonusAD80",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "BonusAD80",
                   Src2Var = "BaseDamage",
                   Src1Value = 0,
                   Src2Value = 0,

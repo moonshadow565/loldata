@@ -21,38 +21,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "BonusAD",
           Src1Value = 0,
-          Src2Value = 0.5,
-          DestVar = "BonusAD50",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 0.6,
-          DestVar = "BonusAD60",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 0.8,
-          DestVar = "BonusAD80",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusAD",
-          Src1Value = 0,
-          Src2Value = 1.5,
-          DestVar = "BonusAD150",
+          Src2Value = 2,
+          DestVar = "BonusAD200",
           MathOp = MO_MULTIPLY
         }
       },
@@ -60,7 +30,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "BonusAD80",
+          ValueVar = "BonusAD",
           Index = 1,
           SlotNumber = 0,
           SlotType = SpellSlots,
@@ -72,19 +42,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "BonusAD80",
-          Index = 1,
-          SlotNumber = 1,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "BonusAD60",
+          ValueVar = "BonusAD",
           Index = 1,
           SlotNumber = 2,
           SlotType = SpellSlots,
@@ -96,32 +54,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "BonusAD80",
-          Index = 2,
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "BonusAD150",
+          ValueVar = "BonusAD200",
           Index = 1,
-          SlotNumber = 3,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Attacker"
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "BonusAD50",
-          Index = 2,
           SlotNumber = 3,
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,

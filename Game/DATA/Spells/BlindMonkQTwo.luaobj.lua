@@ -30,7 +30,7 @@ CanCastBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 1200,
+          Range = 1250,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
           BuffNameFilter = "BlindMonkQOne",
@@ -54,7 +54,7 @@ CanCastBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 1200,
+          Range = 1250,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
           BuffNameFilter = "BlindMonkQOneChaos",
@@ -197,11 +197,11 @@ SelfExecuteBuildingBlocks = {
             Params = {
               DestVar = "BaseDamage",
               SrcValueByLevel = {
-                60,
-                90,
-                120,
-                150,
-                180
+                50,
+                80,
+                110,
+                140,
+                170
               }
             }
           },
@@ -216,18 +216,8 @@ SelfExecuteBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
-              Src1Var = "BonusAD",
-              Src1Value = 0,
-              Src2Value = 0.8,
-              DestVar = "BonusAD80",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
               Src1Var = "BaseDamage",
-              Src2Var = "BonusAD80",
+              Src2Var = "BonusAD",
               Src1Value = 0,
               Src2Value = 0,
               DestVar = "DamageVar",
@@ -375,11 +365,11 @@ SelfExecuteBuildingBlocks = {
             Params = {
               DestVar = "BaseDamage",
               SrcValueByLevel = {
-                60,
-                90,
-                120,
-                150,
-                180
+                50,
+                80,
+                110,
+                140,
+                170
               }
             }
           },
@@ -394,18 +384,8 @@ SelfExecuteBuildingBlocks = {
           {
             Function = BBMath,
             Params = {
-              Src1Var = "BonusAD",
-              Src1Value = 0,
-              Src2Value = 0.8,
-              DestVar = "BonusAD80",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
               Src1Var = "BaseDamage",
-              Src2Var = "BonusAD80",
+              Src2Var = "BonusAD",
               Src1Value = 0,
               Src2Value = 0,
               DestVar = "DamageVar",

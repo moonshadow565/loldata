@@ -176,7 +176,8 @@ BuffOnCollisionBuildingBlocks = {
                       SlotNumber = 2,
                       SlotType = SpellSlots,
                       SpellbookType = SPELLBOOK_CHAMPION,
-                      OwnerVar = "Owner"
+                      OwnerVar = "Owner",
+                      BroadcastEvent = false
                     }
                   }
                 }
@@ -263,7 +264,7 @@ BuffOnCollisionBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1.5,
                           SpellDamageRatio = 0,
-                          PhysicalDamageRatio = 0.6,
+                          PhysicalDamageRatio = 0.9,
                           IgnoreDamageIncreaseMods = false,
                           IgnoreDamageCrit = false
                         }
@@ -286,7 +287,7 @@ BuffOnCollisionBuildingBlocks = {
                           SourceDamageType = DAMAGESOURCE_SPELLAOE,
                           PercentOfAttack = 1,
                           SpellDamageRatio = 0,
-                          PhysicalDamageRatio = 0.6,
+                          PhysicalDamageRatio = 0.9,
                           IgnoreDamageIncreaseMods = false,
                           IgnoreDamageCrit = false
                         }
@@ -486,7 +487,8 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -510,7 +512,8 @@ OnBuffActivateBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -536,7 +539,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -717,7 +721,8 @@ OnBuffActivateBuildingBlocks = {
               SlotNumber = 2,
               SlotType = SpellSlots,
               SpellbookType = SPELLBOOK_CHAMPION,
-              OwnerVar = "Owner"
+              OwnerVar = "Owner",
+              BroadcastEvent = false
             }
           }
         }
@@ -804,7 +809,7 @@ OnBuffActivateBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1.5,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -827,7 +832,7 @@ OnBuffActivateBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -1044,7 +1049,8 @@ OnBuffDeactivateBuildingBlocks = {
               SlotNumber = 2,
               SlotType = SpellSlots,
               SpellbookType = SPELLBOOK_CHAMPION,
-              OwnerVar = "Owner"
+              OwnerVar = "Owner",
+              BroadcastEvent = false
             }
           }
         }
@@ -1131,7 +1137,7 @@ OnBuffDeactivateBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1.5,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -1154,7 +1160,7 @@ OnBuffDeactivateBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -1388,7 +1394,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               SlotNumber = 2,
               SlotType = SpellSlots,
               SpellbookType = SPELLBOOK_CHAMPION,
-              OwnerVar = "Owner"
+              OwnerVar = "Owner",
+              BroadcastEvent = false
             }
           }
         }
@@ -1475,7 +1482,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1.5,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -1498,7 +1505,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 0.6,
+                  PhysicalDamageRatio = 0.9,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -1624,11 +1631,11 @@ SelfExecuteBuildingBlocks = {
         Params = {
           DestVar = "CooldownTime",
           SrcValueByLevel = {
-            20,
             18,
+            17,
             16,
-            14,
-            12
+            15,
+            14
           }
         }
       },
@@ -1707,11 +1714,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        45,
-        75,
-        105,
-        135,
-        165
+        30,
+        60,
+        90,
+        120,
+        150
       }
     }
   },

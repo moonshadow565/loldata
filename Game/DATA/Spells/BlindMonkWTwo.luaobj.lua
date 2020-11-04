@@ -1,4 +1,5 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "BlindMonKWTwo.dds"
@@ -145,11 +146,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "LifestealPercent",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.05,
         0.1,
         0.15,
         0.2,
-        0.25,
-        0.3
+        0.25
       }
     }
   },

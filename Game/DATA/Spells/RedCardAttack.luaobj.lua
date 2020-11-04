@@ -1,15 +1,26 @@
+DoesntTriggerSpellCasts = true
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PickaCard"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "RedCardPreAttack"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Attacker",
-      DestVar = "baseDamage"
-    }
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -54,15 +65,25 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetCastSpellTargetPos,
-    Params = {
-      DestVar = "TargetPosition"
-    }
-  },
-  {
     Function = BBIf,
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_ATTACK,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
       {
         Function = BBSpellEffectCreate,
         Params = {
@@ -77,7 +98,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -91,24 +113,7 @@ TargetExecuteBuildingBlocks = {
               CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
-              DamageVar = "baseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_ATTACK,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "BonusDamage",
+              DamageVar = "RedCardDamage",
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
@@ -127,6 +132,14 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Attacker",
+          DestVar = "baseDamage"
+        }
+      },
+      {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Nothing",
@@ -142,7 +155,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -165,10 +179,24 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        -0.3,
+        -0.35,
+        -0.4,
+        -0.45,
+        -0.5
+      }
+    }
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Attacker",
-      CenterVar = "TargetPosition",
+      CenterVar = "Target",
       Range = 325,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
@@ -176,106 +204,24 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Target",
-          Src2Var = "Unit",
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "baseDamage",
-              DamageType = PHYSICAL_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_ATTACK,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "BonusDamage",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.4,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "RedCardDamage",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.4,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
+        Function = BBApplyDamage,
         Params = {
-          DestVar = "MoveSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            -0.3,
-            -0.35,
-            -0.4,
-            -0.45,
-            -0.5
-          }
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "AttackSpeedMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            0,
-            0,
-            0,
-            0,
-            0
-          }
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Unit",
+          Damage = 0,
+          DamageVar = "RedCardDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -292,21 +238,24 @@ TargetExecuteBuildingBlocks = {
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "PickACard"
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "pickacard"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "redcardpreattack"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -318,9 +267,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cardmasterslow"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
   }
 }

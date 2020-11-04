@@ -55,7 +55,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -118,7 +119,8 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -204,7 +206,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -221,7 +224,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -238,7 +242,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -397,7 +402,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,
@@ -414,7 +419,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false,

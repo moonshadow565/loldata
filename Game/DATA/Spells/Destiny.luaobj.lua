@@ -48,7 +48,7 @@ SelfExecuteBuildingBlocks = {
       BuffName = "Destiny_marker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
@@ -59,7 +59,8 @@ SelfExecuteBuildingBlocks = {
         10
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -95,7 +96,8 @@ SelfExecuteBuildingBlocks = {
             10
           },
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -111,13 +113,14 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      SrcValue = 0.5,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      Src = 0.5,
+      SlotNumber = 3,
       SlotType = SpellSlots,
-      SpellSlotValue = 3,
-      OwnerVar = "Owner"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner",
+      BroadcastEvent = false
     }
   }
 }

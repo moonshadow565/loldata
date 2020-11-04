@@ -118,7 +118,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -135,7 +136,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -158,7 +160,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -175,7 +178,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -216,7 +220,8 @@ OnBuffActivateBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 1,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -242,7 +247,8 @@ OnBuffActivateBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = true
+          CanMitigateDuration = true,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -270,6 +276,20 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -342,7 +362,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 1,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -368,7 +389,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = true
+          CanMitigateDuration = true,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -453,7 +475,8 @@ SpellOnMissileEndBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -470,7 +493,8 @@ SpellOnMissileEndBuildingBlocks = {
       Duration = 9,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

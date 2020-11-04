@@ -1,15 +1,26 @@
+DoesntTriggerSpellCasts = true
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PickaCard"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "BlueCardPreAttack"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetBaseAttackDamage,
-      TargetVar = "Attacker",
-      DestVar = "baseDamage"
-    }
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -20,83 +31,6 @@ TargetExecuteBuildingBlocks = {
       SlotType = SpellSlots,
       OwnerVar = "Owner",
       Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetFlatMagicDamageMod,
-      TargetVar = "Attacker",
-      DestVar = "baseAP"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BonusDamage",
-      SrcValueByLevel = {
-        40,
-        60,
-        80,
-        100,
-        120
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "baseAP",
-      Src1Value = 0,
-      Src2Value = 0.4,
-      DestVar = "baseAP",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "baseAP",
-      Src2Var = "BonusDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BlueCardDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BlueCardDamage",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "ManaToRestore",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ManaToRestore",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "ManaToRestore"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "baseDamage",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
     }
   },
   {
@@ -131,10 +65,41 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamage",
+          SrcValueByLevel = {
+            40,
+            60,
+            80,
+            100,
+            120
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "BonusDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "damageToDeal",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
+          TargetVar = "Owner",
+          AttackerVar = "Target",
           BuffName = "CardmasterBlueCardMana",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
@@ -155,12 +120,28 @@ TargetExecuteBuildingBlocks = {
           CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
-          DamageVar = "BlueCardDamage",
+          DamageVar = "damageToDeal",
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0,
+          SpellDamageRatio = 0.4,
           PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_ATTACK,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -172,12 +153,28 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIncPAR,
+        Function = BBGetStat,
         Params = {
+          Stat = GetBaseAttackDamage,
           TargetVar = "Attacker",
-          Delta = 0,
-          PARType = PAR_MANA,
-          DeltaVar = "ManaToRestore"
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "baseDamage",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_ATTACK,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -198,17 +195,19 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "PickACard"
-    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "pickacard"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bluecardpreattack"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
@@ -226,9 +225,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "soraka_infuse_ally_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
   }
 }

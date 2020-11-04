@@ -810,27 +810,36 @@ function L0(A0)
 end
 MO_ROUNDDOWN = L0
 function L0(A0)
-  local L1, L2
+  local L1, L2, L3
   L1 = math
   L1 = L1.sin
-  L2 = A0
-  return L1(L2)
+  L2 = math
+  L2 = L2.rad
+  L3 = A0
+  L2, L3 = L2(L3)
+  return L1(L2, L3)
 end
 MO_SIN = L0
 function L0(A0)
-  local L1, L2
+  local L1, L2, L3
   L1 = math
   L1 = L1.cos
-  L2 = A0
-  return L1(L2)
+  L2 = math
+  L2 = L2.rad
+  L3 = A0
+  L2, L3 = L2(L3)
+  return L1(L2, L3)
 end
 MO_COSINE = L0
 function L0(A0)
-  local L1, L2
+  local L1, L2, L3
   L1 = math
   L1 = L1.tan
-  L2 = A0
-  return L1(L2)
+  L2 = math
+  L2 = L2.rad
+  L3 = A0
+  L2, L3 = L2(L3)
+  return L1(L2, L3)
 end
 MO_TANGENT = L0
 function L0(A0, A1)

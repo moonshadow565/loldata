@@ -1,40 +1,104 @@
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
-  },
-  {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "ManaToRestore",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "hasDealtDamage",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
-  },
+  }
+}
+BuffOnDealDamageBuildingBlocks = {
   {
-    Function = BBIncPAR,
+    Function = BBIf,
     Params = {
-      TargetVar = "Attacker",
-      Delta = 0,
-      PARType = PAR_MANA,
-      DeltaVar = "ManaToRestore",
-      DeltaVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Attacker",
-      EffectName = "soraka_infuse_ally_tar.troy",
-      Flags = 0,
-      EffectIDVar = "a",
-      TargetObjectVar = "Attacker",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
+      Src1Var = "hasDealtDamage",
+      Src1VarTable = "InstanceVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {Value1 = DAMAGESOURCE_PROC, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+            SubBlocks = {
+              {
+                Function = BBGetTeamID,
+                Params = {TargetVar = "Owner", DestVar = "teamID"}
+              },
+              {
+                Function = BBSetBuffCasterUnit,
+                Params = {CasterVar = "Caster"}
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Attacker",
+                  EffectName = "soraka_infuse_ally_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "a",
+                  TargetObjectVar = "Attacker",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "teamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Caster",
+                  EffectName = "soraka_infuse_ally_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "a",
+                  TargetObjectVar = "Attacker",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "teamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "DamageAmount",
+                  Src1Value = 0,
+                  Src2Value = 0.5,
+                  DestVar = "manaRestore",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBIncPAR,
+                Params = {
+                  TargetVar = "Owner",
+                  Delta = 0,
+                  PARType = PAR_MANA,
+                  DeltaVar = "manaRestore"
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "hasDealtDamage",
+                  DestVarTable = "InstanceVars",
+                  SrcValue = true
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

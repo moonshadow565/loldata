@@ -98,16 +98,6 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "BonusAD",
-      Src1Value = 0,
-      Src2Value = 0.6,
-      DestVar = "BonusAD60",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BonusAD60",
       Src2Var = "BaseDamage",
       Src1Value = 0,
       Src2Value = 0,

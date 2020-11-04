@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"
@@ -32,7 +32,8 @@ TargetExecuteBuildingBlocks = {
         0
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -105,7 +106,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 0,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker"
+          OwnerVar = "Attacker",
+          BroadcastEvent = false
         }
       }
     }
@@ -136,7 +138,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 1,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker"
+          OwnerVar = "Attacker",
+          BroadcastEvent = false
         }
       }
     }
@@ -167,7 +170,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 2,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker"
+          OwnerVar = "Attacker",
+          BroadcastEvent = false
         }
       }
     }
@@ -198,7 +202,8 @@ TargetExecuteBuildingBlocks = {
           SlotNumber = 3,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_CHAMPION,
-          OwnerVar = "Attacker"
+          OwnerVar = "Attacker",
+          BroadcastEvent = false
         }
       }
     }
@@ -288,7 +293,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -338,7 +344,8 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -400,7 +407,8 @@ TargetExecuteBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
+                  SendIfOnScreenOrDiscard = true,
+                  FollowsGroundTilt = false
                 }
               },
               {
