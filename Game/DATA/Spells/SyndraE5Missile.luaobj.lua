@@ -61,12 +61,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "syndraqspell"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "syndraeimmunity"
     }
   },
@@ -80,6 +74,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "syndraebump"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "syndraqspell"
     }
   }
 }

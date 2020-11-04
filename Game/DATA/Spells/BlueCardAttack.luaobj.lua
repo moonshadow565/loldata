@@ -1,25 +1,15 @@
 DoesntTriggerSpellCasts = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "bluecardpreattack"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "pickacard_blue_tar.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "cardmasterbluecardmana"
+      Name = "athenesunholygrail_manarestore_tar.troy"
     }
   },
   {

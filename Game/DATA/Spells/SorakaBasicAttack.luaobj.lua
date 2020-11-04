@@ -1,0 +1,17 @@
+SpellFXOverrideSkins = {
+  "IronForgeXerath"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soraka_cleric_basicattack_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "sorakabasicattack_tar.troy"
+    }
+  }
+}

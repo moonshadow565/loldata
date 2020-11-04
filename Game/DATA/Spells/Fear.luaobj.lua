@@ -1,6 +1,5 @@
 BuffTextureName = "Fiddlesticks_Terrify.dds"
 BuffName = "Fear"
-AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Feared"
 PreLoadBuildingBlocks = {
   {

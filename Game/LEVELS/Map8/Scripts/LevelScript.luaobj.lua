@@ -435,6 +435,8 @@ function OnLevelInit()
   SpawnTable.NumOfArcherMinionsPerWave = 3
   SpawnTable.SingleMinionSpawnDelay = 800
   SpawnTable.DidPowerGroup = false
+end
+function OnLevelInitServer()
   InitTimer("AllowDamageOnBuildings", 1, false)
 end
 function OnPostLevelLoad()

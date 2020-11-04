@@ -4,8 +4,9 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Wolfman_SeverArmor.dds"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "PentakillOlaf"
+}
 SpellVOOverrideSkins = {"BroOlaf"}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {

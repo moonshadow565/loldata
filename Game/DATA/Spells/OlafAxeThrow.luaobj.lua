@@ -3,8 +3,9 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
+SpellFXOverrideSkins = {
+  "PentakillOlaf"
+}
 SpellVOOverrideSkins = {"BroOlaf"}
 PreLoadBuildingBlocks = {
   {
@@ -25,6 +26,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "olafaxethrowdamage"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_pentakill_q_cymbal.troy"
     }
   }
 }
