@@ -8,7 +8,6 @@ AutoCooldownByLevel = {
   80,
   80
 }
-PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

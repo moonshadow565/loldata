@@ -11,5 +11,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemglacialspikeenemy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "item_trueice_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   }
 }

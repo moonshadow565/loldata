@@ -21,6 +21,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "corki_base_q_indicator_green.troy"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender10vision"
