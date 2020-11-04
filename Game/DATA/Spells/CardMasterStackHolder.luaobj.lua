@@ -1,16 +1,11 @@
 BuffTextureName = "Cardmaster_RapidToss_Charging.dds"
 BuffName = "CardMasterStack"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "cardmasterstackholder"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

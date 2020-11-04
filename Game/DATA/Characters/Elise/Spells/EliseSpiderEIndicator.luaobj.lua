@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spider_e_enemy_indicator.troy"
+    }
+  }
+}

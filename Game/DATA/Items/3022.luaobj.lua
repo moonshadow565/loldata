@@ -9,12 +9,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "judicatorrighteousfury"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "internal_40slow"
     }
   },

@@ -3,13 +3,8 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "MordekaiserMaceOfSpades.dds"
 BuffName = "MordekaiserMaceOfSpades"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "mordakaiser_maceOfSpades_activate.troy"
 AutoBuffActivateAttachBoneName2 = "BUFFBONE_CSTM_WEAPON_1"
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

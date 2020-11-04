@@ -1,0 +1,32 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "treelinelanternpostlockneutral"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "treelinelanternleft"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "treelinelanternchargescript"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "treelinelanternfirstrun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "treelinemasterbuff"
+    }
+  }
+}

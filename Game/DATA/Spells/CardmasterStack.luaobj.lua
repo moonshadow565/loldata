@@ -9,6 +9,9 @@ AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
+}
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {

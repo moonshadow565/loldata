@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "brandconflagration_tar_zombie.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "brandconflagration_tar.troy"
     }
   },

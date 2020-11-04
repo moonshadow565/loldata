@@ -1,9 +1,8 @@
 BuffTextureName = "Cardmaster_RapidToss.dds"
 BuffName = "CardMasterStackParticle"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

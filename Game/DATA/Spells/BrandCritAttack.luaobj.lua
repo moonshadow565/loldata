@@ -1,5 +1,9 @@
 SpellFXOverrideSkins = {
-  "FrostFireBrand"
+  "FrostFireBrand",
+  "ZombieBrand"
+}
+SpellVOOverrideSkins = {
+  "ZombieBrand"
 }
 PreLoadBuildingBlocks = {
   {

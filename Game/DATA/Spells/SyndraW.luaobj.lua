@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "syndrawbuffer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "syndrawtooltip"
     }
   },

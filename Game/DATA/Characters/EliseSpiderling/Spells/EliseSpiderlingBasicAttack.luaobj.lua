@@ -1,0 +1,21 @@
+IsDeathRecapSource = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spiderling_basicattack_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "elise_spiderling_basicattack_tar_w.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "elisehumaneheal"
+    }
+  }
+}

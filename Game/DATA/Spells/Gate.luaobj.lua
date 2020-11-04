@@ -9,6 +9,9 @@ AutoCooldownByLevel = {
   55,
   40
 }
+SpellFXOverrideSkins = {
+  "UnderworldTwistedFate"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

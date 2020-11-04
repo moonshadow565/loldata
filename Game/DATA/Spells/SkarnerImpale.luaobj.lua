@@ -54,5 +54,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "skarnerimpalebuff"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_ult_tar_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "skarnerimpalerangecheck"
+    }
   }
 }

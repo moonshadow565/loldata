@@ -1,0 +1,10 @@
+BuffTextureName = "48thSlave_SoulDrain.dds"
+BuffName = "TT_SpiderbossAttack"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_spiderbossattackdebuff"
+    }
+  }
+}
