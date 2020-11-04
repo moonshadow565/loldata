@@ -12,7 +12,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorknockupcombo"
+      Name = "yasuorknockupcomboself"
     }
   },
   {
@@ -44,19 +44,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuorknockupcombo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "tempyasuormissile"
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "yasuo_skin01_r_slash_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_r_slash_cas.troy"
+      Name = "yasuorknockupcombow"
     }
   },
   {

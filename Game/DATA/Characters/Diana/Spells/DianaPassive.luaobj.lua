@@ -34,13 +34,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_E_Precas.troy"
+      Name = "diana_skin01_e_precas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_E_Precas.troy"
+      Name = "diana_base_e_precas.troy"
     }
   }
 }
