@@ -8,7 +8,8 @@ AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 PopupMessage1 = "game_floatingtext_Polymorphed"
 SpellFXOverrideSkins = {
   "luluDarkCandy",
-  "luluClassic"
+  "luluClassic",
+  "luluSkin04"
 }
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
@@ -25,6 +26,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {Name = "luludragon"}
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "lulusnowman"
+    }
   },
   {
     Function = BBPreloadCharacter,

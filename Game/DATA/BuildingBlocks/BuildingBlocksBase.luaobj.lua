@@ -51,7 +51,8 @@ function L0_0(A0_15, A1_16)
   L2_17 = GetParam
   L3_18 = "Required"
   L2_17 = L2_17(L3_18, A0_15, A1_16)
-  if L2_17 == nil then
+  L3_18 = gDebugMode
+  if L3_18 ~= nil and L2_17 == nil then
     L3_18 = ALREADY_WARNED
     L3_18 = L3_18[A1_16.RequiredVar]
     if L3_18 == nil then
