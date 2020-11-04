@@ -7,8 +7,17 @@ BuffTextureName = "Khazix_Q_red.dds"
 BuffName = "KhazixQEvo"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "KhazixDroid"
+  "KhazixDroid",
+  "KhazixSkin03"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "khazixpdamage"
+    }
+  }
 }

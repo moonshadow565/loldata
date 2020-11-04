@@ -1,0 +1,21 @@
+PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ascinbasemarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "asctrinketstartingcd"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengartrophynoitem"
+    }
+  }
+}

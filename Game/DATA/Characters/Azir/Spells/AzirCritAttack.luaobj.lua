@@ -1,0 +1,17 @@
+SpellFXOverrideSkins = {
+  "FrostFireBrand"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_ba_beam.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_ba_tar.troy"
+    }
+  }
+}

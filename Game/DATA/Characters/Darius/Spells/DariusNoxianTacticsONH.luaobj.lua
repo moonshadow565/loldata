@@ -14,6 +14,9 @@ SpellFXOverrideSkins = {
   "Darius_ZaunKnight",
   "DariusSkin04"
 }
+SpellVOOverrideSkins = {
+  "DariusSkin04"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

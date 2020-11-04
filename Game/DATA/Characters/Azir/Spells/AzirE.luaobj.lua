@@ -1,0 +1,37 @@
+SpellFXOverrideSkins = {"AzirSkin01"}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "azire"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_e_soldierdusttrail.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_base_e_selfdusttrail.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azireknockup"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aziredamage"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azireshield"
+    }
+  }
+}

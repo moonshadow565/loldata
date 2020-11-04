@@ -4,7 +4,8 @@ BuffName = "MissileBarrageCheck"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
-  "KhazixDroid"
+  "KhazixDroid",
+  "KhazixSkin03"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"
