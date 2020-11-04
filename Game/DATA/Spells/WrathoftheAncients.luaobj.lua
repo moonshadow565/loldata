@@ -26,7 +26,9 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 800,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          BuffNameFilter = "Stealth",
+          InclusiveBuffFilter = false
         },
         SubBlocks = {
           {
@@ -36,12 +38,15 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "WrathDamage",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.4,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -56,16 +61,23 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Attacker",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stealth"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

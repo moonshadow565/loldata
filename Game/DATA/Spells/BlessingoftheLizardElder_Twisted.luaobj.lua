@@ -231,7 +231,8 @@ BuffOnDeathBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               DurationVar = "NewDuration",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -305,6 +306,34 @@ BuffOnHitUnitBuildingBlocks = {
                         }
                       },
                       {
+                        Function = BBSetVarInTable,
+                        Params = {
+                          DestVar = "attackSpeedMod",
+                          DestVarTable = "NextBuffVars",
+                          SrcValue = 0,
+                          SrcValueByLevel = {
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0,
+                            0
+                          }
+                        }
+                      },
+                      {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Target",
@@ -318,7 +347,8 @@ BuffOnHitUnitBuildingBlocks = {
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 1,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       },
                       {
@@ -475,7 +505,8 @@ BuffOnHitUnitBuildingBlocks = {
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }

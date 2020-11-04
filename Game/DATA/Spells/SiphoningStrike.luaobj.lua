@@ -50,11 +50,11 @@ BuffOnDeathBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValue = 0,
           SrcValueByLevel = {
-            2,
-            2,
-            2,
-            2,
-            2
+            3,
+            3,
+            3,
+            3,
+            3
           }
         }
       },
@@ -65,12 +65,15 @@ BuffOnDeathBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "SiphoningStrikeDamageBonus",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -83,12 +86,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -138,6 +144,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "FinalDamage",
@@ -145,6 +152,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = true,
       IgnoreDamageCrit = true
     }

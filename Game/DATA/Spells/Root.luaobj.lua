@@ -1,4 +1,4 @@
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "LuxCrashingBlitz2.dds"
 BuffName = "Root"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {

@@ -108,6 +108,72 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true
     }
+  },
+  {
+    Function = BBForNClosestUnitsInTargetArea,
+    Params = {
+      AttackerVar = "Attacker",
+      CenterVar = "Owner",
+      Range = 425,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes AffectTurrets ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBCancelAutoAttack,
+        Params = {TargetVar = "Owner", Reset = true}
+      },
+      {
+        Function = BBIf,
+        Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Unit",
+              BuffName = "H28GEvolutionTurretSpell2",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Unit",
+              BuffName = "H28GEvolutionTurretSpell3",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
+            }
+          }
+        }
+      }
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -171,49 +237,206 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBForNClosestUnitsInTargetArea,
+        Function = BBIfNotHasBuff,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 575,
-          Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1,
-          InclusiveBuffFilter = true
+          OwnerVar = "Owner",
+          CasterVar = "Nothing",
+          BuffName = "H28GEvolutionTurretSpell1"
         },
         SubBlocks = {
           {
-            Function = BBGetTeamID,
-            Params = {TargetVar = "Unit", DestVar = "teamID"}
-          },
-          {
-            Function = BBIf,
+            Function = BBIfNotHasBuff,
             Params = {
-              Src1Var = "teamID",
-              Value2 = TEAM_NEUTRAL,
-              CompareOp = CO_EQUAL
+              OwnerVar = "Owner",
+              CasterVar = "Nothing",
+              BuffName = "H28GEvolutionTurretSpell2"
             },
             SubBlocks = {
               {
-                Function = BBApplyTaunt,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  AttackerVar = "Unit",
-                  TargetVar = "Owner",
-                  Duration = 0.5
+                  OwnerVar = "Owner",
+                  CasterVar = "Nothing",
+                  BuffName = "H28GEvolutionTurretSpell3"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "unitFound", SrcValue = 0}
+                  },
+                  {
+                    Function = BBIfHasBuff,
+                    Params = {
+                      OwnerVar = "Owner",
+                      AttackerVar = "Nothing",
+                      BuffName = "UpgradeSlow"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBForNClosestUnitsInTargetArea,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CenterVar = "Owner",
+                          Range = 425,
+                          Flags = "AffectEnemies AffectHeroes ",
+                          IteratorVar = "Unit",
+                          MaximumUnitsToPick = 1,
+                          InclusiveBuffFilter = true
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSetVarInTable,
+                            Params = {DestVar = "unitFound", SrcValue = 1}
+                          },
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Owner",
+                              AttackerVar = "Unit",
+                              BuffName = "H28GEvolutionTurretSpell2",
+                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 25000,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "unitFound",
+                      Value2 = 0,
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBForNClosestUnitsInTargetArea,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CenterVar = "Owner",
+                          Range = 425,
+                          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes AffectTurrets ",
+                          IteratorVar = "Unit",
+                          MaximumUnitsToPick = 1,
+                          InclusiveBuffFilter = true
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBIf,
+                            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+                            SubBlocks = {
+                              {
+                                Function = BBSpellBuffAdd,
+                                Params = {
+                                  TargetVar = "Owner",
+                                  AttackerVar = "Unit",
+                                  BuffName = "H28GEvolutionTurretSpell2",
+                                  BuffAddType = BUFF_REPLACE_EXISTING,
+                                  StacksExclusive = true,
+                                  BuffType = BUFF_Internal,
+                                  MaxStack = 1,
+                                  NumberOfStacks = 1,
+                                  Duration = 25000,
+                                  BuffVarsTable = "NextBuffVars",
+                                  TickRate = 0,
+                                  CanMitigateDuration = false,
+                                  IsHiddenOnClient = false
+                                }
+                              }
+                            }
+                          },
+                          {
+                            Function = BBElse,
+                            Params = {},
+                            SubBlocks = {
+                              {
+                                Function = BBSpellBuffAdd,
+                                Params = {
+                                  TargetVar = "Owner",
+                                  AttackerVar = "Unit",
+                                  BuffName = "H28GEvolutionTurretSpell3",
+                                  BuffAddType = BUFF_REPLACE_EXISTING,
+                                  StacksExclusive = true,
+                                  BuffType = BUFF_Internal,
+                                  MaxStack = 1,
+                                  NumberOfStacks = 1,
+                                  Duration = 25000,
+                                  BuffVarsTable = "NextBuffVars",
+                                  TickRate = 0,
+                                  CanMitigateDuration = false,
+                                  IsHiddenOnClient = false
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
+              },
               {
-                Function = BBIssueOrder,
-                Params = {
-                  WhomToOrderVar = "Owner",
-                  TargetOfOrderVar = "Unit",
-                  Order = AI_ATTACKTO
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBIfHasBuff,
+                    Params = {
+                      OwnerVar = "Owner",
+                      AttackerVar = "Nothing",
+                      BuffName = "UpgradeSlow"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBForNClosestUnitsInTargetArea,
+                        Params = {
+                          AttackerVar = "Attacker",
+                          CenterVar = "Owner",
+                          Range = 425,
+                          Flags = "AffectEnemies AffectHeroes ",
+                          IteratorVar = "Unit",
+                          MaximumUnitsToPick = 1,
+                          InclusiveBuffFilter = true
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffClear,
+                            Params = {
+                              TargetVar = "Owner",
+                              BuffName = "H28GEvolutionTurretSpell3"
+                            }
+                          },
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Owner",
+                              AttackerVar = "Unit",
+                              BuffName = "H28GEvolutionTurretSpell2",
+                              BuffAddType = BUFF_REPLACE_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Internal,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 25000,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
                 }
               }
             }
@@ -257,14 +480,48 @@ BuffOnSpellHitBuildingBlocks = {
     }
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HeimerdingerTurretReady"
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = true}
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HeimerdingerTurretReady"
+    }
+  },
   {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "MaxStacks",
       SrcValueByLevel = {
         1,
-        2,
+        1,
         2,
         2,
         2
@@ -279,8 +536,8 @@ SelfExecuteBuildingBlocks = {
         0,
         0,
         0,
-        100,
-        100
+        125,
+        125
       }
     }
   },
@@ -914,7 +1171,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
-      Src2Value = 21,
+      Src2Value = 15,
       DestVar = "BonusHealthPreLevel4",
       DestVarTable = "NextBuffVars",
       MathOp = MO_MULTIPLY
@@ -962,7 +1219,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Level",
-      Value2 = 3,
+      Value2 = 2,
       CompareOp = CO_LESS_THAN
     },
     SubBlocks = {
@@ -993,7 +1250,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Level",
-      Value2 = 3,
+      Value2 = 2,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -1040,7 +1297,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -1084,7 +1342,8 @@ SelfExecuteBuildingBlocks = {
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -1105,7 +1364,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -1121,7 +1381,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -1289,7 +1550,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1328,7 +1590,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1367,7 +1630,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1406,7 +1670,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1445,7 +1710,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1480,7 +1746,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -1491,6 +1758,36 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_turret_birth.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "upgradeslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerturretready"
     }
   },
   {

@@ -12,9 +12,7 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0,
-  CanHitEnemies = 1,
-  CanHitFriends = 0
+  CanHitSameTargetConsecutively = 0
 }
 TargetExecuteBuildingBlocks = {
   {
@@ -157,7 +155,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -184,7 +183,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -201,7 +201,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

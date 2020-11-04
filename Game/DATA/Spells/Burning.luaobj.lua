@@ -19,18 +19,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "attackSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
@@ -59,6 +47,18 @@ BuffOnUpdateActionsBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "attackSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }

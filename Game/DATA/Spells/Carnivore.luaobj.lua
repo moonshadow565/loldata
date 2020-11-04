@@ -224,12 +224,75 @@ BuffOnKillBuildingBlocks = {
 }
 BuffOnDeathBuildingBlocks = {
   {
-    Function = BBSpellBuffRemoveStacks,
+    Function = BBGetBuffCountFromCaster,
     Params = {
+      DestVar = "Count",
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Feast",
-      NumStacks = 3
+      CasterVar = "Owner",
+      BuffName = "Feast"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Count",
+      Src1Value = 0.5,
+      Src2Value = 0,
+      DestVar = "Count",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 1.5,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Feast",
+          NumStacks = 1
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Count",
+      Value2 = 2.5,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Feast",
+          NumStacks = 2
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveStacks,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Feast",
+          NumStacks = 3
+        }
+      }
     }
   }
 }

@@ -55,6 +55,17 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {CasterVar = "Owner"}
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -66,7 +77,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 12
+      SrcValueByLevel = {
+        12,
+        11,
+        10,
+        9,
+        8
+      }
     }
   },
   {
@@ -199,7 +216,8 @@ BuffOnSpellCastBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -243,7 +261,8 @@ BuffOnSpellCastBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -338,7 +357,8 @@ BuffOnPreAttackBuildingBlocks = {
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -446,11 +466,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "StealthDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            10,
             20,
             30,
             40,
-            50,
-            60
+            50
           }
         }
       },
@@ -476,7 +496,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

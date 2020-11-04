@@ -6,7 +6,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "HealthRegenIncrease",
+      RequiredVar = "healthRegen",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -17,7 +17,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatHPRegenMod,
       TargetVar = "Owner",
-      DeltaVar = "HealthRegenIncrease",
+      DeltaVar = "healthRegen",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

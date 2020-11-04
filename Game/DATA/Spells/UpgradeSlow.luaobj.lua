@@ -25,73 +25,72 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyStun,
+    Function = BBPushCharacterData,
     Params = {
-      AttackerVar = "Attacker",
+      SkinName = "H28RedFrost",
       TargetVar = "Owner",
-      Duration = 0.1
+      IDVar = "RedShift",
+      IDVarTable = "InstanceVars",
+      OverrideSpells = true
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBIfNotHasBuff,
     Params = {
       OwnerVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "ExplosiveCartridges"
+      CasterVar = "Nothing",
+      BuffName = "H28GEvolutionTurretSpell1"
     },
-    SubBlocks = {
-      {
-        Function = BBPushCharacterData,
-        Params = {
-          SkinName = "H28RedFrost",
-          TargetVar = "Owner",
-          IDVar = "RedShift",
-          IDVarTable = "InstanceVars",
-          OverrideSpells = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffName = "UraniumRounds"
-    },
-    SubBlocks = {
-      {
-        Function = BBPushCharacterData,
-        Params = {
-          SkinName = "H28RedFrost",
-          TargetVar = "Owner",
-          IDVar = "RedShift",
-          IDVarTable = "InstanceVars",
-          OverrideSpells = true
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
     SubBlocks = {
       {
         Function = BBIfNotHasBuff,
         Params = {
           OwnerVar = "Owner",
-          CasterVar = "Attacker",
-          BuffName = "ExplosiveCartridges"
+          CasterVar = "Nothing",
+          BuffName = "H28GEvolutionTurretSpell2"
         },
         SubBlocks = {
           {
-            Function = BBPushCharacterData,
+            Function = BBForNClosestUnitsInTargetArea,
             Params = {
-              SkinName = "H28RedFrost",
-              TargetVar = "Owner",
-              IDVar = "RedShift",
-              IDVarTable = "InstanceVars",
-              OverrideSpells = true
+              AttackerVar = "Attacker",
+              CenterVar = "Owner",
+              Range = 425,
+              Flags = "AffectEnemies AffectHeroes ",
+              IteratorVar = "Unit",
+              MaximumUnitsToPick = 1,
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Owner",
+                  BuffName = "H28GEvolutionTurretSpell3"
+                }
+              },
+              {
+                Function = BBCancelAutoAttack,
+                Params = {TargetVar = "Owner", Reset = true}
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Unit",
+                  BuffName = "H28GEvolutionTurretSpell2",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
+                }
+              }
             }
           }
         }
@@ -109,82 +108,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Duration = 0.1
-    }
-  },
-  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "FrostTurrets",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnSpellHitBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "teamID"}
-  },
-  {
-    Function = BBGetChampionBySkinName,
-    Params = {
-      Skin = "Heimerdinger",
-      Team = TEAM_UNKNOWN,
-      TeamVar = "teamID",
-      DestVar = "Attacker"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Attacker",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MovementSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0,
-      SrcValueByLevel = {
-        -0.2,
-        -0.25,
-        -0.3
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "Chilled",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Slow,
-      MaxStack = 100,
-      NumberOfStacks = 1,
-      Duration = 2,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
     }
   }
 }
@@ -196,12 +123,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "explosivecartridges"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "h28redfrost"
@@ -210,17 +131,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "uraniumrounds"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "heimerdinger"
+      Name = "h28gevolutionturretspell1"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
+    Params = {
+      Name = "h28gevolutionturretspell2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "h28gevolutionturretspell3"
+    }
   }
 }

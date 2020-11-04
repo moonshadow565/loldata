@@ -140,5 +140,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "positivechampiondelta"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "negativechampiondelta"
+    }
   }
 }

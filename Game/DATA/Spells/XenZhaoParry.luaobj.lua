@@ -87,8 +87,8 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DtD",
       SrcValueByLevel = {
         125,
-        250,
-        375
+        225,
+        325
       }
     }
   },

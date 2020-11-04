@@ -340,7 +340,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "bonusDamage",
-          Src1Value = 0.5,
+          Src1Value = 0.6,
           Src2Value = 0,
           DestVar = "RatioDamage",
           MathOp = MO_MULTIPLY
@@ -772,7 +772,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

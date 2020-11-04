@@ -52,7 +52,9 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectFriends AffectMinions ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      BuffNameFilter = "H28GEvolutionTurret",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -70,12 +72,15 @@ SelfExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "UpgradeSlow",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -98,6 +103,24 @@ SelfExecuteBuildingBlocks = {
           }
         }
       }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UpgradeBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -154,6 +177,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "upgradeslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "upgradebuff"
     }
   }
 }

@@ -102,7 +102,7 @@ BuffOnUpdateStatsBuildingBlocks = {
             Function = BBSpellBuffClear,
             Params = {
               TargetVar = "Owner",
-              BuffName = "PositiveChampionDelta"
+              BuffName = "PositiveTurretDelta"
             }
           }
         }
@@ -137,7 +137,7 @@ BuffOnUpdateStatsBuildingBlocks = {
             Function = BBSpellBuffClear,
             Params = {
               TargetVar = "Owner",
-              BuffName = "NegativeChampionDelta"
+              BuffName = "NegativeTurretDelta"
             }
           }
         }
@@ -150,18 +150,32 @@ BuffOnUpdateStatsBuildingBlocks = {
             Function = BBSpellBuffClear,
             Params = {
               TargetVar = "Owner",
-              BuffName = "PositiveChampionDelta"
+              BuffName = "PositiveTurretDelta"
             }
           },
           {
             Function = BBSpellBuffClear,
             Params = {
               TargetVar = "Owner",
-              BuffName = "NegativeChampionDelta"
+              BuffName = "NegativeTurretDelta"
             }
           }
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "PositiveTurretDelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "NegativeTurretDelta"
     }
   }
 }
