@@ -35,6 +35,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "leblanc_shackle_indicator_ult.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "leblancchaosorbproc"
