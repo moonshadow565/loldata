@@ -20,5 +20,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyraexpirationtimer"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplanttaunted"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplanttaunter"
+    }
   }
 }

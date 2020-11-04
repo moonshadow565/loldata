@@ -16,11 +16,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "garen_heal.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garenrecouperate1"
-    }
   }
 }
