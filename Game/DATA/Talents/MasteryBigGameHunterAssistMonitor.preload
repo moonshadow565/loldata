@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="masteryregenmissile"}}, 
 {Function=BBPreloadParticle, Params={Name="to_masteryring_flash.troy"}}, 
 }
