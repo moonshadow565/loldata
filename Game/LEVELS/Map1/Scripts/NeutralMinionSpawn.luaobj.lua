@@ -1302,7 +1302,7 @@ function L0()
 end
 InitializeNeutralMinionInfo = L0
 function L0(A0)
-  local L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16
+  local L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12
   L1 = NeutralMinionCamps
   L1 = #L1
   if A0 <= L1 then
@@ -1327,13 +1327,6 @@ function L0(A0)
           L3 = true
           L8.AliveTracker = L9
           for L11 = L8, L9, L10 do
-            L12 = SpawnNeutralMinion
-            L13 = NeutralMinionCamps
-            L13 = L13[A0]
-            L14 = A0
-            L15 = L7
-            L16 = L11
-            L12(L13, L14, L15, L16)
             L12 = NeutralMinionCamps
             L12 = L12[A0]
             L12 = L12.AliveTracker

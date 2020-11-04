@@ -37,6 +37,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "ezreal_arcaneshift_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_arcaneshift_flash.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "ezreal_arcaneshift_cas_pulsefire_7.troy"
     }
   },
@@ -56,18 +68,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_arcaneshift_flash_pulsefire_8.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_arcaneshift_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_arcaneshift_flash.troy"
     }
   }
 }

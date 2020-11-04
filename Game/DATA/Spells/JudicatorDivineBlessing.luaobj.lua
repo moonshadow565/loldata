@@ -8,6 +8,9 @@ AutoBuffActivateAttachBoneName2 = "root"
 SpellFXOverrideSkins = {
   "MetalWingedJudicator"
 }
+SpellVOOverrideSkins = {
+  "MetalWingedJudicator"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bootsofmobilitydebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "bootsalacrity"
+    }
   }
 }
