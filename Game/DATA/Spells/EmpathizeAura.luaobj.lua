@@ -3,25 +3,13 @@ BuffName = "Empathize"
 AutoBuffActivateEffect = "Empathize_buf.troy"
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentSpellVampMod,
-      TargetVar = "Owner",
-      DeltaVar = "VampPercent",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "VampPercent",
       DestVarTable = "InstanceVars",
-      SrcValue = 0.15
+      SrcValue = 0.1
     }
   },
   {
@@ -44,6 +32,18 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentSpellVampMod,
+      TargetVar = "Owner",
+      DeltaVar = "VampPercent",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
 BuffOnLevelUpBuildingBlocks = {
   {
     Function = BBGetLevel,
@@ -54,24 +54,24 @@ BuffOnLevelUpBuildingBlocks = {
     Params = {
       DestVar = "newVampPercent",
       SrcValueByLevel = {
-        0.15,
-        0.15,
-        0.15,
-        0.15,
-        0.15,
-        0.15,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.25,
-        0.35,
-        0.35,
-        0.35,
-        0.35,
-        0.35,
-        0.35
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.1,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
       }
     }
   },

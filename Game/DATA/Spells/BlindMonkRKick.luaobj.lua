@@ -18,7 +18,9 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
 OnBuffActivateBuildingBlocks = {
   {
@@ -203,7 +205,10 @@ BuffOnUpdateActionsBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {
@@ -256,10 +261,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
         200,
-        400,
-        600,
-        600,
-        600
+        375,
+        550,
+        550,
+        550
       }
     }
   },

@@ -11,63 +11,6 @@ OnBuffActivateBuildingBlocks = {
     Params = {Value = 3, Index = 3}
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 10,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBGetTotalAttackDamage,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "AttackDamage"
-        }
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetBaseAttackDamage,
-          TargetVar = "Owner",
-          DestVar = "BaseAD"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AttackDamage",
-          Src2Var = "BaseAD",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "AttackDamage",
-          MathOp = MO_SUBTRACT
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "AttackDamage",
-          Src1Value = 0.5,
-          Src2Value = 0,
-          DestVar = "PassiveAD",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetBuffToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "PassiveAD",
-          Index = 2
-        }
-      }
-    }
-  }
-}
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBGetCastInfo,
@@ -154,6 +97,26 @@ BuffOnSpellCastBuildingBlocks = {
           Src2Value = 0,
           DestVar = "PassiveAD",
           MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "BaseAD",
+          Src1Value = 0.12,
+          Src2Value = 0,
+          DestVar = "BonusBaseAD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "BonusBaseAD",
+          Src1Value = 0.6,
+          Src2Value = 0,
+          DestVar = "PassiveAD",
+          MathOp = MO_ADD
         }
       },
       {
@@ -392,6 +355,63 @@ BuffOnLevelUpBuildingBlocks = {
       Value = 0,
       ValueVar = "DamageAmp",
       Index = 1
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 10,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "AttackDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "BaseAD"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AttackDamage",
+          Src2Var = "BaseAD",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "AttackDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "AttackDamage",
+          Src1Value = 0.5,
+          Src2Value = 0,
+          DestVar = "PassiveAD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "PassiveAD",
+          Index = 2
+        }
+      }
     }
   }
 }

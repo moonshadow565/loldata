@@ -135,7 +135,7 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
-              Duration = 0.5
+              Duration = 0.75
             }
           },
           {
@@ -272,7 +272,7 @@ OnBuffActivateBuildingBlocks = {
             Params = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
-              Duration = 0.5
+              Duration = 0.75
             }
           },
           {
@@ -332,12 +332,6 @@ OnBuffDeactivateBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rivenfengshuiengine"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -20,6 +20,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CustomRun",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "TeemoSkinID",
@@ -43,6 +51,36 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {Src1Var = "6", CompareOp = CO_EQUAL},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "MoveQuick_buf2.troy",
+          Flags = 0,
+          EffectIDVar = "MoveQuickParticle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -68,8 +106,36 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Value2 = 6,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CustomRun",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "RunFly",
+          OwnerVar = "Owner"
         }
       }
     }
@@ -106,6 +172,25 @@ OnBuffDeactivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false,
       IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CustomRun",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAnimation,
+        Params = {
+          ToOverrideAnim = "Run",
+          OverrideAnim = "Run",
+          OwnerVar = "Owner"
+        }
+      }
     }
   }
 }

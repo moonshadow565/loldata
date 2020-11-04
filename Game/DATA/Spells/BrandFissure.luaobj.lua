@@ -73,30 +73,8 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       DestVar = "TeamOfOwner"
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "BrandPOF_charge.troy",
-      Flags = 0,
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Nothing",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamOfOwner",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
     }
   },
   {
@@ -122,6 +100,73 @@ OnBuffActivateBuildingBlocks = {
       BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
+    }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "BrandSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BrandSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "BrandPOF_Frost_charge.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "BrandPOF_charge.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   }
 }
@@ -156,25 +201,70 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetSkinID,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "OwnerPos",
-      EffectName = "BrandPOF_tar.troy",
-      Flags = 0,
-      EffectIDVar = "b",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      UnitVar = "Attacker",
+      SkinIDVar = "BrandSkinID"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BrandSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "BrandPOF_Frost_tar.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "BrandPOF_tar.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   },
   {
@@ -263,23 +353,59 @@ OnBuffDeactivateBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Unit",
-          EffectName = "BrandCritAttack_tar.troy",
-          Flags = 0,
-          EffectIDVar = "d",
-          TargetObjectVar = "Unit",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true,
-          PersistsThroughReconnect = false,
-          BindFlexToOwnerPAR = false,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          Src1Var = "BrandSkinID",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "BrandCritAttack_Frost_tar.troy",
+              Flags = 0,
+              EffectIDVar = "d",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "BrandCritAttack_tar.troy",
+              Flags = 0,
+              EffectIDVar = "d",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -393,12 +519,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandpof_charge.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "brandpof_tar_green.troy"
     }
   },
@@ -411,6 +531,24 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "brandpof_frost_charge.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandpof_charge.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandpof_frost_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "brandpof_tar.troy"
     }
   },
@@ -418,6 +556,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "brandablaze"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandcritattack_frost_tar.troy"
     }
   },
   {

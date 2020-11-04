@@ -4,6 +4,75 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "BrandSkinID"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "BrandSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BrandConflagration_buf_frost.troy",
+          Flags = 0,
+          EffectIDVar = "VarA",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BrandConflagration_buf.troy",
+          Flags = 0,
+          EffectIDVar = "VarA",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
@@ -46,6 +115,18 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_buf_frost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_buf.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

@@ -50,7 +50,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBDistanceBetweenObjects,
     Params = {
       DestVar = "Distance",
-      ObjectVar1 = "Target",
+      ObjectVar1 = "Attacker",
       ObjectVar2 = "Owner"
     }
   },
@@ -249,6 +249,8 @@ ChannelingStartBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -350,6 +352,26 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Expired",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_LostTarget
+        }
+      }
     }
   }
 }

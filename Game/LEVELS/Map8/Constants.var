@@ -101,7 +101,7 @@ sp_RegenTickInterval                    =      1.000 ; Interval between spawn po
 
 ; Attack Flags
 ca_RevealAttackerRange                  =    400.000 ; The range of reveal for attackers
-ca_RevealAttackerTimeOut                =      1.500 ; The timeout for the reveal for attackers
+ca_RevealAttackerTimeOut                =      4.500 ; The timeout for the reveal for attackers
 hud_targeting_reticle_height            =   -150.000 ; Height of the location circular location casting reticle
 
 ; obj_BarracksDampener variables

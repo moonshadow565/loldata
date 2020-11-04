@@ -76,20 +76,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBAddDebugCircle,
-    Params = {
-      UnitVar = "Nothing",
-      CenterVar = "Owner",
-      Radius = 155,
-      ColorR = 120,
-      ColorG = 255,
-      ColorB = 120,
-      ColorA = 0,
-      DebugCircleIDVar = "AreaCircle",
-      DebugCircleIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Attacker",
@@ -115,6 +101,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamOfOwner",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -205,13 +193,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBRemoveDebugCircle,
-    Params = {
-      DebugCircleIDVar = "AreaCircle",
-      DebugCircleIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
@@ -270,16 +251,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVar = "AreaRadius",
       DestVarTable = "InstanceVars",
       MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBModifyDebugCircleRadius,
-    Params = {
-      DebugCircleIDVar = "AreaCircle",
-      DebugCircleIDVarTable = "InstanceVars",
-      Radius = 0,
-      RadiusVar = "AreaRadius",
-      RadiusVarTable = "InstanceVars"
     }
   },
   {

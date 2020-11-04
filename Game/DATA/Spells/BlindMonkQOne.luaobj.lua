@@ -60,7 +60,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -78,7 +81,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -97,7 +103,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -136,7 +145,8 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {
           TargetVar = "Attacker",
           AttackerVar = "Owner",
-          BuffName = "BlindMonkQManager"
+          BuffName = "BlindMonkQManager",
+          ResetDuration = 0
         }
       }
     }
@@ -168,11 +178,11 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "BaseDamage",
           SrcValueByLevel = {
-            50,
-            80,
-            110,
-            140,
-            170
+            40,
+            70,
+            100,
+            130,
+            160
           }
         }
       },
@@ -285,7 +295,10 @@ TargetExecuteBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -337,11 +350,11 @@ TargetExecuteBuildingBlocks = {
             Params = {
               DestVar = "BaseDamage",
               SrcValueByLevel = {
-                50,
-                80,
-                110,
-                140,
-                170
+                40,
+                70,
+                100,
+                130,
+                160
               }
             }
           },
@@ -454,7 +467,10 @@ TargetExecuteBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
-              FollowsGroundTilt = false
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           },
           {
@@ -518,11 +534,11 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "BaseDamage",
                   SrcValueByLevel = {
-                    50,
-                    80,
-                    110,
-                    140,
-                    170
+                    40,
+                    70,
+                    100,
+                    130,
+                    160
                   }
                 }
               },
@@ -635,7 +651,10 @@ TargetExecuteBuildingBlocks = {
                   FOWTeamOverrideVar = "TeamID",
                   FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true,
-                  FollowsGroundTilt = false
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               },
               {

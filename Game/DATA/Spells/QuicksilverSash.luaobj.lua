@@ -21,6 +21,8 @@ TargetExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -64,7 +66,7 @@ TargetExecuteBuildingBlocks = {
           {
             Function = BBSetSlotSpellCooldownTimeVer2,
             Params = {
-              Src = 60,
+              Src = 90,
               SlotNumber = 0,
               SlotNumberVar = "slotCheck",
               SlotType = InventorySlots,

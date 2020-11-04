@@ -286,21 +286,66 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetSkinID,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "BrandConflagration_tar.troy",
-          Flags = 0,
-          EffectIDVar = "AblazeHitEffect",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          UnitVar = "Attacker",
+          SkinIDVar = "BrandSkinID"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "BrandSkinID",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "BrandConflagration_tar_frost.troy",
+              Flags = 0,
+              EffectIDVar = "AblazeHitEffect",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "BrandConflagration_tar.troy",
+              Flags = 0,
+              EffectIDVar = "AblazeHitEffect",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       },
       {
@@ -402,21 +447,66 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetSkinID,
         Params = {
-          BindObjectVar = "Target",
-          EffectName = "BrandConflagration_tar.troy",
-          Flags = 0,
-          EffectIDVar = "NormalHitEffect",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false,
-          FacesTarget = false
+          UnitVar = "Attacker",
+          SkinIDVar = "BrandSkinID"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "BrandSkinID",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "BrandConflagration_tar_frost.troy",
+              Flags = 0,
+              EffectIDVar = "AblazeHitEffect",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "BrandConflagration_tar.troy",
+              Flags = 0,
+              EffectIDVar = "AblazeHitEffect",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -433,6 +523,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "brandablaze"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_tar_frost.troy"
     }
   },
   {

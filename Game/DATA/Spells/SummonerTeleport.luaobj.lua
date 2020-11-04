@@ -231,6 +231,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetGameTime,
+    Params = {
+      SecondsVar = "ActivateTime",
+      SecondsVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "Name1",
@@ -362,6 +369,41 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "ActivateTime",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetGameTime,
+    Params = {
+      SecondsVar = "FinishedTime"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "FinishedTime",
+      Src2Var = "ActivateTime",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalTime",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalTime",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "TotalTime",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "TeleportCancelled",
@@ -380,95 +422,119 @@ OnBuffDeactivateBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CastPosition",
-              SrcVar = "CastPosition",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBDestroyMissileForTarget,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBTeleportToPosition,
-            Params = {
-              OwnerVar = "Owner",
-              CastPositionName = "CastPosition"
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "summoner_teleportarrive.troy",
-              Flags = 0,
-              EffectIDVar = "akc",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false,
-              PersistsThroughReconnect = false,
-              BindFlexToOwnerPAR = false,
-              FollowsGroundTilt = false,
-              FacesTarget = false
-            }
-          },
-          {
             Function = BBIf,
             Params = {
-              Src1Var = "SummonerCooldownBonus",
-              Src1VarTable = "AvatarVars",
-              Value2 = 0,
-              CompareOp = CO_NOT_EQUAL
+              Src1Var = "TotalTime",
+              Src2Var = "BuffDuration",
+              Src2VarTable = "InstanceVars",
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBSetVarInTable,
                 Params = {
-                  Src2Var = "SummonerCooldownBonus",
-                  Src2VarTable = "AvatarVars",
-                  Src1Value = 1,
-                  Src2Value = 0,
-                  DestVar = "CooldownMultiplier",
-                  MathOp = MO_SUBTRACT
+                  DestVar = "CastPosition",
+                  SrcVar = "CastPosition",
+                  SrcVarTable = "InstanceVars"
                 }
               },
               {
-                Function = BBMath,
+                Function = BBDestroyMissileForTarget,
+                Params = {TargetVar = "Owner"}
+              },
+              {
+                Function = BBTeleportToPosition,
                 Params = {
-                  Src2Var = "CooldownMultiplier",
-                  Src1Value = 300,
-                  Src2Value = 0,
-                  DestVar = "BaseCooldown",
-                  MathOp = MO_MULTIPLY
+                  OwnerVar = "Owner",
+                  CastPositionName = "CastPosition"
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "summoner_teleportarrive.troy",
+                  Flags = 0,
+                  EffectIDVar = "akc",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "SummonerCooldownBonus",
+                  Src1VarTable = "AvatarVars",
+                  Value2 = 0,
+                  CompareOp = CO_NOT_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "SummonerCooldownBonus",
+                      Src2VarTable = "AvatarVars",
+                      Src1Value = 1,
+                      Src2Value = 0,
+                      DestVar = "CooldownMultiplier",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src2Var = "CooldownMultiplier",
+                      Src1Value = 300,
+                      Src2Value = 0,
+                      DestVar = "BaseCooldown",
+                      MathOp = MO_MULTIPLY
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "TeleportCooldownBonus",
+                  Src1VarTable = "AvatarVars",
+                  Value2 = 0,
+                  CompareOp = CO_NOT_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "BaseCooldown",
+                      Src2Var = "TeleportCooldownBonus",
+                      Src2VarTable = "AvatarVars",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "BaseCooldown",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
                 }
               }
             }
           },
           {
-            Function = BBIf,
-            Params = {
-              Src1Var = "TeleportCooldownBonus",
-              Src1VarTable = "AvatarVars",
-              Value2 = 0,
-              CompareOp = CO_NOT_EQUAL
-            },
+            Function = BBElse,
+            Params = {},
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBSetVarInTable,
                 Params = {
-                  Src1Var = "BaseCooldown",
-                  Src2Var = "TeleportCooldownBonus",
-                  Src2VarTable = "AvatarVars",
-                  Src1Value = 0,
-                  Src2Value = 0,
                   DestVar = "BaseCooldown",
-                  MathOp = MO_SUBTRACT
+                  SrcValue = 180
                 }
               }
             }

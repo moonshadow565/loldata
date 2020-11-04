@@ -27,10 +27,6 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBBreakSpellShields,
-    Params = {TargetVar = "Target"}
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Attacker",
@@ -204,6 +200,10 @@ TargetExecuteBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           MathOp = MO_MULTIPLY
         }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Target"}
       },
       {
         Function = BBApplyDamage,

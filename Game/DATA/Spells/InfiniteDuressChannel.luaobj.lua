@@ -35,38 +35,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "damagePerTick",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_ATTACK,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "hitsRemaining",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "hitsRemaining",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_SUBTRACT
     }
   }
 }
@@ -111,6 +83,8 @@ OnBuffDeactivateBuildingBlocks = {
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
                   SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
                   FollowsGroundTilt = false,
                   FacesTarget = false
                 }
@@ -147,6 +121,20 @@ OnBuffDeactivateBuildingBlocks = {
               }
             }
           }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBStopChanneling,
+        Params = {
+          CasterVar = "Attacker",
+          StopCondition = ChannelingStopCondition_Cancel,
+          StopSource = ChannelingStopSource_LostTarget
         }
       }
     }
@@ -225,6 +213,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }

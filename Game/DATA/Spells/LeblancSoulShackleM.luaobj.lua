@@ -48,7 +48,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -66,7 +70,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -84,7 +92,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -101,7 +113,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -268,7 +284,8 @@ OnBuffDeactivateBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Attacker",
-              BuffName = "LeblancChaosOrbM"
+              BuffName = "LeblancChaosOrbM",
+              ResetDuration = 0
             }
           },
           {
@@ -433,7 +450,8 @@ OnBuffDeactivateBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Attacker",
-              BuffName = "LeblancChaosOrb"
+              BuffName = "LeblancChaosOrb",
+              ResetDuration = 0
             }
           },
           {
@@ -480,7 +498,7 @@ OnBuffDeactivateBuildingBlocks = {
           BuffName = "LeblancSoulShackleNetM",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Snare,
+          BuffType = BUFF_Net,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 0,
@@ -613,7 +631,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Attacker",
-              BuffName = "Slow"
+              BuffName = "Slow",
+              ResetDuration = 0
             }
           },
           {
@@ -643,7 +662,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {
                   TargetVar = "Owner",
                   AttackerVar = "Attacker",
-                  BuffName = "Slow"
+                  BuffName = "Slow",
+                  ResetDuration = 0
                 }
               },
               {
@@ -685,7 +705,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       TargetVar = "Owner",
                       AttackerVar = "Attacker",
-                      BuffName = "Slow"
+                      BuffName = "Slow",
+                      ResetDuration = 0
                     }
                   },
                   {
@@ -958,7 +979,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
-          BuffName = "LeblancChaosOrbM"
+          BuffName = "LeblancChaosOrbM",
+          ResetDuration = 0
         }
       },
       {
@@ -1123,7 +1145,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Target",
           AttackerVar = "Owner",
-          BuffName = "LeblancChaosOrb"
+          BuffName = "LeblancChaosOrb",
+          ResetDuration = 0
         }
       },
       {
@@ -1195,29 +1218,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leblancchaosorbm"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorb"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "leblancsoulshacklenetm"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "leblancsoulshacklem"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }

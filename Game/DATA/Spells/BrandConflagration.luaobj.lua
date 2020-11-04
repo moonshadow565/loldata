@@ -62,25 +62,72 @@ OnBuffActivateBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Attacker",
+      SkinIDVar = "BrandSkinID"
+    }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Target",
-      EffectName = "BrandConflagration_buf.troy",
-      Flags = 0,
-      EffectIDVar = "VarA",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      Src1Var = "BrandSkinID",
+      Value2 = 3,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BrandConflagration_buf_frost.troy",
+          Flags = 0,
+          EffectIDVar = "VarA",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "BrandConflagration_buf.troy",
+          Flags = 0,
+          EffectIDVar = "VarA",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   },
   {
@@ -153,6 +200,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "brandconflagration_buf_frost.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

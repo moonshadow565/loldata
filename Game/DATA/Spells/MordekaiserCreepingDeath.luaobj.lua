@@ -21,6 +21,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  },
+  {
     Function = BBIncPermanentStat,
     Params = {
       Stat = IncPermanentFlatArmorMod,

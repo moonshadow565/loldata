@@ -84,7 +84,8 @@ OnBuffActivateBuildingBlocks = {
       Range = 150,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      BuffNameFilter = "CrystallizePush",
+      InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
@@ -168,6 +169,32 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
+          Src1Var = "Attacker",
+          Src2Var = "Unit",
+          CompareOp = CO_DIFFERENT_TEAM
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Damage = 0,
+              DamageType = TRUE_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_DEFAULT,
+              PercentOfAttack = 0,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
           Src1Var = "ghosted",
           Value2 = false,
           CompareOp = CO_EQUAL
@@ -191,22 +218,6 @@ OnBuffActivateBuildingBlocks = {
               IsHiddenOnClient = false
             }
           }
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Damage = 0,
-          DamageType = TRUE_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_DEFAULT,
-          PercentOfAttack = 0,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
         }
       }
     }

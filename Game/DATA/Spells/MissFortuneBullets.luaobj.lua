@@ -95,20 +95,38 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBGetTotalAttackDamage,
+            Params = {
+              TargetVar = "Owner",
+              DestVar = "totalDamage"
+            }
+          },
+          {
             Function = BBGetStat,
             Params = {
-              Stat = GetFlatPhysicalDamageMod,
+              Stat = GetBaseAttackDamage,
               TargetVar = "Owner",
-              DestVar = "PhysPreMod"
+              DestVar = "BaseAtkDmg"
             }
           },
           {
             Function = BBMath,
             Params = {
-              Src2Var = "PhysPreMod",
+              Src1Var = "totalDamage",
+              Src2Var = "BaseAtkDmg",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "BonusDamage",
+              MathOp = MO_SUBTRACT
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src2Var = "BonusDamage",
               Src1Value = 0.4,
               Src2Value = 0,
-              DestVar = "PhysPostMod",
+              DestVar = "BonusDamage",
               MathOp = MO_MULTIPLY
             }
           },
@@ -131,64 +149,42 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBIf,
+            Function = BBMath,
             Params = {
-              Src1Var = "PhysPostMod",
+              Src1Var = "BonusDamage",
               Src2Var = "APPostMod",
-              CompareOp = CO_GREATER_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "PhysPostMod",
-                  Src2Var = "BaseDamage",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "DamageToDeal",
-                  MathOp = MO_ADD
-                }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Owner",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "DamageToDeal",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              }
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "ADAPBonus",
+              MathOp = MO_ADD
             }
           },
           {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  CallForHelpAttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "BaseDamage",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.2,
-                  PhysicalDamageRatio = 0,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              }
+            Function = BBMath,
+            Params = {
+              Src1Var = "BaseDamage",
+              Src2Var = "ADAPBonus",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "FinalDamage",
+              MathOp = MO_ADD
+            }
+          },
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "FinalDamage",
+              DamageType = MAGIC_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_SPELLAOE,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -205,7 +201,11 @@ TargetExecuteBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
