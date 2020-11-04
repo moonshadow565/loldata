@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="item_zekes_impact_b.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="zekes_enraged.troy"}}, 
-}

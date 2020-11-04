@@ -1,7 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="rallyingbanneraurafriend"}}, 
-{Function=BBPreloadSpell, Params={Name="rallyingbannerauraself"}}, 
-{Function=BBPreloadSpell, Params={Name="itemstarksbindingally"}}, 
-{Function=BBPreloadSpell, Params={Name="itemstarksbindingbuffer"}}, 
-{Function=BBPreloadParticle, Params={Name="item_zekes_cas.troy"}}, 
-}

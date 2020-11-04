@@ -6,5 +6,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="udyrturtleattackult"}}, 
 {Function=BBPreloadParticle, Params={Name="turtlepelt.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="turtlestance.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="udyrbasicattack"}}, 
 {Function=BBPreloadSpell, Params={Name="udyrturtleactivation"}}, 
 }
