@@ -2,6 +2,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dummywardtracker"}}, 
 {Function=BBPreloadSpell, Params={Name="sightwardstealth"}}, 
 {Function=BBPreloadSpell, Params={Name="mandrakeeye"}}, 
+{Function=BBPreloadSpell, Params={Name="mandrakeaggro"}}, 
+{Function=BBPreloadCharacter, Params={Name="mandrakeward"}}, 
 {Function=BBPreloadSpell, Params={Name="wardbounty"}}, 
 {Function=BBPreloadParticle, Params={Name="tt_audio-monsters_nwolf_idle_angry3.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="sharedwardbuff"}}, 
