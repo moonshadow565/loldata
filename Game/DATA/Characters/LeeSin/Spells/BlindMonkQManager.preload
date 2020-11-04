@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="blindmonkqtwo"}}, 
+{Function=BBPreloadParticle, Params={Name="leesinq2range.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="blindmonkqone"}}, 
 }

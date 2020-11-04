@@ -2,7 +2,6 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-IsDamagingSpell = false
 BuffTextureName = "KogMaw_IcathianSurprise.dds"
 BuffName = "KogMawIcathianSurprise"
 AutoBuffActivateEffect = "KogMaw_Base_P_foam.troy"
@@ -17,3 +16,4 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "KogMawSkin08"
 }
+IsDamagingSpell = false

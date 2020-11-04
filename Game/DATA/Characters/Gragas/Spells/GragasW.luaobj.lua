@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+ChannelDuration = 0.75
 BuffTextureName = "GragasDrunkenRage.dds"
 BuffName = "GragasDrunkenRage"
 AutoBuffActivateEffect = "Gragas_Base_W_Buf_Hands.troy"

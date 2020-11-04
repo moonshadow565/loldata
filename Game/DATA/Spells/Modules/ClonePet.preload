@@ -3,4 +3,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="crestoftheancientgolemforclones"}}, 
 {Function=BBPreloadSpell, Params={Name="exaltedwithbaronnashorforclones"}}, 
 {Function=BBPreloadSpell, Params={Name="exaltedwithminibaronnashorforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="elixirofsorceryforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="elixirofwrathforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="elixirofironforclones"}}, 
+{Function=BBPreloadSpell, Params={Name="mastery6162"}}, 
 }

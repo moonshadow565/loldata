@@ -7,4 +7,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadModule, Params={Name="Global.Status"}}, 
 {Function=BBPreloadModule, Params={Name="Global.Vector"}}, 
 {Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_r_teleport_arrival.troy"}}, 
 }

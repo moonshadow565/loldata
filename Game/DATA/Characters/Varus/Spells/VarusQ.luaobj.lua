@@ -1,7 +1,3 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
-IsDamagingSpell = false
 BuffTextureName = "VarusQCharging.dds"
 BuffName = "VarusQ"
 SpellToggleSlot = 1

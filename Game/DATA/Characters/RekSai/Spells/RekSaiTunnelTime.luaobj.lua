@@ -2,8 +2,8 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-IsDamagingSpell = true
 BuffName = "RekSaiTunnelTime"
+IsDamagingSpell = true
 ChainMissileParameters = {
   MaximumHits = {
     10,

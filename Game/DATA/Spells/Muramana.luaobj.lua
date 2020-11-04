@@ -5,6 +5,7 @@ BuffName = "Muramana"
 AutoBuffActivateEffect = "ItemMuramanaToggle.troy"
 AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
 AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
+IsItemToggled = true
 AutoCooldownByLevel = {
   0,
   0,
@@ -15,4 +16,3 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 DoOnPreDamageInExpirationOrder = true
-ItemToggleSlot = 1

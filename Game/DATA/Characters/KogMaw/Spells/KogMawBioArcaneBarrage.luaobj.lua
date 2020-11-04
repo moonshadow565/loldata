@@ -2,7 +2,6 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
-IsDamagingSpell = true
 BuffTextureName = "KogMaw_BioArcaneBarrage.dds"
 BuffName = "KogMawBioArcaneBarrage"
 AutoBuffActivateEffect = "KogMaw_Base_W_buf.troy"
@@ -19,3 +18,4 @@ SpellFXOverrideSkins = {
 SpellVOOverrideSkins = {
   "KogMawSkin08"
 }
+IsDamagingSpell = true

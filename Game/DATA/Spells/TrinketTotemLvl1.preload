@@ -4,7 +4,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="sightward"}}, 
 {Function=BBPreloadCharacter, Params={Name="yellowtrinket"}}, 
 {Function=BBPreloadSpell, Params={Name="sharedwardbuff"}}, 
-{Function=BBPreloadSpell, Params={Name="trinkettotemlvl1audio"}}, 
 {Function=BBPreloadSpell, Params={Name="relicyellowward"}}, 
 {Function=BBPreloadSpell, Params={Name="sharedwardlogic"}}, 
 {Function=BBPreloadSpell, Params={Name="wardbounty"}}, 

@@ -1,4 +1,7 @@
 SpellFXOverrideSkins = {
+  "BlueTrinket",
+  "YellowTrinket",
+  "VisionWard",
   "SightWardBat",
   "SightWardGhost",
   "SightWardSpider",
@@ -8,6 +11,7 @@ SpellFXOverrideSkins = {
   "SightWardGingerBread",
   "SightWardLantern",
   "SightWardBanner",
+  "SightWardHorseBanner",
   "SightWardSoraka",
   "SightWardDraven",
   "SightWardLux",

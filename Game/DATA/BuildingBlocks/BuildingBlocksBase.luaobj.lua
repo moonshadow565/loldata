@@ -195,9 +195,9 @@ function L0_0(A0_64, A1_65)
   L3_67 = A1_65.TableName
   L3_67 = L3_67 or "PassThroughParams"
   DebugClientPrint(L3_67)
-  DebugPrintTableToChat(L2_66)
+  DebugPrintToChatTable(L2_66)
 end
-BBDebugPrintTableToChat = L0_0
+BBDebugPrintToChatTable = L0_0
 function L0_0(A0_68, A1_69)
   local L2_70, L3_71, L4_72, L5_73, L6_74, L7_75, L8_76, L9_77, L10_78, L11_79, L12_80, L13_81
   A1_69 = A1_69 or 0
@@ -233,12 +233,12 @@ function L0_0(A0_68, A1_69)
     L13_81 = L13_81 .. L12_80 .. ": " .. L11_79
     DebugClientPrint(L13_81)
     if type(L10_78) == "table" then
-      DebugPrintTableToChat(L10_78, A1_69 + 1)
+      DebugPrintToChatTable(L10_78, A1_69 + 1)
     end
   end
   L6_74(L7_75)
 end
-DebugPrintTableToChat = L0_0
+DebugPrintToChatTable = L0_0
 function L0_0(A0_82, A1_83, A2_84)
   local L3_85
   if A1_83 ~= nil then

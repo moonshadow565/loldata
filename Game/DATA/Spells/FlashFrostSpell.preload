@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="chilled"}}, 
 {Function=BBPreloadSpell, Params={Name="flashfrost"}}, 
+{Function=BBPreloadSpell, Params={Name="chilled"}}, 
 {Function=BBPreloadSpell, Params={Name="glacialstorm"}}, 
 {Function=BBPreloadParticle, Params={Name="cryo_flashfrost_player_mis.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="cryo_flashfrost_tar.troy"}}, 
