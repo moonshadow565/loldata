@@ -1,3 +1,4 @@
+PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZedStormNinja"
 }

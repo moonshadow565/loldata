@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {
@@ -5,6 +6,10 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zed_r_dash.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "zedult"}
   },
   {
     Function = BBPreloadParticle,
@@ -32,6 +37,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zedultattackanimbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedrcloneactive"
     }
   },
   {

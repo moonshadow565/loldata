@@ -22,6 +22,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "zedpassivetooltip"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "zedrecallbuff"
     }
   },
@@ -48,7 +54,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "zeddanceemotebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "zedemotebuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedjokeemotebuff"
     }
   },
   {

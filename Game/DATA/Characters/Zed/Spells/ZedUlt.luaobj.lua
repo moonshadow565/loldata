@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 AutoCooldownByLevel = {
   22,
