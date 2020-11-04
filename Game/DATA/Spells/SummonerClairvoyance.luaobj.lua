@@ -3,7 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = false
-AutoBuffActivateEffect = "GuinsoosRodofOblivion_buf.troy"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
@@ -15,19 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "clairvoyanceeyelong_green.troy"
+      Name = "global_ss_clairvoyance_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "clairvoyanceeyelong_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "summonerclairvoyancesight"
+      Name = "global_ss_clairvoyance_red.troy"
     }
   }
 }

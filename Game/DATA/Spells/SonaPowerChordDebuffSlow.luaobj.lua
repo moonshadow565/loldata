@@ -4,13 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sonapowerchord_ariaofperseverance_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sonapowerchord_buf.troy"
+      Name = "sonapowerchord_songofselerity_tar.troy"
     }
   }
 }
