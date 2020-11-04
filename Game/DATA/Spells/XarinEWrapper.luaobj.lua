@@ -3,6 +3,30 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetPARMultiplicativeCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Cost = -1,
+      PARType = PAR_MANA
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetPARMultiplicativeCostInc,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Cost = 0,
+      PARType = PAR_MANA
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -128,30 +152,6 @@ SelfExecuteBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetPARMultiplicativeCostInc,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 3,
-      SlotType = SpellSlots,
-      Cost = -1,
-      PARType = PAR_MANA
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetPARMultiplicativeCostInc,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 3,
-      SlotType = SpellSlots,
-      Cost = 0,
-      PARType = PAR_MANA
     }
   }
 }

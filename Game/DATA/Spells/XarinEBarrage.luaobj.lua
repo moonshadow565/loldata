@@ -76,15 +76,16 @@ OnBuffDeactivateBuildingBlocks = {
           SpellSlotValue = 3,
           OwnerVar = "Owner"
         }
+      },
+      {
+        Function = BBClearClientSpellTargeter,
+        Params = {
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          OwnerVar = "Owner"
+        }
       }
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xarinebarrage"
     }
   }
 }

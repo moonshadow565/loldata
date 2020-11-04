@@ -626,6 +626,24 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "XerathEnergize",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -701,6 +719,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xarinewrapper"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xerathenergize"
     }
   }
 }

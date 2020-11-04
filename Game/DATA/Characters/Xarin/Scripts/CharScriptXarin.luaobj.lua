@@ -326,5 +326,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xarinparticlebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xerathascended"
+    }
   }
 }
