@@ -104,12 +104,15 @@ BuffOnUpdateStatsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "BansheesVeilTimer",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 30,
+          Duration = 45,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

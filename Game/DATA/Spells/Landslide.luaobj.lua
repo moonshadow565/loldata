@@ -55,7 +55,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "ArmorAmount",
       Src1Value = 0,
-      Src2Value = 0.7,
+      Src2Value = 0.5,
       DestVar = "ArmorAmount",
       MathOp = MO_MULTIPLY
     }
@@ -176,13 +176,20 @@ SelfExecuteBuildingBlocks = {
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "landslide_blue_nova.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

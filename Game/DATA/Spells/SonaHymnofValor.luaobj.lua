@@ -5,37 +5,64 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sona_HymnofValorGold.dds"
 BuffName = ""
+AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 4
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBOverrideAutoAttack,
+    Function = BBSpellBuffRemove,
     Params = {
-      SpellSlot = 4,
-      SlotType = ExtraSlots,
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaAriaOfPerseverance"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaSongOfDiscord"
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1,
-      CancelAttack = true
+      CasterVar = "Owner",
+      BuffName = "SonaPowerChord"
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAutoAttack,
+        Params = {
+          SpellSlot = 4,
+          SlotType = ExtraSlots,
+          OwnerVar = "Owner",
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
+        }
+      }
     }
   }
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSpellBuffAdd,
     Params = {
-      OwnerVar = "Owner",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaAriaofPerseverance"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "SonaAriaofPerseverance"
-        }
-      }
+      BuffName = "SonaHymnofValor",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -43,15 +70,25 @@ SelfExecuteBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongofDiscord"
+      BuffName = "SonaPowerChord"
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "SonaSongofDiscord"
+          BuffName = "SonaHymnofValorCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -497,24 +534,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "SonaHymnofValor",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -531,7 +552,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -541,7 +563,8 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 1,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   }
 }
@@ -561,13 +584,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonahymnofvaloraura"
+      Name = "sonapowerchord"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonahymnofvalor"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvalorcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvaloraura"
     }
   },
   {

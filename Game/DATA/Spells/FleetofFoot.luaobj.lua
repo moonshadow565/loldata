@@ -94,3 +94,33 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "temp",
+      Status = IsMoving
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "temp",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncFlatDodgeMod,
+          TargetVar = "Owner",
+          DeltaVar = "DodgeChance",
+          DeltaVarTable = "CharVars",
+          Delta = 0
+        }
+      }
+    }
+  }
+}

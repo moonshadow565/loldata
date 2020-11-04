@@ -36,12 +36,15 @@ BuffOnSpellCastBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "ForcePulseCounter",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_Aura,
               MaxStack = 6,
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -64,19 +67,20 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         60,
-        120,
-        180,
-        240,
-        300
+        115,
+        170,
+        225,
+        280
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8,
+      SpellDamageRatio = 0.7,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -112,12 +116,15 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Slow",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 100,
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

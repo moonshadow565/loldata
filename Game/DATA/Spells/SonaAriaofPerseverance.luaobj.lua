@@ -5,37 +5,64 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sona_AriaofPerseveranceGold.dds"
 BuffName = ""
+AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 4
 PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBOverrideAutoAttack,
+    Function = BBSpellBuffRemove,
     Params = {
-      SpellSlot = 3,
-      SlotType = ExtraSlots,
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaHymnOfValor"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "SonaSongOfDiscord"
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
       OwnerVar = "Owner",
-      AutoAttackSpellLevel = 1,
-      CancelAttack = true
+      CasterVar = "Owner",
+      BuffName = "SonaPowerChord"
+    },
+    SubBlocks = {
+      {
+        Function = BBOverrideAutoAttack,
+        Params = {
+          SpellSlot = 3,
+          SlotType = ExtraSlots,
+          OwnerVar = "Owner",
+          AutoAttackSpellLevel = 1,
+          CancelAttack = false
+        }
+      }
     }
   }
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSpellBuffAdd,
     Params = {
-      OwnerVar = "Owner",
+      TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaSongofDiscord"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "SonaSongofDiscord"
-        }
-      }
+      BuffName = "SonaAriaofPerseverance",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -43,15 +70,25 @@ SelfExecuteBuildingBlocks = {
     Params = {
       OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaHymnofValor"
+      BuffName = "SonaPowerChord"
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "SonaHymnofValor"
+          BuffName = "SonaAriaofPerseveranceCheck",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -301,7 +338,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "APMod",
       Src1Value = 0,
-      Src2Value = 0.5,
+      Src2Value = 0.35,
       DestVar = "APMod",
       MathOp = MO_MULTIPLY
     }
@@ -313,11 +350,11 @@ SelfExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "APMod",
       DeltaByLevel = {
-        30,
-        55,
-        80,
+        35,
+        70,
         105,
-        130
+        140,
+        175
       },
       HealerVar = "Attacker"
     }
@@ -335,7 +372,8 @@ SelfExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -352,24 +390,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "SonaAriaofPerseverance",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -386,7 +408,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -396,11 +419,18 @@ SelfExecuteBuildingBlocks = {
       ScaleTime = 1,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonahymnofvalor"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -410,7 +440,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonahymnofvalor"
+      Name = "sonapowerchord"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseverance"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sonaariaofperseverancecheck"
     }
   },
   {
@@ -423,12 +465,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonaariaofperseveranceaura"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverance"
     }
   },
   {
