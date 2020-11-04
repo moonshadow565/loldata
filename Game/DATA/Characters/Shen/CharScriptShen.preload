@@ -1,7 +1,10 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
-{Function=BBPreloadSpell, Params={Name="shenwayoftheninjaaura"}}, 
-{Function=BBPreloadSpell, Params={Name="shenkiattack"}}, 
-{Function=BBPreloadSpell, Params={Name="shenwayoftheninjamarker"}}, 
-{Function=BBPreloadSpell, Params={Name="shenpassivehardcooldown"}}, 
+{Function=BBPreloadSpell, Params={Name="shenpassivedatathing"}}, 
+{Function=BBPreloadSpell, Params={Name="shenpassivedataenergy"}}, 
+{Function=BBPreloadSpell, Params={Name="shenpassivedatashield"}}, 
+{Function=BBPreloadSpell, Params={Name="shenpassive"}}, 
+{Function=BBPreloadSpell, Params={Name="shenq"}}, 
+{Function=BBPreloadSpell, Params={Name="shene"}}, 
+{Function=BBPreloadSpell, Params={Name="shenr"}}, 
 }

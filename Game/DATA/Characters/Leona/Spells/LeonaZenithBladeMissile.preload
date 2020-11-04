@@ -5,6 +5,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="leona_zenithblade_sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="leonazenithbladeroot"}}, 
 {Function=BBPreloadParticle, Params={Name="leona_base_e_mis_dash.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="leonazenithbladedonotroot"}}, 
 {Function=BBPreloadSpell, Params={Name="leonazenithbladebuffchaos"}}, 
 {Function=BBPreloadParticle, Params={Name="leona_base_e_cas_arrive.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="leonaprojectidleparticles"}}, 

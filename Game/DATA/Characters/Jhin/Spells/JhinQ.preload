@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jhinqspellshieldcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinqmarker"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_hit_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinqmisbounce"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_lastbounce_audio.troy"}}, 
+}

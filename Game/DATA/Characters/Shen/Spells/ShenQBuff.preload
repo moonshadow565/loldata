@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="shenqbuffstrong"}}, 
+{Function=BBPreloadSpell, Params={Name="shenq"}}, 
+{Function=BBPreloadSpell, Params={Name="shenqbuffweak"}}, 
+{Function=BBPreloadSpell, Params={Name="shenqattack"}}, 
+{Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+}

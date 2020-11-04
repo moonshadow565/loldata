@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="missfortunepassive"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="ispiratehunter"}}, 
+{Function=BBPreloadSpell, Params={Name="missfortunebasicattack"}}, 
 {Function=BBPreloadParticle, Params={Name="missfortune_base_ba_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="missfortunestrut"}}, 
 {Function=BBPreloadSpell, Params={Name="missfortunestrutstacks"}}, 

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.CastInstance"}}, 
+{Function=BBPreloadSpell, Params={Name="shenwdelay"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_hand_cas.troy"}}, 
+}

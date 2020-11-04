@@ -1,0 +1,11 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jhinqspellshieldcheck"}}, 
+{Function=BBPreloadSpell, Params={Name="katarinaq"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_bounce_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinqmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinq"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_lastbounce_audio.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_kill_bounce_03.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_kill_bounce_02.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_q_kill_bounce_01.troy"}}, 
+}

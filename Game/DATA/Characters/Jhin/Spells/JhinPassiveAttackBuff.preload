@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="jhin_base_ba_4th_shot_ready.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_ba_4th_shot_readyhand.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassiveattack"}}, 
+}

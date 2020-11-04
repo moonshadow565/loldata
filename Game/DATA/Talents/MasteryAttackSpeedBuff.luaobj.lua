@@ -1,2 +1,2 @@
-BuffTextureName = "6161.dds"
+BuffTextureName = "6161_Grey.dds"
 BuffName = "MasteryAttackSpeedBuff"

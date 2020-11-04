@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = false
+IsDamagingSpell = true
+BuffTextureName = "Jhin_W_Spotted.dds"
+BuffName = "JhinRSight"
+AutoBuffActivateEffect = "global_Watched.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

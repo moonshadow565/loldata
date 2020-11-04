@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="shen_base_p_shield.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_p_shield_block.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_p_shield_deactivate.troy"}}, 
+}

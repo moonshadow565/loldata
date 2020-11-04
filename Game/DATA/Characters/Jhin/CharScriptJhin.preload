@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassive"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinruncyclemanager"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinespottedapplicator"}}, 
+}

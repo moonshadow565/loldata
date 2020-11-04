@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="jhin_jhinpassivereload_cast_recoil_audio.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_jhinpassivereload_cast_audio.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassiveincombat"}}, 
+}

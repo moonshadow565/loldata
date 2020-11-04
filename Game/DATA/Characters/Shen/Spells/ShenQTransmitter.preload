@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Global.CastInstance"}}, 
+{Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_p_sword_flash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_activate_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_q_activate_sword.troy"}}, 
+}

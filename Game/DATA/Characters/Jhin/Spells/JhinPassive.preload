@@ -1,0 +1,18 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jhinpassiveincombat"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_ba_cas_01.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassiveattackbuff"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_ba_cas_04.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassivereload"}}, 
+{Function=BBPreloadSpell, Params={Name="jhincritattack"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinbasicattack"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinbasicattack2"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinbasicattack3"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinpassivehaste"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_z_championdeath_self.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_activate_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhine"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinrsight"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinespotteddebuff"}}, 
+}

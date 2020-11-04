@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kennenmarkofstorm"}}, 
+{Function=BBPreloadSpell, Params={Name="kennenshurikenhurlmissile1"}}, 
+{Function=BBPreloadParticle, Params={Name="kennen_base_q_tar.troy"}}, 
+}

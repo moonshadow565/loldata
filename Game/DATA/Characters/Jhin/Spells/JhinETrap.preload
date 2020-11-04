@@ -1,0 +1,16 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_indicator_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_idle.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="stealth"}}, 
+{Function=BBPreloadSpell, Params={Name="itemdisable"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_trap_activate_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhine"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_e_enemy_vo_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinrsight"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinespotteddebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="noxious trap"}}, 
+{Function=BBPreloadCharacter, Params={Name="jhintrap"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_base_r_groundimpact_dust.troy"}}, 
+}

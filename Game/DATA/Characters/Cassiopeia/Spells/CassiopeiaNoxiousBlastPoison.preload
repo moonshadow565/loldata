@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="cassiopeiapoisontickerlockout"}}, 
 {Function=BBPreloadSpell, Params={Name="cassiopeianoxiousblast"}}, 
+{Function=BBPreloadSpell, Params={Name="cassiopeiapoisontickerlockout"}}, 
 }

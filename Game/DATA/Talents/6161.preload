@@ -1,4 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="mastery6161"}}, 
+{Function=BBPreloadSpell, Params={Name="masterywarlordsbloodlustready"}}, 
+{Function=BBPreloadParticle, Params={Name="ag_masteryring_flash.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="to_graspoftheundying_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="to_graspoftheundying_swirlup.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="masteryattackspeedbuff"}}, 
 }

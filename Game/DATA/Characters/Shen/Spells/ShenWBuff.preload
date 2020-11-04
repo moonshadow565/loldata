@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="shen_base_w_buf_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="evadebuffmarker"}}, 
+{Function=BBPreloadModule, Params={Name="Shen.ShenFunctions"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_orbpop.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_sound_block.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_orbpop_small.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="shen_base_w_sound_block_small.troy"}}, 
+}

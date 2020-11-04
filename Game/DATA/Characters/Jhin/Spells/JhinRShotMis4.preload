@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jhinrsight"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinr"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_big_hit_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="jhinrslow"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_bigmissile_champion_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="jhin_base_r_bigmissile_minion_sound.troy"}}, 
+}
