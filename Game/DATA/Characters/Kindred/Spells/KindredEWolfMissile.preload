@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="kindredwolfbuddyvisual"}}, 
 {Function=BBPreloadParticle, Params={Name="kindredwolf_base_e_wolf_mis.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="kindredecharge"}}, 
