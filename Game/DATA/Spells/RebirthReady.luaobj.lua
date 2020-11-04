@@ -2,7 +2,6 @@ BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "RebirthReady"
 PersistsThroughDeath = true
 NonDispellable = true
-Nondispellable = true
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,

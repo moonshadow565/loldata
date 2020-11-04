@@ -28,7 +28,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -48,7 +48,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -68,7 +68,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -88,7 +88,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -108,7 +108,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -128,7 +128,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -148,7 +148,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -183,7 +183,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 120,
+          Src1Value = 150,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -239,6 +239,22 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Summoner_Boost.troy",
+      Flags = 0,
+      EffectIDVar = "BoostParticle",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBDispellNegativeBuffs,
     Params = {AttackerVar = "Owner"}
   },
@@ -248,12 +264,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -262,6 +280,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_boost.troy"
     }
   }
 }

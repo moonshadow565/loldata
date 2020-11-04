@@ -15,6 +15,33 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "Damage",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "tristana_rocketJump_cas.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "root",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 SelfExecuteBuildingBlocks = {
@@ -293,6 +320,22 @@ BuffOnMoveEndBuildingBlocks = {
         }
       },
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "tristana_rocketJump_unit_tar.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
@@ -314,7 +357,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "RocketJump_land.troy",
+      EffectName = "tristana_rocketJump_land.troy",
       Flags = 0,
       TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
@@ -378,6 +421,22 @@ CanCastBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tristana_rocketjump_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tristana_rocketjump_unit_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "rocketjumpslow"
@@ -386,7 +445,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rocketjump_land.troy"
+      Name = "tristana_rocketjump_land.troy"
     }
   }
 }

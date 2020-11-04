@@ -7,7 +7,7 @@ BuffTextureName = "Pirate_GrogSoakedBlade.dds"
 BuffName = "Scurvy"
 AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,

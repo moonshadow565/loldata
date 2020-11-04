@@ -5,7 +5,7 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Minotaur_TriumphantRoar.dds"
 BuffName = "MoveAway"
-Nondispellable = true
+NonDispellable = true
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {

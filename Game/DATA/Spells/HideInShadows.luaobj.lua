@@ -51,7 +51,8 @@ OnBuffActivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 0,
       SlotType = SpellSlots,
-      Cost = -60
+      Cost = -60,
+      PARType = PAR_MANA
     }
   }
 }
@@ -127,7 +128,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 0,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -235,68 +237,11 @@ BuffOnDeathBuildingBlocks = {
     }
   }
 }
-BuffOnPreAttackBuildingBlocks = {
-  {
-    Function = BBGetTime,
-    Params = {DestVar = "CurTime"}
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurTime",
-      Src2Var = "InitialTime",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TimeSinceLast",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "TimeSinceLast",
-      Src1Value = 0,
-      Src2Value = 10,
-      DestVar = "TimeSinceLast",
-      MathOp = MO_MIN
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "AttackSpeedMod",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "HideInShadowsBuff",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      DurationVar = "TimeSinceLast",
-      TickRate = 0
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetStatus,
     Params = {
@@ -348,8 +293,9 @@ TargetExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -411,12 +357,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "HideInShadows_internal",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -424,21 +372,60 @@ TargetExecuteBuildingBlocks = {
 }
 BuffOnLaunchAttackBuildingBlocks = {
   {
+    Function = BBGetTime,
+    Params = {DestVar = "CurTime"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "CurTime",
+      Src2Var = "InitialTime",
+      Src2VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TimeSinceLast",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TimeSinceLast",
+      Src1Value = 0,
+      Src2Value = 10,
+      DestVar = "TimeSinceLast",
+      MathOp = MO_MIN
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "AttackSpeedMod",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "HideInShadowsBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      DurationVar = "TimeSinceLast",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "hideinshadowsbuff"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -455,6 +442,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_invis_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hideinshadowsbuff"
     }
   }
 }

@@ -53,12 +53,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "ToxicShotParticle",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Damage,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 5.1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

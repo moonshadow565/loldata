@@ -1,7 +1,7 @@
 BuffTextureName = "Fiddlesticks_Paranoia.dds"
 BuffName = "Paranoia"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,

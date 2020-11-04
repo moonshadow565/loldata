@@ -87,6 +87,10 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetPercentCooldownMod,
@@ -108,7 +112,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "ReductionPerc",
-      Src1Value = 12,
+      Src1Value = 11,
       Src2Value = 0,
       DestVar = "CooldownTime",
       MathOp = MO_MULTIPLY
@@ -137,8 +141,9 @@ OnBuffDeactivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -244,6 +249,10 @@ BuffOnUpdateActionsBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "collide", SrcValue = false}
+      },
+      {
         Function = BBForNClosestUnitsInTargetArea,
         Params = {
           AttackerVar = "Owner",
@@ -251,7 +260,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 160,
           Flags = "AffectEnemies AffectNeutral AffectMinions ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -271,108 +281,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBApplyRoot,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Owner",
-                  Duration = 0.5
-                }
-              },
-              {
-                Function = BBForEachUnitInTargetArea,
-                Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Owner",
-                  Range = 325,
-                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Other1"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "PowerballHit.troy",
-                      Flags = 0,
-                      EffectIDVar = "A",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBBreakSpellShields,
-                    Params = {TargetVar = "Other1"}
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "SlowPercent",
-                      DestVarTable = "NextBuffVars",
-                      SrcVar = "SlowPercent",
-                      SrcVarTable = "InstanceVars"
-                    }
-                  },
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Other1",
-                      Damage = 0,
-                      DamageVar = "AoEDamage",
-                      DamageVarTable = "InstanceVars",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 1,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Other1",
-                      AttackerVar = "Attacker",
-                      BuffName = "PowerBallSlow",
-                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                      BuffType = BUFF_Slow,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 4,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Other1",
-                      AttackerVar = "Attacker",
-                      BuffName = "PowerballStun",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_Stun,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 0.5,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "WillRemove",
-                      DestVarTable = "InstanceVars",
-                      SrcValue = true
-                    }
-                  }
-                }
+                Function = BBSetVarInTable,
+                Params = {DestVar = "collide", SrcValue = true}
               }
             }
           },
@@ -385,108 +295,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
                 SubBlocks = {
                   {
-                    Function = BBApplyRoot,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Owner",
-                      Duration = 0.5
-                    }
-                  },
-                  {
-                    Function = BBForEachUnitInTargetArea,
-                    Params = {
-                      AttackerVar = "Owner",
-                      CenterVar = "Owner",
-                      Range = 325,
-                      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                      IteratorVar = "Other1"
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellEffectCreate,
-                        Params = {
-                          BindObjectVar = "Owner",
-                          EffectName = "PowerballHit.troy",
-                          Flags = 0,
-                          EffectIDVar = "A",
-                          TargetObjectVar = "Target",
-                          SpecificUnitOnlyVar = "Owner",
-                          SpecificTeamOnly = TEAM_UNKNOWN,
-                          UseSpecificUnit = false,
-                          FOWTeam = TEAM_UNKNOWN,
-                          FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
-                        }
-                      },
-                      {
-                        Function = BBBreakSpellShields,
-                        Params = {TargetVar = "Other1"}
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "SlowPercent",
-                          DestVarTable = "NextBuffVars",
-                          SrcVar = "SlowPercent",
-                          SrcVarTable = "InstanceVars"
-                        }
-                      },
-                      {
-                        Function = BBApplyDamage,
-                        Params = {
-                          AttackerVar = "Attacker",
-                          TargetVar = "Other1",
-                          Damage = 0,
-                          DamageVar = "AoEDamage",
-                          DamageVarTable = "InstanceVars",
-                          DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                          PercentOfAttack = 1,
-                          SpellDamageRatio = 1,
-                          PhysicalDamageRatio = 1,
-                          IgnoreDamageIncreaseMods = false,
-                          IgnoreDamageCrit = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Other1",
-                          AttackerVar = "Attacker",
-                          BuffName = "PowerBallSlow",
-                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                          BuffType = BUFF_Slow,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 4,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Other1",
-                          AttackerVar = "Attacker",
-                          BuffName = "PowerballStun",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
-                          BuffType = BUFF_Stun,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 0.5,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "WillRemove",
-                          DestVarTable = "InstanceVars",
-                          SrcValue = true
-                        }
-                      }
-                    }
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "collide", SrcValue = true}
                   }
                 }
               },
@@ -511,108 +321,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
-                        Function = BBApplyRoot,
-                        Params = {
-                          AttackerVar = "Attacker",
-                          TargetVar = "Owner",
-                          Duration = 0.5
-                        }
-                      },
-                      {
-                        Function = BBForEachUnitInTargetArea,
-                        Params = {
-                          AttackerVar = "Owner",
-                          CenterVar = "Owner",
-                          Range = 325,
-                          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                          IteratorVar = "Other1"
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBSpellEffectCreate,
-                            Params = {
-                              BindObjectVar = "Owner",
-                              EffectName = "PowerballHit.troy",
-                              Flags = 0,
-                              EffectIDVar = "A",
-                              TargetObjectVar = "Target",
-                              SpecificUnitOnlyVar = "Owner",
-                              SpecificTeamOnly = TEAM_UNKNOWN,
-                              UseSpecificUnit = false,
-                              FOWTeam = TEAM_UNKNOWN,
-                              FOWVisibilityRadius = 0,
-                              SendIfOnScreenOrDiscard = false
-                            }
-                          },
-                          {
-                            Function = BBBreakSpellShields,
-                            Params = {TargetVar = "Other1"}
-                          },
-                          {
-                            Function = BBSetVarInTable,
-                            Params = {
-                              DestVar = "SlowPercent",
-                              DestVarTable = "NextBuffVars",
-                              SrcVar = "SlowPercent",
-                              SrcVarTable = "InstanceVars"
-                            }
-                          },
-                          {
-                            Function = BBApplyDamage,
-                            Params = {
-                              AttackerVar = "Attacker",
-                              TargetVar = "Other1",
-                              Damage = 0,
-                              DamageVar = "AoEDamage",
-                              DamageVarTable = "InstanceVars",
-                              DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                              PercentOfAttack = 1,
-                              SpellDamageRatio = 1,
-                              PhysicalDamageRatio = 1,
-                              IgnoreDamageIncreaseMods = false,
-                              IgnoreDamageCrit = false
-                            }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Other1",
-                              AttackerVar = "Attacker",
-                              BuffName = "PowerBallSlow",
-                              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                              BuffType = BUFF_Slow,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 4,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
-                            }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Other1",
-                              AttackerVar = "Attacker",
-                              BuffName = "PowerballStun",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
-                              BuffType = BUFF_Stun,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 0.5,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
-                            }
-                          },
-                          {
-                            Function = BBSetVarInTable,
-                            Params = {
-                              DestVar = "WillRemove",
-                              DestVarTable = "InstanceVars",
-                              SrcValue = true
-                            }
-                          }
-                        }
+                        Function = BBSetVarInTable,
+                        Params = {DestVar = "collide", SrcValue = true}
                       }
                     }
                   }
@@ -630,7 +340,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 200,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -650,108 +361,8 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBApplyRoot,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Owner",
-                  Duration = 0.5
-                }
-              },
-              {
-                Function = BBForEachUnitInTargetArea,
-                Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Owner",
-                  Range = 325,
-                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Other1"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Owner",
-                      EffectName = "PowerballHit.troy",
-                      Flags = 0,
-                      EffectIDVar = "A",
-                      TargetObjectVar = "Target",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
-                    }
-                  },
-                  {
-                    Function = BBBreakSpellShields,
-                    Params = {TargetVar = "Other1"}
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "SlowPercent",
-                      DestVarTable = "NextBuffVars",
-                      SrcVar = "SlowPercent",
-                      SrcVarTable = "InstanceVars"
-                    }
-                  },
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Other1",
-                      Damage = 0,
-                      DamageVar = "AoEDamage",
-                      DamageVarTable = "InstanceVars",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 1,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Other1",
-                      AttackerVar = "Attacker",
-                      BuffName = "PowerBallSlow",
-                      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                      BuffType = BUFF_Slow,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 4,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Other1",
-                      AttackerVar = "Attacker",
-                      BuffName = "PowerballStun",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_Stun,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 0.5,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
-                      DestVar = "WillRemove",
-                      DestVarTable = "InstanceVars",
-                      SrcValue = true
-                    }
-                  }
-                }
+                Function = BBSetVarInTable,
+                Params = {DestVar = "collide", SrcValue = true}
               }
             }
           },
@@ -764,108 +375,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                 Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
                 SubBlocks = {
                   {
-                    Function = BBApplyRoot,
-                    Params = {
-                      AttackerVar = "Attacker",
-                      TargetVar = "Owner",
-                      Duration = 0.5
-                    }
-                  },
-                  {
-                    Function = BBForEachUnitInTargetArea,
-                    Params = {
-                      AttackerVar = "Owner",
-                      CenterVar = "Owner",
-                      Range = 325,
-                      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                      IteratorVar = "Other1"
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellEffectCreate,
-                        Params = {
-                          BindObjectVar = "Owner",
-                          EffectName = "PowerballHit.troy",
-                          Flags = 0,
-                          EffectIDVar = "A",
-                          TargetObjectVar = "Target",
-                          SpecificUnitOnlyVar = "Owner",
-                          SpecificTeamOnly = TEAM_UNKNOWN,
-                          UseSpecificUnit = false,
-                          FOWTeam = TEAM_UNKNOWN,
-                          FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
-                        }
-                      },
-                      {
-                        Function = BBBreakSpellShields,
-                        Params = {TargetVar = "Other1"}
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "SlowPercent",
-                          DestVarTable = "NextBuffVars",
-                          SrcVar = "SlowPercent",
-                          SrcVarTable = "InstanceVars"
-                        }
-                      },
-                      {
-                        Function = BBApplyDamage,
-                        Params = {
-                          AttackerVar = "Attacker",
-                          TargetVar = "Other1",
-                          Damage = 0,
-                          DamageVar = "AoEDamage",
-                          DamageVarTable = "InstanceVars",
-                          DamageType = MAGIC_DAMAGE,
-                          SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                          PercentOfAttack = 1,
-                          SpellDamageRatio = 1,
-                          PhysicalDamageRatio = 1,
-                          IgnoreDamageIncreaseMods = false,
-                          IgnoreDamageCrit = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Other1",
-                          AttackerVar = "Attacker",
-                          BuffName = "PowerBallSlow",
-                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                          BuffType = BUFF_Slow,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 4,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Other1",
-                          AttackerVar = "Attacker",
-                          BuffName = "PowerballStun",
-                          BuffAddType = BUFF_REPLACE_EXISTING,
-                          BuffType = BUFF_Stun,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 0.5,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "WillRemove",
-                          DestVarTable = "InstanceVars",
-                          SrcValue = true
-                        }
-                      }
-                    }
+                    Function = BBSetVarInTable,
+                    Params = {DestVar = "collide", SrcValue = true}
                   }
                 }
               },
@@ -890,111 +401,130 @@ BuffOnUpdateActionsBuildingBlocks = {
                     },
                     SubBlocks = {
                       {
-                        Function = BBApplyRoot,
-                        Params = {
-                          AttackerVar = "Attacker",
-                          TargetVar = "Owner",
-                          Duration = 0.5
-                        }
-                      },
-                      {
-                        Function = BBForEachUnitInTargetArea,
-                        Params = {
-                          AttackerVar = "Owner",
-                          CenterVar = "Owner",
-                          Range = 325,
-                          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                          IteratorVar = "Other1"
-                        },
-                        SubBlocks = {
-                          {
-                            Function = BBSpellEffectCreate,
-                            Params = {
-                              BindObjectVar = "Owner",
-                              EffectName = "PowerballHit.troy",
-                              Flags = 0,
-                              EffectIDVar = "A",
-                              TargetObjectVar = "Target",
-                              SpecificUnitOnlyVar = "Owner",
-                              SpecificTeamOnly = TEAM_UNKNOWN,
-                              UseSpecificUnit = false,
-                              FOWTeam = TEAM_UNKNOWN,
-                              FOWVisibilityRadius = 0,
-                              SendIfOnScreenOrDiscard = false
-                            }
-                          },
-                          {
-                            Function = BBBreakSpellShields,
-                            Params = {TargetVar = "Other1"}
-                          },
-                          {
-                            Function = BBSetVarInTable,
-                            Params = {
-                              DestVar = "SlowPercent",
-                              DestVarTable = "NextBuffVars",
-                              SrcVar = "SlowPercent",
-                              SrcVarTable = "InstanceVars"
-                            }
-                          },
-                          {
-                            Function = BBApplyDamage,
-                            Params = {
-                              AttackerVar = "Attacker",
-                              TargetVar = "Other1",
-                              Damage = 0,
-                              DamageVar = "AoEDamage",
-                              DamageVarTable = "InstanceVars",
-                              DamageType = MAGIC_DAMAGE,
-                              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-                              PercentOfAttack = 1,
-                              SpellDamageRatio = 1,
-                              PhysicalDamageRatio = 1,
-                              IgnoreDamageIncreaseMods = false,
-                              IgnoreDamageCrit = false
-                            }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Other1",
-                              AttackerVar = "Attacker",
-                              BuffName = "PowerBallSlow",
-                              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-                              BuffType = BUFF_Slow,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 4,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
-                            }
-                          },
-                          {
-                            Function = BBSpellBuffAdd,
-                            Params = {
-                              TargetVar = "Other1",
-                              AttackerVar = "Attacker",
-                              BuffName = "PowerballStun",
-                              BuffAddType = BUFF_REPLACE_EXISTING,
-                              BuffType = BUFF_Stun,
-                              MaxStack = 1,
-                              NumberOfStacks = 1,
-                              Duration = 0.5,
-                              BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
-                            }
-                          },
-                          {
-                            Function = BBSetVarInTable,
-                            Params = {
-                              DestVar = "WillRemove",
-                              DestVarTable = "InstanceVars",
-                              SrcValue = true
-                            }
-                          }
-                        }
+                        Function = BBSetVarInTable,
+                        Params = {DestVar = "collide", SrcValue = true}
                       }
                     }
                   }
+                }
+              }
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "collide",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyRoot,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 0.5
+            }
+          },
+          {
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 325,
+              Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+              IteratorVar = "Other1",
+              InclusiveBuffFilter = true
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "PowerballHit.troy",
+                  Flags = 0,
+                  EffectIDVar = "A",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false
+                }
+              },
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Other1"}
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "SlowPercent",
+                  DestVarTable = "NextBuffVars",
+                  SrcVar = "SlowPercent",
+                  SrcVarTable = "InstanceVars"
+                }
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Other1",
+                  Damage = 0,
+                  DamageVar = "AoEDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Other1",
+                  AttackerVar = "Attacker",
+                  BuffName = "PowerBallSlow",
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Slow,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 4,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Other1",
+                  AttackerVar = "Attacker",
+                  BuffName = "PowerballStun",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Stun,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "WillRemove",
+                  DestVarTable = "InstanceVars",
+                  SrcValue = true
                 }
               }
             }
@@ -1027,7 +557,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "ReductionPerc",
-      Src1Value = 12,
+      Src1Value = 11,
       Src2Value = 0,
       DestVar = "CooldownTime",
       MathOp = MO_MULTIPLY
@@ -1150,12 +680,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "PowerBall",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Haste,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 8,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {

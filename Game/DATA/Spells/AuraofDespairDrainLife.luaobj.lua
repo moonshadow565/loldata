@@ -3,7 +3,7 @@ BuffName = "AuraofDespairDamage"
 AutoBuffActivateEffect = "Despair_tar.troy"
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

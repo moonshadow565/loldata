@@ -108,6 +108,14 @@ OnBuffActivateBuildingBlocks = {
       SecondsVar = "ActivateTime",
       SecondsVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TickDamage",
+      DestVarTable = "InstanceVars",
+      SrcValue = 3
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -189,7 +197,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1.1,
+              SpellDamageRatio = 0.9,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -242,7 +250,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1.1,
+              SpellDamageRatio = 0.9,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -315,7 +323,6 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 1.1,
-              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -336,8 +343,60 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
+      TickRate = 1,
       CanMitigateDuration = false
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "TickDamage",
+          Src1VarTable = "InstanceVars",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBApplyDamage,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Damage = 0,
+              DamageVar = "TickDamage",
+              DamageVarTable = "InstanceVars",
+              DamageType = TRUE_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_PROC,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "TickDamage",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "TickDamage",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
     }
   }
 }

@@ -7,7 +7,7 @@ AutoCooldownByLevel = {
   120
 }
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

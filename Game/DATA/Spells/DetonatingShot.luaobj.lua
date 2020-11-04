@@ -1,8 +1,8 @@
 BuffTextureName = "Tristana_ExplosiveShot.dds"
 BuffName = "Detonating Shot"
-AutoBuffActivateEffect = "DetonatingShot_buf.troy"
+AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnKillBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -18,6 +18,7 @@ BuffOnKillBuildingBlocks = {
           BindObjectVar = "Target",
           EffectName = "DetonatingShot_buf.troy",
           Flags = 0,
+          EffectIDVar = "e",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
@@ -45,12 +46,29 @@ BuffOnKillBuildingBlocks = {
           CenterVar = "Target",
           Range = 300,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "tristana_explosiveShot_unit_tar.troy",
+              Flags = 0,
+              EffectIDVar = "b",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = true
+            }
           },
           {
             Function = BBApplyDamage,
@@ -69,6 +87,7 @@ BuffOnKillBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.25,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -98,6 +117,7 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "DetonatingShot_Target",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -135,6 +155,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ExplosiveShotDebuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -157,6 +178,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Target",
       BuffName = "Internal_50MS",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -179,6 +201,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "GrievousWound",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -206,6 +229,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "detonatingshot_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tristana_explosiveshot_unit_tar.troy"
     }
   },
   {

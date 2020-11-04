@@ -6,7 +6,7 @@ IsDamagingSpell = false
 BuffTextureName = "Ryze_SpellStrike.dds"
 BuffName = "Arcane Mastery"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnSpellCastBuildingBlocks = {
   {
     Function = BBIf,

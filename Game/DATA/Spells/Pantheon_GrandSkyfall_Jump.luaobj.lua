@@ -5,6 +5,10 @@ BuffName = "Pantheon Grand Skyfall"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -18,7 +22,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   }
@@ -68,6 +73,10 @@ SelfExecuteBuildingBlocks = {
 }
 ChannelingStartBuildingBlocks = {}
 ChannelingSuccessStopBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -127,7 +136,8 @@ ChannelingSuccessStopBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   },
@@ -189,7 +199,7 @@ ChannelingSuccessStopBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 2.75,
+          Src = 2,
           SlotNumber = 0,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_SUMMONER,
@@ -209,7 +219,7 @@ ChannelingSuccessStopBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 2.75,
+          Src = 2,
           SlotNumber = 1,
           SlotType = SpellSlots,
           SpellbookType = SPELLBOOK_SUMMONER,

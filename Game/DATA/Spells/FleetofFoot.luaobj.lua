@@ -1,7 +1,7 @@
 BuffTextureName = "Sivir_Sprint.dds"
 BuffName = "Fleet of Foot"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,

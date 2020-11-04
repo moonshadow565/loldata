@@ -2,6 +2,9 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellVOOverrideSkins = {
+  "DandyChogath"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -212,7 +215,8 @@ OnBuffDeactivateBuildingBlocks = {
       BuffNumberOfStacks = 1,
       BuffDuration = 37037,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      InclusiveBuffFilter = true
     }
   },
   {
@@ -230,7 +234,8 @@ OnBuffDeactivateBuildingBlocks = {
       BuffNumberOfStacks = 1,
       BuffDuration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      InclusiveBuffFilter = true
     }
   },
   {
@@ -251,6 +256,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -283,6 +289,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -322,12 +329,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -3,6 +3,13 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "GreenTerror_Feast.dds"
 BuffName = "Feast"
+PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "DandyChogath"
+}
+SpellVOOverrideSkins = {
+  "DandyChogath"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetBuffCountFromCaster,
@@ -195,12 +202,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Feast",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 6,
           NumberOfStacks = 1,
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -210,12 +219,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Feast_internal",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

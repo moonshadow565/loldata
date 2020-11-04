@@ -5,7 +5,7 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffName = "NoRespawn"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncStat,

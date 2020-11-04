@@ -12,7 +12,7 @@ AutoBuffActivateAttachBoneName2 = "R_hand"
 AutoBuffActivateEffect3 = "nassus_godofDeath_overhead.troy"
 AutoBuffActivateAttachBoneName3 = "L_hand"
 AutoBuffActivateEffect4 = "nassus_godofDeath_aura.troy"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

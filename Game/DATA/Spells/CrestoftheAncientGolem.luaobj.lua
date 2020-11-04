@@ -1,7 +1,7 @@
 BuffTextureName = "48thSlave_Tattoo.dds"
 BuffName = "CrestoftheAncientGolem"
 AutoBuffActivateEffect = ""
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,

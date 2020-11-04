@@ -5,7 +5,7 @@ IsDamagingSpell = false
 BuffTextureName = "Permission_Entropy.dds"
 BuffName = "Entropy"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
   {

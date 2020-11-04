@@ -1,7 +1,7 @@
 BuffTextureName = "Nasus_SoulEater.dds"
 BuffName = "SoulEater"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,

@@ -21,6 +21,13 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
+      RequiredVar = "AttackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
       RequiredVar = "Activated",
       RequiredVarTable = "InstanceVars"
     }
@@ -30,7 +37,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       FadeAmount = 0.2,
-      fadeTime = 2,
+      fadeTime = 1.5,
       IDVar = "ID",
       IDVarTable = "InstanceVars"
     }
@@ -114,12 +121,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Stealth",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -129,12 +138,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BantamArmor",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -158,7 +169,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 160,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -194,8 +206,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -205,7 +218,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               CenterVar = "Owner",
               Range = 450,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -246,12 +260,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "BantamTrapTarget",
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Damage,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 4,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -261,12 +277,14 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "Slow",
                   BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
                   BuffType = BUFF_Slow,
                   MaxStack = 100,
                   NumberOfStacks = 1,
                   Duration = 4,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -325,6 +343,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = false,
+      Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -357,6 +376,13 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "AttackSpeedMod",
+      DestVarTable = "NextBuffVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "Activated",
       DestVarTable = "NextBuffVars",
       SrcValue = false
@@ -368,12 +394,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 600,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

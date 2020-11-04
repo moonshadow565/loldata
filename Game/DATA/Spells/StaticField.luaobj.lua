@@ -5,7 +5,7 @@ BuffName = "StaticField"
 AutoBuffActivateEffect = "StaticField_ready.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

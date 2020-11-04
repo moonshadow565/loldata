@@ -223,7 +223,8 @@ OnBuffActivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -353,7 +354,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -422,6 +424,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -453,7 +456,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -468,6 +472,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "tormentedsoil_green_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tormentedsoildebuff"
     }
   },
   {

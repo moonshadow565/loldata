@@ -95,15 +95,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatPhysicalDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AkaliDmg",
-          DestVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBMath,
         Params = {
           Src1Var = "AkaliDmg",
@@ -228,6 +219,17 @@ BuffOnDealDamageBuildingBlocks = {
           HealerVar = "Owner"
         }
       }
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliDmg",
+      DestVarTable = "InstanceVars"
     }
   }
 }

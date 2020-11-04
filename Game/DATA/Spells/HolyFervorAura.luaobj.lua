@@ -3,7 +3,7 @@ BuffName = "Holy Fervor Aura"
 AutoBuffActivateEffect = "Divineblessing_buf.troy"
 AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnKillBuildingBlocks = {
   {
     Function = BBIf,

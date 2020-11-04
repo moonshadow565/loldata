@@ -1,7 +1,7 @@
 BuffTextureName = "Shen_KiStrike.dds"
 BuffName = "Shen Passive Marker"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,

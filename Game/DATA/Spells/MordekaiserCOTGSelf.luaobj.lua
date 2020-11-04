@@ -1,6 +1,6 @@
 BuffTextureName = "Mordekaiser_COTG.dds"
 BuffName = "MordekaiserCOTGSelf"
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

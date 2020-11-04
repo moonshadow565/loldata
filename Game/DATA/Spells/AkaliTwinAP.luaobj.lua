@@ -92,15 +92,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AkaliAP",
-          DestVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBMath,
         Params = {
           Src1Var = "AkaliAP",
@@ -191,6 +182,17 @@ BuffOnHitUnitBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AkaliAP",
+      DestVarTable = "InstanceVars"
     }
   }
 }

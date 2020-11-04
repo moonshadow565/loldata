@@ -1,7 +1,29 @@
 BuffTextureName = "AkaliTwilightShroud.dds"
 BuffName = "AkaliTwilightShroud"
-AutoBuffActivateEffect = "akali_twilight_buf.troy"
+AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "akali_twilight_buf.troy",
+      Flags = 0,
+      EffectIDVar = "AkaliStealth",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
   {
     Function = BBPushCharacterFade,
     Params = {
@@ -116,6 +138,13 @@ OnBuffDeactivateBuildingBlocks = {
         Params = {TargetVar = "Owner"}
       }
     }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "AkaliStealth",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -185,17 +214,13 @@ BuffOnDeathBuildingBlocks = {
     }
   }
 }
-BuffOnPreAttackBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  }
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "akali_twilight_buf.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

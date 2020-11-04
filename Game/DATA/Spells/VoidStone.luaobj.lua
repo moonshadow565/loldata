@@ -1,7 +1,7 @@
 BuffTextureName = "Kassadin_VoidStone.dds"
 BuffName = "VoidStone"
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,

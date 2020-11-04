@@ -4,15 +4,58 @@ CharOnHitUnitBuildingBlocks = {
     Params = {RequiredVar = "HitCount", RequiredVarTable = "CharVars"}
   },
   {
-    Function = BBMath,
+    Function = BBIfHasBuff,
     Params = {
-      Src1Var = "HitCount",
-      Src1VarTable = "CharVars",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "HitCount",
-      DestVarTable = "CharVars",
-      MathOp = MO_ADD
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Visionary"
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "HitCount",
+          Src1VarTable = "CharVars",
+          Value2 = 6,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "HitCount",
+              Src1VarTable = "CharVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "HitCount",
+              DestVarTable = "CharVars",
+              MathOp = MO_ADD
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "HitCount",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "HitCount",
+          DestVarTable = "CharVars",
+          MathOp = MO_ADD
+        }
+      }
     }
   },
   {
@@ -37,7 +80,8 @@ CharOnHitUnitBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -65,7 +109,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -81,7 +126,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -97,7 +143,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

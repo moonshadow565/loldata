@@ -1,7 +1,7 @@
 BuffTextureName = "Malphite_GraniteShield.dds"
 BuffName = "MalphiteObduracyEffect"
 AutoBuffActivateEffect = ""
-Nondispellable = true
+NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetPAROrHealth,

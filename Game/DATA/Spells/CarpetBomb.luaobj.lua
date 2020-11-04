@@ -251,6 +251,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = true,
           IgnoreCollision = false,
+          Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other3",
           GoldRedirectTargetVar = "Owner"
@@ -269,7 +270,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -569,7 +571,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -586,7 +589,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

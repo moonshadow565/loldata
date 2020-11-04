@@ -103,6 +103,7 @@ OnBuffDeactivateBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = false,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Owner"
@@ -159,7 +160,8 @@ OnBuffDeactivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -205,7 +207,8 @@ OnBuffDeactivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -251,7 +254,8 @@ OnBuffDeactivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -292,7 +296,8 @@ OnBuffDeactivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -329,7 +334,8 @@ OnBuffDeactivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -493,7 +499,8 @@ SelfExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {

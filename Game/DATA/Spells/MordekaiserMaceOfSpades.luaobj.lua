@@ -10,7 +10,7 @@ AutoBuffActivateAttachBoneName2 = "BUFFBONE_WEAPON_1"
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateEffect4 = ""
-Nondispellable = true
+NonDispellable = true
 ChainMissileParameters = {
   MaximumHits = {
     4,

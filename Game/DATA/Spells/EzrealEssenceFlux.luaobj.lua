@@ -1,10 +1,33 @@
 NotSingleTargetSpell = false
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Ezreal_EssenceFlux.dds"
 BuffName = "EzrealEssenceFluxBuff"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "AttackSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -52,7 +75,8 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
-      SlotNumber = 3,
+      OverrideCastPosition = false,
+      SlotNumber = 2,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
@@ -60,27 +84,6 @@ SelfExecuteBuildingBlocks = {
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedMod",
-      RequiredVarTable = "InstanceVars"
     }
   }
 }

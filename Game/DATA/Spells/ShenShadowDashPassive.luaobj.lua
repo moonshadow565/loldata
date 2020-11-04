@@ -1,5 +1,5 @@
 PersistsThroughDeath = true
-Nondispellable = true
+NonDispellable = true
 BuffOnTakeDamageBuildingBlocks = {
   {
     Function = BBIf,

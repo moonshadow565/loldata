@@ -13,6 +13,47 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetPercentCooldownMod,
+      TargetVar = "Owner",
+      DestVar = "CooldownStat"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "CooldownStat",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "Multiplier",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Multiplier",
+      Src1Value = 0,
+      Src2Value = 8,
+      DestVar = "NewCooldown",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcVar = "NewCooldown",
+      SrcValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 1,
+      OwnerVar = "Owner"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -40,7 +81,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Src1Var = "MoveSpeedPerLevel",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.1,
       DestVar = "MoveSpeedBonus",
       MathOp = MO_ADD
     }
@@ -78,11 +119,31 @@ BuffOnTakeDamageBuildingBlocks = {
     Params = {Value1 = DAMAGESOURCE_PERIODIC, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillRemove",
-          DestVarTable = "InstanceVars",
-          SrcValue = true
+        Function = BBIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_TURRET},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "WillRemove",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
         }
       }
     }
@@ -125,12 +186,14 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Haste,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -143,47 +206,6 @@ TargetExecuteBuildingBlocks = {
           OwnerVar = "Owner"
         }
       }
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetPercentCooldownMod,
-      TargetVar = "Owner",
-      DestVar = "CooldownStat"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src2Var = "CooldownStat",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "Multiplier",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Multiplier",
-      Src1Value = 0,
-      Src2Value = 6,
-      DestVar = "NewCooldown",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcVar = "NewCooldown",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 1,
-      OwnerVar = "Owner"
     }
   }
 }

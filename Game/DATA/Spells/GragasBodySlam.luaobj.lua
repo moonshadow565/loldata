@@ -43,6 +43,10 @@ BuffOnCollisionBuildingBlocks = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBOverrideAnimation,
     Params = {
       ToOverrideAnim = "Run",
@@ -110,8 +114,9 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -138,7 +143,57 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = true}
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
@@ -253,7 +308,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      TickRate = 0.1,
+      CanMitigateDuration = false
     }
   },
   {
@@ -267,8 +323,9 @@ SelfExecuteBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -284,11 +341,16 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBClearOverrideAnimation,
     Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
@@ -331,8 +393,9 @@ BuffOnMoveEndBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -437,7 +500,7 @@ BuffOnMoveEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0,
+              SpellDamageRatio = 0.5,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -456,7 +519,8 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -479,7 +543,7 @@ BuffOnMoveEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0,
+              SpellDamageRatio = 0.5,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -498,56 +562,11 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
-      }
-    }
-  }
-}
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
-  },
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanCast",
-      Status = GetCanCast
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanCast",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
       }
     }
   }

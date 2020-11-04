@@ -1,3 +1,4 @@
+PersistsThroughDeath = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -22,6 +23,17 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "BaseRange",
       DestVarTable = "InstanceVars",
       SrcValue = 275
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBOverrideCastRange,
+    Params = {
+      SpellSlotOwnerVar = "Owner",
+      SpellSlot = 3,
+      SlotType = SpellSlots,
+      Range = 0
     }
   }
 }
@@ -209,17 +221,6 @@ BuffOnUpdateStatsBuildingBlocks = {
           Delta = 0
         }
       }
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBOverrideCastRange,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 3,
-      SlotType = SpellSlots,
-      Range = 0
     }
   }
 }
