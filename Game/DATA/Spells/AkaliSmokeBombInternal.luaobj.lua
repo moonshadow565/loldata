@@ -1,9 +1,4 @@
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "recall"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {
