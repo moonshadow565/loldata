@@ -1,6 +1,6 @@
 BuffTextureName = "Fiddlesticks_Terrify.dds"
 BuffName = "Fear"
-AutoBuffActivateEffect = "Global_Fear.troy"
+AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Feared"
 OnBuffActivateBuildingBlocks = {
   {
@@ -26,6 +26,134 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "Fear"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+      },
+      {
+        Function = BBGetSkinID,
+        Params = {
+          UnitVar = "Attacker",
+          SkinIDVar = "FiddlesticksSkinID"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "FiddlesticksSkinID",
+          Value2 = 6,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "GlobalFear_Surprise.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Attacker",
+              EffectName = "Party_HornConfetti_Instant.troy",
+              Flags = 0,
+              EffectIDVar = "Confetti",
+              EffectIDVarTable = "InstanceVars",
+              BoneName = "BUFFBONE_CSTM_HORN",
+              TargetObjectVar = "Attacker",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "Global_Fear.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Global_Fear.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -44,6 +172,20 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = true,
       Status = SetCanCast
     }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Confetti",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -61,6 +203,30 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
       Delta = -0.4
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "fear"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "globalfear_surprise.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "party_hornconfetti_instant.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_fear.troy"
     }
   }
 }
