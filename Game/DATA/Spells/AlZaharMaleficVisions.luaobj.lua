@@ -316,14 +316,25 @@ TargetExecuteBuildingBlocks = {
       Range = 3000,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
+      BuffNameFilter = "AlZaharRecentVis",
       InclusiveBuffFilter = false
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffClear,
+        Function = BBIfHasBuff,
         Params = {
-          TargetVar = "Unit",
+          OwnerVar = "Unit",
+          AttackerVar = "Owner",
           BuffName = "AlZaharRecentVis"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffClear,
+            Params = {
+              TargetVar = "Unit",
+              BuffName = "AlZaharRecentVis"
+            }
+          }
         }
       }
     }
@@ -364,6 +375,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharrecentvis"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

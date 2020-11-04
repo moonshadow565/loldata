@@ -1,4 +1,4 @@
-BuffTextureName = "3057_Sheen.dds"
+BuffTextureName = "3057_SheenDelay.dds"
 BuffName = "SheenDelay"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""

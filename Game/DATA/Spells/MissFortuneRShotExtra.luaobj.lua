@@ -1,5 +1,6 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
@@ -22,6 +23,20 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "HitResult",
       Value2 = HIT_Dodge,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Miss,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {

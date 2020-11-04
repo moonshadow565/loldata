@@ -114,6 +114,23 @@ CharOnActivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "IsPirateHunter",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 CharOnLevelUpSpellBuildingBlocks = {
@@ -125,20 +142,6 @@ CharOnLevelUpSpellBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "PassiveDamage",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            6,
-            7,
-            8,
-            9,
-            10
-          }
-        }
-      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -196,6 +199,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ispiratehunter"
     }
   },
   {

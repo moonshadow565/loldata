@@ -127,20 +127,14 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      SrcVar = "TargetPos",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
       TargetVar = "Nothing",
       PosVar = "TargetPos",
+      PosVarTable = "InstanceVars",
       EndPosVar = "TargetPos",
+      EndPosVarTable = "InstanceVars",
       OverrideCastPosition = false,
       SlotNumber = 1,
       SlotType = ExtraSlots,

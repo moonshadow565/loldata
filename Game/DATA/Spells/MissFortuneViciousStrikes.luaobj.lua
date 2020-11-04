@@ -42,7 +42,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -61,7 +61,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -85,7 +85,7 @@ BuffOnHitUnitBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "Owner",
+          Src1Var = "Attacker",
           Src2Var = "Target",
           CompareOp = CO_DIFFERENT_TEAM
         },
@@ -97,7 +97,7 @@ BuffOnHitUnitBuildingBlocks = {
               SpellSlotValue = 1,
               SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
-              OwnerVar = "Owner",
+              OwnerVar = "Attacker",
               Function = GetSlotSpellLevel
             }
           },
@@ -105,22 +105,15 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
-              AttackerVar = "Owner",
+              AttackerVar = "Target",
               BuffName = "Internal_50MS",
-              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffAddType = BUFF_REPLACE_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 0,
+              Duration = 8,
               BuffVarsTable = "NextBuffVars",
-              DurationByLevel = {
-                8,
-                8,
-                8,
-                8,
-                8
-              },
               TickRate = 0,
               CanMitigateDuration = false
             }
@@ -129,22 +122,15 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Target",
-              AttackerVar = "Owner",
+              AttackerVar = "Attacker",
               BuffName = "GrievousWound",
               BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 0,
+              Duration = 8,
               BuffVarsTable = "NextBuffVars",
-              DurationByLevel = {
-                8,
-                8,
-                8,
-                8,
-                8
-              },
               TickRate = 0,
               CanMitigateDuration = false
             }

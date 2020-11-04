@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
-DoesntBreakShields = false
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = ""
@@ -179,7 +179,7 @@ TargetExecuteBuildingBlocks = {
                   Damage = 0,
                   DamageVar = "BaseDamage",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.2,
                   PhysicalDamageRatio = 0,

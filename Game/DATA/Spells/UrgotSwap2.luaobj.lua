@@ -344,14 +344,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
-      BuffName = "Stun"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
       BuffName = "Suppression"
     }
   },
@@ -827,10 +819,6 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "urgotswapmissile"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "stun"}
   },
   {
     Function = BBPreloadSpell,

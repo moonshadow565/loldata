@@ -3,6 +3,7 @@ BuffTextureName = "Voidwalker_NullBlade.dds"
 BuffName = "NetherBlade"
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 2
+NonDispellable = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,

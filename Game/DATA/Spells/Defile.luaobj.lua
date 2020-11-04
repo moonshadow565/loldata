@@ -8,8 +8,6 @@ AutoBuffActivateAttachBoneName = "L_weapon"
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 SpellToggleSlot = 3
-PersistsThroughDeath = true
-NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -42,13 +40,15 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 550,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "DamageToDeal",
@@ -56,6 +56,7 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.25,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -247,6 +248,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "NegManaCost"
             }
           }
@@ -272,13 +274,15 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 550,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamageToDeal",
@@ -286,6 +290,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.25,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -325,12 +330,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Defile",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 30000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

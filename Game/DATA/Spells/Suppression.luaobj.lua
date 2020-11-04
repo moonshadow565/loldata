@@ -1,7 +1,7 @@
-BuffTextureName = "48thSlave_RenderingCry.dds"
+BuffTextureName = "GSB_Blind.dds"
 BuffName = "Suppression"
-AutoBuffActivateEffect = "Global_Silence.troy"
-PopupMessage1 = "game_floatingtext_Silenced"
+AutoBuffActivateEffect = ""
+PopupMessage1 = "game_floatingtext_Suppressed"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -9,6 +9,14 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetSuppressed
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetStunned
     }
   },
   {
@@ -28,6 +36,14 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = false,
       Status = SetSuppressed
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetStunned
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -37,6 +53,14 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetSuppressed
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetStunned
     }
   }
 }

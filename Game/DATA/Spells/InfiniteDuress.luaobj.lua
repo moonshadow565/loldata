@@ -32,23 +32,6 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Stun",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1.7,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
       BuffName = "Suppression",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
@@ -155,10 +138,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "stun"}
-  },
   {
     Function = BBPreloadSpell,
     Params = {

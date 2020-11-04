@@ -165,7 +165,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
+          FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }
@@ -181,7 +181,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
+          FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }
@@ -197,7 +197,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
+          FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }
@@ -213,7 +213,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
+          FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }

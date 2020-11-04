@@ -32,6 +32,20 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Miss,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -282,20 +296,38 @@ TargetExecuteBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffAdd,
+            Function = BBGetStatus,
             Params = {
               TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "MissFortuneRShotHolder",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 2,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
+              DestVar = "IsStealthed",
+              Status = GetStealthed
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "IsStealthed",
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "MissFortuneRShotHolder",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
             }
           }
         }
@@ -315,28 +347,46 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBGetStatus,
         Params = {
           TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "MissFortuneRShotHolder"
+          DestVar = "IsStealthed",
+          Status = GetStealthed
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "MissFortuneRicochetShot",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 6,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "MissFortuneRShotHolder"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "MissFortuneRicochetShot",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
         }
       }
     }
@@ -354,28 +404,46 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
+        Function = BBGetStatus,
         Params = {
           TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "MissFortuneRShotHolder"
+          DestVar = "IsStealthed",
+          Status = GetStealthed
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIf,
         Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "MissFortuneRicochetShot",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 6,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          Src1Var = "IsStealthed",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "MissFortuneRShotHolder"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "MissFortuneRicochetShot",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          }
         }
       }
     }

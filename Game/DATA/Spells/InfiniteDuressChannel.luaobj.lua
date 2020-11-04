@@ -250,14 +250,6 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Suppression"
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "Stun"
-    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -283,14 +275,6 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "Suppression"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "Stun"
     }
   }
 }
@@ -318,9 +302,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "suppression"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "stun"}
   }
 }

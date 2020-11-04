@@ -10,7 +10,6 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
-PopupMessage1 = "game_floatingtext_Stunned"
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -120,27 +119,10 @@ ChannelingStartBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
-      BuffName = "Stun",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 100,
-      NumberOfStacks = 1,
-      Duration = 2.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
       BuffName = "Suppression",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_Suppression,
       MaxStack = 100,
       NumberOfStacks = 1,
       Duration = 2.5,
@@ -384,12 +366,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "stun"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "suppression"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stun"}
   }
 }

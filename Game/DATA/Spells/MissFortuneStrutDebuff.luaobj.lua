@@ -11,33 +11,6 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Type",
-          Value2 = BUFF_CombatDehancer,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "MissFortuneStrutDebuff",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 7,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
           Value2 = BUFF_Damage,
           CompareOp = CO_EQUAL
         },

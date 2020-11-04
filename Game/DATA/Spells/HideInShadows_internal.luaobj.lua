@@ -49,6 +49,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -80,6 +81,7 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "HideInShadows",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -87,13 +89,15 @@ OnBuffDeactivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "StealthDuration",
       DurationVarTable = "InstanceVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false

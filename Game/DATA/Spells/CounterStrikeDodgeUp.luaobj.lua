@@ -40,5 +40,33 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "DodgeMod",
       Delta = 0
     }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "CounterStrikeCanCast"
+    },
+    SubBlocks = {
+      {
+        Function = BBSealSpellSlot,
+        Params = {
+          SpellSlot = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          TargetVar = "Owner",
+          State = true
+        }
+      }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "counterstrikecancast"
+    }
   }
 }

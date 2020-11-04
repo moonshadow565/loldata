@@ -57,6 +57,34 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "mordekaiser_creepingDeath_aura.troy",
+          Flags = 0,
+          EffectIDVar = "b",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -111,6 +139,23 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "asdf",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "b",
+          EffectIDVarTable = "InstanceVars"
+        }
+      }
     }
   }
 }
@@ -281,6 +326,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "mordekaiser_creepingdeath_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordekaiser_creepingdeath_aura.troy"
     }
   },
   {

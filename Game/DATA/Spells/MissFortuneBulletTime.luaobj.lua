@@ -536,14 +536,6 @@ ChannelingUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBDebugSay,
-    Params = {
-      OwnerVar = "Owner",
-      ToSay = "Count:",
-      SrcVar = "Count"
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "Count",

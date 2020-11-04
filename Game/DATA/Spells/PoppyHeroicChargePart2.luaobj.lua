@@ -88,6 +88,30 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Owner",
@@ -148,9 +172,65 @@ OnBuffDeactivateBuildingBlocks = {
       SrcValue = false,
       Status = SetGhosted
     }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
@@ -173,12 +253,8 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       Src1Var = "DistanceVar",
       Value2 = 75,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIfNotHasBuff,
@@ -247,32 +323,30 @@ BuffOnMoveEndBuildingBlocks = {
           },
           {
             Function = BBElse,
-            Params = {}
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "PoppyHeroicChargePart2Check",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 2,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "PoppyHeroicChargePart2Check",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
             }
           }
         }
       }
     }
-  },
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

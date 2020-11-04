@@ -2,140 +2,95 @@ BuffTextureName = "Lich_Untransmutable.dds"
 BuffName = "Death Defied"
 PersistsThroughDeath = true
 NonDispellable = true
-BuffOnDeathBuildingBlocks = {
+BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "CurHealth",
+      OwnerVar = "Owner",
+      Function = GetHealth,
+      PARType = PAR_MANA
+    }
+  },
   {
     Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
+    Params = {
+      Src1Var = "CurHealth",
+      Src2Var = "DamageAmount",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
     SubBlocks = {
       {
-        Function = BBGetTeamID,
-        Params = {TargetVar = "Owner", DestVar = "TeamID"}
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 60,
-          OffsetAngle = 0,
-          PositionVar = "Pos"
-        }
-      },
-      {
-        Function = BBSpawnMinion,
-        Params = {
-          Name = "Karthus",
-          Skin = "Lich",
-          AiScript = "idle.lua",
-          PosVar = "Owner",
-          Team = TEAM_UNKNOWN,
-          TeamVar = "TeamID",
-          Stunned = false,
-          Rooted = true,
-          Silenced = false,
-          Invulnerable = true,
-          MagicImmune = false,
-          IgnoreCollision = true,
-          Placemarker = true,
-          VisibilitySize = 0,
-          DestVar = "Other1",
-          GoldRedirectTargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBFaceDirection,
-        Params = {TargetVar = "Other1", LocationVar = "Pos"}
-      },
-      {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "LichAP"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "LichAP",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "LichAP"
-        }
-      },
-      {
-        Function = BBStopChanneling,
-        Params = {
-          CasterVar = "Owner",
-          StopCondition = ChannelingStopCondition_Cancel,
-          StopSource = ChannelingStopSource_Die
-        }
-      },
-      {
-        Function = BBIfHasBuff,
+        Function = BBIfNotHasBuff,
         Params = {
           OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Defile"
+          CasterVar = "Nothing",
+          BuffName = "DeathDefiedBuff"
         },
         SubBlocks = {
           {
-            Function = BBSpellBuffRemove,
+            Function = BBIfNotHasBuff,
             Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "Defile"
+              OwnerVar = "Owner",
+              CasterVar = "Nothing",
+              BuffName = "ChronoShift"
+            },
+            SubBlocks = {
+              {
+                Function = BBIfNotHasBuff,
+                Params = {
+                  OwnerVar = "Owner",
+                  CasterVar = "Nothing",
+                  BuffName = "WillRevive"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "CurHealth",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_SUBTRACT
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Attacker",
+                      BuffName = "DeathDefiedBuff",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatEnchancer,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 8,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              }
             }
           }
         }
       },
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other1",
-          AttackerVar = "Owner",
-          BuffName = "DeathDefiedSpirit",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 8,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Other1",
-          BuffName = "DeathDefiedSelf",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 8,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "FallenOneTimer",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CurHealth",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
         }
       }
     }
@@ -143,29 +98,19 @@ BuffOnDeathBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "lich"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "defile"}
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "deathdefiedspirit"
+      Name = "deathdefiedbuff"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "deathdefiedself"
+      Name = "chronoshift"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "fallenonetimer"
-    }
+    Params = {Name = "willrevive"}
   }
 }
