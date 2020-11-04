@@ -1,20 +1,25 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
 BuffName = "GalioRighteousGust"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
+SpellFXOverrideSkins = {
+  "GatekeeperGalio"
+}
+SpellVOOverrideSkins = {
+  "GatekeeperGalio"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galiorgmgatekeeper"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "galiorighteousgustmissile"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "galio"}
   },
   {
     Function = BBPreloadParticle,

@@ -19,5 +19,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varuspassivebuffdisplayminion"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "varuspassivetracker"
+    }
   }
 }

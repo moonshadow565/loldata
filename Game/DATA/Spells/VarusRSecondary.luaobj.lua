@@ -3,8 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "VarusR.dds"
 BuffName = "VarusRShackles"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 AutoCooldownByLevel = {
   80,
   80,
@@ -46,15 +44,33 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
-      Name = "varusrsecondary"
+      Name = "varusrmissileend"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "varuswdetonate"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varusrhitflash.troy"
     }
   }
 }

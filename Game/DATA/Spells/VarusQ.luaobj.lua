@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = false
 BuffTextureName = "VarusQCharging.dds"
 BuffName = "VarusQ"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 1
 OnPreDamagePriority = 3
 ChainMissileParameters = {

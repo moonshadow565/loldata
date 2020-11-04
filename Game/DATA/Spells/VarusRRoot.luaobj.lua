@@ -4,8 +4,6 @@ IsDamagingSpell = true
 BuffTextureName = "VarusR.dds"
 BuffName = "VarusRRoot"
 AutoBuffActivateEffect = "VarusRMissileEnd.troy"
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {
   {

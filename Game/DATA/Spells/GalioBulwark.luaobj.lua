@@ -3,7 +3,12 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Galio_Bulwark.dds"
 BuffName = "GalioBulwark"
-AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "GatekeeperGalio"
+}
+SpellVOOverrideSkins = {
+  "GatekeeperGalio"
+}
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
 PreLoadBuildingBlocks = {
   {
@@ -16,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_bullwark_target_shield_01_self.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "galio_gatekeeper_bullwark_target_01.troy"
     }
   },
   {

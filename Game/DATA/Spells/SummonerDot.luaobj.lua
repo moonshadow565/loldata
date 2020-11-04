@@ -1,4 +1,5 @@
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 BuffTextureName = "SummonerIgnite.dds"
 BuffName = "SummonerIgnite"
 PreLoadBuildingBlocks = {

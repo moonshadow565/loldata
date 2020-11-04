@@ -9,11 +9,24 @@ AutoBuffActivateEffect = "RenektonDominus_sword.troy"
 AutoBuffActivateAttachBoneName = "weapon"
 AutoBuffActivateEffect2 = "RenektonDominus_aura.troy"
 AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateEffect4 = ""
+AutoBuffActivateEffect3 = "Renekton_Runewars_Shoulder_R.troy"
+AutoBuffActivateAttachBoneName3 = "r_uparm"
+AutoBuffActivateEffect4 = "Renekton_Runewars_Shoulder_L.troy"
+AutoBuffActivateAttachBoneName4 = "l_uparm"
 NonDispellable = true
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "renektondominus_runewars_transform.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "renektondominus_runewars_transform_off.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

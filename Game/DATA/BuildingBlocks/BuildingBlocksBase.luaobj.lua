@@ -950,6 +950,14 @@ end
 VEC_SCALAR_DIVIDE = L0
 function L0(A0, A1)
   local L2, L3, L4
+  L2 = VectorRotateY
+  L3 = A0
+  L4 = A1
+  return L2(L3, L4)
+end
+VEC_ROTATE = L0
+function L0(A0, A1)
+  local L2, L3, L4
   L2 = BBMath
   L3 = A0
   L4 = A1

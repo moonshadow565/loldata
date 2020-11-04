@@ -1,8 +1,13 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
 BuffName = "GalioRighteousGustMissile"
+SpellFXOverrideSkins = {
+  "GatekeeperGalio"
+}
+SpellVOOverrideSkins = {
+  "GatekeeperGalio"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -15,16 +20,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "galio_windtunnel_rune_team_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "galio"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "galiorighteousgustmissile"
     }
   },
   {

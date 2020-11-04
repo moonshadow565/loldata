@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "spellbook1"}
+    Params = {Name = "testcube"}
   },
   {
     Function = BBPreloadSpell,
