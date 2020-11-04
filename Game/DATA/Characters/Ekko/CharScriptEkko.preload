@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkopassive"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkor"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkorheal"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_chargeup.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkorinvuln"}}, 
 }
