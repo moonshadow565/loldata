@@ -1,8 +1,9 @@
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trinkettotemlvl2"
+      Name = "itemminionshred"
     }
   },
   {
