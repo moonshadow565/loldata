@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Pantheon_Base_P_buf.troy"
+      Name = "pantheon_base_p_buf.troy"
     }
   }
 }

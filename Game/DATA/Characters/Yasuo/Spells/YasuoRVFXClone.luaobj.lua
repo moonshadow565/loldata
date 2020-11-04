@@ -8,7 +8,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_r_clonevfx.troy"
+      Name = "Yasuo_Base_R_CloneVFX.troy"
     }
   },
   {

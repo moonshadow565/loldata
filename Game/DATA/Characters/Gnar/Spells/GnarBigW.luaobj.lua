@@ -16,5 +16,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "gnarbig_base_w_hit.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "gnarstun"}
   }
 }

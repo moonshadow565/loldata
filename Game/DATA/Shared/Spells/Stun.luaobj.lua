@@ -1,5 +1,11 @@
 BuffTextureName = "GSB_stun.dds"
 BuffName = "Stun"
-AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
 PopupMessage1 = "game_floatingtext_Stunned"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "loc_stun.troy"
+    }
+  }
+}

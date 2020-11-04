@@ -47,5 +47,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rumbleheatdelay"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumbleflamethrowerdummyspelldz"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rumbleflamethrowerdummyspell"
+    }
   }
 }

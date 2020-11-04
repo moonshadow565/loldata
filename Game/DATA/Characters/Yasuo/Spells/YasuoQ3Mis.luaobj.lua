@@ -5,6 +5,9 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 PopupMessage1 = "game_floatingtext_Knockup"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "YasuoSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -55,7 +58,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_q_wind_hit_tar.troy"
+      Name = "yasuo_base_q_wind_hit_tar.troy"
     }
   }
 }

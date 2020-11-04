@@ -19,15 +19,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "sona_base_w_tar.troy"
+      Name = "sonawmissile"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "unlockanimation"
+      Name = "sona_base_w_tar.troy"
     }
   },
   {
