@@ -24,5 +24,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyra_e_sequence_root.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_e_sequence_unroot_fire.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_e_sequence_unroot.troy"
+    }
   }
 }

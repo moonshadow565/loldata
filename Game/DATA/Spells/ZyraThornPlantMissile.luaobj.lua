@@ -13,5 +13,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyrathornplanttaunt"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplantdrplant"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplantdrzyra"
+    }
   }
 }
