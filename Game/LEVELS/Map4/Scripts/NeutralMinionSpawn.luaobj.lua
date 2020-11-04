@@ -881,7 +881,8 @@ function L0(A0, A1, A2)
           L19 = IncGold
           L20 = A1
           L21 = L18
-          L19(L20, L21)
+          L22 = "GOLD_KILL_MINION"
+          L19(L20, L21, L22)
         end
       end
     end

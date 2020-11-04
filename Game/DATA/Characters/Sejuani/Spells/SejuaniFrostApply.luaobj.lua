@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Gemknight_Dazzle.dds"
 BuffName = "SejuaniGlacialPrison"
-AutoBuffActivateEffect = "Stun_glb.troy"
+AutoBuffActivateEffect = "LOC_Stun.troy"
 AutoBuffActivateAttachBoneName = "head"
 AutoCooldownByLevel = {
   12,

@@ -1,0 +1,16 @@
+BuffTextureName = "Trundle_R.dds"
+BuffName = "TrundlePainBuff"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trundleult_self_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trundle_r_glowy_eyes.troy"
+    }
+  }
+}

@@ -4,9 +4,10 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaScorchedEarth.dds"
 BuffName = "ShyvanaScorchedEarthDragon"
-AutoBuffActivateEffect = "shyvana_scorchedEarth_dragon_01.troy"
-AutoBuffActivateEffect2 = "shyvana_scorchedEarth_speed.troy"
-AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect = "Shyvana_Frost_Dragon_W_Burnout.troy"
+SpellFXOverrideSkins = {
+  "FrostShyvana"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

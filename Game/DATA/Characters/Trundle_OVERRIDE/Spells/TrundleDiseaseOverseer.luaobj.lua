@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
+BuffTextureName = "Trundle_W.dds"
+BuffName = "TrundleDiseaseOverseer"
+PersistsThroughDeath = true
+NonDispellable = true

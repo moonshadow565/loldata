@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "ShyvanaFlameBreath.dds"
 BuffName = "ShyvanaFlameBreathDebuff"
+SpellFXOverrideSkins = {
+  "FrostShyvana"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -32,13 +35,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "shyvana_flamebreath_tar_02.troy"
+      Name = "shyvana_frostshyvana_flamebreath_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "shyvana_flamebreath_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shyvana_flamebreath_tar_02.troy"
     }
   },
   {

@@ -499,7 +499,8 @@ function L0()
   L1 = IncGold
   L2 = playerID
   L3 = 500
-  L1(L2, L3)
+  L4 = "GOLD_STARTING"
+  L1(L2, L3, L4)
   L1 = LogTutorial
   L2 = "Setting up timer to increase bot levels"
   L1(L2)

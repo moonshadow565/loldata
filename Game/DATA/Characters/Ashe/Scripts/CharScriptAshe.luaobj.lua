@@ -13,6 +13,18 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "ashetauntsejuani"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ashetauntlissandra"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "focus"}
   },
   {
