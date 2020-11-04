@@ -20,6 +20,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "missfortunepassivestack"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "missfortune_passive_tar_indicator.troy"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "missfortune_bullettime_tar.troy"

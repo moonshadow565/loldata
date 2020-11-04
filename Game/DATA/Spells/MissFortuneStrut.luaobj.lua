@@ -9,6 +9,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "missfortunestrutstacks"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "missfortune_passive_buf.troy"

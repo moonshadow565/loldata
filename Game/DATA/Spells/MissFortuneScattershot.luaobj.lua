@@ -15,6 +15,10 @@ PreLoadBuildingBlocks = {
     Params = {Name = "testcube"}
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "spellbook1"}
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "missfortunescatterparticle"
