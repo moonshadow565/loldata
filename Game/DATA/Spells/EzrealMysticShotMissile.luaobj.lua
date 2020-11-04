@@ -17,7 +17,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
-      Duration = 5,
+      Duration = 6,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
         0,
@@ -203,10 +203,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "SpellBaseDamage",
       SrcValueByLevel = {
         40,
-        60,
-        80,
-        100,
-        120
+        65,
+        90,
+        115,
+        140
       }
     }
   },

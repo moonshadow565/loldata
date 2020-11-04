@@ -137,10 +137,6 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_CombatEnchancer}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
   },
   {
@@ -220,6 +216,7 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "RebirthCooldown",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,

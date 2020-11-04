@@ -23,83 +23,108 @@ BuffOnCollisionBuildingBlocks = {
             Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
             SubBlocks = {
               {
-                Function = BBBreakSpellShields,
-                Params = {TargetVar = "Target"}
-              },
-              {
-                Function = BBApplyTaunt,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Duration = 0,
-                  DurationVar = "tauntDuration",
-                  DurationVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffName = "ShenShadowDashTaunt",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_Taunt,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 0,
-                  BuffVarsTable = "NextBuffVars",
-                  DurationVar = "tauntDuration",
-                  DurationVarTable = "InstanceVars",
-                  TickRate = 0
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Owner",
-                  EffectName = "shen_shadowDash_unit_impact.troy",
-                  Flags = 0,
-                  EffectIDVar = "TargetParticle",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
-                }
-              },
-              {
-                Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+                  OwnerVar = "Target",
+                  CasterVar = "Owner",
+                  BuffName = "ShenShadowDashCooldown"
+                },
                 SubBlocks = {
                   {
-                    Function = BBIf,
+                    Function = BBSpellBuffAdd,
                     Params = {
-                      Src1Var = "EnergyRefunds",
-                      Src1VarTable = "InstanceVars",
-                      Value2 = 1,
-                      CompareOp = CO_GREATER_THAN_OR_EQUAL
-                    },
+                      TargetVar = "Target",
+                      AttackerVar = "Owner",
+                      BuffName = "ShenShadowDashCooldown",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Internal,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 1.5,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  },
+                  {
+                    Function = BBBreakSpellShields,
+                    Params = {TargetVar = "Target"}
+                  },
+                  {
+                    Function = BBApplyTaunt,
+                    Params = {
+                      AttackerVar = "Attacker",
+                      TargetVar = "Target",
+                      Duration = 0,
+                      DurationVar = "tauntDuration",
+                      DurationVarTable = "InstanceVars"
+                    }
+                  },
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Target",
+                      AttackerVar = "Attacker",
+                      BuffName = "ShenShadowDashTaunt",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Taunt,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 0,
+                      BuffVarsTable = "NextBuffVars",
+                      DurationVar = "tauntDuration",
+                      DurationVarTable = "InstanceVars",
+                      TickRate = 0
+                    }
+                  },
+                  {
+                    Function = BBSpellEffectCreate,
+                    Params = {
+                      BindObjectVar = "Owner",
+                      EffectName = "shen_shadowDash_unit_impact.troy",
+                      Flags = 0,
+                      EffectIDVar = "TargetParticle",
+                      TargetObjectVar = "Target",
+                      SpecificUnitOnlyVar = "Owner",
+                      SpecificTeamOnly = TEAM_UNKNOWN,
+                      UseSpecificUnit = false,
+                      FOWTeam = TEAM_UNKNOWN,
+                      FOWVisibilityRadius = 0,
+                      SendIfOnScreenOrDiscard = false
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
                     SubBlocks = {
                       {
-                        Function = BBIncPAR,
-                        Params = {
-                          TargetVar = "Owner",
-                          Delta = 40,
-                          PARType = PAR_ENERGY
-                        }
-                      },
-                      {
-                        Function = BBMath,
+                        Function = BBIf,
                         Params = {
                           Src1Var = "EnergyRefunds",
                           Src1VarTable = "InstanceVars",
-                          Src1Value = 0,
-                          Src2Value = 1,
-                          DestVar = "EnergyRefunds",
-                          DestVarTable = "InstanceVars",
-                          MathOp = MO_SUBTRACT
+                          Value2 = 1,
+                          CompareOp = CO_GREATER_THAN_OR_EQUAL
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBIncPAR,
+                            Params = {
+                              TargetVar = "Owner",
+                              Delta = 40,
+                              PARType = PAR_ENERGY
+                            }
+                          },
+                          {
+                            Function = BBMath,
+                            Params = {
+                              Src1Var = "EnergyRefunds",
+                              Src1VarTable = "InstanceVars",
+                              Src1Value = 0,
+                              Src2Value = 1,
+                              DestVar = "EnergyRefunds",
+                              DestVarTable = "InstanceVars",
+                              MathOp = MO_SUBTRACT
+                            }
+                          }
                         }
                       }
                     }
@@ -143,19 +168,18 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBRequireVar,
     Params = {
-      DestVar = "TargetPos",
-      SrcVar = "TargetPos",
-      SrcVarTable = "InstanceVars"
+      RequiredVar = "EnergyRefunds",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "EnergyRefunds",
-      DestVarTable = "InstanceVars",
-      SrcValue = 1
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -169,7 +193,7 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 0,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER,
+      MovementOrdersType = POSTPONE_CURRENT_ORDER,
       IdealDistance = 0,
       IdealDistanceVar = "Distance",
       IdealDistanceVarTable = "InstanceVars"
@@ -381,17 +405,10 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBSetVarInTable,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 1,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      DestVar = "EnergyRefunds",
+      SrcValue = 1
     }
   },
   {
@@ -405,36 +422,133 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
-      {
-        Function = BBApplyTaunt,
+        Function = BBIfNotHasBuff,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Duration = 0,
-          DurationVar = "tauntDuration",
-          DurationVarTable = "NextBuffVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "ShenShadowDashTaunt",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Taunt,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "tauntDuration",
-          DurationVarTable = "NextBuffVars",
-          TickRate = 0
+          OwnerVar = "Unit",
+          CasterVar = "Owner",
+          BuffName = "ShenShadowDashCooldown"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "ShenShadowDashCooldown",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBApplyTaunt,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Duration = 0,
+              DurationVar = "tauntDuration",
+              DurationVarTable = "NextBuffVars"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "ShenShadowDashTaunt",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Taunt,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "tauntDuration",
+              DurationVarTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "shen_shadowDash_unit_impact.troy",
+              Flags = 0,
+              EffectIDVar = "TargetParticle",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "EnergyRefunds",
+                  Value2 = 1,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 40,
+                      PARType = PAR_ENERGY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "EnergyRefunds",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "EnergyRefunds",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "EnergyRefunds",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "EnergyRefunds"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0.1
     }
   }
 }
@@ -450,34 +564,112 @@ BuffOnMoveEndBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
-      {
-        Function = BBApplyTaunt,
+        Function = BBIfNotHasBuff,
         Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Unit",
-          Duration = 0,
-          DurationVar = "tauntDuration",
-          DurationVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Unit",
-          AttackerVar = "Attacker",
-          BuffName = "ShenShadowDashTaunt",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Taunt,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "tauntDuration",
-          DurationVarTable = "InstanceVars",
-          TickRate = 0
+          OwnerVar = "Unit",
+          CasterVar = "Owner",
+          BuffName = "ShenShadowDashCooldown"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Owner",
+              BuffName = "ShenShadowDashCooldown",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
+            Function = BBApplyTaunt,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Unit",
+              Duration = 0,
+              DurationVar = "tauntDuration",
+              DurationVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "ShenShadowDashTaunt",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_Taunt,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 0,
+              BuffVarsTable = "NextBuffVars",
+              DurationVar = "tauntDuration",
+              DurationVarTable = "InstanceVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "shen_shadowDash_unit_impact.troy",
+              Flags = 0,
+              EffectIDVar = "TargetParticle",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBIf,
+                Params = {
+                  Src1Var = "EnergyRefunds",
+                  Src1VarTable = "InstanceVars",
+                  Value2 = 1,
+                  CompareOp = CO_GREATER_THAN_OR_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIncPAR,
+                    Params = {
+                      TargetVar = "Owner",
+                      Delta = 40,
+                      PARType = PAR_ENERGY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "EnergyRefunds",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "EnergyRefunds",
+                      DestVarTable = "InstanceVars",
+                      MathOp = MO_SUBTRACT
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -488,6 +680,12 @@ BuffOnMoveEndBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shenshadowdashcooldown"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

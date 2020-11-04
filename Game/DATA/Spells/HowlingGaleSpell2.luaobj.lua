@@ -64,6 +64,7 @@ BuffOnSpellHitBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.75,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -108,9 +109,10 @@ BuffOnSpellHitBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Move",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -140,17 +142,18 @@ BuffOnSpellHitBuildingBlocks = {
               AttackerVar = "Attacker",
               TargetVar = "Target",
               DamageByLevel = {
-                100,
-                135,
-                170,
-                205,
-                340
+                110,
+                150,
+                190,
+                230,
+                270
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.75,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -195,9 +198,10 @@ BuffOnSpellHitBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Move",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -239,17 +243,18 @@ BuffOnSpellHitBuildingBlocks = {
                   AttackerVar = "Attacker",
                   TargetVar = "Target",
                   DamageByLevel = {
-                    100,
-                    135,
-                    170,
-                    205,
-                    340
+                    110,
+                    150,
+                    190,
+                    230,
+                    270
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.75,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -294,9 +299,10 @@ BuffOnSpellHitBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "Move",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_CombatDehancer,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 1.5,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0

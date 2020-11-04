@@ -97,10 +97,27 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APMod"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "APMod",
+      Src1Value = 0.067,
+      Src2Value = 0,
+      DestVar = "BonusHealFromAP",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "LifeTapMod",
-      DestVarTable = "NextBuffVars",
+      DestVar = "baseLifeTapMod",
       SrcValueByLevel = {
         5,
         10,
@@ -108,6 +125,25 @@ TargetExecuteBuildingBlocks = {
         20,
         25
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "baseLifeTapMod",
+      Src2Var = "BonusHealFromAP",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "LifeTapMod",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifeTapMod",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "LifeTapMod"
     }
   },
   {

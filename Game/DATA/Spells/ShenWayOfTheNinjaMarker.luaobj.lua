@@ -62,23 +62,33 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBIf,
             Params = {
               Src1Var = "TimeSinceLastHit",
-              Value2 = 10,
+              Value2 = 8,
               CompareOp = CO_GREATER_THAN_OR_EQUAL
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIfNotHasBuff,
                 Params = {
-                  TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
-                  BuffName = "ShenWayOfTheNinjaAura",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 25000,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  OwnerVar = "Owner",
+                  CasterVar = "Owner",
+                  BuffName = "ShenWayOfTheNinjaAura"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Owner",
+                      AttackerVar = "Owner",
+                      BuffName = "ShenWayOfTheNinjaAura",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 25000,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0
+                    }
+                  }
                 }
               }
             }
@@ -258,23 +268,33 @@ BuffOnBeingHitBuildingBlocks = {
                 Function = BBIf,
                 Params = {
                   Src1Var = "TimeSinceLastHit",
-                  Value2 = 10,
+                  Value2 = 8,
                   CompareOp = CO_GREATER_THAN_OR_EQUAL
                 },
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
+                    Function = BBIfNotHasBuff,
                     Params = {
-                      TargetVar = "Owner",
-                      AttackerVar = "Owner",
-                      BuffName = "ShenWayOfTheNinjaAura",
-                      BuffAddType = BUFF_REPLACE_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 25000,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      OwnerVar = "Owner",
+                      CasterVar = "Owner",
+                      BuffName = "ShenWayOfTheNinjaAura"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Owner",
+                          AttackerVar = "Owner",
+                          BuffName = "ShenWayOfTheNinjaAura",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 25000,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0
+                        }
+                      }
                     }
                   }
                 }

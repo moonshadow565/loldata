@@ -105,6 +105,24 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "shieldHealth",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "shieldHealth",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "shieldHealth",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "shieldHealth"
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",

@@ -10,7 +10,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "SlowPercent",
+      RequiredVar = "AttackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -21,7 +28,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "SlowPercent",
+      DeltaVar = "MoveSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -31,7 +38,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeAttackSpeedMod,
       TargetVar = "Owner",
-      DeltaVar = "SlowPercent",
+      DeltaVar = "AttackSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -60,7 +67,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = 0
+      SrcValue = -0.25
     }
   },
   {
@@ -82,7 +89,6 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
-      BuffName = "Slow",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       BuffType = BUFF_Slow,
       MaxStack = 100,
@@ -154,10 +160,6 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
   {
     Function = BBPreloadSpell,
     Params = {

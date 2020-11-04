@@ -68,6 +68,21 @@ BuffOnMissileEndBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Other1",
+          AttackerVar = "Other1",
+          BuffName = "GragasBarrelRollRender",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 20,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
       }
     }
   }
@@ -106,7 +121,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "GragasBarrelRoll",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
@@ -121,6 +136,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -141,6 +157,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "gragasbarrelrollboom"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasbarrelrollrender"
     }
   },
   {

@@ -54,8 +54,18 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
+      Src1Var = "PlusBonus",
+      Src1Value = 0,
+      Src2Value = 5,
+      DestVar = "PlusBonus",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 320,
+      Src1Value = 350,
       Src2Value = 0,
       DestVar = "UpperBound",
       MathOp = MO_ADD
@@ -65,7 +75,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 320,
+      Src1Value = 350,
       Src2Value = 0,
       DestVar = "LowerBound",
       MathOp = MO_SUBTRACT
@@ -94,6 +104,7 @@ OnBuffActivateBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "RevilePrevent",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -171,8 +182,18 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
+      Src1Var = "PlusBonus",
+      Src1Value = 0,
+      Src2Value = 5,
+      DestVar = "PlusBonus",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 320,
+      Src1Value = 350,
       Src2Value = 0,
       DestVar = "UpperBound",
       MathOp = MO_ADD
@@ -182,7 +203,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "PlusBonus",
-      Src1Value = 320,
+      Src1Value = 350,
       Src2Value = 0,
       DestVar = "LowerBound",
       MathOp = MO_SUBTRACT
@@ -215,6 +236,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "RevilePrevent",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,

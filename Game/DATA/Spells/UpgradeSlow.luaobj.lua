@@ -127,9 +127,9 @@ BuffOnSpellHitBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        -0.2,
         -0.25,
-        -0.3,
-        -0.35
+        -0.3
       }
     }
   },

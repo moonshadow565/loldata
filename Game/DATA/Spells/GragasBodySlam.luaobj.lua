@@ -247,6 +247,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "GragasBodySlam",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -277,6 +278,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "GragasBodySlamHolder",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -373,7 +375,8 @@ BuffOnMoveEndBuildingBlocks = {
       CenterVar = "Attacker",
       Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -395,7 +398,8 @@ BuffOnMoveEndBuildingBlocks = {
       CenterVar = "Attacker",
       Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -446,6 +450,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "GragasBodySlamTargetSlow",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -487,6 +492,7 @@ BuffOnMoveEndBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "GragasBodySlamTargetSlow",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -496,6 +502,52 @@ BuffOnMoveEndBuildingBlocks = {
             }
           }
         }
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }
