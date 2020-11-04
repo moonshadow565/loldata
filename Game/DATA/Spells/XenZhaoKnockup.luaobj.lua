@@ -27,7 +27,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
-      SrcValue = true,
+      SrcValue = false,
       Status = SetCanAttack
     }
   },

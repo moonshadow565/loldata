@@ -60,20 +60,57 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "CasterID"}
+  },
+  {
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "OwnerPos",
-      EffectName = "Riftwalk_flashback.troy",
-      Flags = 0,
-      EffectIDVar = "p3",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_NEUTRAL,
-      FOWVisibilityRadius = 900,
-      SendIfOnScreenOrDiscard = true
+      Src1Var = "CasterID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "Riftwalk_flashback.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "OwnerPos",
+          EffectName = "Riftwalk_flashback.troy",
+          Flags = 0,
+          EffectIDVar = "p3",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   },
   {
@@ -193,20 +230,53 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "CastPos",
-      EffectName = "Riftwalk_flash.troy",
-      Flags = 0,
-      EffectIDVar = "ar1",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "CasterID",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          EffectName = "Riftwalk_flash.troy",
+          Flags = 0,
+          EffectIDVar = "ar1",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "CastPos",
+          EffectName = "Riftwalk_flash.troy",
+          Flags = 0,
+          EffectIDVar = "ar1",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 250,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
     }
   }
 }

@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 AutoCooldownByLevel = {
   22,
@@ -123,11 +123,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DamageReduction",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            0.85,
-            0.8,
-            0.75,
-            0.7,
-            0.65
+            0.15,
+            0.2,
+            0.25,
+            0.3,
+            0.35
           }
         }
       },
@@ -144,7 +144,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -186,6 +187,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "DamageVar",

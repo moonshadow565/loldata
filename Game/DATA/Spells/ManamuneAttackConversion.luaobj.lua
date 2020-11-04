@@ -19,7 +19,7 @@ BuffOnUpdateStatsBuildingBlocks = {
       Src1Var = "OwnerMana",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
-      Src2Value = 0.02,
+      Src2Value = 0.015,
       DestVar = "LessOwnerMana",
       MathOp = MO_MULTIPLY
     }

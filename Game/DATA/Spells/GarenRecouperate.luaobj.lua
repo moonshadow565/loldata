@@ -22,32 +22,6 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Type",
-          Value2 = BUFF_CombatDehancer,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "GarenRecoupDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 7,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
           Value2 = BUFF_Damage,
           CompareOp = CO_EQUAL
         },
@@ -65,7 +39,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -91,7 +66,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -117,7 +93,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -143,7 +120,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -169,7 +147,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -195,7 +174,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -221,7 +201,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -247,7 +228,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -273,7 +255,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -417,7 +400,8 @@ BuffOnUpdateStatsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -439,7 +423,8 @@ BuffOnTakeDamageBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

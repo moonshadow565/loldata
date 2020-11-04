@@ -73,20 +73,27 @@ BuffOnDeathBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Unit",
-              BuffName = "CrestofCrushingWrath",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationVar = "NewDuration",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "CrestofCrushingWrath",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationVar = "NewDuration",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
             }
           }
         }
@@ -163,20 +170,27 @@ BuffOnDeathBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Unit",
-              BuffName = "CrestofCrushingWrath",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationVar = "NewDuration",
-              TickRate = 0
+            Function = BBIf,
+            Params = {Src1Var = "Unit", CompareOp = CO_IS_NOT_DEAD},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Unit",
+                  BuffName = "CrestofCrushingWrath",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationVar = "NewDuration",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
             }
           }
         }

@@ -1,7 +1,7 @@
 BuffTextureName = "GreenTerror_SpikeSlam.dds"
 BuffName = "Rupture"
-AutoBuffActivateEffect = "stun_glb.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 PopupMessage1 = "game_floatingtext_Knockup"
 OnBuffActivateBuildingBlocks = {
   {
@@ -53,6 +53,14 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
       Status = SetCanMove
     }
   },
@@ -72,6 +80,14 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanCast
     }
   },
   {
@@ -116,6 +132,14 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
     }
   },
   {

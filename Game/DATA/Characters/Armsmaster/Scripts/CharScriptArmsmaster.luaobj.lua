@@ -1,3 +1,15 @@
+UpdateSelfBuffStatsBuildingBlocks = {
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  }
+}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -77,7 +89,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
+              TickRate = 0.25,
               CanMitigateDuration = false
             }
           }
@@ -144,7 +156,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
+              TickRate = 0.25,
               CanMitigateDuration = false
             }
           }
@@ -210,12 +222,12 @@ CharOnDodgeBuildingBlocks = {
           BuffName = "CounterStrikeCanCast",
           BuffAddType = BUFF_RENEW_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Internal,
+          BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 7,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
+          TickRate = 0.25,
           CanMitigateDuration = false
         }
       }

@@ -342,6 +342,10 @@ BuffOnPreAttackBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
         Function = BBPushCharacterFade,
         Params = {
           TargetVar = "Owner",
@@ -384,9 +388,17 @@ BuffOnPreAttackBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Unit",
+              SourceVar = "Caster"
+            }
+          },
+          {
             Function = BBApplyFear,
             Params = {
-              AttackerVar = "Attacker",
+              AttackerVar = "Caster",
               TargetVar = "Unit",
               Duration = 0,
               DurationVar = "FearDuration",

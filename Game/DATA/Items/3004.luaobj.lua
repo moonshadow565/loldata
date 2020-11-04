@@ -109,5 +109,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "manamuneattacktrack"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "manamuneattackconversion"
+    }
   }
 }

@@ -1,70 +1,3 @@
-UpdateSelfBuffStatsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Silenced",
-          Src1VarTable = "CharVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSealSpellSlot,
-            Params = {
-              SpellSlot = 2,
-              SlotType = SpellSlots,
-              TargetVar = "Owner",
-              State = false
-            }
-          },
-          {
-            Function = BBSealSpellSlot,
-            Params = {
-              SpellSlot = 1,
-              SlotType = SpellSlots,
-              TargetVar = "Owner",
-              State = false
-            }
-          },
-          {
-            Function = BBSealSpellSlot,
-            Params = {
-              SpellSlot = 0,
-              SlotType = SpellSlots,
-              TargetVar = "Owner",
-              State = false
-            }
-          },
-          {
-            Function = BBSealSpellSlot,
-            Params = {
-              SpellSlot = 3,
-              SlotType = SpellSlots,
-              TargetVar = "Owner",
-              State = false
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Silenced",
-              DestVarTable = "CharVars",
-              SrcValue = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
 CharOnKillUnitBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -115,6 +48,7 @@ CharOnKillUnitBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "ManaToInc"
             }
           },
@@ -147,12 +81,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "DeathDefied",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 30000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -162,12 +98,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -177,12 +115,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -194,12 +134,15 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

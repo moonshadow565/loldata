@@ -110,27 +110,6 @@ SelfExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "teamID"}
   },
   {
-    Function = BBSpawnMinion,
-    Params = {
-      Name = "TestCubeRender",
-      Skin = "CryoHawk",
-      AiScript = "idle.lua",
-      PosVar = "Owner",
-      Team = TEAM_UNKNOWN,
-      TeamVar = "teamID",
-      Stunned = true,
-      Rooted = false,
-      Silenced = false,
-      Invulnerable = true,
-      MagicImmune = false,
-      IgnoreCollision = true,
-      Placemarker = false,
-      VisibilitySize = 0,
-      DestVar = "Other1",
-      GoldRedirectTargetVar = "Nothing"
-    }
-  },
-  {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
   },
@@ -251,15 +230,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "bowmaster_frosthawk_terminate_02.troy"
     }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "cryohawk"}
   }
 }
