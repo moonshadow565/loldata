@@ -4,7 +4,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "RengarUlt.dds"
 BuffName = "RengarRBuff"
-AutoBuffActivateEffect = "Global_haste.troy"
 SpellToggleSlot = 1
 SpellFXOverrideSkins = {
   "HunterRengar"
@@ -31,6 +30,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rengarrspeed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rengarrtrack"
     }
   },
@@ -38,6 +43,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "rengar_vo_seen.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarralert"
     }
   },
   {

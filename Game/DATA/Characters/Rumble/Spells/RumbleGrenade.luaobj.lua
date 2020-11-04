@@ -4,31 +4,10 @@ IsDamagingSpell = true
 BuffTextureName = "Rumble_Electro Harpoon.dds"
 BuffName = "RumbleGrenade"
 SpellToggleSlot = 3
+SpellFXOverrideSkins = {
+  "RumbleSkin03"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenademissilemechdz"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenadedummyspelldz"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenademissilemechbase"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumblegrenadedummyspell"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

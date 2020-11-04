@@ -14,19 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "syndraeimmunitystun"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "syndraemarker"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_e_hit.troy"
+      Name = "syndra_base_e_tar.troy"
     }
   },
   {
@@ -56,13 +50,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_e5_trail.troy"
+      Name = "syndra_base_e_lv5_pushedsphere_trail.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_e_trail.troy"
+      Name = "syndra_base_e_pushedsphere_trail.troy"
     }
   },
   {
@@ -74,7 +68,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_e_impact.troy"
+      Name = "syndra_base_e_pushedsphere_tar.troy"
     }
   },
   {

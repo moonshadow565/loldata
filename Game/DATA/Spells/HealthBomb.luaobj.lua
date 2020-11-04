@@ -71,11 +71,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "healthbomb"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "timebombexplo.troy"
-    }
   }
 }

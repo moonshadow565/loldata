@@ -7,11 +7,14 @@ BuffName = "Time Bomb"
 AutoBuffActivateEffect = "Syndra_R_Spheres_ready.troy"
 AutoBuffActivateAttachBoneName = "spine"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "SyndraSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r_ready.troy"
+      Name = "syndra_base_r_sphereactivate.troy"
     }
   },
   {

@@ -8,7 +8,8 @@ BuffName = "SyndraW"
 SpellToggleSlot = 2
 PopupMessage1 = "game_floatingtext_Suppressed"
 SpellFXOverrideSkins = {
-  "SyndraJusticar"
+  "SyndraJusticar",
+  "SyndraSkin02"
 }
 PreLoadBuildingBlocks = {
   {
@@ -44,55 +45,55 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_tar1.troy"
+      Name = "syndra_base_w_lv5_heldtarget_buf_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_beam.troy"
+      Name = "syndra_base_w_lv5_tether.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_wb_tar1.troy"
+      Name = "syndra_base_w_heldtarget_buf_01_large.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_wb5_tar2.troy"
+      Name = "syndra_base_w_lv5_heldtarget_buf_02_large.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_tar2.troy"
+      Name = "syndra_base_w_lv5_heldtarget_buf_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_tar1.troy"
+      Name = "syndra_base_w_heldtarget_buf_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_beam.troy"
+      Name = "syndra_base_w_tether.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_wb_tar2.troy"
+      Name = "syndra_base_w_heldtarget_buf_02_large.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_tar2.troy"
+      Name = "syndra_base_w_heldtarget_buf_02.troy"
     }
   },
   {

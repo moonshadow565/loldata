@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rengarmanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rengareslow"
     }
   }

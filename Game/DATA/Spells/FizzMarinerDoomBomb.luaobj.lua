@@ -3,6 +3,7 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FizzMarinerDoom.dds"
 BuffName = "FizzChurnTheWatersCling"
+SpellFXOverrideSkins = {"FizzSkin04"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -26,6 +27,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "fizz_ultimatemissile_orbit_lobster.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fizz_skin04_r_aoe.troy"
     }
   },
   {

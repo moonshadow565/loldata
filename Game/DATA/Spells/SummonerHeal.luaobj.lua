@@ -5,7 +5,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_cast.troy"
+      Name = "item_mercurial.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_ss_heal_speedboost.troy"
     }
   },
   {
@@ -17,7 +23,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "summonerhealcheck"
+      Name = "summonerheal"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_ss_heal_02.troy"
     }
   }
 }

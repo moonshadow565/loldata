@@ -41,5 +41,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "global_trinket_itemminiclairvoyance_red.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trinketorbsight"
+    }
   }
 }

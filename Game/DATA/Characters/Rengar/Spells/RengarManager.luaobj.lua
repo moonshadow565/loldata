@@ -1,9 +1,8 @@
-PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "rengar_base_p_buf_max.troy"
+      Name = "rengarpassivemax.troy"
     }
   }
 }

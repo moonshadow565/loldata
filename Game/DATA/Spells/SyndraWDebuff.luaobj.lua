@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_cas.troy"
+      Name = "syndra_base_w_lv5_cas.troy"
     }
   },
   {
@@ -24,55 +24,55 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_tar1.troy"
+      Name = "syndra_base_w_lv5_heldtarget_buf_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_tar2.troy"
+      Name = "syndra_base_w_lv5_heldtarget_buf_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_cas.troy"
+      Name = "syndra_base_w_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_tar1.troy"
+      Name = "syndra_base_w_heldtarget_buf_01.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_tar2.troy"
+      Name = "syndra_base_w_heldtarget_buf_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_land.troy"
+      Name = "syndra_base_w_lv5_aoe_explode.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_land.troy"
+      Name = "syndra_base_w_aoe_explode.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w5_hit.troy"
+      Name = "syndra_base_w_lv5_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_w_hit.troy"
+      Name = "syndra_base_w_tar.troy"
     }
   },
   {

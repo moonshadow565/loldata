@@ -22,18 +22,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rengartrophy6check"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rengartrophy9bonus"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "rengarhatredready"
     }
   },
@@ -41,18 +29,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "rengarhatredunready"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengar_vo_trophy2.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rengar_vo_trophy3.troy"
     }
   }
 }

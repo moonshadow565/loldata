@@ -6,43 +6,47 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Rengar_Base_W_Max_Roar.troy"
+      Name = "rengar_base_w_max_roar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Rengar_Base_W_Heal.troy"
+      Name = "rengar_base_w_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_base_w_max_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rengarwarmormr"
+      Name = "rengarwbuff"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_base_w_roar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengar_base_w_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "rengarwmoveaway"
-    }
+    Params = {Name = "rengarw"}
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "Rengar_Base_W_Max_Tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Rengar_Base_W_Roar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Rengar_Base_W_Tar.troy"
+      Name = "rengarmanager"
     }
   }
 }

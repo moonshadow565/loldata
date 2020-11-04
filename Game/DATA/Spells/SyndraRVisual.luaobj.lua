@@ -13,25 +13,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r3_spheres_q5.troy"
+      Name = "Syndra_Base_R_Lv3_idleTrail.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r3_spheresenemy_q5.troy"
+      Name = "Syndra_Base_R_Lv3_idleTrail_enemy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r_spheres.troy"
+      Name = "Syndra_Base_idle_spheres.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_r_spheresenemy.troy"
+      Name = "Syndra_Base_idle_spheres_enemy.troy"
     }
   },
   {

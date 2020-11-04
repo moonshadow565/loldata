@@ -20,25 +20,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q5_fall.troy"
+      Name = "Syndra_Base_Q_Lv5_aoe_gather.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q5_fall_enemy.troy"
+      Name = "Syndra_Base_Q_Lv5_aoe_gather_enemy.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_fall.troy"
+      Name = "Syndra_Base_Q_aoe_gather.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "syndra_q_fall_enemy.troy"
+      Name = "Syndra_Base_Q_aoe_gather_enemy.troy"
     }
   }
 }
