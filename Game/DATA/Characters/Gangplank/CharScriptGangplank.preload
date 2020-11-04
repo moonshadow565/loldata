@@ -6,4 +6,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gangplanke"}}, 
 {Function=BBPreloadSpell, Params={Name="gangplankbilgewatertokenauto"}}, 
 {Function=BBPreloadSpell, Params={Name="gangplankrupgradetracker"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_q_token.troy"}}, 
 }

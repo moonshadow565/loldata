@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="rengar_base_r_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarrtrackskin1"}}, 
-{Function=BBPreloadSpell, Params={Name="rengarr"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarrtrackskin"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarrspeed"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarrtrack"}}, 

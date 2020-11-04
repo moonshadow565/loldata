@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="jaxrelentlessassault"}}, 
 {Function=BBPreloadParticle, Params={Name="relentlessassault_tar.troy"}}, 
 }
