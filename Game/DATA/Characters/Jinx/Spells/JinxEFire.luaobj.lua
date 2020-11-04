@@ -1,0 +1,18 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "jinx_e_fire.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jinxefireburn"
+    }
+  }
+}

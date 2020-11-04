@@ -4,6 +4,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "itemhurricanejinxattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "itemhurricaneattack"
     }
   },

@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "jinxblocksound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "viblocksound"
     }
   }
