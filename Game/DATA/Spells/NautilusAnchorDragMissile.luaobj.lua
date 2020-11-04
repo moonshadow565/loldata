@@ -1,7 +1,5 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "LeblancConjureChains.dds"
-BuffName = "LeblancShackleBeam"
 AutoCooldownByLevel = {
   22,
   20,

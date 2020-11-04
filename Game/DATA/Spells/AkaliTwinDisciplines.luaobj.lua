@@ -4,15 +4,9 @@ PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "akalitwinap"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalitwindmg"
+      Name = "akali_mark_impact_tar.troy"
     }
   }
 }

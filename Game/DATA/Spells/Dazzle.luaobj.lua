@@ -10,3 +10,9 @@ AutoCooldownByLevel = {
   9,
   8
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "stun"}
+  }
+}

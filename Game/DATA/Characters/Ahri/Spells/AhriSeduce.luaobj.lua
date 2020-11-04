@@ -3,8 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Ahri_Charm.dds"
 BuffName = "AhriSeduce"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {

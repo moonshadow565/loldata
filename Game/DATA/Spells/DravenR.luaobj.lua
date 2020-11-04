@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "CyberEzreal"
+  "Draven_Gladiator"
 }
 SpellVOOverrideSkins = {
   "CyberEzreal"

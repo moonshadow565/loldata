@@ -1,7 +1,3 @@
 BuffTextureName = "034_Steel_Shield.dds"
 BuffName = "Aegis of the Legion"
 AutoBuffActivateEffect = "Aegis_buf.troy"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""

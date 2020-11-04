@@ -6,12 +6,6 @@ IsDamagingSpell = true
 ChannelDuration = 30
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odincapturechannel"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_essenceflux_tar.troy"
@@ -20,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "odincapturechannelcooldownbuff"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -72,12 +72,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "odinshrinebombbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "odinbombtickorder"
     }
   },
@@ -97,12 +91,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "odincapturebeamengaged_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odincapturechannelcooldownbuff"
     }
   },
   {
