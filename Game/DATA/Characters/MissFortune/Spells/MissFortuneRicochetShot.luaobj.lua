@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "MissFortune_Base_Q_tar.troy"
+      Name = "missfortune_base_q_tar.troy"
     }
   },
   {

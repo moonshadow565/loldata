@@ -1,6 +1,6 @@
 DoesntTriggerSpellCasts = true
-BuffTextureName = "3122_Wicked_Hatchet.dds"
-BuffName = "ItemWickedHatchetBleed"
+BuffTextureName = "3185_Lightbringer.dds"
+BuffName = "ItemLightBringerBleed"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

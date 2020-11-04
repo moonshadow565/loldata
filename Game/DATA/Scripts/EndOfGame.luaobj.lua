@@ -70,32 +70,32 @@ function L0(A0, A1)
   L3 = chaosHQ
   L4 = false
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_CAMERALOCKING
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_CAMERALOCKING
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_CAMERAMOVEMENT
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_CAMERAMOVEMENT
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_ABILITIES
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_ABILITIES
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_SUMMONERSPELLS
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_SUMMONERSPELLS
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_MOVEMENT
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_MOVEMENT
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_SHOP
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_SHOP
   L4 = true
   L2(L3, L4)
-  L2 = SetInputLockingFlag
-  L3 = INPUT_MINIMAPMOVEMENT
+  L2 = SetInputLockFlag
+  L3 = INPUT_LOCK_MINIMAPMOVEMENT
   L4 = true
   L2(L3, L4)
   L2 = DisableHUDForEndOfGame
@@ -176,8 +176,8 @@ end
 StopRenderingMinionsPhase = L0
 function L0()
   local L0, L1, L2
-  L0 = SetInputLockingFlag
-  L1 = INPUT_CHAT
+  L0 = SetInputLockFlag
+  L1 = INPUT_LOCK_CHAT
   L2 = true
   L0(L1, L2)
   L0 = EndGame
