@@ -14,36 +14,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darius_r_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darius_r_tar_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darius_r_tar_03.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "garen_damacianjustice_tar_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "garen_damacianjustice_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "dariushemo"}
   },
@@ -60,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_r_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "dariusexecute"
@@ -69,6 +45,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "dariusexecutereset"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_r_tar_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_r_tar_03.troy"
     }
   }
 }

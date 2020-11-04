@@ -38,7 +38,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "globalhit_physical.troy"
+      Name = "darius_axegrab_collision.troy"
     }
   }
 }
