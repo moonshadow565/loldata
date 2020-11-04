@@ -16,11 +16,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "udyrtigerpunchbleed"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "udyrtigershred"
-    }
   }
 }

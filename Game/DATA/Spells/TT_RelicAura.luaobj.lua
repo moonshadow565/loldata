@@ -2,6 +2,12 @@ PersistsThroughDeath = true
 Nondispellable = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "tt_heal_rune.troy"
@@ -14,9 +20,25 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "resistantskindragon"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "tt_heal_runecapture.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tt_relicheal"
     }
   },
   {

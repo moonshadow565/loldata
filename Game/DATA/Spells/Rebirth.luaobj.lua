@@ -6,7 +6,16 @@ IsDamagingSpell = false
 BuffTextureName = "Cryophoenix_Rebirth.dds"
 BuffName = "Rebirth"
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "AniviaEggBlackIce"
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "laywaste_point.troy"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {Name = "aniviaegg"}
@@ -26,7 +35,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "blackiceaniviarebirth_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rebirthanimationplay"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "rebirth_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rebirthanimationreset"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aniviaeggdeathanimationplay"
     }
   }
 }

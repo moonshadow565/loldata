@@ -1,14 +1,23 @@
+SpellVOOverrideSkins = {
+  "ClassicTrundle"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "trundledesecrate_green.troy"
+      Name = "trundle_w_green_ring.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "trundledesecrate_red.troy"
+      Name = "trundle_w_red_ring.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trundle_w_ground.troy"
     }
   },
   {

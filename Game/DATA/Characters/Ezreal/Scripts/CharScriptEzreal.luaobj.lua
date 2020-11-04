@@ -52,54 +52,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_cyberezreal_mysticshot.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_mythicshot_activate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_cyberezreal_essenceflux.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_essenceflux_activate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_cyberezreal_arcaneshift.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_arcaneshift_activate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_cyberezreal_trueshotbarrage.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ezreal_pulsefire_trueshot_activate.troy"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "ezreal_cyber_1"
@@ -181,6 +133,54 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "ezreal_cyberezreal_upgrade3.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_cyberezreal_mysticshot.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_mythicshot_activate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_cyberezreal_essenceflux.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_essenceflux_activate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_cyberezreal_arcaneshift.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_arcaneshift_activate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_cyberezreal_trueshotbarrage.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_pulsefire_trueshot_activate.troy"
     }
   }
 }

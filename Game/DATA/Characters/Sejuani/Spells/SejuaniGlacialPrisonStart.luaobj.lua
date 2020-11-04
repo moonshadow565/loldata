@@ -5,23 +5,20 @@ BuffTextureName = "Sejuani_GlacialPrison.dds"
 BuffName = "Glacial Prison Start"
 PopupMessage1 = "game_floatingtext_Snared"
 PersistsThroughDeath = true
+SpellVOOverrideSkins = {
+  "SejuaniClassic"
+}
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "sejuani_ult_impact_nova.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_ult_tar.troy"
+      Name = "testcuberender10vision"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sejuaniglacialprisondetonate"
+      Name = "expirationtimer"
     }
   }
 }

@@ -37,6 +37,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "zyrapqueenofthornsready"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yorickultpetactive"
     }
   },
@@ -50,6 +56,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickradelaykogmaw"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yorickradelayzyra"
     }
   },
   {

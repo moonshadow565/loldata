@@ -1,0 +1,16 @@
+PersistsThroughDeath = true
+Nondispellable = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ha_ap_healingbuff.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "odinshieldrelicbuffheal"
+    }
+  }
+}

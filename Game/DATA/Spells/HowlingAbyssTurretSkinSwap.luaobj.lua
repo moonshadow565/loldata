@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "ha_ap_orderturret"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "ha_ap_chaosturret"
+    }
+  }
+}
