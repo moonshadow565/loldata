@@ -7,23 +7,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sonasoundoff"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonaariaofperseverancesound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonahymnofvalorsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonasongofdiscordsound"
-    }
   }
 }

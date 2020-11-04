@@ -5,5 +5,6 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "GemKnight_Gemcraft.dds"
 BuffName = "Gemcraft"
+IsDeathRecapSource = true
 PersistsThroughDeath = true
 NonDispellable = true

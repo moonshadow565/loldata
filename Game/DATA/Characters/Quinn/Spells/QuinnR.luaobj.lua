@@ -111,5 +111,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "quinnrdeath"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "quinnr"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "quinnrfinale"
+    }
   }
 }

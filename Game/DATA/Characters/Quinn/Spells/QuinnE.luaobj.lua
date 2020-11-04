@@ -30,13 +30,13 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "quinneroot"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "quinn_e_end.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "quinneroot"}
   }
 }
