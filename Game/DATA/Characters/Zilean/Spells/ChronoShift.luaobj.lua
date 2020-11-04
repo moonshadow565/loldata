@@ -8,6 +8,7 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 OnPreDamagePriority = 4
+DeathEventType = 1
 SpellFXOverrideSkins = {
   "ZileanSkin05"
 }
