@@ -1,0 +1,11 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_hit.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyr"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrmaxhitvo"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrekkotracker"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrknockupminion"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_mis.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_mis2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_mis3.troy"}}, 
+}

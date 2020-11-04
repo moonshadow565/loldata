@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="poppyestunvo"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_e_tar_stun.troy"}}, 
+}

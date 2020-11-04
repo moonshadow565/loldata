@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="reksaiecooldown"}}, 
-{Function=BBPreloadSpell, Params={Name="reksaieburrowed"}}, 
 {Function=BBPreloadSpell, Params={Name="reksaitunnel"}}, 
 {Function=BBPreloadCharacter, Params={Name="reksaitunnel"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_e_tunnel_birth2.troy"}}, 

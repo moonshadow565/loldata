@@ -1,2 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="mastery6162deathrecapdummy"}}, 
+{Function=BBPreloadSpell, Params={Name="masteryonhitdamagestacker"}}, 
+{Function=BBPreloadParticle, Params={Name="ag_fervor_maxed_handglow.troy"}}, 
 }

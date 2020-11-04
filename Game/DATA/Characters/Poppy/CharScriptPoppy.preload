@@ -1,0 +1,18 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="poppypassive"}}, 
+{Function=BBPreloadSpell, Params={Name="poppypassivebuff"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_e_tar_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppye"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyepushenemy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyepushself"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_r_hit_instant.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrmaxhitvo"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrekkotracker"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyrknockupminion"}}, 
+{Function=BBPreloadSpell, Params={Name="poppyr"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_red.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="poppywbuff"}}, 
+}

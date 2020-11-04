@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="poppypassivekillbounce"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
+{Function=BBPreloadSpell, Params={Name="poppypassivebounce"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_reticle.troy"}}, 
+}

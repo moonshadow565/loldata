@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="poppypassivebuff"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_warning.troy"}}, 
+}

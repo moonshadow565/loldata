@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="poppypassiveshield"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_stomp.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_mis_ground.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_mis_ground_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_shield_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poppy_base_p_mis_ground_outro.troy"}}, 
+}
