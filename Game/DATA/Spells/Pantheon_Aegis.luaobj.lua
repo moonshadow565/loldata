@@ -1,3 +1,4 @@
+BuffName = "Pantheon Aegis"
 PersistsThroughDeath = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
@@ -48,23 +49,34 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnSpellCastBuildingBlocks = {
   {
-    Function = BBIfNotHasBuff,
+    Function = BBIf,
     Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "Pantheon_AegisShield"
+      Src1Var = "DoesntTriggerSpellCasts",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBIfNotHasBuff,
         Params = {
-          Src1Var = "AegisCounter",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "AegisCounter",
-          DestVarTable = "InstanceVars",
-          MathOp = MO_ADD
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "Pantheon_AegisShield"
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "AegisCounter",
+              Src1VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "AegisCounter",
+              DestVarTable = "InstanceVars",
+              MathOp = MO_ADD
+            }
+          }
         }
       }
     }

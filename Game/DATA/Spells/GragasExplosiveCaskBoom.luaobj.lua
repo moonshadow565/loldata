@@ -33,14 +33,14 @@ TargetExecuteBuildingBlocks = {
           EffectName = "gragas_caskboom.troy",
           Flags = 0,
           EffectIDVar = "Particle",
-          TargetObjectVar = "Other2",
+          TargetObjectVar = "Owner",
           TargetPosVar = "Target",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -57,14 +57,14 @@ TargetExecuteBuildingBlocks = {
           EffectName = "gragas_caskboom.troy",
           Flags = 0,
           EffectIDVar = "Particle",
-          TargetObjectVar = "Other2",
+          TargetObjectVar = "Owner",
           TargetPosVar = "Target",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWVisibilityRadius = 100,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -168,11 +168,11 @@ TargetExecuteBuildingBlocks = {
               EffectIDVar = "arr",
               TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_ORDER,
+              SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_ORDER,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
             }
           }
         }
@@ -191,11 +191,11 @@ TargetExecuteBuildingBlocks = {
               EffectIDVar = "arr",
               TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_CHAOS,
+              SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = true
             }
           }
         }

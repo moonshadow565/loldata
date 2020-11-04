@@ -73,8 +73,40 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "pantheon_grandskyfall_land.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
     Function = BBTeleportToPosition,
     Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "Deathscaress_nova.troy",
+      Flags = 0,
+      EffectIDVar = "a",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
   },
   {
     Function = BBForEachUnitInTargetArea,
@@ -218,16 +250,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-ChannelingSuccessStopBuildingBlocks = {
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Pantheon_GrandSkyfall_Fall"
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -273,7 +295,23 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
+ChannelingSuccessStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_GrandSkyfall_Fall"
+    }
+  }
+}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_grandskyfall_land.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}

@@ -59,6 +59,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ApMod",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "WillPumpAP",

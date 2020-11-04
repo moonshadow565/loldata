@@ -35,7 +35,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 20000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -94,7 +94,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -115,7 +115,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -144,7 +144,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                               BuffAddType = BUFF_RENEW_EXISTING,
                               BuffType = BUFF_Aura,
                               MaxStack = 1,
-                              NumberStacks = 1,
+                              NumberOfStacks = 1,
                               Duration = 1,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0
@@ -181,7 +181,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       BuffAddType = BUFF_REPLACE_EXISTING,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -244,7 +244,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -259,7 +259,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -274,7 +274,7 @@ CharOnActivateBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -333,7 +333,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level1",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   },
   {
@@ -341,7 +341,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level2",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   },
   {
@@ -349,7 +349,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level3",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   },
   {
@@ -357,7 +357,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level4",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   },
   {
@@ -365,7 +365,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level5",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   },
   {
@@ -373,7 +373,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "Level6",
       DestVarTable = "CharVars",
-      SrcValue = 1
+      SrcValue = 4
     }
   }
 }
@@ -390,7 +390,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }

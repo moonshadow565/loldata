@@ -92,6 +92,15 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "RunUlt",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -117,15 +126,6 @@ BuffOnUpdateActionsBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "RunUlt",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
-        }
-      },
       {
         Function = BBSetVarInTable,
         Params = {
@@ -264,7 +264,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Target",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.05,
@@ -364,6 +364,10 @@ BuffOnMoveEndBuildingBlocks = {
             }
           },
           {
+            Function = BBUnlockAnimation,
+            Params = {OwnerVar = "Owner"}
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
@@ -384,15 +388,6 @@ BuffOnMoveEndBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "Spell4",
-              ScaleTime = 0,
-              TargetVar = "Owner",
-              Loop = false
-            }
-          },
           {
             Function = BBSpellEffectCreate,
             Params = {

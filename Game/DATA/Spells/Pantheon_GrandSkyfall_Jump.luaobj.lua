@@ -1,4 +1,7 @@
+DoesntTriggerSpellCasts = true
 ChannelDuration = 3
+BuffTextureName = "Pantheon_GrandSkyfall.dds"
+BuffName = "Pantheon Grand Skyfall"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
@@ -6,7 +9,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       BindObjectVar = "Owner",
       PosVar = "Owner",
-      EffectName = "deathscaress_buf.troy",
+      EffectName = "pantheon_grandskyfall_cas.troy",
       Flags = 0,
       EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars",
@@ -48,7 +51,7 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 3,
@@ -122,7 +125,7 @@ ChannelingSuccessStopBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_red.troy",
+          EffectName = "pantheon_grandskyfall_tar.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "NextBuffVars",
@@ -140,7 +143,7 @@ ChannelingSuccessStopBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_green.troy",
+          EffectName = "pantheon_grandskyfall_tar.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
           EffectIDVarTable = "NextBuffVars",
@@ -164,7 +167,7 @@ ChannelingSuccessStopBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_red.troy",
+          EffectName = "pantheon_grandskyfall_tar.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "NextBuffVars",
@@ -182,7 +185,7 @@ ChannelingSuccessStopBuildingBlocks = {
         Params = {
           BindObjectVar = "Nothing",
           PosVar = "TargetPos",
-          EffectName = "pirate_cannonBarrage_aoe_indicator_green.troy",
+          EffectName = "pantheon_grandskyfall_tar.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
           EffectIDVarTable = "NextBuffVars",
@@ -195,6 +198,24 @@ ChannelingSuccessStopBuildingBlocks = {
           SendIfOnScreenOrDiscard = false
         }
       }
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "pantheon_grandskyfall_up.troy",
+      Flags = 0,
+      EffectIDVar = "Part",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
     }
   },
   {
@@ -226,23 +247,11 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   }
 }
-ChannelingCancelStopBuildingBlocks = {
-  {
-    Function = BBSetSlotSpellCooldownTimeVer2,
-    Params = {
-      Src = 15,
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      OwnerVar = "Owner"
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "deathscaress_buf.troy"
+      Name = "pantheon_grandskyfall_cas.troy"
     }
   },
   {
@@ -254,13 +263,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pirate_cannonbarrage_aoe_indicator_red.troy"
+      Name = "pantheon_grandskyfall_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "pirate_cannonbarrage_aoe_indicator_green.troy"
+      Name = "pantheon_grandskyfall_up.troy"
     }
   },
   {

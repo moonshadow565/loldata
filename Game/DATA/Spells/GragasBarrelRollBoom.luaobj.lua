@@ -1,11 +1,14 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
+IsDamagingSpell = true
 SpellToggleSlot = 1
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
-      DestVar = "TeamofOwner",
-      DestVarTable = "InstanceVars"
+      DestVar = "TeamofOwner"
     }
   },
   {
@@ -32,7 +35,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "TeamofOwner",
-      Src1VarTable = "InstanceVars",
       Value2 = TEAM_ORDER,
       CompareOp = CO_EQUAL
     },
@@ -48,10 +50,10 @@ OnBuffActivateBuildingBlocks = {
           BoneName = "bottom",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 0,
+          FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }
       }
@@ -72,10 +74,10 @@ OnBuffActivateBuildingBlocks = {
           BoneName = "bottom",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 0,
+          FOWVisibilityRadius = 100,
           SendIfOnScreenOrDiscard = true
         }
       }
@@ -83,6 +85,13 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TeamofOwner"
+    }
+  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -135,7 +144,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "TeamofOwner",
-      Src1VarTable = "InstanceVars",
       Value2 = TEAM_ORDER,
       CompareOp = CO_EQUAL
     },
@@ -150,11 +158,11 @@ OnBuffDeactivateBuildingBlocks = {
           EffectIDVar = "Particle",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_ORDER,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -173,11 +181,11 @@ OnBuffDeactivateBuildingBlocks = {
           EffectIDVar = "Particle",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_CHAOS,
+          SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }

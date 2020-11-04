@@ -1,9 +1,9 @@
 BuffTextureName = "GragasDrunkenRage.dds"
 BuffName = "GragasDrunkenRageSelf"
-AutoBuffActivateEffect = "gragas_drunkenRage_attack_buf.troy"
-AutoBuffActivateAttachBoneName = "L_hand"
-AutoBuffActivateEffect2 = "gragas_drunkenRage_attack_buf.troy"
-AutoBuffActivateAttachBoneName2 = "R_hand"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

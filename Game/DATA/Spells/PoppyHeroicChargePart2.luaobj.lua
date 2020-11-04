@@ -222,6 +222,16 @@ BuffOnMoveEndBuildingBlocks = {
             }
           },
           {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBUnlockAnimation,
+                Params = {OwnerVar = "Owner"}
+              }
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",

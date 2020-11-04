@@ -26,15 +26,29 @@ OnBuffActivateBuildingBlocks = {
       UnitVar = "Target",
       TargetVar = "Pos",
       Speed = 900,
-      Gravity = 30,
+      Gravity = 15,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = POSTPONE_CURRENT_ORDER,
-      IdealDistance = 375
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetPointByUnitFacingOffset,

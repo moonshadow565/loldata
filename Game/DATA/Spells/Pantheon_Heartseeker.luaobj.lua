@@ -1,4 +1,5 @@
-ChannelDuration = 1.2
+DoesntTriggerSpellCasts = false
+ChannelDuration = 1.3
 BuffName = "Heartseeker"
 ChannelingStartBuildingBlocks = {
   {
@@ -23,6 +24,16 @@ ChannelingStartBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = 0
     }
+  }
+}
+ChannelingUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CastPosition",
+      SrcVar = "CastPosition",
+      SrcVarTable = "InstanceVars"
+    }
   },
   {
     Function = BBSpellCast,
@@ -40,62 +51,17 @@ ChannelingStartBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false
     }
-  }
-}
-ChannelingUpdateActionsBuildingBlocks = {
+  },
   {
-    Function = BBExecutePeriodically,
+    Function = BBMath,
     Params = {
-      TimeBetweenExecutions = 0.31,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "CastPosition",
-          SrcVar = "CastPosition",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Nothing",
-          PosVar = "CastPosition",
-          EndPosVar = "CastPosition",
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
-        }
-      }
-    }
-  }
-}
-ChannelingSuccessStopBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Nothing",
-      PosVar = "CastPosition",
-      EndPosVar = "CastPosition",
-      SlotNumber = 0,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 0,
-      OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      Src1Var = "counter",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "counter",
+      DestVarTable = "InstanceVars",
+      MathOp = MO_ADD
     }
   }
 }

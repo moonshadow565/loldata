@@ -56,14 +56,24 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 0,
       MoveBackBy = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "Spell2", TargetVar = "Owner"}
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBIf,
@@ -168,7 +178,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                   BuffAddType = BUFF_STACKS_AND_RENEWS,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -240,15 +250,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBPlayAnimation,
-        Params = {
-          AnimationName = "Spell2",
-          ScaleTime = 0,
-          TargetVar = "Owner",
-          Loop = true
         }
       },
       {
@@ -498,12 +499,18 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0
     }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

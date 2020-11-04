@@ -12,11 +12,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DmgPerLvl",
       SrcValueByLevel = {
-        5,
-        7.5,
-        10,
-        12.5,
-        15
+        6,
+        9,
+        12,
+        15,
+        18
       }
     }
   },
@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "PerLevel",
       SrcValueByLevel = {
-        0.15,
-        0.175,
-        0.2,
-        0.225,
-        0.25
+        0.18,
+        0.21,
+        0.24,
+        0.27,
+        0.3
       }
     }
   },

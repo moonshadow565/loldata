@@ -23,76 +23,25 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBPlayAnimation,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "Bandage_beam.troy",
-      Flags = 0,
-      EffectIDVar = "ParticleID",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "spine",
-      TargetObjectVar = "Attacker",
-      TargetBoneName = "R_hand",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = true
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBStopCurrentOverrideAnimation,
-    Params = {AnimationName = "Spell2", TargetVar = "Attacker"}
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 0.1,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
-        },
-        SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "Spell2",
-              ScaleTime = 0,
-              TargetVar = "Attacker",
-              Loop = false
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "WillRemove",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -174,18 +123,22 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellBuffAdd,
+        Function = BBSpellEffectCreate,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 0,
-          BuffVarsTable = "NextBuffVars",
-          DurationVar = "Time",
-          TickRate = 0
+          BindObjectVar = "Attacker",
+          EffectName = "Bandage_beam.troy",
+          Flags = 0,
+          EffectIDVar = "ParticleID",
+          EffectIDVarTable = "NextBuffVars",
+          BoneName = "spine",
+          TargetObjectVar = "Target",
+          TargetBoneName = "R_hand",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
         }
       },
       {
@@ -195,7 +148,24 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           Speed = 1350,
           Gravity = 5,
-          MoveBackBy = 80
+          MoveBackBy = 80,
+          MovementType = FURTHEST_WITHIN_RANGE,
+          MovementOrdersType = CANCEL_ORDER,
+          IdealDistance = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       },
       {
@@ -270,18 +240,22 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffAdd,
+            Function = BBSpellEffectCreate,
             Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationVar = "Time",
-              TickRate = 0
+              BindObjectVar = "Attacker",
+              EffectName = "Bandage_beam.troy",
+              Flags = 0,
+              EffectIDVar = "ParticleID",
+              EffectIDVarTable = "NextBuffVars",
+              BoneName = "spine",
+              TargetObjectVar = "Target",
+              TargetBoneName = "R_hand",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
             }
           },
           {
@@ -291,7 +265,24 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               Speed = 1350,
               Gravity = 5,
-              MoveBackBy = 80
+              MoveBackBy = 80,
+              MovementType = FURTHEST_WITHIN_RANGE,
+              MovementOrdersType = CANCEL_ORDER,
+              IdealDistance = 0
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           },
           {
@@ -378,18 +369,22 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBSpellBuffAdd,
+                Function = BBSpellEffectCreate,
                 Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 0,
-                  BuffVarsTable = "NextBuffVars",
-                  DurationVar = "Time",
-                  TickRate = 0
+                  BindObjectVar = "Attacker",
+                  EffectName = "Bandage_beam.troy",
+                  Flags = 0,
+                  EffectIDVar = "ParticleID",
+                  EffectIDVarTable = "NextBuffVars",
+                  BoneName = "spine",
+                  TargetObjectVar = "Target",
+                  TargetBoneName = "R_hand",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false
                 }
               },
               {
@@ -399,7 +394,24 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   Speed = 1350,
                   Gravity = 5,
-                  MoveBackBy = 80
+                  MoveBackBy = 80,
+                  MovementType = FURTHEST_WITHIN_RANGE,
+                  MovementOrdersType = CANCEL_ORDER,
+                  IdealDistance = 0
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Attacker",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 1,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
                 }
               },
               {
@@ -442,6 +454,12 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

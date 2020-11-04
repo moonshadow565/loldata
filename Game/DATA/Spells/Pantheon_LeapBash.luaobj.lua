@@ -10,77 +10,14 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "ParticleSup",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBDistanceBetweenObjects,
-    Params = {
-      DestVar = "DistanceTar",
-      ObjectVar1 = "Caster",
-      ObjectVar2 = "Owner"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "DistanceTar",
-      Value2 = 250,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Caster",
-          Damage = 0,
-          DamageVar = "DamageLvl",
-          DamageVarTable = "InstanceVars",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBApplyStun,
-        Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Caster",
-          Duration = 1
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Pantheon_AegisShield",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
     }
   }
 }
@@ -161,7 +98,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 400,
+      Value2 = 375,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -179,7 +116,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 300,
+      Value2 = 275,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -197,7 +134,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 200,
+      Value2 = 175,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -215,7 +152,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBElseIf,
     Params = {
       Src1Var = "Distance",
-      Value2 = 100,
+      Value2 = 75,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -250,11 +187,51 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Distance",
-      Src1Value = 0,
-      Src2Value = 200,
-      DestVar = "IdealMove",
+      Src2Var = "Distance",
+      Src1Value = 420,
+      Src2Value = 0,
+      DestVar = "factor",
       MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 420,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.4,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.75,
+      Src2Value = 0,
+      DestVar = "scaletime",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "scaletime",
+      TargetVar = "Attacker",
+      Loop = false
     }
   },
   {
@@ -270,8 +247,75 @@ TargetExecuteBuildingBlocks = {
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
       IdealDistance = 0,
-      IdealDistanceVar = "IdealMove"
+      IdealDistanceVar = "Distance"
     }
+  }
+}
+BuffOnMoveEndBuildingBlocks = {
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "DistanceTar",
+      ObjectVar1 = "Caster",
+      ObjectVar2 = "Owner"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "DistanceTar",
+      Value2 = 250,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          TargetVar = "Caster",
+          Damage = 0,
+          DamageVar = "DamageLvl",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBApplyStun,
+        Params = {
+          AttackerVar = "Owner",
+          TargetVar = "Caster",
+          Duration = 1
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pantheon_AegisShield",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

@@ -16,27 +16,37 @@ BuffOnCollisionBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBStopMoveBlock,
-        Params = {TargetVar = "Owner"}
-      },
-      {
-        Function = BBApplyRoot,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Owner",
-          TargetVar = "Owner",
-          Duration = 0.1
-        }
-      },
-      {
-        Function = BBStartTrackingCollisions,
-        Params = {TargetVar = "Owner", Value = false}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "SelfSlow",
-          DestVarTable = "InstanceVars",
-          SrcValue = false
+          Src1Var = "Target",
+          Value2 = true,
+          CompareOp = CO_IS_NOT_DEAD
+        },
+        SubBlocks = {
+          {
+            Function = BBStopMoveBlock,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBApplyRoot,
+            Params = {
+              AttackerVar = "Owner",
+              TargetVar = "Owner",
+              Duration = 0.1
+            }
+          },
+          {
+            Function = BBStartTrackingCollisions,
+            Params = {TargetVar = "Owner", Value = false}
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "SelfSlow",
+              DestVarTable = "InstanceVars",
+              SrcValue = false
+            }
+          }
         }
       }
     }
@@ -346,6 +356,10 @@ BuffOnMoveEndBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -382,6 +396,10 @@ BuffOnMoveEndBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
           {
             Function = BBApplyDamage,
             Params = {
