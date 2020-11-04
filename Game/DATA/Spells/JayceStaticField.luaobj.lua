@@ -32,9 +32,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "jaycestaticfielddebuff"
+      Name = "manaleach_tar.troy"
     }
   }
 }

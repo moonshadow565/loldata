@@ -18,11 +18,3 @@ AutoCooldownByLevel = {
 }
 NonDispellable = true
 SpellVOOverrideSkins = {"BroOlaf"}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "olafragnarokpassivebuff"
-    }
-  }
-}

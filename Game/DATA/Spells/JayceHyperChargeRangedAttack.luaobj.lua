@@ -12,15 +12,15 @@ AutoBuffActivateAttachBoneName3 = "BUFFBONE_CSTM_WEAPON_GAP_2"
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "jayce_charged_hit_ranged_skn1.troy"
+      Name = "jaycepassivedebuff"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "jayce_charged_hit_ranged_skn2.troy"
+      Name = "jayce_charged_hit_ranged_skn1.troy"
     }
   },
   {
