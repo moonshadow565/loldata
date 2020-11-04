@@ -1,0 +1,6 @@
+BuffTextureName = "2055_Mandrake.dds"
+BuffName = "MaokaiSapMagicMelee"
+AutoBuffActivateEffect = "Evelynn-Yikes.troy"
+AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect2 = "Evelynn_RedEye.troy"
+AutoBuffActivateAttachBoneName2 = "head"

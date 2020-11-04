@@ -416,6 +416,8 @@ function OnPostLevelLoad()
     SetDampenerRespawnAnimationDuration(L4_37, CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION)
     SetLaneExposed(TEAM_ORDER, L3_36, false)
     SetLaneExposed(TEAM_CHAOS, L3_36, false)
+    SetLaneTowerCount(TEAM_ORDER, L3_36, 3)
+    SetLaneTowerCount(TEAM_CHAOS, L3_36, 3)
   end
   L0_33(L1_34)
   L0_33(L1_34)
@@ -643,6 +645,7 @@ function DeactivateCorrectStructure(A0_89, A1_90, A2_91)
     L4_93 = L4_93(A0_89, A1_90, MIDDLE_TOWER)
     SetInvulnerable(L4_93, false)
     SetTargetable(L4_93, true)
+    SetLaneTowerCount(A0_89, A1_90, 2)
   else
     L4_93 = MIDDLE_TOWER
     if A2_91 == L4_93 then
@@ -653,6 +656,7 @@ function DeactivateCorrectStructure(A0_89, A1_90, A2_91)
       L4_93 = L4_93(A0_89, A1_90, BACK_TOWER)
       SetInvulnerable(L4_93, false)
       SetTargetable(L4_93, true)
+      SetLaneTowerCount(A0_89, A1_90, 1)
     else
       L4_93 = BACK_TOWER
       if A2_91 == L4_93 then
@@ -663,6 +667,7 @@ function DeactivateCorrectStructure(A0_89, A1_90, A2_91)
         L4_93 = L4_93(A0_89, A1_90)
         SetInvulnerable(L4_93, false)
         SetTargetable(L4_93, true)
+        SetLaneTowerCount(A0_89, A1_90, 0)
       else
         L4_93 = HQ_TOWER2
         if A2_91 == L4_93 then
@@ -1005,42 +1010,59 @@ end
 function SetLaneExposed(A0_147, A1_148, A2_149)
   if A0_147 == TEAM_ORDER then
     if A1_148 == RIGHT_LANE then
-      SetWorldVar("OrderRightLaneExposed", A2_149)
+      SetWorldVar("OrderTopLaneExposed", A2_149)
     elseif A1_148 == LEFT_LANE then
-      SetWorldVar("OrderLeftLaneExposed", A2_149)
+      SetWorldVar("OrderBotLaneExposed", A2_149)
     else
       SetWorldVar("OrderMidLaneExposed", A2_149)
     end
   elseif A1_148 == RIGHT_LANE then
-    SetWorldVar("ChaosRightLaneExposed", A2_149)
+    SetWorldVar("ChaosTopLaneExposed", A2_149)
   elseif A1_148 == LEFT_LANE then
-    SetWorldVar("ChaosLeftLaneExposed", A2_149)
+    SetWorldVar("ChaosBotLaneExposed", A2_149)
   else
     SetWorldVar("ChaosMidLaneExposed", A2_149)
   end
 end
+function SetLaneTowerCount(A0_150, A1_151, A2_152)
+  if A0_150 == TEAM_ORDER then
+    if A1_151 == RIGHT_LANE then
+      SetWorldVar("OrderTopLaneTowerCount", A2_152)
+    elseif A1_151 == LEFT_LANE then
+      SetWorldVar("OrderBotLaneTowerCount", A2_152)
+    else
+      SetWorldVar("OrderMidLaneTowerCount", A2_152)
+    end
+  elseif A1_151 == RIGHT_LANE then
+    SetWorldVar("ChaosTopLaneTowerCount", A2_152)
+  elseif A1_151 == LEFT_LANE then
+    SetWorldVar("ChaosBotLaneTowerCount", A2_152)
+  else
+    SetWorldVar("ChaosMidLaneTowerCount", A2_152)
+  end
+end
 function IncreaseCannonMinionSpawnRate()
-  local L1_150
-  L1_150 = 2
-  CANNON_MINION_SPAWN_FREQUENCY = L1_150
+  local L1_153
+  L1_153 = 2
+  CANNON_MINION_SPAWN_FREQUENCY = L1_153
 end
 function IncreaseCannonMinionSpawnRateAgain()
-  local L1_151
-  L1_151 = 1
-  CANNON_MINION_SPAWN_FREQUENCY = L1_151
+  local L1_154
+  L1_154 = 1
+  CANNON_MINION_SPAWN_FREQUENCY = L1_154
 end
-function PostGameSetup(A0_152)
+function PostGameSetup(A0_155)
   POST_GAME_EVENTS = {}
 end
-function PostGameUpdate(A0_153, A1_154)
-  local L2_155, L3_156, L4_157, L5_158, L6_159, L7_160
-  for L7_160, _FORV_8_ in L4_157(L5_158) do
-    if A0_153 > _FORV_8_.delay then
+function PostGameUpdate(A0_156, A1_157)
+  local L2_158, L3_159, L4_160, L5_161, L6_162, L7_163
+  for L7_163, _FORV_8_ in L4_160(L5_161) do
+    if A0_156 > _FORV_8_.delay then
       ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_8_.cameraLocation, _FORV_8_.travelTime)
       if _FORV_8_.soundFile then
         ClientSide_PlaySoundFile(_FORV_8_.soundFile)
       end
-      table.remove(POST_GAME_EVENTS, L7_160)
+      table.remove(POST_GAME_EVENTS, L7_163)
       break
     end
   end
