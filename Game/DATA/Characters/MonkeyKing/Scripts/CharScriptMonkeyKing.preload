@@ -2,4 +2,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingdeathparticle"}}, 
+{Function=BBPreloadSpell, Params={Name="globalruncyclemanager"}}, 
 }
