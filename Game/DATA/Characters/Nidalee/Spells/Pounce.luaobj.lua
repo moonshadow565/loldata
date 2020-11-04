@@ -4,6 +4,9 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = "Interventionspeed_buf.troy"
+SpellFXOverrideSkins = {
+  "HeadhunterNidalee"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

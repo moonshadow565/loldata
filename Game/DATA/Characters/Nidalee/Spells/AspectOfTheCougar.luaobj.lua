@@ -8,6 +8,9 @@ BuffName = "AspectOfTheCougar"
 SpellToggleSlot = 4
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "HeadhunterNidalee"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

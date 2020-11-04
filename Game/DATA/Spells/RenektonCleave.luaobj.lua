@@ -5,17 +5,14 @@ BuffTextureName = "AkaliCrescentSlash.dds"
 BuffName = "RenekthonCleaveReady"
 SpellToggleSlot = 1
 SpellDamageRatio = 0.5
+SpellFXOverrideSkins = {
+  "Renekton_VolcanoGod"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "renektonunlockanimationcleave"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonreignofthetyrant"
     }
   },
   {
@@ -34,12 +31,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "renektonbloodsplattertarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "renektonrageready"
     }
   },
   {

@@ -13,6 +13,9 @@ AutoBuffActivateAttachBoneName3 = "r_uparm"
 AutoBuffActivateEffect4 = "Renekton_Runewars_Shoulder_L.troy"
 AutoBuffActivateAttachBoneName4 = "l_uparm"
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "Renekton_VolcanoGod"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
