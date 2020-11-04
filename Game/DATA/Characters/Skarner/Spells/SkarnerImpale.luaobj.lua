@@ -10,13 +10,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_ult_beam.troy"
+      Name = "skarner_base_r_beam.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_ult_tail_tip.troy"
+      Name = "skarner_base_r_tail_tip.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_base_r_tar_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_base_r_tar_04.troy"
     }
   },
   {
@@ -28,13 +40,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_ult_tar_04.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "skarner_ult_tar_03.troy"
+      Name = "skarner_base_r_tar_03.troy"
     }
   },
   {
@@ -64,7 +70,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_ult_tar_02.troy"
+      Name = "skarner_base_r_tar_02.troy"
     }
   },
   {

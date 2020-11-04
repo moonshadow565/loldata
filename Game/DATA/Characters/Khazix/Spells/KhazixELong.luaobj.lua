@@ -10,7 +10,7 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"

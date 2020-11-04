@@ -8,7 +8,7 @@ BuffName = "KhazixPDamage"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

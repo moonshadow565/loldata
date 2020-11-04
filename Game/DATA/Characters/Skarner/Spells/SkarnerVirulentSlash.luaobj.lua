@@ -18,13 +18,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_crystal_slash_mini_nova.troy"
+      Name = "skarner_base_q_mini_nova.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_crystal_slash_buf.troy"
+      Name = "skarner_base_q_buf.troy"
     }
   },
   {
@@ -42,7 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_crystal_slash_tar.troy"
+      Name = "skarner_base_q_tar.troy"
     }
   },
   {

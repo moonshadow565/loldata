@@ -1,8 +1,15 @@
+DoesntTriggerSpellCasts = true
 SpellFXOverrideSkins = {"AzirSkin01"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "azire"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "azirdummyspell"
+    }
   },
   {
     Function = BBPreloadParticle,

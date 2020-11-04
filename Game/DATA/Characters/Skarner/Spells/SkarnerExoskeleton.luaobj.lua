@@ -7,25 +7,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_exoskeleton_body.troy"
+      Name = "skarner_base_w_body.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_exoskeleton_buf_r_arm.troy"
+      Name = "skarner_base_w_buf_r_arm.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_exoskeleton_buf_l_arm.troy"
+      Name = "skarner_base_w_buf_l_arm.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_exoskeleton_tail.troy"
+      Name = "skarner_base_w_buf_tail.troy"
     }
   },
   {

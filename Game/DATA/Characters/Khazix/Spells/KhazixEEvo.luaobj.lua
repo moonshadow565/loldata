@@ -8,7 +8,7 @@ BuffName = "KhazixEEvo"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"

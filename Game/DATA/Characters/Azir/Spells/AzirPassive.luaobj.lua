@@ -15,12 +15,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "azirsoldierstab"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "slow"}
   },
   {
@@ -87,12 +81,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "azirpassiveavailable"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_r_indicator_beam.troy"
     }
   },
   {

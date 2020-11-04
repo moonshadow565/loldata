@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "globalwallmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "azirrallyghost"
     }
   },

@@ -9,7 +9,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_fracture_tar_consume.troy"
+      Name = "skarner_base_e_tar_consume.troy"
     }
   },
   {

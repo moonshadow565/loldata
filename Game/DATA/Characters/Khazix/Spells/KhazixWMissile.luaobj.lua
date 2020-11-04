@@ -4,7 +4,7 @@ BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
 BuffName = "KhazixWMissile"
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

@@ -4,7 +4,7 @@ PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"

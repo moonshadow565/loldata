@@ -3,7 +3,7 @@ BuffName = "KhazixRStealth"
 AutoBuffActivateEffect = "Global_Haste.troy"
 SpellFXOverrideSkins = {
   "KhazixDroid",
-  "KhazixSkin03"
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

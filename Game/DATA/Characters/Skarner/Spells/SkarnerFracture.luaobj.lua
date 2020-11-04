@@ -5,19 +5,19 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Skarner_E.dds"
 BuffName = "SkarnerFracture"
-AutoBuffActivateEffect = "Skarner_Crystal_Slash_Activate_R.troy"
+AutoBuffActivateEffect = "Skarner_Base_Q_Activate_R.troy"
 AutoBuffActivateAttachBoneName = "tail_t"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_fracture_cas.troy"
+      Name = "skarner_base_e_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_crystal_slash_activate_r.troy"
+      Name = "skarner_base_q_activate_r.troy"
     }
   }
 }
