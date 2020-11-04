@@ -4,6 +4,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_rewindindicator_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_timedevice_active.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="ekko"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkorminion"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_trailend.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ekko_base_r_trailend_red.troy"}}, 
