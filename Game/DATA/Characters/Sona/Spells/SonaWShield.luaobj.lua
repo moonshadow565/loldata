@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sona_W_Gold.dds"
 BuffName = "SonaWShield"
-SpellToggleSlot = 4
 SpellFXOverrideSkins = {"GuqinSona", "PaxSona"}
 PreLoadBuildingBlocks = {
   {
