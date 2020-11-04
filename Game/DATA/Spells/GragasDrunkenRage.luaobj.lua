@@ -43,13 +43,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "arr",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",

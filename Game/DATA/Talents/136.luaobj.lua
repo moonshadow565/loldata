@@ -11,7 +11,7 @@ SetVarsByLevelBuildingBlocks = {
     Params = {
       DestVar = "ExhaustArmorMod",
       DestVarTable = "AvatarVars",
-      SrcValue = -25
+      SrcValue = -10
     }
   },
   {

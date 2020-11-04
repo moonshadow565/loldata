@@ -12,11 +12,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DmgPerLvl",
       SrcValueByLevel = {
+        5,
+        7.5,
         10,
-        15,
-        20,
-        30,
-        40
+        12.5,
+        15
       }
     }
   },
@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "PerLevel",
       SrcValueByLevel = {
-        0.3,
-        0.35,
-        0.4,
-        0.45,
-        0.5
+        0.15,
+        0.175,
+        0.2,
+        0.225,
+        0.25
       }
     }
   },
@@ -56,18 +56,55 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "FinalDmg",
-      DamageType = PHYSICAL_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PROC,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "FinalDmg",
+          Src1Value = 2,
+          Src2Value = 0,
+          DestVar = "FinalDmg",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "FinalDmg",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_PROC,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "FinalDmg",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_DEFAULT,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }

@@ -248,6 +248,16 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 200,
+      DestVar = "IdealMove",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Attacker",
@@ -258,7 +268,9 @@ TargetExecuteBuildingBlocks = {
       GravityVar = "GravityVar",
       MoveBackBy = 200,
       MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0,
+      IdealDistanceVar = "IdealMove"
     }
   }
 }

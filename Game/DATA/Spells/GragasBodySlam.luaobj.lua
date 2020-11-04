@@ -136,7 +136,8 @@ OnBuffActivateBuildingBlocks = {
       MoveBackBy = 0,
       MovementType = FIRST_COLLISION_HIT,
       MovementOrdersType = POSTPONE_CURRENT_ORDER,
-      IdealDistance = 0
+      IdealDistance = 0,
+      IdealDistanceVar = "DashSpeed"
     }
   }
 }

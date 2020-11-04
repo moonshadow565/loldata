@@ -8,16 +8,6 @@ BuffName = "GlacialStorm"
 SpellToggleSlot = 4
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetSpell,
-    Params = {
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      SpellName = "GlacialStormSpell",
-      TargetVar = "Owner"
-    }
-  },
-  {
     Function = BBSetSlotSpellCooldownTime,
     Params = {
       SrcValue = 1,
@@ -46,6 +36,16 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "TargetPos",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetTargetingType,
+    Params = {
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetType = TTYPE_Self,
+      TargetVar = "Owner"
     }
   },
   {
@@ -213,16 +213,6 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetSpell,
-    Params = {
-      SlotNumber = 3,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      SpellName = "GlacialStorm",
-      TargetVar = "Owner"
-    }
-  },
-  {
     Function = BBGetStat,
     Params = {
       Stat = GetPercentCooldownMod,
@@ -244,7 +234,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "Multiplier",
-      Src1Value = 10,
+      Src1Value = 6,
       Src2Value = 0,
       DestVar = "NewCooldown",
       MathOp = MO_MULTIPLY
@@ -259,6 +249,16 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       SpellSlotValue = 3,
       OwnerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetTargetingType,
+    Params = {
+      SlotNumber = 3,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetType = TTYPE_Area,
+      TargetVar = "Owner"
     }
   },
   {
@@ -485,64 +485,82 @@ AdjustCooldownBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "TargetPos"}
-  },
-  {
-    Function = BBSetVarInTable,
+    Function = BBIfHasBuff,
     Params = {
-      DestVar = "DamagePerLevel",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        40,
-        60,
-        80
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "TargetPos",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "TargetPos"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ManaCost",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        25,
-        35,
-        45
-      }
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
+      OwnerVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "GlacialStorm",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      BuffName = "GlacialStorm"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GlacialStorm"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetCastSpellTargetPos,
+        Params = {DestVar = "TargetPos"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamagePerLevel",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            40,
+            60,
+            80
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "ManaCost",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            35,
+            50,
+            65
+          }
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GlacialStorm",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "glacialstormspell"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

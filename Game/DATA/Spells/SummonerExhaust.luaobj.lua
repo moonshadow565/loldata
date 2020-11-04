@@ -225,7 +225,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "ExhaustArmorMod",
       Src1VarTable = "AvatarVars",
-      Value2 = -25,
+      Value2 = -10,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -234,7 +234,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "ArmorMod",
           DestVarTable = "NextBuffVars",
-          SrcValue = -25
+          SrcValue = -10
         }
       }
     }
@@ -257,7 +257,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "DurationTemp",

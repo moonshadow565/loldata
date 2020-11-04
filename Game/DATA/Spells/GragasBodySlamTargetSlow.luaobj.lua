@@ -22,13 +22,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "SlowAmount",
       DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        -0.28,
-        -0.31,
-        -0.34,
-        -0.37,
-        -0.4
-      }
+      SrcValue = -0.35
     }
   }
 }

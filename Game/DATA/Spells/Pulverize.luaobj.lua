@@ -106,7 +106,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 1.5
+      Duration = 1.2
     }
   }
 }

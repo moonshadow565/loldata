@@ -39,7 +39,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "SpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcValue = 0.65
+          SrcValue = 0.55
         }
       },
       {
@@ -50,15 +50,15 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Haste,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
-            3,
+            2.5,
+            3.25,
             4,
-            5,
-            6,
-            7
+            4.75,
+            5.5
           },
           TickRate = 0
         }
@@ -74,7 +74,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "SpeedMod",
           DestVarTable = "NextBuffVars",
-          SrcValue = -0.65
+          SrcValue = -0.55
         }
       },
       {
@@ -86,15 +86,15 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Slow,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
-            3,
+            2.5,
+            3.25,
             4,
-            5,
-            6,
-            7
+            4.75,
+            5.5
           },
           TickRate = 0
         }

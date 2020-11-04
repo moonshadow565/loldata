@@ -48,7 +48,7 @@ OnBuffActivateBuildingBlocks = {
           BoneName = "bottom",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
+          SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 0,
@@ -72,7 +72,7 @@ OnBuffActivateBuildingBlocks = {
           BoneName = "bottom",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
+          SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 0,
@@ -150,11 +150,11 @@ OnBuffDeactivateBuildingBlocks = {
           EffectIDVar = "Particle",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
+          SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       }
     }
@@ -173,11 +173,11 @@ OnBuffDeactivateBuildingBlocks = {
           EffectIDVar = "Particle",
           TargetObjectVar = "Owner",
           SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
+          SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       }
     }
