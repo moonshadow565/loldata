@@ -1,6 +1,7 @@
 BuffTextureName = "Soraka_Q.dds"
 BuffName = "SorakaQ"
 AutoBuffActivateEffect = "Global_Slow.troy"
+IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SorakaSkin04"
 }

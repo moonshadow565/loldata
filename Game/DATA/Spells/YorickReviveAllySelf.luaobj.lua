@@ -25,24 +25,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "karthusdeathdefied"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurpriseready"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyrapqueenofthornsready"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yorickultpetactive"
     }
   },
