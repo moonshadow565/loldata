@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Nasus_R.dds"
 BuffName = "NasusR"
+NonDispellable = true
 SpellFXOverrideSkins = {
   "NasusSkin05"
 }
@@ -50,6 +51,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nasus_base_r_transform.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deathinnasusr"
     }
   }
 }

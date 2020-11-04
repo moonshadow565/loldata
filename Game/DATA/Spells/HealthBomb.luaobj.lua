@@ -11,6 +11,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_bomb_red.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
   },
@@ -23,7 +29,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "global_item_fom_shield_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "global_item_fom_detonate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_detonate_red.troy"
     }
   },
   {
@@ -36,6 +54,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "global_item_fom_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_item_fom_hit_red.troy"
     }
   },
   {

@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Janna_EyeOfTheStorm.dds"
+BuffTextureName = "MasteryRunicShield.dds"
 BuffName = "MasteryRunicShield"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {

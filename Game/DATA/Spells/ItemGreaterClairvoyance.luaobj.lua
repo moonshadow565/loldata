@@ -15,13 +15,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_cast.troy"
+      Name = "global_trinket_itemclairvoyance_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "temp_relic_blue.troy"
+      Name = "global_trinket_itemclairvoyance.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "global_trinket_itemclairvoyance_red.troy"
     }
   }
 }
