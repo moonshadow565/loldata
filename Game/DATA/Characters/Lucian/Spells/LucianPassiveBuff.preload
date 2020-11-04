@@ -1,4 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="lucian_p_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="lucian_p_sound_only.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_base_p_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_skin06_p_buf_lightgun.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_skin06_p_buf_darkgun.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_base_p_sound_only.troy"}}, 
 }

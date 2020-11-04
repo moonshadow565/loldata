@@ -9,4 +9,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ekko_base_w_detonate.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkowstun"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkowshield"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkoqmarker"}}, 
+{Function=BBPreloadModule, Params={Name="Ekko.EkkoFunctions"}}, 
 }

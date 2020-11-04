@@ -1,4 +1,4 @@
-local L0, L1, L2, L3, L4, L5, L6, L7
+local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
 L0 = require
 L1 = "os"
 L0(L1)
@@ -28,6 +28,35 @@ L2[2] = L4
 L2[3] = L5
 L1.SampleVariables = L2
 L0.NidaleeSpear = L1
+L1 = {}
+L1.Creator = "jsidhu"
+L2 = os
+L2 = L2.time
+L3 = {}
+L3.month = 10
+L3.day = 30
+L3.year = 2015
+L2 = L2(L3)
+L1.Expiration = L2
+L2 = {}
+L3 = "TotalStacks"
+L4 = "TotalCashedInStacks"
+L5 = "TotalStacksLost"
+L6 = "HighestStackCashIn"
+L7 = "TotalKills"
+L8 = "TotalDeaths"
+L9 = "DoubleAxeCatches"
+L10 = "TotalCashedInDoubleAxeCatches"
+L2[1] = L3
+L2[2] = L4
+L2[3] = L5
+L2[4] = L6
+L2[5] = L7
+L2[6] = L8
+L2[7] = L9
+L2[8] = L10
+L1.AccumulateVariables = L2
+L0.DravenDoubleAxeCatch = L1
 L1 = {}
 L1.Creator = "bfeeney"
 L2 = os

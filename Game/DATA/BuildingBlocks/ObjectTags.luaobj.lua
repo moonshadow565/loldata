@@ -139,6 +139,8 @@ L0[5] = L5
 SpellTags = L0
 L0 = {}
 UnitTagFlags = L0
+L0 = {}
+UnitTagIndicies = L0
 function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8
   L0 = UnitTagFlags
@@ -147,6 +149,9 @@ function L0()
   for L4, L5 in L1, L2, L3 do
     L6 = UnitTagFlags
     L6[L5] = L0
+    L6 = UnitTagIndicies
+    L7 = L4 - 1
+    L6[L5] = L7
     L0 = L0 * 2
   end
   for L4, L5 in L1, L2, L3 do
@@ -184,3 +189,20 @@ function L0(A0)
   return L1
 end
 ParseUnitTagFlags = L0
+function L0(A0)
+  local L1, L2, L3, L4, L5, L6, L7
+  L1 = {}
+  for L5 in L2, L3, L4 do
+    L6 = UnitTagIndicies
+    L6 = L6[L5]
+    if L6 ~= nil then
+      L6 = #L1
+      L6 = L6 + 1
+      L7 = UnitTagIndicies
+      L7 = L7[L5]
+      L1[L6] = L7
+    end
+  end
+  return L1
+end
+ParseUnitTagIndicies = L0

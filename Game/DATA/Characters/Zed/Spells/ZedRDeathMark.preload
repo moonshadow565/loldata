@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="Zed_Base_R_tar_DelayedDamage.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Zed_Base_R_Tar_pop_Kill.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_ult_pop_kill_self_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Zed_Base_R_Tar_pop_noKill.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_r_buf_tell.troy"}}, 
+}

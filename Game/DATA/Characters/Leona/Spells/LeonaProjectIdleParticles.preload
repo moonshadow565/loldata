@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="leona_skin08_i_weaponglow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="leona_skin08_i_shield_panels.troy"}}, 
+}

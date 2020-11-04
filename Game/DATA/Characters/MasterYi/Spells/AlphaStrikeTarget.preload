@@ -1,5 +1,7 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="masteryi_skin09_q_proc.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="masteryi_base_q_hit.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="masteryi_skin09_q_pop.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="masterattackspeedbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="alphastrike"}}, 
 {Function=BBPreloadParticle, Params={Name="masteryi_base_q_crit_tar.troy"}}, 

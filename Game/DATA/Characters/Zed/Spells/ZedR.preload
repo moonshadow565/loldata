@@ -1,0 +1,9 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Zed.CharFunctionsZed"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_r_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_skin01_r_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="zedrtargetmark"}}, 
+{Function=BBPreloadParticle, Params={Name="zed_base_r_tar_targetmarker.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="zedroncastuntargetablebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="zedr2"}}, 
+}

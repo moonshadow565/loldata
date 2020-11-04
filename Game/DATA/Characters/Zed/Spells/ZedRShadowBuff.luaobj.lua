@@ -5,5 +5,5 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "2.dds"
 BuffName = "heal"
-AutoBuffActivateEffect = "Zed_Clone_Idle.troy"
+AutoBuffActivateEffect = "Zed_Base_Clone_idle.troy"
 AutoBuffActivateAttachBoneName = "Buffbone_glb_ground_loc"

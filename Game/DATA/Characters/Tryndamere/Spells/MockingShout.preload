@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="mockingshoutslow"}}, 
-{Function=BBPreloadSpell, Params={Name="mockingshout"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 }

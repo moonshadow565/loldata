@@ -3,3 +3,9 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "Fiora_Parry.dds"
 BuffName = "FioraW"
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}
+SpellVOOverrideSkins = {
+  "FioraSkin04"
+}
