@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_cast.troy"
+      Name = "global_ss_revive.troy"
     }
   },
   {

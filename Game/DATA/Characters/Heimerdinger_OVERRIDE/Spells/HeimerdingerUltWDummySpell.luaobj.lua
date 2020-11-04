@@ -1,0 +1,2 @@
+IsDeathRecapSource = true
+DeathRecap = true

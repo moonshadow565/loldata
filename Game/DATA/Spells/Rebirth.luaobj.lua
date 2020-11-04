@@ -11,12 +11,6 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "laywaste_point.troy"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {Name = "aniviaegg"}
   },

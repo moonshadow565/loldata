@@ -6,18 +6,6 @@ IsDamagingSpell = false
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "laywaste_point.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "caitlyn_laser_beam_01.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
   },

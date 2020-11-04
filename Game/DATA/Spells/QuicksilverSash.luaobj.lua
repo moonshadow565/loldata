@@ -15,5 +15,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemmercurial"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemdervishblade"
+    }
   }
 }
