@@ -8,5 +8,9 @@ BuffName = "Shen Feint Buff"
 AutoBuffActivateEffect = "LuxPrismaticWave_shield.troy"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {
-  "RivenSkin05"
+  "RivenSkin05",
+  "RivenSkin06"
+}
+SpellVOOverrideSkins = {
+  "RivenSkin06"
 }

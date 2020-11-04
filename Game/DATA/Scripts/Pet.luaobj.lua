@@ -13,6 +13,10 @@ function L0_0()
   InitTimer("TimerFindEnemies", 0.15, true)
   InitTimer("TimerFeared", 1, true)
   StopTimer("TimerFeared")
+  if GetCharacterData().Name == "SRU_Dragon" then
+    TELEPORT_DISTANCE = 25000
+    return false
+  end
   return false
 end
 OnInit = L0_0

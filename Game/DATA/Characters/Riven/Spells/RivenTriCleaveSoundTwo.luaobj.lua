@@ -5,3 +5,6 @@ BuffTextureName = "RivenBrokenWings.dds"
 BuffName = "RivenTriCleaveBuff"
 SpellToggleSlot = 1
 SpellDamageRatio = 0.5
+SpellVOOverrideSkins = {
+  "RivenSkin06"
+}

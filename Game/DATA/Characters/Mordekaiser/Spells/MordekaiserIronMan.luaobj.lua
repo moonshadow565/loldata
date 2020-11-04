@@ -1,3 +1,4 @@
-BuffTextureName = "Mordekaiser_IronMan.dds"
+BuffTextureName = "MordekaiserPassive.dds"
 BuffName = "MordekaiserIronMan"
 PersistsThroughDeath = true
+OnPreDamagePriority = 3

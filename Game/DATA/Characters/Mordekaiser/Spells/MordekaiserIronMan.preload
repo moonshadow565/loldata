@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_p_buf_hit.troy"}}, 
+}

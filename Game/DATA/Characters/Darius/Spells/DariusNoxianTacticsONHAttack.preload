@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="dariusnoxiantacticsslow"}}, 
-{Function=BBPreloadSpell, Params={Name="dariusnoxiantacticsonh"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_w_tar.troy"}}, 
 }

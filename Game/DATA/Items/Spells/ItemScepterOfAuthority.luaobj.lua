@@ -1,0 +1,6 @@
+BuffTextureName = "3748_Eternity_Scepter.dds"
+BuffName = "ItemScepterOfAuthority"
+AutoBuffActivateEffect = "enrage_buf.troy"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateEffect2 = "enrage_buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"

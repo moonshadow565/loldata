@@ -1,4 +1,4 @@
-BuffTextureName = "Skarner_Passive.dds"
+BuffTextureName = "Skarner_E_Mark.dds"
 BuffName = "SkarnerPassiveBuff"
 SpellFXOverrideSkins = {
   "SkarnerSkin03"

@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="sru_dragon_fireline_ground.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="dragonbasicattackburn"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_dragon_ba1_cas_flames.troy"}}, 
 }

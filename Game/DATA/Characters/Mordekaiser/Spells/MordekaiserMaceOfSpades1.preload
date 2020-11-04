@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_q_initial_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserqlasthitmonitor"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserqattack"}}, 
+}

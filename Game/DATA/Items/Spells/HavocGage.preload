@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="primaltalonshield"}}, 
+{Function=BBPreloadSpell, Params={Name="primaltalonenrage"}}, 
+{Function=BBPreloadSpell, Params={Name="primaltalonenragedisplay"}}, 
+{Function=BBPreloadSpell, Params={Name="primaltalondamagemarker"}}, 
+}

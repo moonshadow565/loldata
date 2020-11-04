@@ -1354,6 +1354,15 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.MinimapIcon = "LesserCamp"
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.LeashRadius = 800
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L5 = CampSpawnPoints
+    L5 = L5[L3]
+    L5 = L5[1]
+    L4.LeashCenter = L5
   end
   L0.Name = "Order Blue"
   L0.TimerType = L1
@@ -1367,6 +1376,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
+  L0.LeashRadius = 1200
   L0.Name = "Order Wolves"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
@@ -1387,6 +1397,9 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1
+  L3 = 50.27832
+  L4 = 5500
+  L0.LeashCenter = L1
   L0.Name = "Order Red"
   L0.TimerType = L1
   L3 = CAMPTYPE_REDBUFF
@@ -1399,6 +1412,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
+  L0.LeashRadius = 1200
   L0.Name = "Order Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
@@ -1437,6 +1451,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
   L0.MinimapIcon = "Camp"
+  L0.LeashRadius = 1200
   L0.Name = "Chaos Wolves"
   L3 = CAMPTYPE_WOLVES2
   L1[1] = L2
@@ -1469,6 +1484,7 @@ function L0()
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
   L0.MinimapIcon = "Camp"
+  L0.LeashRadius = 1200
   L0.Name = "Chaos Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS2
   L1[1] = L2

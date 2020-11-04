@@ -1,0 +1,2 @@
+BuffName = "GarenWPassiveTracker"
+PersistsThroughDeath = true

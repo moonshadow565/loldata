@@ -7,3 +7,9 @@ BuffTextureName = "RivenBladeoftheExile.dds"
 BuffName = "RivenFengShuiEngine"
 SpellToggleSlot = 4
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "RivenSkin06"
+}
+SpellVOOverrideSkins = {
+  "RivenSkin06"
+}

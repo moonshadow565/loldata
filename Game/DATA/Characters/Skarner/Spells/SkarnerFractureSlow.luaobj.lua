@@ -1,4 +1,4 @@
 BuffTextureName = "Skarner_E.dds"
-BuffName = "SkarnerVirulentSlashSlow"
+BuffName = "SkarnerFractureSlow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"

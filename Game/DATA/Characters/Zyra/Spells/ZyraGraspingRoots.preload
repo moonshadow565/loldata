@@ -6,5 +6,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zyra_plant_spawn_vo_lasher.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="zyragraspingrootshold"}}, 
-{Function=BBPreloadSpell, Params={Name="zyragraspingroots"}}, 
 }

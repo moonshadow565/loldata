@@ -1,10 +1,12 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_pet.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_pet_ring.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaisercotgpetbuffdragon"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserdragonfireball"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserdragonfireball2"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgself"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgpetbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgguide"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcube"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserrpetdeath"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaiserchildrenofthegrave"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaiserrpettarget"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgpetdmg"}}, 
 }

@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_enemyaatrail.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+}

@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="noxious trap"}}, 
 {Function=BBPreloadCharacter, Params={Name="teemomushroom"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_base_r_groundimpact_dust.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bantamtrap"}}, 
 {Function=BBPreloadSpell, Params={Name="teemomushroombuff"}}, 
 {Function=BBPreloadSpell, Params={Name="traplimiter"}}, 

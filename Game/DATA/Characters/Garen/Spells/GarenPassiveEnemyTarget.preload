@@ -1,0 +1,10 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_garen_execute.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_garen.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_ally.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_ally_faded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_enemy_faded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_activate.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="garen_base_r_buf_enemy_activate.troy"}}, 
+}

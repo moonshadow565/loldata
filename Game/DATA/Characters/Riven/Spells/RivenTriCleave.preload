@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="riventricleave"}}, 
 {Function=BBPreloadSpell, Params={Name="riventricleavecooldown"}}, 
 {Function=BBPreloadSpell, Params={Name="riventricleavesoundone"}}, 
 {Function=BBPreloadSpell, Params={Name="riventricleavebuffer"}}, 
