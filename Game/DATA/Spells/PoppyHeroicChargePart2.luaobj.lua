@@ -2,6 +2,10 @@ BuffTextureName = "Poppy_HeroicCharge.dds"
 AutoBuffActivateEffect = "HeroicCharge_cas2.troy"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "DamageTwo",
@@ -111,7 +115,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   },
@@ -149,6 +154,10 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Caster", DestVar = "TeamID"}
   },
   {
     Function = BBDistanceBetweenObjectAndPoint,
@@ -203,7 +212,8 @@ BuffOnMoveEndBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = false
                 }
               },
@@ -211,6 +221,7 @@ BuffOnMoveEndBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Caster",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Owner",
                   Damage = 0,
                   DamageVar = "DamageTwo",

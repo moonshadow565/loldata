@@ -125,6 +125,16 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBMath,
         Params = {
+          Src1Var = "StunLength",
+          Src1Value = 0,
+          Src2Value = 2,
+          DestVar = "StunLength",
+          MathOp = MO_MIN
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
           Src2Var = "StunMult",
           Src1Value = 5,
           Src2Value = 0,

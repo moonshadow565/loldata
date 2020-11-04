@@ -38,7 +38,7 @@ function L0_0(A0_2, A1_3)
     return true
   end
   if A0_2 == ORDER_MOVETO then
-    if DistanceBetweenObjectAndInPos(me) > FAR_MOVMEMENT_DISTANCE then
+    if DistanceBetweenObjectAndInPos(me) > FAR_MOVMEMENT_DISTANCE or GetState() == AI_PET_HOLDPOSITION or GetState() == AI_PET_HOLDPOSITION_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_MOVE, owner)
     end
     return true
@@ -71,6 +71,10 @@ function L0_0(A0_2, A1_3)
     SetStateAndCloseToTarget(AI_PET_HARDRETURN, owner)
     return true
   end
+  if A0_2 == ORDER_HOLD then
+    SetStateAndCloseToTarget(AI_PET_HOLDPOSITION, me)
+    return true
+  end
   Say("BAD ORDER DUDE! ")
   return false
 end
@@ -92,6 +96,9 @@ function L0_0()
     if GetState() == AI_PET_HARDIDLE_ATTACKING then
       NetSetState(AI_PET_HARDIDLE)
       return true
+    elseif GetState() == AI_PET_HOLDPOSITION_ATTACKING then
+      NetSetState(AI_PET_HOLDPOSITION)
+      return true
     elseif GetState() == AI_PET_RETURN_ATTACKING then
       SetStateAndCloseToTarget(AI_PET_RETURN, owner)
       return true
@@ -104,6 +111,10 @@ function L0_0()
     return true
   elseif GetState() == AI_PET_HARDIDLE_ATTACKING then
     NetSetState(AI_PET_HARDIDLE_ATTACKING)
+    SetTarget(newTarget)
+    return true
+  elseif GetState() == AI_PET_HOLDPOSITION_ATTACKING then
+    NetSetState(AI_PET_HOLDPOSITION_ATTACKING)
     SetTarget(newTarget)
     return true
   elseif GetState() == AI_PET_RETURN_ATTACKING then
@@ -239,7 +250,7 @@ function L0_0()
   if L0_5 == AI_PET_MOVE or L0_5 == AI_PET_HARDMOVE or L0_5 == AI_PET_HARDSTOP then
     return
   end
-  if L0_5 == AI_PET_IDLE or L0_5 == AI_PET_RETURN or L0_5 == AI_PET_ATTACKMOVE or L0_5 == AI_PET_HARDIDLE then
+  if L0_5 == AI_PET_IDLE or L0_5 == AI_PET_RETURN or L0_5 == AI_PET_ATTACKMOVE or L0_5 == AI_PET_HARDIDLE or L0_5 == AI_PET_HOLDPOSITION then
     newTarget = FindTargetInAcR()
     if newTarget == nil then
       TurnOffAutoAttack(STOPREASON_TARGET_LOST)
@@ -254,9 +265,12 @@ function L0_0()
     elseif L0_5 == AI_PET_HARDIDLE then
       NetSetState(AI_PET_HARDIDLE_ATTACKING)
       SetTarget(newTarget)
+    elseif L0_5 == AI_PET_HOLDPOSITION then
+      NetSetState(AI_PET_HOLDPOSITION_ATTACKING)
+      SetTarget(newTarget)
     end
   end
-  if L0_5 == AI_PET_ATTACK or L0_5 == AI_PET_HARDATTACK or L0_5 == AI_PET_RETURN_ATTACKING or L0_5 == AI_PET_ATTACKMOVE_ATTACKING or L0_5 == AI_PET_HARDIDLE_ATTACKING or L0_5 == AI_TAUNTED then
+  if L0_5 == AI_PET_ATTACK or L0_5 == AI_PET_HARDATTACK or L0_5 == AI_PET_RETURN_ATTACKING or L0_5 == AI_PET_ATTACKMOVE_ATTACKING or L0_5 == AI_PET_HARDIDLE_ATTACKING or L0_5 == AI_PET_HOLDPOSITION_ATTACKING or L0_5 == AI_TAUNTED then
     if TargetInAttackRange() then
       TurnOnAutoAttack(GetTarget())
     elseif TargetInCancelAttackRange() == false then

@@ -28,14 +28,6 @@ ItemOnBeingHitBuildingBlocks = {
                 }
               },
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "AttackSpeedMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = -0.35
-                }
-              },
-              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Attacker",
@@ -48,7 +40,33 @@ ItemOnBeingHitBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 3,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "AttackSpeedMod",
+                  DestVarTable = "NextBuffVars",
+                  SrcValue = -0.35
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Attacker",
+                  AttackerVar = "Owner",
+                  BuffName = "Cripple",
+                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 100,
+                  NumberOfStacks = 1,
+                  Duration = 3,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -68,5 +86,9 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "cripple"}
   }
 }

@@ -1,7 +1,11 @@
 BuffTextureName = "MordekaiserCreepingDeath.dds"
 BuffName = "MordekaiserCreepingDeathBuff"
-AutoBuffActivateEffect = "mordekaiser_creepingDeath_tar.troy"
+AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -34,6 +38,24 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "DefenseStats",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "mordekaiser_creepingDeath_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -83,6 +105,13 @@ OnBuffDeactivateBuildingBlocks = {
       DeltaVar = "DefenseStats",
       Delta = 0
     }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -102,7 +131,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 350,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -121,12 +151,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Unit",
               BuffName = "MordekaiserCreepingDeathDebuff",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 100,
               NumberOfStacks = 1,
               Duration = 0.001,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -196,12 +228,14 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Owner",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 6,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -227,12 +261,14 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Target",
               BuffName = "MordekaiserCreepingDeathDebuff",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 100,
               NumberOfStacks = 1,
               Duration = 0.001,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -241,6 +277,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordekaiser_creepingdeath_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

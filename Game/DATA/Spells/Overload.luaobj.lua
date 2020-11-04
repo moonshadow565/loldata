@@ -12,6 +12,10 @@ TriggersSpellCasts = true
 SetSpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetPAROrHealth,
     Params = {
       DestVar = "PAR",
@@ -91,6 +95,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "TotalDamage",
@@ -101,6 +106,24 @@ TargetExecuteBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "Overload_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      BoneName = "root",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -123,7 +146,8 @@ TargetExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
         }
       },
@@ -134,7 +158,8 @@ TargetExecuteBuildingBlocks = {
           CenterVar = "Target",
           Range = 300,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -157,7 +182,8 @@ TargetExecuteBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true
                 }
               },
@@ -165,6 +191,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Unit",
                   Damage = 0,
                   DamageVar = "AoEDamage",
@@ -185,6 +212,16 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "overload_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

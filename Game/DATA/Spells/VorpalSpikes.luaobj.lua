@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
 BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
 BuffName = "Vorpal Spikes"
 AutoBuffActivateEffect = ""
@@ -7,45 +10,6 @@ AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 3
 AutoAuraBuffName = ""
 PersistsThroughDeath = true
-BuffOnHitUnitBuildingBlocks = {
-  {
-    Function = BBGetPointByUnitFacingOffset,
-    Params = {
-      UnitVar = "Owner",
-      Distance = 550,
-      OffsetAngle = 0,
-      PositionVar = "castPosition"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Target",
-      PosVar = "castPosition",
-      OverrideCastPosition = false,
-      SlotNumber = 0,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 0,
-      OverrideForceLevelVar = "Level",
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBIfHasBuff,

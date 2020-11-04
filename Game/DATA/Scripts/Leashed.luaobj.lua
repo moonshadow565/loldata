@@ -76,11 +76,24 @@ function L0_0(A0_11, A1_12)
   end
 end
 LeashedCallForHelp = L0_0
-function L0_0()
-  if GetState() == AI_HALTED then
+function L0_0(A0_13, A1_14)
+  local L2_15, L3_16
+  L2_15 = GetState
+  L2_15 = L2_15()
+  L3_16 = AI_HALTED
+  if L2_15 == L3_16 then
     return
   end
-  FindNewTarget()
+  L3_16 = GetOwner
+  L3_16 = L3_16(A1_14)
+  if L3_16 == nil then
+    L3_16 = GetGoldRedirectTarget(A1_14)
+  end
+  if L3_16 ~= nil then
+    SetStateAndCloseToTarget(AI_ATTACK, L3_16)
+  else
+    FindNewTarget()
+  end
 end
 OnTargetLost = L0_0
 function L0_0()
@@ -173,29 +186,29 @@ function L0_0()
 end
 OnStoppedMoving = L0_0
 function L0_0()
-  local L0_13, L1_14
-  L0_13 = GetState
-  L0_13 = L0_13()
-  L1_14 = AI_HALTED
-  if L0_13 == L1_14 then
+  local L0_17, L1_18
+  L0_17 = GetState
+  L0_17 = L0_17()
+  L1_18 = AI_HALTED
+  if L0_17 == L1_18 then
     return
   end
-  L1_14 = GetRoamState
-  L1_14 = L1_14()
-  if L1_14 ~= INACTIVE then
-    L1_14 = AI_RETREAT
-  elseif L0_13 == L1_14 then
+  L1_18 = GetRoamState
+  L1_18 = L1_18()
+  if L1_18 ~= INACTIVE then
+    L1_18 = AI_RETREAT
+  elseif L0_17 == L1_18 then
     return
   end
-  L1_14 = AI_ATTACK
-  if L0_13 ~= L1_14 then
-    L1_14 = AI_TAUNTED
-  elseif L0_13 == L1_14 then
-    L1_14 = GetTarget
-    L1_14 = L1_14()
-    if L1_14 ~= nil then
+  L1_18 = AI_ATTACK
+  if L0_17 ~= L1_18 then
+    L1_18 = AI_TAUNTED
+  elseif L0_17 == L1_18 then
+    L1_18 = GetTarget
+    L1_18 = L1_18()
+    if L1_18 ~= nil then
       if TargetInAttackRange() then
-        TurnOnAutoAttack(L1_14)
+        TurnOnAutoAttack(L1_18)
       elseif TargetInCancelAttackRange() == false then
         TurnOffAutoAttack(STOPREASON_MOVING)
       end
@@ -206,37 +219,37 @@ function L0_0()
 end
 TimerAttack = L0_0
 function L0_0()
-  local L0_15, L1_16, L2_17, L3_18
-  L0_15 = GetState
-  L0_15 = L0_15()
-  L1_16 = AI_HALTED
-  if L0_15 == L1_16 then
+  local L0_19, L1_20, L2_21, L3_22
+  L0_19 = GetState
+  L0_19 = L0_19()
+  L1_20 = AI_HALTED
+  if L0_19 == L1_20 then
     return
   end
-  L1_16 = GetRoamState
-  L1_16 = L1_16()
-  L2_17 = INACTIVE
-  if L1_16 ~= L2_17 then
-    L1_16 = GetState
-    L1_16 = L1_16()
-    L2_17 = AI_RETREAT
-  elseif L1_16 == L2_17 then
+  L1_20 = GetRoamState
+  L1_20 = L1_20()
+  L2_21 = INACTIVE
+  if L1_20 ~= L2_21 then
+    L1_20 = GetState
+    L1_20 = L1_20()
+    L2_21 = AI_RETREAT
+  elseif L1_20 == L2_21 then
     return
   end
-  L1_16 = LEASH_RADIUS
-  L2_17 = GetDistToLeashedPos
-  L2_17 = L2_17()
-  L1_16 = L1_16 - L2_17
-  L2_17 = GetCharacterData
-  L2_17 = L2_17()
-  L3_18 = L2_17.mAttackRange
-  L3_18 = L3_18 * 0.5
-  L1_16 = L1_16 + L3_18
-  L3_18 = FindTarget
-  L3_18 = L3_18(L1_16)
-  if L3_18 ~= nil then
+  L1_20 = LEASH_RADIUS
+  L2_21 = GetDistToLeashedPos
+  L2_21 = L2_21()
+  L1_20 = L1_20 - L2_21
+  L2_21 = GetCharacterData
+  L2_21 = L2_21()
+  L3_22 = L2_21.mAttackRange
+  L3_22 = L3_22 * 0.5
+  L1_20 = L1_20 + L3_22
+  L3_22 = FindTarget
+  L3_22 = L3_22(L1_20)
+  if L3_22 ~= nil then
     StopTimer("TimerRegen")
-    SetStateAndCloseToTarget(AI_ATTACK, L3_18)
+    SetStateAndCloseToTarget(AI_ATTACK, L3_22)
   else
     ResetAndStartTimer("TimerRegen")
     SetStateAndMoveToLeashedPos(AI_RETREAT)

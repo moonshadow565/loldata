@@ -3,7 +3,17 @@ DoesntTriggerSpellCasts = false
 BuffTextureName = "MasterYi_SunderingStrikes.dds"
 BuffName = "Wuju Style"
 AutoBuffActivateEffect = "Wujustyle_buf.troy"
-AutoBuffActivateAttachBoneName = "weapon"
+AutoBuffActivateAttachBoneName = "weaponstreak"
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "MasterYiWujuDeactivated"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -69,16 +79,24 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "WujuStyleSuperCharged",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "masteryiwujudeactivated"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "wujustyle"}

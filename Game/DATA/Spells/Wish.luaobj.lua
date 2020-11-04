@@ -2,6 +2,10 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
@@ -59,6 +63,23 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Wish_tar.troy",
+          Flags = 0,
+          EffectIDVar = "Infuse",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBIncHealth,
         Params = {
           TargetVar = "Target",
@@ -75,6 +96,14 @@ TargetExecuteBuildingBlocks = {
           SourceVar = "Owner"
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "wish_tar.troy"
     }
   }
 }

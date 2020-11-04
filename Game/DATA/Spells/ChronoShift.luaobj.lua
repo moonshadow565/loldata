@@ -1,6 +1,6 @@
 BuffTextureName = "Chronokeeper_Timetwister.dds"
 BuffName = "Chrono Shift"
-AutoBuffActivateEffect = "nickoftime_tar.troy"
+AutoBuffActivateEffect = ""
 AutoCooldownByLevel = {
   160,
   140,
@@ -9,6 +9,10 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -21,6 +25,33 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "nickoftime_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -200,6 +231,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nickoftime_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

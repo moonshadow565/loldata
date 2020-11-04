@@ -504,6 +504,32 @@ function L0(A0, A1, A2)
 end
 BBElseIf = L0
 function L0(A0, A1, A2)
+  local L3, L4, L5, L6, L7
+  L4 = A1.TargetVar
+  if L4 ~= nil then
+    L4 = A1.TargetVar
+    L4 = A0[L4]
+    attacker = L4
+  else
+    L4 = A0.Target
+    attacker = L4
+  end
+  L4 = HasBuffOfType
+  L5 = L3
+  L6 = BuffType
+  L4 = L4(L5, L6)
+  if L4 then
+    L5 = ExecuteBuildingBlocks
+    L6 = A2
+    L7 = A0
+    L5(L6, L7)
+    A0.LastIfSucceeded = true
+  else
+    A0.LastIfSucceeded = false
+  end
+end
+BBIfHasBuffOfType = L0
+function L0(A0, A1, A2)
   local L3, L4, L5, L6, L7, L8
   L5 = A1.OwnerVar
   if L5 ~= nil then
@@ -715,6 +741,12 @@ function L0(A0, A1)
   end
 end
 MO_MAX = L0
+function L0(A0, A1)
+  local L2
+  L2 = A0 % A1
+  return L2
+end
+MO_MODULO = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8
   L2 = GetMathNumber

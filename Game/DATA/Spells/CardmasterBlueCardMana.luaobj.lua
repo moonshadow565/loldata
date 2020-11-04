@@ -1,5 +1,9 @@
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "ManaToRestore",
@@ -23,13 +27,14 @@ OnBuffActivateBuildingBlocks = {
       EffectName = "soraka_infuse_ally_tar.troy",
       Flags = 0,
       EffectIDVar = "a",
-      TargetObjectVar = "Target",
+      TargetObjectVar = "Attacker",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }

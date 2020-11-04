@@ -144,6 +144,10 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
             Function = BBGetPAROrHealth,
             Params = {
               DestVar = "TarMaxHealth",
@@ -197,7 +201,8 @@ BuffOnHitUnitBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           },
@@ -220,6 +225,7 @@ BuffOnHitUnitBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "DamageToDeal",

@@ -1,5 +1,4 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = true
 BuffTextureName = "Voidwalker_NullBlade.dds"
 BuffName = "NetherBlade"
 AutoBuffActivateEffect = ""
@@ -19,99 +18,90 @@ BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "SpellLevel",
+      DestVar = "ManaGainAmount",
       SrcValueByLevel = {
-        -0.02,
-        -0.0275,
-        -0.035,
-        -0.0425,
-        -0.05
+        4,
+        8,
+        12,
+        16,
+        20
       }
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Attacker",
+      EffectName = "Netherblade_cas.troy",
+      Flags = 0,
+      EffectIDVar = "num",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+        Function = BBMath,
+        Params = {
+          Src1Var = "ManaGainAmount",
+          Src1Value = 0,
+          Src2Value = 3,
+          DestVar = "ModifiedManaGainAmount",
+          MathOp = MO_MULTIPLY
+        }
       },
       {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetPAROrHealth,
-            Params = {
-              DestVar = "TargetMaxMana",
-              OwnerVar = "Target",
-              Function = GetMaxPAR,
-              PARType = PAR_MANA
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "TargetMaxMana",
-              Src2Var = "SpellLevel",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "ManaDrainAmount",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "ManaDrainAmount",
-              Src1Value = 0,
-              Src2Value = -2,
-              DestVar = "ManaGainAmount",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Target",
-              Delta = 0,
-              DeltaVar = "ManaDrainAmount"
-            }
-          },
-          {
-            Function = BBIncPAR,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 0,
-              DeltaVar = "ManaGainAmount"
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Attacker",
-              EffectName = "Netherblade_cas.troy",
-              Flags = 0,
-              EffectIDVar = "num",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          }
+        Function = BBIncPAR,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          PARType = PAR_MANA,
+          DeltaVar = "ModifiedManaGainAmount"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIncPAR,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 0,
+          PARType = PAR_MANA,
+          DeltaVar = "ManaGainAmount"
         }
       }
     }
   }
 }
-CanCastBuildingBlocks = {
+SelfExecuteBuildingBlocks = {
   {
-    Function = BBSetReturnValue,
-    Params = {SrcValue = false}
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "NetherBladeBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = false,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -119,6 +109,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "netherblade_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "netherbladebuff"
     }
   }
 }

@@ -1,11 +1,15 @@
 BuffTextureName = "GragasBodySlam.dds"
 BuffName = "GragasBodySlamTargetSlow"
 AutoBuffActivateEffect = "Global_Slow.troy"
-AutoBuffActivateEffect2 = "gragas_bodySlam_unit_tar.troy"
+AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = "gragas_bodySlam_unit_tar_02.troy"
-AutoBuffActivateAttachBoneName3 = "chest"
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -29,7 +33,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBApplyAssistMarker,
     Params = {
       Duration = 10,
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SourceVar = "Attacker"
     }
   }

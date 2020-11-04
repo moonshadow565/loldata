@@ -29,6 +29,13 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
       }
@@ -42,6 +49,13 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
       {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
@@ -57,6 +71,13 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
       }
@@ -70,6 +91,13 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
       {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
@@ -85,6 +113,13 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
       }
@@ -99,6 +134,13 @@ BuffOnAllowAddBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
+      {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}
       }
@@ -112,6 +154,13 @@ BuffOnAllowAddBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSay,
+        Params = {
+          OwnerVar = "Owner",
+          ToSay = "game_lua_Ragnarok"
+        }
+      },
       {
         Function = BBSetReturnValue,
         Params = {SrcValue = false}

@@ -37,7 +37,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -54,7 +55,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -77,7 +79,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -94,7 +97,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamOfOwner",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -301,7 +305,7 @@ ChannelingStartBuildingBlocks = {
 ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
     Function = BBSpellBuffRemove,
@@ -314,10 +318,11 @@ ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Attacker",
       EffectName = "AbsoluteZero_nova.troy",
       Flags = 0,
-      TargetObjectVar = "Target",
+      EffectIDVar = "asdf",
+      TargetObjectVar = "Attacker",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
@@ -339,13 +344,31 @@ ChannelingSuccessStopBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "AbsoluteZero_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Unit"}
       },
       {
         Function = BBApplyDamage,
         Params = {
-          AttackerVar = "Owner",
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           DamageByLevel = {
             625,
@@ -366,6 +389,10 @@ ChannelingSuccessStopBuildingBlocks = {
   }
 }
 ChannelingCancelStopBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -391,17 +418,18 @@ ChannelingCancelStopBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Nothing",
-      PosVar = "Owner",
+      BindObjectVar = "Attacker",
       EffectName = "AbsoluteZero_nova.troy",
       Flags = 0,
-      TargetObjectVar = "Owner",
+      EffectIDVar = "asdf",
+      TargetObjectVar = "Attacker",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -416,6 +444,23 @@ ChannelingCancelStopBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "AbsoluteZero_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Unit"}
       },
@@ -423,6 +468,7 @@ ChannelingCancelStopBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "SecondDamage",
@@ -474,6 +520,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "absolutezero_nova.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "absolutezero_tar.troy"
     }
   }
 }

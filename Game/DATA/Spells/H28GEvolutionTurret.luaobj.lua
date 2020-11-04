@@ -53,6 +53,10 @@ BuffOnAllowAddBuildingBlocks = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "BonusDamage",
@@ -100,8 +104,9 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -576,6 +581,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,
@@ -625,6 +631,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,
@@ -674,6 +681,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,
@@ -723,6 +731,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,
@@ -772,6 +781,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,
@@ -816,6 +826,7 @@ SelfExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Unit",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 10000,
                       DamageType = TRUE_DAMAGE,

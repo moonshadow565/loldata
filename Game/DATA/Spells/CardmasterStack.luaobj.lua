@@ -124,6 +124,10 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
                 SubBlocks = {
                   {
+                    Function = BBGetTeamID,
+                    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+                  },
+                  {
                     Function = BBBreakSpellShields,
                     Params = {TargetVar = "Target"}
                   },
@@ -156,8 +160,9 @@ BuffOnHitUnitBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   }
                 }

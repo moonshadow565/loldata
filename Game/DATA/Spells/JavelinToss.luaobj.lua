@@ -26,6 +26,27 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "nidalee_javelinToss_tar.troy",
+          Flags = 0,
+          EffectIDVar = "asffa",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Target"}
       },
@@ -142,6 +163,14 @@ TargetExecuteBuildingBlocks = {
           MissileIDVar = "MissileNetworkID"
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nidalee_javelintoss_tar.troy"
     }
   }
 }

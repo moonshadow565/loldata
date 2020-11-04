@@ -2,14 +2,14 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Wolfman_Bloodscent.dds"
 BuffName = "Haste"
-AutoBuffActivateEffect = "wolfman_bloodscent_activate_speed.troy"
+AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = "wolfman_bloodscent_activate_blood_buff.troy"
-AutoBuffActivateAttachBoneName2 = "L_hand"
-AutoBuffActivateEffect3 = "wolfman_bloodscent_activate_blood_buff.troy"
-AutoBuffActivateAttachBoneName3 = "R_hand"
-AutoBuffActivateEffect4 = "wolfman_bloodscent_activate_blood_buff_02.troy"
-AutoBuffActivateAttachBoneName4 = "head"
+AutoBuffActivateEffect2 = ""
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
+AutoBuffActivateEffect4 = ""
+AutoBuffActivateAttachBoneName4 = ""
 SpellToggleSlot = 3
 AutoCooldownByLevel = {
   45,
@@ -21,10 +21,89 @@ AutoCooldownByLevel = {
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "MoveSpeedBuff",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "wolfman_bloodscent_activate_speed.troy",
+      Flags = 0,
+      EffectIDVar = "Part1",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "wolfman_bloodscent_activate_blood_buff.troy",
+      Flags = 0,
+      EffectIDVar = "Part2",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "L_hand",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "wolfman_bloodscent_activate_blood_buff.troy",
+      Flags = 0,
+      EffectIDVar = "Part3",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "R_hand",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "wolfman_bloodscent_activate_blood_buff_02.troy",
+      Flags = 0,
+      EffectIDVar = "Part4",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "head",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -74,6 +153,56 @@ BuffOnLevelUpSpellBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Part1",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Part2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Part3",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Part4",
+      EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "wolfman_bloodscent_activate_speed.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "wolfman_bloodscent_activate_blood_buff.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "wolfman_bloodscent_activate_blood_buff_02.troy"
     }
   }
 }

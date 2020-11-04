@@ -99,6 +99,10 @@ SelfExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", Type = BUFF_Net}
   },
   {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DamageReduction",
@@ -128,6 +132,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -138,7 +143,8 @@ SelfExecuteBuildingBlocks = {
         7,
         8
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

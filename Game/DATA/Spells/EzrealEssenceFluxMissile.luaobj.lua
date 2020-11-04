@@ -88,6 +88,24 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Target", DestVar = "CasterID2"}
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "Ezreal_essenceflux_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      BoneName = "root",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "CasterID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -225,6 +243,16 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "ezrealrisingspellforce"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_essenceflux_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadSpell,

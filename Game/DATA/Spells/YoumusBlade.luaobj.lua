@@ -1,3 +1,4 @@
+DoesntTriggerSpellCasts = true
 PersistsThroughDeath = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
@@ -66,7 +67,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

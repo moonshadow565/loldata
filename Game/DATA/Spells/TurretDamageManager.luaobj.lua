@@ -37,7 +37,7 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "BuffCount",
-          Src1Value = 0.15,
+          Src1Value = 0.2,
           Src2Value = 0,
           DestVar = "DamageBonus",
           MathOp = MO_MULTIPLY
@@ -47,7 +47,7 @@ BuffOnHitUnitBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "DamageBonus",
-          Src1Value = 0.85,
+          Src1Value = 0.9,
           Src2Value = 0,
           DestVar = "DamageBonus",
           MathOp = MO_ADD
@@ -79,12 +79,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "TurretDamageMarker",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 3,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -96,12 +98,14 @@ BuffOnHitUnitBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "TurretDamageMarker",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 3,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
