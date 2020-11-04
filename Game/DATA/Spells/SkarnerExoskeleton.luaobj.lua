@@ -2,9 +2,14 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "SkarnerExoskeleton.dds"
 BuffName = "SkarnerExoskeleton"
-AutoBuffActivateEffect3 = "Skarner_Exoskeleton_body.troy"
 AutoBuffActivateAttachBoneName3 = "chest"
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "skarner_exoskeleton_body.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

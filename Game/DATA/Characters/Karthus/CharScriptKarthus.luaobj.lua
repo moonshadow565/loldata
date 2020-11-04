@@ -1,5 +1,11 @@
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdeathdefied"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_e_passive_buff.troy"
@@ -24,9 +30,63 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotkarthusbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdefilesounddummy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdefilesounddummy2"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_q_ring.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastea2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastea3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastea1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastedeada2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastedeada3"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastedeada1"
     }
   }
 }

@@ -18,5 +18,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yorick_ult_03_teamid_red.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deathdefiedbuff"
+    }
   }
 }

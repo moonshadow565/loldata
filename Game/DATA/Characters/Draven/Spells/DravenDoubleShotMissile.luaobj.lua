@@ -6,7 +6,8 @@ BuffName = "Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 PreLoadBuildingBlocks = {
   {
@@ -24,13 +25,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_e_tar_shadow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_e_tar.troy"
+      Name = "draven_base_e_tar.troy"
     }
   }
 }

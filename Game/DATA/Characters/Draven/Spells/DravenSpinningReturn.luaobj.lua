@@ -1,6 +1,7 @@
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 PreLoadBuildingBlocks = {
   {
@@ -24,13 +25,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_reticle_self.troy"
+      Name = "draven_base_q_reticle_self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_reticle.troy"
+      Name = "draven_base_q_reticle.troy"
     }
   },
   {
@@ -48,7 +49,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_reticlecatchsuccess.troy"
+      Name = "draven_base_q_reticlecatchsuccess.troy"
     }
   },
   {
@@ -60,7 +61,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_reticlecatchsuccess_reaper.troy"
+      Name = "draven_skin01_q_reticlecatchsuccess.troy"
     }
   },
   {
@@ -72,13 +73,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_qcatch_indicator.troy"
+      Name = "draven_base_q_catch_indicator.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "dravenspinningleft"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_q_reticlecatchsuccess_reaper.troy"
     }
   }
 }

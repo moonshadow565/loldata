@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "DrMundo_BurningAgony.dds"

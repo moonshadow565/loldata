@@ -21,7 +21,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_transform.troy"
+      Name = "nidalee_base_r_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nidaleecougarscent"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aspectofthehuntress"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "aspectofthecougar"
     }
   }
 }

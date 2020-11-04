@@ -1,18 +1,13 @@
 DoesntBreakShields = true
 SpellFXOverrideSkins = {
-  "UrfRiderCorki"
+  "UrfRiderCorki",
+  "DravenSkin03"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_crit_tar_shadow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_crit_tar.troy"
+      Name = "draven_base_crit_tar.troy"
     }
   },
   {

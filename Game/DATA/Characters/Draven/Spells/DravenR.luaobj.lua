@@ -4,7 +4,8 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 SpellVOOverrideSkins = {
   "CyberEzreal"
@@ -17,19 +18,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_r_tar.troy"
+      Name = "draven_base_r_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_r_tar_shadow.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_gladiator_r_tar.troy"
+      Name = "draven_skin03_r_missile_recall_sound.troy"
     }
   },
   {
@@ -42,6 +37,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "draven_r_missile_recall_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_skin01_r_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_skin03_r_missile_end_sound.troy"
     }
   },
   {

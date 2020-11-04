@@ -4,19 +4,20 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin03"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_skn2_weaponglow02.troy"
+      Name = "draven_skin02_z_weaponglow02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "draven_q_buf.troy"
+      Name = "draven_base_q_buf.troy"
     }
   }
 }

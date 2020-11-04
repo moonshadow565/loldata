@@ -3,12 +3,12 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = "Nidalee_PrimalSurge.dds"
+BuffTextureName = "Nidalee_E1.dds"
 BuffName = "PrimalSurge"
-AutoBuffActivateEffect3 = "nidalee_primal_surge_attack_buf.troy"
-AutoBuffActivateAttachBoneName3 = "L_BUFFBONE_GLB_HAND_LOC"
-AutoBuffActivateEffect4 = "nidalee_primal_surge_attack_buf.troy"
-AutoBuffActivateAttachBoneName4 = "R_BUFFBONE_GLB_HAND_LOC"
+AutoBuffActivateEffect3 = "Nidalee_Base_E_Buf.troy"
+AutoBuffActivateAttachBoneName3 = "L_hand"
+AutoBuffActivateEffect4 = "Nidalee_Base_E_Buf.troy"
+AutoBuffActivateAttachBoneName4 = "R_hand"
 SpellFXOverrideSkins = {
   "HeadhunterNidalee"
 }
@@ -16,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nidalee_primalsurge_tar.troy"
+      Name = "nidalee_base_e_tar.troy"
     }
   }
 }

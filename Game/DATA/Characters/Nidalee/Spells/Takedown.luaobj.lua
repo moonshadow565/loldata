@@ -1,8 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Nidalee_TakeDown.dds"
+BuffTextureName = "Nidalee_Q2.dds"
 BuffName = "Takedown"
-AutoBuffActivateEffect = "nidalee_takedown_cas_02.troy"
+AutoBuffActivateEffect = "Nidalee_Base_Cougar_Q_Buf.troy"
 AutoBuffActivateAttachBoneName = "R_hand"
-AutoBuffActivateEffect2 = "nidalee_takedown_cas_02.troy"
+AutoBuffActivateEffect2 = "Nidalee_Base_Cougar_Q_Buf.troy"
 AutoBuffActivateAttachBoneName2 = "L_hand"
