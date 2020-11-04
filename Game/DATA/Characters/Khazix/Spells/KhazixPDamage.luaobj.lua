@@ -13,49 +13,49 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_QREvo2_Buf_Left.troy"
+      Name = "khazix_base_p_qrevo2_buf_left.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_QREvo2_Buf_Right.troy"
+      Name = "khazix_base_p_qrevo2_buf_right.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_QEvo2_Buf_Left.troy"
+      Name = "khazix_base_p_qevo2_buf_left.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_QEvo2_Buf_Right.troy"
+      Name = "khazix_base_p_qevo2_buf_right.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_REvo2_Buf_Left.troy"
+      Name = "khazix_base_p_revo2_buf_left.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_REvo2_Buf_Right.troy"
+      Name = "khazix_base_p_revo2_buf_right.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_Buf_Left.troy"
+      Name = "khazix_base_p_buf_left.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_Buf_Right.troy"
+      Name = "khazix_base_p_buf_right.troy"
     }
   },
   {
@@ -67,7 +67,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Khazix_Base_P_Tar.troy"
+      Name = "khazix_base_p_tar.troy"
     }
   },
   {

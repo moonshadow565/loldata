@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_e_end.troy"
+      Name = "Lissandra_Base_E_End.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_e_cast.troy"
+      Name = "Lissandra_Base_E_Cast.troy"
     }
   },
   {
@@ -31,7 +31,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_e_skin_flash.troy "
+      Name = "Lissandra_Base_E_Skin_Flash.troy "
     }
   },
   {
@@ -43,13 +43,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_e_departure.troy"
+      Name = "Lissandra_Base_E_Departure.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_e_arrival.troy"
+      Name = "Lissandra_Base_E_Arrival.troy"
     }
   }
 }

@@ -1,4 +1,4 @@
 BuffTextureName = "Odin_Lightbringer.dds"
 BuffName = "OdinLightbringer"
 AutoBuffActivateEffect = "tt_Watched.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

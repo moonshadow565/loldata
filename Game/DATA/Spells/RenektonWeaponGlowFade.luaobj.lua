@@ -1,7 +1,3 @@
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

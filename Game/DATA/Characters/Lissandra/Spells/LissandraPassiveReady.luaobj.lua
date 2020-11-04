@@ -8,13 +8,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_passive_ready.troy"
+      Name = "Lissandra_Base_Passive_Ready.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "lissandra_passive_start.troy"
+      Name = "Lissandra_Base_Passive_Start.troy"
     }
   }
 }
