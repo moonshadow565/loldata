@@ -5,7 +5,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
       TimeBetweenExecutions = 9,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
@@ -24,6 +24,24 @@ UpdateSelfBuffActionsBuildingBlocks = {
           TickRate = 0,
           CanMitigateDuration = false
         }
+      },
+      {
+        Function = BBIfHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MadredsRazors"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffRemove,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "MadredsRazors"
+            }
+          }
+        }
       }
     }
   }
@@ -33,6 +51,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "wrigglelantern"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "madredsrazors"
     }
   }
 }

@@ -41,12 +41,8 @@ ItemOnSpellCastBuildingBlocks = {
       Src1Var = "DoesntTriggerSpellCasts",
       Src1VarTable = "SpellVars",
       Value2 = true,
-      CompareOp = CO_EQUAL
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+      CompareOp = CO_NOT_EQUAL
+    },
     SubBlocks = {
       {
         Function = BBIf,
@@ -74,18 +70,28 @@ ItemOnSpellCastBuildingBlocks = {
             }
           },
           {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsSheen",
+              DestVarTable = "NextBuffVars",
+              SrcValue = true
+            }
+          },
+          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
               AttackerVar = "Owner",
               BuffName = "Sheen",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {

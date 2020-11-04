@@ -173,6 +173,20 @@ function L0_0()
       SetStateAndMoveToLeashedPos(AI_RETREAT)
     end
   end
+  if GetState() == AI_ATTACK and IsMovementStopped() == true then
+    if GetTarget() ~= nil then
+      if TargetInCancelAttackRange() == false then
+        ResetAndStartTimer("TimerRegen")
+        SetState(AI_RETREAT)
+        SetStateAndMoveToLeashedPos(AI_RETREAT)
+      else
+      end
+    else
+      ResetAndStartTimer("TimerRegen")
+      SetState(AI_RETREAT)
+      SetStateAndMoveToLeashedPos(AI_RETREAT)
+    end
+  end
 end
 TimerRetreat = L0_0
 function L0_0()

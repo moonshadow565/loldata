@@ -51,26 +51,32 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-BuffOnAssistBuildingBlocks = {
+BuffOnKillBuildingBlocks = {
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "AkaliShadowDance",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
-      StacksExclusive = true,
-      BuffType = BUFF_Aura,
-      MaxStack = 3,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "AkaliShadowDance",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 3,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
     }
   }
 }
-BuffOnKillBuildingBlocks = {
+BuffOnAssistBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {

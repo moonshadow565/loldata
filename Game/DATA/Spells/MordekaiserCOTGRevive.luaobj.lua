@@ -7,13 +7,12 @@ TargetExecuteBuildingBlocks = {
     Function = BBCloneUnitPet,
     Params = {
       UnitToCloneVar = "Target",
-      Buff = "MordekaiserCOTGPetBuff",
+      Buff = "MordekaiserCotgRevive",
       Duration = 0,
       PosVar = "Pos",
       HealthBonus = 0,
       DamageBonus = 0,
-      DestVar = "Other1",
-      CopyItems = false
+      DestVar = "Other1"
     }
   },
   {
@@ -41,12 +40,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MordekaiserCOTGPetBuff2",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -62,7 +63,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "mordekaisercotgpetbuff"
+      Name = "mordekaisercotgrevive"
     }
   },
   {
@@ -70,9 +71,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "mordekaisercotgpetbuff2"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "entropy"}
   }
 }

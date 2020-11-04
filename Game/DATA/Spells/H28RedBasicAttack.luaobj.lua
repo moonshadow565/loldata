@@ -17,9 +17,26 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "Dmg"}
   },
   {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Dmg",
+          Src1Value = 0,
+          Src2Value = 2,
+          DestVar = "Dmg",
+          MathOp = MO_DIVIDE
+        }
+      }
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "Dmg",
@@ -58,12 +75,14 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "UrAniumRoundsHit",
               BuffAddType = BUFF_STACKS_AND_RENEWS,
+              StacksExclusive = true,
               BuffType = BUFF_CombatDehancer,
               MaxStack = 50,
               NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -73,7 +92,8 @@ TargetExecuteBuildingBlocks = {
               CenterVar = "Target",
               Range = 125,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -114,6 +134,7 @@ TargetExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "ThirdDA",

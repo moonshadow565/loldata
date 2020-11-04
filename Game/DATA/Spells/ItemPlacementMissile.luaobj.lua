@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
+CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_DarkBinding.dds"
 BuffName = "Dark Binding"

@@ -23,75 +23,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetInvulnerable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetForceRenderParticles
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
+      RequiredVar = "TargetPos",
+      RequiredVarTable = "InstanceVars"
     }
   },
   {
@@ -102,9 +37,18 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Nothing",
+      PosVar = "TargetPos",
       EffectName = "AlzaharNullZoneFlash.troy",
       Flags = 0,
       EffectIDVar = "varrr",
@@ -129,7 +73,8 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
           EffectName = "AlzaharVoidPortal_flat_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
@@ -141,13 +86,14 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
           EffectName = "AlzaharVoidPortal_flat_green.troy",
           Flags = 0,
           EffectIDVar = "Particle1",
@@ -159,7 +105,7 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_ORDER,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       }
     }
@@ -171,7 +117,8 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
           EffectName = "AlzaharVoidPortal_flat_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
@@ -183,13 +130,14 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
           EffectName = "AlzaharVoidPortal_flat_green.troy",
           Flags = 0,
           EffectIDVar = "Particle1",
@@ -201,36 +149,13 @@ OnBuffActivateBuildingBlocks = {
           FOWTeam = TEAM_CHAOS,
           FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = false
         }
       }
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetInvulnerable
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      TargetVar = "Target",
-      Damage = 10000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
   {
     Function = BBSpellEffectRemove,
     Params = {
@@ -243,80 +168,6 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "Particle1",
       EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetInvulnerable
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCallForHelpSuppresser
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetForceRenderParticles
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetNoRender
     }
   }
 }
@@ -338,10 +189,18 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Attacker",
-          CenterVar = "Owner",
+          CenterVar = "TargetPos",
           Range = 280,
           Flags = "AffectEnemies AffectHeroes ",
           IteratorVar = "Unit",
@@ -385,6 +244,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamageToDeal",
@@ -403,7 +263,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Attacker",
-          CenterVar = "Owner",
+          CenterVar = "TargetPos",
           Range = 280,
           Flags = "AffectEnemies AffectNeutral AffectMinions ",
           IteratorVar = "Unit",
@@ -457,6 +317,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamageToDeal",
@@ -507,29 +368,16 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "TargetPos"}
   },
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
+    }
   },
   {
-    Function = BBSpawnMinion,
-    Params = {
-      Name = "NullZone",
-      Skin = "TestCubeRender",
-      AiScript = "idle.lua",
-      PosVar = "TargetPos",
-      Team = TEAM_CASTER,
-      TeamVar = "TeamID",
-      Stunned = false,
-      Rooted = true,
-      Silenced = false,
-      Invulnerable = true,
-      MagicImmune = true,
-      IgnoreCollision = true,
-      Placemarker = false,
-      VisibilitySize = 0,
-      DestVar = "Other1",
-      GoldRedirectTargetVar = "Attacker"
-    }
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
     Function = BBSetVarInTable,
@@ -598,13 +446,13 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Other1",
+      TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffName = "AlZaharNullZone",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = false,
       BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
+      MaxStack = 5,
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -642,12 +490,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharvoidlingcount"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender"
     }
   },
   {

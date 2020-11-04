@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -247,7 +248,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

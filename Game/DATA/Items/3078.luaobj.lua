@@ -44,8 +44,12 @@ ItemOnSpellCastBuildingBlocks = {
       Src1Var = "DoesntTriggerSpellCasts",
       Src1VarTable = "SpellVars",
       Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
+      CompareOp = CO_EQUAL
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
         Function = BBIf,
@@ -65,21 +69,19 @@ ItemOnSpellCastBuildingBlocks = {
             }
           },
           {
-            Function = BBMath,
+            Function = BBSetVarInTable,
             Params = {
-              Src2Var = "BaseDamage",
-              Src1Value = 1.3,
-              Src2Value = 0,
-              DestVar = "BonusDamage",
-              MathOp = MO_MULTIPLY
+              DestVar = "BaseDamage",
+              DestVarTable = "NextBuffVars",
+              SrcVar = "BaseDamage"
             }
           },
           {
             Function = BBSetVarInTable,
             Params = {
-              DestVar = "BaseDamage",
+              DestVar = "IsSheen",
               DestVarTable = "NextBuffVars",
-              SrcVar = "BonusDamage"
+              SrcValue = false
             }
           },
           {
@@ -89,12 +91,14 @@ ItemOnSpellCastBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "Sheen",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -150,12 +154,14 @@ ItemOnHitUnitBuildingBlocks = {
                           AttackerVar = "Target",
                           BuffName = "Internal_35Slow",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       },
                       {
@@ -165,12 +171,14 @@ ItemOnHitUnitBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "ItemSlow",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Slow,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }

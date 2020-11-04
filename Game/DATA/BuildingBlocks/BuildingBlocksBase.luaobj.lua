@@ -508,15 +508,13 @@ function L0(A0, A1, A2)
   L4 = A1.TargetVar
   if L4 ~= nil then
     L4 = A1.TargetVar
-    L4 = A0[L4]
-    attacker = L4
+    L3 = A0[L4]
   else
-    L4 = A0.Target
-    attacker = L4
+    L3 = A0.Target
   end
   L4 = HasBuffOfType
   L5 = L3
-  L6 = BuffType
+  L6 = A1.BuffType
   L4 = L4(L5, L6)
   if L4 then
     L5 = ExecuteBuildingBlocks
@@ -1332,6 +1330,65 @@ function L0(A0, A1)
   L2[L3] = L4
 end
 BBGetGold = L0
+function L0(A0, A1)
+  local L2, L3, L4, L5, L6, L7, L8, L9
+  L2 = GetTable
+  L3 = A0
+  L4 = A1.XVarTable
+  L5 = true
+  L2 = L2(L3, L4, L5)
+  L3 = A1.XVar
+  if L3 ~= nil and L2 ~= nil then
+    L3 = A1.XVar
+    L3 = L2[L3]
+    Xloc = L3
+  else
+    L3 = A1.X
+    Xloc = L3
+  end
+  L3 = GetTable
+  L4 = A0
+  L5 = A1.YVarTable
+  L6 = true
+  L3 = L3(L4, L5, L6)
+  L4 = A1.YVar
+  if L4 ~= nil and L3 ~= nil then
+    L4 = A1.YVar
+    L4 = L3[L4]
+    Yloc = L4
+  else
+    L4 = A1.Y
+    Yloc = L4
+  end
+  L4 = GetTable
+  L5 = A0
+  L6 = A1.ZVarTable
+  L7 = true
+  L4 = L4(L5, L6, L7)
+  L5 = A1.ZVar
+  if L5 ~= nil and L4 ~= nil then
+    L5 = A1.ZVar
+    L5 = L4[L5]
+    Zloc = L5
+  else
+    L5 = A1.Z
+    Zloc = L5
+  end
+  L5 = A1.OwnerVar
+  L6 = Make3DPoint
+  L7 = Xloc
+  L8 = Yloc
+  L9 = Zloc
+  L6 = L6(L7, L8, L9)
+  A0.position = L6
+  A1.OwnerVar = L5
+  A1.CastPositionName = "position"
+  L7 = BBTeleportToPosition
+  L8 = A0
+  L9 = A1
+  L7(L8, L9)
+end
+BBTeleportToPoint = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7
   L2 = GetTable

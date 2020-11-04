@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -179,6 +180,7 @@ TargetExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = false,
+      Placemarker = false,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Nothing"
@@ -227,13 +229,15 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "BeaconAura",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

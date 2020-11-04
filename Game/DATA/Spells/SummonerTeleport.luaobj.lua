@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 BuffTextureName = "Summoner_teleport.dds"
 BuffName = "Teleport"
 BuffOnAllowAddBuildingBlocks = {
@@ -78,6 +79,20 @@ BuffOnAllowAddBuildingBlocks = {
     Params = {
       Src1Var = "Type",
       Value2 = BUFF_Taunt,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Type",
+      Value2 = BUFF_Suppression,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -602,14 +617,16 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Stun,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0.1,
           BuffVarsTable = "NextBuffVars",
           DurationVar = "BuffDuration",
           DurationVarTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -627,14 +644,16 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "Teleport_Turret",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Stun,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 0,
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "BuffDuration",
                   DurationVarTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -650,14 +669,16 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "Teleport_Target",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Stun,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 0.1,
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "BuffDuration",
                   DurationVarTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -671,12 +692,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Target",
           BuffName = "Teleport_DeathRemoval",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
