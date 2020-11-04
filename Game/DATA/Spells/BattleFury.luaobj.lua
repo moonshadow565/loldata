@@ -4,17 +4,17 @@ PersistsThroughDeath = true
 Nondispellable = true
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARPoolMod,
     Params = {
-      Stat = IncFlatMPPoolMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -50000
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -10
     }

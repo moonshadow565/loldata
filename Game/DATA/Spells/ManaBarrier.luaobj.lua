@@ -12,11 +12,12 @@ AutoCooldownByLevel = {
 }
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurMana",
       OwnerVar = "Owner",
-      Function = GetMana
+      Function = GetPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -40,7 +41,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,
@@ -58,7 +59,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,

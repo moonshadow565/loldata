@@ -155,11 +155,12 @@ UpdateSelfBuffActionsBuildingBlocks = {
                     }
                   },
                   {
-                    Function = BBGetManaOrHealth,
+                    Function = BBGetPAROrHealth,
                     Params = {
                       DestVar = "TargetHealth",
                       OwnerVar = "Unit",
-                      Function = GetHealth
+                      Function = GetHealth,
+                      PARType = PAR_MANA
                     }
                   },
                   {

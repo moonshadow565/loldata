@@ -29,7 +29,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -44,11 +44,12 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Target",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -57,11 +58,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "MaxHealth",
           SrcValue = 0,
           SrcValueByLevel = {
-            0.08,
-            0.11,
-            0.14,
-            0.17,
-            0.2
+            0.06,
+            0.09,
+            0.12,
+            0.15,
+            0.18
           }
         }
       },
@@ -83,10 +84,10 @@ TargetExecuteBuildingBlocks = {
           SrcValue = 0,
           SrcValueByLevel = {
             75,
-            125,
-            175,
-            225,
-            275
+            115,
+            155,
+            195,
+            235
           }
         }
       },
@@ -111,7 +112,10 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {
@@ -143,16 +147,19 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           DamageByLevel = {
             75,
-            125,
-            175,
-            225,
-            275
+            115,
+            155,
+            195,
+            235
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 1
+          SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
         }
       },
       {

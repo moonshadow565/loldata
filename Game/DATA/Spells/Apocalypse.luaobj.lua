@@ -47,19 +47,19 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      Stat = IncPercentCooldownMod,
       TargetVar = "Owner",
-      DeltaVar = "ManaRegenMod",
+      DeltaVar = "CooldownReduction",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncPercentCooldownMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
-      DeltaVar = "CooldownReduction",
+      DeltaVar = "ManaRegenMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

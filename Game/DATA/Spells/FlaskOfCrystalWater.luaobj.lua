@@ -5,11 +5,12 @@ BuffName = "Mana Potion"
 AutoBuffActivateEffect = "ManaPotion_itm.troy"
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "PercentMana",
       OwnerVar = "Owner",
-      Function = GetManaPercent
+      Function = GetPARPercent,
+      PARType = PAR_MANA
     }
   },
   {
@@ -36,7 +37,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {TargetVar = "Owner", Delta = 5}
       }
     }
@@ -44,12 +45,13 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "manaPercent",
       DestVarTable = "TempTable1",
       OwnerVar = "Owner",
-      Function = GetManaPercent
+      Function = GetPARPercent,
+      PARType = PAR_MANA
     }
   },
   {

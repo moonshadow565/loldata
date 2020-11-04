@@ -58,15 +58,16 @@ BuffOnKillBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "tempMana",
           OwnerVar = "Target",
-          Function = GetMana
+          Function = GetPAR,
+          PARType = PAR_MANA
         }
       },
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {
           TargetVar = "Owner",
           Delta = 0,

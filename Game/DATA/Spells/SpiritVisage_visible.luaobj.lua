@@ -11,11 +11,12 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "healthPercent",
           OwnerVar = "Owner",
-          Function = GetHealthPercent
+          Function = GetHealthPercent,
+          PARType = PAR_MANA
         }
       },
       {
@@ -27,11 +28,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "maxHealth",
               OwnerVar = "Owner",
-              Function = GetMaxHealth
+              Function = GetMaxHealth,
+              PARType = PAR_MANA
             }
           },
           {

@@ -5,6 +5,20 @@ IsDamagingSpell = true
 SpellToggleSlot = 1
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "Lifetime",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Lifetime",
+      DestVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
@@ -133,7 +147,8 @@ OnBuffDeactivateBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.8,
+          SpellDamageRatio = 0.9,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -243,10 +258,21 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BarrelCD",
+      Src2Var = "LifeTime",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "CDMinusBarrel",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
       Src = 0,
-      SrcVar = "BarrelCD",
+      SrcVar = "CDMinusBarrel",
       SlotNumber = 0,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,
@@ -278,6 +304,7 @@ OnBuffDeactivateBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -300,6 +327,16 @@ BuffOnSpellCastBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "LifeTime",
+      DestVarTable = "InstanceVars",
+      SrcVar = "LifeTime"
     }
   }
 }

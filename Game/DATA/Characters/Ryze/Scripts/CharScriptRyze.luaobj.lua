@@ -9,11 +9,12 @@ UpdateSelfBuffActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Mana",
           OwnerVar = "Owner",
-          Function = GetMaxMana
+          Function = GetMaxPAR,
+          PARType = PAR_MANA
         }
       },
       {

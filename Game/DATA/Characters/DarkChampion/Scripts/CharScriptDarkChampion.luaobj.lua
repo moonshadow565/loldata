@@ -1,10 +1,11 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "HealthPercent",
       OwnerVar = "Owner",
-      Function = GetHealthPercent
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
     }
   },
   {

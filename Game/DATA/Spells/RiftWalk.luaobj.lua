@@ -9,7 +9,7 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = ""
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,
@@ -161,7 +161,7 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetManaCostInc,
+    Function = BBSetPARCostInc,
     Params = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,

@@ -72,11 +72,12 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxMana",
       OwnerVar = "Target",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -90,9 +91,9 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "ManaRegen",
       Delta = 0

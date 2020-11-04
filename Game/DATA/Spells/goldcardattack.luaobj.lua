@@ -18,6 +18,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -144,37 +145,23 @@ TargetExecuteBuildingBlocks = {
                 Params = {TargetVar = "Unit"}
               },
               {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "Slow",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Slow,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1.5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              },
-              {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
                   TargetVar = "Unit",
                   DamageByLevel = {
-                    50,
-                    100,
-                    150,
-                    200,
-                    250
+                    40,
+                    80,
+                    120,
+                    160,
+                    200
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.4,
+                  SpellDamageRatio = 0.5,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -210,9 +197,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "pickacard_yellow_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
   }
 }

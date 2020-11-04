@@ -446,6 +446,7 @@ function L0_0()
   L0_1(L1_2)
   L0_1(L1_2)
   L0_1(L1_2)
+  L0_1(L1_2)
   for L3_4, L4_5 in L0_1(L1_2) do
     PreloadCharacter(L4_5)
   end

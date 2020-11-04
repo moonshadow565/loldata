@@ -198,11 +198,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "CurMana",
               OwnerVar = "Owner",
-              Function = GetMana
+              Function = GetPAR,
+              PARType = PAR_MANA
             }
           },
           {
@@ -349,11 +350,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "CurMana",
               OwnerVar = "Owner",
-              Function = GetMana
+              Function = GetPAR,
+              PARType = PAR_MANA
             }
           },
           {
@@ -377,7 +379,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                 }
               },
               {
-                Function = BBIncMana,
+                Function = BBIncPAR,
                 Params = {
                   TargetVar = "Owner",
                   Delta = 0,

@@ -2,11 +2,12 @@ BuffTextureName = "GragasPassiveHeal.dds"
 BuffName = "GragasPassiveHeal"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "MaxHP",
       OwnerVar = "Target",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {

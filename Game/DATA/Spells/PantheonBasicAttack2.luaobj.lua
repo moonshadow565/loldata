@@ -32,11 +32,12 @@ TargetExecuteBuildingBlocks = {
                     Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
                     SubBlocks = {
                       {
-                        Function = BBGetManaOrHealth,
+                        Function = BBGetPAROrHealth,
                         Params = {
                           DestVar = "TarHP",
                           OwnerVar = "Target",
-                          Function = GetHealthPercent
+                          Function = GetHealthPercent,
+                          PARType = PAR_MANA
                         }
                       },
                       {

@@ -31,12 +31,12 @@ ItemOnHitUnitBuildingBlocks = {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Target",
-                          AttackerVar = "Owner",
-                          BuffName = "ItemSlow",
+                          AttackerVar = "Target",
+                          BuffName = "Internal_30Slow",
                           BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Slow,
+                          BuffType = BUFF_Internal,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -46,12 +46,12 @@ ItemOnHitUnitBuildingBlocks = {
                         Function = BBSpellBuffAdd,
                         Params = {
                           TargetVar = "Target",
-                          AttackerVar = "Target",
-                          BuffName = "Internal_40Slow",
+                          AttackerVar = "Owner",
+                          BuffName = "ItemSlow",
                           BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Internal,
+                          BuffType = BUFF_Slow,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -71,6 +71,12 @@ ItemOnHitUnitBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "ItemSlow"}
+    Params = {
+      Name = "internal_30slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "itemslow"}
   }
 }

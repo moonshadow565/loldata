@@ -24,11 +24,12 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Owner",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {

@@ -73,11 +73,12 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Temp1",
           OwnerVar = "Unit",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {
@@ -245,11 +246,12 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "Temp1",
               OwnerVar = "Unit",
-              Function = GetMaxHealth
+              Function = GetMaxHealth,
+              PARType = PAR_MANA
             }
           },
           {

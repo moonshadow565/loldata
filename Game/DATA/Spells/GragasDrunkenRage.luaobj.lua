@@ -23,7 +23,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,
@@ -34,7 +34,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,

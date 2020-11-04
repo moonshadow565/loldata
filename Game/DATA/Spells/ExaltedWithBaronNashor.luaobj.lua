@@ -3,9 +3,9 @@ BuffName = "Exalted with Baron Nashor"
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBIncPermanentStat,
+    Function = BBIncPermanentFlatPARRegenMod,
     Params = {
-      Stat = IncPermanentFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = 3
     }
@@ -100,9 +100,9 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBIncPermanentStat,
+    Function = BBIncPermanentFlatPARRegenMod,
     Params = {
-      Stat = IncPermanentFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -3
     }
@@ -155,11 +155,12 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "Health",
           OwnerVar = "Owner",
-          Function = GetMaxHealth
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
         }
       },
       {

@@ -91,7 +91,7 @@ ItemOnSpellCastBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -148,11 +148,11 @@ ItemOnHitUnitBuildingBlocks = {
                         Params = {
                           TargetVar = "Target",
                           AttackerVar = "Target",
-                          BuffName = "Internal_50Slow",
+                          BuffName = "Internal_35Slow",
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Internal,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -167,7 +167,7 @@ ItemOnHitUnitBuildingBlocks = {
                           BuffAddType = BUFF_RENEW_EXISTING,
                           BuffType = BUFF_Slow,
                           MaxStack = 1,
-                          NumberStacks = 1,
+                          NumberOfStacks = 1,
                           Duration = 2.5,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0
@@ -201,6 +201,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "ItemSlow"}
+    Params = {
+      Name = "internal_35slow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "itemslow"}
   }
 }

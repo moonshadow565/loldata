@@ -65,11 +65,12 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "MyHealth",
           OwnerVar = "Target",
-          Function = GetHealthPercent
+          Function = GetHealthPercent,
+          PARType = PAR_MANA
         }
       },
       {

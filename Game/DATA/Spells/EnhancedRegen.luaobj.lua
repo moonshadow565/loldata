@@ -11,9 +11,9 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "ManaRegenBonus",
       DeltaVarTable = "InstanceVars",

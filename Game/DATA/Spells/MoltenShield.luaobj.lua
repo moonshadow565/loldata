@@ -86,6 +86,7 @@ BuffOnTakeDamageBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.2,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -135,25 +136,35 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBIfNotHasBuff,
     Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "Pyromania",
-      BuffAddType = BUFF_STACKS_AND_RENEWS,
-      BuffType = BUFF_Internal,
-      MaxStack = 5,
-      NumberStacks = 1,
-      Duration = 3600,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Pyromania_particle"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Pyromania",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Internal,
+          MaxStack = 5,
+          NumberOfStacks = 1,
+          Duration = 3600,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      }
     }
   }
 }
@@ -162,6 +173,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "anniesparks.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pyromania_particle"
     }
   },
   {

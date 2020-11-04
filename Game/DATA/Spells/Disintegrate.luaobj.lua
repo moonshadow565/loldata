@@ -27,7 +27,7 @@ BuffOnDeathBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {
           TargetVar = "Attacker",
           Delta = 0,
@@ -80,7 +80,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBGetCastInfo,
     Params = {
       DestVar = "tempManaCost",
-      Info = GetManaCost
+      Info = GetPARCost
     }
   },
   {

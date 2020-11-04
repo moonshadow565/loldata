@@ -10,7 +10,7 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {
           TargetVar = "Target",
           Delta = 0,

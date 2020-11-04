@@ -75,11 +75,12 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "healthPercent",
               OwnerVar = "Target",
-              Function = GetHealthPercent
+              Function = GetHealthPercent,
+              PARType = PAR_MANA
             }
           },
           {

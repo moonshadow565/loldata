@@ -90,11 +90,12 @@ BuffOnUpdateStatsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "TargetHealth",
           OwnerVar = "Owner",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {

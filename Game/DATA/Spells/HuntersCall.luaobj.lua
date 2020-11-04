@@ -21,7 +21,9 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           Stat = IncPercentAttackSpeedMod,
           TargetVar = "Owner",
-          Delta = 0.5
+          DeltaVar = "AttackSpeedVar",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
         }
       }
     }
@@ -35,13 +37,43 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           Stat = IncPercentAttackSpeedMod,
           TargetVar = "Owner",
-          Delta = 0.25
+          DeltaVar = "AttackSpeedOther",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
         }
       }
     }
   }
 }
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedVar",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.4,
+        0.45,
+        0.5,
+        0.55,
+        0.6
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackSpeedOther",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.2,
+        0.225,
+        0.25,
+        0.275,
+        0.3
+      }
+    }
+  },
   {
     Function = BBForEachUnitInTargetArea,
     Params = {
@@ -60,19 +92,28 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 0,
+          NumberOfStacks = 1,
+          Duration = 9,
           BuffVarsTable = "NextBuffVars",
-          DurationByLevel = {
-            6,
-            9,
-            12,
-            15,
-            18
-          },
           TickRate = 0
         }
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedVar",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "AttackSpeedOther",
+      RequiredVarTable = "InstanceVars"
     }
   }
 }
