@@ -676,7 +676,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetSlotSpellCooldownTimeVer2,
     Params = {
-      Src = 0.4,
+      Src = 1,
       SlotNumber = 2,
       SlotType = SpellSlots,
       SpellbookType = SPELLBOOK_CHAMPION,

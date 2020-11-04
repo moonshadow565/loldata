@@ -87,8 +87,8 @@ TargetExecuteBuildingBlocks = {
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          IgnoreDamageIncreaseMods = true,
+          IgnoreDamageCrit = true
         }
       },
       {
@@ -124,8 +124,8 @@ TargetExecuteBuildingBlocks = {
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
           PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          IgnoreDamageIncreaseMods = true,
+          IgnoreDamageCrit = true
         }
       }
     }

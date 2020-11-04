@@ -147,11 +147,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.15,
+        0.2,
         0.25,
-        0.28,
-        0.31,
-        0.34,
-        0.37
+        0.3,
+        0.35
       }
     }
   },
@@ -226,16 +226,6 @@ SelfExecuteBuildingBlocks = {
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
-    }
-  },
-  {
-    Function = BBSetSlotSpellCooldownTime,
-    Params = {
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      SpellSlotValue = 0,
-      OwnerVar = "Owner"
     }
   }
 }

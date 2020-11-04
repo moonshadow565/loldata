@@ -133,11 +133,24 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReduction",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.15,
-        0.2,
-        0.25,
-        0.3,
+        0.35,
+        0.35,
+        0.35,
+        0.35,
         0.35
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BuffDuration",
+      SrcValueByLevel = {
+        2,
+        2.5,
+        3,
+        3.5,
+        4
       }
     }
   },
@@ -198,8 +211,9 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 3,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
+      DurationVar = "BuffDuration",
       TickRate = 0
     }
   }
