@@ -24,79 +24,85 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "UdyrBearStunCheck"
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
         SubBlocks = {
           {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Target"}
-          },
-          {
-            Function = BBApplyStun,
+            Function = BBIfHasBuff,
             Params = {
+              OwnerVar = "Target",
               AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Duration = 1
+              BuffName = "UdyrBearStunCheck"
             }
           },
           {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Level",
-              SpellSlotValue = 2,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellLevel
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Attacker",
-              BuffName = "UdyrBearStunCheck",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationByLevel = {
-                5,
-                5,
-                5,
-                5,
-                5
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Target"}
               },
-              TickRate = 0
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Target",
-              EffectName = "udyr_bear_slam.troy",
-              Flags = 0,
-              EffectIDVar = "c",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              {
+                Function = BBApplyStun,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Target",
+                  Duration = 1
+                }
+              },
+              {
+                Function = BBGetSlotSpellInfo,
+                Params = {
+                  DestVar = "Level",
+                  SpellSlotValue = 2,
+                  SpellbookType = SPELLBOOK_CHAMPION,
+                  SlotType = SpellSlots,
+                  OwnerVar = "Owner",
+                  Function = GetSlotSpellLevel
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Target",
+                  AttackerVar = "Attacker",
+                  BuffName = "UdyrBearStunCheck",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationByLevel = {
+                    5,
+                    5,
+                    5,
+                    5,
+                    5
+                  },
+                  TickRate = 0
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "udyr_bear_slam.troy",
+                  Flags = 0,
+                  EffectIDVar = "c",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWVisibilityRadius = 0,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
             }
           }
         }

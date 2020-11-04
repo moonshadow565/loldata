@@ -47,60 +47,67 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "Count",
-      Src1VarTable = "CharVars",
-      Value2 = 3,
-      CompareOp = CO_EQUAL
-    },
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Owner",
-          EffectName = "PhoenixBreath_cas.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          BoneName = "goatee",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 400,
-          OffsetAngle = 0,
-          PositionVar = "TargetPos"
-        }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Nothing",
-          PosVar = "TargetPos",
-          EndPosVar = "TargetPos",
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 1,
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Count",
-          DestVarTable = "CharVars",
-          SrcValue = 0
+          Src1Var = "Count",
+          Src1VarTable = "CharVars",
+          Value2 = 3,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "PhoenixBreath_cas.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              BoneName = "goatee",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBGetPointByUnitFacingOffset,
+            Params = {
+              UnitVar = "Owner",
+              Distance = 400,
+              OffsetAngle = 0,
+              PositionVar = "TargetPos"
+            }
+          },
+          {
+            Function = BBSpellCast,
+            Params = {
+              CasterVar = "Owner",
+              TargetVar = "Nothing",
+              PosVar = "TargetPos",
+              EndPosVar = "TargetPos",
+              SlotNumber = 0,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 1,
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Count",
+              DestVarTable = "CharVars",
+              SrcValue = 0
+            }
+          }
         }
       }
     }

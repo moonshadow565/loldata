@@ -56,41 +56,47 @@ BuffOnHitUnitBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "udyr_tiger_claw_tar.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "UdyrTigerPunchBleed",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Damage,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 3,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+        Function = BBIf,
+        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "udyr_tiger_claw_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Target",
+              AttackerVar = "Attacker",
+              BuffName = "UdyrTigerPunchBleed",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Damage,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
         }
       }
     }
