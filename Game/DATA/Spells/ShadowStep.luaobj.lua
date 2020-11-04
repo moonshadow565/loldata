@@ -23,6 +23,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -46,6 +48,8 @@ SelfExecuteBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -69,9 +73,63 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "Distance",
       Src1Value = 0,
-      Src2Value = 225,
+      Src2Value = 0,
       DestVar = "finalDistance",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KillerInstinct"
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "finalDistance",
+          Src1Value = 0,
+          Src2Value = 250,
+          DestVar = "finalDistance",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 0,
+          DistanceVar = "finalDistance",
+          OffsetAngle = 0,
+          PositionVar = "TargetPos"
+        }
+      },
+      {
+        Function = BBIsPathable,
+        Params = {DestPosVar = "TargetPos", ResultVar = "Temp"}
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Temp",
+          Value2 = false,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "finalDistance",
+              Src1Value = 0,
+              Src2Value = 200,
+              DestVar = "finalDistance",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
     }
   },
   {
@@ -210,6 +268,8 @@ TargetExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
           SendIfOnScreenOrDiscard = true,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
           FollowsGroundTilt = false,
           FacesTarget = false
         }
@@ -298,12 +358,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "killerinstinct"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "shadowstepdodge"
     }
   },
@@ -311,12 +365,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "katarina_shadowstep_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
     }
   },
   {

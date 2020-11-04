@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTotalAttackDamage,

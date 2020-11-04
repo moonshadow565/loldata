@@ -1,6 +1,57 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "baseDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalDamage",
+      Src2Var = "baseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "bonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "bonusDamage",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "Spell3Display",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "Spell3Display",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Owner"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -66,7 +117,10 @@ TargetExecuteBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {

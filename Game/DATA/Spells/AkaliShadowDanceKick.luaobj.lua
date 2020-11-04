@@ -1,5 +1,6 @@
 BuffTextureName = "AkaliShadowDance.dds"
 BuffName = "AkaliShadowDance"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -199,12 +200,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "akali_shadowdance_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdancekick"
     }
   },
   {

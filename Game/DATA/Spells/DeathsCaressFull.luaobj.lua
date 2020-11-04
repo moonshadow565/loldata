@@ -32,7 +32,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 1,
+      Src2Value = 0.9,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }

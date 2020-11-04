@@ -18,7 +18,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -67,36 +70,10 @@ BuffOnDeathBuildingBlocks = {
                 Function = BBMath,
                 Params = {
                   Src2Var = "NewDuration",
-                  Src1Value = 1.15,
+                  Src1Value = 1.2,
                   Src2Value = 0,
                   DestVar = "NewDuration",
                   MathOp = MO_MULTIPLY
-                }
-              }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBIfHasBuff,
-                Params = {
-                  OwnerVar = "Attacker",
-                  AttackerVar = "Attacker",
-                  BuffName = "MonsterBuffs2"
-                },
-                SubBlocks = {
-                  {
-                    Function = BBMath,
-                    Params = {
-                      Src2Var = "NewDuration",
-                      Src1Value = 1.3,
-                      Src2Value = 0,
-                      DestVar = "NewDuration",
-                      MathOp = MO_MULTIPLY
-                    }
-                  }
                 }
               }
             }
@@ -162,36 +139,10 @@ BuffOnDeathBuildingBlocks = {
                     Function = BBMath,
                     Params = {
                       Src2Var = "NewDuration",
-                      Src1Value = 1.15,
+                      Src1Value = 1.2,
                       Src2Value = 0,
                       DestVar = "NewDuration",
                       MathOp = MO_MULTIPLY
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBIfHasBuff,
-                    Params = {
-                      OwnerVar = "Caster",
-                      AttackerVar = "Caster",
-                      BuffName = "MonsterBuffs2"
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBMath,
-                        Params = {
-                          Src2Var = "NewDuration",
-                          Src1Value = 1.3,
-                          Src2Value = 0,
-                          DestVar = "NewDuration",
-                          MathOp = MO_MULTIPLY
-                        }
-                      }
                     }
                   }
                 }
@@ -510,31 +461,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monsterbuffs"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monsterbuffs2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {Name = "burning"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "judicatorrighteousfury"
-    }
   },
   {
     Function = BBPreloadSpell,

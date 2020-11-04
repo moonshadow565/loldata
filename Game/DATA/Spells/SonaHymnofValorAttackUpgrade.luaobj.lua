@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetLevel,
@@ -37,6 +38,14 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TotalDamage",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TotalDamage"
+    }
+  },
+  {
     Function = BBGetTotalAttackDamage,
     Params = {
       TargetVar = "Owner",
@@ -61,20 +70,21 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBSpellBuffAdd,
     Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
-      Damage = 0,
-      DamageVar = "TotalDamage",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      AttackerVar = "Attacker",
+      BuffName = "SonaHymnPCDeathRecapFix",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -100,7 +110,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "SonaPowerChord"
+      BuffName = "SonaPowerChord",
+      ResetDuration = 0
     }
   }
 }
@@ -108,13 +119,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
+      Name = "sonahymnpcdeathrecapfix"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sonapowerchord"
+      Name = "ifhasbuffcheck"
     }
   }
 }

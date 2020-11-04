@@ -1,5 +1,6 @@
 BuffTextureName = "Irelia_Bladesurge.dds"
 BuffName = "IreliaGatotsuDash"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -71,6 +72,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
       FollowsGroundTilt = false,
       FacesTarget = false
     }
@@ -258,12 +261,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ireliagatotsudash"
-    }
   },
   {
     Function = BBPreloadSpell,

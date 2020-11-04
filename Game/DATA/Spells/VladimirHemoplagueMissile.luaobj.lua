@@ -13,7 +13,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -23,7 +24,8 @@ TargetExecuteBuildingBlocks = {
       ScaleTime = 0.5,
       TargetVar = "Owner",
       Loop = false,
-      Blend = true
+      Blend = true,
+      Lock = true
     }
   },
   {
@@ -45,29 +47,75 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSkinID,
+    Params = {UnitVar = "Owner", SkinIDVar = "VladSkinID"}
+  },
+  {
     Function = BBIf,
     Params = {
-      Src1Var = "TeamofOwner",
-      Value2 = TEAM_ORDER,
+      Src1Var = "VladSkinID",
+      Value2 = 5,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Target",
-          EffectName = "VladHemoplague_nova.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamofOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "VladHemoplague_BloodKing_nova.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "VladHemoplague_BloodKing_nova.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -77,21 +125,63 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Target",
-          EffectName = "VladHemoplague_nova.troy",
-          Flags = 0,
-          EffectIDVar = "Particle",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 100,
-          SendIfOnScreenOrDiscard = true
+          Src1Var = "TeamofOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "VladHemoplague_nova.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "Target",
+              EffectName = "VladHemoplague_nova.troy",
+              Flags = 0,
+              EffectIDVar = "Particle",
+              TargetObjectVar = "Owner",
+              TargetPosVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
+            }
+          }
         }
       }
     }
@@ -157,7 +247,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -168,6 +259,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "unlockanimation"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vladhemoplague_bloodking_nova.troy"
     }
   },
   {

@@ -6,6 +6,7 @@ BuffTextureName = "Malphite_BrutalStrikes.dds"
 BuffName = "MalphiteCleave"
 PersistsThroughDeath = true
 NonDispellable = true
+IsDeathRecapSource = true
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,

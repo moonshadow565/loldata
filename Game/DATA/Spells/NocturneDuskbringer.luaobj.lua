@@ -3,6 +3,7 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Nocturne_Duskbringer.dds"
 BuffName = "EzrealEssenceFluxDebuff"
+IsDeathRecapSource = true
 TriggersSpellCasts = true
 OnBuffActivateBuildingBlocks = {
   {

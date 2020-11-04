@@ -5,6 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Udyr_TigerStance.dds"
 BuffName = "UdyrTigerPunchBleed"
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

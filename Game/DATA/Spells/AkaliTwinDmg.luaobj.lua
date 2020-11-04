@@ -21,7 +21,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "BaseVampPercent",
       DestVarTable = "InstanceVars",
-      SrcValue = 0.1
+      SrcValue = 0.08
     }
   },
   {
@@ -42,7 +42,7 @@ OnBuffActivateBuildingBlocks = {
       Src1Var = "AkaliDmg",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
-      Src2Value = 500,
+      Src2Value = 600,
       DestVar = "AdditionalVampPercent",
       DestVarTable = "InstanceVars",
       MathOp = MO_DIVIDE
@@ -124,7 +124,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       Src1Var = "AkaliDmg",
       Src1VarTable = "InstanceVars",
       Src1Value = 0,
-      Src2Value = 500,
+      Src2Value = 600,
       DestVar = "AdditionalVampPercent",
       DestVarTable = "InstanceVars",
       MathOp = MO_DIVIDE

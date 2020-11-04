@@ -77,36 +77,10 @@ CharOnActivateBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "NewDuration",
-              Src1Value = 1.15,
+              Src1Value = 1.2,
               Src2Value = 0,
               DestVar = "NewDuration",
               MathOp = MO_MULTIPLY
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Unit",
-              AttackerVar = "Unit",
-              BuffName = "MonsterBuffs2"
-            },
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src2Var = "NewDuration",
-                  Src1Value = 1.3,
-                  Src2Value = 0,
-                  DestVar = "NewDuration",
-                  MathOp = MO_MULTIPLY
-                }
-              }
             }
           }
         }
@@ -185,18 +159,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "monsterbuffs"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monsterbuffs2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "odinquestbuff"
     }
   },
@@ -204,12 +166,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "odinquestbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "odinguardianbuff"
     }
   },
   {

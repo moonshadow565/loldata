@@ -16,7 +16,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -47,11 +51,11 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVar = "ARMRBoost",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        8,
+        7,
+        9,
         11,
-        14,
-        17,
-        20
+        13,
+        15
       }
     }
   },
@@ -89,7 +93,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }

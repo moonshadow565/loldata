@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -28,7 +29,11 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   }
 }
@@ -83,6 +88,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Owner",
               Damage = 0,
               DamageVar = "DamageToDeal",
@@ -90,6 +96,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -156,7 +163,11 @@ BuffOnBeingHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -191,7 +202,11 @@ BuffOnBeingHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -226,7 +241,11 @@ BuffOnBeingHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -261,7 +280,11 @@ BuffOnBeingHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
@@ -305,7 +328,11 @@ BuffOnBeingHitBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -333,18 +360,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deadlyvenom_marker"
-    }
   },
   {
     Function = BBPreloadParticle,

@@ -699,6 +699,133 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "Duration", SrcValue = 4}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "utilityMastery",
+      Src1VarTable = "AvatarVars",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Duration", SrcValue = 3.5}
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "Duration",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseCooldown",
+      SrcValue = 300
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  }
+}
+AdjustCooldownBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 300,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetReturnValue,
+    Params = {
+      SrcVar = "BaseCooldown"
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -749,34 +876,36 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBIf,
+        Params = {
+          Src1Var = "utilityMastery",
+          Src1VarTable = "AvatarVars",
+          Value2 = 1,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {DestVar = "Duration", SrcValue = 3.5}
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {DestVar = "Duration", SrcValue = 4}
+          }
+        }
+      },
+      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "BuffDuration",
           DestVarTable = "NextBuffVars",
-          SrcValue = 4
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "TeleportDelayBonus",
-          Src1VarTable = "AvatarVars",
-          Value2 = 0,
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "TeleportDelayBonus",
-              Src2VarTable = "AvatarVars",
-              Src1Value = 4,
-              Src2Value = 0,
-              DestVar = "BuffDuration",
-              DestVarTable = "NextBuffVars",
-              MathOp = MO_SUBTRACT
-            }
-          }
+          SrcVar = "Duration"
         }
       },
       {
@@ -791,8 +920,7 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
-          DurationVar = "BuffDuration",
-          DurationVarTable = "NextBuffVars",
+          DurationVar = "Duration",
           TickRate = 0,
           CanMitigateDuration = false,
           IsHiddenOnClient = false
@@ -954,12 +1082,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "teleport_deathremoval"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sharedwardbuff"
     }
   },
   {

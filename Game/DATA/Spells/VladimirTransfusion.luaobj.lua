@@ -3,6 +3,12 @@ BuffTextureName = ""
 BuffName = ""
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "BloodkingVladimir"
+}
+SpellVOOverrideSkins = {
+  "BloodkingVladimir"
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,

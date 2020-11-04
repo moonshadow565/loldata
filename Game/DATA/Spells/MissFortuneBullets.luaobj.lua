@@ -124,7 +124,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "BonusDamage",
-              Src1Value = 0.4,
+              Src1Value = 0.45,
               Src2Value = 0,
               DestVar = "BonusDamage",
               MathOp = MO_MULTIPLY
@@ -217,13 +217,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "missfortunebulletholder"
+      Name = "missfortunewavehold"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "missfortunewavehold"
+      Name = "missfortunebulletholder"
     }
   },
   {

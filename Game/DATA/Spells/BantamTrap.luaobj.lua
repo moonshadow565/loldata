@@ -18,8 +18,8 @@ BuffOnAllowAddBuildingBlocks = {
       {
         Function = BBIf,
         Params = {
-          Src1Var = "MaxStack",
-          Value2 = 76,
+          Src1Var = "ScriptName",
+          Value2 = "globalwallpush",
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
@@ -328,6 +328,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -361,6 +363,8 @@ OnBuffActivateBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
               SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -587,6 +591,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
               FollowsGroundTilt = false,
               FacesTarget = false
             }
@@ -747,8 +753,8 @@ CanCastBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Count",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
+      Value2 = 1,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
       {
@@ -762,54 +768,55 @@ CanCastBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CanMove",
-          Value2 = true,
-          CompareOp = CO_NOT_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "CanCast",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = true}
-          }
-        }
+        Function = BBSetReturnValue,
+        Params = {SrcValue = true}
       }
     }
   }
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBSpellBuffRemoveStacks,
+    Function = BBGetBuffRemainingDuration,
     Params = {
+      DestVar = "Duration",
       TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "TeemoMushrooms",
-      NumStacks = 1
+      BuffName = "TeemoMushrooms"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Duration",
+      Value2 = 40,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "TeemoMushrooms",
+          ResetDuration = 0,
+          ResetDurationVar = "MushroomCooldown",
+          ResetDurationVarTable = "CharVars"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "TeemoMushrooms",
+          ResetDuration = 0
+        }
+      }
     }
   },
   {
@@ -916,12 +923,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "slow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "teemomushrooms"
-    }
   },
   {
     Function = BBPreloadCharacter,

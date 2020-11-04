@@ -2,11 +2,18 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Vladimir_Hemoplague.dds"
 BuffName = "VladimirHemoplagueDebuff"
-AutoBuffActivateEffect = "VladHemoplague_tar.troy"
-AutoBuffActivateAttachBoneName = "spine"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
+SpellFXOverrideSkins = {
+  "BloodkingVladimir"
+}
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -28,23 +35,133 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBGetSkinID,
+    Params = {
+      UnitVar = "Caster",
+      SkinIDVar = "VladSkinID",
+      SkinIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "VladSkinID",
+      Src1VarTable = "InstanceVars",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "VladHemoplague_BloodKing_tar.troy",
+          Flags = 0,
+          EffectIDVar = "varrr1",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "VladHemoplague_tar.troy",
+          Flags = 0,
+          EffectIDVar = "varrr1",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectCreate,
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "VladHemoplague_proc.troy",
-      Flags = 0,
-      EffectIDVar = "varrr",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "VladSkinID",
+      Src1VarTable = "InstanceVars",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "VladHemoplague_BloodKing_proc.troy",
+          Flags = 0,
+          EffectIDVar = "varrr",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "VladHemoplague_proc.troy",
+          Flags = 0,
+          EffectIDVar = "varrr",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_NEUTRAL,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
     }
   },
   {
@@ -74,6 +191,13 @@ OnBuffDeactivateBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "varrr1",
+      EffectIDVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -99,6 +223,24 @@ BuffOnUpdateStatsBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vladhemoplague_bloodking_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vladhemoplague_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vladhemoplague_bloodking_proc.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -1,3 +1,4 @@
+IsDeathRecapSource = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -122,7 +123,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeamOverrideVar = "CasterID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -140,7 +144,10 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -227,7 +234,10 @@ BuffOnMoveSuccessBuildingBlocks = {
       FOWTeam = TEAM_NEUTRAL,
       FOWVisibilityRadius = 900,
       SendIfOnScreenOrDiscard = true,
-      FollowsGroundTilt = false
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -271,7 +281,10 @@ BuffOnMoveSuccessBuildingBlocks = {
           FOWTeamOverrideVar = "CasterID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true,
-          FollowsGroundTilt = false
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -313,7 +326,8 @@ BuffOnMoveSuccessBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "LeblancChaosOrb"
+              BuffName = "LeblancChaosOrb",
+              ResetDuration = 0
             }
           },
           {
@@ -373,7 +387,8 @@ BuffOnMoveSuccessBuildingBlocks = {
             Params = {
               TargetVar = "Unit",
               AttackerVar = "Owner",
-              BuffName = "LeblancChaosOrbM"
+              BuffName = "LeblancChaosOrbM",
+              ResetDuration = 0
             }
           },
           {
@@ -543,18 +558,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "leblanc_slide_impact_unit_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorb"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancchaosorbm"
     }
   }
 }

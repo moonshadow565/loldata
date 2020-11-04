@@ -1,6 +1,98 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
+SpellUpdateTooltipBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "OwnerLevel"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "OwnerLevel",
+      Src1Value = 0,
+      Src2Value = 25,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src1Value = 0,
+      Src2Value = 420,
+      DestVar = "TotalDamage",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TotalDamage",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseCooldown",
+      SrcValue = 70
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "SummonerCooldownBonus",
+      Src1VarTable = "AvatarVars",
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "SummonerCooldownBonus",
+          Src2VarTable = "AvatarVars",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMultiplier",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseCooldown",
+          Src2Var = "CooldownMultiplier",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseCooldown",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BaseCooldown",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "SpellSlot",
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_SUMMONER,
+      TargetVar = "Attacker"
+    }
+  }
+}
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -26,33 +118,10 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 75,
+          Src1Value = 70,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "SmiteCooldownBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BaseCooldown",
-          Src2Var = "SmiteCooldownBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BaseCooldown",
-          MathOp = MO_SUBTRACT
         }
       }
     }
@@ -78,7 +147,11 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      PersistsThroughReconnect = false,
+      BindFlexToOwnerPAR = false,
+      FollowsGroundTilt = false,
+      FacesTarget = false
     }
   },
   {
@@ -125,20 +198,15 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "SmiteGoldBonus",
+      Src1Var = "defensiveMastery",
       Src1VarTable = "AvatarVars",
-      Value2 = 5,
+      Value2 = 1,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
         Function = BBIncGold,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "SmiteGoldBonus",
-          DeltaVarTable = "AvatarVars"
-        }
+        Params = {TargetVar = "Owner", Delta = 10}
       }
     }
   }

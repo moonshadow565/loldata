@@ -82,11 +82,35 @@ CharOnBeingHitBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              PersistsThroughReconnect = false,
+              BindFlexToOwnerPAR = false,
+              FollowsGroundTilt = false,
+              FacesTarget = false
             }
           }
         }
       }
+    }
+  }
+}
+CharOnActivateBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Attacker",
+      BuffName = "PromoteMeBuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -101,6 +125,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "feelnopain_eff.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "promotemebuff"
     }
   }
 }

@@ -309,16 +309,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "monkeyking"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingnimbuskickclone"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "monkeykingnimbuskickfx"
