@@ -1,4 +1,4 @@
-BuffTextureName = "Averdrian_AstralBarrier.dds"
+BuffTextureName = "AlZahar_SummonVoidling.dds"
 BuffName = "AlZaharVoidlingPhase2"
 OnBuffActivateBuildingBlocks = {
   {

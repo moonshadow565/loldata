@@ -25,7 +25,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SpellPower",
       Src1Value = 0,
-      Src2Value = 2,
+      Src2Value = 1.5,
       DestVar = "SpellPowerBonus",
       MathOp = MO_MULTIPLY
     }

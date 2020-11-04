@@ -1,4 +1,4 @@
-BuffTextureName = "MasterYi_LeapStrike.dds"
+BuffTextureName = "AlZahar_MaleficVisions.dds"
 BuffName = "AlZaharMaleficVisions"
 AutoBuffActivateEffect = "AlzaharMaleficVisions_tar.troy"
 AutoBuffActivateAttachBoneName = "head"
@@ -134,7 +134,8 @@ BuffOnDeathBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 4,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -162,7 +163,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -180,7 +182,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

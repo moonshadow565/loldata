@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = "Averdrian_AstralBarrier.dds"
+BuffTextureName = "AlZahar_SummonVoidling.dds"
 BuffName = "AlZaharVoidling"
 OnBuffActivateBuildingBlocks = {
   {
@@ -109,7 +109,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       TargetVar = "Owner",
-      Damage = 1500,
+      Damage = 8000,
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,

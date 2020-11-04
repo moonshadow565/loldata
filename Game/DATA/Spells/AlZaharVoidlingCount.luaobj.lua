@@ -1,4 +1,4 @@
-BuffTextureName = "Annie_Brilliance.dds"
+BuffTextureName = "AlZahar_VoidlingCharging.dds"
 BuffName = "AlZaharSummonVoidlingBuff"
 OnBuffActivateBuildingBlocks = {
   {
@@ -31,7 +31,8 @@ OnBuffActivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {

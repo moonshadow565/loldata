@@ -1,4 +1,4 @@
-BuffTextureName = "Averdrian_AstralBarrier.dds"
+BuffTextureName = "AlZahar_SummonVoidling.dds"
 BuffName = "AlZaharVoidlingPhase3"
 AutoBuffActivateEffect = "AlzaharVoidling_speed.troy"
 AutoBuffActivateAttachBoneName = "BUFFBONE_GLB_HAND_R"

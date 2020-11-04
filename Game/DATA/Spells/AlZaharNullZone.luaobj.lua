@@ -95,6 +95,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Attacker",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -111,19 +118,87 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBIf,
     Params = {
-      BindObjectVar = "Owner",
-      EffectName = "AlzaharVoidPortal_flat.troy",
-      Flags = 0,
-      EffectIDVar = "varrr",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      Src1Var = "TeamOfOwner",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "AlzaharVoidPortal_flat.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "AlzaharVoidPortal_flat.troy",
+          Flags = 0,
+          EffectIDVar = "Particle1",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "AlzaharVoidPortal_flat.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "AlzaharVoidPortal_flat.troy",
+          Flags = 0,
+          EffectIDVar = "Particle1",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
     }
   }
 }
@@ -341,7 +416,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBMath,
             Params = {
               Src2Var = "DamagePerTick",
-              Src1Value = 150,
+              Src1Value = 120,
               Src2Value = 0,
               DestVar = "DamagePerTick",
               MathOp = MO_MIN
@@ -456,11 +531,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "HealthFlat",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        25,
-        35,
-        45,
-        55,
-        65
+        20,
+        30,
+        40,
+        50,
+        60
       }
     }
   },

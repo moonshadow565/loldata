@@ -1,2 +1,2 @@
-BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
+BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGraspSound"

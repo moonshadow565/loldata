@@ -1,4 +1,4 @@
 BuffTextureName = "MasterYi_DoubleStrike.dds"
-BuffName = "Double Strike"
+BuffName = "DoubleStrikeReady"
 PersistsThroughDeath = true
 NonDispellable = true

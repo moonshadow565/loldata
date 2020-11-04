@@ -5,6 +5,25 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "3146_Hextech_Gunblade.dds"
 BuffName = ""
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "hexTech_Gunblade_cas.troy",
+      Flags = 0,
+      EffectIDVar = "CasterVFX",
+      BoneName = "root",
+      TargetObjectVar = "Caster",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetSpell,
@@ -221,6 +240,16 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "hextech_gunblade_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
   {
     Function = BBPreloadSpell,
     Params = {

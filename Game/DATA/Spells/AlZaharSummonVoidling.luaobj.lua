@@ -1,4 +1,4 @@
-BuffTextureName = "Averdrian_AstralBarrier.dds"
+BuffTextureName = "AlZahar_VoidlingReady.dds"
 BuffName = "AlZaharSummonVoidlingReady"
 AutoBuffActivateEffect = "Voidling_Ready.troy"
 BuffOnSpellCastBuildingBlocks = {
