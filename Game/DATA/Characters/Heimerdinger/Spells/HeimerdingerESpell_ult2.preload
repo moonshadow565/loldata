@@ -6,7 +6,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="heimerdingerespell_ult"}}, 
 {Function=BBPreloadSpell, Params={Name="heimerdingerturretlockon"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
 {Function=BBPreloadSpell, Params={Name="heimerdingerespell_ult3"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 }

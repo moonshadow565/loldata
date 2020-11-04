@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="malphite_base_w_tar_1.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_w_tar_2.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="obduracy"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_w_buf_body.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_w_buf_hands.troy"}}, 
