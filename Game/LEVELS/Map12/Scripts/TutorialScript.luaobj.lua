@@ -1753,6 +1753,8 @@ function L0()
   L0 = UnRegisterOnSpellCastCallback
   L1 = 1
   L0(L1)
+  L0 = HideObjectiveText
+  L0()
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_HUD
   L2 = false

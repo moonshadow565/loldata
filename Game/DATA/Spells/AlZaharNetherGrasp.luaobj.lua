@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "katarinaqmarkspellshieldcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "alzaharnethergraspsound"
     }
   },
