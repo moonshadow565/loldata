@@ -4,11 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Garen_DecisiveStrike.dds"
 BuffName = "YasuoQ"
 SpellFXOverrideSkins = {
-  "YasuoSkin01",
-  "YasuoSkin02"
-}
-SpellVOOverrideSkins = {
-  "YasuoSkin02"
+  "YasuoSkin01"
 }
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
@@ -81,7 +77,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_q_ready_sound.troy"
+      Name = "yasuo_q_ready_sound.troy"
     }
   }
 }

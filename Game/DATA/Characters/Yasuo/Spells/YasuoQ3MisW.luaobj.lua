@@ -1,6 +1,3 @@
-SpellFXOverrideSkins = {
-  "YasuoSkin02"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

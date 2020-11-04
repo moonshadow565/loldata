@@ -4,17 +4,13 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellFXOverrideSkins = {
-  "BadSantaVeigar",
-  "VeigarSkin08"
-}
-SpellVOOverrideSkins = {
-  "VeigarSkin08"
+  "BadSantaVeigar"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "veigar_base_w_cas.troy"
+      Name = "permission_dark_matter_cas.troy"
     }
   },
   {
@@ -26,7 +22,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "veigar_base_w_aoe_explosion.troy"
+      Name = "permission_dark_matter_tar.troy"
     }
   },
   {

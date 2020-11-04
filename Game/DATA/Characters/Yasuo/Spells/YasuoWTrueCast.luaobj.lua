@@ -4,7 +4,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_w_windwall_activate.troy"
+      Name = "yasuo_skin1_w_windwall_activate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_w_windwall_activate.troy"
     }
   },
   {

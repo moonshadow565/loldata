@@ -11,11 +11,7 @@ AutoCooldownByLevel = {
   16
 }
 SpellFXOverrideSkins = {
-  "BadSantaVeigar",
-  "VeigarSkin08"
-}
-SpellVOOverrideSkins = {
-  "VeigarSkin08"
+  "BadSantaVeigar"
 }
 PreLoadBuildingBlocks = {
   {
@@ -63,13 +59,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "veigar_base_e_cage_green.troy"
+      Name = "permission_desecrate_green_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "veigar_base_e_cage_red.troy"
+      Name = "permission_desecrate_red_cas.troy"
     }
   },
   {

@@ -7,6 +7,22 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "yasuo_skin01_w_windwall1.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall_enemy_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "yasuo_base_w_windwall1.troy"
     }
   },
@@ -17,8 +33,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall2.troy"
+    }
   },
   {
     Function = BBPreloadParticle,
@@ -30,6 +48,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_base_w_windwall_enemy_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall3.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall_enemy_03.troy"
     }
   },
   {
@@ -47,6 +77,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "yasuo_skin01_w_windwall4.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall_enemy_04.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "yasuo_base_w_windwall4.troy"
     }
   },
@@ -54,6 +96,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_base_w_windwall_enemy_04.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall5.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_skin01_w_windwall_enemy_05.troy"
     }
   },
   {

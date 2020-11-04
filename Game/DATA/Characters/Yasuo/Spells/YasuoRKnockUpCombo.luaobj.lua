@@ -10,12 +10,6 @@ AutoCooldownByLevel = {
   10,
   6
 }
-SpellFXOverrideSkins = {
-  "YasuoSkin02"
-}
-SpellVOOverrideSkins = {
-  "YasuoSkin02"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -97,12 +91,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_skin01_r_land_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin02_r_land_tar.troy"
     }
   },
   {

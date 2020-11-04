@@ -4,7 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Yasuo_Q2.dds"
 BuffName = "YasuoQ"
 SpellFXOverrideSkins = {
-  "YasuoSkin02"
+  "CyberEzreal"
 }
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
@@ -33,7 +33,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_q_ready_sound.troy"
+      Name = "yasuo_q_ready_sound.troy"
     }
   },
   {

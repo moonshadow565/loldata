@@ -1,6 +1,11 @@
 local L0, L1
 L0 = 0
 TEAM_UNKNOWN = L0
+L0 = 3
+EOG_PAN_TO_NEXUS_TIME = L0
+L0 = EOG_PAN_TO_NEXUS_TIME
+L0 = L0 + 0.5
+EOG_NEXUS_EXPLOSION_TIME = L0
 L0 = 10
 EOG_NEXUS_REVIVE_TIME = L0
 L0 = 0
@@ -67,8 +72,7 @@ function L0(A0, A1)
   L2(L3, L4)
   L2 = InitTimer
   L3 = "CheatDestroyNexusPhaseServer"
-  L4 = GetEoGNexusExplosionTime
-  L4 = L4()
+  L4 = EOG_NEXUS_EXPLOSION_TIME
   L5 = false
   L2(L3, L4, L5)
 end
@@ -78,8 +82,7 @@ function L0(A0)
   L1 = MoveCameraFromCurrentPositionToPoint
   L2 = A0
   L3 = losingHQPosition
-  L4 = GetEoGPanToHQTime
-  L4 = L4()
+  L4 = EOG_PAN_TO_NEXUS_TIME
   L1(L2, L3, L4)
   L1 = SetGreyscaleEnabledWhenDead
   L2 = A0
@@ -141,8 +144,7 @@ function L0()
   L0(L1)
   L0 = InitTimer
   L1 = "CheatRevertEoGSettingsClient"
-  L2 = GetEoGNexusExplosionTime
-  L2 = L2()
+  L2 = EOG_NEXUS_EXPLOSION_TIME
   L3 = EOG_NEXUS_REVIVE_TIME
   L2 = L2 + L3
   L3 = false

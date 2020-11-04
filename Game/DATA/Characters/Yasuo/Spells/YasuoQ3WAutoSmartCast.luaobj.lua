@@ -24,7 +24,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Yasuo_Base_Q_wind_ready_buff.troy"
+      Name = "yasuo_q_wind_ready_buff.troy"
     }
   },
   {
@@ -40,7 +40,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Yasuo_Base_Q_Ready_Sound.troy"
+      Name = "yasuo_q_ready_sound.troy"
     }
   },
   {

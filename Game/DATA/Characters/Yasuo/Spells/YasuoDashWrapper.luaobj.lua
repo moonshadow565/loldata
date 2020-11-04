@@ -6,12 +6,6 @@ IsDamagingSpell = true
 BuffTextureName = "Yasuo_E.dds"
 BuffName = "YasuoDashWrapper"
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {
-  "YasuoSkin02"
-}
-SpellVOOverrideSkins = {
-  "YasuoSkin02"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

@@ -1,3 +1,0 @@
-SpellVOOverrideSkins = {
-  "YasuoSkin02"
-}

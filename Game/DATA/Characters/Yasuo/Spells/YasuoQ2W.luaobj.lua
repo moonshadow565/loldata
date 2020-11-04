@@ -20,9 +20,6 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
-SpellFXOverrideSkins = {
-  "YasuoSkin02"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -59,7 +56,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_q_windstrike_02.troy"
+      Name = "yasuo_q_windstrike_02.troy"
     }
   }
 }

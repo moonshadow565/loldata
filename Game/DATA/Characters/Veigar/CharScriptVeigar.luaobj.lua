@@ -14,19 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globalrecallfacingsouth"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "nightmarebotveigarbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "veigarrecall"
     }
   }
 }

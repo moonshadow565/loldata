@@ -8,12 +8,6 @@ AutoCooldownByLevel = {
   8,
   4
 }
-SpellFXOverrideSkins = {
-  "YasuoSkin02"
-}
-SpellVOOverrideSkins = {
-  "YasuoSkin02"
-}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -25,7 +19,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_w_windwall_big_impact.troy"
+      Name = "yasuo_skin01_w_windwall_big_impact.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_w_windwall_big_impact.troy"
     }
   },
   {
@@ -43,7 +43,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_w_windwall_ult_impact.troy"
+      Name = "yasuo_skin01_w_windwall_ult_impact.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "yasuo_w_windwall_ult_impact.troy"
     }
   },
   {
