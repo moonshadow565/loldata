@@ -6,5 +6,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gangplanke"}}, 
 {Function=BBPreloadSpell, Params={Name="gangplankrupgradetracker"}}, 
 {Function=BBPreloadSpell, Params={Name="gangplankwvotwistedfate"}}, 
-{Function=BBPreloadSpell, Params={Name="gangplankwaudiocleanse"}}, 
 }
