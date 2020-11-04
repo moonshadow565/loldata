@@ -10,11 +10,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "dummywardtracker"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemspiritconservation"
-    }
   }
 }

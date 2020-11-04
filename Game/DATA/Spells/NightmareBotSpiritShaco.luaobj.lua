@@ -1,16 +1,16 @@
-BuffTextureName = "LeblancMirrorImage.dds"
+BuffTextureName = "NightmareBotSpiritShaco_HallucinogenBomb.dds"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotspiritleblancmiapplicator"
+      Name = "nightmarebotspiritshacoapplicator"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotspiritleblancpassivecooldown"
+      Name = "nightmarebotspiritshacopassivecooldown"
     }
   }
 }

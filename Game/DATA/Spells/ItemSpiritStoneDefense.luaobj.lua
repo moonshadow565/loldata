@@ -2,19 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemspiritstonedefense"
+      Name = "itemspiritstonebleed"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "itemspiritthornstick_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "dummywardtracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "itemspiritconservation"
+      Name = "itemspiritstoneregen"
     }
   }
 }

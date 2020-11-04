@@ -3,7 +3,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nightmarebotspiritleblanc_mirrorimagepoof.troy"
+      Name = "nightmarebotspiritshacohallucinatepoof.troy"
     }
   },
   {
@@ -15,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "nightmarebotspiritleblancmifull"
+      Name = "nightmarebotspiritshacofull"
     }
   }
 }
