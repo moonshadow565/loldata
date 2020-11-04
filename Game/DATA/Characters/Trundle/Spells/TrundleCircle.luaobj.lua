@@ -46,10 +46,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "trundlewall"
