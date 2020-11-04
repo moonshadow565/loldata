@@ -17,6 +17,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sejuaninorthernwindsremoval"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "sejuani_w_cas.troy"

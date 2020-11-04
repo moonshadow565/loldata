@@ -476,6 +476,11 @@ function L0_0()
     L1_2(L2_3)
     L1_2(L2_3)
     L1_2(L2_3)
+    L1_2(L2_3)
+    L1_2(L2_3)
+    L1_2(L2_3)
+    L1_2(L2_3)
+    L1_2(L2_3)
     INITIAL_TIME_TO_SPAWN = L1_2
     L1_2.NumOfMeleeMinionsPerWave = 0
     L1_2.NumOfArcherMinionsPerWave = 0

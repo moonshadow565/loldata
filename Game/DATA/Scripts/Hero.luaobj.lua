@@ -1,17 +1,34 @@
-local L0_0, L1_1
-L0_0 = 500
-FEAR_WANDER_DISTANCE = L0_0
-L0_0 = 2000
-FLEE_RUN_DISTANCE = L0_0
-function L0_0()
+FEAR_WANDER_DISTANCE = 500
+FLEE_RUN_DISTANCE = 2000
+STATE_STRINGS = {
+  [0] = "AI_IDLE",
+  "AI_SOFTATTACK",
+  "AI_HARDATTACK",
+  "AI_ATTACKMOVESTATE",
+  "AI_STANDING",
+  "AI_MOVE",
+  "AI_GUARD",
+  "AI_ATTACK",
+  "AI_RETREAT",
+  "AI_HARDIDLE",
+  "AI_HARDIDLE_ATTACKING",
+  "AI_TAUNTED",
+  "AI_ATTACKMOVE_ATTACKING",
+  "AI_FEARED",
+  "AI_CHARMED",
+  "AI_FLEEING",
+  "AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION",
+  "AI_HALTED",
+  "AI_SIEGEATTACK"
+}
+function CalculateAttackTimer()
   checkAttackTimer = 1.6 / (GetPercentAttackSpeedMod() + 1)
   if checkAttackTimer < 0.5 then
     checkAttackTimer = 0.5
   end
   return checkAttackTimer
 end
-CalculateAttackTimer = L0_0
-function L0_0()
+function OnInit()
   ClearTargetPosInPos()
   SetState(AI_IDLE)
   InitTimer("TimerDistanceScan", 0.2, true)
@@ -22,62 +39,133 @@ function L0_0()
   StopTimer("TimerFlee")
   return false
 end
-OnInit = L0_0
-function L0_0(A0_2, A1_3)
-  if GetState() == AI_HALTED then
-    return false
+function OnOrder(A0_0, A1_1, A2_2)
+  local L3_3, L4_4
+  L3_3 = GetState
+  L3_3 = L3_3()
+  L4_4 = AI_HALTED
+  if L3_3 == L4_4 then
+    L4_4 = false
+    return L4_4
   end
-  if GetState() == AI_TAUNTED or GetState() == AI_FEARED or GetState() == AI_FLEEING or GetState() == AI_CHARMED then
-    return false
+  L4_4 = AI_TAUNTED
+  if L3_3 ~= L4_4 then
+    L4_4 = AI_FEARED
+    if L3_3 ~= L4_4 then
+      L4_4 = AI_FLEEING
+      if L3_3 ~= L4_4 then
+        L4_4 = AI_CHARMED
+      end
+    end
+  elseif L3_3 == L4_4 then
+    L4_4 = false
+    return L4_4
   end
-  if A0_2 == ORDER_TAUNT then
-    SetStateAndCloseToTarget(AI_HARDATTACK, A1_3)
-    ClearTargetPosInPos()
-    return true
+  L4_4 = ORDER_TAUNT
+  if A0_0 == L4_4 then
+    L4_4 = SetStateAndCloseToTarget
+    L4_4(AI_HARDATTACK, A1_1)
+    L4_4 = ClearTargetPosInPos
+    L4_4()
+    L4_4 = true
+    return L4_4
   end
-  if A0_2 == ORDER_ATTACKTO then
-    SetStateAndCloseToTarget(AI_HARDATTACK, A1_3)
-    AssignTargetPosInPos()
-    if TargetInAttackRange() == true then
-      TurnOnAutoAttack(GetTarget())
+  L4_4 = ORDER_ATTACKTO
+  if A0_0 == L4_4 then
+    L4_4 = SetStateAndCloseToTarget
+    L4_4(AI_HARDATTACK, A1_1)
+    L4_4 = AssignTargetPosInPos
+    L4_4()
+    L4_4 = TargetInAttackRange
+    L4_4 = L4_4()
+    if L4_4 == true then
+      L4_4 = TurnOnAutoAttack
+      L4_4(GetTarget())
     else
-      TurnOffAutoAttack(STOPREASON_MOVING)
+      L4_4 = TurnOffAutoAttack
+      L4_4(STOPREASON_MOVING)
     end
-    return true
+    L4_4 = true
+    return L4_4
   end
-  if A0_2 == ORDER_ATTACKMOVE then
-    newTarget = FindTargetInAcR()
-    if newTarget ~= nil then
-      SetStateAndCloseToTarget(AI_SOFTATTACK, newTarget)
-      return true
+  L4_4 = ORDER_ATTACKTERRAIN_SUSTAINED
+  if A0_0 ~= L4_4 then
+    L4_4 = ORDER_ATTACKTERRAIN_ONCE
+  elseif A0_0 == L4_4 then
+    L4_4 = ORDER_ATTACKTERRAIN_SUSTAINED
+    if A0_0 == L4_4 then
+    else
+      L4_4 = ORDER_ATTACKTERRAIN_ONCE
+      if A0_0 == L4_4 then
+      end
     end
-    SetStateAndMoveInPos(AI_ATTACKMOVESTATE)
-    AssignTargetPosInPos()
-    return true
+    L4_4 = TargetPositionInAttackRange
+    L4_4 = L4_4(A2_2)
+    if L4_4 then
+      L4_4 = ORDER_ATTACKTERRAIN_ONCE
+      L4_4 = A0_0 == L4_4
+      TurnOnAutoAttackTerrain(A2_2, L4_4)
+    else
+      L4_4 = TargetPositionInAttackRange
+      L4_4 = L4_4(A2_2)
+      if not L4_4 then
+        L4_4 = SetStateAndMove
+        L4_4(AI_HARDATTACK, A2_2)
+        L4_4 = AssignTargetPosInPos
+        L4_4()
+        L4_4 = TurnOffAutoAttack
+        L4_4(STOPREASON_MOVING)
+      end
+    end
+    L4_4 = true
+    return L4_4
   end
-  if A0_2 == ORDER_MOVETO then
-    SetStateAndMoveInPos(AI_MOVE)
-    AssignTargetPosInPos()
-    return true
+  L4_4 = ORDER_ATTACKMOVE
+  if A0_0 == L4_4 then
+    L4_4 = FindTargetInAcR
+    L4_4 = L4_4()
+    newTarget = L4_4
+    L4_4 = newTarget
+    if L4_4 ~= nil then
+      L4_4 = SetStateAndCloseToTarget
+      L4_4(AI_SOFTATTACK, newTarget)
+      L4_4 = true
+      return L4_4
+    end
+    L4_4 = SetStateAndMoveInPos
+    L4_4(AI_ATTACKMOVESTATE)
+    L4_4 = AssignTargetPosInPos
+    L4_4()
+    L4_4 = true
+    return L4_4
   end
-  TimerCheckAttack()
-  return false
+  L4_4 = ORDER_MOVETO
+  if A0_0 == L4_4 then
+    L4_4 = SetStateAndMoveInPos
+    L4_4(AI_MOVE)
+    L4_4 = AssignTargetPosInPos
+    L4_4()
+    L4_4 = true
+    return L4_4
+  end
+  L4_4 = TimerCheckAttack
+  L4_4()
+  L4_4 = false
+  return L4_4
 end
-OnOrder = L0_0
-function L0_0(A0_4, A1_5)
+function OnTargetLost(A0_5, A1_6)
   if GetState() == AI_HALTED then
     return
   end
   if AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION ~= GetState() then
-    if A0_4 == LOST_VISIBILITY and GetState() ~= AI_SOFTATTACK and A1_5 ~= nil then
-      SetStateAndCloseToTarget(AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION, A1_5)
+    if A0_5 == LOST_VISIBILITY and GetState() ~= AI_SOFTATTACK and A1_6 ~= nil then
+      SetStateAndCloseToTarget(AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION, A1_6)
     else
       TimerCheckAttack()
     end
   end
 end
-OnTargetLost = L0_0
-function L0_0()
+function OnTauntBegin()
   if GetState() == AI_HALTED then
     return
   end
@@ -86,8 +174,7 @@ function L0_0()
     SetStateAndCloseToTarget(AI_TAUNTED, tauntTarget)
   end
 end
-OnTauntBegin = L0_0
-function L0_0()
+function OnTauntEnd()
   if GetState() == AI_HALTED then
     return
   end
@@ -100,8 +187,7 @@ function L0_0()
     TimerCheckAttack()
   end
 end
-OnTauntEnd = L0_0
-function L0_0()
+function OnFearBegin()
   if GetState() == AI_HALTED then
     return
   end
@@ -110,8 +196,7 @@ function L0_0()
   TurnOffAutoAttack(STOPREASON_MOVING)
   ResetAndStartTimer("TimerFeared")
 end
-OnFearBegin = L0_0
-function L0_0()
+function OnFearEnd()
   if GetState() == AI_HALTED then
     return
   end
@@ -120,16 +205,14 @@ function L0_0()
   TimerDistanceScan()
   TimerCheckAttack()
 end
-OnFearEnd = L0_0
-function L0_0()
+function TimerFeared()
   if GetState() == AI_HALTED then
     return
   end
   wanderPoint = MakeWanderPoint(GetFearLeashPoint(), FEAR_WANDER_DISTANCE)
   SetStateAndMove(AI_FEARED, wanderPoint)
 end
-TimerFeared = L0_0
-function L0_0()
+function OnFleeBegin()
   if GetState() == AI_HALTED then
     return
   end
@@ -138,8 +221,7 @@ function L0_0()
   TurnOffAutoAttack(STOPREASON_MOVING)
   ResetAndStartTimer("TimerFlee")
 end
-OnFleeBegin = L0_0
-function L0_0()
+function OnFleeEnd()
   if GetState() == AI_HALTED then
     return
   end
@@ -148,16 +230,14 @@ function L0_0()
   TimerDistanceScan()
   TimerCheckAttack()
 end
-OnFleeEnd = L0_0
-function L0_0()
+function TimerFlee()
   if GetState() == AI_HALTED then
     return
   end
   fleePoint = MakeFleePoint()
   SetStateAndMove(AI_FLEEING, fleePoint)
 end
-TimerFlee = L0_0
-function L0_0()
+function OnCharmBegin()
   if GetState() == AI_HALTED then
     return
   end
@@ -165,8 +245,7 @@ function L0_0()
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   TimerCheckAttack()
 end
-OnCharmBegin = L0_0
-function L0_0()
+function OnCharmEnd()
   if GetState() == AI_HALTED then
     return
   end
@@ -174,26 +253,37 @@ function L0_0()
   TimerDistanceScan()
   TimerCheckAttack()
 end
-OnCharmEnd = L0_0
-function L0_0()
+function OnStopMove()
   if GetState() == AI_HALTED then
     return
   end
   ClearTargetPosInPos()
 end
-OnStopMove = L0_0
-function L0_0()
+function TimerCheckAttack()
+  if GetState() ~= _UPVALUE0_ then
+    _UPVALUE0_ = GetState()
+  end
   if GetState() == AI_HALTED then
     return
   end
-  if GetState() == AI_SOFTATTACK or GetState() == AI_HARDATTACK or GetState() == AI_TAUNTED or GetState() == AI_CHARMED then
+  if IsLocationAutoAttacker() and (GetOrder() == ORDER_ATTACKTERRAIN_ONCE or GetOrder() == ORDER_ATTACKTERRAIN_SUSTAINED) then
+    if IsMoving() and TargetPositionInAttackRange((GetOrderPosition())) then
+      TurnOnAutoAttackTerrain(GetOrderPosition(), GetOrder() == ORDER_ATTACKTERRAIN_ONCE)
+      return
+    elseif not TargetPositionInAttackRange((GetOrderPosition())) then
+      SetStateAndMove(AI_HARDATTACK, (GetOrderPosition()))
+      AssignTargetPosInPos()
+      TurnOffAutoAttack(STOPREASON_MOVING)
+      return
+    end
+  elseif GetState() == AI_SOFTATTACK or GetState() == AI_HARDATTACK or GetState() == AI_TAUNTED or GetState() == AI_CHARMED then
     if IsTargetLost() == true or GetTarget() == nil then
       if LastAutoAttackFinished() == false then
         InitTimer("TimerCheckAttack", 0.1, true)
-        return false
+        return
       end
       if IsAutoAcquireTargetEnabled() == false and GetState() ~= AI_SOFTATTACK then
-        return false
+        return
       end
       newTarget = FindTargetInAcR()
       if newTarget ~= nil then
@@ -208,13 +298,13 @@ function L0_0()
           SpellBuffRemoveType(me, BUFF_Taunt)
         end
         NetSetState(AI_STANDING)
-        return true
+        return
       end
-      return true
+      return
     end
     if TargetInAttackRange() == true then
       TurnOnAutoAttack(GetTarget())
-      return true
+      return
     end
     if TargetInCancelAttackRange() == false then
       TurnOffAutoAttack(STOPREASON_MOVING)
@@ -224,58 +314,26 @@ function L0_0()
   end
   InitTimer("TimerCheckAttack", 0.1, true)
 end
-TimerCheckAttack = L0_0
-function L0_0()
-  local L0_6, L1_7
-  L0_6 = GetState
-  L0_6 = L0_6()
-  L1_7 = AI_HALTED
-  if L0_6 ~= L1_7 then
-    L1_7 = AI_HARDIDLE
-  elseif L0_6 == L1_7 then
+function TimerDistanceScan()
+  if GetState() == AI_HALTED or GetState() == AI_HARDIDLE then
     return
   end
-  L1_7 = AI_STANDING
-  if L0_6 ~= L1_7 then
-    L1_7 = AI_IDLE
-  elseif L0_6 == L1_7 then
-    L1_7 = IsAutoAcquireTargetEnabled
-    L1_7 = L1_7()
-    if L1_7 then
-      L1_7 = GetTargetOrFindTargetInAcR
-      L1_7 = L1_7()
-      if L1_7 ~= nil and CanSeeMe(L1_7) then
-        SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
-        return true
-      end
-    end
+  if (GetState() == AI_STANDING or GetState() == AI_IDLE) and IsAutoAcquireTargetEnabled() and GetTargetOrFindTargetInAcR() ~= nil and CanSeeMe((GetTargetOrFindTargetInAcR())) then
+    SetStateAndCloseToTarget(AI_SOFTATTACK, (GetTargetOrFindTargetInAcR()))
+    return true
   end
-  L1_7 = AI_MOVE
-  if L0_6 == L1_7 then
-    L1_7 = IsMovementStopped
-    L1_7 = L1_7()
-    if L1_7 then
-      L1_7 = IsAutoAcquireTargetEnabled
-      L1_7 = L1_7()
-      if L1_7 then
-        L1_7 = GetTargetOrFindTargetInAcR
-        L1_7 = L1_7()
-        if L1_7 ~= nil and CanSeeMe(L1_7) then
-          SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
-          TurnOnAutoAttack(L1_7)
-          return true
-        end
-        NetSetState(AI_IDLE)
-        return false
-      end
+  if GetState() == AI_MOVE and IsMovementStopped() and IsAutoAcquireTargetEnabled() then
+    if GetTargetOrFindTargetInAcR() ~= nil and CanSeeMe((GetTargetOrFindTargetInAcR())) then
+      SetStateAndCloseToTarget(AI_SOFTATTACK, (GetTargetOrFindTargetInAcR()))
+      TurnOnAutoAttack((GetTargetOrFindTargetInAcR()))
+      return true
     end
+    NetSetState(AI_IDLE)
+    return false
   end
-  L1_7 = AI_ATTACKMOVESTATE
-  if L0_6 == L1_7 then
-    L1_7 = GetTargetOrFindTargetInAcR
-    L1_7 = L1_7()
-    if L1_7 ~= nil then
-      SetStateAndCloseToTarget(AI_SOFTATTACK, L1_7)
+  if GetState() == AI_ATTACKMOVESTATE then
+    if GetTargetOrFindTargetInAcR() ~= nil then
+      SetStateAndCloseToTarget(AI_SOFTATTACK, (GetTargetOrFindTargetInAcR()))
       return true
     elseif DistanceBetweenObjectAndTargetPosSq(me) <= 100 then
       NetSetState(AI_STANDING)
@@ -283,24 +341,16 @@ function L0_0()
       return true
     end
   end
-  L1_7 = AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION
-  if L0_6 == L1_7 then
-    L1_7 = GetLostTargetIfVisible
-    L1_7 = L1_7()
-    if L1_7 ~= nil then
-      SetStateAndCloseToTarget(AI_HARDATTACK, L1_7)
-    end
+  if GetState() == AI_ATTACK_GOING_TO_LAST_KNOWN_LOCATION and GetLostTargetIfVisible() ~= nil then
+    SetStateAndCloseToTarget(AI_HARDATTACK, (GetLostTargetIfVisible()))
   end
 end
-TimerDistanceScan = L0_0
-function L0_0(A0_8, A1_9)
+function OnAICommand(A0_7, A1_8)
   if GetState() == AI_HALTED then
     return
   end
-  Say(A0_8)
 end
-OnAICommand = L0_0
-function L0_0()
+function OnReachedDestinationForGoingToLastLocation()
   if GetState() == AI_HALTED then
     return
   end
@@ -308,12 +358,10 @@ function L0_0()
   TimerDistanceScan()
   TimerCheckAttack()
 end
-OnReachedDestinationForGoingToLastLocation = L0_0
-function L0_0()
+function HaltAI()
   StopTimer("TimerDistanceScan")
   StopTimer("TimerCheckAttack")
   StopTimer("TimerFeared")
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   NetSetState(AI_HALTED)
 end
-HaltAI = L0_0

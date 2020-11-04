@@ -5,7 +5,6 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "AkaliShadowDance.dds"
 BuffName = "AkaliShadowDance"
-AutoBuffActivateEffect = ""
 ChainMissileParameters = {
   MaximumHits = {
     10,
@@ -31,12 +30,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "monkeykingnimbuskick"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "monkeykingclone"
     }
   },
   {

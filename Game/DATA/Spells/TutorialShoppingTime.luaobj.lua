@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "tutorialplayerbuff2"
+      Name = "tutorialshoppingtime2"
     }
   }
 }

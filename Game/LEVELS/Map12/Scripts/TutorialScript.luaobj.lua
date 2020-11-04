@@ -1130,23 +1130,15 @@ function L0()
   L0(L1, L2, L3, L4)
   L0 = InitTimer
   L1 = "EventForThisBattle"
-  L2 = 18.5
+  L2 = 14
   L3 = false
   L0(L1, L2, L3)
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_InLoL"
-  L2 = "EventIntroChampion"
-  L0(L1, L2)
-end
-EventInLoL = L0
-function L0()
-  local L0, L1, L2
-  L0 = PlayTutorialAudioEvent
-  L1 = "Tutorial_IntroChampion"
   L2 = ""
   L0(L1, L2)
 end
-EventIntroChampion = L0
+EventInLoL = L0
 function L0()
   local L0, L1, L2
   L0 = PlayTutorialAudioEvent
@@ -2048,7 +2040,7 @@ function L0()
 end
 EventSteadyGold = L0
 function L0()
-  local L0, L1, L2, L3, L4, L5
+  local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_SpendGold"
   L2 = ""
@@ -2060,6 +2052,18 @@ function L0()
   L4 = 0
   L5 = 0
   L0(L1, L2, L3, L4, L5)
+  L0 = TutorialSpellBuffAdd
+  L1 = playerID
+  L2 = playerID
+  L3 = "TutorialShoppingTime"
+  L4 = BUFF_RENEW_EXISTING
+  L5 = BUFF_Interal
+  L6 = 1
+  L7 = 1
+  L8 = 25000
+  L9 = buffVarsTable
+  L10 = 0
+  L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
   L0 = LogTutorial
   L1 = "Unlocking Item Shop"
   L0(L1)
