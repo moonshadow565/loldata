@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="gravesqlinespell"}}, 
 {Function=BBPreloadParticle, Params={Name="graves_base_q_tar_return.troy"}}, 
 }

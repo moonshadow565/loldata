@@ -3,9 +3,10 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv1"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_junglebuff_dragon_buff_lvl01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv2"}}, 
-{Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv3"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_junglebuff_dragon_buff_lvl03.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv3"}}, 
 {Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv4"}}, 
 {Function=BBPreloadSpell, Params={Name="s5tooltip_dragonslayerbuffv5"}}, 
 {Function=BBPreloadSpell, Params={Name="s5_aspectofthedragon"}}, 
+{Function=BBPreloadSpell, Params={Name="s5test_dragonslayertowerbuff"}}, 
 }

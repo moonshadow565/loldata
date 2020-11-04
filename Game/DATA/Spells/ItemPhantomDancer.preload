@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="global_haste.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="itemphantomdancerdebuff"}}, 
+{Function=BBPreloadParticle, Params={Name="global_haste.troy"}}, 
 }
