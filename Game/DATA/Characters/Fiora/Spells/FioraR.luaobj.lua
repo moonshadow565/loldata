@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
+BuffTextureName = "Fiora_R.dds"
+BuffName = "FioraRMark"
+PersistsThroughDeath = true
+SpellFXOverrideSkins = {""}
+SpellVOOverrideSkins = {""}

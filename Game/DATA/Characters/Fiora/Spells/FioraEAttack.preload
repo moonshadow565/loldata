@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_e_hit_tar_blue.troy"}}, 
+}

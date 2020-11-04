@@ -1,4 +1,4 @@
-BuffTextureName = "Bowmaster_ArchersMark.dds"
+BuffTextureName = "Teemo_R.dds"
 BuffName = "Noxious Trap Target"
 AutoBuffActivateEffect = "Global_Poison.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

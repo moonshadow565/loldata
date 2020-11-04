@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Teemo_TranquilizingShot.dds"
+BuffTextureName = "Teemo_Q.dds"
 BuffName = "Blind"
 AutoBuffActivateEffect = "Global_miss.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"

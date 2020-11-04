@@ -1,5 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="zilean_base_r_buf.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="zilean_base_r_buf2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zileanskin05_r_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zileanbase_r_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zileanskin05_r_buf2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zileanbase_r_buf2.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ekkovozilean"}}, 
 }

@@ -3,5 +3,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="malphite_glacial_landslide.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="malphite_base_landslide_nova.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="landslidedebuff"}}, 
-{Function=BBPreloadSpell, Params={Name="landslide"}}, 
 }

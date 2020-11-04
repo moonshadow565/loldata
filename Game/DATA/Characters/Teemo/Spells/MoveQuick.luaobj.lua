@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Teemo_MoveQuick.dds"
+BuffTextureName = "Teemo_W.dds"
 BuffName = "Move Quick2"
 SpellToggleSlot = 2
 SpellFXOverrideSkins = {
