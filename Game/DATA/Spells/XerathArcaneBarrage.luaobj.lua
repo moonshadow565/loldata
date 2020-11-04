@@ -42,7 +42,9 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
+    Params = {
+      Name = "xeratharcanebarragelauncher"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -54,12 +56,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xeratharcanebarragevision"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xeratharcanebarrageminion"
     }
   }
 }
