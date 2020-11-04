@@ -5,3 +5,5 @@ CastingBreaksStealth = false
 IsDamagingSpell = true
 BuffTextureName = "Jhin_E.dds"
 BuffName = "JhinETrapSlow"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+PopupMessage1 = "game_floatingtext_Slowed"
