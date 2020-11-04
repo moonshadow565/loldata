@@ -1,7 +1,7 @@
 local L0, L1, L2
 L0 = REGEN_PERCENT_PER_SECOND
 if L0 == nil then
-  L0 = 0.125
+  L0 = 0.05
   REGEN_PERCENT_PER_SECOND = L0
 end
 L0 = {}
@@ -20,7 +20,7 @@ function L1(A0, A1, A2, A3)
   local L4, L5, L6, L7
   L4 = InitTimer
   L5 = A0.TimerCallbackName
-  L6 = 1
+  L6 = 0.25
   L7 = true
   L4(L5, L6, L7)
   L4 = OutOfCombatRegen

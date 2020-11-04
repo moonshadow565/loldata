@@ -22,6 +22,7 @@ function OnInit(A0_0)
   SetState(AI_ATTACK)
   SetCharVar("WillBeFrustrated", 0)
   SetCharVar("inStasis", 0)
+  OutOfCombatRegen:Start()
   SetMyLeashedPos()
   SetMyLeashedOrientation()
   InitTimer("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME, true)
@@ -69,6 +70,10 @@ function LeashedCallForHelp(A0_3, A1_4)
       L6_9 = L5_8 / L4_7
       if L6_9 < 0.9 then
         return
+      else
+        L6_9 = OutOfCombatRegen
+        L6_9 = L6_9.Start
+        L6_9(L6_9)
       end
       L6_9 = GetCampLeashPos
       L6_9 = L6_9()
@@ -192,116 +197,132 @@ function FindNearestAggressor(A0_20, A1_21)
     return L3_23
   end
 end
-function RespondToAggression(A0_24)
-  local L1_25, L2_26, L3_27, L4_28, L5_29, L6_30, L7_31, L8_32, L9_33, L10_34
-  L1_25 = GetMyPos
+function OnTakeDamage(A0_24)
+  local L1_25
+  L1_25 = GetState
   L1_25 = L1_25()
-  L2_26 = GetState
-  L2_26 = L2_26()
-  L3_27 = GetRoamState
-  L3_27 = L3_27()
-  L4_28 = INACTIVE
-  if L3_27 == L4_28 then
-    L3_27 = AI_RETREAT
-    if L2_26 ~= L3_27 then
-      L3_27 = AI_TAUNTED
-      if L2_26 ~= L3_27 then
-        L3_27 = AI_FEARED
-        if L2_26 ~= L3_27 then
-          L3_27 = AI_FLEEING
-          if L2_26 ~= L3_27 then
-            L3_27 = GetMaxHP
-            L3_27 = L3_27()
-            L4_28 = GetHP
-            L4_28 = L4_28()
-            L5_29 = L4_28 / L3_27
-            if L5_29 > 0.9 then
-              L5_29 = AttackTarget
-              L6_30 = A0_24
-              L5_29(L6_30)
+  PrintToChat("-- OnTakeDamage -- aiState" .. L1_25)
+end
+function RespondToAggression(A0_26)
+  local L1_27, L2_28, L3_29, L4_30, L5_31, L6_32, L7_33, L8_34, L9_35, L10_36
+  L1_27 = GetMyPos
+  L1_27 = L1_27()
+  L2_28 = GetState
+  L2_28 = L2_28()
+  L3_29 = GetRoamState
+  L3_29 = L3_29()
+  L4_30 = INACTIVE
+  if L3_29 == L4_30 then
+    L3_29 = AI_RETREAT
+    if L2_28 ~= L3_29 then
+      L3_29 = AI_TAUNTED
+      if L2_28 ~= L3_29 then
+        L3_29 = AI_FEARED
+        if L2_28 ~= L3_29 then
+          L3_29 = AI_FLEEING
+          if L2_28 ~= L3_29 then
+            L3_29 = GetMaxHP
+            L3_29 = L3_29()
+            L4_30 = GetHP
+            L4_30 = L4_30()
+            L5_31 = L4_30 / L3_29
+            if L5_31 > 0.9 then
+              L5_31 = IsValidEnemy
+              L6_32 = A0_26
+              L5_31 = L5_31(L6_32)
+              if L5_31 then
+                L5_31 = AttackTarget
+                L6_32 = A0_26
+                L5_31(L6_32)
+              end
+            else
+              L5_31 = OutOfCombatRegen
+              L6_32 = L5_31
+              L5_31 = L5_31.Start
+              L5_31(L6_32)
             end
           end
         end
       end
     end
   else
-    L3_27 = GetRoamState
-    L3_27 = L3_27()
-    L4_28 = HOSTILE
-    if L3_27 == L4_28 then
-      L3_27 = AI_ATTACK
-      if L2_26 == L3_27 then
-        L3_27 = IsValidEnemy
-        L4_28 = A0_24
-        L3_27 = L3_27(L4_28)
-        if L3_27 then
-          L3_27 = GetTarget
-          L3_27 = L3_27()
-          target = L3_27
-          L3_27 = target
-          if L3_27 ~= nil then
-            L3_27 = target
-            if L3_27 ~= A0_24 then
-              L3_27 = GetMyPos
-              L3_27 = L3_27()
-              L4_28 = OutOfCombatRegen
-              L5_29 = L4_28
-              L4_28 = L4_28.Stop
-              L4_28(L5_29)
-              L4_28 = DistanceBetweenObjectCenterAndPoint
-              L5_29 = target
-              L6_30 = L3_27
-              L4_28 = L4_28(L5_29, L6_30)
-              L5_29 = GetCampLeashPos
-              L5_29 = L5_29()
-              L6_30 = WalkDistanceBetweenObjectCenterAndPoint
-              L7_31 = target
-              L8_32 = L5_29
-              L6_30 = L6_30(L7_31, L8_32)
-              L7_31 = GetCampLeashRadius
-              L7_31 = L7_31()
-              L8_32 = DistanceBetweenObjectCenterAndPoint
-              L9_33 = A0_24
-              L10_34 = L3_27
-              L8_32 = L8_32(L9_33, L10_34)
-              L9_33 = WalkDistanceBetweenObjectCenterAndPoint
-              L10_34 = A0_24
-              L9_33 = L9_33(L10_34, L5_29)
-              L10_34 = GetCampLeashRadius
-              L10_34 = L10_34()
-              L10_34 = L10_34 * 1.25
-              if L4_28 > L8_32 + CURRENT_TARGET_TO_ATTACKER_SWITCH_RANGE then
-                if TargetWithinWalkBounds(A0_24, L10_34) then
-                  AttackTarget(A0_24)
+    L3_29 = GetRoamState
+    L3_29 = L3_29()
+    L4_30 = HOSTILE
+    if L3_29 == L4_30 then
+      L3_29 = AI_ATTACK
+      if L2_28 == L3_29 then
+        L3_29 = IsValidEnemy
+        L4_30 = A0_26
+        L3_29 = L3_29(L4_30)
+        if L3_29 then
+          L3_29 = GetTarget
+          L3_29 = L3_29()
+          target = L3_29
+          L3_29 = target
+          if L3_29 ~= nil then
+            L3_29 = target
+            if L3_29 ~= A0_26 then
+              L3_29 = GetMyPos
+              L3_29 = L3_29()
+              L4_30 = OutOfCombatRegen
+              L5_31 = L4_30
+              L4_30 = L4_30.Stop
+              L4_30(L5_31)
+              L4_30 = DistanceBetweenObjectCenterAndPoint
+              L5_31 = target
+              L6_32 = L3_29
+              L4_30 = L4_30(L5_31, L6_32)
+              L5_31 = GetCampLeashPos
+              L5_31 = L5_31()
+              L6_32 = WalkDistanceBetweenObjectCenterAndPoint
+              L7_33 = target
+              L8_34 = L5_31
+              L6_32 = L6_32(L7_33, L8_34)
+              L7_33 = GetCampLeashRadius
+              L7_33 = L7_33()
+              L8_34 = DistanceBetweenObjectCenterAndPoint
+              L9_35 = A0_26
+              L10_36 = L3_29
+              L8_34 = L8_34(L9_35, L10_36)
+              L9_35 = WalkDistanceBetweenObjectCenterAndPoint
+              L10_36 = A0_26
+              L9_35 = L9_35(L10_36, L5_31)
+              L10_36 = GetCampLeashRadius
+              L10_36 = L10_36()
+              L10_36 = L10_36 * 1.25
+              if L4_30 > L8_34 + CURRENT_TARGET_TO_ATTACKER_SWITCH_RANGE then
+                if TargetWithinWalkBounds(A0_26, L10_36) then
+                  AttackTarget(A0_26)
                   SetCharVar("WillBeFrustrated", 1.01)
                 end
-              elseif not TargetWithinWalkBounds(target, L10_34) then
-                AttackTarget(A0_24)
+              elseif not TargetWithinWalkBounds(target, L10_36) then
+                AttackTarget(A0_26)
                 SetCharVar("WillBeFrustrated", 1.01)
               end
             end
           else
-            L3_27 = target
-            if L3_27 ~= nil then
-              L3_27 = AI_ATTACK
-              if L2_26 == L3_27 then
-                L3_27 = IsValidEnemy
-                L4_28 = A0_24
-                L3_27 = L3_27(L4_28)
-                if L3_27 then
-                  L3_27 = AttackTarget
-                  L4_28 = A0_24
-                  L3_27(L4_28)
+            L3_29 = target
+            if L3_29 ~= nil then
+              L3_29 = AI_ATTACK
+              if L2_28 == L3_29 then
+                L3_29 = IsValidEnemy
+                L4_30 = A0_26
+                L3_29 = L3_29(L4_30)
+                if L3_29 then
+                  L3_29 = AttackTarget
+                  L4_30 = A0_26
+                  L3_29(L4_30)
                 end
               end
             else
-              L3_27 = IsValidEnemy
-              L4_28 = A0_24
-              L3_27 = L3_27(L4_28)
-              if L3_27 then
-                L3_27 = AttackTarget
-                L4_28 = A0_24
-                L3_27(L4_28)
+              L3_29 = IsValidEnemy
+              L4_30 = A0_26
+              L3_29 = L3_29(L4_30)
+              if L3_29 then
+                L3_29 = AttackTarget
+                L4_30 = A0_26
+                L3_29(L4_30)
               end
             end
           end
@@ -311,76 +332,76 @@ function RespondToAggression(A0_24)
   end
 end
 function TimerFrustrationSearch()
-  local L0_35, L1_36, L2_37, L3_38, L4_39, L5_40, L6_41, L7_42, L8_43, L9_44, L10_45
-  L0_35 = GetState
-  L0_35 = L0_35()
-  L1_36 = GetRoamState
-  L1_36 = L1_36()
-  L2_37 = GetCharVar
-  L3_38 = "WillBeFrustrated"
-  L2_37 = L2_37(L3_38)
-  L3_38 = INACTIVE
-  if L1_36 ~= L3_38 then
-    L3_38 = RUN_IN_FEAR
-    if L1_36 ~= L3_38 then
-      L3_38 = AI_HALTED
-      if L0_35 ~= L3_38 then
-        L3_38 = GetCharVar
-        L4_39 = "inStasis"
-        L3_38 = L3_38(L4_39)
+  local L0_37, L1_38, L2_39, L3_40, L4_41, L5_42, L6_43, L7_44, L8_45, L9_46, L10_47
+  L0_37 = GetState
+  L0_37 = L0_37()
+  L1_38 = GetRoamState
+  L1_38 = L1_38()
+  L2_39 = GetCharVar
+  L3_40 = "WillBeFrustrated"
+  L2_39 = L2_39(L3_40)
+  L3_40 = INACTIVE
+  if L1_38 ~= L3_40 then
+    L3_40 = RUN_IN_FEAR
+    if L1_38 ~= L3_40 then
+      L3_40 = AI_HALTED
+      if L0_37 ~= L3_40 then
+        L3_40 = GetCharVar
+        L4_41 = "inStasis"
+        L3_40 = L3_40(L4_41)
       end
     end
-  elseif L3_38 > 1 then
+  elseif L3_40 > 1 then
     return
   end
-  L3_38 = SetTimerDelay
-  L4_39 = "TimerFrustrationSearch"
-  L5_40 = DEFAULT_FRUSTRATION_SEARCH_TIME
-  L3_38(L4_39, L5_40)
-  L3_38 = GetLeashCounter
-  L3_38 = L3_38()
-  L4_39 = false
-  if L2_37 >= 1 then
-    L4_39 = true
-    L5_40 = SetCharVar
-    L6_41 = "WillBeFrustrated"
-    L7_42 = 0
-    L5_40(L6_41, L7_42)
+  L3_40 = SetTimerDelay
+  L4_41 = "TimerFrustrationSearch"
+  L5_42 = DEFAULT_FRUSTRATION_SEARCH_TIME
+  L3_40(L4_41, L5_42)
+  L3_40 = GetLeashCounter
+  L3_40 = L3_40()
+  L4_41 = false
+  if L2_39 >= 1 then
+    L4_41 = true
+    L5_42 = SetCharVar
+    L6_43 = "WillBeFrustrated"
+    L7_44 = 0
+    L5_42(L6_43, L7_44)
   end
-  L5_40 = GetTarget
-  L5_40 = L5_40()
-  L6_41 = GetCampLeashRadius
-  L6_41 = L6_41()
-  L7_42 = GetMyLeashedPos
-  L7_42 = L7_42()
-  L8_43 = GetCampLeashPos
-  L8_43 = L8_43()
-  L9_44 = GetDistToLeashedPos
-  L9_44 = L9_44()
-  L10_45 = L6_41 + 1
-  if L5_40 ~= nil then
-    L10_45 = WalkDistanceBetweenObjectCenterAndPoint(L5_40, L8_43)
+  L5_42 = GetTarget
+  L5_42 = L5_42()
+  L6_43 = GetCampLeashRadius
+  L6_43 = L6_43()
+  L7_44 = GetMyLeashedPos
+  L7_44 = L7_44()
+  L8_45 = GetCampLeashPos
+  L8_45 = L8_45()
+  L9_46 = GetDistToLeashedPos
+  L9_46 = L9_46()
+  L10_47 = L6_43 + 1
+  if L5_42 ~= nil then
+    L10_47 = WalkDistanceBetweenObjectCenterAndPoint(L5_42, L8_45)
   else
     FindNewTarget()
-    L5_40 = GetTarget()
-    if L5_40 == nil then
-      L4_39 = true
+    L5_42 = GetTarget()
+    if L5_42 == nil then
+      L4_41 = true
     end
   end
-  if L9_44 > L6_41 - LEASH_PROTECTION_BARRIER and L6_41 > L9_44 and L6_41 < L10_45 and L0_35 ~= AI_RETREAT and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
+  if L9_46 > L6_43 - LEASH_PROTECTION_BARRIER and L6_43 > L9_46 and L6_43 < L10_47 and L0_37 ~= AI_RETREAT and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
     FindNewTarget()
-    L5_40 = GetTarget()
-    if L5_40 ~= nil and L5_40 ~= L5_40 then
-      L4_39 = true
+    L5_42 = GetTarget()
+    if L5_42 ~= nil and L5_42 ~= L5_42 then
+      L4_41 = true
     end
   end
-  if L10_45 > L6_41 + OUTER_RANGE_BOUND and L0_35 ~= AI_RETREAT then
-    L4_39 = true
+  if L10_47 > L6_43 + OUTER_RANGE_BOUND and L0_37 ~= AI_RETREAT then
+    L4_41 = true
   end
-  if L9_44 > L6_41 + OUTER_RANGE_BOUND then
-    L4_39 = true
+  if L9_46 > L6_43 + OUTER_RANGE_BOUND then
+    L4_41 = true
   end
-  if L4_39 == true then
+  if L4_41 == true then
     IncreaseFrustration(1)
   end
 end
@@ -389,108 +410,110 @@ function TimerReturningHome()
     return
   end
   if GetState() == AI_RETREAT and IsMovementStopped() == true and GetDistToRetreat() < 25 then
-    StopTimer("TimerReturningHome")
-    SetLeashOrientation()
-    AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
-    SetLeashCounter(0)
-    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 25000)
-    SetGhosted(false)
-    SetState(AI_ATTACK)
-    SetRoamState(GetOriginalState())
-    SetTimerDelay("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME)
+    if GetHP() / GetMaxHP() > 0.9 then
+      StopTimer("TimerReturningHome")
+      SetLeashOrientation()
+      AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
+      SetLeashCounter(0)
+      AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 25000)
+      SetGhosted(false)
+      SetState(AI_ATTACK)
+      SetRoamState(GetOriginalState())
+      SetTimerDelay("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME)
+    end
   elseif GetDistToRetreat() >= 25 then
     SetStateAndMoveToLeashedPos(AI_RETREAT)
   end
 end
 function TimerAttack()
-  local L0_46, L1_47
-  L0_46 = GetState
-  L0_46 = L0_46()
-  L1_47 = AI_HALTED
-  if L0_46 == L1_47 then
-    return
-  end
-  L1_47 = GetCharVar
-  L1_47 = L1_47("inStasis")
-  if L1_47 > 1 then
-    return
-  end
-  L1_47 = GetRoamState
-  L1_47 = L1_47()
-  if L1_47 ~= INACTIVE then
-    L1_47 = GetRoamState
-    L1_47 = L1_47()
-    if L1_47 ~= RUN_IN_FEAR then
-      L1_47 = AI_RETREAT
-    end
-  elseif L0_46 == L1_47 then
-    return
-  end
-  L1_47 = AI_ATTACK
-  if L0_46 ~= L1_47 then
-    L1_47 = AI_TAUNTED
-  elseif L0_46 == L1_47 then
-    L1_47 = StartTimer
-    L1_47("TimerFrustrationSearch")
-    L1_47 = GetTarget
-    L1_47 = L1_47()
-    if L1_47 ~= nil then
-      if TargetInAttackRange() then
-        TurnOnAutoAttack(L1_47)
-      elseif TargetInCancelAttackRange() == false then
-        TurnOffAutoAttack(STOPREASON_MOVING)
-      end
-      if IsMovementStopped() == true then
-        AttackTarget(L1_47)
-      end
-    elseif L0_46 == AI_ATTACK then
-      FindNewTarget()
-      if L1_47 == nil then
-        SetCharVar("WillBeFrustrated", 1.01)
-      end
-    end
-  end
-end
-function FindNewTarget()
-  local L0_48, L1_49, L2_50, L3_51, L4_52
+  local L0_48, L1_49
   L0_48 = GetState
   L0_48 = L0_48()
   L1_49 = AI_HALTED
   if L0_48 == L1_49 then
     return
   end
-  L1_49 = GetRoamState
-  L1_49 = L1_49()
-  L2_50 = INACTIVE
-  if L1_49 ~= L2_50 then
-    L1_49 = GetRoamState
-    L1_49 = L1_49()
-    L2_50 = RUN_IN_FEAR
-    if L1_49 ~= L2_50 then
-      L1_49 = GetState
-      L1_49 = L1_49()
-      L2_50 = AI_RETREAT
-    end
-  elseif L1_49 == L2_50 then
-    L1_49 = TurnOffAutoAttack
-    L2_50 = STOPREASON_MOVING
-    L1_49(L2_50)
+  L1_49 = GetCharVar
+  L1_49 = L1_49("inStasis")
+  if L1_49 > 1 then
     return
   end
-  L1_49 = GetCampLeashRadius
+  L1_49 = GetRoamState
   L1_49 = L1_49()
-  L2_50 = GetCampLeashPos
-  L2_50 = L2_50()
-  L3_51 = GetTarget
-  L3_51 = L3_51()
-  L4_52 = nil
-  if L3_51 ~= nil then
-    L4_52 = FindNearestAggressor(L2_50, L3_51)
-  else
-    L4_52 = FindNearestAggressor(L2_50, nil)
+  if L1_49 ~= INACTIVE then
+    L1_49 = GetRoamState
+    L1_49 = L1_49()
+    if L1_49 ~= RUN_IN_FEAR then
+      L1_49 = AI_RETREAT
+    end
+  elseif L0_48 == L1_49 then
+    return
   end
-  if L4_52 ~= nil then
-    AttackTarget(L4_52)
+  L1_49 = AI_ATTACK
+  if L0_48 ~= L1_49 then
+    L1_49 = AI_TAUNTED
+  elseif L0_48 == L1_49 then
+    L1_49 = StartTimer
+    L1_49("TimerFrustrationSearch")
+    L1_49 = GetTarget
+    L1_49 = L1_49()
+    if L1_49 ~= nil then
+      if TargetInAttackRange() then
+        TurnOnAutoAttack(L1_49)
+      elseif TargetInCancelAttackRange() == false then
+        TurnOffAutoAttack(STOPREASON_MOVING)
+      end
+      if IsMovementStopped() == true then
+        AttackTarget(L1_49)
+      end
+    elseif L0_48 == AI_ATTACK then
+      FindNewTarget()
+      if L1_49 == nil then
+        SetCharVar("WillBeFrustrated", 1.01)
+      end
+    end
+  end
+end
+function FindNewTarget()
+  local L0_50, L1_51, L2_52, L3_53, L4_54
+  L0_50 = GetState
+  L0_50 = L0_50()
+  L1_51 = AI_HALTED
+  if L0_50 == L1_51 then
+    return
+  end
+  L1_51 = GetRoamState
+  L1_51 = L1_51()
+  L2_52 = INACTIVE
+  if L1_51 ~= L2_52 then
+    L1_51 = GetRoamState
+    L1_51 = L1_51()
+    L2_52 = RUN_IN_FEAR
+    if L1_51 ~= L2_52 then
+      L1_51 = GetState
+      L1_51 = L1_51()
+      L2_52 = AI_RETREAT
+    end
+  elseif L1_51 == L2_52 then
+    L1_51 = TurnOffAutoAttack
+    L2_52 = STOPREASON_MOVING
+    L1_51(L2_52)
+    return
+  end
+  L1_51 = GetCampLeashRadius
+  L1_51 = L1_51()
+  L2_52 = GetCampLeashPos
+  L2_52 = L2_52()
+  L3_53 = GetTarget
+  L3_53 = L3_53()
+  L4_54 = nil
+  if L3_53 ~= nil then
+    L4_54 = FindNearestAggressor(L2_52, L3_53)
+  else
+    L4_54 = FindNearestAggressor(L2_52, nil)
+  end
+  if L4_54 ~= nil then
+    AttackTarget(L4_54)
   end
 end
 function HaltAI()
@@ -509,6 +532,12 @@ function StartLeashing()
     ResetAndStartTimer("TimerFrustrationSearch")
     ResetAndStartTimer("TimerAttack")
   end
+end
+function TurnOffRegeneration()
+  OutOfCombatRegen:Stop()
+end
+function TurnOnRegeneration()
+  OutOfCombatRegen:Start()
 end
 function EnterStasis()
   SetCharVar("inStasis", 1.01)

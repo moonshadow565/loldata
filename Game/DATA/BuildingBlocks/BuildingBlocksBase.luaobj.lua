@@ -2121,10 +2121,10 @@ function L0_0(A0_597, A1_598)
   GetTable(A0_597, A1_598.DestVarTable, true)[A1_598.DestVar] = DistanceBetweenPointsXZ(L2_599, L3_600)
 end
 BBDistanceBetweenPointsXZ = L0_0
+L0_0 = 0
+OBJECT_BOUNDARY = L0_0
 L0_0 = 1
 OBJECT_CENTER = L0_0
-L0_0 = 2
-OBJECT_BOUNDARY = L0_0
 function L0_0(A0_601, A1_602, A2_603)
   local L3_604, L4_605, L5_606, L6_607, L7_608, L8_609
   L5_606 = 0
