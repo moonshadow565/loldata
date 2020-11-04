@@ -8,5 +8,9 @@ BuffName = "RivenFeint"
 AutoBuffActivateEffect = "Riven_Base_E_Shield.troy"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {
-  "RivenSkin05"
+  "RivenSkin05",
+  "RivenSkin06"
+}
+SpellVOOverrideSkins = {
+  "RivenSkin06"
 }

@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="skarner_base_p_crystal_channel.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="skarner_base_passive_ally_capture_out.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="skarner_base_passive_enemy_capture_out.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="skarnerpassivecrystalparticleswitch"}}, 
+}

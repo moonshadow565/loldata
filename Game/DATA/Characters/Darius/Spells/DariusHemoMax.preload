@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="darius_base_p_enraged.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_p_enraged_shoulder_r.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_p_enraged_shoulder_l.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_p_axe_tip.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="darius_base_p_nova.troy"}}, 
+}

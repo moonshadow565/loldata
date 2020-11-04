@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_e_cas.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="mordekaiser_base_e_cas_empty.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_e_cas_aoe.troy"}}, 
 }

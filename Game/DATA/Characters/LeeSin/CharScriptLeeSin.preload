@@ -3,5 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="blindmonkpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="blindmonkpassive_cosmetic"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="leesinpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="globalrecallfacingsouth"}}, 
 }

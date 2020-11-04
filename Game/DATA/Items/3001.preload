@@ -1,4 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="abyssalscepterauraself"}}, 
-{Function=BBPreloadSpell, Params={Name="abyssalscepteraura"}}, 
+{Function=BBPreloadParticle, Params={Name="itemabyssal_glow.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="itemabyssaladdstack"}}, 
+{Function=BBPreloadSpell, Params={Name="itemabyssal"}}, 
+{Function=BBPreloadParticle, Params={Name="itemabyssal_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="itemabyssal_notargetcas.troy"}}, 
 }
