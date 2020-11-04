@@ -38,12 +38,14 @@ BuffOnSpellCastBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "CastFromBehind",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -79,7 +81,7 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {
                   Src1Var = "DamageAmount",
                   Src1Value = 0,
-                  Src2Value = 1.25,
+                  Src2Value = 1.2,
                   DestVar = "DamageAmount",
                   MathOp = MO_MULTIPLY
                 }
@@ -127,7 +129,7 @@ BuffOnHitUnitBuildingBlocks = {
                         Params = {
                           Src1Var = "DamageAmount",
                           Src1Value = 0,
-                          Src2Value = 1.25,
+                          Src2Value = 1.2,
                           DestVar = "DamageAmount",
                           MathOp = MO_MULTIPLY
                         }
@@ -243,12 +245,14 @@ BuffOnHitUnitBuildingBlocks = {
                               AttackerVar = "Owner",
                               BuffName = "TwoShivPoison",
                               BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
                               BuffType = BUFF_Slow,
                               MaxStack = 1,
                               NumberOfStacks = 1,
                               Duration = 2,
                               BuffVarsTable = "NextBuffVars",
-                              TickRate = 0
+                              TickRate = 0,
+                              CanMitigateDuration = false
                             }
                           }
                         }
@@ -296,12 +300,14 @@ BuffOnPreAttackBuildingBlocks = {
                       AttackerVar = "Owner",
                       BuffName = "FromBehind",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Internal,
                       MaxStack = 1,
                       NumberOfStacks = 1,
                       Duration = 0.75,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }

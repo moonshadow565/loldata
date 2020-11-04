@@ -43,13 +43,23 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatMissChanceMod,
-      TargetVar = "Owner",
-      DeltaVar = "MissChance",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO}
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBIncStat,
+        Params = {
+          Stat = IncFlatMissChanceMod,
+          TargetVar = "Owner",
+          DeltaVar = "MissChance",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
+        }
+      }
     }
   }
 }
@@ -90,7 +100,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "BackstabBonus",
-          SrcValue = 0.3
+          SrcValue = 0.2
         }
       }
     }
@@ -119,7 +129,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "BackstabBonus",
-                  SrcValue = 0.3
+                  SrcValue = 0.2
                 }
               }
             }
@@ -132,6 +142,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         40,
@@ -193,7 +204,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

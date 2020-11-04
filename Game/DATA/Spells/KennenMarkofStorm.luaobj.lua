@@ -115,79 +115,157 @@ OnBuffActivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Owner"}
-      },
-      {
-        Function = BBGetLevel,
-        Params = {TargetVar = "Attacker", DestVar = "Level"}
-      },
-      {
-        Function = BBSetVarInTable,
+        Function = BBIfNotHasBuff,
         Params = {
-          DestVar = "SuperDamage",
-          SrcValueByLevel = {
-            50,
-            50,
-            50,
-            75,
-            75,
-            75,
-            100,
-            100,
-            100,
-            125,
-            125,
-            125,
-            150,
-            150,
-            150,
-            175,
-            175,
-            175
+          OwnerVar = "Owner",
+          CasterVar = "Attacker",
+          BuffName = "KennenMoSDiminish"
+        },
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 25,
+              PARType = PAR_ENERGY
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "kennen_mos_tar.troy",
+              Flags = 0,
+              EffectIDVar = "part",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 1.25
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveStacks,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "KennenMarkofStorm",
+              NumStacks = 0
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenMoSDiminish",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 7,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
           }
         }
       },
       {
-        Function = BBIncPAR,
-        Params = {
-          TargetVar = "Attacker",
-          Delta = 25,
-          PARType = PAR_ENERGY
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Owner",
-          EffectName = "kennen_mos_tar.troy",
-          Flags = 0,
-          EffectIDVar = "part",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBApplyStun,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Owner",
-          Duration = 1.25
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveStacks,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Attacker",
-          BuffName = "KennenMarkofStorm",
-          NumStacks = 0
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Attacker",
+              Delta = 25,
+              PARType = PAR_ENERGY
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "kennen_mos_tar.troy",
+              Flags = 0,
+              EffectIDVar = "part",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 0.6
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveStacks,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "KennenMarkofStorm",
+              NumStacks = 0
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "KennenMoSDiminish",
+                  BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_CombatEnchancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 7,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
+          }
         }
       }
     }
