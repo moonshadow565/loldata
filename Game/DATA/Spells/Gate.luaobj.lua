@@ -235,7 +235,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -252,7 +253,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -275,7 +277,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -292,7 +295,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       }
     }
@@ -311,6 +315,26 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
     }
   }
 }
@@ -371,29 +395,55 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {TargetVar = "Owner"}
   },
   {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_SUMMONER,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "IsDisabled",
       Src1VarTable = "InstanceVars",
       Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+      CompareOp = CO_EQUAL
+    },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
+        Function = BBIf,
         Params = {
-          DestVar = "TargetPos",
-          SrcVar = "TargetPos",
-          SrcVarTable = "InstanceVars"
+          Src1Var = "Expired",
+          Value2 = true,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "TargetPos",
+              SrcVar = "TargetPos",
+              SrcVarTable = "InstanceVars"
+            }
+          },
+          {
+            Function = BBTeleportToPosition,
+            Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
+          }
         }
-      },
-      {
-        Function = BBTeleportToPosition,
-        Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
       }
     }
   }
@@ -459,7 +509,8 @@ SelfExecuteBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -477,7 +528,8 @@ SelfExecuteBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -501,7 +553,8 @@ SelfExecuteBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_ORDER,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -519,7 +572,8 @@ SelfExecuteBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_CHAOS,
               FOWVisibilityRadius = 200,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           }
         }
@@ -557,13 +611,22 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
-          BuffType = BUFF_Stun,
+          BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "Destiny_marker"
         }
       }
     }

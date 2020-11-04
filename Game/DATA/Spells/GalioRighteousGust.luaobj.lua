@@ -224,11 +224,11 @@ BuffOnSpellHitBuildingBlocks = {
       CallForHelpAttackerVar = "Other1",
       TargetVar = "Target",
       DamageByLevel = {
-        65,
-        110,
-        155,
-        200,
-        245
+        60,
+        105,
+        150,
+        195,
+        240
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -253,7 +253,8 @@ BuffOnSpellHitBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -333,7 +334,40 @@ SelfExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.2,
+        0.28,
+        0.36,
+        0.44,
+        0.52
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "GalioRighteousGustHaste",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
@@ -352,6 +386,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "galiorighteousgusthaste"
     }
   }
 }

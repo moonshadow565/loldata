@@ -13,10 +13,25 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "targetPos",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {
       TargetVar = "Owner",
       DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "targetPos",
+      SrcVar = "targetPos",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -30,7 +45,8 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "targetPos",
           EffectName = "KogMawVoidOoze_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
@@ -41,13 +57,15 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = true
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "targetPos",
           EffectName = "KogMawVoidOoze_green.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
@@ -58,7 +76,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = true
         }
       }
     }
@@ -70,7 +89,8 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "targetPos",
           EffectName = "KogMawVoidOoze_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
@@ -81,13 +101,15 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = true
         }
       },
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "targetPos",
           EffectName = "KogMawVoidOoze_green.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
@@ -98,29 +120,14 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 240,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = true
         }
       }
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetTargetable
-    }
-  },
   {
     Function = BBSpellEffectRemove,
     Params = {
@@ -134,43 +141,17 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetInvulnerable
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 5000,
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_INTERNALRAW,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetTargetable
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "targetPos",
+      SrcVar = "targetPos",
+      SrcVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBExecutePeriodically,
     Params = {
@@ -184,7 +165,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBForEachUnitInTargetArea,
         Params = {
           AttackerVar = "Attacker",
-          CenterVar = "Owner",
+          CenterVar = "targetPos",
           Range = 120,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit",
@@ -214,7 +195,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -222,133 +204,116 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
-TargetExecuteBuildingBlocks = {
+SpellOnMissileUpdateBuildingBlocks = {
   {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Attacker", DestVar = "CasterID"}
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Target", DestVar = "CasterID2"}
-  },
-  {
-    Function = BBIf,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      Src1Var = "CasterID",
-      Src2Var = "CasterID2",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Target",
-          AttackerVar = "Owner",
-          BuffName = "KogMawVoidOoze"
-        },
-        SubBlocks = {
-          {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Level",
-              SpellSlotValue = 2,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Attacker",
-              Function = GetSlotSpellLevel
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "SlowPercent",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 0,
-              SrcValueByLevel = {
-                -0.28,
-                -0.36,
-                -0.44,
-                -0.52,
-                -0.6
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Owner",
-              BuffName = "KogMawVoidOozeMissile",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatEnchancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Attacker",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "SlowPercent",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0,
+      SrcValueByLevel = {
+        -0.28,
+        -0.36,
+        -0.44,
+        -0.52,
+        -0.6
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 2,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Attacker",
-          Function = GetSlotSpellLevel
-        }
+    Function = BBGetGroundHeight,
+    Params = {
+      QueryPosVar = "MissilePosition",
+      GroundPosVar = "GroundHeight"
+    }
+  },
+  {
+    Function = BBModifyPosition,
+    Params = {
+      PositionVar = "GroundHeight",
+      x = 0,
+      y = 10,
+      z = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "targetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "GroundHeight"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "KogMawVoidOozeMissile",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = false,
+      BuffType = BUFF_Internal,
+      MaxStack = 100,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  }
+}
+TargetExecuteBuildingBlocks = {
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      DamageByLevel = {
+        60,
+        110,
+        160,
+        210,
+        260
       },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            60,
-            110,
-            160,
-            210,
-            260
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.7,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Target",
-          EffectName = "KogMawVoidOoze_tar.troy",
-          Flags = 0,
-          EffectIDVar = "varrr",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "CasterID2",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      Damage = 0,
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.7,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "KogMawVoidOoze_tar.troy",
+      Flags = 0,
+      EffectIDVar = "varrr",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "CasterID2",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -369,12 +334,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "kogmawvoidoozeslow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawvoidooze"
     }
   },
   {

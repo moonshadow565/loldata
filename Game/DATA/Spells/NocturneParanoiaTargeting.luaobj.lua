@@ -30,9 +30,9 @@ OnBuffActivateBuildingBlocks = {
       DestVar = "Range",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        2500,
-        3250,
-        4000
+        2000,
+        2750,
+        3500
       }
     }
   },
@@ -67,7 +67,8 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -174,7 +175,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               UseSpecificUnit = true,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
             }
           },
           {

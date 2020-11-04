@@ -16,6 +16,17 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src1Var = "Stats",
@@ -40,9 +51,10 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentAttackSpeedMod,
+      Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "StatsPercent",
+      DeltaVar = "Stats",
+      DeltaVarTable = "InstanceVars",
       Delta = 0
     }
   },
@@ -60,16 +72,6 @@ BuffOnUpdateStatsBuildingBlocks = {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "Stats",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
       DeltaVar = "Stats",
       DeltaVarTable = "InstanceVars",
@@ -124,12 +126,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -145,7 +150,8 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   },
   {
@@ -161,7 +167,189 @@ TargetExecuteBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
+    }
+  }
+}
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CCreduction",
+      SrcValueByLevel = {
+        0.9,
+        0.8,
+        0.7
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Snare,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Slow,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src2Var = "CCreduction",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      }
     }
   }
 }

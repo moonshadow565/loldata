@@ -16,7 +16,8 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
       FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -31,13 +32,23 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnDealDamageBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIf,
     Params = {
-      Src1Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0.8,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
+      Src1Var = "DamageType",
+      Value2 = TRUE_DAMAGE,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.8,
+          DestVar = "DamageAmount",
+          MathOp = MO_MULTIPLY
+        }
+      }
     }
   }
 }

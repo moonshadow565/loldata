@@ -25,7 +25,8 @@ BuffOnKillBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -67,13 +68,15 @@ BuffOnKillBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               DamageByLevel = {
                 50,
@@ -123,7 +126,9 @@ BuffOnHitUnitBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 0.1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -143,9 +148,15 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageAmount",
+      DestVar = "dotdmg",
       DestVarTable = "NextBuffVars",
-      SrcValue = 25
+      SrcValueByLevel = {
+        22,
+        28,
+        34,
+        40,
+        46
+      }
     }
   },
   {
@@ -162,13 +173,15 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        4,
         5,
-        6,
-        7,
-        8
+        5,
+        5,
+        5,
+        5
       },
-      TickRate = 1
+      TickRate = 1,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -185,13 +198,15 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        4,
         5,
-        6,
-        7,
-        8
+        5,
+        5,
+        5,
+        5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -208,13 +223,15 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        4,
         5,
-        6,
-        7,
-        8
+        5,
+        5,
+        5,
+        5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

@@ -39,13 +39,15 @@ OnBuffActivateBuildingBlocks = {
     Function = BBGetSkinID,
     Params = {
       UnitVar = "Owner",
-      SkinIDVar = "TeemoSkinID"
+      SkinIDVar = "TeemoSkinID",
+      SkinIDVarTable = "InstanceVars"
     }
   },
   {
     Function = BBIf,
     Params = {
       Src1Var = "TeemoSkinID",
+      Src1VarTable = "InstanceVars",
       Value2 = 4,
       CompareOp = CO_EQUAL
     },
@@ -55,6 +57,27 @@ OnBuffActivateBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           FadeAmount = 0.3,
+          fadeTime = 1.5,
+          IDVar = "ID",
+          IDVarTable = "InstanceVars"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Src1VarTable = "InstanceVars",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBPushCharacterFade,
+        Params = {
+          TargetVar = "Owner",
+          FadeAmount = 0.5,
           fadeTime = 1.5,
           IDVar = "ID",
           IDVarTable = "InstanceVars"
@@ -79,6 +102,89 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Src1VarTable = "InstanceVars",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "HasParticle",
+          DestVarTable = "InstanceVars",
+          SrcValue = false
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {Value1 = 0.3, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "TeemoEaster2.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "HasParticle",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {Value1 = 0.3, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Owner",
+              EffectName = "TeemoEaster3.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Owner",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWVisibilityRadius = 0,
+              SendIfOnScreenOrDiscard = false,
+              FollowsGroundTilt = false
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "HasParticle",
+              DestVarTable = "InstanceVars",
+              SrcValue = true
+            }
+          }
+        }
+      }
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -88,6 +194,34 @@ OnBuffActivateBuildingBlocks = {
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeemoSkinID",
+      Src1VarTable = "InstanceVars",
+      Value2 = 5,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "HasParticle",
+          Src1VarTable = "InstanceVars",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectRemove,
+            Params = {
+              EffectIDVar = "a",
+              EffectIDVarTable = "InstanceVars"
+            }
+          }
+        }
+      }
+    }
+  },
   {
     Function = BBIf,
     Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD}
@@ -165,7 +299,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           },
           {
@@ -182,7 +317,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               Duration = 600,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -267,7 +403,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              SendIfOnScreenOrDiscard = true,
+              FollowsGroundTilt = false
             }
           },
           {
@@ -326,7 +463,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 4,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               },
               {
@@ -343,7 +481,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 4,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -508,9 +647,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamagePerTick",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        62.5,
-        118.75,
-        175
+        50,
+        100,
+        150
       }
     }
   },
@@ -554,11 +693,24 @@ SelfExecuteBuildingBlocks = {
       Duration = 600,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "teemoeaster2.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "teemoeaster3.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "stealth"}

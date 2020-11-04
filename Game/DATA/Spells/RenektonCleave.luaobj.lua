@@ -182,7 +182,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -242,7 +243,7 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "DrainPercent",
                   DestVarTable = "NextBuffVars",
-                  SrcValue = 0.15
+                  SrcValue = 0.1
                 }
               },
               {
@@ -395,7 +396,8 @@ SelfExecuteBuildingBlocks = {
           FOWTeam = TEAM_UNKNOWN,
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          SendIfOnScreenOrDiscard = true,
+          FollowsGroundTilt = false
         }
       },
       {
@@ -455,7 +457,7 @@ SelfExecuteBuildingBlocks = {
                 Params = {
                   DestVar = "DrainPercent",
                   DestVarTable = "NextBuffVars",
-                  SrcValue = 0.075
+                  SrcValue = 0.05
                 }
               },
               {

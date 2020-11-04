@@ -1,7 +1,6 @@
 BuffTextureName = "Bowmaster_ArchersMark.dds"
 BuffName = "Noxious Trap Target"
-AutoBuffActivateEffect = "Global_Poison.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -22,7 +21,7 @@ OnBuffActivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.16,
+      SpellDamageRatio = 0.2,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -77,7 +76,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.16,
+          SpellDamageRatio = 0.2,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false

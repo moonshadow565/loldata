@@ -7,27 +7,10 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetStatus,
+    Function = BBRequireVar,
     Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStealthed
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
+      RequiredVar = "targetPos",
+      RequiredVarTable = "InstanceVars"
     }
   }
 }
@@ -44,6 +27,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 5000,
       DamageType = TRUE_DAMAGE,
@@ -56,48 +40,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetGhosted
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetIgnoreCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSuppressCallForHelp
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetStealthed
-    }
-  }
-}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
     Function = BBGetUnitPosition,
@@ -135,75 +81,6 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetPointByUnitFacingOffset,
-    Params = {
-      UnitVar = "Owner",
-      Distance = 700,
-      OffsetAngle = 0,
-      PositionVar = "MiddlePos"
-    }
-  },
-  {
-    Function = BBGetPointByUnitFacingOffset,
-    Params = {
-      UnitVar = "Owner",
-      Distance = 20000,
-      OffsetAngle = 90,
-      PositionVar = "OffsetPos"
-    }
-  },
-  {
-    Function = BBForEachPointOnLine,
-    Params = {
-      CenterVar = "MiddlePos",
-      FaceTowardsPosVar = "OffsetPos",
-      Size = 900,
-      PushForward = 0,
-      Iterations = 7,
-      IteratorVar = "Pos"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpawnMinion,
-        Params = {
-          Name = "VoidOoze",
-          Skin = "testcube",
-          AiScript = "idle.lua",
-          PosVar = "Pos",
-          Team = TEAM_CASTER,
-          TeamVar = "TeamID",
-          Stunned = true,
-          Rooted = false,
-          Silenced = false,
-          Invulnerable = false,
-          MagicImmune = false,
-          IgnoreCollision = true,
-          Placemarker = false,
-          VisibilitySize = 100,
-          DestVar = "Other3",
-          GoldRedirectTargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Other3",
-          AttackerVar = "Owner",
-          BuffName = "KogMawVoidOoze",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 4,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  },
-  {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
@@ -218,19 +95,8 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawvoidooze"
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

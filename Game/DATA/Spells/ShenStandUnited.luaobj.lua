@@ -28,7 +28,8 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = false,
+      FollowsGroundTilt = false
     }
   }
 }
@@ -55,7 +56,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -63,8 +65,8 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "baseShieldHealth",
       SrcValueByLevel = {
-        300,
-        525,
+        200,
+        475,
         750
       }
     }
@@ -110,7 +112,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -127,7 +130,8 @@ ChannelingStartBuildingBlocks = {
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

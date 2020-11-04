@@ -295,39 +295,49 @@ BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
     Params = {
-      Src1Var = "DamageAbsorption",
-      Src1VarTable = "InstanceVars",
-      Src2Var = "DamageAmount",
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      Src1Var = "DamageType",
+      Value2 = TRUE_DAMAGE,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBIf,
         Params = {
-          Src1Var = "DamageAmount",
-          Src2Var = "DamageAbsorption",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
+          Src1Var = "DamageAbsorption",
+          Src1VarTable = "InstanceVars",
           Src2Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_SUBTRACT
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src2Var = "DamageAbsorption",
+              Src2VarTable = "InstanceVars",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
         }
       }
     }
@@ -364,7 +374,8 @@ TargetExecuteBuildingBlocks = {
         8
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }
