@@ -1,4 +1,4 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Minotaur_TriumphantRoar.dds"
+BuffTextureName = "Alistar_E.dds"
 BuffName = "Triumphant Roar"

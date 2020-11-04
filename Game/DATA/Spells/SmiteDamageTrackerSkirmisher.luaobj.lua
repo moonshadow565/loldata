@@ -1,4 +1,4 @@
 BuffTextureName = "Smite_Red.dds"
-BuffName = "SmiteDamageTrackerSkrmisher"
+BuffName = "SmiteDamageTrackerSkirmisher"
 PersistsThroughDeath = true
 NonDispellable = true

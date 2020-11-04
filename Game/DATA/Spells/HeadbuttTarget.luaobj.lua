@@ -1,2 +1,2 @@
-BuffTextureName = "Minotaur_Headbutt.dds"
+BuffTextureName = "Alistar_W.dds"
 BuffName = "Headbutt"

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Minotaur_Headbutt.dds"
+BuffTextureName = "Alistar_W.dds"
 BuffName = "Charging"
 SpellDamageRatio = 1
