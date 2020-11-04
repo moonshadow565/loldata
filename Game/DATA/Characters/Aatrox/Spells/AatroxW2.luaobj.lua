@@ -1,7 +1,5 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Sion_SpiritRage.dds"
-BuffName = "Enrage"
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
