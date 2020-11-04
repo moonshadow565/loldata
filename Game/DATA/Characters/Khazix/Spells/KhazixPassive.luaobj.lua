@@ -39,11 +39,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "khazix_stealth_evolved_texture.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "khazixevolve"
-    }
   }
 }

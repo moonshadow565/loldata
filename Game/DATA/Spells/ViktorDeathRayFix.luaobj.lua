@@ -52,9 +52,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "viktordeathray"
+      Name = "viktordeathrayfix_sound.troy"
     }
   }
 }

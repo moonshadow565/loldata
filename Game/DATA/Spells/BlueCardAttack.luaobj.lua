@@ -7,15 +7,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "cardmasterbluecardmana"
+      Name = "athenesunholygrail_manarestore_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "athenesunholygrail_manarestore_tar.troy"
+      Name = "soraka_infuse_ally_tar.troy"
     }
   }
 }
