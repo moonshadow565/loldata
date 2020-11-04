@@ -345,6 +345,9 @@ function L0_0()
     ResetAndStartTimer("TimerRegen")
     Retreat()
   end
+  if L0_24 == AI_ATTACK and IsMovementStopped() == true and GetCanIMove() == true then
+    FindNewTarget()
+  end
   if L0_24 == AI_RETREAT and IsMovementStopped() == true then
     if GetDistToRetreat() < 100 then
       OnStoppedMoving()
