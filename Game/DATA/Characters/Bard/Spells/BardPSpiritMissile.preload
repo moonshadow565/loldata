@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_hit.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspiritmissileslow"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpspiritmissile"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_meep_hit_cone.troy"}}, 
+}

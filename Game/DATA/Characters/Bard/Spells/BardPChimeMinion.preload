@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="bardpickupnoicon"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_chime.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_p_chime_non_bard.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpchimepickedup"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpchimepickuplinesmissile"}}, 
+{Function=BBPreloadSpell, Params={Name="bardpchimespawnzoneavailable"}}, 
+}

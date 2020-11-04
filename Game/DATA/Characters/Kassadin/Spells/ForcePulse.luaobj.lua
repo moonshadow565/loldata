@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Kassadin_ForcePulse.dds"
+BuffTextureName = "Kassadin_E.dds"
 BuffName = "ForcePulse"
+SpellFXOverrideSkins = {
+  "KassadinSkin05"
+}

@@ -6,3 +6,6 @@ IsDamagingSpell = false
 SpellDamageRatio = 1
 IsDeathRecapSource = true
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "Akaliskin07"
+}

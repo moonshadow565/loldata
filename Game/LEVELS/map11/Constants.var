@@ -57,6 +57,7 @@ ai_StartingGold                                    =                            
 ai_DefaultPetReturnRadius                          =                                       200.000 ; Default pet return radius
 ai_AmbientGoldDelay                                =                                        90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldDelayFirstBlood                      =                                        30.000 ; Delay before first ambient gold tick on First Blood
+ai_PostAvoidanceFilterDuration                     =                                         0.300 ; After movement change due to avoidance calc, how long to filter rotation setting
 
 ; Attack Range variables
 ar_StopAttackRangeModifier                         =                                       100.000 ;  
@@ -107,6 +108,8 @@ aiExp_bonusExpNegativeNeutralLevelDeltaMin         =                            
 aiExp_bonusExpNegativeNeutralLevelDeltaOffset      =                                            -1 ; After we've reached the minimal difference, offset the delta by this amount
 aiExp_bonusExpNegativeLaneLevelStart               =                                           100 ; Minimum level of lane minion before XP kicks in
 aiExp_bonusExpNegativeLaneLevelDeltaMin            =                                           100 ; Minimum level difference before you get bonus lane XP
+ai_PostAvoidanceRotFilterStrength                  =                                         0.200 ; After movement change due to avoidance calc, time to reach target actual rotation (correction speed, NOT ZERO!)
+ai_PostAvoidanceRotFilterStrengthAccel             =                                         0.125 ; After movement change due to avoidance calc, time to reach correction speed (NOT ZERO!)
 
 ; Global Character Data constants
 gcd_PercentCooldownModMinimum                      =                                        -0.400 ; The lowest Cooldown Percent Mod bonus can go.

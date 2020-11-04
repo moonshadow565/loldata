@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_e_pathing_to_door_indicator_line_beam.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="bardedoormovement"}}, 
+}

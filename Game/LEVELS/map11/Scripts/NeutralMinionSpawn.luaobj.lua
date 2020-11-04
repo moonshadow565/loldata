@@ -1355,6 +1355,8 @@ function L0()
     L4 = L4[L3]
     L4.MinimapIcon = "LesserCamp"
   end
+  L0.Name = "Order Blue"
+  L0.TimerType = L1
   L3 = CAMPTYPE_BLUEBUFF
   L1[1] = L2
   L0.Groups = L1
@@ -1364,8 +1366,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
-  L0.TimerType = "Order Blue"
   L0.MinimapIcon = "Camp"
+  L0.Name = "Order Wolves"
   L3 = CAMPTYPE_WOLVES
   L1[1] = L2
   L0.Groups = L1
@@ -1375,6 +1377,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
+  L0.Name = "Order Wraiths"
   L3 = CAMPTYPE_WRAITHS
   L1[1] = L2
   L0.Groups = L1
@@ -1384,6 +1387,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1
+  L0.Name = "Order Red"
+  L0.TimerType = L1
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
   L0.Groups = L1
@@ -1393,8 +1398,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
-  L0.TimerType = "Order Red"
   L0.MinimapIcon = "Camp"
+  L0.Name = "Order Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS
   L1[1] = L2
   L0.Groups = L1
@@ -1404,6 +1409,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
+  L0.Name = "Dragon"
+  L0.TimerType = L1
   L3 = CAMPTYPE_DRAGON
   L1[1] = L2
   L0.Groups = L1
@@ -1414,10 +1421,11 @@ function L0()
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
-  L0.TimerType = "Dragon"
   L0.SpawnDuration = 6.5
   L0.UseSummonerScript = true
   L0.MinimapIcon = "Dragon"
+  L0.Name = "Chaos Blue"
+  L0.TimerType = L1
   L3 = CAMPTYPE_BLUEBUFF
   L1[1] = L2
   L0.Groups = L1
@@ -1427,8 +1435,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.1
-  L0.TimerType = "Chaos Blue"
   L0.MinimapIcon = "Camp"
+  L0.Name = "Chaos Wolves"
   L3 = CAMPTYPE_WOLVES2
   L1[1] = L2
   L0.Groups = L1
@@ -1438,6 +1446,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.66
+  L0.Name = "Chaos Wraiths"
   L3 = CAMPTYPE_WRAITHS2
   L1[1] = L2
   L0.Groups = L1
@@ -1447,6 +1456,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.67
+  L0.Name = "Chaos Red"
+  L0.TimerType = L1
   L3 = CAMPTYPE_REDBUFF
   L1[1] = L2
   L0.Groups = L1
@@ -1456,8 +1467,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 1.66
-  L0.TimerType = "Chaos Red"
   L0.MinimapIcon = "Camp"
+  L0.Name = "Chaos Small Golems"
   L3 = CAMPTYPE_SMALLGOLEMS2
   L1[1] = L2
   L0.Groups = L1
@@ -1467,6 +1478,8 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 0.86
+  L0.Name = "Baron"
+  L0.TimerType = L1
   L3 = CAMPTYPE_NASHOR
   L1[1] = L2
   L0.Groups = L1
@@ -1478,10 +1491,10 @@ function L0()
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_NASHOR_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
-  L0.TimerType = "Baron"
   L0.SpawnDuration = 8.5
   L0.UseSummonerScript = true
   L0.MinimapIcon = "Baron"
+  L0.Name = "Order OwlBear"
   L3 = CAMPTYPE_OWLBEAR
   L1[1] = L2
   L0.Groups = L1
@@ -1491,6 +1504,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
+  L0.Name = "Chaos OwlBear"
   L3 = CAMPTYPE_OWLBEAR
   L1[1] = L2
   L0.Groups = L1
@@ -1500,6 +1514,7 @@ function L0()
   L0.GroupDelaySpawnTime = 15
   L0.GroupBuffSide = L1
   L0.SpawnDuration = 3.2
+  L0.Name = "Dragon Crab"
   L3 = CAMPTYPE_CRAB
   L1[1] = L2
   L0.Groups = L1
@@ -1509,6 +1524,7 @@ function L0()
   L0.GroupDelaySpawnTime = 50
   L0.SpawnDuration = 2.2
   L0.AIScript = "RiverCrab.lua"
+  L0.Name = "Baron Crab"
   L3 = CAMPTYPE_CRAB
   L1[1] = L2
   L0.Groups = L1

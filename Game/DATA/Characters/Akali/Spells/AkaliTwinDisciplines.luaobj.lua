@@ -1,8 +1,8 @@
 BuffTextureName = "33.dds"
 BuffName = "AkaliTwinDisciplines"
-AutoBuffActivateEffect = "akali_twinDisciplines_DMG_buf.troy"
+AutoBuffActivateEffect = "Akali_Base_twindisciplines_dmg_buf.troy"
 AutoBuffActivateAttachBoneName = "L_hand"
-AutoBuffActivateEffect2 = "akali_twinDisciplines_AP_buf.troy"
+AutoBuffActivateEffect2 = "Akali_Base_twindisciplines_ap_buf.troy"
 AutoBuffActivateAttachBoneName2 = "R_hand"
 PersistsThroughDeath = true
 NonDispellable = true

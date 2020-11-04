@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_e_door.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_e_corridor.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_e_exit.troy"}}, 
+}

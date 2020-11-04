@@ -1,4 +1,4 @@
-BuffTextureName = "Katarina_BouncingBlade.dds"
+BuffTextureName = "Katarina_Q.dds"
 BuffName = "KatarinaQMark"
 SpellFXOverrideSkins = {
   "XmasKatarina"

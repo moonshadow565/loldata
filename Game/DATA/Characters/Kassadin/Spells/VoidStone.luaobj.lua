@@ -1,4 +1,4 @@
-BuffTextureName = "Kassadin_VoidStone.dds"
+BuffTextureName = "Kassadin_Passive.dds"
 BuffName = "VoidStone"
 PersistsThroughDeath = true
 NonDispellable = true

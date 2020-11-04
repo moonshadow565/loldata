@@ -1,2 +1,2 @@
-BuffTextureName = "Kassadin_ForcePulse_Charging.dds"
+BuffTextureName = "Kassadin_E_Charging.dds"
 BuffName = "ForcePulse"

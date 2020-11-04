@@ -4,5 +4,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ahrisoulcrushercounter"}}, 
 {Function=BBPreloadParticle, Params={Name="ahri_charm_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ahriseduce"}}, 
-{Function=BBPreloadSpell, Params={Name="ahriseducedoom"}}, 
 }

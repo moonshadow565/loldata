@@ -8,7 +8,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="permission_desecrate_red_cas_daper.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="veigar_base_e_cage_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="veigar_base_e_cage_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="veigar_base_e_warning_green.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="veigar_base_e_warning_red.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 }

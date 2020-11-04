@@ -1,0 +1,13 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="sharedcommonheal"}}, 
+{Function=BBPreloadSpell, Params={Name="sharedcommonshield"}}, 
+{Function=BBPreloadSpell, Params={Name="hecarimrapidslash4"}}, 
+{Function=BBPreloadSpell, Params={Name="ezrealmysticshotwrapper"}}, 
+{Function=BBPreloadSpell, Params={Name="jannahowlinggale"}}, 
+{Function=BBPreloadSpell, Params={Name="summonersmiteinitializer"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_743.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_744.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_744_mat.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="globalnorenderifdead"}}, 
+{Function=BBPreloadParticle, Params={Name="tp_745.troy"}}, 
+}

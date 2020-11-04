@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_skin_quiet.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_skin_full.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="turretglowparticle"}}, 
+}
