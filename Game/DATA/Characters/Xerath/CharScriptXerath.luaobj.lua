@@ -1,32 +1,62 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "xerathlocusofpower"
+      Name = "xerath_base_w_aoe_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xerath_e_cas_green.troy"
+      Name = "xerath_base_w_aoe_red.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xerath_e_cas_red.troy"
+      Name = "xerath_base_r_buf.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xerath_darkiron_e_cas_green.troy"
+      Name = "xerath_base_r_buf_range1_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "xerath_darkiron_e_cas_red.troy"
+      Name = "xerath_base_r_buf_range1_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_r_buf_range2_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_r_buf_range2_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_r_buf_range3_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_base_r_buf_range3_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_e_warning.troy"
     }
   },
   {
@@ -38,7 +68,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xerathascended"
+      Name = "xerathascended2"
     }
   }
 }
