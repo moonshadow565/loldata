@@ -1273,7 +1273,7 @@ function L0(A0, A1)
 end
 BBReincarnateHero = L0
 function L0(A0, A1)
-  local L2, L3, L4, L5
+  local L2, L3, L4, L5, L6
   L2 = GetTable
   L3 = A0
   L4 = A1.DestVarTable
@@ -1283,10 +1283,11 @@ function L0(A0, A1)
   L4 = A1.Function
   L5 = A1.OwnerVar
   L5 = A0[L5]
-  L4 = L4(L5)
+  L6 = A1.PARType
+  L4 = L4(L5, L6)
   L2[L3] = L4
 end
-BBGetManaOrHealth = L0
+BBGetPAROrHealth = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6, L7, L8
   L2 = A1.WhomToOrderVar

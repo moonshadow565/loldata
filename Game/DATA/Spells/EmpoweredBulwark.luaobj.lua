@@ -4,12 +4,13 @@ PersistsThroughDeath = true
 Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMana",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   }
 }
@@ -37,12 +38,13 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMana",
       DestVarTable = "InstanceVars",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   }
 }

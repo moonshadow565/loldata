@@ -8,11 +8,12 @@ BuffOnPreDamageBuildingBlocks = {
     Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
     SubBlocks = {
       {
-        Function = BBGetManaOrHealth,
+        Function = BBGetPAROrHealth,
         Params = {
           DestVar = "HealthCurrent",
           OwnerVar = "Owner",
-          Function = GetHealth
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {

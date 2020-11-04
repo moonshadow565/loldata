@@ -117,11 +117,12 @@ BuffOnPreDamageBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "CurHealth",
               OwnerVar = "Target",
-              Function = GetHealth
+              Function = GetHealth,
+              PARType = PAR_MANA
             }
           },
           {

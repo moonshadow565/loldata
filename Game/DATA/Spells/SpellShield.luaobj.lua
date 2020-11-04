@@ -89,7 +89,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {TargetVar = "Owner", Delta = 125}
       },
       {

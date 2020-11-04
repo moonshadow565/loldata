@@ -64,11 +64,12 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "Health",
       OwnerVar = "Target",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {

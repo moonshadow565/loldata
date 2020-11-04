@@ -72,7 +72,7 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 20000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -87,7 +87,7 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -123,7 +123,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSay,
             Params = {
               OwnerVar = "Owner",
-              ToSay = "LvL 3: Explosive Cartridges"
+              ToSay = "game_lua_Upgrade_Lvl3"
             }
           },
           {
@@ -257,7 +257,7 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Aura,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 20000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -272,7 +272,7 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 10,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -308,7 +308,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBSay,
             Params = {
               OwnerVar = "Owner",
-              ToSay = "LvL 2: Ur'Anium Rounds"
+              ToSay = "game_lua_Upgrade_Lvl2"
             }
           },
           {
@@ -431,12 +431,16 @@ TargetExecuteBuildingBlocks = {
         Function = BBSay,
         Params = {
           OwnerVar = "Owner",
-          ToSay = "Must target an Evolution Turret"
+          ToSay = "game_lua_Upgrade_tar"
         }
       },
       {
-        Function = BBIncMana,
-        Params = {TargetVar = "Owner", Delta = 120}
+        Function = BBIncPAR,
+        Params = {
+          TargetVar = "Owner",
+          Delta = 120,
+          PARType = PAR_MANA
+        }
       },
       {
         Function = BBSpellBuffAdd,
@@ -447,7 +451,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 1

@@ -158,31 +158,6 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ManaCostInc",
-      DestVarTable = "InstanceVars",
-      SrcValueByLevel = {
-        -40,
-        -50,
-        -60,
-        -70,
-        -80
-      }
-    }
-  },
-  {
-    Function = BBSetManaCostInc,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 1,
-      SlotType = SpellSlots,
-      Cost = 0,
-      CostVar = "ManaCostInc",
-      CostVarTable = "InstanceVars"
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -262,15 +237,6 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBRemoveOverrideAutoAttack,
     Params = {OwnerVar = "Owner", CancelAttack = true}
-  },
-  {
-    Function = BBSetManaCostInc,
-    Params = {
-      SpellSlotOwnerVar = "Owner",
-      SpellSlot = 1,
-      SlotType = SpellSlots,
-      Cost = 0
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -430,7 +396,7 @@ BuffOnSpellCastBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "SpellName",
-      Value2 = "PickACardLock",
+      Value2 = "pickacardlock",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -771,7 +737,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -808,6 +774,12 @@ BuffOnLaunchMissileBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pickacardlock"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

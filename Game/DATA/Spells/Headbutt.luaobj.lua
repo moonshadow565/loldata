@@ -47,6 +47,10 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBSpellBuffRemoveCurrent,
+            Params = {TargetVar = "Owner"}
+          },
+          {
             Function = BBBreakSpellShields,
             Params = {TargetVar = "Owner"}
           },
@@ -70,6 +74,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -96,10 +101,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
             }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           }
         }
       }
@@ -144,6 +145,79 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Attacker",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Distance",
+      Src1Value = 420,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "factor",
+      Src1Value = 0,
+      Src2Value = 600,
+      DestVar = "factor",
+      MathOp = MO_DIVIDE
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.45,
+      Src2Value = 0,
+      DestVar = "factor",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "factor",
+      Src1Value = 0.75,
+      Src2Value = 0,
+      DestVar = "scaletime",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "Spell2",
+      ScaleTime = 0,
+      ScaleTimeVar = "scaletime",
+      TargetVar = "Attacker",
+      Loop = false
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Attacker",
@@ -155,14 +229,15 @@ TargetExecuteBuildingBlocks = {
       MovementOrdersType = CANCEL_ORDER,
       IdealDistance = 0
     }
-  },
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBPlayAnimation,
+    Function = BBSpellBuffRemove,
     Params = {
-      AnimationName = "Spell2",
-      ScaleTime = 0,
       TargetVar = "Attacker",
-      Loop = false
+      AttackerVar = "Attacker",
+      BuffName = "UnlockAnimation"
     }
   }
 }

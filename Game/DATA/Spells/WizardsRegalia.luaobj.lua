@@ -24,7 +24,7 @@ BuffOnTakeDamageBuildingBlocks = {
     Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
     SubBlocks = {
       {
-        Function = BBIncMana,
+        Function = BBIncPAR,
         Params = {TargetVar = "Owner", Delta = 20}
       },
       {
@@ -221,7 +221,7 @@ BuffOnTakeDamageBuildingBlocks = {
         Params = {Value1 = 0.25, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
         SubBlocks = {
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {TargetVar = "Owner", Delta = 20}
           },
           {

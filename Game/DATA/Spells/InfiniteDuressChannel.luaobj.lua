@@ -19,7 +19,7 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "NumHitsRemaining",
       DestVarTable = "CharVars",
-      SrcValue = 6
+      SrcValue = 5
     }
   },
   {
@@ -28,9 +28,9 @@ ChannelingStartBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "CharVars",
       SrcValueByLevel = {
-        30,
-        50,
-        70
+        40,
+        60,
+        80
       }
     }
   },
@@ -39,7 +39,22 @@ ChannelingStartBuildingBlocks = {
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Duration = 2.1
+      Duration = 1.7
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "InfiniteDuressSound",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1.9,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }
@@ -149,6 +164,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_ATTACK,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -223,6 +239,14 @@ ChannelingSuccessStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressHold"
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "InfiniteDuressSound"
+    }
   }
 }
 ChannelingCancelStopBuildingBlocks = {
@@ -233,9 +257,23 @@ ChannelingCancelStopBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "InfiniteDuressHold"
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "InfiniteDuressSound"
+    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "infiniteduresssound"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

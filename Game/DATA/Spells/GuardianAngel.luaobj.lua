@@ -28,8 +28,12 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
-    Params = {TargetVar = "Owner", Delta = -10000}
+    Function = BBIncPAR,
+    Params = {
+      TargetVar = "Owner",
+      Delta = -10000,
+      PARType = PAR_MANA
+    }
   },
   {
     Function = BBSetStatus,
@@ -236,19 +240,21 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMaxHealth",
       OwnerVar = "Owner",
-      Function = GetMaxHealth
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {
@@ -282,19 +288,21 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMana",
       OwnerVar = "Owner",
-      Function = GetMana
+      Function = GetPAR,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "TempMaxMana",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -319,10 +327,11 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIncMana,
+    Function = BBIncPAR,
     Params = {
       TargetVar = "Owner",
       Delta = 0,
+      PARType = PAR_MANA,
       DeltaVar = "ManaToInc"
     }
   },
@@ -391,6 +400,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
     Function = BBPlayAnimation,
     Params = {
       AnimationName = "idle1",
@@ -398,6 +411,10 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       Loop = false
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   },
   {
     Function = BBSpellEffectCreate,
@@ -432,7 +449,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -513,9 +530,9 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARRegenMod,
     Params = {
-      Stat = IncFlatMPRegenMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       Delta = -100
     }

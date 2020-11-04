@@ -77,11 +77,12 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "Temp1",
               OwnerVar = "Target",
-              Function = GetHealth
+              Function = GetHealth,
+              PARType = PAR_MANA
             }
           },
           {

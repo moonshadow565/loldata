@@ -184,11 +184,12 @@ ItemOnSpellCastBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBGetManaOrHealth,
+                    Function = BBGetPAROrHealth,
                     Params = {
                       DestVar = "UnitHealth",
                       OwnerVar = "Unit",
-                      Function = GetHealthPercent
+                      Function = GetHealthPercent,
+                      PARType = PAR_MANA
                     }
                   },
                   {

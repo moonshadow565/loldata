@@ -24,11 +24,12 @@ BuffOnHitUnitBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
-                    Function = BBGetManaOrHealth,
+                    Function = BBGetPAROrHealth,
                     Params = {
                       DestVar = "MaxHealth",
                       OwnerVar = "Target",
-                      Function = GetMaxHealth
+                      Function = GetMaxHealth,
+                      PARType = PAR_MANA
                     }
                   },
                   {

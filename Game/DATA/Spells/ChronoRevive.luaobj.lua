@@ -322,15 +322,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBPlayAnimation,
-    Params = {
-      AnimationName = "idle1",
-      ScaleTime = 0,
-      TargetVar = "Owner",
-      Loop = false
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -345,6 +336,23 @@ OnBuffDeactivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
+  },
+  {
+    Function = BBPlayAnimation,
+    Params = {
+      AnimationName = "idle1",
+      ScaleTime = 0,
+      TargetVar = "Owner",
+      Loop = false
+    }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner"}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

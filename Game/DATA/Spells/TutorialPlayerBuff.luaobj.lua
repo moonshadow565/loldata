@@ -11,19 +11,21 @@ OnBuffActivateBuildingBlocks = {
 BuffOnTakeDamageBuildingBlocks = {}
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealth",
       OwnerVar = "Owner",
-      Function = GetHealth
+      Function = GetHealth,
+      PARType = PAR_MANA
     }
   },
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
       DestVar = "CurHealthPercent",
       OwnerVar = "Owner",
-      Function = GetHealthPercent
+      Function = GetHealthPercent,
+      PARType = PAR_MANA
     }
   },
   {

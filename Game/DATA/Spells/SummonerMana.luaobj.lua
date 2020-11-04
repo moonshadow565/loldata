@@ -162,10 +162,11 @@ SelfExecuteBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Unit",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "TotalMana"
             }
           }
@@ -176,10 +177,11 @@ SelfExecuteBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBIncMana,
+            Function = BBIncPAR,
             Params = {
               TargetVar = "Unit",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "SecondaryMana"
             }
           }

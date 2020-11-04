@@ -4,7 +4,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "WeaponMastery",
+      BuffName = "EquipmentMastery",
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
@@ -240,7 +240,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "weaponmastery"
+      Name = "equipmentmastery"
     }
   },
   {

@@ -156,6 +156,8 @@ BuffOnHitUnitBuildingBlocks = {
                           DestVarTable = "NextBuffVars",
                           SrcValue = 0,
                           SrcValueByLevel = {
+                            10,
+                            10,
                             15,
                             15,
                             20,
@@ -171,9 +173,7 @@ BuffOnHitUnitBuildingBlocks = {
                             45,
                             45,
                             50,
-                            50,
-                            55,
-                            55
+                            50
                           }
                         }
                       },
@@ -204,6 +204,11 @@ BuffOnHitUnitBuildingBlocks = {
                             -0.1,
                             -0.1,
                             -0.1,
+                            -0.15,
+                            -0.15,
+                            -0.15,
+                            -0.15,
+                            -0.15,
                             -0.2,
                             -0.2,
                             -0.2,
@@ -211,12 +216,7 @@ BuffOnHitUnitBuildingBlocks = {
                             -0.2,
                             -0.25,
                             -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.3,
-                            -0.3,
-                            -0.3
+                            -0.25
                           }
                         }
                       },
@@ -254,8 +254,8 @@ BuffOnHitUnitBuildingBlocks = {
                           TargetVar = "Target",
                           AttackerVar = "Attacker",
                           BuffName = "Slow",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          BuffType = BUFF_Internal,
+                          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                          BuffType = BUFF_Slow,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 3,

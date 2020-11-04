@@ -10,9 +10,9 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARPoolMod,
     Params = {
-      Stat = IncFlatMPPoolMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "TearBonusMana",
       DeltaVarTable = "CharVars",

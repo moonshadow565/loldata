@@ -12,19 +12,19 @@ UpdateSelfBuffStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatMPPoolMod,
+      Stat = IncFlatMagicDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusMana",
+      DeltaVar = "BonusAbilityPower",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncFlatPARPoolMod,
     Params = {
-      Stat = IncFlatMagicDamageMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
-      DeltaVar = "BonusAbilityPower",
+      DeltaVar = "BonusMana",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

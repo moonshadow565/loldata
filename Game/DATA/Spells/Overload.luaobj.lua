@@ -12,11 +12,12 @@ TriggersSpellCasts = true
 SetSpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetManaOrHealth,
+    Function = BBGetPAROrHealth,
     Params = {
-      DestVar = "Mana",
+      DestVar = "PAR",
       OwnerVar = "Owner",
-      Function = GetMaxMana
+      Function = GetMaxPAR,
+      PARType = PAR_MANA
     }
   },
   {
@@ -57,7 +58,7 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
-      Src1Var = "Mana",
+      Src1Var = "PAR",
       Src1Value = 0,
       Src2Value = 0.1,
       DestVar = "BonusDamage",
@@ -97,6 +98,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.45,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
@@ -170,6 +172,7 @@ TargetExecuteBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.3375,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }

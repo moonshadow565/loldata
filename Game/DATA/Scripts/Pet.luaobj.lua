@@ -21,7 +21,7 @@ function L0_0(A0_2, A1_3)
   if GetState() == AI_TAUNTED or GetState() == AI_FEARED then
     return
   end
-  if (GetState() == AI_PET_HARDATTACK or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDIDLE or GetState() == AI_PET_HARDIDLE_ATTACKING or GetState() == AI_PET_HARDRETURN) and (A0_2 == ORDER_ATTACKTO or A0_2 == ORDER_MOVETO or A0_2 == ORDER_ATTACKMOVE) then
+  if (GetState() == AI_PET_HARDATTACK or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDIDLE or GetState() == AI_PET_HARDIDLE_ATTACKING or GetState() == AI_PET_HARDRETURN or GetState() == AI_PET_HARDSTOP) and (A0_2 == ORDER_ATTACKTO or A0_2 == ORDER_MOVETO or A0_2 == ORDER_ATTACKMOVE or A0_2 == ORDER_STOP) then
     return true
   end
   owner = GetOwner()
@@ -45,6 +45,14 @@ function L0_0(A0_2, A1_3)
   end
   if A0_2 == ORDER_ATTACKMOVE then
     SetStateAndCloseToTarget(AI_PET_ATTACKMOVE, owner)
+    return true
+  end
+  if A0_2 == ORDER_STOP then
+    return true
+  end
+  if A0_2 == ORDER_PETHARDSTOP then
+    TurnOffAutoAttack(STOPREASON_TARGET_LOST)
+    SetStateAndCloseToTarget(AI_PET_HARDSTOP, me)
     return true
   end
   if A0_2 == ORDER_PETHARDATTACK then
@@ -71,7 +79,7 @@ function L0_0()
   if GetState() == AI_HALTED then
     return
   end
-  if GetState() == AI_PET_MOVE or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDRETURN or GetState() == AI_FEARED then
+  if GetState() == AI_PET_MOVE or GetState() == AI_PET_HARDMOVE or GetState() == AI_PET_HARDRETURN or GetState() == AI_FEARED or GetState() == AI_PET_HARDSTOP then
     return true
   end
   newTarget = FindTargetInAcR()
@@ -228,7 +236,7 @@ function L0_0()
     return
   end
   L0_5 = GetState()
-  if L0_5 == AI_PET_MOVE or L0_5 == AI_PET_HARDMOVE then
+  if L0_5 == AI_PET_MOVE or L0_5 == AI_PET_HARDMOVE or L0_5 == AI_PET_HARDSTOP then
     return
   end
   if L0_5 == AI_PET_IDLE or L0_5 == AI_PET_RETURN or L0_5 == AI_PET_ATTACKMOVE or L0_5 == AI_PET_HARDIDLE then

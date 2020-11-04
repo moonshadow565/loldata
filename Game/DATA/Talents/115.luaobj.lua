@@ -19,9 +19,9 @@ UpdateSelfBuffStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncPercentPARPoolMod,
     Params = {
-      Stat = IncPercentMPPoolMod,
+      PARType = PAR_MANA,
       TargetVar = "Owner",
       DeltaVar = "ManaMod",
       Delta = 0
