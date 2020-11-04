@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Fiora_Lunge.dds"
 BuffName = "FioraQDebuff"
-AutoBuffActivateEffect = ""
 ChainMissileParameters = {
   MaximumHits = {
     10,
