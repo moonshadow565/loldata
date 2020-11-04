@@ -4,11 +4,20 @@ IsDamagingSpell = true
 BuffTextureName = "Xerath_MageChains.dds"
 BuffName = "XerathMRShred"
 SpellDamageRatio = 1
+SpellFXOverrideSkins = {
+  "IronForgeXerath"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "xerathmagechainsroot"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_chains_hit.troy"
     }
   },
   {

@@ -11,11 +11,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "mordekaisercotgpetbuff2"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "mordekaisercotgrevive"
-    }
   }
 }

@@ -1,0 +1,27 @@
+DoesntBreakShields = false
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_e_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_barrage_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerath_darkiron_magechains_consume.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xerathmagechainsroot"
+    }
+  }
+}

@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hallucinateguide"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "hallucinate_nova.troy"
@@ -24,7 +30,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "hallucinatefull"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "hallucinateapplicator"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shacodummycommandparticle"
     }
   }
 }

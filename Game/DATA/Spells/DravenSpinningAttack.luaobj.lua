@@ -19,5 +19,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "dravendot"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dravenspinningreturncatch"
+    }
   }
 }

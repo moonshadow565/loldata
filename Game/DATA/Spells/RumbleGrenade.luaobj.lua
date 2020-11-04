@@ -5,11 +5,12 @@ BuffTextureName = "Rumble_Electro Harpoon.dds"
 BuffName = "RumbleGrenade"
 AutoBuffActivateEffect = ""
 AutoBuffActivateEffect2 = ""
+SpellToggleSlot = 3
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumblegrenadecd"
+      Name = "rumbleoverheat"
     }
   },
   {
@@ -21,19 +22,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "rumbleoverheat"
+      Name = "rumblegrenadecd"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "rumbleheatdelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "rumbledangerzone"
     }
   },
   {
