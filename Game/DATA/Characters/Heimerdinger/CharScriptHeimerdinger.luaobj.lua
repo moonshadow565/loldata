@@ -2,37 +2,49 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "heimerdingerturretattackerlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerturretlockon"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerturretlockonminion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "apbonusdamagetotowers"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "heimerdingerturretdetonation"
+      Name = "heimerqammo"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "techmaturgicalicon"
+      Name = "heimerdingerpassive"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
+      Name = "heimerdingerturretready"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "h28gevolutionturretspell1"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "h28gevolutionturretspell2"
+      Name = "heimerturrettimer2"
     }
   }
 }
