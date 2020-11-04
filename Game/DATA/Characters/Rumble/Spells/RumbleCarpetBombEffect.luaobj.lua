@@ -36,6 +36,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "rumble_skin03_r_tar_team_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_tar_team_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "rumble_ult_impact_burn_teamid_green.troy"
     }
   },

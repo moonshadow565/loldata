@@ -68,6 +68,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "rumble_skin03_r_mis_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "rumble_incoming_mis.troy"
     }
   },

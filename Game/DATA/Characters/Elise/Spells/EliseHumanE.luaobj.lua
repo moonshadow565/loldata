@@ -4,7 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "EliseHumanE.dds"
 BuffName = "BuffEliseCocoon"
 AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "head"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 PopupMessage1 = "game_floatingtext_Stunned"
 PreLoadBuildingBlocks = {
   {

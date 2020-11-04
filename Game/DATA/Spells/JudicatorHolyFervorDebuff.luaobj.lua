@@ -1,2 +1,2 @@
-BuffTextureName = "Judicator_DivineBlessing.dds"
+BuffTextureName = "Kayle_Passive.dds"
 BuffName = "JudicatorHolyFervorDebuff"
