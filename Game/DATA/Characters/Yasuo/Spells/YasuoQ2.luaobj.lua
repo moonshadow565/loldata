@@ -51,6 +51,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "temp_yasuo_q_tar_blood.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "temp_yasuoq_garen_bladestormcrit_tar.troy"
     }
   },

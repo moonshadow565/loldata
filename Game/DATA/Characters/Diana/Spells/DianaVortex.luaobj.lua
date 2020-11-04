@@ -3,30 +3,32 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-SpellFXOverrideSkins = {""}
+SpellFXOverrideSkins = {
+  "DianaSkin02"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_E_Cas.troy"
+      Name = "diana_skin01_e_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_E_Cas.troy"
+      Name = "diana_base_e_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Skin01_E_Tar.troy"
+      Name = "diana_skin01_e_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Diana_Base_E_Tar.troy"
+      Name = "diana_base_e_tar.troy"
     }
   },
   {

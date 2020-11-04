@@ -5,7 +5,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_ss_flash.troy"
+      Name = "summoner_flashback.troy"
     }
   },
   {
@@ -17,7 +17,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_ss_flash_02.troy"
+      Name = "summoner_flash.troy"
     }
   }
 }

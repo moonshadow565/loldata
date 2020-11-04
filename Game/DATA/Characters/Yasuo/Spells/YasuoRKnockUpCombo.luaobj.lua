@@ -22,6 +22,18 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuorknockupcombo"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tempyasuormissile"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
   },
@@ -33,24 +45,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuorvfxclone"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorsound0"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorknockupcombo"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "tempyasuormissile"
     }
   },
   {
@@ -94,31 +88,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuorsound4"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "yasuorhitsound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorsound1"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorsound2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuorsound3"
     }
   }
 }
