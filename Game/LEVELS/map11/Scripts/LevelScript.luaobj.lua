@@ -143,33 +143,6 @@ SuperDefaultMinionInfo = {
   LocalGoldGiven = 0,
   LocalGoldBonus = 0
 }
-TestDefaultMinionInfo = {
-  DefaultNumPerWave = 0,
-  Armor = 0,
-  ArmorUpgrade = 0,
-  MagicResistance = 0,
-  MagicResistanceUpgrade = 0,
-  HPBonus = 0,
-  HPUpgrade = 100,
-  HPUpgradeGrowth = 0,
-  HPInhibitor = 0,
-  DamageBonus = 0,
-  DamageUpgrade = 5,
-  DamageInhibitor = 0,
-  ExpGiven = 100,
-  ExpBonus = 0,
-  ExpUpgrade = 0,
-  ExpInhibitor = 0,
-  GoldGiven = 39.5,
-  GoldBonus = 0,
-  GoldUpgrade = 0.5,
-  GoldInhibitor = 0,
-  GoldShared = 0,
-  GoldShareUpgrade = 0,
-  GoldMaximumBonus = 30,
-  LocalGoldGiven = 0,
-  LocalGoldBonus = 0
-}
 OrderMeleeMinionInfo = {
   MinionName = "SRU_OrderMinionMelee",
   DefaultInfo = MeleeDefaultMinionInfo
@@ -202,14 +175,6 @@ ChaosSuperMinionInfo = {
   MinionName = "SRU_ChaosMinionSuper",
   DefaultInfo = SuperDefaultMinionInfo
 }
-OrderTestMinionInfo = {
-  MinionName = "Blue_Minion_Basic",
-  DefaultInfo = TestDefaultMinionInfo
-}
-ChaosTestMinionInfo = {
-  MinionName = "Red_Minion_Basic",
-  DefaultInfo = TestDefaultMinionInfo
-}
 DefaultBarrackInfo = {
   IsDestroyed = false,
   NumOfSpawnDisables = 0,
@@ -218,23 +183,20 @@ DefaultBarrackInfo = {
     "Super",
     "Melee",
     "Cannon",
-    "Caster",
-    "Test"
+    "Caster"
   }
 }
 DefaultOrderMinionInfoTable = {
   Melee = OrderMeleeMinionInfo,
   Caster = OrderCasterMinionInfo,
   Cannon = OrderCannonMinionInfo,
-  Super = OrderSuperMinionInfo,
-  Test = OrderTestMinionInfo
+  Super = OrderSuperMinionInfo
 }
 DefaultChaosMinionInfoTable = {
   Melee = ChaosMeleeMinionInfo,
   Caster = ChaosCasterMinionInfo,
   Cannon = ChaosCannonMinionInfo,
-  Super = ChaosSuperMinionInfo,
-  Test = ChaosTestMinionInfo
+  Super = ChaosSuperMinionInfo
 }
 OrderBarrack0 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultOrderMinionInfoTable}
 OrderBarrack1 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultOrderMinionInfoTable}
@@ -386,16 +348,6 @@ function OnLevelInit()
   for L5_31, L6_32 in L2_28(L3_29) do
     PreloadBarrackCharacters(L6_32)
   end
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
-  L2_28(L3_29)
   L2_28(L3_29)
   L2_28(L3_29)
   L2_28(L3_29)

@@ -537,7 +537,7 @@ function L0()
     L4.AIState = L5
     L4 = NeutralMinionCamps
     L4 = L4[L3]
-    L4.GroupsRespawnTime = 50
+    L4.GroupsRespawnTime = 75
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.CampLevel = 1

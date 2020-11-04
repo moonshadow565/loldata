@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="corki_base_q_indicator_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_q_indicator_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_poroexplosion.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="porolobhit"}}, 
 }

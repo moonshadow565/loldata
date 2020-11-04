@@ -1,6 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_q_hit.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="reksaiqburrowedslow"}}, 
-{Function=BBPreloadSpell, Params={Name="reksaiwbubble"}}, 
 {Function=BBPreloadParticle, Params={Name="reksai_base_burrowed_q_tar.troy"}}, 
 }
