@@ -805,11 +805,11 @@ function L0_0(A0_99, A1_100)
     L8_107(L9_108, false)
     if L8_107 ~= Nil then
       SetInvulnerable(L8_107, true)
-      SetTargetable(L8_107, false)
+      SetNotTargetableToTeam(L8_107, true, A0_99)
     end
     if L9_108 ~= Nil then
       SetInvulnerable(L9_108, true)
-      SetTargetable(L9_108, false)
+      SetNotTargetableToTeam(L9_108, true, A0_99)
     end
   elseif A0_99 == L7_106 then
     L8_107(L9_108, true)

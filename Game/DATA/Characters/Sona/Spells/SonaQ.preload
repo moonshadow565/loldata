@@ -1,6 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="sonaq"}}, 
-{Function=BBPreloadSpell, Params={Name="sonaqpassivecheck"}}, 
-{Function=BBPreloadSpell, Params={Name="sonaqmissile"}}, 
-{Function=BBPreloadSpell, Params={Name="sonaqzone"}}, 
-}

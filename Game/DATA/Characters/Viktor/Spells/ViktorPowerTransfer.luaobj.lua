@@ -10,7 +10,6 @@ AutoCooldownByLevel = {
   10,
   8
 }
-PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
