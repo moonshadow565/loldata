@@ -21,6 +21,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "karthus_base_p_defile_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "karthus_base_e_defile.troy"
     }
   },
@@ -34,6 +40,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_e_defile_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdefile"
     }
   }
 }

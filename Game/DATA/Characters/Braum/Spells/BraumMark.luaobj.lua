@@ -16,13 +16,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "braum_base_p_stun_tar.troy"
+      Name = "braum_base_p_stun_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "braum_base_p_stun_cas.troy"
+      Name = "braum_base_p_stun_tar.troy"
     }
   },
   {

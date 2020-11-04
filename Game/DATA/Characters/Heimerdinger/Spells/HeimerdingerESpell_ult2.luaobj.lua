@@ -38,6 +38,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "heimerdingerespell_ult"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
