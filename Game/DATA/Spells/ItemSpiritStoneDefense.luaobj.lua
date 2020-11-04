@@ -1,0 +1,20 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemspiritstonebleed"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "itemspiritthornstick_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemspiritstoneregen"
+    }
+  }
+}

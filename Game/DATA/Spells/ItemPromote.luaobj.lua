@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-CastingBreaksStealth = true
+CastingBreaksStealth = false
 BuffTextureName = "BannerOfCommand_Promote.dds"
 BuffName = "SummonerPromoteSR"
 AutoBuffActivateEffect = "bloodboil_buf.troy"

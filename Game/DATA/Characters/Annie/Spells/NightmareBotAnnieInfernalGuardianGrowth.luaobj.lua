@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "Annie_R2.dds"
+BuffName = "InfernalGuardianTimer"
+SpellToggleSlot = 4
+PersistsThroughDeath = true
+NonDispellable = true

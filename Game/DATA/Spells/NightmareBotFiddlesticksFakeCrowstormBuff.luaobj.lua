@@ -1,0 +1,18 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "crowstorm_green_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "crowstorm_red_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "fleeslow"}
+  }
+}

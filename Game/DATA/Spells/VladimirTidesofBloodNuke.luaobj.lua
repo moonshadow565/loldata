@@ -5,7 +5,8 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "BloodkingVladimir"
+  "BloodkingVladimir",
+  "VladimirSkin06"
 }
 PreLoadBuildingBlocks = {
   {
@@ -17,7 +18,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vladtidesofblood_tar.troy"
+      Name = "vladimir_base_e_tar.troy"
     }
   }
 }

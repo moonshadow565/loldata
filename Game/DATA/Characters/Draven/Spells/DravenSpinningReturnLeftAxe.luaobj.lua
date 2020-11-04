@@ -18,13 +18,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Draven_Base_Q_reticle_self.troy"
+      Name = "draven_base_q_reticle_self.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Draven_Base_Q_reticle.troy"
+      Name = "draven_base_q_reticle.troy"
     }
   },
   {
@@ -42,7 +42,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Draven_Base_Q_ReticleCatchSuccess.troy"
+      Name = "draven_base_q_reticlecatchsuccess.troy"
     }
   },
   {
@@ -66,7 +66,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Draven_Base_Q_catch_indicator.troy"
+      Name = "draven_skin03_q_reticlecatchsuccess.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "draven_base_q_catch_indicator.troy"
     }
   },
   {

@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "maokaieslow"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "maokaisapling2"
     }
   },

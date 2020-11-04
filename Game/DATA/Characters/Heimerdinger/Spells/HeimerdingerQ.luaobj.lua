@@ -163,6 +163,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heimerdinger_base_q_aggro.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "heimertyellowbasicattack2"

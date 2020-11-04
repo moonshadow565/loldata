@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "sog_ceremony_beamin.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "s4spawnlockspeed"
+    }
   }
 }

@@ -3,7 +3,8 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "Vladimir_Hemoplague.dds"
 BuffName = "VladimirHemoplagueDebuff"
 SpellFXOverrideSkins = {
-  "BloodkingVladimir"
+  "BloodkingVladimir",
+  "VladimirSkin06"
 }
 PreLoadBuildingBlocks = {
   {
@@ -15,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vladhemoplague_tar.troy"
+      Name = "vladimir_base_r_debuff.troy"
     }
   },
   {
@@ -27,7 +28,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vladhemoplague_proc.troy"
+      Name = "vladimir_base_r_damageproc.troy"
     }
   }
 }

@@ -1,6 +1,7 @@
 BuffTextureName = "Vladimir_HemoplagueImmune.dds"
 SpellFXOverrideSkins = {
-  "BloodKingVladimir"
+  "BloodKingVladimir",
+  "VladimirSkin06"
 }
 SpellVOOverrideSkins = {
   "BloodkingVladimir"

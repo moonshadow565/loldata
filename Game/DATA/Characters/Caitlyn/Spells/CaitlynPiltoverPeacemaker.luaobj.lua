@@ -1,6 +1,9 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
+SpellFXOverrideSkins = {
+  "CaitlynSkin06"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

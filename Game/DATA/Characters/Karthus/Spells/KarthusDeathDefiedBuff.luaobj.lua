@@ -20,6 +20,36 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastedeada1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuswallofpain2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdefile2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusfallenone2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusdefile"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_p_explosion.troy"
@@ -29,6 +59,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "karthus_base_p_death_fade.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuslaywastea1"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthuswallofpain"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusfallenone"
     }
   }
 }

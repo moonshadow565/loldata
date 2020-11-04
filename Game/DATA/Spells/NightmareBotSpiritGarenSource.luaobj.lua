@@ -1,0 +1,38 @@
+BuffTextureName = "NightmareBotSpiritGaren.dds"
+IsDeathRecapSource = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "garen"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotspiritgarenfake"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotspiritgarenmanager"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotspiritgarensource"
+    }
+  }
+}

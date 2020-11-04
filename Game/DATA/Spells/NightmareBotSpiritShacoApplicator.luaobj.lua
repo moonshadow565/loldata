@@ -1,0 +1,21 @@
+PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nightmarebotspiritshacohallucinatepoof.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalstealthscreentint"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotspiritshacofull"
+    }
+  }
+}

@@ -10,6 +10,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "heimerdinger_base_q_aggro.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "heimerdinger_tracerbeam_allied.troy"
     }
   },

@@ -6,6 +6,12 @@ BuffName = "NullLance"
 AutoBuffActivateEffect = "Null_Lance_buf.troy"
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kassadinqcancelchannels"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "kassadin_base_q_shield.troy"
