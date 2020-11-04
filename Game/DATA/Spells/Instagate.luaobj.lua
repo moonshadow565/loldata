@@ -27,15 +27,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "GateParticle",
-      EffectIDVarTable = "InstanceVars"
-    }
-  }
-}
 BuffOnUpdateStatsBuildingBlocks = {}
 BuffOnUpdateActionsBuildingBlocks = {
   {
@@ -98,7 +89,7 @@ SelfExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -116,7 +107,7 @@ SelfExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -133,8 +124,8 @@ SelfExecuteBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -150,8 +141,8 @@ SelfExecuteBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -174,7 +165,7 @@ SelfExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -192,7 +183,7 @@ SelfExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -209,8 +200,8 @@ SelfExecuteBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -226,8 +217,8 @@ SelfExecuteBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }

@@ -91,7 +91,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
           FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -107,8 +107,25 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_afterburn.troy",
+          Flags = 0,
+          EffectIDVar = "c",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -131,7 +148,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = false,
           FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 900,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       },
@@ -147,28 +164,28 @@ OnBuffActivateBuildingBlocks = {
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 900,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "nassus_spiritFire_afterburn.troy",
+          Flags = 0,
+          EffectIDVar = "c",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 200,
           SendIfOnScreenOrDiscard = false
         }
       }
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "nassus_spiritFire_afterburn.troy",
-      Flags = 0,
-      EffectIDVar = "Particle",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -184,6 +201,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "Boom2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "c",
       EffectIDVarTable = "InstanceVars"
     }
   },

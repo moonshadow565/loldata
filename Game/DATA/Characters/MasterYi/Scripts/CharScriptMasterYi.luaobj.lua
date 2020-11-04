@@ -85,14 +85,6 @@ CharOnSpellCastBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillTakeEffect",
-          DestVarTable = "NextBuffVars",
-          SrcValue = false
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",

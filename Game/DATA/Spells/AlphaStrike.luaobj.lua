@@ -18,24 +18,11 @@ ChainMissileParameters = {
 }
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBRequireVar,
+    Function = BBSetVarInTable,
     Params = {
-      RequiredVar = "SpellName",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "WillTakeEffect",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "TargetNum",
-      RequiredVarTable = "InstanceVars"
+      DestVar = "AlphaStrikeLaunched",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
     }
   }
 }
@@ -115,28 +102,9 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 0.5,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "WillTakeEffect",
-          DestVarTable = "InstanceVars",
-          SrcValue = true
-        }
-      }
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "WillTakeEffect",
+      Src1Var = "AlphaStrikeLaunched",
       Src1VarTable = "InstanceVars",
       Value2 = true,
       CompareOp = CO_EQUAL
@@ -302,22 +270,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillDamage",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillToggleStatus",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -337,6 +289,24 @@ TargetExecuteBuildingBlocks = {
         5
       },
       TickRate = 0
+    }
+  }
+}
+BuffOnLaunchMissileBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AlphaStrikeLaunched",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }

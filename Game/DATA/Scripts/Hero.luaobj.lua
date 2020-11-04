@@ -13,7 +13,7 @@ function L0_0()
   ClearTargetPosInPos()
   SetState(AI_IDLE)
   InitTimer("TimerDistanceScan", 0.2, true)
-  InitTimer("TimerCheckAttack", 4, true)
+  InitTimer("TimerCheckAttack", 0.2, true)
   InitTimer("TimerFeared", 1, true)
   StopTimer("TimerFeared")
   return false
@@ -157,7 +157,7 @@ function L0_0()
   if GetState() == AI_SOFTATTACK or GetState() == AI_HARDATTACK or GetState() == AI_TAUNTED or GetState() == AI_CHARMED then
     if IsTargetLost() == true or GetTarget() == nil then
       if LastAutoAttackFinished() == false then
-        InitTimer("TimerCheckAttack", 0.05, true)
+        InitTimer("TimerCheckAttack", 0.1, true)
         return false
       end
       newTarget = FindTargetInAcR()
@@ -187,7 +187,7 @@ function L0_0()
   elseif IsMoving() then
     return false
   end
-  InitTimer("TimerCheckAttack", 0.05, true)
+  InitTimer("TimerCheckAttack", 0.1, true)
 end
 TimerCheckAttack = L0_0
 function L0_0()

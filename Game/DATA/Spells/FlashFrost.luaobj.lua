@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       SlotNumber = 0,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Self,
       TargetVar = "Owner"
     }
@@ -40,7 +40,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       SlotNumber = 0,
       SlotType = SpellSlots,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotBook = SPELLBOOK_CHAMPION,
       TargetType = TTYPE_Location,
       TargetVar = "Owner"
     }
@@ -82,20 +82,57 @@ OnBuffDeactivateBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+      },
+      {
+        Function = BBIf,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "MissileEndPosition",
-          EffectName = "cryo_FlashFrost_tar.troy",
-          Flags = 0,
-          EffectIDVar = "arr",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          Src1Var = "TeamID",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "MissileEndPosition",
+              EffectName = "cryo_FlashFrost_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "MissileEndPosition",
+              EffectName = "cryo_FlashFrost_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 100,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
         }
       },
       {
@@ -128,7 +165,9 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5
+              SpellDamageRatio = 0.5,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
@@ -311,7 +350,9 @@ BuffOnMissileEndBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.5
+              SpellDamageRatio = 0.5,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           },
           {
