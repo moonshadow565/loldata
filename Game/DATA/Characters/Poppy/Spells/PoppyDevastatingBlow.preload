@@ -1,3 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="poppy_devastatingblow_tar.troy"}}, 
-}

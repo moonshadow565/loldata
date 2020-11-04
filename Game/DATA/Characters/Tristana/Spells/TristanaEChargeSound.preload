@@ -3,8 +3,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="tristana_base_e_charge_buff_pulse.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="tristana_base_e_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="tristana_base_e_explosion_tar_turret.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="tristanae"}}, 
 {Function=BBPreloadParticle, Params={Name="tristana_base_e_explosion_tar_adjacent.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tristanaedamagecheck"}}, 
-{Function=BBPreloadSpell, Params={Name="tristanae"}}, 
 {Function=BBPreloadParticle, Params={Name="tristana_base_e_explosion_tar.troy"}}, 
 }

@@ -1,2 +1,0 @@
-BuffTextureName = "Poppy_HeroicCharge.dds"
-AutoBuffActivateEffect = "HeroicCharge_cas2.troy"

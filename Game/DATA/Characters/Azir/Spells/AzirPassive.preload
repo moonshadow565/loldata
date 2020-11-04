@@ -3,10 +3,11 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="azirpassiveavailable"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_p_idle.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="azirinsoldierbasicattack"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_w_indicator.troy"}}, 
 {Function=BBPreloadModule, Params={Name="Azir.AzirFunctionModule"}}, 
 {Function=BBPreloadParticle, Params={Name="item_devourer_ghost_particle.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_soldierba1_buffed_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="azirrecentsoldieraa"}}, 
 {Function=BBPreloadSpell, Params={Name="azirw"}}, 
+{Function=BBPreloadSpell, Params={Name="azirrecentsoldieraa"}}, 
 }

@@ -11,6 +11,7 @@ AutoCooldownByLevel = {
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
   "SyndraJusticar",
-  "SyndraSkin02"
+  "SyndraSkin02",
+  "SyndraSkin04"
 }
 TriggersSpellCasts = true

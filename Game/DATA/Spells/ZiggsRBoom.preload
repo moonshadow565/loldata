@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="ziggsrvoice"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_base_r_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="ziggsr"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_skin01_r_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_skin03_r_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_base_r_explosion.troy"}}, 

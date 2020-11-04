@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="diplomaticimmunity_tar.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="poppydiplomaticimmunity"}}, 
-}

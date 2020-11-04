@@ -1,5 +1,8 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="teemo_base_r_bounce_sound.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_skin04_r_mis_bounce.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_skin07_r_mis_bounce.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="teemo_skin08_r_mis_bounce.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="teemo_base_r_mis_bounce.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="noxious trap"}}, 
 {Function=BBPreloadCharacter, Params={Name="teemomushroom"}}, 
