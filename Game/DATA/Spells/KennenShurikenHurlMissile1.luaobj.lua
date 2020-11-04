@@ -1,4 +1,8 @@
-DoesntBreakShields = true
+NotSingleTargetSpell = false
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -6,10 +10,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "ProperDamage",
       SrcValueByLevel = {
         75,
-        110,
-        145,
-        180,
-        215
+        115,
+        155,
+        195,
+        235
       }
     }
   },
@@ -59,7 +63,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.6,
+          SpellDamageRatio = 0.66,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -111,7 +115,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.6,
+              SpellDamageRatio = 0.66,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -175,7 +179,7 @@ TargetExecuteBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0.6,
+                  SpellDamageRatio = 0.66,
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false

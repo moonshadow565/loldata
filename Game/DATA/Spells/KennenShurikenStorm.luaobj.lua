@@ -14,23 +14,106 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
+    Function = BBGetTeamID,
     Params = {
-      BindObjectVar = "Owner",
-      PosVar = "Owner",
-      EffectName = "kennen_ss_aoe.troy",
-      Flags = 0,
-      EffectIDVar = "forcefield",
-      EffectIDVarTable = "InstanceVars",
-      BoneName = "spine",
-      TargetObjectVar = "Owner",
-      TargetPosVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      TargetVar = "Owner",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamOfOwner",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          PosVar = "Owner",
+          EffectName = "kennen_ss_aoe_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          TargetPosVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          PosVar = "Owner",
+          EffectName = "kennen_ss_aoe_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle2",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          TargetPosVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          PosVar = "Owner",
+          EffectName = "kennen_ss_aoe_red.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          TargetPosVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          PosVar = "Owner",
+          EffectName = "kennen_ss_aoe_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "spine",
+          TargetObjectVar = "Owner",
+          TargetPosVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
     }
   }
 }
@@ -38,7 +121,14 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSpellEffectRemove,
     Params = {
-      EffectIDVar = "forcefield",
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
       EffectIDVarTable = "InstanceVars"
     }
   }
@@ -157,7 +247,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.3,
+              SpellDamageRatio = 0.33,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -209,9 +299,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "BonusDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        70,
-        130,
-        190
+        80,
+        145,
+        210
       }
     }
   },
@@ -240,7 +330,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kennen_ss_aoe.troy"
+      Name = "kennen_ss_aoe_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kennen_ss_aoe_red.troy"
     }
   },
   {
@@ -253,6 +349,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "kennenshurikenstormholder"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenshurikenstormmos"
     }
   },
   {

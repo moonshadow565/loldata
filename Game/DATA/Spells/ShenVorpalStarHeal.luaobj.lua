@@ -36,13 +36,40 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBIncHealth,
+        Function = BBGetPAROrHealth,
         Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "LifeTapMod",
-          DeltaVarTable = "InstanceVars",
-          HealerVar = "Attacker"
+          DestVar = "Temp1",
+          OwnerVar = "Target",
+          Function = GetHealthPercent,
+          PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Temp1",
+          Value2 = 1,
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "LifeTapMod",
+              DeltaVarTable = "InstanceVars",
+              HealerVar = "Attacker"
+            }
+          },
+          {
+            Function = BBApplyAssistMarker,
+            Params = {
+              Duration = 10,
+              TargetVar = "Owner",
+              SourceVar = "Attacker"
+            }
+          }
         }
       }
     }

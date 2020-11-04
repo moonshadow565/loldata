@@ -58,6 +58,14 @@ OnBuffActivateBuildingBlocks = {
       SrcValue = false,
       Status = SetCanMove
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -159,6 +167,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Pulverize",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Stun,
       MaxStack = 1,
       NumberOfStacks = 1,

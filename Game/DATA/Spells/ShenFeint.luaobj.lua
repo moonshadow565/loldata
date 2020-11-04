@@ -14,14 +14,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DamageBlock",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "willRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -53,103 +45,47 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "willRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
-    }
-  }
-}
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {
-      Src1Var = "DamageBlock",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_TURRET},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "saveDmgAmount",
-              SrcVar = "DamageAmount"
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "DamageBlock",
-              Src2VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_MAX
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "DamageBlock",
-              Src1VarTable = "InstanceVars",
-              Src2Var = "saveDmgAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageBlock",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBSpellEffectCreate,
-            Params = {
-              BindObjectVar = "Owner",
-              EffectName = "shen_Feint_block.troy",
-              Flags = 0,
-              EffectIDVar = "ar",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "willRemove",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          }
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src2Var = "DamageBlock",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_MAX
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "shen_Feint_block.troy",
+          Flags = 0,
+          EffectIDVar = "ar",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
         }
       }
     }
@@ -161,11 +97,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
-        50,
-        115,
-        180,
-        245,
-        310
+        40,
+        80,
+        120,
+        160,
+        200
       }
     }
   },
@@ -212,6 +148,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,

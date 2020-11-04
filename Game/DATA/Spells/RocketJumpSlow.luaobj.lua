@@ -34,3 +34,13 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  }
+}

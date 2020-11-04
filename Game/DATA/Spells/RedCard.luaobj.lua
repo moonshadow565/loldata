@@ -200,7 +200,8 @@ BuffOnHitUnitBuildingBlocks = {
       CenterVar = "Target",
       Range = 275,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -213,9 +214,10 @@ BuffOnHitUnitBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "Slow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
-          MaxStack = 1,
+          MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",

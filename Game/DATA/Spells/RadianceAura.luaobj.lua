@@ -14,13 +14,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "RegenIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBIf,
     Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_HERO},
     SubBlocks = {
@@ -48,29 +41,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "DamageIncrease",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
-    },
-    SubBlocks = {
-      {
-        Function = BBIncHealth,
-        Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "RegenIncrease",
-          DeltaVarTable = "InstanceVars",
-          HealerVar = "Attacker"
-        }
-      }
     }
   }
 }

@@ -30,7 +30,14 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "MovementSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = -0.5
+      SrcValue = 0,
+      SrcValueByLevel = {
+        -0.4,
+        -0.45,
+        -0.5,
+        -0.55,
+        -0.6
+      }
     }
   },
   {
@@ -70,6 +77,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Chilled",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_Slow,
       MaxStack = 100,
       NumberOfStacks = 1,

@@ -15,6 +15,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "NumOfTicks",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -23,23 +30,52 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
+    Function = BBApplyAssistMarker,
     Params = {
-      AttackerVar = "Attacker",
+      Duration = 10,
       TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.17,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TickCount",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "NumOfTicks",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "TickCount",
+      Src2VarTable = "InstanceVars",
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Owner",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.085,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -63,10 +99,10 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.5,
+      TimeBetweenExecutions = 0.25,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      ExecuteImmediately = true
     },
     SubBlocks = {
       {
@@ -80,9 +116,22 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_SPELL,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.17,
+          SpellDamageRatio = 0.085,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TickCount",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "TickCount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
         }
       }
     }
@@ -98,6 +147,34 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageAmount",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        10,
+        15,
+        19,
+        22.27,
+        25
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "NumOfTicks",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        8,
+        9,
+        10,
+        11,
+        12
+      }
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "IsStealthed",
@@ -105,20 +182,6 @@ TargetExecuteBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageAmount",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            18,
-            30,
-            41,
-            52.5,
-            63
-          }
-        }
-      },
       {
         Function = BBDestroyMissile,
         Params = {
@@ -131,17 +194,18 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Net,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {
+            2,
+            2.25,
             2.5,
             2.75,
-            3,
-            3.25,
-            3.5
+            3
           },
           TickRate = 0
         }
@@ -157,20 +221,6 @@ TargetExecuteBuildingBlocks = {
         Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DamageAmount",
-              DestVarTable = "NextBuffVars",
-              SrcValueByLevel = {
-                18,
-                30,
-                41,
-                52.5,
-                63
-              }
-            }
-          },
-          {
             Function = BBDestroyMissile,
             Params = {
               MissileIDVar = "MissileNetworkID"
@@ -182,17 +232,18 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Target",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Net,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationByLevel = {
+                2,
+                2.25,
                 2.5,
                 2.75,
-                3,
-                3.25,
-                3.5
+                3
               },
               TickRate = 0
             }
@@ -220,20 +271,6 @@ TargetExecuteBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "DamageAmount",
-                  DestVarTable = "NextBuffVars",
-                  SrcValueByLevel = {
-                    18,
-                    30,
-                    41,
-                    52.5,
-                    63
-                  }
-                }
-              },
-              {
                 Function = BBDestroyMissile,
                 Params = {
                   MissileIDVar = "MissileNetworkID"
@@ -245,17 +282,18 @@ TargetExecuteBuildingBlocks = {
                   TargetVar = "Target",
                   AttackerVar = "Attacker",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Net,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 0,
                   BuffVarsTable = "NextBuffVars",
                   DurationByLevel = {
+                    2,
+                    2.25,
                     2.5,
                     2.75,
-                    3,
-                    3.25,
-                    3.5
+                    3
                   },
                   TickRate = 0
                 }

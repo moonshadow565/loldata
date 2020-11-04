@@ -33,6 +33,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "EzrealRisingSpellForce",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
@@ -168,12 +169,21 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Target",
+          SourceVar = "Attacker"
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffName = "EzrealEssenceFlux",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -228,6 +238,7 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "EzrealEssenceFluxMissile",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,

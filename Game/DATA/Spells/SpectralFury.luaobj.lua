@@ -1,6 +1,13 @@
 BuffTextureName = "3142_Youmus_Spectral_Blade.dds"
 BuffName = "SpectralFury"
-AutoBuffActivateEffect = "Global_Haste.troy"
+AutoBuffActivateEffect = "spectral_fury_activate.troy"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = "SpectralFury_wpn_new.troy"
+AutoBuffActivateAttachBoneName2 = "R_hand"
+AutoBuffActivateEffect3 = "spectral_fury_activate_speed.troy"
+AutoBuffActivateAttachBoneName3 = "root"
+AutoBuffActivateEffect4 = "SpectralFury_wpn_new.troy"
+AutoBuffActivateAttachBoneName4 = "L_hand"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -57,6 +64,7 @@ BuffOnHitUnitBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "SpectralFury",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,

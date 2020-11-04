@@ -44,11 +44,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthToInc",
       SrcValueByLevel = {
-        100,
-        175,
-        250,
-        325,
-        400
+        125,
+        200,
+        275,
+        350,
+        425
       }
     }
   },
@@ -109,6 +109,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

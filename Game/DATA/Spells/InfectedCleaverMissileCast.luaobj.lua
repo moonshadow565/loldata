@@ -91,16 +91,18 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellCast,
     Params = {
       CasterVar = "Owner",
-      TargetVar = "Owner",
+      TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
       OverrideForceLevelVar = "Level",
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   },
   {

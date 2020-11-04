@@ -174,7 +174,8 @@ OnBuffActivateBuildingBlocks = {
       BuffNumberOfStacks = 1,
       BuffDuration = 1.1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      InclusiveBuffFilter = true
     }
   },
   {
@@ -276,13 +277,23 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBIf,
         Params = {
-          TargetVar = "Owner",
-          Delta = 0,
-          DeltaVar = "RegenIncrease",
-          DeltaVarTable = "InstanceVars",
-          HealerVar = "Attacker"
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 0,
+              DeltaVar = "RegenIncrease",
+              DeltaVarTable = "InstanceVars",
+              HealerVar = "Attacker"
+            }
+          }
         }
       },
       {
@@ -333,6 +344,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               TargetVar = "Owner",
               Delta = 0,
+              PARType = PAR_MANA,
               DeltaVar = "ManaCostNeg"
             }
           },
@@ -379,7 +391,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffNumberOfStacks = 1,
               BuffDuration = 1.1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              InclusiveBuffFilter = true
             }
           }
         }
@@ -449,7 +462,7 @@ SelfExecuteBuildingBlocks = {
         Params = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
-          SrcValue = 10
+          SrcValue = 20
         }
       },
       {
@@ -458,9 +471,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCostInc",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            5,
             10,
-            15,
-            20
+            15
           }
         }
       },
@@ -524,6 +537,7 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Radiance",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,

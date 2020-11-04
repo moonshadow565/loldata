@@ -521,15 +521,27 @@ function UpgradeMinionTimer()
 end
 function AllowDamageOnBuildings()
   for _FORV_3_ = RIGHT_LANE, LEFT_LANE do
-    orderTurret = GetTurret(TEAM_ORDER, _FORV_3_, FRONT_TOWER)
-    if orderTurret ~= nil then
-      SetInvulnerable(orderTurret, false)
-      SetTargetable(orderTurret, true)
-    end
-    chaosTurret = GetTurret(TEAM_CHAOS, _FORV_3_, FRONT_TOWER)
-    if chaosTurret ~= nil then
-      SetInvulnerable(chaosTurret, false)
-      SetTargetable(chaosTurret, true)
+    for _FORV_7_ = BACK_TOWER, HQ_TOWER1 do
+      orderTurret = GetTurret(TEAM_ORDER, _FORV_3_, _FORV_7_)
+      if orderTurret ~= nil then
+        if _FORV_7_ == FRONT_TOWER then
+          SetInvulnerable(orderTurret, false)
+          SetTargetable(orderTurret, true)
+        else
+          SetInvulnerable(orderTurret, true)
+          SetNotTargetableToTeam(orderTurret, true, TEAM_CHAOS)
+        end
+      end
+      chaosTurret = GetTurret(TEAM_CHAOS, _FORV_3_, _FORV_7_)
+      if chaosTurret ~= nil then
+        if _FORV_7_ == FRONT_TOWER then
+          SetInvulnerable(chaosTurret, false)
+          SetTargetable(chaosTurret, true)
+        else
+          SetInvulnerable(chaosTurret, true)
+          SetNotTargetableToTeam(chaosTurret, true, TEAM_ORDER)
+        end
+      end
     end
   end
 end

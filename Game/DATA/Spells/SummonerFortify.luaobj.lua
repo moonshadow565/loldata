@@ -26,6 +26,14 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "Splash",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -99,7 +107,8 @@ BuffOnHitUnitBuildingBlocks = {
           CenterVar = "Target",
           Range = 250,
           Flags = "AffectEnemies AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -121,6 +130,7 @@ BuffOnHitUnitBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_PROC,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 1,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -252,9 +262,10 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Invulnerability,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 6,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

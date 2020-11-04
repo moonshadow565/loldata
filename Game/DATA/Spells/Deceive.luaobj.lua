@@ -211,12 +211,13 @@ BuffOnPreAttackBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "DeceiveCritBonus",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 1,
+      Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 1
+      TickRate = 0
     }
   }
 }
@@ -319,6 +320,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
       NumberOfStacks = 1,

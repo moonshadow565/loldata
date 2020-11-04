@@ -221,25 +221,17 @@ OnBuffActivateBuildingBlocks = {
     Params = {TargetVar = "Owner", Value = true}
   },
   {
-    Function = BBPushCharacterData,
+    Function = BBPlayAnimation,
     Params = {
-      SkinName = "ShenShadowDash",
+      AnimationName = "Dash",
+      ScaleTime = 0,
       TargetVar = "Owner",
-      IDVar = "iD",
-      IDVarTable = "InstanceVars",
-      OverrideSpells = false
+      Loop = true,
+      Blend = false
     }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBPopCharacterData,
-    Params = {
-      TargetVar = "Owner",
-      IDVar = "iD",
-      IDVarTable = "InstanceVars"
-    }
-  },
   {
     Function = BBStartTrackingCollisions,
     Params = {TargetVar = "Owner", Value = false}
@@ -250,6 +242,10 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "SelfParticle",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner", Blend = true}
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -543,6 +539,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -702,18 +699,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_mis.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdash"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "shenshadowdash"
     }
   }
 }

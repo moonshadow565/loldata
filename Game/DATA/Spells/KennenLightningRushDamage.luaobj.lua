@@ -51,7 +51,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Params = {
               Src1Var = "APValue",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.55,
               DestVar = "APMod",
               MathOp = MO_MULTIPLY
             }

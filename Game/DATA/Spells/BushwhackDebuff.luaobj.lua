@@ -152,6 +152,14 @@ OnBuffActivateBuildingBlocks = {
       ValueVar = "TooltipDebuff",
       Index = 1
     }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {

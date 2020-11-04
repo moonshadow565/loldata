@@ -6,11 +6,11 @@ BuffName = "Silence"
 AutoBuffActivateEffect = "Global_Silence.troy"
 ChainMissileParameters = {
   MaximumHits = {
-    3,
-    5,
-    7,
-    9,
-    11
+    2,
+    4,
+    6,
+    8,
+    10
   },
   CanHitCaster = 0,
   CanHitSameTarget = 1,
@@ -24,6 +24,14 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetSilenced
+    }
+  },
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
     }
   }
 }
@@ -58,10 +66,11 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Target",
           AttackerVar = "Owner",
           BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Silence,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1.5,
+          Duration = 1.2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
         }

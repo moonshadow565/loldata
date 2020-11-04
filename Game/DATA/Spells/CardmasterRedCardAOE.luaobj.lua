@@ -37,7 +37,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 325,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -72,9 +73,10 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
-          AttackerVar = "Owner",
+          AttackerVar = "Attacker",
           BuffName = "Slow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,

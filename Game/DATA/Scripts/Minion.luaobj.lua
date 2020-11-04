@@ -141,6 +141,16 @@ function L0_0()
     end
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, L1_5)
     ResetAndStartTimer("TimerAntiKite")
+  else
+    L1_5 = AI_TAUNTED
+    if L0_4 == L1_5 then
+      L1_5 = GetTauntTarget
+      L1_5 = L1_5()
+      if L1_5 ~= nil then
+        L1_5 = SetStateAndCloseToTarget
+        L1_5(AI_TAUNTED, GetTauntTarget())
+      end
+    end
   end
   L1_5 = AI_ATTACKMOVE_ATTACKING
   if L0_4 ~= L1_5 then
