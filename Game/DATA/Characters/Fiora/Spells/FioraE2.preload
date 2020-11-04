@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="fiora_base_e_sword_glow.troy"}}, 
+}

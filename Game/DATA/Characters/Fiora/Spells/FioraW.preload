@@ -1,0 +1,12 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_telegraph_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_telegraph_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorawblockccsound"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_block_cc.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_telegraph.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorawblockhitsound"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_block_large.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_w_block_small.troy"}}, 
+}

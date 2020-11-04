@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivespeed"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_passive_speed_buf.troy"}}, 
+}

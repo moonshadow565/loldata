@@ -1,0 +1,13 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="fiorapassivespeed"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_r_hit_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_passive_hit_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_passive_triggered.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_passive_heal.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivemanager"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivedir3"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivedir4"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivedir1"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorapassivedir2"}}, 
+{Function=BBPreloadSpell, Params={Name="fiorarhitsound"}}, 
+}

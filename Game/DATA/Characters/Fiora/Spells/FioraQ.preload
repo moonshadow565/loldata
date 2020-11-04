@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="fiora_base_q_dash_trail_ground.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Fiora.FioraFunctionModule"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_q_hit_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_base_q_slash_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="fioraqattack"}}, 
+}
