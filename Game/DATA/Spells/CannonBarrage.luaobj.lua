@@ -18,12 +18,14 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 12,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -327,13 +329,15 @@ BuffOnUpdateStatsBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "CannonPosition",
           EndPosVar = "CannonPosition",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -376,6 +380,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other1",
       GoldRedirectTargetVar = "Nothing"
@@ -388,12 +393,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "CannonBarrage",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

@@ -47,6 +47,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "Destiny_marker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -57,7 +58,8 @@ SelfExecuteBuildingBlocks = {
         8,
         10
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -67,7 +69,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectEnemies AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -80,6 +83,7 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -90,7 +94,8 @@ SelfExecuteBuildingBlocks = {
             8,
             10
           },
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

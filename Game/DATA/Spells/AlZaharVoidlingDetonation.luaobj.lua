@@ -50,7 +50,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "alzaharvoidling"
+      Name = "Malzaharvoidling"
     }
   }
 }

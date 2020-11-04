@@ -129,7 +129,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "AlzaharVoidPortal_flat.troy",
+          EffectName = "AlzaharVoidPortal_flat_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
@@ -146,7 +146,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "AlzaharVoidPortal_flat.troy",
+          EffectName = "AlzaharVoidPortal_flat_green.troy",
           Flags = 0,
           EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
@@ -169,7 +169,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "AlzaharVoidPortal_flat.troy",
+          EffectName = "AlzaharVoidPortal_flat_red.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
@@ -186,7 +186,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Owner",
-          EffectName = "AlzaharVoidPortal_flat.troy",
+          EffectName = "AlzaharVoidPortal_flat_green.troy",
           Flags = 0,
           EffectIDVar = "Particle1",
           EffectIDVarTable = "InstanceVars",
@@ -604,7 +604,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "alzaharvoidportal_flat.troy"
+      Name = "alzaharvoidportal_flat_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "alzaharvoidportal_flat_green.troy"
     }
   },
   {

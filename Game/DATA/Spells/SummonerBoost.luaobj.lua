@@ -28,7 +28,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -48,7 +48,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -68,7 +68,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -88,7 +88,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -108,7 +108,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -128,7 +128,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -148,7 +148,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.5,
+              Src2Value = 0.35,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -183,7 +183,7 @@ AdjustCooldownBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src2Var = "CooldownMultiplier",
-          Src1Value = 120,
+          Src1Value = 150,
           Src2Value = 0,
           DestVar = "BaseCooldown",
           MathOp = MO_MULTIPLY
@@ -248,12 +248,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

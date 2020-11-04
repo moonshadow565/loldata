@@ -53,9 +53,9 @@ BuffOnSpellHitBuildingBlocks = {
           DamageByLevel = {
             85,
             115,
-            145,
-            175,
-            205
+            150,
+            185,
+            220
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
@@ -113,7 +113,8 @@ BuffOnSpellHitBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -142,9 +143,9 @@ BuffOnSpellHitBuildingBlocks = {
               DamageByLevel = {
                 85,
                 115,
-                145,
-                175,
-                205
+                150,
+                185,
+                220
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
@@ -202,7 +203,8 @@ BuffOnSpellHitBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -243,9 +245,9 @@ BuffOnSpellHitBuildingBlocks = {
                   DamageByLevel = {
                     85,
                     115,
-                    145,
-                    175,
-                    205
+                    150,
+                    185,
+                    220
                   },
                   Damage = 0,
                   DamageType = MAGIC_DAMAGE,
@@ -303,7 +305,8 @@ BuffOnSpellHitBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 1.5,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }

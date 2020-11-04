@@ -154,7 +154,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "AbilityPower",
       Src1Value = 0,
-      Src2Value = 0.6,
+      Src2Value = 0.9,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY
     }
@@ -184,10 +184,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageBonus",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        10,
-        20,
-        30,
-        40,
+        14,
+        23,
+        32,
+        41,
         50
       }
     }

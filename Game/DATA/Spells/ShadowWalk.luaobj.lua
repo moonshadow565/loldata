@@ -47,23 +47,6 @@ OnBuffActivateBuildingBlocks = {
       Cost = -60,
       PARType = PAR_MANA
     }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "ShadowWalkSpeed",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -145,31 +128,6 @@ OnBuffDeactivateBuildingBlocks = {
       Cost = 0,
       PARType = PAR_MANA
     }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ShadowWalkSpeed"
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "ShadowWalkSpeed",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -234,14 +192,12 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "WasStealthed",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
@@ -278,14 +234,12 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "WasStealthed",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
@@ -373,22 +327,24 @@ BuffOnPreAttackBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "WasStealthed",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "WillRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
     }
   }
 }
 TargetExecuteBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
   {
     Function = BBGetStatus,
     Params = {
@@ -439,9 +395,8 @@ TargetExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "TeamID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false
         }
       },
       {
@@ -488,11 +443,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "StealthDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            20,
+            30,
             40,
-            40,
-            40,
-            40,
-            40
+            50,
+            60
           }
         }
       },
@@ -511,26 +466,24 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "ShadowWalk_internal",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
   }
 }
-PreLoadBuildingBlocks = {
+BuffOnLaunchAttackBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shadowwalkspeed"
-    }
-  },
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
+PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {

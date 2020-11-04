@@ -6,7 +6,7 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBGetChampionBySkinName,
     Params = {
-      Skin = "AlZahar",
+      Skin = "Malzahar",
       Team = TEAM_UNKNOWN,
       TeamVar = "teamID",
       DestVar = "Attacker"
@@ -36,6 +36,6 @@ TargetExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "alzahar"}
+    Params = {Name = "Malzahar"}
   }
 }

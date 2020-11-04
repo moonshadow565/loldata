@@ -4,7 +4,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMagicPenetrationMod,
       TargetVar = "Owner",
-      Delta = 0.09
+      Delta = 0.15
     }
   }
 }

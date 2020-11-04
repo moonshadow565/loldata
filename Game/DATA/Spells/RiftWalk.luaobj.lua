@@ -14,7 +14,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 3,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -126,7 +127,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 270,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -144,6 +146,7 @@ SelfExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -167,7 +170,8 @@ SelfExecuteBuildingBlocks = {
       SpellSlot = 3,
       SlotType = SpellSlots,
       Cost = 0,
-      CostVar = "ExtraCost"
+      CostVar = "ExtraCost",
+      PARType = PAR_MANA
     }
   },
   {
@@ -177,18 +181,21 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "RiftWalk",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 10,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Owner",
+      BindObjectVar = "Nothing",
+      PosVar = "CastPos",
       EffectName = "Riftwalk_flash.troy",
       Flags = 0,
       EffectIDVar = "ar1",

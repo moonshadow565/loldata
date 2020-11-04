@@ -2,9 +2,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentMagicPenetrationMod,
+      Stat = IncFlatMagicPenetrationMod,
       TargetVar = "Owner",
-      Delta = 0.15
+      Delta = 20
     }
   }
 }

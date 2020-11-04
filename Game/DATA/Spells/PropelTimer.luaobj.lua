@@ -1,4 +1,4 @@
-NonDispellable = True
+NonDispellable = true
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBForEachUnitInTargetAreaRandom,
@@ -8,7 +8,8 @@ OnBuffDeactivateBuildingBlocks = {
       Range = 1000,
       Flags = "AffectEnemies AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -38,6 +39,7 @@ OnBuffDeactivateBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = false,
+          Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other1",
           GoldRedirectTargetVar = "Nothing"
@@ -50,12 +52,14 @@ OnBuffDeactivateBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "PropelSpellCaster",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 2.1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -85,7 +89,8 @@ OnBuffDeactivateBuildingBlocks = {
       Range = 800,
       Flags = "AffectEnemies AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 1,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -99,12 +104,14 @@ OnBuffDeactivateBuildingBlocks = {
           TargetVar = "Unit",
           PosVar = "Owner",
           EndPosVar = "Owner",
+          OverrideCastPosition = false,
           SlotNumber = 3,
           SlotType = SpellSlots,
           OverrideForceLevel = 1,
           OverrideCoolDownCheck = false,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }

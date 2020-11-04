@@ -49,6 +49,7 @@ BuffOnMissileEndBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = true,
           IgnoreCollision = true,
+          Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other1",
           GoldRedirectTargetVar = "Owner"
@@ -61,12 +62,14 @@ BuffOnMissileEndBuildingBlocks = {
           AttackerVar = "Other1",
           BuffName = "GragasBarrelRollBoom",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -76,12 +79,14 @@ BuffOnMissileEndBuildingBlocks = {
           AttackerVar = "Other1",
           BuffName = "GragasBarrelRollRender",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 20,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -121,12 +126,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "GragasBarrelRoll",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

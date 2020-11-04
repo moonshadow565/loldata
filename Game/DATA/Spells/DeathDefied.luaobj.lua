@@ -35,6 +35,7 @@ BuffOnDeathBuildingBlocks = {
           Invulnerable = true,
           MagicImmune = false,
           IgnoreCollision = true,
+          Placemarker = true,
           VisibilitySize = 0,
           DestVar = "Other1",
           GoldRedirectTargetVar = "Owner"
@@ -99,7 +100,8 @@ BuffOnDeathBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 8,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -115,7 +117,8 @@ BuffOnDeathBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 8,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -131,7 +134,8 @@ BuffOnDeathBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

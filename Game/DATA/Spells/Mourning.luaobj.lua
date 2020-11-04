@@ -40,9 +40,10 @@ TargetExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "DisintegrateHit_tar.troy",
+      EffectName = "executionersCalling_cas.troy",
       Flags = 0,
       EffectIDVar = "part1",
+      BoneName = "root",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -56,9 +57,10 @@ TargetExecuteBuildingBlocks = {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Target",
-      EffectName = "DisintegrateHit_tar.troy",
+      EffectName = "executionersCalling_tar.troy",
       Flags = 0,
       EffectIDVar = "part1",
+      BoneName = "head",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
@@ -79,7 +81,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -96,7 +98,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -179,7 +181,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -199,7 +201,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -219,7 +221,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -239,7 +241,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -259,7 +261,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -279,7 +281,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 20,
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -293,7 +295,17 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "disintegratehit_tar.troy"
+      Name = "executionerscalling_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "executionerscalling_tar.troy"
     }
   },
   {

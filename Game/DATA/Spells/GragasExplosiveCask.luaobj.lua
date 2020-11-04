@@ -57,6 +57,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = true,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other2",
       GoldRedirectTargetVar = "Attacker"
@@ -69,6 +70,7 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other2",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
+      OverrideCastPosition = false,
       SlotNumber = 1,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -86,12 +88,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

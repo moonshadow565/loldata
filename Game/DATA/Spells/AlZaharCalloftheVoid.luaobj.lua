@@ -120,7 +120,7 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_CHAOS,
       FOWVisibilityRadius = 200,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -137,7 +137,7 @@ OnBuffActivateBuildingBlocks = {
       UseSpecificUnit = true,
       FOWTeam = TEAM_ORDER,
       FOWVisibilityRadius = 200,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -154,7 +154,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "voidportal_red.troy",
           Flags = 0,
-          EffectIDVar = "Particle",
+          EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
@@ -162,7 +162,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -171,7 +171,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "voidportal_green.troy",
           Flags = 0,
-          EffectIDVar = "Particle1",
+          EffectIDVar = "Particle3",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
@@ -179,7 +179,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -194,7 +194,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "voidportal_red.troy",
           Flags = 0,
-          EffectIDVar = "Particle",
+          EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
@@ -202,7 +202,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -211,7 +211,7 @@ OnBuffActivateBuildingBlocks = {
           BindObjectVar = "Owner",
           EffectName = "voidportal_green.troy",
           Flags = 0,
-          EffectIDVar = "Particle1",
+          EffectIDVar = "Particle3",
           EffectIDVarTable = "InstanceVars",
           TargetObjectVar = "Target",
           SpecificUnitOnlyVar = "Nothing",
@@ -219,7 +219,7 @@ OnBuffActivateBuildingBlocks = {
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
           FOWVisibilityRadius = 200,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = true
         }
       }
     }
@@ -247,6 +247,20 @@ OnBuffDeactivateBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle3",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }

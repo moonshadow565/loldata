@@ -69,7 +69,7 @@ BuffOnDeathBuildingBlocks = {
   {
     Function = BBGetChampionBySkinName,
     Params = {
-      Skin = "AlZahar",
+      Skin = "Malzahar",
       Team = TEAM_UNKNOWN,
       TeamVar = "teamID",
       TeamVarTable = "InstanceVars",
@@ -93,10 +93,10 @@ BuffOnDeathBuildingBlocks = {
       DestVar = "ManaRestore",
       SrcValueByLevel = {
         10,
-        15,
-        20,
-        25,
-        30
+        14,
+        18,
+        22,
+        26
       }
     }
   },
@@ -190,7 +190,7 @@ TargetExecuteBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
-    Params = {Name = "alzahar"}
+    Params = {Name = "malzahar"}
   },
   {
     Function = BBPreloadSpell,

@@ -42,14 +42,16 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "MegaAdhesiveApplicator",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       DurationVarTable = "InstanceVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -77,6 +79,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = false,
       MagicImmune = true,
       IgnoreCollision = false,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other2",
       GoldRedirectTargetVar = "Nothing"
@@ -116,12 +119,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other2",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.25,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -131,14 +136,16 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "ExpirationTimer",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       DurationVarTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

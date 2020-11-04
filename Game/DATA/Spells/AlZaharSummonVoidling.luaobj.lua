@@ -28,7 +28,7 @@ BuffOnSpellCastBuildingBlocks = {
         Function = BBSpawnMinion,
         Params = {
           Name = "Voidling",
-          Skin = "AlZaharVoidling",
+          Skin = "MalzaharVoidling",
           AiScript = "UncontrollablePet.lua",
           PosVar = "CastPos",
           Team = TEAM_CASTER,
@@ -140,13 +140,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "alzaharvoidling"
+      Name = "Malzaharvoidling"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "MalzaharVoidlingBasicAttack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "MalzaharVoidlingBasicAttack2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "MalzaharVoidlingBasicAttack3"
     }
   },
   {

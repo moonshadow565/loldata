@@ -249,11 +249,19 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "TargetPos"}
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
-      Damage = 200,
+      Damage = 150,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
@@ -281,7 +289,7 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Slow,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2,
+      Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

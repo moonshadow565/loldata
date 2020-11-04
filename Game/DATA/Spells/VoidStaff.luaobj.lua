@@ -4,7 +4,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMagicPenetrationMod,
       TargetVar = "Owner",
-      Delta = 0.27
+      Delta = 0.4
     }
   }
 }

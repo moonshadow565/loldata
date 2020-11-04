@@ -21,6 +21,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "willRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -29,16 +37,11 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMove,
+    Function = BBIncPermanentStat,
     Params = {
-      UnitVar = "Owner",
-      TargetVar = "TargetPos",
-      Speed = 2150,
-      Gravity = 0,
-      MoveBackBy = 0,
-      MovementType = FURTHEST_WITHIN_RANGE,
-      MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 3000
+      Stat = IncPermanentPercentBubbleRadiusMod,
+      TargetVar = "Owner",
+      Delta = -0.9
     }
   }
 }
@@ -49,6 +52,40 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetInvulnerable
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "bowmaster_frostHawk_terminate.troy",
+      Flags = 0,
+      EffectIDVar = "part22",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Nothing",
+      PosVar = "Owner",
+      EffectName = "bowmaster_frostHawk_terminate_02.troy",
+      Flags = 0,
+      EffectIDVar = "part23",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
     }
   },
   {
@@ -76,7 +113,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpawnMinion,
     Params = {
       Name = "TestCubeRender",
-      Skin = "TestCubeRender",
+      Skin = "CryoHawk",
       AiScript = "idle.lua",
       PosVar = "Owner",
       Team = TEAM_UNKNOWN,
@@ -138,19 +175,91 @@ SelfExecuteBuildingBlocks = {
       UseAutoAttackSpell = false,
       ForceCastingOrChannelling = false
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "dist",
+      SrcValueByLevel = {
+        2500,
+        3250,
+        4000,
+        4750,
+        5500
+      }
+    }
+  },
+  {
+    Function = BBMove,
+    Params = {
+      UnitVar = "Other1",
+      TargetVar = "TargetPos",
+      Speed = 1350,
+      Gravity = 0,
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0,
+      IdealDistanceVar = "dist"
+    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetNoRender
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "willRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "willRemove",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bowmaster_frosthawk_terminate.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bowmaster_frosthawk_terminate_02.troy"
+    }
+  },
   {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
     }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "cryohawk"}
   }
 }

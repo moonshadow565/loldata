@@ -14,21 +14,38 @@ BuffOnMissileEndBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetTeamID,
-        Params = {TargetVar = "Owner", DestVar = "teamID"}
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "MissileEndPosition"
+        }
       },
       {
-        Function = BBAddPosPerceptionBubble,
+        Function = BBSpellBuffAdd,
         Params = {
-          TeamVar = "teamID",
-          Radius = 1150,
-          PosVar = "MissileEndPosition",
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "AsheSpiritOfTheHawkBubble",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
           Duration = 5,
-          SpecificUnitsClientOnlyVar = "Nothing",
-          RevealSteath = false,
-          BubbleIDVar = "BubbleID"
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "ashespiritofthehawkbubble"
     }
   }
 }

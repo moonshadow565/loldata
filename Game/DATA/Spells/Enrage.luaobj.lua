@@ -92,12 +92,14 @@ BuffOnKillBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "EnrageMaxHP",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -129,6 +131,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           DestVar = "BonusDamage",
           DestVarTable = "NextBuffVars",
+          SrcValue = 0,
           SrcValueByLevel = {
             25,
             35,
@@ -139,18 +142,28 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BonusDamageIncrement",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 10
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Attacker",
           BuffName = "Enrage",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 20000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -223,6 +236,42 @@ BuffOnLaunchAttackBuildingBlocks = {
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
+BuffOnLevelUpSpellBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Slot",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIncPermanentStat,
+        Params = {
+          Stat = IncPermanentFlatPhysicalDamageMod,
+          TargetVar = "Owner",
+          DeltaVar = "BonusDamageIncrement",
+          DeltaVarTable = "InstanceVars",
+          Delta = 0
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BonusDamage",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "BonusDamageIncrement",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BonusDamage",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
       }
     }
   }

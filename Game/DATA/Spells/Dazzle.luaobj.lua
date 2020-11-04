@@ -71,7 +71,7 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "StunLength", SrcValue = 0.5}
+    Params = {DestVar = "StunLength", SrcValue = 1}
   },
   {
     Function = BBIf,
@@ -86,9 +86,19 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "Distance",
           Src1Value = 0,
-          Src2Value = 160,
+          Src2Value = 650,
           DestVar = "StunMult",
           MathOp = MO_DIVIDE
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "StunMult",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "StunMult",
+          MathOp = MO_ADD
         }
       },
       {
@@ -107,9 +117,9 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "StunLength",
           Src1Value = 0,
-          Src2Value = 2,
+          Src2Value = 1,
           DestVar = "StunLength",
-          MathOp = MO_MIN
+          MathOp = MO_MAX
         }
       },
       {

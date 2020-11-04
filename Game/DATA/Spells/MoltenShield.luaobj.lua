@@ -17,24 +17,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "ArmorAmount",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetSilenced
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetSilenced
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -178,10 +160,10 @@ TargetExecuteBuildingBlocks = {
           BuffName = "Pyromania",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           StacksExclusive = true,
-          BuffType = BUFF_Internal,
+          BuffType = BUFF_CombatEnchancer,
           MaxStack = 5,
           NumberOfStacks = 1,
-          Duration = 3600,
+          Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false

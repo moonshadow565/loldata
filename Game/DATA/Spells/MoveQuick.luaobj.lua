@@ -37,7 +37,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Src1Var = "Multiplier",
       Src1Value = 0,
-      Src2Value = 6,
+      Src2Value = 8,
       DestVar = "NewCooldown",
       MathOp = MO_MULTIPLY
     }
@@ -81,7 +81,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Src1Var = "MoveSpeedPerLevel",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.1,
       DestVar = "MoveSpeedBonus",
       MathOp = MO_ADD
     }

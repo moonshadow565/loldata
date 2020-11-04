@@ -9,13 +9,13 @@ UpdateSelfBuffStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentArmorPenetrationMod,
+      Stat = IncFlatArmorPenetrationMod,
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        0.01,
-        0.02,
-        0.03
+        2,
+        4,
+        6
       }
     }
   }

@@ -62,11 +62,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "GoldGain",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        3,
-        5,
+        4,
         7,
-        9,
-        11
+        10,
+        13,
+        16
       }
     }
   },
@@ -76,12 +76,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

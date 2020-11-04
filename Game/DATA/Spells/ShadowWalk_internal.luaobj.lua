@@ -86,16 +86,14 @@ OnBuffDeactivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ShadowWalk",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_Invisibility,
       MaxStack = 1,
-      NumberOfStacks = 1,
+      NumberStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "StealthDuration",
       DurationVarTable = "InstanceVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   },
   {
@@ -153,7 +151,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           FadeAmount = 0.2,
-          fadeTime = 1,
+          fadeTime = 1.5,
           IDVar = "ID"
         }
       }

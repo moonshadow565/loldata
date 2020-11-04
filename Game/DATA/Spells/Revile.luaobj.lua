@@ -138,7 +138,8 @@ OnBuffActivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0.25
+          TickRate = 0.25,
+          CanMitigateDuration = false
         }
       }
     }
@@ -154,12 +155,16 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          PosVarTable = "InstanceVars",
           EffectName = "permission_desecrate_red_cas.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
@@ -171,12 +176,16 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          PosVarTable = "InstanceVars",
           EffectName = "permission_desecrate_green_cas.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
@@ -194,12 +203,16 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          PosVarTable = "InstanceVars",
           EffectName = "permission_desecrate_red_cas.troy",
           Flags = 0,
           EffectIDVar = "Particle",
           EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
@@ -211,12 +224,16 @@ OnBuffActivateBuildingBlocks = {
       {
         Function = BBSpellEffectCreate,
         Params = {
-          BindObjectVar = "Owner",
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          PosVarTable = "InstanceVars",
           EffectName = "permission_desecrate_green_cas.troy",
           Flags = 0,
           EffectIDVar = "Particle2",
           EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Target",
+          TargetObjectVar = "Nothing",
+          TargetPosVar = "TargetPos",
+          TargetPosVarTable = "InstanceVars",
           SpecificUnitOnlyVar = "Nothing",
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
@@ -345,7 +362,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   Duration = 0,
                   BuffVarsTable = "NextBuffVars",
                   DurationVar = "Duration",
-                  TickRate = 0.25
+                  TickRate = 0.25,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -390,6 +408,7 @@ SelfExecuteBuildingBlocks = {
       Invulnerable = true,
       MagicImmune = true,
       IgnoreCollision = false,
+      Placemarker = true,
       VisibilitySize = 0,
       DestVar = "Other3",
       GoldRedirectTargetVar = "Owner"
@@ -421,7 +440,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      TickRate = 0.1,
+      CanMitigateDuration = false
     }
   }
 }

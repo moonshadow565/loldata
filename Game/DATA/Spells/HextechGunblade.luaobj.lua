@@ -26,33 +26,6 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetSpell,
-    Params = {
-      SlotNumber = 7,
-      SlotType = ExtraSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      SpellName = "HextechGunbladeSpell",
-      TargetVar = "Owner"
-    }
-  },
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Target",
-      PosVar = "Target",
-      EndPosVar = "Target",
-      OverrideCastPosition = false,
-      SlotNumber = 7,
-      SlotType = ExtraSlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
-    }
-  },
-  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "name",
@@ -236,6 +209,41 @@ TargetExecuteBuildingBlocks = {
           OwnerVar = "Owner"
         }
       }
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 7,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "HextechGunbladeSpell",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Target", PositionVar = "TargetPos"}
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Target",
+      PosVar = "Target",
+      EndPosVar = "Target",
+      OverrideCastPosition = false,
+      SlotNumber = 7,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }
