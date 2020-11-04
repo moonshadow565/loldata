@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="shyvana_base_r_firewall.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="shyvanarburn"}}, 
-}
