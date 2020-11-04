@@ -21,6 +21,7 @@ function OnInit(_ARG_0_)
   Event("ComponentInit")
   SetState(AI_ATTACK)
   SetCharVar("WillBeFrustrated", 0)
+  SetCharVar("StartBoostRegen", 0)
   SetCharVar("inStasis", 0)
   OutOfCombatRegen:Start()
   SetMyLeashedPos()
@@ -48,10 +49,6 @@ function LeashedCallForHelp(_ARG_0_, _ARG_1_)
   end
   RespondToAggression(_ARG_1_)
   if GetState() == AI_RETREAT and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
-    if GetHP() / GetMaxHP() < 0.9 then
-      OutOfCombatRegen:Start()
-      return
-    end
     if WalkDistanceBetweenObjectCenterAndPoint(_ARG_1_, (GetCampLeashPos())) <= GetCampLeashRadius() then
       AttackTarget(_ARG_1_)
     elseif GetWalkDistToLeashedPos() <= INNER_RANGE_BEFORE_CAMP_RELEASES and WalkDistanceBetweenObjectCenterAndPoint(_ARG_1_, (GetCampLeashPos())) <= ATTACKER_RANGE_BEFORE_RELEASH then
@@ -62,10 +59,10 @@ end
 function OnTargetLost(_ARG_0_, _ARG_1_)
   TurnOffAutoAttack(STOPREASON_MOVING)
   if GetState() == AI_HALTED or GetState() == AI_RETREAT then
-    return
+    return true
   end
   if GetCharVar("inStasis") > 1 then
-    return
+    return false
   end
   if GetOwner(_ARG_1_) == nil then
   end
@@ -74,19 +71,23 @@ function OnTargetLost(_ARG_0_, _ARG_1_)
   else
     FindNewTarget()
   end
+  return true
 end
 function TimerRetreat()
-  SetTimerDelay("TimerFrustrationSearch", DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME)
-  StartTimer("TimerFrustrationSearch")
-  FindNewTarget()
+  if GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
+    SetTimerDelay("TimerFrustrationSearch", DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME)
+    ResetAndStartTimer("TimerFrustrationSearch")
+  end
 end
 function AttackTarget(_ARG_0_)
   if GetLeashCounter() > 0 then
     SetTimerDelay("TimerFrustrationSearch", DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME)
     StartTimer("TimerFrustrationSearch")
+    StartTimer("TimerAttack")
   else
     SetTimerDelay("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME)
     ResetAndStartTimer("TimerFrustrationSearch")
+    StartTimer("TimerAttack")
   end
   SetGhosted(false)
   if _ARG_0_ ~= nil then
@@ -111,6 +112,7 @@ function IncreaseFrustration(_ARG_0_)
   if GetLeashCounter() + _ARG_0_ > LEASH_COUNTER_THRESHOLD then
     AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustration", 1, LEASH_COUNTER_THRESHOLD + 1, 25000)
     AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
+    SetCharVar("StartBoostRegen", 1)
     Retreat()
   else
     SetTimerDelay("TimerFrustrationSearch", DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME)
@@ -137,11 +139,10 @@ function FindNearestAggressor(_ARG_0_, _ARG_1_)
   end
 end
 function OnTakeDamage(_ARG_0_)
-  PrintToChat("-- OnTakeDamage -- aiState" .. GetState())
 end
 function RespondToAggression(_ARG_0_)
   if GetRoamState() == INACTIVE and GetState() ~= AI_RETREAT and GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
-    if GetHP() / GetMaxHP() > 0.9 and IsValidEnemy(_ARG_0_) or GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
+    if IsValidEnemy(_ARG_0_) or GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
       AttackTarget(_ARG_0_)
     else
       OutOfCombatRegen:Start()
@@ -153,11 +154,11 @@ function RespondToAggression(_ARG_0_)
       if DistanceBetweenObjectCenterAndPoint(target, (GetMyPos())) > DistanceBetweenObjectCenterAndPoint(_ARG_0_, (GetMyPos())) + CURRENT_TARGET_TO_ATTACKER_SWITCH_RANGE then
         if TargetWithinWalkBounds(_ARG_0_, GetCampLeashRadius() * 1.25) then
           AttackTarget(_ARG_0_)
-          SetCharVar("WillBeFrustrated", 1.01)
+          SetCharVar("WillBeFrustrated", 2)
         end
       elseif not TargetWithinWalkBounds(target, GetCampLeashRadius() * 1.25) then
         AttackTarget(_ARG_0_)
-        SetCharVar("WillBeFrustrated", 1.01)
+        SetCharVar("WillBeFrustrated", 2)
       end
     elseif target ~= nil and GetState() == AI_ATTACK and IsValidEnemy(_ARG_0_) then
       AttackTarget(_ARG_0_)
@@ -190,17 +191,15 @@ function TimerReturningHome()
     return
   end
   if GetState() == AI_RETREAT and IsMovementStopped() == true and GetDistToRetreat() < 25 then
-    if GetHP() / GetMaxHP() > 0.9 then
-      StopTimer("TimerReturningHome")
-      SetLeashOrientation()
-      AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
-      SetLeashCounter(0)
-      AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 25000)
-      SetGhosted(false)
-      SetState(AI_ATTACK)
-      SetRoamState(GetOriginalState())
-      SetTimerDelay("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME)
-    end
+    StopTimer("TimerReturningHome")
+    SetLeashOrientation()
+    AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
+    SetLeashCounter(0)
+    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 25000)
+    SetGhosted(false)
+    SetState(AI_ATTACK)
+    SetRoamState(GetOriginalState())
+    SetTimerDelay("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME)
   elseif GetDistToRetreat() >= 25 then
     SetStateAndMoveToLeashedPos(AI_RETREAT)
   end
@@ -228,9 +227,6 @@ function TimerAttack()
       end
     elseif GetState() == AI_ATTACK then
       FindNewTarget()
-      if GetTarget() == nil then
-        SetCharVar("WillBeFrustrated", 1.01)
-      end
     end
   end
 end
@@ -263,7 +259,7 @@ end
 function StartLeashing()
   if GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
     ResetAndStartTimer("TimerFrustrationSearch")
-    ResetAndStartTimer("TimerAttack")
+    StartTimer("TimerAttack")
   end
 end
 function TurnOffRegeneration()

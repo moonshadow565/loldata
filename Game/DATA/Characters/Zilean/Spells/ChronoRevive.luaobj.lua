@@ -1,5 +1,5 @@
 BuffTextureName = "Zilean_R.dds"
-BuffName = "Chrono Shift"
+BuffName = "ChronoRevive"
 PersistsThroughDeath = true
 NonDispellable = true
 SpellFXOverrideSkins = {

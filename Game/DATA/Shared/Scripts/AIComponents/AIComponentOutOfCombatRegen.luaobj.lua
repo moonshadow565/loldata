@@ -1,9 +1,11 @@
 local L0, L1, L2
 L0 = REGEN_PERCENT_PER_SECOND
 if L0 == nil then
-  L0 = 0.05
+  L0 = 0.035
   REGEN_PERCENT_PER_SECOND = L0
 end
+L0 = 0.25
+INITIAL_REGEN_BOOST = L0
 L0 = {}
 L0.TimerCallbackName = "TimerRegen"
 OutOfCombatRegen = L0
@@ -39,24 +41,37 @@ function L1(A0)
 end
 L0.ComponentHalt = L1
 function L0()
-  local L0, L1, L2, L3, L4, L5, L6
+  local L0, L1, L2, L3, L4, L5, L6, L7
   L0 = GetState
   L0 = L0()
   L1 = AI_HALTED
   if L0 == L1 then
     return
   end
-  L1 = GetMaxHP
-  L1 = L1()
-  L2 = REGEN_PERCENT_PER_SECOND
-  L2 = L1 * L2
-  L3 = GetHP
-  L3 = L3()
-  if 0 < L3 then
-    L4 = L3 + L2
-    L5 = SetHP
-    L6 = L4
-    L5(L6)
+  L1 = GetCharVar
+  L2 = "StartBoostRegen"
+  L1 = L1(L2)
+  L2 = GetMaxHP
+  L2 = L2()
+  L3 = REGEN_PERCENT_PER_SECOND
+  L3 = L2 * L3
+  if 0 < L1 then
+    L4 = L1 * 3
+    L4 = 1 + L4
+    L3 = L3 * L4
+    L1 = L1 - 0.2
+    L4 = SetCharVar
+    L5 = "StartBoostRegen"
+    L6 = L1
+    L4(L5, L6)
+  end
+  L4 = GetHP
+  L4 = L4()
+  if 0 < L4 then
+    L5 = L4 + L3
+    L6 = SetHP
+    L7 = L5
+    L6(L7)
   end
 end
 TimerRegen = L0

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="pantheon_base_e_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="pantheonehitsound"}}, 
 }

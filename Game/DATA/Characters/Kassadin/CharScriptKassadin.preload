@@ -1,8 +1,8 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="forcepulse"}}, 
-{Function=BBPreloadParticle, Params={Name="kassadin_base_idle_blade.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="kassadin_skin05_idle_body.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="voidstone"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_base_idle_blade.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kassadin_skin05_idle_body.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="netherbladebuff"}}, 
 }
