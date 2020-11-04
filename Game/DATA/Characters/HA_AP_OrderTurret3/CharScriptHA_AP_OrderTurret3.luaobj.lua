@@ -34,17 +34,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "turretglowparticle"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "howlingabyssturretanimdelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "testturretlock"
-    }
   }
 }
