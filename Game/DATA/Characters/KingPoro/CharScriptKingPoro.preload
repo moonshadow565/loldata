@@ -4,6 +4,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="kingporoplayerbuffmarker"}}, 
 {Function=BBPreloadParticle, Params={Name="kingporo_enemycolor.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadCharacter, Params={Name="kingporo"}}, 
+{Function=BBPreloadParticle, Params={Name="kingporo_friendlycolor.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="resistantskinvilemaw"}}, 
 {Function=BBPreloadParticle, Params={Name="poro_throw_explosion.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kingporo_death_sound.troy"}}, 

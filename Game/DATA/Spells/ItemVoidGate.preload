@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="voidgate"}}, 
 {Function=BBPreloadSpell, Params={Name="itemvoidgategate"}}, 
 }

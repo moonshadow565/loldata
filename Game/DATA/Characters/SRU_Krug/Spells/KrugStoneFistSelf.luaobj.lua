@@ -1,9 +1,0 @@
-BuffTextureName = "AncientKrug_Square.dds"
-BuffName = "KrugStoneFist"
-AutoBuffActivateEffect = "SRU_JungleBuff_Krug_Buff.troy"
-AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
-AutoBuffActivateEffect2 = "SRU_JungleBuff_Krug_Buff.troy"
-AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
-SpellDamageRatio = 1
-PersistsThroughDeath = true
-NonDispellable = true
