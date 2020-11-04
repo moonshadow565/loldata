@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "odin_relic_buf_green.troy"
+      Name = "asc_relic_sand_buf.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "odin_prism_green.troy"
+      Name = "asc_relicprism_sand.troy"
     }
   },
   {

@@ -49,6 +49,16 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadParticle,
+    Params = {Name = "empty.troy"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "azir_skin01_p_tower_enemy.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
     Params = {
       Name = "azir_base_p_sundisc_channelcomplete.troy"
     }
