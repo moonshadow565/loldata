@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "2041_Crystalline_Flask.dds"
 BuffName = "ItemCrystalFlask"
-AutoBuffActivateEffect = "env_manaheal.troy"
+AutoBuffActivateEffect = "potion_manaheal.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
