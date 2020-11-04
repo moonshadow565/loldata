@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="azirsoldierstabready"}}, 
-{Function=BBPreloadParticle, Params={Name="azir_base_w_soldierglowidle.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_soldiercape.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_soldiercape_enemy.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="azir_base_w_sandbib.troy"}}, 
