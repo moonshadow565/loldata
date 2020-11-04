@@ -2,7 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "globallifesteal_buf.troy"
+      Name = "nasus_base_p_lifesteal.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalruncyclemanager"
     }
   },
   {
@@ -13,12 +19,20 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "souleater"}
+    Params = {
+      Name = "nasuspassive"
+    }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globalruncyclemanager"
+      Name = "nasusskin5sfx"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nasustauntrenekton"
     }
   }
 }

@@ -6,6 +6,7 @@ IsDamagingSpell = true
 BuffTextureName = "GragasBarrelRoll.dds"
 BuffName = "GragasBarrelRoll"
 SpellToggleSlot = 1
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

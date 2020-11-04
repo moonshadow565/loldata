@@ -35,7 +35,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_w_tar.troy"
+      Name = "Zed_Base_W_Tar.troy"
     }
   }
 }
