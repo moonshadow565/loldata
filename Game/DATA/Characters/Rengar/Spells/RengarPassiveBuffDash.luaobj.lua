@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarpassivebuffdashaadummy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "rageblade"}
   },
   {

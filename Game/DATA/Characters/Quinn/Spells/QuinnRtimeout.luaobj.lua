@@ -14,5 +14,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "quinnrtimeoutsupp"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemtiamatlock"
+    }
   }
 }

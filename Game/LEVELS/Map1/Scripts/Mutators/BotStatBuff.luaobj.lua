@@ -1,4 +1,4 @@
 function BotStatBuffOnInit()
   PreloadSpell("NightmareBotStatBuffManager")
-  ApplyPersistentBuffToAllChampions("NightmareBotStatBuffManager", true)
+  ApplyPersistentBuffToAllChampions("NightmareBotStatBuffManager", false)
 end

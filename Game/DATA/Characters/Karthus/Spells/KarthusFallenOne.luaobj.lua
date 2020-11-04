@@ -1,0 +1,48 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+ChannelDuration = 3
+AutoCooldownByLevel = {
+  180,
+  150,
+  120
+}
+PersistsThroughDeath = true
+NonDispellable = true
+SpellVOOverrideSkins = {
+  "KarthusSkin04"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusfallenonetarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusfallenonecastsound"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karthusfallenonedamagesound"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karthus_base_r_explosion.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "Karthus_Base_R_Target.troy"
+    }
+  }
+}

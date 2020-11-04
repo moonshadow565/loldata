@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "shenstandunitedlock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "shenstandunitedshield"
     }
   },

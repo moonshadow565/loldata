@@ -4,12 +4,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "dianarecalloverride"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "dianacombatbuff"
     }
   },

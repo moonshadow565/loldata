@@ -7,5 +7,7 @@ SpellFXOverrideSkins = {
   "ReefMalphite",
   "NautilusAstronaut",
   "PhoenixQuinn",
-  "QuinnValor_Phoenix"
+  "QuinnValor_Phoenix",
+  "QuinnSkin02",
+  "QuinnValorSkin02"
 }

@@ -44,12 +44,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dariusegrabsound"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_base_e_axegrab_collision.troy"

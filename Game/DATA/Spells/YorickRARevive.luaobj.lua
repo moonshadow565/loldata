@@ -8,6 +8,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yorickrapetid"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yorickrapetbuff2"
     }
   },
