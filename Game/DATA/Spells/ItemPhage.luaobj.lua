@@ -4,6 +4,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "itemphageminispeed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "itemphagespeed"
     }
   }
