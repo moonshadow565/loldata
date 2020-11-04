@@ -34,29 +34,6 @@ AdjustCooldownBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
-    Params = {
-      Src1Var = "HealCooldownBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 0,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BaseCooldown",
-          Src2Var = "HealCooldownBonus",
-          Src2VarTable = "AvatarVars",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "BaseCooldown",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
     Function = BBSetReturnValue,
     Params = {
       SrcVar = "BaseCooldown"
@@ -111,8 +88,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "HealBonus",
       Src1VarTable = "AvatarVars",
-      Value2 = 75,
-      CompareOp = CO_EQUAL
+      Value2 = 0,
+      CompareOp = CO_NOT_EQUAL
     },
     SubBlocks = {
       {
@@ -140,20 +117,55 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBIfHasBuff,
     Params = {
-      Src1Var = "Target",
-      Src2Var = "Owner",
-      CompareOp = CO_EQUAL
+      OwnerVar = "Target",
+      AttackerVar = "Target",
+      BuffName = "SummonerHealCheck"
     },
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBIf,
         Params = {
-          TargetVar = "Target",
-          Delta = 0,
-          DeltaVar = "TotalHeal",
-          HealerVar = "Owner"
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Target",
+              Delta = 0,
+              DeltaVar = "TotalHeal",
+              HealerVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "SecondaryHeal",
+              Src1Value = 0,
+              Src2Value = 0.5,
+              DestVar = "SecondaryHeal",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Target",
+              Delta = 0,
+              DeltaVar = "SecondaryHeal",
+              HealerVar = "Owner"
+            }
+          }
         }
       }
     }
@@ -163,12 +175,62 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBIf,
+        Params = {
+          Src1Var = "Target",
+          Src2Var = "Owner",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Target",
+              Delta = 0,
+              DeltaVar = "TotalHeal",
+              HealerVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Target",
+              Delta = 0,
+              DeltaVar = "SecondaryHeal",
+              HealerVar = "Owner"
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Target",
+      CasterVar = "Target",
+      BuffName = "SummonerHealCheck"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
-          Delta = 0,
-          DeltaVar = "SecondaryHeal",
-          HealerVar = "Owner"
+          AttackerVar = "Target",
+          BuffName = "SummonerHealCheck",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffType = BUFF_CombatDehancer,
+          MaxStack = 1,
+          NumberStacks = 1,
+          Duration = 25,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
         }
       }
     }
@@ -179,6 +241,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "summonerhealcheck"
     }
   }
 }

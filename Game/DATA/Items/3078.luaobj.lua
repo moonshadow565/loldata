@@ -198,5 +198,9 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "sheen"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "ItemSlow"}
   }
 }

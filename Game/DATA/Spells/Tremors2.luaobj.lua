@@ -79,7 +79,9 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PERIODIC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.3
+              SpellDamageRatio = 0.3,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -109,21 +111,15 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src2Var = "Level",
-      Src1Value = 55,
-      Src2Value = 0,
-      DestVar = "DamageAmount",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TremDamage",
       DestVarTable = "NextBuffVars",
-      SrcVar = "DamageAmount"
+      SrcValueByLevel = {
+        65,
+        130,
+        195
+      }
     }
   },
   {

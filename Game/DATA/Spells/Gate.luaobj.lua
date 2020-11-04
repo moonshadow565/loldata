@@ -338,20 +338,98 @@ SelfExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
+        Function = BBGetTeamID,
         Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "TargetPos",
-          EffectName = "GateMarker.troy",
-          Flags = 0,
-          EffectIDVar = "GateParticle",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          TargetVar = "Owner",
+          DestVar = "TeamOfOwner"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "TeamOfOwner",
+          Value2 = TEAM_ORDER,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "GateMarker_red.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "GateMarker_green.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "GateMarker_red.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_ORDER,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_ORDER,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Nothing",
+              PosVar = "TargetPos",
+              EffectName = "GateMarker_green.troy",
+              Flags = 0,
+              EffectIDVar = "GateParticle2",
+              EffectIDVarTable = "InstanceVars",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Nothing",
+              SpecificTeamOnly = TEAM_CHAOS,
+              UseSpecificUnit = true,
+              FOWTeam = TEAM_CHAOS,
+              FOWVisibilityRadius = 200,
+              SendIfOnScreenOrDiscard = false
+            }
+          }
         }
       },
       {
@@ -360,6 +438,14 @@ SelfExecuteBuildingBlocks = {
           DestVar = "GateParticle",
           DestVarTable = "NextBuffVars",
           SrcVar = "GateParticle"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "GateParticle2",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "GateParticle2"
         }
       },
       {
@@ -411,19 +497,6 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
-  },
-  {
-    Function = BBAddPosPerceptionBubble,
-    Params = {
-      TeamVar = "TeamID",
-      Radius = 700,
-      PosVar = "TargetPos",
-      Duration = 5,
-      SpecificUnitsClientOnlyVar = "Nothing",
-      RevealSteath = false,
-      BubbleIDVar = "BubbleID",
-      BubbleIDVarTable = "NextBuffVars"
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -455,12 +528,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "destiny_marker"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gatemarker.troy"
     }
   }
 }

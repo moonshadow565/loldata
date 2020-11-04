@@ -18,6 +18,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "CooldownVar",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -87,6 +95,76 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       DeltaVar = "ManaRegen",
       Delta = 0
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 10,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "Level"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CurrentCD",
+          SrcValueByLevel = {
+            16.5,
+            17,
+            17.5,
+            18,
+            18.5,
+            19,
+            19.5,
+            2,
+            20.5,
+            21,
+            21.5,
+            22,
+            22.5,
+            23,
+            23.5,
+            24,
+            24.5,
+            25
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CurrentCD",
+          Src2Var = "CooldownVar",
+          Src2VarTable = "InstanceVars",
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "CooldownVar",
+              DestVarTable = "InstanceVars",
+              SrcVar = "CurrentCD"
+            }
+          },
+          {
+            Function = BBSetBuffToolTipVar,
+            Params = {
+              Value = 0,
+              ValueVar = "CurrentCD",
+              Index = 1
+            }
+          }
+        }
+      }
     }
   }
 }

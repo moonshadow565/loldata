@@ -17,6 +17,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageVar",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -28,37 +36,105 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
-BuffOnHitUnitBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 1.3,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
-        }
-      }
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Level",
+      Src1Value = 0.01,
+      Src2Value = 0,
+      DestVar = "Level",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "Level",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "Level",
+      Delta = 0
     }
   }
 }
-BuffOnBeingHitBuildingBlocks = {
+BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_TURRET},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 10,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBGetLevel,
+        Params = {TargetVar = "Owner", DestVar = "Level"}
+      },
+      {
+        Function = BBSetVarInTable,
         Params = {
-          Src1Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0.7,
-          DestVar = "DamageAmount",
-          MathOp = MO_MULTIPLY
+          DestVar = "CurrentDamage",
+          SrcValueByLevel = {
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CurrentDamage",
+          Src2Var = "DamageVar",
+          Src2VarTable = "InstanceVars",
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "DamageVar",
+              DestVarTable = "InstanceVars",
+              SrcVar = "CurrentDamage"
+            }
+          },
+          {
+            Function = BBSetBuffToolTipVar,
+            Params = {
+              Value = 0,
+              ValueVar = "CurrentDamage",
+              Index = 1
+            }
+          }
         }
       }
     }

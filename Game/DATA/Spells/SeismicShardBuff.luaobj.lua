@@ -25,6 +25,15 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetMovementSpeed,
+      TargetVar = "Owner",
+      DestVar = "Value",
+      DestVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -46,33 +55,56 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBSetVarInTable,
     Params = {
-      Stat = IncPercentMovementSpeedMod,
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaByLevel = {
-        -0.1,
-        -0.15,
-        -0.2,
-        -0.25,
-        -0.3
-      }
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMovementSpeedMod,
-      TargetVar = "Attacker",
-      Delta = 0,
-      DeltaByLevel = {
+      DestVar = "Modifier",
+      SrcValueByLevel = {
         0.1,
         0.15,
         0.2,
         0.25,
         0.3
       }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Value",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "Modifier",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "Result",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMovementSpeedMod,
+      TargetVar = "Attacker",
+      DeltaVar = "Result",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "Result",
+      Src1Value = -1,
+      Src2Value = 0,
+      DestVar = "Result",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "Result",
+      Delta = 0
     }
   }
 }

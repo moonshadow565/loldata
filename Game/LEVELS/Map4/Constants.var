@@ -6,7 +6,7 @@ gcd_AttackMinDelay                      =        0.400 ; Attack min delay
 gcd_PercentAttackSpeedModMinimum        =       -0.950 ; The lowest Attack Speed Percent Mod penalty can go
 gcd_AttackMaxDelay                      =        5.000 ; Attack max delay
 gcd_CooldownMinimum                     =        0.000 ; Minimum cooldown time for a spell.
-gcd_PercentCooldownModMinimum           =       -0.950 ; The lowest Cooldown Percent Mod bonus can go.
+gcd_PercentCooldownModMinimum           =       -0.40 ; The lowest Cooldown Percent Mod bonus can go.
 gcd_PercentRespawnTimeModMinimum        =       -0.950 ; The lowest RespawnTime Percent Mod bonus can go.
 gcd_PercentGoldLostOnDeathModMinimum    =       -0.950 ; The lowest GoldLostOnDeath Percent Mod bonus can go.
 gcd_PercentEXPBonusMinimum              =       -1.000 ; The lowest EXPBonus Percent Mod penalty can go.
@@ -61,6 +61,7 @@ ai_TargetMaxNumAttackers                =            5 ; Maximun number of attac
 ai_AmbientGoldDelay                     =       90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =        5.000 ; Interval between ambient gold ticks
 ai_AmbientGoldAmount                    =        9.000 ; Gold granted on ambient gold tick
+ai_DisableAmbientGoldWhileDead          =          1 ; Disable ambient gold while dead
 ai_GoldLostPerLevel                     =        0.000 ; Gold lost per level when you die
 ai_TimeDeadPerLevel                     =        4.000 ; Time in seconds spent dead per level
 ai_GoldHandicapCoefficient              =        0.000 ; Coefficient for gold handicapping
@@ -76,7 +77,7 @@ sg_SpellGlobalCooldown_Avatar           =        0.000 ; Global Cooldown for ava
 ; Barracks Variables
 bar_bSpawnEnabled                       =            1 ; Enable/disable spawn from barracks
 bar_Armor                               =            0 ; armor
-bar_MaxHP                               =         3600 ; max hp
+bar_MaxHP                               =         3000 ; max hp
 
 ; Spawn Point variables
 sp_RegenRadius                          =      600.000 ; The spawn point will heal units in this radius.

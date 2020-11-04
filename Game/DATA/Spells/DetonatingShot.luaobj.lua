@@ -58,17 +58,19 @@ BuffOnKillBuildingBlocks = {
               AttackerVar = "Owner",
               TargetVar = "Unit",
               DamageByLevel = {
-                30,
                 50,
-                70,
-                90,
-                110
+                75,
+                100,
+                125,
+                150
               },
               Damage = 0,
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_PROC,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.25
+              SpellDamageRatio = 0.25,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
             }
           }
         }
@@ -123,7 +125,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DamageAmount",
       DestVarTable = "NextBuffVars",
-      SrcValue = 12.5
+      SrcValue = 25
     }
   },
   {
@@ -145,7 +147,7 @@ TargetExecuteBuildingBlocks = {
         7,
         8
       },
-      TickRate = 0.5
+      TickRate = 1
     }
   }
 }

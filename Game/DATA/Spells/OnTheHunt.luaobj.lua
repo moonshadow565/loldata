@@ -91,18 +91,6 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "AttackSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.25,
-        0.5,
-        0.75
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
@@ -120,6 +108,18 @@ TargetExecuteBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.25,
+            0.5,
+            0.75
+          }
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {
@@ -145,6 +145,18 @@ TargetExecuteBuildingBlocks = {
     Function = BBElse,
     Params = {},
     SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "AttackSpeedMod",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.125,
+            0.25,
+            0.375
+          }
+        }
+      },
       {
         Function = BBSpellBuffAdd,
         Params = {

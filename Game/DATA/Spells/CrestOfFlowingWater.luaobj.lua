@@ -23,7 +23,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.5
+      Delta = 0.45
     }
   }
 }
@@ -40,7 +40,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentPercentMovementSpeedMod,
       TargetVar = "Owner",
-      Delta = -0.5
+      Delta = -0.45
     }
   }
 }

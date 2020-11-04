@@ -119,7 +119,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 525,
+      Range = 575,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit"
     },
@@ -199,7 +199,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 525,
+          Range = 575,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
           IteratorVar = "Unit"
         },
@@ -269,9 +269,9 @@ ChannelingStartBuildingBlocks = {
       DestVar = "AttackSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.15,
-        -0.15,
-        -0.15
+        -0.25,
+        -0.25,
+        -0.25
       }
     }
   },
@@ -334,9 +334,9 @@ ChannelingSuccessStopBuildingBlocks = {
           AttackerVar = "Owner",
           TargetVar = "Unit",
           DamageByLevel = {
-            400,
-            600,
-            800
+            500,
+            700,
+            900
           },
           Damage = 0,
           DamageType = MAGIC_DAMAGE,
@@ -354,9 +354,9 @@ ChannelingCancelStopBuildingBlocks = {
     Params = {
       DestVar = "SecondDamage",
       SrcValueByLevel = {
-        400,
-        600,
-        800
+        500,
+        700,
+        900
       }
     }
   },

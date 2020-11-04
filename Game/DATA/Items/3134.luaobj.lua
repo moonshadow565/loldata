@@ -57,3 +57,9 @@ OnActivateBuildingBlocks = {
     }
   }
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "Brutalizer"}
+  }
+}

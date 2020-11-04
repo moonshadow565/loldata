@@ -22,6 +22,13 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
+      RequiredVar = "GateParticle2",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
       RequiredVar = "CurrentPos",
       RequiredVarTable = "InstanceVars"
     }
@@ -302,6 +309,22 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "Instagate"
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "GateParticle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "GateParticle2",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }

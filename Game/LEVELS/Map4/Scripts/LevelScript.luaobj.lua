@@ -33,7 +33,7 @@ L0_0 = 0
 MINION_HEALTH_DENIAL_PERCENT = L0_0
 L0_0 = 64
 MELEE_EXP_GIVEN = L0_0
-L0_0 = 22
+L0_0 = 24
 MELEE_GOLD_GIVEN = L0_0
 L0_0 = 32
 ARCHER_EXP_GIVEN = L0_0
@@ -185,8 +185,8 @@ L0_0.CasterExpBonus = 0
 L0_0.CasterExpGiven = CASTER_EXP_GIVEN
 L0_0.SuperMinionArmor = 0
 L0_0.SuperMinionMagicResistance = 0
-L0_0.SuperHPBonus = -500
-L0_0.SuperDamageBonus = -60
+L0_0.SuperHPBonus = -300
+L0_0.SuperDamageBonus = -40
 L0_0.SuperGoldBonus = 0
 L0_0.SuperExpBonus = 0
 L0_0.SuperExpGiven = SUPER_EXP_GIVEN
@@ -1232,25 +1232,10 @@ function L0_0(A0_27, A1_28, A2_29)
         L4_31 = HQ_TOWER2
         if A2_29 == L4_31 then
           L3_30.HQTower2 = false
-          L4_31 = L3_30.HQTower1
-          if L4_31 == false then
-            L4_31 = GetHQ
-            L4_31 = L4_31(A0_27)
-            SetInvulnerable(L4_31, false)
-            SetTargetable(L4_31, true)
-          end
-        else
-          L4_31 = HQ_TOWER1
-          if A2_29 == L4_31 then
-            L3_30.HQTower1 = false
-            L4_31 = L3_30.HQTower2
-            if L4_31 == false then
-              L4_31 = GetHQ
-              L4_31 = L4_31(A0_27)
-              SetInvulnerable(L4_31, false)
-              SetTargetable(L4_31, true)
-            end
-          end
+          L4_31 = GetHQ
+          L4_31 = L4_31(A0_27)
+          SetInvulnerable(L4_31, false)
+          SetTargetable(L4_31, true)
         end
       end
     end
@@ -1879,7 +1864,7 @@ BarrackReactiveEvent = L0_0
 L0_0 = 0
 DisactivatedCounter = L0_0
 function L0_0(A0_62)
-  local L1_63, L2_64, L3_65, L4_66, L5_67, L6_68
+  local L1_63, L2_64, L3_65, L4_66, L5_67
   HQType = L1_63
   if L1_63 ~= L2_64 then
   elseif L1_63 == L2_64 then
@@ -1901,18 +1886,10 @@ function L0_0(A0_62)
     DisactivatedCounter = L1_63
     for L4_66 = RIGHT_LANE, LEFT_LANE do
       L5_67 = GetTurret
-      L6_68 = barrackTeam
-      L5_67 = L5_67(L6_68, L4_66, HQ_TOWER1)
-      L6_68 = GetTurret
-      L6_68 = L6_68(barrackTeam, L4_66, HQ_TOWER2)
+      L5_67 = L5_67(barrackTeam, L4_66, HQ_TOWER2)
       if L5_67 ~= Nil then
         SetInvulnerable(L5_67, false)
         SetTargetable(L5_67, true)
-      else
-      end
-      if L6_68 ~= Nil then
-        SetInvulnerable(L6_68, false)
-        SetTargetable(L6_68, true)
       else
       end
     end
@@ -1927,31 +1904,19 @@ function L0_0(A0_62)
     L4_66 = A0_62
     L4_66 = DeactivateCorrectStructure
     L5_67 = L1_63
-    L6_68 = L2_64
-    L4_66(L5_67, L6_68, L3_65)
+    L4_66(L5_67, L2_64, L3_65)
     return
   end
   if L1_63 > -1 then
     L4_66 = TEAM_CHAOS
     L5_67 = TEAM_CHAOS
     L5_67 = L1_63 % L5_67
-    L6_68 = RIGHT_LANE
-    if L5_67 >= L6_68 then
-      L6_68 = LEFT_LANE
-      if L5_67 <= L6_68 then
-        L6_68 = ChaosBarracksBonuses
-        L6_68 = ChaosBuildingStatus
-        L6_68 = L6_68[L5_67 + 1]
-        L6_68.Barracks = false
-      end
+    if L5_67 >= RIGHT_LANE and L5_67 <= LEFT_LANE then
+      ChaosBuildingStatus[L5_67 + 1].Barracks = false
     else
-      L6_68 = TEAM_ORDER
-      L5_67 = L5_67 - L6_68
+      L5_67 = L5_67 - TEAM_ORDER
       L4_66 = TEAM_ORDER
-      L6_68 = OrderBarracksBonuses
-      L6_68 = OrderBuildingStatus
-      L6_68 = L6_68[L5_67 + 1]
-      L6_68.Barracks = false
+      OrderBuildingStatus[L5_67 + 1].Barracks = false
     end
   else
     L2_64(L3_65)

@@ -97,3 +97,9 @@ ItemOnSpellHitBuildingBlocks = {
     }
   }
 }
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "ItemSlow"}
+  }
+}

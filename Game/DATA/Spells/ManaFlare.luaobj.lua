@@ -113,8 +113,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "TotalDamage",
       SrcValueByLevel = {
-        100,
-        250,
+        200,
+        300,
         400
       }
     }

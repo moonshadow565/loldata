@@ -52,7 +52,6 @@ Barracks_T1_L1.sco -100
 Barracks_T2_R1.sco -100
 Barracks_T2_L1.sco -100
 __ANIMS_shopekeeper.sco -100
-Turret_T1_C_02.sco -100
 Turret_T1_C_01.sco -100
 Turret_T1_C_07.sco -100
 Turret_T1_C_06.sco -100
@@ -61,7 +60,6 @@ Turret_T1_R_02.sco -100
 Turret_T2_R_02.sco -100
 Turret_T2_L_02.sco -100
 Turret_T2_L_01.sco -100
-Turret_T2_C_02.sco -100
 Turret_T2_C_01.sco -100
 Turret_T2_R_01.sco -100
 Turret_ChaosTurretShrine.sco -100
