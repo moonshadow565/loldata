@@ -17,5 +17,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "varuswdebuff"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "varuswparticle"
+    }
   }
 }
