@@ -1,0 +1,7 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="poro_throw_followup_cast_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="porothrowfollowupcast"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_poroexplosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_followup_arrive_sound.troy"}}, 
+}

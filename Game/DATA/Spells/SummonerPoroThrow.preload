@@ -1,0 +1,10 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadCharacter, Params={Name="kingporo_porofollower"}}, 
+{Function=BBPreloadSpell, Params={Name="summonerporothrow"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_mis.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_mis_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_explosion.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_explosion_red.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="porotag"}}, 
+{Function=BBPreloadSpell, Params={Name="porothrowfollowup"}}, 
+}

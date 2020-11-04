@@ -18,9 +18,6 @@ function L1(A0)
   if L1 == L2 then
     return
   end
-  L2 = PrintToChat
-  L3 = "Taunty"
-  L2(L3)
   L2 = GetTauntTarget
   L2 = L2()
   tauntTarget = L2

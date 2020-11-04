@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="sog_activationcheck_order"}}, 
 {Function=BBPreloadSpell, Params={Name="s5_turretdamagebonus"}}, 
 {Function=BBPreloadSpell, Params={Name="turretbonushealth"}}, 
 {Function=BBPreloadSpell, Params={Name="turretchampiondelta"}}, 

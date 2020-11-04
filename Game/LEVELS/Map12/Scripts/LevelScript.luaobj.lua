@@ -1067,7 +1067,7 @@ function L0_0(A0_119)
   local L1_120, L2_121, L3_122, L4_123, L5_124
   L1_120 = GetGameMode
   L1_120 = L1_120()
-  if L1_120 == "TUTORIAL" then
+  if L1_120 ~= "ARAM" then
     return
   end
   L2_121 = Make3DPoint

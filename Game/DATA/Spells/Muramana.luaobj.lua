@@ -14,3 +14,4 @@ AutoCooldownByLevel = {
 PersistsThroughDeath = true
 NonDispellable = true
 DoOnPreDamageInExpirationOrder = true
+ItemToggleSlot = 1

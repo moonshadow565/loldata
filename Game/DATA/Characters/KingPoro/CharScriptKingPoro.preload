@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="global_ss_heal.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="kingporo_porolob_cast_sound.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="kingporoplayerbuffmarker"}}, 
+{Function=BBPreloadParticle, Params={Name="kingporo_enemycolor.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadParticle, Params={Name="poro_throw_explosion.troy"}}, 
+}

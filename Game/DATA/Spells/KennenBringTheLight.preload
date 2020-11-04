@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="kennenbringthelight"}}, 
 {Function=BBPreloadSpell, Params={Name="kennenmarkofstorm"}}, 
 {Function=BBPreloadParticle, Params={Name="kennen_btl_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="kennen_btl_tar.troy"}}, 
