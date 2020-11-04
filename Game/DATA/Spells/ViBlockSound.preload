@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="viblocksound_skin4.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="viblocksound.troy"}}, 
 }

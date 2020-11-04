@@ -1,0 +1,10 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpneeded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpneededfaded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpringfaded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpringfullfaded.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpringfull.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_xpringfullnofade.troy"}}, 
+}

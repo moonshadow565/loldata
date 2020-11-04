@@ -42,5 +42,8 @@ SpellFXOverrideSkins = {
   "BilgewaterCalmWard",
   "SightWardSkin43",
   "SightWardSkin44",
-  "SightWardSkin45"
+  "SightWardSkin45",
+  "SightWardSkin46",
+  "SightWardSkin47",
+  "SightWardSkin48"
 }

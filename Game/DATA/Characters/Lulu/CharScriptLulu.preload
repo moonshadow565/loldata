@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="lulupassive"}}, 
 {Function=BBPreloadSpell, Params={Name="luluskin04recallhookup"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaerieoverridetemp"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_skin05_death.troy"}}, 
 }

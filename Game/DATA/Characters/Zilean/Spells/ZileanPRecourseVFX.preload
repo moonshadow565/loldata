@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_base_p_self.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="zileanplevel"}}, 
+}
