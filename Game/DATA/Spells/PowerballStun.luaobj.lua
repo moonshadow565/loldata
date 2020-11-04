@@ -31,8 +31,7 @@ OnBuffActivateBuildingBlocks = {
       DistanceInner = 0,
       MovementType = FURTHEST_WITHIN_RANGE,
       MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0,
-      IdealDistanceVar = "Dist"
+      IdealDistance = 100
     }
   },
   {

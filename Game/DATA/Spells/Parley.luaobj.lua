@@ -78,7 +78,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -89,8 +89,8 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "ParBaseDamage",
       SrcValueByLevel = {
-        30,
-        60,
+        20,
+        55,
         90,
         120,
         150
@@ -98,14 +98,18 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
   },
   {
     Function = BBMath,
     Params = {
       Src2Var = "BaseDamage",
-      Src1Value = 0.8,
+      Src1Value = 1.1,
       Src2Value = 0,
       DestVar = "BaseDamage",
       MathOp = MO_MULTIPLY
@@ -129,10 +133,11 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageVar",
-      DamageType = MAGIC_DAMAGE,
+      DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1.1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

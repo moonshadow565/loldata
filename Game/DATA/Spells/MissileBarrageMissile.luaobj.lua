@@ -1,5 +1,4 @@
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetStatus,
@@ -75,7 +74,6 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.3,
-              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -156,7 +154,6 @@ TargetExecuteBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.3,
-                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -249,7 +246,6 @@ TargetExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0.3,
-                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

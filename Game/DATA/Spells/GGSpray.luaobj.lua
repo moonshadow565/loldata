@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
@@ -39,7 +39,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 10,
-      NumberOfStacks = 1,
+      NumberStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -60,7 +60,6 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0.25,
       SpellDamageRatio = 0,
-      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

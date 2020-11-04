@@ -1,57 +1,3 @@
-BuffOnCollisionBuildingBlocks = {
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Target", DestVar = "TeamID1"}
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "TeamID2"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "TeamID1",
-      Src2Var = "TeamID2",
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Target",
-          Value2 = true,
-          CompareOp = CO_IS_NOT_DEAD
-        },
-        SubBlocks = {
-          {
-            Function = BBStopMoveBlock,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBApplyRoot,
-            Params = {
-              AttackerVar = "Owner",
-              TargetVar = "Owner",
-              Duration = 0.1
-            }
-          },
-          {
-            Function = BBStartTrackingCollisions,
-            Params = {TargetVar = "Owner", Value = false}
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "SelfSlow",
-              DestVarTable = "InstanceVars",
-              SrcValue = false
-            }
-          }
-        }
-      }
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
@@ -132,10 +78,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBStartTrackingCollisions,
-    Params = {TargetVar = "Owner", Value = true}
-  },
-  {
     Function = BBMove,
     Params = {
       UnitVar = "Target",
@@ -148,6 +90,32 @@ OnBuffActivateBuildingBlocks = {
       MovementOrdersType = POSTPONE_CURRENT_ORDER,
       IdealDistance = 0,
       IdealDistanceVar = "DashSpeed"
+    }
+  }
+}
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBForEachUnitInTargetArea,
+    Params = {
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 175,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GragasBodySlamHolder"
+        }
+      },
+      {
+        Function = BBStopMoveBlock,
+        Params = {TargetVar = "Owner"}
+      }
     }
   }
 }
@@ -225,6 +193,21 @@ TargetExecuteBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffName = "GragasBodySlamHolder",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
@@ -271,163 +254,175 @@ BuffOnMoveEndBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {DestVar = "NumUnits", SrcValue = 0}
-  },
-  {
-    Function = BBGetTotalAttackDamage,
+    Function = BBIfNotHasBuff,
     Params = {
-      TargetVar = "Owner",
-      DestVar = "AttackDamage"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AttackDamage",
-      Src1Value = 0,
-      Src2Value = 0.66,
-      DestVar = "AttackDamageMod",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AttackDamageMod",
-      Src2Var = "BonusDamage",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "TotalDamage",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Attacker",
-      CenterVar = "Attacker",
-      Range = 250,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "GragasBodySlamHolder"
     },
     SubBlocks = {
       {
-        Function = BBMath,
-        Params = {
-          Src2Var = "NumUnits",
-          Src1Value = 1,
-          Src2Value = 0,
-          DestVar = "NumUnits",
-          MathOp = MO_ADD
-        }
-      }
-    }
-  },
-  {
-    Function = BBForEachUnitInTargetArea,
-    Params = {
-      AttackerVar = "Attacker",
-      CenterVar = "Attacker",
-      Range = 250,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
-    },
-    SubBlocks = {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "NumUnits", SrcValue = 0}
+      },
       {
-        Function = BBMath,
+        Function = BBGetTotalAttackDamage,
         Params = {
-          Src1Var = "TotalDamage",
-          Src2Var = "NumUnits",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageToDeal",
-          MathOp = MO_DIVIDE
+          TargetVar = "Owner",
+          DestVar = "AttackDamage"
         }
       },
       {
-        Function = BBIf,
+        Function = BBMath,
         Params = {
-          Src1Var = "MinimumDamage",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "DamageToDeal",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
+          Src1Var = "AttackDamage",
+          Src1Value = 0,
+          Src2Value = 0.66,
+          DestVar = "AttackDamageMod",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AttackDamageMod",
+          Src2Var = "BonusDamage",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TotalDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "Attacker",
+          Range = 250,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
         },
         SubBlocks = {
           {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyDamage,
+            Function = BBMath,
             Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "MinimumDamage",
-              DamageVarTable = "InstanceVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "GragasBodySlamTargetSlow",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_CombatDehancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 2.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              Src2Var = "NumUnits",
+              Src1Value = 1,
+              Src2Value = 0,
+              DestVar = "NumUnits",
+              MathOp = MO_ADD
             }
           }
         }
       },
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Attacker",
+          CenterVar = "Attacker",
+          Range = 250,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit"
+        },
         SubBlocks = {
           {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Unit"}
-          },
-          {
-            Function = BBApplyDamage,
+            Function = BBMath,
             Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "DamageToDeal",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+              Src1Var = "TotalDamage",
+              Src2Var = "NumUnits",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageToDeal",
+              MathOp = MO_DIVIDE
             }
           },
           {
-            Function = BBSpellBuffAdd,
+            Function = BBIf,
             Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "GragasBodySlamTargetSlow",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_CombatDehancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 2.5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              Src1Var = "MinimumDamage",
+              Src1VarTable = "InstanceVars",
+              Src2Var = "DamageToDeal",
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "MinimumDamage",
+                  DamageVarTable = "InstanceVars",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "GragasBodySlamTargetSlow",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBBreakSpellShields,
+                Params = {TargetVar = "Unit"}
+              },
+              {
+                Function = BBApplyDamage,
+                Params = {
+                  AttackerVar = "Attacker",
+                  TargetVar = "Unit",
+                  Damage = 0,
+                  DamageVar = "DamageToDeal",
+                  DamageType = MAGIC_DAMAGE,
+                  SourceDamageType = DAMAGESOURCE_SPELL,
+                  PercentOfAttack = 1,
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Unit",
+                  AttackerVar = "Attacker",
+                  BuffName = "GragasBodySlamTargetSlow",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  BuffType = BUFF_CombatDehancer,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 2.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0
+                }
+              }
             }
           }
         }
@@ -440,6 +435,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_bodyslam_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "gragasbodyslamholder"
     }
   },
   {

@@ -1,7 +1,7 @@
 BuffTextureName = "Corki_RapidReload.dds"
 BuffName = "RapidReload"
-AutoBuffActivateEffect = "corki_idle.troy"
-AutoBuffActivateAttachBoneName = "root"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 Nondispellable = true
 NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
@@ -42,7 +42,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_STACKS_AND_RENEWS,
               BuffType = BUFF_Aura,
               MaxStack = 7,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -77,11 +77,12 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBGetManaOrHealth,
+            Function = BBGetPAROrHealth,
             Params = {
               DestVar = "Temp1",
               OwnerVar = "Target",
-              Function = GetHealth
+              Function = GetHealth,
+              PARType = PAR_MANA
             }
           },
           {
@@ -112,7 +113,10 @@ BuffOnHitUnitBuildingBlocks = {
                   DamageType = TRUE_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_DEFAULT,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }
@@ -131,7 +135,10 @@ BuffOnHitUnitBuildingBlocks = {
                   DamageType = TRUE_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_DEFAULT,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }

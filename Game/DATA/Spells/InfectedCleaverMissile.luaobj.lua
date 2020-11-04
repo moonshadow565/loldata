@@ -1,5 +1,5 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 BuffTextureName = "DrMundo_InfectedCleaver.dds"
 BuffName = "InfectedCleaverDebuff"
 SpellDamageRatio = 1
@@ -180,10 +180,7 @@ TargetExecuteBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          SpellDamageRatio = 0
         }
       },
       {
@@ -194,7 +191,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_REPLACE_EXISTING,
           BuffType = BUFF_Slow,
           MaxStack = 1,
-          NumberOfStacks = 1,
+          NumberStacks = 1,
           Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -336,10 +333,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_DEFAULT,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
+              SpellDamageRatio = 0
             }
           },
           {
@@ -350,7 +344,7 @@ TargetExecuteBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Slow,
               MaxStack = 1,
-              NumberOfStacks = 1,
+              NumberStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -504,10 +498,7 @@ TargetExecuteBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_DEFAULT,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
+                  SpellDamageRatio = 0
                 }
               },
               {
@@ -518,7 +509,7 @@ TargetExecuteBuildingBlocks = {
                   BuffAddType = BUFF_REPLACE_EXISTING,
                   BuffType = BUFF_Slow,
                   MaxStack = 1,
-                  NumberOfStacks = 1,
+                  NumberStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0

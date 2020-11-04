@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Cryophoenix_FrigidOrb.dds"
@@ -102,7 +102,6 @@ TargetExecuteBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.7,
-          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -145,7 +144,7 @@ TargetExecuteBuildingBlocks = {
           BuffAddType = BUFF_STACKS_AND_RENEWS,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 1,
-          NumberOfStacks = 1,
+          NumberStacks = 1,
           Duration = 0,
           BuffVarsTable = "NextBuffVars",
           DurationByLevel = {

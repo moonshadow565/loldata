@@ -1,10 +1,12 @@
+BuffTextureName = "48thSlave_SoulDrain.dds"
+BuffName = "WormAttack"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
       Stat = IncPercentMultiplicativeAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = -0.35
+      Delta = -0.6
     }
   }
 }
@@ -14,7 +16,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentMultiplicativeAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = -0.35
+      Delta = -0.6
     }
   }
 }
@@ -37,7 +39,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = PHYSICAL_DAMAGE,
       SourceDamageType = DAMAGESOURCE_ATTACK,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -46,9 +51,9 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

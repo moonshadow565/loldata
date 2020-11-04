@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntTriggerSpellCasts = true
+DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
@@ -20,7 +20,6 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.8,
-      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
