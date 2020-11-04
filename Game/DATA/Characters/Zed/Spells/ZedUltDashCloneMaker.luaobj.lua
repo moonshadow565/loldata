@@ -47,6 +47,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zedrcloneactive"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zed_stormninja_w_tar.troy"

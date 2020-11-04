@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Armordillo_Powerball.dds"
 BuffName = "PowerBall"
-AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

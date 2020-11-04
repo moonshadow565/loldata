@@ -23,5 +23,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "clairvoyanceeyelong_red.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "summonerclairvoyancesight"
+    }
   }
 }

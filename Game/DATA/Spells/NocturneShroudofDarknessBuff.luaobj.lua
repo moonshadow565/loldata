@@ -6,6 +6,10 @@ AutoBuffActivateEffect = "nocturne_shroud_AttackSpeed_buff.troy"
 AutoBuffActivateAttachBoneName = "R_hand"
 AutoBuffActivateEffect2 = "nocturne_shroud_AttackSpeed_buff.troy"
 AutoBuffActivateAttachBoneName2 = "L_hand"
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
+SpellVOOverrideSkins = {
+  "CyberNocturne"
+}
 TriggersSpellCasts = true

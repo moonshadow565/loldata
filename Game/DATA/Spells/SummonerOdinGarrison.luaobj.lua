@@ -2,8 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "SummonerGarrison.dds"
 BuffName = "Fortify"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

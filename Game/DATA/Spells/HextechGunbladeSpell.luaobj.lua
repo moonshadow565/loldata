@@ -12,5 +12,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "global_slow.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hextechgunbladedebuff"
+    }
   }
 }

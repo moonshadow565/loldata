@@ -28,5 +28,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lizardelderattackswap"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterminiondamageamp"
+    }
   }
 }

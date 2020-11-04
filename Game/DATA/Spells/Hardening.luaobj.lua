@@ -1,2 +1,2 @@
-BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
+BuffTextureName = "Tenacity.dds"
 BuffName = "Hardening"

@@ -1,6 +1,12 @@
 DoesntBreakShields = false
 BuffTextureName = "Nocturne_UnspeakableHorror.dds"
 BuffName = "NocturneUnspeakableHorror"
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
+SpellVOOverrideSkins = {
+  "CyberNocturne"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -24,6 +30,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "nocturneunspeakablehorror_counter_ghost.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturne_cyber_unspeakablehorror_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturne_cyber_e_tar_skin_flash.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nocturne_cyber_unspeakablehorror_counter.troy"
     }
   },
   {

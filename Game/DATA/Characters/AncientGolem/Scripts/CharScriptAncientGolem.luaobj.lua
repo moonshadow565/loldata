@@ -26,6 +26,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "monsterminiondamageamp"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "agitatedidle"
     }
   }

@@ -1,14 +1,20 @@
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "ritualstaff"
+      Name = "executionerscalling_tar.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "fiendishcodex"
+      Name = "internal_50ms"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "grievouswound"
     }
   }
 }

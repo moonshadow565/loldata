@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "resistantskindragon"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "monsterminiondamageamp"
+    }
   }
 }

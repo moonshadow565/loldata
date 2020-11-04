@@ -6,9 +6,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadCharacter,
     Params = {
-      Name = "madredsrazors"
+      Name = "wrigglelantern"
     }
   }
 }

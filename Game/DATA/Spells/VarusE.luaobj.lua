@@ -1,3 +1,9 @@
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
+SpellVOOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,

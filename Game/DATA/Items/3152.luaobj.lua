@@ -1,6 +1,5 @@
 BuffTextureName = "3050_Rallying_Banner.dds"
 BuffName = "WillOftheAncients"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

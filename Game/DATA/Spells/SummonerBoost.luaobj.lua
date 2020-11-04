@@ -5,7 +5,6 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Summoner_boost.dds"
 BuffName = "Cleanse"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

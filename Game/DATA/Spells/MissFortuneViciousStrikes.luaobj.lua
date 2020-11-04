@@ -1,6 +1,5 @@
 BuffTextureName = "MissFortune_ImpureShots.dds"
 BuffName = "MissFortuneViciousStrikes"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {

@@ -8,6 +8,7 @@ BuffTextureName = "AlZahar_NetherGrasp.dds"
 BuffName = "AlZaharNetherGrasp"
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
+NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

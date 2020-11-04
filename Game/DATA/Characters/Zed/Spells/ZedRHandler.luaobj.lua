@@ -3,8 +3,8 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "2.dds"
-BuffName = "ZedWHandler"
+BuffTextureName = "shadowninja_R2.dds"
+BuffName = "ZedRHandler"
 SpellToggleSlot = 4
 SpellFXOverrideSkins = {
   "ReefMalphite",
@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "zedr2"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "orianaballindicatornear.troy"
-    }
   },
   {
     Function = BBPreloadSpell,

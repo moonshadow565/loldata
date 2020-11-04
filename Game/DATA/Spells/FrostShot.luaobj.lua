@@ -11,6 +11,17 @@ AutoBuffActivateAttachBoneName3 = "Bow_03"
 AutoBuffActivateEffect4 = "iceSparkle.troy"
 AutoBuffActivateAttachBoneName4 = "Bow_05"
 SpellToggleSlot = 1
-PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = false
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "frostarrowapplicator"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "frostarrow"}
+  }
+}

@@ -9,5 +9,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "summoner_cast.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemmercurial"
+    }
   }
 }

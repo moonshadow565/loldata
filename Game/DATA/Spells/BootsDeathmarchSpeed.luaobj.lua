@@ -1,0 +1,9 @@
+BuffTextureName = "Summoner_haste.dds"
+BuffName = "BootsDeathmarchSpeed"
+AutoBuffActivateEffect = "Boots_Deathmarch.troy"
+AutoBuffActivateEffect2 = "SpeedFoot_glow.troy"
+AutoBuffActivateAttachBoneName2 = "L_BUFFBONE_GLB_FOOT_LOC"
+AutoBuffActivateEffect3 = "SpeedFoot_glow.troy"
+AutoBuffActivateAttachBoneName3 = "R_BUFFBONE_GLB_FOOT_LOC"
+PersistsThroughDeath = true
+NonDispellable = true

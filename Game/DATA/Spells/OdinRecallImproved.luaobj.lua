@@ -8,7 +8,8 @@ SpellFXOverrideSkins = {
   "OktoberGragas"
 }
 SpellVOOverrideSkins = {
-  "ZombieBrand"
+  "ZombieBrand",
+  "CyberNocturne"
 }
 PreLoadBuildingBlocks = {
   {

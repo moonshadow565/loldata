@@ -1,0 +1,9 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Summoner_revive.dds"
+BuffName = "SummonerReviveSpeedBoost"
+SpellToggleSlot = 1
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

@@ -10,7 +10,6 @@ AutoBuffActivateAttachBoneName = "Weapon"
 AutoBuffActivateEffect2 = "Hecarim_E_weapon_buf2.troy"
 AutoBuffActivateAttachBoneName2 = "BUFFBONE_GLB_WEAPON_1"
 SpellToggleSlot = 1
-AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

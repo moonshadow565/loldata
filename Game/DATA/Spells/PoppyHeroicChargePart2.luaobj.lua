@@ -8,15 +8,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "poppyheroicchargepart2check"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "heroiccharge_tar2.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "poppyheroicchargepart2check"
     }
   }
 }

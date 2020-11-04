@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = false
+BuffTextureName = "NamiR.dds"
+BuffName = "NamiRtt"
+AutoBuffActivateEffect = "global_slow.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_LAYOUT_LOC"
+PopupMessage1 = "game_floatingtext_Slowed"

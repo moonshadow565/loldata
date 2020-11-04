@@ -2,11 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 BuffTextureName = "Summoner_Exhaust.dds"
-BuffName = "ExhaustDebuff"
+BuffName = "SummonerExhaustDebuff"
 AutoBuffActivateEffect = "summoner_banish.troy"
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateEffect3 = ""
-AutoBuffActivateAttachBoneName3 = ""
 PopupMessage1 = "game_floatingtext_Slowed"
 PreLoadBuildingBlocks = {
   {
@@ -18,7 +15,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "exhaustslow"
+      Name = "summonerexhaustslow"
     }
   },
   {
@@ -30,7 +27,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "exhaustdebuff"
+      Name = "summonerexhaustdebuff"
     }
   }
 }

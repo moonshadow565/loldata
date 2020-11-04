@@ -1,0 +1,10 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Summoner_revive.dds"
+BuffName = "SummonerReviveSpeedBoost"
+AutoBuffActivateEffect = "ArmordilloSpin.troy"
+AutoBuffActivateEffect2 = "Powerball_buf.troy"
+AutoBuffActivateEffectFlags = EFFCREATE_UPDATE_ORIENTATION

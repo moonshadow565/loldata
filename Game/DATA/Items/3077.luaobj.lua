@@ -2,13 +2,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "tiamatmelee_itm_hydra.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "tiamatmelee_itm.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "judicatorrighteousfury"
+      Name = "globalhit_physical.troy"
     }
   }
 }

@@ -1,6 +1,8 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "hardening"}
+    Params = {
+      Name = "itemmiracle"
+    }
   }
 }

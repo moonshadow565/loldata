@@ -17,6 +17,10 @@ L0_0 = 500
 FEAR_WANDER_DISTANCE = L0_0
 L0_0 = 0.05
 REGEN_PERCENT_PER_SECOND = L0_0
+L0_0 = 9000
+VERY_FAR_DISTANCE = L0_0
+L0_0 = 10
+LEASH_COUNTER_THRESHOLD = L0_0
 function L0_0(A0_2)
   SetState(AI_ATTACK)
   SetMyLeashedPos()
@@ -36,7 +40,6 @@ OnInit = L0_0
 function L0_0()
   TimerRegen()
   SetStateAndMoveToLeashedPos(AI_RETREAT)
-  ClearValidTargets()
 end
 Retreat = L0_0
 function L0_0()
@@ -74,93 +77,157 @@ function L0_0(A0_8, A1_9)
 end
 OnOrder = L0_0
 function L0_0(A0_10)
-  if GetState() == AI_HALTED then
+  local L1_11, L2_12, L3_13
+  L1_11 = GetState
+  L1_11 = L1_11()
+  L2_12 = AI_HALTED
+  if L1_11 == L2_12 then
     return
   end
-  AddValidTarget(A0_10)
-  if GetRoamState() == INACTIVE and GetState() ~= AI_RETREAT and GetState() ~= AI_TAUNTED and GetState() ~= AI_FEARED and GetState() ~= AI_FLEEING then
-    StopTimer("TimerRegen")
-    SetStateAndCloseToTarget(AI_ATTACK, A0_10)
-    SetRoamState(HOSTILE)
+  L2_12 = GetMyPos
+  L2_12 = L2_12()
+  L3_13 = FindTargetNearPosition
+  L3_13 = L3_13(L2_12, LEASH_RADIUS)
+  if L3_13 == nil then
+    L3_13 = A0_10
+    if A0_10 == nil then
+      return
+    end
   end
+  if GetRoamState() == INACTIVE and L1_11 ~= AI_RETREAT and L1_11 ~= AI_TAUNTED and L1_11 ~= AI_FEARED and L1_11 ~= AI_FLEEING then
+    StopTimer("TimerRegen")
+    SetStateAndCloseToTarget(AI_ATTACK, L3_13)
+    SetRoamState(HOSTILE)
+  elseif GetRoamState() == HOSTILE and L1_11 == AI_ATTACK then
+    StopTimer("TimerRegen")
+    target = GetTarget()
+    if target ~= nil then
+      if DistanceBetweenObjectCenterAndPoint(target, L2_12) > DistanceBetweenObjectCenterAndPoint(L3_13, L2_12) + 25 then
+        SetStateAndCloseToTarget(AI_ATTACK, L3_13)
+        SetRoamState(HOSTILE)
+        SetLeashCounter(GetLeashCounter() + 1)
+        if GetLeashCounter() > LEASH_COUNTER_THRESHOLD then
+          Retreat()
+        end
+      elseif not IsHeroAI(L3_13) and DistanceBetweenObjectCenterAndPoint(target, L2_12) > DistanceBetweenObjectCenterAndPoint(L3_13, L2_12) + 25 then
+        SetStateAndCloseToTarget(AI_ATTACK, L3_13)
+        SetRoamState(HOSTILE)
+        SetLeashCounter(GetLeashCounter() + 1)
+        if GetLeashCounter() > LEASH_COUNTER_THRESHOLD then
+          Retreat()
+        end
+      end
+    end
+  end
+  return
 end
 OnTakeDamage = L0_0
-function L0_0(A0_11, A1_12)
-  local L2_13, L3_14, L4_15
-  L2_13 = GetState
-  L2_13 = L2_13()
-  L3_14 = AI_HALTED
-  if L2_13 == L3_14 then
+function L0_0(A0_14, A1_15)
+  local L2_16, L3_17, L4_18, L5_19
+  L2_16 = GetState
+  L2_16 = L2_16()
+  L3_17 = AI_HALTED
+  if L2_16 == L3_17 then
     return
   end
-  L3_14 = AddValidTarget
-  L4_15 = A1_12
-  L3_14(L4_15)
-  L3_14 = GetRoamState
-  L3_14 = L3_14()
-  L4_15 = INACTIVE
-  if L3_14 == L4_15 then
-    L3_14 = AI_RETREAT
-    if L2_13 ~= L3_14 then
-      L3_14 = AI_TAUNTED
-      if L2_13 ~= L3_14 then
-        L3_14 = AI_FEARED
-        if L2_13 ~= L3_14 then
-          L3_14 = AI_FLEEING
-          if L2_13 ~= L3_14 then
-            L3_14 = StopTimer
-            L4_15 = "TimerRegen"
-            L3_14(L4_15)
-            L3_14 = SetStateAndCloseToTarget
-            L4_15 = AI_ATTACK
-            L3_14(L4_15, A1_12)
-            L3_14 = SetRoamState
-            L4_15 = HOSTILE
-            L3_14(L4_15)
+  L3_17 = GetMyPos
+  L3_17 = L3_17()
+  L4_18 = FindTargetNearPosition
+  L5_19 = L3_17
+  L4_18 = L4_18(L5_19, LEASH_RADIUS)
+  if L4_18 == nil then
+    L4_18 = A1_15
+    if A1_15 == nil then
+      return
+    end
+  end
+  L5_19 = GetRoamState
+  L5_19 = L5_19()
+  if L5_19 == INACTIVE then
+    L5_19 = AI_RETREAT
+    if L2_16 ~= L5_19 then
+      L5_19 = AI_TAUNTED
+      if L2_16 ~= L5_19 then
+        L5_19 = AI_FEARED
+        if L2_16 ~= L5_19 then
+          L5_19 = AI_FLEEING
+          if L2_16 ~= L5_19 then
+            L5_19 = StopTimer
+            L5_19("TimerRegen")
+            L5_19 = SetStateAndCloseToTarget
+            L5_19(AI_ATTACK, L4_18)
+            L5_19 = SetRoamState
+            L5_19(HOSTILE)
+          end
+        end
+      end
+    end
+  else
+    L5_19 = GetRoamState
+    L5_19 = L5_19()
+    if L5_19 == HOSTILE then
+      L5_19 = AI_ATTACK
+      if L2_16 == L5_19 then
+        L5_19 = GetTarget
+        L5_19 = L5_19()
+        target = L5_19
+        L5_19 = GetMyPos
+        L5_19 = L5_19()
+        if target ~= nil then
+          StopTimer("TimerRegen")
+          if DistanceBetweenObjectCenterAndPoint(target, L5_19) > DistanceBetweenObjectCenterAndPoint(L4_18, L5_19) + 25 then
+            SetStateAndCloseToTarget(AI_ATTACK, L4_18)
+            SetRoamState(HOSTILE)
+            SetLeashCounter(GetLeashCounter() + 1)
+            if GetLeashCounter() > LEASH_COUNTER_THRESHOLD then
+              Retreat()
+            end
+          elseif not IsHeroAI(L4_18) and DistanceBetweenObjectCenterAndPoint(target, L5_19) > DistanceBetweenObjectCenterAndPoint(L4_18, L5_19) + 25 then
+            SetStateAndCloseToTarget(AI_ATTACK, L4_18)
+            SetRoamState(HOSTILE)
+            SetLeashCounter(GetLeashCounter() + 1)
+            if GetLeashCounter() > LEASH_COUNTER_THRESHOLD then
+              Retreat()
+            end
           end
         end
       end
     end
   end
-  L3_14 = GetState
-  L3_14 = L3_14()
-  L4_15 = AI_RETREAT
-  if L3_14 == L4_15 then
-    L3_14 = GetMyLeashedPos
-    L3_14 = L3_14()
-    L4_15 = 9001
-    if A1_12 ~= nil then
-      L4_15 = DistanceBetweenObjectCenterAndPoint(A1_12, L3_14)
-    end
-    if A1_12 ~= nil and L4_15 <= LEASH_RADIUS and GetLeashCounter() < 2 then
+  L5_19 = GetState
+  L5_19 = L5_19()
+  if L5_19 == AI_RETREAT then
+    L5_19 = GetMyLeashedPos
+    L5_19 = L5_19()
+    if DistanceBetweenObjectCenterAndPoint(L4_18, L5_19) <= LEASH_RADIUS and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
       SetLeashCounter(GetLeashCounter() + 1)
       StopTimer("TimerRegen")
-      SetStateAndCloseToTarget(AI_ATTACK, A1_12)
+      SetStateAndCloseToTarget(AI_ATTACK, L4_18)
       SetRoamState(HOSTILE)
-    elseif A1_12 ~= nil and GetDistToLeashedPos() <= INNER_RELEASH_RADIUS and L4_15 <= RELEASH_RADIUS and GetLeashCounter() < 2 then
+    elseif GetDistToLeashedPos() <= INNER_RELEASH_RADIUS and DistanceBetweenObjectCenterAndPoint(L4_18, L5_19) <= RELEASH_RADIUS and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
       SetLeashCounter(GetLeashCounter() + 1)
       StopTimer("TimerRegen")
-      SetStateAndCloseToTarget(AI_ATTACK, A1_12)
+      SetStateAndCloseToTarget(AI_ATTACK, L4_18)
       SetRoamState(HOSTILE)
     end
   end
 end
 LeashedCallForHelp = L0_0
-function L0_0(A0_16, A1_17)
-  local L2_18, L3_19
-  L2_18 = GetState
-  L2_18 = L2_18()
-  L3_19 = AI_HALTED
-  if L2_18 == L3_19 then
+function L0_0(A0_20, A1_21)
+  local L2_22, L3_23
+  L2_22 = GetState
+  L2_22 = L2_22()
+  L3_23 = AI_HALTED
+  if L2_22 == L3_23 then
     return
   end
-  L3_19 = GetOwner
-  L3_19 = L3_19(A1_17)
-  if L3_19 == nil then
-    L3_19 = GetGoldRedirectTarget(A1_17)
+  L3_23 = GetOwner
+  L3_23 = L3_23(A1_21)
+  if L3_23 == nil then
+    L3_23 = GetGoldRedirectTarget(A1_21)
   end
-  if L3_19 ~= nil then
-    SetStateAndCloseToTarget(AI_ATTACK, L3_19)
+  if L3_23 ~= nil then
+    SetStateAndCloseToTarget(AI_ATTACK, L3_23)
   else
     FindNewTarget()
   end
@@ -239,46 +306,46 @@ function L0_0()
 end
 TimerFeared = L0_0
 function L0_0()
-  local L0_20, L1_21, L2_22, L3_23, L4_24
-  L0_20 = GetRoamState
-  L0_20 = L0_20()
-  L1_21 = INACTIVE
-  if L0_20 ~= L1_21 then
-    L0_20 = GetRoamState
-    L0_20 = L0_20()
-    L1_21 = RUN_IN_FEAR
-  elseif L0_20 == L1_21 then
+  local L0_24, L1_25, L2_26, L3_27, L4_28
+  L0_24 = GetRoamState
+  L0_24 = L0_24()
+  L1_25 = INACTIVE
+  if L0_24 ~= L1_25 then
+    L0_24 = GetRoamState
+    L0_24 = L0_24()
+    L1_25 = RUN_IN_FEAR
+  elseif L0_24 == L1_25 then
     return
   end
-  L0_20 = GetState
-  L0_20 = L0_20()
-  L1_21 = AI_HALTED
-  if L0_20 == L1_21 then
+  L0_24 = GetState
+  L0_24 = L0_24()
+  L1_25 = AI_HALTED
+  if L0_24 == L1_25 then
     return
   end
-  L1_21 = GetDistToLeashedPos
-  L1_21 = L1_21()
-  L2_22 = GetTarget
-  L2_22 = L2_22()
-  L3_23 = GetMyLeashedPos
-  L3_23 = L3_23()
-  L4_24 = LEASH_RADIUS
-  L4_24 = L4_24 + 1
-  if L2_22 ~= nil then
-    L4_24 = DistanceBetweenObjectCenterAndPoint(L2_22, L3_23)
+  L1_25 = GetDistToLeashedPos
+  L1_25 = L1_25()
+  L2_26 = GetTarget
+  L2_26 = L2_26()
+  L3_27 = GetMyLeashedPos
+  L3_27 = L3_27()
+  L4_28 = LEASH_RADIUS
+  L4_28 = L4_28 + 1
+  if L2_26 ~= nil then
+    L4_28 = DistanceBetweenObjectCenterAndPoint(L2_26, L3_27)
   end
-  if L1_21 > LEASH_PROTECTION_RADIUS and L1_21 < LEASH_RADIUS and L4_24 > LEASH_RADIUS and L0_20 ~= AI_RETREAT and GetLeashCounter() < 2 then
+  if L1_25 > LEASH_PROTECTION_RADIUS and L1_25 < LEASH_RADIUS and L4_28 > LEASH_RADIUS and L0_24 ~= AI_RETREAT and GetLeashCounter() < LEASH_COUNTER_THRESHOLD then
     FindNewTarget()
-    L2_22 = GetTarget()
-    if L2_22 ~= nil then
+    L2_26 = GetTarget()
+    if L2_26 ~= nil then
       SetLeashCounter(GetLeashCounter() + 1)
     end
-  elseif L1_21 > LEASH_RADIUS and L0_20 ~= AI_RETREAT then
+  elseif L1_25 > LEASH_RADIUS and L0_24 ~= AI_RETREAT then
     isLeashing = true
     ResetAndStartTimer("TimerRegen")
     Retreat()
   end
-  if L0_20 == AI_RETREAT and (IsMovementStopped() == true or GetAmImmovable() == true) then
+  if L0_24 == AI_RETREAT and IsMovementStopped() == true then
     if GetDistToRetreat() < 100 then
       OnStoppedMoving()
     else
@@ -300,35 +367,33 @@ function L0_0()
 end
 OnStoppedMoving = L0_0
 function L0_0()
-  local L0_25, L1_26
-  L0_25 = GetState
-  L0_25 = L0_25()
-  L1_26 = AI_HALTED
-  if L0_25 == L1_26 then
+  local L0_29, L1_30
+  L0_29 = GetState
+  L0_29 = L0_29()
+  L1_30 = AI_HALTED
+  if L0_29 == L1_30 then
     return
   end
-  L1_26 = GetRoamState
-  L1_26 = L1_26()
-  if L1_26 ~= INACTIVE then
-    L1_26 = GetRoamState
-    L1_26 = L1_26()
-    if L1_26 ~= RUN_IN_FEAR then
-      L1_26 = AI_RETREAT
+  L1_30 = GetRoamState
+  L1_30 = L1_30()
+  if L1_30 ~= INACTIVE then
+    L1_30 = GetRoamState
+    L1_30 = L1_30()
+    if L1_30 ~= RUN_IN_FEAR then
+      L1_30 = AI_RETREAT
     end
-  elseif L0_25 == L1_26 then
+  elseif L0_29 == L1_30 then
     return
   end
-  L1_26 = AI_ATTACK
-  if L0_25 ~= L1_26 then
-    L1_26 = AI_TAUNTED
-  elseif L0_25 == L1_26 then
-    L1_26 = GetTarget
-    L1_26 = L1_26()
-    if L1_26 ~= nil then
+  L1_30 = AI_ATTACK
+  if L0_29 ~= L1_30 then
+    L1_30 = AI_TAUNTED
+  elseif L0_29 == L1_30 then
+    L1_30 = GetTarget
+    L1_30 = L1_30()
+    if L1_30 ~= nil then
       if TargetInAttackRange() then
-        TurnOnAutoAttack(L1_26)
-      elseif GetAmImmovable() == true then
-        Retreat()
+        TurnOnAutoAttack(L1_30)
       elseif TargetInCancelAttackRange() == false then
         TurnOffAutoAttack(STOPREASON_MOVING)
       end
@@ -339,41 +404,41 @@ function L0_0()
 end
 TimerAttack = L0_0
 function L0_0()
-  local L0_27, L1_28, L2_29, L3_30
-  L0_27 = GetState
-  L0_27 = L0_27()
-  L1_28 = AI_HALTED
-  if L0_27 == L1_28 then
+  local L0_31, L1_32, L2_33, L3_34
+  L0_31 = GetState
+  L0_31 = L0_31()
+  L1_32 = AI_HALTED
+  if L0_31 == L1_32 then
     return
   end
-  L1_28 = GetRoamState
-  L1_28 = L1_28()
-  L2_29 = INACTIVE
-  if L1_28 ~= L2_29 then
-    L1_28 = GetRoamState
-    L1_28 = L1_28()
-    L2_29 = RUN_IN_FEAR
-    if L1_28 ~= L2_29 then
-      L1_28 = GetState
-      L1_28 = L1_28()
-      L2_29 = AI_RETREAT
+  L1_32 = GetRoamState
+  L1_32 = L1_32()
+  L2_33 = INACTIVE
+  if L1_32 ~= L2_33 then
+    L1_32 = GetRoamState
+    L1_32 = L1_32()
+    L2_33 = RUN_IN_FEAR
+    if L1_32 ~= L2_33 then
+      L1_32 = GetState
+      L1_32 = L1_32()
+      L2_33 = AI_RETREAT
     end
-  elseif L1_28 == L2_29 then
+  elseif L1_32 == L2_33 then
     return
   end
-  L1_28 = GetMyLeashedPos
-  L1_28 = L1_28()
-  L2_29 = FindValidTargetNearPosition
-  L3_30 = L1_28
-  L2_29 = L2_29(L3_30, LEASH_RADIUS)
-  L3_30 = LEASH_RADIUS
-  L3_30 = L3_30 + 1
-  if L2_29 ~= nil then
-    L3_30 = DistanceBetweenObjectCenterAndPoint(L2_29, L1_28)
+  L1_32 = GetMyLeashedPos
+  L1_32 = L1_32()
+  L2_33 = FindTargetNearPosition
+  L3_34 = L1_32
+  L2_33 = L2_33(L3_34, LEASH_RADIUS)
+  L3_34 = LEASH_RADIUS
+  L3_34 = L3_34 + 1
+  if L2_33 ~= nil then
+    L3_34 = DistanceBetweenObjectCenterAndPoint(L2_33, L1_32)
   end
-  if L2_29 ~= nil and L3_30 <= LEASH_RADIUS then
+  if L2_33 ~= nil and L3_34 <= LEASH_RADIUS then
     StopTimer("TimerRegen")
-    SetStateAndCloseToTarget(AI_ATTACK, L2_29)
+    SetStateAndCloseToTarget(AI_ATTACK, L2_33)
   else
     ResetAndStartTimer("TimerRegen")
     Retreat()

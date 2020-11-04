@@ -1,5 +1,8 @@
 BuffTextureName = "Nocturne_Paranoia.dds"
 BuffName = "NocturneParanoia"
+SpellFXOverrideSkins = {
+  "CyberNocturne"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -18,21 +21,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "unstoppableforcemarker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneparanoiadash"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "nocturneparanoiadashsound"
+      Name = "nocturne_cyber_paranoiadash_tar.troy"
     }
   }
 }

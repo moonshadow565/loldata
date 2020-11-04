@@ -76,7 +76,7 @@ ai_TargetMaxNumAttackers                =                 5 ; Maximun number of 
 
 ; Spell Vamp variables
 sv_SpellRatio                           =             1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELL
-sv_SpellAoERatio                        =             0.333 ; Spell Vamp ratio for DAMAGESOURCE_SPELLAOE
+sv_SpellAoERatio                        =             0.334 ; Spell Vamp ratio for DAMAGESOURCE_SPELLAOE
 sv_SpellPersistRatio                    =             1.000 ; Spell Vamp ratio for DAMAGESOURCE_SPELLPERSIST
 sv_PeriodicRatio                        =             0.000 ; Spell Vamp ratio for DAMAGESOURCE_PERIODIC
 sv_ProcRatio                            =             0.000 ; Spell Vamp ratio for DAMAGESOURCE_PROC
@@ -87,7 +87,7 @@ sv_PetRatio                             =             0.000 ; Spell Vamp ratio f
 ; obj_AI_Hero variables
 ai_AmbientGoldDelay                     =            90.000 ; Delay before first ambient gold tick
 ai_AmbientGoldInterval                  =             5.000 ; Interval between ambient gold ticks
-ai_AmbientGoldAmount                    =             6.500 ; Gold granted on ambient gold tick
+ai_AmbientGoldAmount                    =             8.000 ; Gold granted on ambient gold tick
 ai_DisableAmbientGoldWhileDead          =                 0 ; Disable ambient gold while dead
 ai_AmbientXPDelay                       =             0.000 ; Delay before first ambient XP tick
 ai_AmbientXPInterval                    =             5.000 ; Interval between ambient XP ticks
@@ -121,6 +121,9 @@ events_TimerForAssist                   =            10.000 ; Amount of time for
 ; obj_AI_Minion variables
 
 ; obj_AI_Turret variables
+
+; Start of game announcements
+ann_AutoAnnounceMinions                 =                 1 ; Do we automatically announce minions?
 
 ; Tutorial variables
 tut_TutorialModeOn                      =                 0 ; Flag to turn TutorialMode On/Off
@@ -159,6 +162,9 @@ aud_FMODAmbientEventTutorial            =       map_proving ; Tutorial FMOD even
 aud_FMODVictoryMusicCueIDTutorial       =                10 ; Tutorial FMOD ID for a Victory music cue for the map's music.
 aud_FMODDefeatMusicCueIDTutorial        =                 0 ; Tutorial FMOD ID for a Defeat music cue for the map's music.
 aud_FMODReverbPresetTutorial            =      ReverbPreset ; Tutorial FMOD name of the reverb preset to be used on this map.
+
+; Start of game announcements
+ann_AutoWelcome                         =                 1 ; Do we automatically welcome players?
 
 ; obj_AI_Base variables
 
