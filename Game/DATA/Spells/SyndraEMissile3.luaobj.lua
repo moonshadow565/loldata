@@ -7,6 +7,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "syndraeimmunity"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "syndraemarker"
     }
   },
@@ -56,12 +62,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "syndra_ehit.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "syndraeimmunity"
     }
   },
   {
