@@ -1,7 +1,7 @@
 MAX_ENGAGE_DISTANCE = 2500
 FEAR_WANDER_DISTANCE = 500
 DELAY_FIND_ENEMIES = 0.25
-START_ASLEEP_TIME = 120
+START_ASLEEP_TIME = 145
 DoLuaShared("ObjectTags")
 DoLuaShared("Minions")
 hasWokenUpAcquisition = false
@@ -38,16 +38,16 @@ function LaneMinionFindTarget()
     if GetTargetAcquisitionMode() == TARGET_ACQUISITION_MODE_ASLEEP then
       SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DEFAULT)
       SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_ASLEEP)
-      if FindTargetInWakeUpRange() then
+      if FindTargetInWakeUpRange() ~= nil then
         hasWokenUpAcquisition = true
         SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DISTRIBUTE_FIRE)
         L0_0 = FindTargetInFirstAcquisitionRange()
         SetTarget(L0_0)
       end
-    else
-      if GetMissionTime() > START_ASLEEP_TIME then
-        SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DEFAULT)
-      end
+    elseif GetMissionTime() > START_ASLEEP_TIME then
+      SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DEFAULT)
+      L0_0 = FindTargetInAcR()
+    elseif GetTarget() == nil then
       L0_0 = FindTargetInAcR()
     end
   else
@@ -83,7 +83,7 @@ function TimerFindEnemies()
           if L1_2 ~= L2_3 then
             L2_3 = GetTarget
             L2_3 = L2_3()
-            if L2_3 == nil then
+            if L2_3 ~= nil then
               L2_3 = AddToIgnore
               L2_3(0.6)
             end
@@ -163,7 +163,7 @@ function FindTargetOrMove()
   end
   L1_5 = LaneMinionFindTarget
   L1_5 = L1_5()
-  if L1_5 then
+  if L1_5 ~= nil then
     if LastAutoAttackFinished() == false then
       InitTimer("TimerFindEnemies", DELAY_FIND_ENEMIES, true)
       return

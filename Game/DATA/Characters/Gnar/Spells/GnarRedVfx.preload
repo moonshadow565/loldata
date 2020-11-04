@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gnar_base_p_turntored.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="gnar_skin03_p_turntored_avatar.troy"}}, 
 }
