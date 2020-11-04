@@ -1,4 +1,4 @@
-BuffTextureName = "3042_Muramana.dds"
+BuffTextureName = "Ekko_P.dds"
 BuffName = "EkkoPassive"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {"EkkoSkin01"}
