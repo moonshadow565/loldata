@@ -2,15 +2,7 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 BuffTextureName = "XinZhao_BattleCry.dds"
 BuffName = "XenZhaoBattleCry"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaobattlecryph"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

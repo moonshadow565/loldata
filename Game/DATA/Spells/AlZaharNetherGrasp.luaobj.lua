@@ -14,18 +14,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "suppression"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "alzaharvoidlingcount"
     }
   },
@@ -49,6 +37,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharnethergrasp"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharnethergraspsoftlock"
     }
   }
 }

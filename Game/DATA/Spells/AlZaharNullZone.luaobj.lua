@@ -37,5 +37,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "alzaharnullzone"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "unlockanimation"
+    }
   }
 }

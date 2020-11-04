@@ -1,10 +1,11 @@
 BuffTextureName = "XinZhao_TirelessWarrior.dds"
 BuffName = "XenZhaoPuncture"
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "xenziou_heal_passive.troy"
+      Name = "xenzhaointimidate"
     }
   }
 }

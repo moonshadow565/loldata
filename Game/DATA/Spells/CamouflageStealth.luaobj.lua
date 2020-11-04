@@ -4,13 +4,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "camouflagecheck"
+      Name = "camouflagebuff"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "camouflagebuff"
+      Name = "camouflagecheck"
     }
   }
 }

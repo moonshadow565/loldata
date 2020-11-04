@@ -22,5 +22,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "apbonusdamagetotowers"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "leesinrecalloverride"
+    }
   }
 }

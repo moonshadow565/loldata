@@ -1,7 +1,5 @@
 BuffTextureName = "Pantheon_AOZ.dds"
 BuffName = "PantheonAegisShield"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -3,8 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "FallenAngel_Purgatory.dds"
 BuffName = "Soul Shackles"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 AutoCooldownByLevel = {
   80,
   80,

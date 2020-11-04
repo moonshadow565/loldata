@@ -1,3 +1,5 @@
+BuffTextureName = "Twitch_DeadlyVenom.dds"
+BuffName = "DeadlyVenom"
 IsDeathRecapSource = true
 PreLoadBuildingBlocks = {
   {

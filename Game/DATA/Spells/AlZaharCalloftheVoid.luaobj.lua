@@ -31,7 +31,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ifhasbuffcheck"
+      Name = "expirationtimer"
     }
   },
   {
@@ -44,6 +44,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "alzaharcallofthevoidmissile"
     }
   }
 }

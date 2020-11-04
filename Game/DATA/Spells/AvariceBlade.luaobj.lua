@@ -1,3 +1,3 @@
 BuffTextureName = "2008_Tome_of_Combat_Mastery.dds"
 BuffName = "WillOfTheAncientsFriendly"
-AutoBuffActivateEffect = ""
+PersistsThroughDeath = true

@@ -5,14 +5,22 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "XinZhao_CrescentSweep.dds"
 BuffName = "XenZhaoParry"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_selfshield_01_magic.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xenziou_selfshield_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,
@@ -40,8 +48,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaosweeparmor"
-    }
+    Params = {Name = "moveaway"}
   }
 }

@@ -1,0 +1,10 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Evelynn_Ravage.dds"
+BuffName = "Ravage"
+AutoBuffActivateEffect = "blindMonk_passive_buf.troy"
+AutoBuffActivateAttachBoneName = "L_hand"
+AutoBuffActivateEffect2 = "blindMonk_passive_buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_hand"
