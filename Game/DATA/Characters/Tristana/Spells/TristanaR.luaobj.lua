@@ -2,7 +2,7 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Tristana_R.dds"
-BuffName = "Buster Shot"
+BuffName = "TristanaR"
 SpellDamageRatio = 1
 SpellFXOverrideSkins = {
   "Tristana_Skin03",

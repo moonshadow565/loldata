@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Tristana_Passive.dds"
-BuffName = "Draw a Bead"
+BuffName = "TristanaPassive"
 PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = false
