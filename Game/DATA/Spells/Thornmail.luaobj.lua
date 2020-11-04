@@ -42,7 +42,7 @@ BuffOnBeingHitBuildingBlocks = {
                 Params = {
                   Src1Var = "DamageAmount",
                   Src1Value = 0,
-                  Src2Value = 0.25,
+                  Src2Value = 0.3,
                   DestVar = "PercentDamageTaken",
                   MathOp = MO_MULTIPLY
                 }
@@ -57,7 +57,10 @@ BuffOnBeingHitBuildingBlocks = {
                   DamageType = MAGIC_DAMAGE,
                   SourceDamageType = DAMAGESOURCE_REACTIVE,
                   PercentOfAttack = 1,
-                  SpellDamageRatio = 0
+                  SpellDamageRatio = 0,
+                  PhysicalDamageRatio = 1,
+                  IgnoreDamageIncreaseMods = false,
+                  IgnoreDamageCrit = false
                 }
               }
             }

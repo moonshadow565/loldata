@@ -103,7 +103,8 @@ OnBuffDeactivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 700,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -167,6 +168,7 @@ OnBuffDeactivateBuildingBlocks = {
           PercentOfAttack = 0,
           PercentOfAttackVar = "PercentDamage",
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -177,9 +179,10 @@ OnBuffDeactivateBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Attacker",
           BuffName = "Slow",
-          BuffAddType = BUFF_REPLACE_EXISTING,
+          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
-          MaxStack = 1,
+          MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
@@ -238,6 +241,39 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "1ce",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "TargetPos",
+          SrcVar = "TargetPos",
+          SrcVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBTeleportToPosition,
+        Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "1ce",
+          DestVarTable = "InstanceVars",
+          SrcValue = 1
+        }
+      }
+    }
+  }
+}
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -274,6 +310,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "pantheon_grandskyfall_fall",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -290,39 +327,6 @@ ChannelingSuccessStopBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "Pantheon_GrandSkyfall_Fall"
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "1ce",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "TargetPos",
-          SrcVar = "TargetPos",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBTeleportToPosition,
-        Params = {OwnerVar = "Owner", CastPositionName = "TargetPos"}
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "1ce",
-          DestVarTable = "InstanceVars",
-          SrcValue = 1
-        }
-      }
     }
   }
 }

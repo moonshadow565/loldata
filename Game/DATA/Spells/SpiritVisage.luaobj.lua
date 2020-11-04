@@ -14,7 +14,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentHPRegenMod,
       TargetVar = "Owner",
-      Delta = 0.3
+      Delta = 0.25
     }
   }
 }
@@ -32,7 +32,7 @@ BuffOnHealBuildingBlocks = {
         Params = {
           Src1Var = "Health",
           Src1Value = 0,
-          Src2Value = 1.3,
+          Src2Value = 1.25,
           DestVar = "EffectiveHeal",
           MathOp = MO_MULTIPLY
         }

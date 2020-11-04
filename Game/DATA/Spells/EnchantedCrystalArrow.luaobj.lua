@@ -134,7 +134,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 400,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -160,6 +161,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -170,6 +172,7 @@ TargetExecuteBuildingBlocks = {
               TargetVar = "Unit",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Stun,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -197,9 +200,9 @@ TargetExecuteBuildingBlocks = {
               DestVar = "AttackSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.25,
-                -0.25,
-                -0.25
+                0,
+                0,
+                0
               }
             }
           },
@@ -210,6 +213,7 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
@@ -248,6 +252,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.5,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -270,9 +275,9 @@ TargetExecuteBuildingBlocks = {
               DestVar = "AttackSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.25,
-                -0.25,
-                -0.25
+                0,
+                0,
+                0
               }
             }
           },
@@ -283,6 +288,7 @@ TargetExecuteBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,

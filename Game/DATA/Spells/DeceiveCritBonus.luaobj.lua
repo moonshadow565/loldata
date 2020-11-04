@@ -6,6 +6,13 @@ OnBuffActivateBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = false
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "CritDmgBonus",
+      RequiredVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {

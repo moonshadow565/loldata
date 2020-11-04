@@ -32,13 +32,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "MoveSpeedMod",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "AttackSpeedMod",
-      RequiredVarTable = "InstanceVars"
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -48,16 +41,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncPercentMultiplicativeMovementSpeedMod,
       TargetVar = "Owner",
       DeltaVar = "MoveSpeedMod",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeAttackSpeedMod,
-      TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

@@ -116,7 +116,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "Owner",
       Range = 700,
       Flags = "AffectEnemies AffectFriends AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -190,9 +191,10 @@ OnBuffActivateBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "MoveAway",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Stun,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -227,7 +229,8 @@ BuffOnUpdateActionsBuildingBlocks = {
       CenterVar = "Owner",
       Range = 700,
       Flags = "AffectEnemies AffectFriends AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -246,6 +249,36 @@ BuffOnUpdateActionsBuildingBlocks = {
               DeltaVar = "TickAmount",
               DeltaVarTable = "InstanceVars",
               HealerVar = "Owner"
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "MoveSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = -0.4
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Unit",
+              AttackerVar = "Attacker",
+              BuffName = "Slow",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
+              BuffType = BUFF_Slow,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 1,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
             }
           }
         }
@@ -308,9 +341,10 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0.5
@@ -353,6 +387,10 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "moveaway"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   },
   {
     Function = BBPreloadSpell,

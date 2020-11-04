@@ -81,6 +81,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       AttackerVar = "Owner",
                       BuffName = "ShenWayOfTheNinjaAura",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
                       NumberOfStacks = 1,
@@ -123,84 +124,6 @@ BuffOnHitUnitBuildingBlocks = {
               BuffName = "ShenWayOfTheNinjaAura"
             },
             SubBlocks = {
-              {
-                Function = BBIf,
-                Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
-                SubBlocks = {
-                  {
-                    Function = BBSpellEffectCreate,
-                    Params = {
-                      BindObjectVar = "Target",
-                      PosVar = "Owner",
-                      EffectName = "Globalhit_red.troy",
-                      Flags = 0,
-                      EffectIDVar = "hi",
-                      TargetObjectVar = "Owner",
-                      SpecificUnitOnlyVar = "Owner",
-                      SpecificTeamOnly = TEAM_UNKNOWN,
-                      UseSpecificUnit = false,
-                      FOWTeam = TEAM_NEUTRAL,
-                      FOWVisibilityRadius = 900,
-                      SendIfOnScreenOrDiscard = true
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBSpellBuffRemove,
-                Params = {
-                  TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
-                  BuffName = "ShenWayOfTheNinjaAura"
-                }
-              },
-              {
-                Function = BBGetPAROrHealth,
-                Params = {
-                  DestVar = "MaxHP",
-                  OwnerVar = "Owner",
-                  Function = GetMaxHealth,
-                  PARType = PAR_MANA
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "MaxHP",
-                  Src1Value = 0,
-                  Src2Value = 0.04,
-                  DestVar = "BonusDmgFromHP",
-                  MathOp = MO_MULTIPLY
-                }
-              },
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "BonusDmgFromHP",
-                  Src2Var = "ShurikenDamage",
-                  Src2VarTable = "InstanceVars",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "DamageToDeal",
-                  MathOp = MO_ADD
-                }
-              },
-              {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "DamageToDeal",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_PROC,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              },
               {
                 Function = BBGetGameTime,
                 Params = {
@@ -287,6 +210,7 @@ BuffOnBeingHitBuildingBlocks = {
                           AttackerVar = "Owner",
                           BuffName = "ShenWayOfTheNinjaAura",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Aura,
                           MaxStack = 1,
                           NumberOfStacks = 1,
@@ -373,12 +297,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "shenwayoftheninjaaura"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "globalhit_red.troy"
     }
   }
 }

@@ -22,17 +22,20 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
-        110,
-        150,
-        190,
-        230,
-        270
+        160,
+        220,
+        280,
+        340,
+        400
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8
+      SpellDamageRatio = 0.8,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {
@@ -75,9 +78,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "Move",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatDehancer,
+      StacksExclusive = true,
+      BuffType = BUFF_Stun,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

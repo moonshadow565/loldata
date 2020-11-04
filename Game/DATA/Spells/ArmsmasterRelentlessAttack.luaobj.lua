@@ -61,7 +61,8 @@ TargetExecuteBuildingBlocks = {
                   CenterVar = "Target",
                   Range = 375,
                   Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Unit"
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -141,7 +142,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1,
+              SpellDamageRatio = 0.7,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false

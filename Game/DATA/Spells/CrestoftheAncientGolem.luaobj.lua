@@ -98,6 +98,34 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "ManaRegen",
       Delta = 0
     }
+  },
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "MaxEnergy",
+      OwnerVar = "Target",
+      Function = GetMaxPAR,
+      PARType = PAR_ENERGY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxEnergy",
+      Src1Value = 0,
+      Src2Value = 0.015,
+      DestVar = "EnergyRegen",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIncFlatPARRegenMod,
+    Params = {
+      PARType = PAR_ENERGY,
+      TargetVar = "Owner",
+      DeltaVar = "EnergyRegen",
+      Delta = 0
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -238,6 +266,7 @@ BuffOnDeathBuildingBlocks = {
               TargetVar = "Attacker",
               AttackerVar = "Attacker",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,

@@ -44,9 +44,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusAP",
       SrcValueByLevel = {
-        60,
-        100,
-        140
+        50,
+        80,
+        110
       }
     }
   },
@@ -64,9 +64,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

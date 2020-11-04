@@ -1,3 +1,5 @@
+PersistsThroughDeath = true
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBIncPermanentStat,
@@ -58,6 +60,7 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "SpectralFury",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,

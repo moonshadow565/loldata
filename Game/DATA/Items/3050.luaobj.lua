@@ -28,7 +28,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             Params = {
               DestVar = "AttackSpeedMod",
               DestVarTable = "NextBuffVars",
-              SrcValue = 0.25
+              SrcValue = 0.2
             }
           },
           {
@@ -46,7 +46,8 @@ UpdateSelfBuffStatsBuildingBlocks = {
               CenterVar = "Owner",
               Range = 1200,
               Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -56,9 +57,10 @@ UpdateSelfBuffStatsBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "RallyingBannerAura",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -71,7 +73,7 @@ UpdateSelfBuffStatsBuildingBlocks = {
             Params = {
               DestVar = "ArmorMod",
               DestVarTable = "NextBuffVars",
-              SrcValue = -25
+              SrcValue = -20
             }
           },
           {
@@ -81,7 +83,8 @@ UpdateSelfBuffStatsBuildingBlocks = {
               CenterVar = "Owner",
               Range = 1200,
               Flags = "AffectEnemies AffectNeutral AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -91,9 +94,10 @@ UpdateSelfBuffStatsBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "RallyingBanner",
                   BuffAddType = BUFF_RENEW_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Aura,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 1,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0

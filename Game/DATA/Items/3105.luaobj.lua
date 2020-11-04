@@ -19,7 +19,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "MagicResistBonus",
               DestVarTable = "NextBuffVars",
-              SrcValue = 24
+              SrcValue = 15
             }
           },
           {
@@ -27,7 +27,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "ArmorBonus",
               DestVarTable = "NextBuffVars",
-              SrcValue = 23
+              SrcValue = 12
             }
           },
           {
@@ -35,7 +35,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "DamageBonus",
               DestVarTable = "NextBuffVars",
-              SrcValue = 10
+              SrcValue = 8
             }
           },
           {
@@ -45,7 +45,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               CenterVar = "Owner",
               Range = 800,
               Flags = "AffectFriends AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -63,9 +64,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "AegisoftheLegionAuraSelf",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -84,9 +86,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "AegisoftheLegionAuraFriend",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
