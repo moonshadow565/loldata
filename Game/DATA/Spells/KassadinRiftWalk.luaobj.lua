@@ -3,13 +3,6 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-AutoCooldownByLevel = {
-  24,
-  22,
-  20,
-  18,
-  16
-}
-SpellFXOverrideSkins = {
-  "BadSantaVeigar"
-}
+BuffTextureName = "Voidwalker_Riftwalk.dds"
+BuffName = "RiftWalk"
+AutoBuffActivateEvent = ""
