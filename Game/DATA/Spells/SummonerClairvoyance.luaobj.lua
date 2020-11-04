@@ -4,6 +4,7 @@ DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
 IsDamagingSpell = false
 AutoBuffActivateEffect = "GuinsoosRodofOblivion_buf.troy"
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

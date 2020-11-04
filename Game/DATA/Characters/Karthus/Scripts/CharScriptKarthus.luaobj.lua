@@ -1,18 +1,14 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "defile"}
+    Params = {
+      Name = "deathdefied"
+    }
   },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "neutralmonster_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deathdefied"
     }
   },
   {

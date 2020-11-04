@@ -28,12 +28,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "ireliahitenstyle"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "ireliahitenstylecharged"
     }
   }

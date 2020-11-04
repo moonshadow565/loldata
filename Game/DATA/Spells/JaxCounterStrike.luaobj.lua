@@ -20,5 +20,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "shen_feint_self_deactivate.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "counterstrike_cas.troy"
+    }
   }
 }

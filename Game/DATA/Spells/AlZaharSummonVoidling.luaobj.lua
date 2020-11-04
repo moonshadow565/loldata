@@ -4,6 +4,12 @@ AutoBuffActivateEffect = "Voidling_Ready.troy"
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "malzaharvoidling"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "malzaharvoidling"
@@ -19,12 +25,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ifhasbuffcheck"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "alzaharsummonvoidling"
     }
   }
 }

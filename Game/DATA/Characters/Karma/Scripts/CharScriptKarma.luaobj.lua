@@ -4,12 +4,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "karmachakra"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "karmachakracharge"
     }
   },

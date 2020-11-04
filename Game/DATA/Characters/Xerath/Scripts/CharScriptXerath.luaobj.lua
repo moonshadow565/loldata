@@ -22,11 +22,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "xerathascended"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xerathparticlebuff"
-    }
   }
 }

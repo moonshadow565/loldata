@@ -10,37 +10,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "orianaghostself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianablenddelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghost"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "orianaizuna"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oriannaballtracker"
     }
   },
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "OriannaBall"
+      Name = "oriannaball"
     }
   },
   {

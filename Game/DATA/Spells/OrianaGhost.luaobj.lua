@@ -48,24 +48,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghostminion"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oriannaballtracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaghost"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "orianna_ball_flash.troy"
@@ -88,15 +70,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianadissonancecountdown"
-    }
-  },
-  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "oriannaball"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaghost"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaghostminion"
     }
   }
 }

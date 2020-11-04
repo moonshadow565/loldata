@@ -1,0 +1,6 @@
+BuffTextureName = "Lulu_Glitterbolt.dds"
+BuffName = "LuluQSlow"
+AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
+AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect2 = "lulu_Q_slow_trigger_units.troy"
+PopupMessage1 = "game_floatingtext_Slowed"

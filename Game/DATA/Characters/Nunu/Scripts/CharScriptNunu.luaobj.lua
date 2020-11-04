@@ -1,10 +1,6 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "visionary"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "visionary_counter"
     }

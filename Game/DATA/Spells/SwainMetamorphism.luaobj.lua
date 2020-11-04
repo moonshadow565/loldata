@@ -33,19 +33,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "swainbeamself"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "swainbeamtransition"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "swainmetamorphism"
     }
   }
 }

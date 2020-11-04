@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "staticfield"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "staticfield_nova.prt"

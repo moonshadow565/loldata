@@ -10,12 +10,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "orianaredacttarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "orianaglobalcooldown"
     }
   },
@@ -23,6 +17,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "unlockanimation"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaredacttarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "orianaredactshield"
     }
   },
   {
@@ -40,25 +46,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "orianablenddelay"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianaredactshield"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "orianaredact"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "oriannaballtracker"
     }
   }
 }

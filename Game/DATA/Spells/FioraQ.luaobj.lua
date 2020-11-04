@@ -30,9 +30,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "fioraqlunge"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "fioraq"}
   }
 }

@@ -12,11 +12,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "orianaghostself"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "orianareturn"
-    }
   }
 }
