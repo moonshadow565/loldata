@@ -67,7 +67,7 @@ function L0(A0, A1)
   L2(L3, L4)
   L2 = InitTimer
   L3 = "CheatDestroyNexusPhaseServer"
-  L4 = GetEoGNexusExplosionTime
+  L4 = GetEoGNexusChangeSkinTime
   L4 = L4()
   L5 = false
   L2(L3, L4, L5)
@@ -89,10 +89,14 @@ end
 CheatChampionEoGCeremonyServer = L0
 function L0()
   local L0, L1, L2, L3
-  L0 = SetHQCurrentSkin
-  L1 = losingTeam
-  L2 = EOG_DESTROYED_NEXUS_SKIN
-  L0(L1, L2)
+  L0 = GetEoGUseNexusDeathAnimation
+  L0 = L0()
+  if L0 == false then
+    L0 = SetHQCurrentSkin
+    L1 = losingTeam
+    L2 = EOG_DESTROYED_NEXUS_SKIN
+    L0(L1, L2)
+  end
   L0 = FadeMinions
   L1 = losingTeam
   L2 = EOG_MINION_FADE_AMOUNT
@@ -141,7 +145,7 @@ function L0()
   L0(L1)
   L0 = InitTimer
   L1 = "CheatRevertEoGSettingsClient"
-  L2 = GetEoGNexusExplosionTime
+  L2 = GetEoGNexusChangeSkinTime
   L2 = L2()
   L3 = EOG_NEXUS_REVIVE_TIME
   L2 = L2 + L3
