@@ -1,2 +1,2 @@
-BuffTextureName = "Maokai_VengefulMaelstromBuff.dds"
+BuffTextureName = "Maokai_R.dds"
 BuffName = "MaokaiDrainDefense"

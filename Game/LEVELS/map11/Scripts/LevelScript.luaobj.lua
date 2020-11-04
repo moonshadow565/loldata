@@ -1,336 +1,332 @@
-local L0_0
-L0_0 = 180
-MAX_MINIONS_EVER = L0_0
-L0_0 = 100
-TEAM_ORDER = L0_0
-L0_0 = 200
-TEAM_CHAOS = L0_0
-L0_0 = 1
-ORDER_HQ = L0_0
-L0_0 = 2
-CHAOS_HQ = L0_0
-L0_0 = 3
-FRONT_TOWER = L0_0
-L0_0 = 2
-MIDDLE_TOWER = L0_0
-L0_0 = 1
-BACK_TOWER = L0_0
-L0_0 = 4
-HQ_TOWER2 = L0_0
-L0_0 = 5
-HQ_TOWER1 = L0_0
-L0_0 = 0
-RIGHT_LANE = L0_0
-L0_0 = 1
-CENTER_LANE = L0_0
-L0_0 = 2
-LEFT_LANE = L0_0
-L0_0 = 90
-INITIAL_TIME_TO_SPAWN = L0_0
-L0_0 = 3
-CANNON_MINION_SPAWN_FREQUENCY = L0_0
-L0_0 = 2090
-INCREASE_CANNON_RATE_TIMER = L0_0
-L0_0 = 0
-MINION_HEALTH_DENIAL_PERCENT = L0_0
-L0_0 = 90
-UPGRADE_MINION_TIMER = L0_0
-L0_0 = 1400
-EXP_GIVEN_RADIUS = L0_0
-L0_0 = 1250
-GOLD_GIVEN_RADIUS = L0_0
-L0_0 = 240
-DISABLE_MINION_SPAWN_BASE_TIME = L0_0
-L0_0 = 0
-DISABLE_MINION_SPAWN_MAG_TIME = L0_0
-L0_0 = 10
-CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION = L0_0
-L0_0 = 10
-ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION = L0_0
-L0_0 = -1
-LAST_WAVE = L0_0
-L0_0 = "none"
-SPECIAL_MINION_MODE = L0_0
-L0_0 = false
-HQTurretAttackable = L0_0
-L0_0 = {}
-L0_0.WaveSpawnRate = 30000
-L0_0.SingleMinionSpawnDelay = 800
-L0_0.ExpRadius = EXP_GIVEN_RADIUS
-L0_0.GoldRadius = GOLD_GIVEN_RADIUS
-SpawnTable = L0_0
-L0_0 = {}
-L0_0.DefaultNumPerWave = 3
-L0_0.Armor = 0
-L0_0.ArmorUpgrade = 1
-L0_0.MagicResistance = 0
-L0_0.MagicResistanceUpgrade = 0.625
-L0_0.HPBonus = 0
-L0_0.HPUpgrade = 10
-L0_0.HPInhibitor = 0
-L0_0.DamageBonus = 0
-L0_0.DamageUpgrade = 0.5
-L0_0.DamageInhibitor = 0
-L0_0.ExpGiven = 64
-L0_0.ExpBonus = 0
-L0_0.ExpUpgrade = 0
-L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 18.8
-L0_0.GoldBonus = 0
-L0_0.GoldUpgrade = 0.2
-L0_0.GoldInhibitor = 0
-L0_0.GoldShared = 0
-L0_0.GoldShareUpgrade = 0
-L0_0.GoldMaximumBonus = 12
-L0_0.LocalGoldGiven = 0
-L0_0.LocalGoldBonus = 0
-MeleeDefaultMinionInfo = L0_0
-L0_0 = {}
-L0_0.DefaultNumPerWave = 3
-L0_0.Armor = 0
-L0_0.ArmorUpgrade = 0.625
-L0_0.MagicResistance = 0
-L0_0.MagicResistanceUpgrade = 1
-L0_0.HPBonus = 0
-L0_0.HPUpgrade = 7.5
-L0_0.HPInhibitor = 0
-L0_0.DamageBonus = 0
-L0_0.DamageUpgrade = 1
-L0_0.DamageInhibitor = 0
-L0_0.ExpGiven = 32
-L0_0.ExpBonus = 0
-L0_0.ExpUpgrade = 0
-L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 13.8
-L0_0.GoldBonus = 0
-L0_0.GoldUpgrade = 0.2
-L0_0.GoldInhibitor = 0
-L0_0.GoldShared = 0
-L0_0.GoldShareUpgrade = 0
-L0_0.GoldMaximumBonus = 8
-L0_0.LocalGoldGiven = 0
-L0_0.LocalGoldBonus = 0
-CasterDefaultMinionInfo = L0_0
-L0_0 = {}
-L0_0.DefaultNumPerWave = 0
-L0_0.Armor = 0
-L0_0.ArmorUpgrade = 1.5
-L0_0.MagicResistance = 0
-L0_0.MagicResistanceUpgrade = 1.5
-L0_0.HPBonus = 0
-L0_0.HPUpgrade = 13.5
-L0_0.HPInhibitor = 0
-L0_0.DamageBonus = 0
-L0_0.DamageUpgrade = 1.5
-L0_0.DamageInhibitor = 0
-L0_0.ExpGiven = 100
-L0_0.ExpBonus = 0
-L0_0.ExpUpgrade = 0
-L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 39.5
-L0_0.GoldBonus = 0
-L0_0.GoldUpgrade = 0.5
-L0_0.GoldInhibitor = 0
-L0_0.GoldShared = 0
-L0_0.GoldShareUpgrade = 0
-L0_0.GoldMaximumBonus = 30
-L0_0.LocalGoldGiven = 0
-L0_0.LocalGoldBonus = 0
-CannonDefaultMinionInfo = L0_0
-L0_0 = {}
-L0_0.DefaultNumPerWave = 0
-L0_0.Armor = 0
-L0_0.ArmorUpgrade = 0
-L0_0.MagicResistance = 0
-L0_0.MagicResistanceUpgrade = 0
-L0_0.HPBonus = 0
-L0_0.HPUpgrade = 100
-L0_0.HPInhibitor = 0
-L0_0.DamageBonus = 0
-L0_0.DamageUpgrade = 5
-L0_0.DamageInhibitor = 0
-L0_0.ExpGiven = 100
-L0_0.ExpBonus = 0
-L0_0.ExpUpgrade = 0
-L0_0.ExpInhibitor = 0
-L0_0.GoldGiven = 39.5
-L0_0.GoldBonus = 0
-L0_0.GoldUpgrade = 0.5
-L0_0.GoldInhibitor = 0
-L0_0.GoldShared = 0
-L0_0.GoldShareUpgrade = 0
-L0_0.GoldMaximumBonus = 30
-L0_0.LocalGoldGiven = 0
-L0_0.LocalGoldBonus = 0
-SuperDefaultMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_OrderMinionMelee"
-L0_0.DefaultInfo = MeleeDefaultMinionInfo
-OrderMeleeMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_ChaosMinionMelee"
-L0_0.DefaultInfo = MeleeDefaultMinionInfo
-ChaosMeleeMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_OrderMinionRanged"
-L0_0.DefaultInfo = CasterDefaultMinionInfo
-OrderCasterMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_ChaosMinionRanged"
-L0_0.DefaultInfo = CasterDefaultMinionInfo
-ChaosCasterMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_OrderMinionSiege"
-L0_0.DefaultInfo = CannonDefaultMinionInfo
-OrderCannonMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_ChaosMinionSiege"
-L0_0.DefaultInfo = CannonDefaultMinionInfo
-ChaosCannonMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_OrderMinionSuper"
-L0_0.DefaultInfo = SuperDefaultMinionInfo
-OrderSuperMinionInfo = L0_0
-L0_0 = {}
-L0_0.MinionName = "SRU_ChaosMinionSuper"
-L0_0.DefaultInfo = SuperDefaultMinionInfo
-ChaosSuperMinionInfo = L0_0
-L0_0 = {}
-L0_0.IsDestroyed = false
-L0_0.NumOfSpawnDisables = 0
-L0_0.WillSpawnSuperMinion = 0
-L0_0.SpawnOrderMinionNames = {
-  "Super",
-  "Melee",
-  "Cannon",
-  "Caster"
+MAX_MINIONS_EVER = 180
+TEAM_UNKNOWN = 0
+TEAM_ORDER = 100
+TEAM_CHAOS = 200
+ORDER_HQ = 1
+CHAOS_HQ = 2
+FRONT_TOWER = 3
+MIDDLE_TOWER = 2
+BACK_TOWER = 1
+HQ_TOWER2 = 4
+HQ_TOWER1 = 5
+RIGHT_LANE = 0
+CENTER_LANE = 1
+LEFT_LANE = 2
+INITIAL_TIME_TO_SPAWN = 90
+CANNON_MINION_SPAWN_FREQUENCY = 3
+INCREASE_CANNON_RATE_TIMER = 1200
+INCREASE_CANNON_RATE_TIMER2 = 2100
+MINION_HEALTH_DENIAL_PERCENT = 0
+UPGRADE_MINION_TIMER = 90
+EXP_GIVEN_RADIUS = 1400
+GOLD_GIVEN_RADIUS = 1250
+DISABLE_MINION_SPAWN_BASE_TIME = 300
+DISABLE_MINION_SPAWN_MAG_TIME = 0
+CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION = 11.67
+ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION = 11
+LAST_WAVE = -1
+SPECIAL_MINION_MODE = "none"
+HQTurretAttackable = false
+DoLuaLevel("BBLuaConversionLibrary")
+DoLuaLevel("LaneSigils")
+SpawnTable = {
+  WaveSpawnRate = 30000,
+  SingleMinionSpawnDelay = 800,
+  ExpRadius = EXP_GIVEN_RADIUS,
+  GoldRadius = GOLD_GIVEN_RADIUS
 }
-DefaultBarrackInfo = L0_0
-L0_0 = {}
-L0_0.Melee = OrderMeleeMinionInfo
-L0_0.Caster = OrderCasterMinionInfo
-L0_0.Cannon = OrderCannonMinionInfo
-L0_0.Super = OrderSuperMinionInfo
-DefaultOrderMinionInfoTable = L0_0
-L0_0 = {}
-L0_0.Melee = ChaosMeleeMinionInfo
-L0_0.Caster = ChaosCasterMinionInfo
-L0_0.Cannon = ChaosCannonMinionInfo
-L0_0.Super = ChaosSuperMinionInfo
-DefaultChaosMinionInfoTable = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultOrderMinionInfoTable
-OrderBarrack0 = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultOrderMinionInfoTable
-OrderBarrack1 = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultOrderMinionInfoTable
-OrderBarrack2 = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultChaosMinionInfoTable
-ChaosBarrack0 = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultChaosMinionInfoTable
-ChaosBarrack1 = L0_0
-L0_0 = {}
-L0_0.DefaultInfo = DefaultBarrackInfo
-L0_0.DefaultMinionInfoTable = DefaultChaosMinionInfoTable
-ChaosBarrack2 = L0_0
-function L0_0(A0_1, A1_2, A2_3, A3_4)
-  local L4_5, L5_6, L6_7, L7_8, L8_9, L9_10, L10_11
-  if A1_2 ~= nil then
-    L4_5 = type
-    L5_6 = A1_2
-    L4_5 = L4_5(L5_6)
-    if L4_5 == "table" then
-      L4_5, L5_6 = nil, nil
-      if A0_1 == nil then
-        A0_1 = L6_7
+MeleeDefaultMinionInfo = {
+  DefaultNumPerWave = 3,
+  Armor = 0,
+  ArmorUpgrade = 1,
+  MagicResistance = 0,
+  MagicResistanceUpgrade = 0.625,
+  HPBonus = 0,
+  HPUpgrade = 15,
+  HPUpgradeGrowth = 0.2,
+  HPInhibitor = 0,
+  DamageBonus = 0,
+  DamageUpgrade = 0.5,
+  DamageInhibitor = 0,
+  ExpGiven = 64,
+  ExpBonus = 0,
+  ExpUpgrade = 0,
+  ExpInhibitor = 0,
+  GoldGiven = 18.8,
+  GoldBonus = 0,
+  GoldUpgrade = 0.2,
+  GoldInhibitor = 0,
+  GoldShared = 0,
+  GoldShareUpgrade = 0,
+  GoldMaximumBonus = 12,
+  LocalGoldGiven = 0,
+  LocalGoldBonus = 0
+}
+CasterDefaultMinionInfo = {
+  DefaultNumPerWave = 3,
+  Armor = 0,
+  ArmorUpgrade = 0.625,
+  MagicResistance = 0,
+  MagicResistanceUpgrade = 1,
+  HPBonus = 0,
+  HPUpgrade = 11,
+  HPUpgradeGrowth = 0.2,
+  HPInhibitor = 0,
+  DamageBonus = 0,
+  DamageUpgrade = 1,
+  DamageInhibitor = 0,
+  ExpGiven = 32,
+  ExpBonus = 0,
+  ExpUpgrade = 0,
+  ExpInhibitor = 0,
+  GoldGiven = 13.8,
+  GoldBonus = 0,
+  GoldUpgrade = 0.2,
+  GoldInhibitor = 0,
+  GoldShared = 0,
+  GoldShareUpgrade = 0,
+  GoldMaximumBonus = 8,
+  LocalGoldGiven = 0,
+  LocalGoldBonus = 0
+}
+CannonDefaultMinionInfo = {
+  DefaultNumPerWave = 0,
+  Armor = 0,
+  ArmorUpgrade = 1.5,
+  MagicResistance = 0,
+  MagicResistanceUpgrade = 1.5,
+  HPBonus = 0,
+  HPUpgrade = 23,
+  HPUpgradeGrowth = 0.3,
+  HPInhibitor = 0,
+  DamageBonus = 0,
+  DamageUpgrade = 1.5,
+  DamageInhibitor = 0,
+  ExpGiven = 100,
+  ExpBonus = 0,
+  ExpUpgrade = 0,
+  ExpInhibitor = 0,
+  GoldGiven = 39.5,
+  GoldBonus = 0,
+  GoldUpgrade = 0.5,
+  GoldInhibitor = 0,
+  GoldShared = 0,
+  GoldShareUpgrade = 0,
+  GoldMaximumBonus = 30,
+  LocalGoldGiven = 0,
+  LocalGoldBonus = 0
+}
+SuperDefaultMinionInfo = {
+  DefaultNumPerWave = 0,
+  Armor = 0,
+  ArmorUpgrade = 0,
+  MagicResistance = 0,
+  MagicResistanceUpgrade = 0,
+  HPBonus = 0,
+  HPUpgrade = 100,
+  HPUpgradeGrowth = 0,
+  HPInhibitor = 0,
+  DamageBonus = 0,
+  DamageUpgrade = 5,
+  DamageInhibitor = 0,
+  ExpGiven = 100,
+  ExpBonus = 0,
+  ExpUpgrade = 0,
+  ExpInhibitor = 0,
+  GoldGiven = 39.5,
+  GoldBonus = 0,
+  GoldUpgrade = 0.5,
+  GoldInhibitor = 0,
+  GoldShared = 0,
+  GoldShareUpgrade = 0,
+  GoldMaximumBonus = 30,
+  LocalGoldGiven = 0,
+  LocalGoldBonus = 0
+}
+TestDefaultMinionInfo = {
+  DefaultNumPerWave = 0,
+  Armor = 0,
+  ArmorUpgrade = 0,
+  MagicResistance = 0,
+  MagicResistanceUpgrade = 0,
+  HPBonus = 0,
+  HPUpgrade = 100,
+  HPUpgradeGrowth = 0,
+  HPInhibitor = 0,
+  DamageBonus = 0,
+  DamageUpgrade = 5,
+  DamageInhibitor = 0,
+  ExpGiven = 100,
+  ExpBonus = 0,
+  ExpUpgrade = 0,
+  ExpInhibitor = 0,
+  GoldGiven = 39.5,
+  GoldBonus = 0,
+  GoldUpgrade = 0.5,
+  GoldInhibitor = 0,
+  GoldShared = 0,
+  GoldShareUpgrade = 0,
+  GoldMaximumBonus = 30,
+  LocalGoldGiven = 0,
+  LocalGoldBonus = 0
+}
+OrderMeleeMinionInfo = {
+  MinionName = "SRU_OrderMinionMelee",
+  DefaultInfo = MeleeDefaultMinionInfo
+}
+ChaosMeleeMinionInfo = {
+  MinionName = "SRU_ChaosMinionMelee",
+  DefaultInfo = MeleeDefaultMinionInfo
+}
+OrderCasterMinionInfo = {
+  MinionName = "SRU_OrderMinionRanged",
+  DefaultInfo = CasterDefaultMinionInfo
+}
+ChaosCasterMinionInfo = {
+  MinionName = "SRU_ChaosMinionRanged",
+  DefaultInfo = CasterDefaultMinionInfo
+}
+OrderCannonMinionInfo = {
+  MinionName = "SRU_OrderMinionSiege",
+  DefaultInfo = CannonDefaultMinionInfo
+}
+ChaosCannonMinionInfo = {
+  MinionName = "SRU_ChaosMinionSiege",
+  DefaultInfo = CannonDefaultMinionInfo
+}
+OrderSuperMinionInfo = {
+  MinionName = "SRU_OrderMinionSuper",
+  DefaultInfo = SuperDefaultMinionInfo
+}
+ChaosSuperMinionInfo = {
+  MinionName = "SRU_ChaosMinionSuper",
+  DefaultInfo = SuperDefaultMinionInfo
+}
+OrderTestMinionInfo = {
+  MinionName = "Blue_Minion_Basic",
+  DefaultInfo = TestDefaultMinionInfo
+}
+ChaosTestMinionInfo = {
+  MinionName = "Red_Minion_Basic",
+  DefaultInfo = TestDefaultMinionInfo
+}
+DefaultBarrackInfo = {
+  IsDestroyed = false,
+  NumOfSpawnDisables = 0,
+  WillSpawnSuperMinion = 0,
+  SpawnOrderMinionNames = {
+    "Super",
+    "Melee",
+    "Cannon",
+    "Caster",
+    "Test"
+  }
+}
+DefaultOrderMinionInfoTable = {
+  Melee = OrderMeleeMinionInfo,
+  Caster = OrderCasterMinionInfo,
+  Cannon = OrderCannonMinionInfo,
+  Super = OrderSuperMinionInfo,
+  Test = OrderTestMinionInfo
+}
+DefaultChaosMinionInfoTable = {
+  Melee = ChaosMeleeMinionInfo,
+  Caster = ChaosCasterMinionInfo,
+  Cannon = ChaosCannonMinionInfo,
+  Super = ChaosSuperMinionInfo,
+  Test = ChaosTestMinionInfo
+}
+OrderBarrack0 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultOrderMinionInfoTable}
+OrderBarrack1 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultOrderMinionInfoTable}
+OrderBarrack2 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultOrderMinionInfoTable}
+ChaosBarrack0 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultChaosMinionInfoTable}
+ChaosBarrack1 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultChaosMinionInfoTable}
+ChaosBarrack2 = {DefaultInfo = DefaultBarrackInfo, DefaultMinionInfoTable = DefaultChaosMinionInfoTable}
+function AppendTable(A0_0, A1_1, A2_2, A3_3)
+  local L4_4, L5_5, L6_6, L7_7, L8_8, L9_9, L10_10
+  if A1_1 ~= nil then
+    L4_4 = type
+    L5_5 = A1_1
+    L4_4 = L4_4(L5_5)
+    if L4_4 == "table" then
+      L4_4, L5_5 = nil, nil
+      if A0_0 == nil then
+        A0_0 = L6_6
       end
-      for L9_10, L10_11 in L6_7(L7_8) do
-        if A2_3 == true and type(L10_11) == "table" then
-          A0_1[L9_10] = AppendTable(A0_1[L9_10], L10_11, A3_4, A3_4)
+      for L9_9, L10_10 in L6_6(L7_7) do
+        if A2_2 == true and type(L10_10) == "table" then
+          A0_0[L9_9] = AppendTable(A0_0[L9_9], L10_10, A3_3, A3_3)
         else
-          A0_1[L9_10] = L10_11
+          A0_0[L9_9] = L10_10
         end
       end
     end
   end
-  return A0_1
+  return A0_0
 end
-AppendTable = L0_0
-function L0_0(A0_12)
-  local L1_13, L2_14, L3_15, L4_16, L5_17, L6_18, L7_19, L8_20, L9_21
-  L1_13 = AppendTable
-  L2_14 = A0_12
-  L1_13 = L1_13(L2_14, L3_15, L4_16, L5_17)
-  A0_12 = L1_13
-  L1_13 = AppendTable
-  L2_14 = A0_12.MinionInfoTable
-  L1_13 = L1_13(L2_14, L3_15, L4_16, L5_17)
-  A0_12.MinionInfoTable = L1_13
-  L1_13 = A0_12.MinionInfoTable
-  if L1_13 ~= nil then
-    L1_13 = A0_12.MinionInfoTable
-    L2_14 = nil
-    for L7_19, L8_20 in L4_16(L5_17) do
-      L9_21 = L1_13[L7_19]
-      if L9_21.DefaultInfo ~= nil then
-        AppendTable(L9_21, L9_21.DefaultInfo, true, true)
-        L9_21.NumPerWave = L9_21.DefaultNumPerWave
-        L9_21.GoldGivenBase = L9_21.GoldGiven
-        L9_21.ExpGivenBase = L9_21.ExpGiven
+function InitBarrackInfo(A0_11)
+  local L1_12, L2_13, L3_14, L4_15, L5_16, L6_17, L7_18, L8_19, L9_20
+  L1_12 = AppendTable
+  L2_13 = A0_11
+  L1_12 = L1_12(L2_13, L3_14, L4_15, L5_16)
+  A0_11 = L1_12
+  L1_12 = AppendTable
+  L2_13 = A0_11.MinionInfoTable
+  L1_12 = L1_12(L2_13, L3_14, L4_15, L5_16)
+  A0_11.MinionInfoTable = L1_12
+  L1_12 = A0_11.MinionInfoTable
+  if L1_12 ~= nil then
+    L1_12 = A0_11.MinionInfoTable
+    L2_13 = nil
+    for L7_18, L8_19 in L4_15(L5_16) do
+      L9_20 = L1_12[L7_18]
+      if L9_20.DefaultInfo ~= nil then
+        AppendTable(L9_20, L9_20.DefaultInfo, true, true)
+        L9_20.NumPerWave = L9_20.DefaultNumPerWave
+        L9_20.GoldGivenBase = L9_20.GoldGiven
+        L9_20.ExpGivenBase = L9_20.ExpGiven
       end
     end
   end
-  L1_13 = A0_12.Overrides
-  if L1_13 ~= nil then
-    L1_13, L2_14 = nil, nil
-    for L6_18, L7_19 in L3_15(L4_16) do
-      L8_20 = type
-      L9_21 = A0_12[L6_18]
-      L8_20 = L8_20(L9_21)
-      if L8_20 == "table" then
-        L8_20 = type
-        L9_21 = L7_19
-        L8_20 = L8_20(L9_21)
-        if L8_20 == "table" then
-          L8_20 = AppendTable
-          L9_21 = A0_12[L6_18]
-          L8_20(L9_21, L7_19, true, true)
+  L1_12 = A0_11.Overrides
+  if L1_12 ~= nil then
+    L1_12, L2_13 = nil, nil
+    for L6_17, L7_18 in L3_14(L4_15) do
+      L8_19 = type
+      L9_20 = A0_11[L6_17]
+      L8_19 = L8_19(L9_20)
+      if L8_19 == "table" then
+        L8_19 = type
+        L9_20 = L7_18
+        L8_19 = L8_19(L9_20)
+        if L8_19 == "table" then
+          L8_19 = AppendTable
+          L9_20 = A0_11[L6_17]
+          L8_19(L9_20, L7_18, true, true)
         end
       else
-        L8_20 = type
-        L9_21 = L7_19
-        L8_20 = L8_20(L9_21)
-        if L8_20 ~= "table" then
-          A0_12[L6_18] = L7_19
+        L8_19 = type
+        L9_20 = L7_18
+        L8_19 = L8_19(L9_20)
+        if L8_19 ~= "table" then
+          A0_11[L6_17] = L7_18
         end
       end
     end
   end
-  return A0_12
+  return A0_11
 end
-InitBarrackInfo = L0_0
-L0_0 = {
+OrderBarracksBonuses = {
   InitBarrackInfo(OrderBarrack0),
   InitBarrackInfo(OrderBarrack1),
   InitBarrackInfo(OrderBarrack2)
 }
-OrderBarracksBonuses = L0_0
-L0_0 = {
+ChaosBarracksBonuses = {
   InitBarrackInfo(ChaosBarrack0),
   InitBarrackInfo(ChaosBarrack1),
   InitBarrackInfo(ChaosBarrack2)
 }
-ChaosBarracksBonuses = L0_0
-L0_0 = {
+NeutralMinionNames = {
   "SRU_Dragon",
   "SRU_Krug",
   "SRU_KrugMini",
@@ -345,158 +341,201 @@ L0_0 = {
   "SRU_Gromp",
   "SRU_Baron"
 }
-NeutralMinionNames = L0_0
-function L0_0()
-  local L0_22, L1_23
-  L0_22 = {}
-  L0_22.Turret3 = true
-  L0_22.Turret2 = true
-  L0_22.Turret1 = true
-  L0_22.Barracks = true
-  return L0_22
+function CreateLaneBuildingTable()
+  local L0_21, L1_22
+  L0_21 = {}
+  L0_21.Turret3 = true
+  L0_21.Turret2 = true
+  L0_21.Turret1 = true
+  L0_21.Barracks = true
+  return L0_21
 end
-CreateLaneBuildingTable = L0_0
-L0_0 = {
+OrderBuildingStatus = {
   CreateLaneBuildingTable(),
   CreateLaneBuildingTable(),
-  (CreateLaneBuildingTable())
+  CreateLaneBuildingTable(),
+  HQTower2 = true,
+  HQTower1 = true,
+  HQ = true
 }
-L0_0.HQTower2 = true
-L0_0.HQTower1 = true
-L0_0.HQ = true
-OrderBuildingStatus = L0_0
-L0_0 = {
+ChaosBuildingStatus = {
   CreateLaneBuildingTable(),
   CreateLaneBuildingTable(),
-  (CreateLaneBuildingTable())
+  CreateLaneBuildingTable(),
+  HQTower2 = true,
+  HQTower1 = true,
+  HQ = true
 }
-L0_0.HQTower2 = true
-L0_0.HQTower1 = true
-L0_0.HQ = true
-ChaosBuildingStatus = L0_0
-L0_0 = 0
-TotalNumberOfMinions = L0_0
-L0_0 = 3
-totalNumberOfChaosBarracks = L0_0
-L0_0 = 3
-totalNumberOfOrderBarracks = L0_0
-function L0_0(A0_24)
-  local L1_25, L2_26
-  for _FORV_6_, _FORV_7_ in pairs(A0_24.DefaultMinionInfoTable) do
+TotalNumberOfMinions = 0
+totalNumberOfChaosBarracks = 3
+totalNumberOfOrderBarracks = 3
+function PreloadBarrackCharacters(A0_23)
+  local L1_24, L2_25
+  for _FORV_6_, _FORV_7_ in pairs(A0_23.DefaultMinionInfoTable) do
     if _FORV_7_.PreloadedCharacter == nil then
       _FORV_7_.PreloadedCharacter = 1
       PreloadCharacter(_FORV_7_.MinionName)
     end
   end
 end
-PreloadBarrackCharacters = L0_0
-function L0_0()
-  local L0_27, L1_28, L2_29, L3_30, L4_31, L5_32, L6_33, L7_34
-  for L6_33, L7_34 in L3_30(L4_31) do
-    PreloadBarrackCharacters(L7_34)
+function OnLevelInit()
+  local L0_26, L1_27, L2_28, L3_29, L4_30, L5_31, L6_32
+  for L5_31, L6_32 in L2_28(L3_29) do
+    PreloadBarrackCharacters(L6_32)
   end
-  for L6_33, L7_34 in L3_30(L4_31) do
-    PreloadBarrackCharacters(L7_34)
+  for L5_31, L6_32 in L2_28(L3_29) do
+    PreloadBarrackCharacters(L6_32)
   end
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L3_30(L4_31)
-  L7_34 = L4_31()
-  L3_30(L4_31, L5_32, L6_33, L7_34, L4_31())
-  L3_30(L4_31)
-  L3_30()
-  L3_30(L4_31)
-  L3_30.WaveSpawnRate = 30000
-  L3_30.SingleMinionSpawnDelay = 800
-  L3_30.ExpRadius = L4_31
-  L3_30.GoldRadius = L4_31
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L2_28(L3_29)
+  L6_32 = L3_29()
+  L2_28(L3_29, L4_30, L5_31, L6_32, L3_29())
+  L2_28(L3_29)
+  L2_28()
+  L2_28(L3_29)
+  L2_28.WaveSpawnRate = 30000
+  L2_28.SingleMinionSpawnDelay = 800
+  L2_28.ExpRadius = L3_29
+  L2_28.GoldRadius = L3_29
 end
-OnLevelInit = L0_0
-function L0_0()
+function OnLevelInitServer()
   InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
   InitTimer("IncreaseCannonMinionSpawnRate", INCREASE_CANNON_RATE_TIMER, false)
+  InitTimer("IncreaseCannonMinionSpawnRateAgain", INCREASE_CANNON_RATE_TIMER2, false)
   InitTimer("AllowDamageOnBuildings", 10, false)
 end
-OnLevelInitServer = L0_0
-function L0_0()
-  local L0_35, L1_36, L2_37, L3_38, L4_39
-  L0_35(L1_36)
-  L0_35()
-  for L3_38 = RIGHT_LANE, LEFT_LANE do
-    L4_39 = GetDampener
-    L4_39 = L4_39(TEAM_ORDER, L3_38)
-    SetDampenerRespawnAnimationDuration(L4_39, ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION)
-    L4_39 = GetDampener(TEAM_CHAOS, L3_38)
-    SetDampenerRespawnAnimationDuration(L4_39, CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION)
+function OnPostLevelLoad()
+  local L0_33, L1_34, L2_35, L3_36, L4_37
+  L0_33(L1_34)
+  L0_33()
+  for L3_36 = RIGHT_LANE, LEFT_LANE do
+    L4_37 = GetDampener
+    L4_37 = L4_37(TEAM_ORDER, L3_36)
+    SetDampenerRespawnAnimationDuration(L4_37, ORDER_INHIBITOR_RESPAWN_ANIMATION_DURATION)
+    L4_37 = GetDampener(TEAM_CHAOS, L3_36)
+    SetDampenerRespawnAnimationDuration(L4_37, CHAOS_INHIBITOR_RESPAWN_ANIMATION_DURATION)
+  end
+  L0_33(L1_34)
+  L0_33(L1_34)
+end
+function OnGameStartup()
+  local L0_38
+  L0_38 = SpawnLaneSigilEffects
+  L0_38()
+  L0_38 = LuaForEachChampion
+  L0_38(TEAM_UNKNOWN, "ApplyJungleTracker")
+  L0_38 = 0
+  OrderHQPos = GetKeyLocation(L0_38, TEAM_ORDER)
+  ChaosHQPos = GetKeyLocation(L0_38, TEAM_CHAOS)
+end
+function SetShieldBuffsOnSecondaryTurrets(A0_39)
+  local L1_40, L2_41, L3_42, L4_43
+  for L4_43 = RIGHT_LANE, LEFT_LANE do
+    innerTurret = GetTurret(A0_39, L4_43, MIDDLE_TOWER)
+    ApplyPersistentBuff(innerTurret, "SRTurretSecondaryShielder", false, 1, 1)
+    AddBuffCounter(innerTurret, "SRTurretSecondaryShielder", L4_43, 2)
   end
 end
-OnPostLevelLoad = L0_0
-function L0_0(A0_40)
-  if A0_40 == TEAM_CHAOS then
+SPELLBOOK_SUMMONER = 1
+function ApplyJungleTracker(A0_44)
+  if GetSlotSpellName(A0_44, 0, SPELLBOOK_SUMMONER, 0) == "summonersmite" or GetSlotSpellName(A0_44, 1, SPELLBOOK_SUMMONER, 0) == "summonersmite" then
+    ApplyPersistentBuff(A0_44, "ItemJungleStatsTracker", true, 1, 1)
+  end
+end
+function ApplyBaseBuffToAllChampions()
+  LuaForEachChampion(TEAM_CHAOS, "ApplyBaseBuffChaos")
+  LuaForEachChampion(TEAM_ORDER, "ApplyBaseBuffOrder")
+end
+function ApplyBaseBuffChaos(A0_45)
+  ApplyBaseBuff(A0_45, ChaosHQPos)
+end
+function ApplyBaseBuffOrder(A0_46)
+  ApplyBaseBuff(A0_46, OrderHQPos)
+end
+baseBuffRadiusSquared = 12250000
+BUFF_Aura = 1
+function ApplyBaseBuff(A0_47, A1_48)
+  if (GetPosition(A0_47) - A1_48):lengthSq() < baseBuffRadiusSquared then
+    SpellBuffAdd(A0_47, A0_47, "S5Test_BaseBuff", BUFF_Aura, 1, 0.5, nil)
+  end
+end
+function OppositeTeam(A0_49)
+  if A0_49 == TEAM_CHAOS then
     return TEAM_ORDER
   else
     return TEAM_CHAOS
   end
 end
-OppositeTeam = L0_0
-function L0_0()
-  local L0_41, L1_42, L2_43, L3_44, L4_45, L5_46, L6_47, L7_48, L8_49, L9_50, L10_51, L11_52
-  for L4_45 = 1, 2 do
-    if L4_45 == 1 then
-      L0_41 = OrderBarracksBonuses
+function UpgradeMinionTimer()
+  local L0_50, L1_51, L2_52, L3_53, L4_54, L5_55, L6_56, L7_57, L8_58, L9_59, L10_60, L11_61
+  for L4_54 = 1, 2 do
+    if L4_54 == 1 then
+      L0_50 = OrderBarracksBonuses
     else
-      L0_41 = ChaosBarracksBonuses
+      L0_50 = ChaosBarracksBonuses
     end
-    for L8_49 = 1, 3 do
-      L9_50, L10_51 = nil, nil
-      L11_52 = L0_41[L8_49]
-      L11_52 = L11_52.MinionInfoTable
-      for _FORV_15_, _FORV_16_ in pairs(L11_52) do
+    for L8_58 = 1, 3 do
+      L9_59, L10_60 = nil, nil
+      L11_61 = L0_50[L8_58]
+      L11_61 = L11_61.MinionInfoTable
+      for _FORV_15_, _FORV_16_ in pairs(L11_61) do
         _FORV_16_.HPBonus = _FORV_16_.HPBonus + _FORV_16_.HPUpgrade
         _FORV_16_.DamageBonus = _FORV_16_.DamageBonus + _FORV_16_.DamageUpgrade
         _FORV_16_.GoldBonus = _FORV_16_.GoldBonus + _FORV_16_.GoldUpgrade
+        _FORV_16_.HPUpgrade = _FORV_16_.HPUpgrade + _FORV_16_.HPUpgradeGrowth
         if _FORV_16_.GoldBonus > _FORV_16_.GoldMaximumBonus then
           _FORV_16_.GoldBonus = _FORV_16_.GoldMaximumBonus
         end
         _FORV_16_.LocalGoldBonus = _FORV_16_.LocalGoldBonus + _FORV_16_.GoldShareUpgrade
-        _FORV_16_.Armor = _FORV_16_.Armor + _FORV_16_.ArmorUpgrade
-        _FORV_16_.MagicResistance = _FORV_16_.MagicResistance + _FORV_16_.MagicResistanceUpgrade
+        _FORV_16_.Armor = _FORV_16_.Armor
+        _FORV_16_.MagicResistance = _FORV_16_.MagicResistance
         _FORV_16_.ExpBonus = _FORV_16_.ExpBonus + _FORV_16_.ExpUpgrade
         _FORV_16_.GoldGiven = _FORV_16_.GoldBonus + _FORV_16_.GoldGivenBase
         _FORV_16_.LocalGoldGiven = _FORV_16_.LocalGoldBonus + _FORV_16_.GoldShared
@@ -505,14 +544,13 @@ function L0_0()
     end
   end
 end
-UpgradeMinionTimer = L0_0
-function L0_0()
-  local L0_53, L1_54, L2_55, L3_56, L4_57, L5_58, L6_59, L7_60
-  for L3_56 = RIGHT_LANE, LEFT_LANE do
-    for L7_60 = BACK_TOWER, HQ_TOWER1 do
-      orderTurret = GetTurret(TEAM_ORDER, L3_56, L7_60)
+function AllowDamageOnBuildings()
+  local L0_62, L1_63, L2_64, L3_65, L4_66, L5_67, L6_68, L7_69
+  for L3_65 = RIGHT_LANE, LEFT_LANE do
+    for L7_69 = BACK_TOWER, HQ_TOWER1 do
+      orderTurret = GetTurret(TEAM_ORDER, L3_65, L7_69)
       if orderTurret ~= nil then
-        if L7_60 == FRONT_TOWER then
+        if L7_69 == FRONT_TOWER then
           SetInvulnerable(orderTurret, false)
           SetTargetable(orderTurret, true)
         else
@@ -520,9 +558,9 @@ function L0_0()
           SetNotTargetableToTeam(orderTurret, true, TEAM_CHAOS)
         end
       end
-      chaosTurret = GetTurret(TEAM_CHAOS, L3_56, L7_60)
+      chaosTurret = GetTurret(TEAM_CHAOS, L3_65, L7_69)
       if chaosTurret ~= nil then
-        if L7_60 == FRONT_TOWER then
+        if L7_69 == FRONT_TOWER then
           SetInvulnerable(chaosTurret, false)
           SetTargetable(chaosTurret, true)
         else
@@ -533,70 +571,68 @@ function L0_0()
     end
   end
 end
-AllowDamageOnBuildings = L0_0
-function L0_0(A0_61)
-  for _FORV_4_, _FORV_5_ in pairs(A0_61) do
-    _FORV_5_.NumPerWave = _FORV_5_.DefaultNumPerWave
+function ResetToDefaultWaveCounts(A0_70)
+  local L1_71, L2_72
+  for _FORV_6_, _FORV_7_ in pairs(A0_70) do
+    _FORV_7_.NumPerWave = _FORV_7_.DefaultNumPerWave
   end
 end
-ResetToDefaultWaveCounts = L0_0
-function L0_0(A0_62)
-  for _FORV_4_, _FORV_5_ in pairs(A0_62) do
-    _FORV_5_.NumPerWave = 0
+function ClearCurrentWaveCounts(A0_73)
+  local L1_74, L2_75
+  for _FORV_6_, _FORV_7_ in pairs(A0_73) do
+    _FORV_7_.NumPerWave = 0
   end
 end
-ClearCurrentWaveCounts = L0_0
-function L0_0(A0_63, A1_64)
-  local L2_65, L3_66, L4_67
-  L2_65 = 0
-  L3_66 = TEAM_ORDER
-  if A1_64 == L3_66 then
-    L3_66 = OrderBarracksBonuses
-    L4_67 = A0_63 + 1
-    L2_65 = L3_66[L4_67]
+function GetInitSpawnInfo(A0_76, A1_77)
+  local L2_78, L3_79, L4_80
+  L2_78 = 0
+  L3_79 = TEAM_ORDER
+  if A1_77 == L3_79 then
+    L3_79 = OrderBarracksBonuses
+    L4_80 = A0_76 + 1
+    L2_78 = L3_79[L4_80]
   else
-    L3_66 = ChaosBarracksBonuses
-    L4_67 = A0_63 + 1
-    L2_65 = L3_66[L4_67]
+    L3_79 = ChaosBarracksBonuses
+    L4_80 = A0_76 + 1
+    L2_78 = L3_79[L4_80]
   end
-  L3_66 = {}
-  L4_67 = SpawnTable
-  L4_67 = L4_67.WaveSpawnRate
-  L3_66.WaveSpawnRate = L4_67
-  L4_67 = SpawnTable
-  L4_67 = L4_67.SingleMinionSpawnDelay
-  L3_66.SingleMinionSpawnDelay = L4_67
-  L4_67 = L2_65.IsDestroyed
-  L3_66.IsDestroyed = L4_67
-  L4_67 = L2_65.MinionInfoTable
-  L3_66.MinionInfoTable = L4_67
-  ReturnTable = L3_66
-  L3_66 = ReturnTable
-  return L3_66
+  L3_79 = {}
+  L4_80 = SpawnTable
+  L4_80 = L4_80.WaveSpawnRate
+  L3_79.WaveSpawnRate = L4_80
+  L4_80 = SpawnTable
+  L4_80 = L4_80.SingleMinionSpawnDelay
+  L3_79.SingleMinionSpawnDelay = L4_80
+  L4_80 = L2_78.IsDestroyed
+  L3_79.IsDestroyed = L4_80
+  L4_80 = L2_78.MinionInfoTable
+  L3_79.MinionInfoTable = L4_80
+  ReturnTable = L3_79
+  L3_79 = ReturnTable
+  return L3_79
 end
-GetInitSpawnInfo = L0_0
-function L0_0(A0_68, A1_69, A2_70, A3_71, A4_72)
-  local L5_73, L6_74, L7_75
-  L5_73 = 0
-  L6_74 = TEAM_ORDER
-  if A3_71 == L6_74 then
-    L6_74 = OrderBarracksBonuses
-    L7_75 = A0_68 + 1
-    L5_73 = L6_74[L7_75]
+function GetMinionSpawnInfo(A0_81, A1_82, A2_83, A3_84, A4_85)
+  local L5_86, L6_87, L7_88
+  L5_86 = 0
+  L6_87 = TEAM_ORDER
+  if A3_84 == L6_87 then
+    L6_87 = OrderBarracksBonuses
+    L7_88 = A0_81 + 1
+    L5_86 = L6_87[L7_88]
   else
-    L6_74 = ChaosBarracksBonuses
-    L7_75 = A0_68 + 1
-    L5_73 = L6_74[L7_75]
+    L6_87 = ChaosBarracksBonuses
+    L7_88 = A0_81 + 1
+    L5_86 = L6_87[L7_88]
   end
-  L6_74 = L5_73.MinionInfoTable
-  L6_74 = L6_74.Super
-  L7_75 = L5_73.MinionInfoTable
-  L7_75 = L7_75.Cannon
-  ResetToDefaultWaveCounts(L5_73.MinionInfoTable)
-  if A1_69 % CANNON_MINION_SPAWN_FREQUENCY == 0 then
-    L7_75.NumPerWave = L7_75.NumPerWave + 1
+  L6_87 = L5_86.MinionInfoTable
+  L6_87 = L6_87.Super
+  L7_88 = L5_86.MinionInfoTable
+  L7_88 = L7_88.Cannon
+  ResetToDefaultWaveCounts(L5_86.MinionInfoTable)
+  if A1_82 % CANNON_MINION_SPAWN_FREQUENCY == 0 then
+    L7_88.NumPerWave = L7_88.NumPerWave + 1
   end
-  if A4_72 ~= LAST_WAVE then
+  if A4_85 ~= LAST_WAVE then
     BARRACKSCOUNT = 6
     totalMinionsRemaining = MAX_MINIONS_EVER - GetTotalTeamMinionsSpawned()
     if totalMinionsRemaining <= BARRACKSCOUNT * 7 then
@@ -610,92 +646,91 @@ function L0_0(A0_68, A1_69, A2_70, A3_71, A4_72)
     else
       SPECIAL_MINION_MODE = ""
     end
-    LAST_WAVE = A4_72
+    LAST_WAVE = A4_85
   end
-  if L5_73.WillSpawnSuperMinion == 1 then
-    if A3_71 == TEAM_ORDER and totalNumberOfChaosBarracks == 0 or A3_71 == TEAM_CHAOS and totalNumberOfOrderBarracks == 0 then
-      L6_74.NumPerWave = 2
+  if L5_86.WillSpawnSuperMinion == 1 then
+    if A3_84 == TEAM_ORDER and totalNumberOfChaosBarracks == 0 or A3_84 == TEAM_CHAOS and totalNumberOfOrderBarracks == 0 then
+      L6_87.NumPerWave = 2
     else
-      L6_74.NumPerWave = 1
+      L6_87.NumPerWave = 1
     end
-    L7_75.NumPerWave = 0
+    L7_88.NumPerWave = 0
   end
   if SPECIAL_MINION_MODE == "2MeleeMinions" then
-    ClearCurrentWaveCounts(L5_73.MinionInfoTable)
-    L6_74.NumPerWave = L5_73.MinionInfoTable.Super.NumPerWave
-    L5_73.MinionInfoTable.Melee.NumPerWave = math.max(2 - L5_73.MinionInfoTable.Super.NumPerWave, 0)
+    ClearCurrentWaveCounts(L5_86.MinionInfoTable)
+    L6_87.NumPerWave = L5_86.MinionInfoTable.Super.NumPerWave
+    L5_86.MinionInfoTable.Melee.NumPerWave = math.max(2 - L5_86.MinionInfoTable.Super.NumPerWave, 0)
   elseif SPECIAL_MINION_MODE == "None" then
-    ClearCurrentWaveCounts(L5_73.MinionInfoTable)
+    ClearCurrentWaveCounts(L5_86.MinionInfoTable)
   end
   ReturnTable = {
     NewFormat = true,
-    SpawnOrderMinionNames = L5_73.SpawnOrderMinionNames,
-    IsDestroyed = L5_73.IsDestroyed,
+    SpawnOrderMinionNames = L5_86.SpawnOrderMinionNames,
+    IsDestroyed = L5_86.IsDestroyed,
     ExperienceRadius = SpawnTable.ExpRadius,
     GoldRadius = SpawnTable.GoldRadius,
-    MinionInfoTable = L5_73.MinionInfoTable
+    MinionInfoTable = L5_86.MinionInfoTable
   }
   return ReturnTable
 end
-GetMinionSpawnInfo = L0_0
-function L0_0(A0_76, A1_77, A2_78)
-  local L3_79, L4_80
-  L4_80 = TEAM_ORDER
-  if A0_76 == L4_80 then
-    L3_79 = OrderBuildingStatus
+function DeactivateCorrectStructure(A0_89, A1_90, A2_91)
+  local L3_92, L4_93
+  L4_93 = TEAM_ORDER
+  if A0_89 == L4_93 then
+    L3_92 = OrderBuildingStatus
   else
-    L3_79 = ChaosBuildingStatus
+    L3_92 = ChaosBuildingStatus
   end
-  L4_80 = FRONT_TOWER
-  if A2_78 == L4_80 then
-    L4_80 = A1_77 + 1
-    L4_80 = L3_79[L4_80]
-    L4_80.Turret3 = false
-    L4_80 = GetTurret
-    L4_80 = L4_80(A0_76, A1_77, MIDDLE_TOWER)
-    SetInvulnerable(L4_80, false)
-    SetTargetable(L4_80, true)
+  L4_93 = FRONT_TOWER
+  if A2_91 == L4_93 then
+    L4_93 = A1_90 + 1
+    L4_93 = L3_92[L4_93]
+    L4_93.Turret3 = false
+    L4_93 = GetTurret
+    L4_93 = L4_93(A0_89, A1_90, MIDDLE_TOWER)
+    SetInvulnerable(L4_93, false)
+    SetTargetable(L4_93, true)
   else
-    L4_80 = MIDDLE_TOWER
-    if A2_78 == L4_80 then
-      L4_80 = A1_77 + 1
-      L4_80 = L3_79[L4_80]
-      L4_80.Turret2 = false
-      L4_80 = GetTurret
-      L4_80 = L4_80(A0_76, A1_77, BACK_TOWER)
-      SetInvulnerable(L4_80, false)
-      SetTargetable(L4_80, true)
+    L4_93 = MIDDLE_TOWER
+    if A2_91 == L4_93 then
+      L4_93 = A1_90 + 1
+      L4_93 = L3_92[L4_93]
+      L4_93.Turret2 = false
+      L4_93 = GetTurret
+      L4_93 = L4_93(A0_89, A1_90, BACK_TOWER)
+      SetInvulnerable(L4_93, false)
+      SetTargetable(L4_93, true)
     else
-      L4_80 = BACK_TOWER
-      if A2_78 == L4_80 then
-        L4_80 = A1_77 + 1
-        L4_80 = L3_79[L4_80]
-        L4_80.Turret1 = false
-        L4_80 = GetDampener
-        L4_80 = L4_80(A0_76, A1_77)
-        SetInvulnerable(L4_80, false)
-        SetTargetable(L4_80, true)
+      L4_93 = BACK_TOWER
+      if A2_91 == L4_93 then
+        L4_93 = A1_90 + 1
+        L4_93 = L3_92[L4_93]
+        L4_93.Turret1 = false
+        L4_93 = GetDampener
+        L4_93 = L4_93(A0_89, A1_90)
+        SetInvulnerable(L4_93, false)
+        SetTargetable(L4_93, true)
       else
-        L4_80 = HQ_TOWER2
-        if A2_78 == L4_80 then
-          L3_79.HQTower2 = false
-          L4_80 = L3_79.HQTower1
-          if L4_80 == false then
-            L4_80 = GetHQ
-            L4_80 = L4_80(A0_76)
-            SetInvulnerable(L4_80, false)
-            SetTargetable(L4_80, true)
+        L4_93 = HQ_TOWER2
+        if A2_91 == L4_93 then
+          L3_92.HQTower2 = false
+          L4_93 = L3_92.HQTower1
+          if L4_93 == false then
+            L4_93 = GetHQ
+            L4_93 = L4_93(A0_89)
+            SetInvulnerable(L4_93, false)
+            SetTargetable(L4_93, true)
           end
         else
-          L4_80 = HQ_TOWER1
-          if A2_78 == L4_80 then
-            L3_79.HQTower1 = false
-            L4_80 = L3_79.HQTower2
-            if L4_80 == false then
-              L4_80 = GetHQ
-              L4_80 = L4_80(A0_76)
-              SetInvulnerable(L4_80, false)
-              SetTargetable(L4_80, true)
+          L4_93 = HQ_TOWER1
+          if A2_91 == L4_93 then
+            L3_92.HQTower1 = false
+            L4_93 = L3_92.HQTower2
+            if L4_93 == false then
+              L4_93 = GetHQ
+              L4_93 = L4_93(A0_89)
+              SetInvulnerable(L4_93, false)
+              SetTargetable(L4_93, true)
             end
           end
         end
@@ -703,65 +738,60 @@ function L0_0(A0_76, A1_77, A2_78)
     end
   end
 end
-DeactivateCorrectStructure = L0_0
-function L0_0(A0_81, A1_82)
-  local L2_83, L3_84, L4_85
-  L3_84 = TEAM_ORDER
-  if A0_81 == L3_84 then
-    L3_84 = OrderBarracksBonuses
-    L4_85 = A1_82 + 1
-    L2_83 = L3_84[L4_85]
+function GetLuaBarracks(A0_94, A1_95)
+  local L2_96, L3_97, L4_98
+  L3_97 = TEAM_ORDER
+  if A0_94 == L3_97 then
+    L3_97 = OrderBarracksBonuses
+    L4_98 = A1_95 + 1
+    L2_96 = L3_97[L4_98]
   else
-    L3_84 = ChaosBarracksBonuses
-    L4_85 = A1_82 + 1
-    L2_83 = L3_84[L4_85]
+    L3_97 = ChaosBarracksBonuses
+    L4_98 = A1_95 + 1
+    L2_96 = L3_97[L4_98]
   end
-  return L2_83
+  return L2_96
 end
-GetLuaBarracks = L0_0
-function L0_0(A0_86, A1_87)
-  barrack = GetLuaBarracks(A1_87, A0_86)
+function GetDisableMinionSpawnTime(A0_99, A1_100)
+  barrack = GetLuaBarracks(A1_100, A0_99)
   return DISABLE_MINION_SPAWN_BASE_TIME + DISABLE_MINION_SPAWN_MAG_TIME * barrack.NumOfSpawnDisables
 end
-GetDisableMinionSpawnTime = L0_0
-function L0_0(A0_88, A1_89)
-  cLangBarracks = GetBarracks(A1_89, A0_88)
-  luaBarrack = GetLuaBarracks(A1_89, A0_88)
-  SetDisableMinionSpawn(cLangBarracks, GetDisableMinionSpawnTime(A0_88, A1_89))
+function DisableBarracksSpawn(A0_101, A1_102)
+  cLangBarracks = GetBarracks(A1_102, A0_101)
+  luaBarrack = GetLuaBarracks(A1_102, A0_101)
+  SetDisableMinionSpawn(cLangBarracks, GetDisableMinionSpawnTime(A0_101, A1_102))
   luaBarrack.NumOfSpawnDisables = luaBarrack.NumOfSpawnDisables + 1
 end
-DisableBarracksSpawn = L0_0
-L0_0 = 0
-BonusesCounter = L0_0
-function L0_0(A0_90, A1_91)
-  local L2_92, L3_93, L4_94, L5_95, L6_96, L7_97, L8_98, L9_99, L10_100
-  BonusesCounter = L2_92
-  for L5_95 = 1, 3 do
-    L6_96, L7_97 = nil, nil
-    L8_98 = TEAM_ORDER
-    if A0_90 == L8_98 then
-      L7_97 = TEAM_CHAOS
-      L6_96 = OrderBarracksBonuses
-      L8_98 = ChaosBarracksBonuses
-      EnemyBarracks = L8_98
+BonusesCounter = 0
+function ApplyBarracksDestructionBonuses(A0_103, A1_104)
+  local L2_105, L3_106, L4_107, L5_108, L6_109, L7_110, L8_111, L9_112, L10_113
+  BonusesCounter = L2_105
+  for L5_108 = 1, 3 do
+    L6_109, L7_110 = nil, nil
+    L8_111 = TEAM_ORDER
+    if A0_103 == L8_111 then
+      L7_110 = TEAM_CHAOS
+      L6_109 = OrderBarracksBonuses
+      L8_111 = ChaosBarracksBonuses
+      EnemyBarracks = L8_111
     else
-      L7_97 = TEAM_ORDER
-      L6_96 = ChaosBarracksBonuses
-      L8_98 = OrderBarracksBonuses
-      EnemyBarracks = L8_98
+      L7_110 = TEAM_ORDER
+      L6_109 = ChaosBarracksBonuses
+      L8_111 = OrderBarracksBonuses
+      EnemyBarracks = L8_111
     end
-    L8_98, L9_99 = nil, nil
-    L10_100 = L6_96[L5_95]
-    L10_100 = L10_100.MinionInfoTable
-    for _FORV_14_, _FORV_15_ in pairs(L10_100) do
+    L8_111, L9_112 = nil, nil
+    L10_113 = L6_109[L5_108]
+    L10_113 = L10_113.MinionInfoTable
+    for _FORV_14_, _FORV_15_ in pairs(L10_113) do
       _FORV_15_.HPBonus = _FORV_15_.HPBonus + _FORV_15_.HPInhibitor
       _FORV_15_.DamageBonus = _FORV_15_.DamageBonus + _FORV_15_.DamageInhibitor
       _FORV_15_.ExpGiven = _FORV_15_.ExpGiven - _FORV_15_.ExpInhibitor
       _FORV_15_.GoldGiven = _FORV_15_.GoldGiven - _FORV_15_.GoldInhibitor
     end
-    if L5_95 == A1_91 + 1 then
-      L6_96[L5_95].WillSpawnSuperMinion = 1
-      if A0_90 == TEAM_ORDER then
+    if L5_108 == A1_104 + 1 then
+      L6_109[L5_108].WillSpawnSuperMinion = 1
+      if A0_103 == TEAM_ORDER then
         totalNumberOfChaosBarracks = totalNumberOfChaosBarracks - 1
       else
         totalNumberOfOrderBarracks = totalNumberOfOrderBarracks - 1
@@ -769,264 +799,268 @@ function L0_0(A0_90, A1_91)
     end
   end
 end
-ApplyBarracksDestructionBonuses = L0_0
-L0_0 = 0
-ReductionCounter = L0_0
-function L0_0(A0_101, A1_102)
-  local L2_103, L3_104, L4_105, L5_106, L6_107, L7_108, L8_109, L9_110, L10_111, L11_112, L12_113, L13_114, L14_115, L15_116, L16_117, L17_118, L18_119
-  ReductionCounter = L2_103
-  for L5_106 = 1, 3 do
-    L6_107, L7_108, L8_109 = nil, nil, nil
-    L9_110 = TEAM_ORDER
-    if A0_101 == L9_110 then
-      L8_109 = TEAM_CHAOS
-      L6_107 = OrderBarracksBonuses
-      L7_108 = ChaosBarracksBonuses
+ReductionCounter = 0
+function ApplyBarracksRespawnReductions(A0_114, A1_115)
+  local L2_116, L3_117, L4_118, L5_119, L6_120, L7_121, L8_122, L9_123, L10_124, L11_125, L12_126, L13_127, L14_128, L15_129, L16_130, L17_131, L18_132
+  ReductionCounter = L2_116
+  for L5_119 = 1, 3 do
+    L6_120, L7_121, L8_122 = nil, nil, nil
+    L9_123 = TEAM_ORDER
+    if A0_114 == L9_123 then
+      L8_122 = TEAM_CHAOS
+      L6_120 = OrderBarracksBonuses
+      L7_121 = ChaosBarracksBonuses
     else
-      L8_109 = TEAM_ORDER
-      L6_107 = ChaosBarracksBonuses
-      L7_108 = OrderBarracksBonuses
+      L8_122 = TEAM_ORDER
+      L6_120 = ChaosBarracksBonuses
+      L7_121 = OrderBarracksBonuses
     end
-    L9_110, L10_111 = nil, nil
-    L11_112 = L6_107[L5_106]
-    L11_112 = L11_112.MinionInfoTable
-    for L15_116, L16_117 in L12_113(L13_114) do
-      L17_118 = L16_117.HPBonus
-      L18_119 = L16_117.HPInhibitor
-      L17_118 = L17_118 - L18_119
-      L16_117.HPBonus = L17_118
-      L17_118 = L16_117.DamageBonus
-      L18_119 = L16_117.DamageInhibitor
-      L17_118 = L17_118 - L18_119
-      L16_117.DamageBonus = L17_118
-      L17_118 = L16_117.ExpGiven
-      L18_119 = L16_117.ExpInhibitor
-      L17_118 = L17_118 + L18_119
-      L16_117.ExpGiven = L17_118
-      L17_118 = L16_117.GoldGiven
-      L18_119 = L16_117.GoldInhibitor
-      L17_118 = L17_118 + L18_119
-      L16_117.GoldGiven = L17_118
+    L9_123, L10_124 = nil, nil
+    L11_125 = L6_120[L5_119]
+    L11_125 = L11_125.MinionInfoTable
+    for L15_129, L16_130 in L12_126(L13_127) do
+      L17_131 = L16_130.HPBonus
+      L18_132 = L16_130.HPInhibitor
+      L17_131 = L17_131 - L18_132
+      L16_130.HPBonus = L17_131
+      L17_131 = L16_130.DamageBonus
+      L18_132 = L16_130.DamageInhibitor
+      L17_131 = L17_131 - L18_132
+      L16_130.DamageBonus = L17_131
+      L17_131 = L16_130.ExpGiven
+      L18_132 = L16_130.ExpInhibitor
+      L17_131 = L17_131 + L18_132
+      L16_130.ExpGiven = L17_131
+      L17_131 = L16_130.GoldGiven
+      L18_132 = L16_130.GoldInhibitor
+      L17_131 = L17_131 + L18_132
+      L16_130.GoldGiven = L17_131
     end
-    if L5_106 == L13_114 then
-      if A0_101 == L13_114 then
-        totalNumberOfChaosBarracks = L13_114
+    if L5_119 == L13_127 then
+      if A0_114 == L13_127 then
+        totalNumberOfChaosBarracks = L13_127
       else
-        totalNumberOfOrderBarracks = L13_114
+        totalNumberOfOrderBarracks = L13_127
       end
-      L13_114.WillSpawnSuperMinion = 0
+      L13_127.WillSpawnSuperMinion = 0
     end
-    if L12_113 == 3 then
-      HQ = L13_114
-      L13_114(L14_115, L15_116)
-      L13_114(L14_115, L15_116)
-      for L16_117 = RIGHT_LANE, LEFT_LANE do
-        L17_118 = GetTurret
-        L18_119 = L8_109
-        L17_118 = L17_118(L18_119, L16_117, HQ_TOWER1)
-        L18_119 = GetTurret
-        L18_119 = L18_119(L8_109, L16_117, HQ_TOWER2)
-        if L17_118 ~= Nil then
-          SetInvulnerable(L17_118, true)
-          SetNotTargetableToTeam(L17_118, true, A0_101)
+    if L12_126 == 3 then
+      HQ = L13_127
+      L13_127(L14_128, L15_129)
+      L13_127(L14_128, L15_129)
+      for L16_130 = RIGHT_LANE, LEFT_LANE do
+        L17_131 = GetTurret
+        L18_132 = L8_122
+        L17_131 = L17_131(L18_132, L16_130, HQ_TOWER1)
+        L18_132 = GetTurret
+        L18_132 = L18_132(L8_122, L16_130, HQ_TOWER2)
+        if L17_131 ~= Nil then
+          SetInvulnerable(L17_131, true)
+          SetNotTargetableToTeam(L17_131, true, A0_114)
         end
-        if L18_119 ~= Nil then
-          SetInvulnerable(L18_119, true)
-          SetNotTargetableToTeam(L18_119, true, A0_101)
+        if L18_132 ~= Nil then
+          SetInvulnerable(L18_132, true)
+          SetNotTargetableToTeam(L18_132, true, A0_114)
         end
       end
     end
   end
 end
-ApplyBarracksRespawnReductions = L0_0
-L0_0 = 0
-ReactiveCounter = L0_0
-function L0_0(A0_120, A1_121)
-  local L2_122
+ReactiveCounter = 0
+function BarrackReactiveEvent(A0_133, A1_134)
+  local L2_135
   ReactiveCounter = ReactiveCounter + 1
-  L2_122 = OppositeTeam(A0_120)
-  dampener = GetDampener(A0_120, A1_121)
+  L2_135 = OppositeTeam(A0_133)
+  dampener = GetDampener(A0_133, A1_134)
   SetInvulnerable(dampener, false)
   SetTargetable(dampener, true)
-  ApplyBarracksRespawnReductions(L2_122, A1_121)
+  ApplyBarracksRespawnReductions(L2_135, A1_134)
 end
-BarrackReactiveEvent = L0_0
-function L0_0(A0_123, A1_124)
-  local L2_125, L3_126
-  if A0_123 == TEAM_ORDER then
-    L2_125 = OrderBarracksBonuses[A1_124 + 1]
-    L3_126 = ChaosBarracksBonuses[A1_124 + 1]
-  elseif A0_123 == TEAM_CHAOS then
-    L2_125 = ChaosBarracksBonuses[A1_124 + 1]
-    L3_126 = OrderBarracksBonuses[A1_124 + 1]
+function DisableSuperMinions(A0_136, A1_137)
+  local L2_138, L3_139
+  if A0_136 == TEAM_ORDER then
+    L2_138 = OrderBarracksBonuses[A1_137 + 1]
+    L3_139 = ChaosBarracksBonuses[A1_137 + 1]
+  elseif A0_136 == TEAM_CHAOS then
+    L2_138 = ChaosBarracksBonuses[A1_137 + 1]
+    L3_139 = OrderBarracksBonuses[A1_137 + 1]
   end
-  if L3_126 then
-    L3_126.WillSpawnSuperMinion = 0
+  if L3_139 then
+    L3_139.WillSpawnSuperMinion = 0
   end
 end
-DisableSuperMinions = L0_0
-L0_0 = 0
-DisactivatedCounter = L0_0
-function L0_0(A0_127)
-  local L1_128, L2_129, L3_130
-  L1_128 = GetHQType
-  L2_129 = A0_127
-  L1_128 = L1_128(L2_129)
-  HQType = L1_128
-  L1_128 = HQType
-  L2_129 = ORDER_HQ
-  if L1_128 ~= L2_129 then
-    L1_128 = HQType
-    L2_129 = CHAOS_HQ
-  elseif L1_128 == L2_129 then
-    L1_128 = HQType
-    L2_129 = CHAOS_HQ
-    if L1_128 == L2_129 then
-      L1_128 = EndOfGameCeremony
-      L2_129 = TEAM_ORDER
-      L3_130 = A0_127
-      L1_128(L2_129, L3_130)
+function OnJumpToMidGameCheat(A0_140)
+  local L1_141
+  L1_141 = GetTurret
+  L1_141 = L1_141(TEAM_ORDER, 1, HQ_TOWER1)
+  if A0_140 == 0 then
+    ApplyPersistentBuff(L1_141, "DebugMidGameBuff", false, 1, 1)
+  else
+    ApplyPersistentBuff(L1_141, "DebugLateGameBuff", false, 1, 1)
+  end
+end
+DisactivatedCounter = 0
+function HandleDestroyedObject(A0_142)
+  local L1_143, L2_144, L3_145
+  L1_143 = GetHQType
+  L2_144 = A0_142
+  L1_143 = L1_143(L2_144)
+  HQType = L1_143
+  L1_143 = HQType
+  L2_144 = ORDER_HQ
+  if L1_143 ~= L2_144 then
+    L1_143 = HQType
+    L2_144 = CHAOS_HQ
+  elseif L1_143 == L2_144 then
+    L1_143 = HQType
+    L2_144 = CHAOS_HQ
+    if L1_143 == L2_144 then
+      L1_143 = EndOfGameCeremony
+      L2_144 = TEAM_ORDER
+      L3_145 = A0_142
+      L1_143(L2_144, L3_145)
     else
-      L1_128 = EndOfGameCeremony
-      L2_129 = TEAM_CHAOS
-      L3_130 = A0_127
-      L1_128(L2_129, L3_130)
+      L1_143 = EndOfGameCeremony
+      L2_144 = TEAM_CHAOS
+      L3_145 = A0_142
+      L1_143(L2_144, L3_145)
     end
     return
   end
-  L1_128 = IsDampener
-  L2_129 = A0_127
-  L1_128 = L1_128(L2_129)
-  if L1_128 then
-    L1_128 = GetLinkedBarrack
-    L2_129 = A0_127
-    L1_128 = L1_128(L2_129)
-    barrack = L1_128
-    L1_128 = GetTeamID
-    L2_129 = barrack
-    L1_128 = L1_128(L2_129)
-    barrackTeam = L1_128
-    L1_128 = GetLane
-    L2_129 = A0_127
-    L1_128 = L1_128(L2_129)
-    barrackLane = L1_128
-    L1_128 = DisableBarracksSpawn
-    L2_129 = barrackLane
-    L3_130 = barrackTeam
-    L1_128(L2_129, L3_130)
-    L1_128 = SetDampenerState
-    L2_129 = A0_127
-    L3_130 = DampenerRegenerationState
-    L1_128(L2_129, L3_130)
-    L1_128 = SetInvulnerable
-    L2_129 = A0_127
-    L3_130 = true
-    L1_128(L2_129, L3_130)
-    L1_128 = SetTargetable
-    L2_129 = A0_127
-    L3_130 = false
-    L1_128(L2_129, L3_130)
-    L1_128 = DisactivatedCounter
-    L1_128 = L1_128 + 1
-    DisactivatedCounter = L1_128
-    L1_128 = GetTurret
-    L2_129 = barrackTeam
-    L3_130 = 1
-    L1_128 = L1_128(L2_129, L3_130, HQ_TOWER1)
-    L2_129 = GetTurret
-    L3_130 = barrackTeam
-    L2_129 = L2_129(L3_130, 1, HQ_TOWER2)
-    L3_130 = Nil
-    if L1_128 ~= L3_130 then
-      L3_130 = SetInvulnerable
-      L3_130(L1_128, false)
-      L3_130 = SetTargetable
-      L3_130(L1_128, true)
+  L1_143 = IsDampener
+  L2_144 = A0_142
+  L1_143 = L1_143(L2_144)
+  if L1_143 then
+    L1_143 = GetLinkedBarrack
+    L2_144 = A0_142
+    L1_143 = L1_143(L2_144)
+    barrack = L1_143
+    L1_143 = GetTeamID
+    L2_144 = barrack
+    L1_143 = L1_143(L2_144)
+    barrackTeam = L1_143
+    L1_143 = GetLane
+    L2_144 = A0_142
+    L1_143 = L1_143(L2_144)
+    barrackLane = L1_143
+    L1_143 = DisableBarracksSpawn
+    L2_144 = barrackLane
+    L3_145 = barrackTeam
+    L1_143(L2_144, L3_145)
+    L1_143 = SetDampenerState
+    L2_144 = A0_142
+    L3_145 = DampenerRegenerationState
+    L1_143(L2_144, L3_145)
+    L1_143 = SetInvulnerable
+    L2_144 = A0_142
+    L3_145 = true
+    L1_143(L2_144, L3_145)
+    L1_143 = SetTargetable
+    L2_144 = A0_142
+    L3_145 = false
+    L1_143(L2_144, L3_145)
+    L1_143 = DisactivatedCounter
+    L1_143 = L1_143 + 1
+    DisactivatedCounter = L1_143
+    L1_143 = GetTurret
+    L2_144 = barrackTeam
+    L3_145 = 1
+    L1_143 = L1_143(L2_144, L3_145, HQ_TOWER1)
+    L2_144 = GetTurret
+    L3_145 = barrackTeam
+    L2_144 = L2_144(L3_145, 1, HQ_TOWER2)
+    L3_145 = Nil
+    if L1_143 ~= L3_145 then
+      L3_145 = SetInvulnerable
+      L3_145(L1_143, false)
+      L3_145 = SetTargetable
+      L3_145(L1_143, true)
     end
-    L3_130 = Nil
-    if L2_129 ~= L3_130 then
-      L3_130 = SetInvulnerable
-      L3_130(L2_129, false)
-      L3_130 = SetTargetable
-      L3_130(L2_129, true)
+    L3_145 = Nil
+    if L2_144 ~= L3_145 then
+      L3_145 = SetInvulnerable
+      L3_145(L2_144, false)
+      L3_145 = SetTargetable
+      L3_145(L2_144, true)
     end
-    L3_130 = Nil
-    if L1_128 == L3_130 then
-      L3_130 = Nil
-      if L2_129 == L3_130 then
-        L3_130 = GetHQ
-        L3_130 = L3_130(barrackTeam)
-        SetInvulnerable(L3_130, false)
-        SetTargetable(L3_130, true)
+    L3_145 = Nil
+    if L1_143 == L3_145 then
+      L3_145 = Nil
+      if L2_144 == L3_145 then
+        L3_145 = GetHQ
+        L3_145 = L3_145(barrackTeam)
+        SetInvulnerable(L3_145, false)
+        SetTargetable(L3_145, true)
       end
     end
-    L3_130 = nil
+    L3_145 = nil
     if barrackTeam == TEAM_CHAOS then
-      L3_130 = TEAM_ORDER
+      L3_145 = TEAM_ORDER
     else
-      L3_130 = TEAM_CHAOS
+      L3_145 = TEAM_CHAOS
     end
-    ApplyBarracksDestructionBonuses(L3_130, barrackLane)
+    ApplyBarracksDestructionBonuses(L3_145, barrackLane)
   end
-  L1_128 = IsTurretAI
-  L2_129 = A0_127
-  L1_128 = L1_128(L2_129)
-  if L1_128 then
-    L1_128 = GetTeamID
-    L2_129 = A0_127
-    L1_128 = L1_128(L2_129)
-    L2_129 = GetObjectLaneId
-    L3_130 = A0_127
-    L2_129 = L2_129(L3_130)
-    L3_130 = GetTurretPosition
-    L3_130 = L3_130(A0_127)
-    DeactivateCorrectStructure(L1_128, L2_129, L3_130)
+  L1_143 = IsTurretAI
+  L2_144 = A0_142
+  L1_143 = L1_143(L2_144)
+  if L1_143 then
+    L1_143 = GetTeamID
+    L2_144 = A0_142
+    L1_143 = L1_143(L2_144)
+    L2_144 = GetObjectLaneId
+    L3_145 = A0_142
+    L2_144 = L2_144(L3_145)
+    L3_145 = GetTurretPosition
+    L3_145 = L3_145(A0_142)
+    DeactivateCorrectStructure(L1_143, L2_144, L3_145)
     return
   end
-  L1_128 = GetDampenerType
-  L2_129 = A0_127
-  L1_128 = L1_128(L2_129)
-  if L1_128 > -1 then
-    L2_129 = 0
-    L3_130 = TEAM_ORDER
-    if L1_128 % TEAM_CHAOS >= RIGHT_LANE and L1_128 % TEAM_CHAOS <= LEFT_LANE then
-      L2_129 = ChaosBarracksBonuses[L1_128 % TEAM_CHAOS + 1]
-      ChaosBuildingStatus[L1_128 % TEAM_CHAOS + 1].Barracks = false
+  L1_143 = GetDampenerType
+  L2_144 = A0_142
+  L1_143 = L1_143(L2_144)
+  if L1_143 > -1 then
+    L2_144 = 0
+    L3_145 = TEAM_ORDER
+    if L1_143 % TEAM_CHAOS >= RIGHT_LANE and L1_143 % TEAM_CHAOS <= LEFT_LANE then
+      L2_144 = ChaosBarracksBonuses[L1_143 % TEAM_CHAOS + 1]
+      ChaosBuildingStatus[L1_143 % TEAM_CHAOS + 1].Barracks = false
     else
-      L3_130 = TEAM_CHAOS
-      L2_129 = OrderBarracksBonuses[L1_128 % TEAM_CHAOS - TEAM_ORDER + 1]
-      OrderBuildingStatus[L1_128 % TEAM_CHAOS - TEAM_ORDER + 1].Barracks = false
+      L3_145 = TEAM_CHAOS
+      L2_144 = OrderBarracksBonuses[L1_143 % TEAM_CHAOS - TEAM_ORDER + 1]
+      OrderBuildingStatus[L1_143 % TEAM_CHAOS - TEAM_ORDER + 1].Barracks = false
     end
   else
-    L2_129 = Log
-    L3_130 = "Could not find Linking barracks!"
-    L2_129(L3_130)
+    L2_144 = Log
+    L3_145 = "Could not find Linking barracks!"
+    L2_144(L3_145)
   end
-  L2_129 = true
-  return L2_129
+  L2_144 = true
+  return L2_144
 end
-HandleDestroyedObject = L0_0
-function L0_0()
-  local L1_131
-  L1_131 = 2
-  CANNON_MINION_SPAWN_FREQUENCY = L1_131
+function IncreaseCannonMinionSpawnRate()
+  local L1_146
+  L1_146 = 2
+  CANNON_MINION_SPAWN_FREQUENCY = L1_146
 end
-IncreaseCannonMinionSpawnRate = L0_0
-function L0_0(A0_132)
+function IncreaseCannonMinionSpawnRateAgain()
+  local L1_147
+  L1_147 = 1
+  CANNON_MINION_SPAWN_FREQUENCY = L1_147
+end
+function PostGameSetup(A0_148)
   POST_GAME_EVENTS = {}
 end
-PostGameSetup = L0_0
-function L0_0(A0_133, A1_134)
-  local L2_135, L3_136, L4_137, L5_138
-  for L5_138, _FORV_6_ in L2_135(L3_136) do
-    if A0_133 > _FORV_6_.delay then
-      ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_6_.cameraLocation, _FORV_6_.travelTime)
-      if _FORV_6_.soundFile then
-        ClientSide_PlaySoundFile(_FORV_6_.soundFile)
+function PostGameUpdate(A0_149, A1_150)
+  local L2_151, L3_152, L4_153, L5_154, L6_155, L7_156
+  for L7_156, _FORV_8_ in L4_153(L5_154) do
+    if A0_149 > _FORV_8_.delay then
+      ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_8_.cameraLocation, _FORV_8_.travelTime)
+      if _FORV_8_.soundFile then
+        ClientSide_PlaySoundFile(_FORV_8_.soundFile)
       end
-      table.remove(POST_GAME_EVENTS, L5_138)
+      table.remove(POST_GAME_EVENTS, L7_156)
       break
     end
   end
 end
-PostGameUpdate = L0_0

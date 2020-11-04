@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="maokai_elementaladvance_root_01.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="maokai_elementaladvance_root_02.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="maokai_base_w_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="maokai_base_w_rootsdeath.troy"}}, 
 }
