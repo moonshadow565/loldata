@@ -11,5 +11,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="pirate_xmarksthespot_nova.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="cannonbarrageslow"}}, 
-{Function=BBPreloadSpell, Params={Name="cannonbarragezone"}}, 
 }

@@ -1,5 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="galio_windtunnel_speed_buf.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadParticle, Params={Name="galio_windtunnel_speed_buf_team_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="galio_base_e_speed_buff.troy"}}, 
 }

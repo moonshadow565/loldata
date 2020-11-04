@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="scurvystrikeparticle"}}, 
-{Function=BBPreloadSpell, Params={Name="scurvy"}}, 
 {Function=BBPreloadSpell, Params={Name="scurvystrikeslow"}}, 
 {Function=BBPreloadSpell, Params={Name="scurvystrike"}}, 
 }
