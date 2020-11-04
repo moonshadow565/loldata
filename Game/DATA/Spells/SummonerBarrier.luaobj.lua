@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
+DoesntTriggerSpellCasts = true
 IsDamagingSpell = false
 BuffTextureName = "SummonerBarrier.dds"
 BuffName = "SummonerBarrier"
