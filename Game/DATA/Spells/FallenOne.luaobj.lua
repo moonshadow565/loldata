@@ -4,8 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 ChannelDuration = 3
-BuffTextureName = ""
-BuffName = ""
 AutoCooldownByLevel = {
   180,
   150,

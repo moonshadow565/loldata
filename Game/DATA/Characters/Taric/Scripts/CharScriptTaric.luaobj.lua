@@ -2,13 +2,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shatteraura"
+      Name = "shatterselfbonus"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "shatterselfbonus"
+      Name = "shatteraura"
     }
   },
   {

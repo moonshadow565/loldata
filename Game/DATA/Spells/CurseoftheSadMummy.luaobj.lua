@@ -18,5 +18,15 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cursebandages.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "curseofthesadmummycasteffects"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "disarm"}
   }
 }

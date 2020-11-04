@@ -6,7 +6,8 @@ BuffTextureName = "RecallHome.dds"
 BuffName = "Recall"
 SpellFXOverrideSkins = {
   "OktoberGragas",
-  "MetalWingedJudicator"
+  "MetalWingedJudicator",
+  "ClericSoraka"
 }
 SpellVOOverrideSkins = {
   "ZombieBrand",

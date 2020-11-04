@@ -1,0 +1,9 @@
+NotSingleTargetSpell = false
+DoesntTriggerSpellCasts = false
+IsDamagingSpell = true
+BuffTextureName = "Quinn_W.dds"
+BuffName = "QuinnPassiveAmmo"
+AutoBuffActivateEffect = "QuinnPBuff.troy"
+AutoBuffActivateAttachBoneName = "Weapon_Top"
+OnPreDamagePriority = 3
+DoOnPreDamageInExpirationOrder = true
