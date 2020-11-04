@@ -1,5 +1,5 @@
 BuffTextureName = "3037_Mana_Manipulator.dds"
-BuffName = "Mana Regeneration"
+BuffName = "Mana Regeneration Aura"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

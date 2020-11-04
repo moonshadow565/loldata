@@ -186,7 +186,8 @@ OnBuffActivateBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 0.25,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -415,6 +416,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = true,
               MagicImmune = false,
               IgnoreCollision = true,
+              Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other2",
               GoldRedirectTargetVar = "Nothing"
@@ -439,7 +441,16 @@ SelfExecuteBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBSetStatus,
+            Params = {
+              TargetVar = "Other2",
+              SrcValue = true,
+              Status = SetGhostProof
             }
           }
         }

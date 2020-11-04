@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
+SpellFXOverrideSkins = {
+  "DandyChogath"
+}
 SpellVOOverrideSkins = {
   "DandyChogath"
 }

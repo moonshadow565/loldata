@@ -158,7 +158,8 @@ OnBuffActivateBuildingBlocks = {
       CenterVar = "TargetPos",
       Range = 400,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -201,12 +202,14 @@ OnBuffActivateBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "Chilled",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,
           Duration = 2.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -411,7 +414,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "TargetPos",
           Range = 400,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -454,12 +458,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "Chilled",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
               Duration = 2.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -553,12 +559,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "GlacialStorm",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

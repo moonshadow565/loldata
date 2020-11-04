@@ -173,7 +173,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           Range = 575,
           Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
           IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
+          MaximumUnitsToPick = 1,
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -189,11 +190,20 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBApplyTaunt,
+                Function = BBSpellBuffAdd,
                 Params = {
-                  AttackerVar = "Unit",
                   TargetVar = "Owner",
-                  Duration = 0.5
+                  AttackerVar = "Unit",
+                  BuffName = "TauntNoParticle",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0.5,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -288,7 +298,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectFriends AffectMinions ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -558,7 +569,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -606,7 +618,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -654,7 +667,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -702,7 +716,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -750,7 +765,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -793,7 +809,8 @@ SelfExecuteBuildingBlocks = {
               CenterVar = "Owner",
               Range = 25000,
               Flags = "AffectFriends AffectMinions ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -948,6 +965,7 @@ SelfExecuteBuildingBlocks = {
           Invulnerable = false,
           MagicImmune = false,
           IgnoreCollision = false,
+          Placemarker = false,
           VisibilitySize = 0,
           DestVar = "Other3",
           GoldRedirectTargetVar = "Owner"
@@ -986,6 +1004,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = false,
               MagicImmune = false,
               IgnoreCollision = false,
+              Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other3",
               GoldRedirectTargetVar = "Owner"
@@ -998,12 +1017,14 @@ SelfExecuteBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "UrAniumRounds",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -1027,6 +1048,7 @@ SelfExecuteBuildingBlocks = {
               Invulnerable = false,
               MagicImmune = false,
               IgnoreCollision = false,
+              Placemarker = false,
               VisibilitySize = 0,
               DestVar = "Other3",
               GoldRedirectTargetVar = "Owner"
@@ -1039,12 +1061,14 @@ SelfExecuteBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "ExplosiveCartridges",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -1058,12 +1082,14 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "UPGRADE!!!Proof",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -1072,12 +1098,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Other3",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -1111,7 +1139,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 25000,
       Flags = "AffectFriends AffectMinions ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -1237,12 +1266,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerOne",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 6,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1274,12 +1305,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerTwo",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1311,12 +1344,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerThree",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1348,12 +1383,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerFour",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1385,12 +1422,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerFive",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1418,12 +1457,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MarkerSix",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -1434,6 +1475,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_turret_birth.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "tauntnoparticle"
     }
   },
   {

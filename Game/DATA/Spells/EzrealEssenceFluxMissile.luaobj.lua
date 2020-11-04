@@ -109,7 +109,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "TotalHeal",
       Src1Value = 0,
-      Src2Value = 0.7,
+      Src2Value = 0.5,
       DestVar = "TotalHeal",
       MathOp = MO_MULTIPLY
     }
@@ -154,11 +154,11 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        0.05,
+        0.1,
+        0.15,
         0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
+        0.25
       }
     }
   },

@@ -15,9 +15,10 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -75,9 +76,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -122,12 +124,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "PowerFistSlow",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Stun,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -166,9 +170,9 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        12,
-        10,
+        9,
         8,
+        7,
         6,
         4
       }
@@ -180,12 +184,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

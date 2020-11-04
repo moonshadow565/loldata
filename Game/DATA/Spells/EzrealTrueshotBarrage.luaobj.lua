@@ -9,6 +9,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "EzrealRisingSpellForce",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 5,
       NumberOfStacks = 1,
@@ -21,7 +22,8 @@ TargetExecuteBuildingBlocks = {
         0,
         0
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -47,7 +49,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,
       PercentOfAttackVar = "percentOfAttack",
-      SpellDamageRatio = 1,
+      SpellDamageRatio = 0.7,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

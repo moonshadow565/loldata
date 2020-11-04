@@ -3,7 +3,7 @@ BuffName = "ForcePulseAvailable"
 AutoBuffActivateEffect = "ForcewalkReady.troy"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,
@@ -14,7 +14,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,

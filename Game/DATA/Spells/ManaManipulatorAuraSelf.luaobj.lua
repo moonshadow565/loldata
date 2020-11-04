@@ -1,5 +1,5 @@
 BuffTextureName = "3037_Mana_Manipulator.dds"
-BuffName = "Mana Regeneration Aura"
+BuffName = "Mana Regeneration"
 AutoBuffActivateEffect = "ZettasManaManipulator_itm.troy"
 OnBuffActivateBuildingBlocks = {
   {

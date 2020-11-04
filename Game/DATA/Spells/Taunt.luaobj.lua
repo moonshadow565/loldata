@@ -5,6 +5,14 @@ AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Taunted"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBStopChanneling,
+    Params = {
+      CasterVar = "Owner",
+      StopCondition = ChannelingStopCondition_Cancel,
+      StopSource = ChannelingStopSource_StunnedOrSilencedOrTaunted
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",

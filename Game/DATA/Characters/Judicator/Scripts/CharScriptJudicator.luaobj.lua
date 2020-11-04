@@ -1,46 +1,53 @@
-UpdateSelfBuffActionsBuildingBlocks = {
+CharOnPreDealDamageBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
+    Function = BBIfHasBuff,
     Params = {
-      TimeBetweenExecutions = 1,
-      TrackTimeVar = "LastTimeExuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
+      OwnerVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "JudicatorReckoning"
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetArea,
+        Function = BBGetSlotSpellInfo,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 1000,
-          Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Unit"
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
         },
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBSetVarInTable,
             Params = {
-              Src1Var = "Owner",
-              Src2Var = "Unit",
-              CompareOp = CO_NOT_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Owner",
-                  BuffName = "HolyFervorAuraNoParticle",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberStacks = 1,
-                  Duration = 1.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
+              DestVar = "DamagePercent",
+              SrcValueByLevel = {
+                1.08,
+                1.1,
+                1.12,
+                1.14,
+                1.16
               }
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamagePercent",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_MULTIPLY
             }
           }
         }
@@ -56,12 +63,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -71,12 +80,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -84,14 +95,16 @@ CharOnActivateBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "HolyFervorAura",
+      BuffName = "JudicatorHolyFervor",
       BuffAddType = BUFF_RENEW_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -103,12 +116,14 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }
@@ -116,7 +131,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "holyfervorauranoparticle"
+      Name = "judicatorreckoning"
     }
   },
   {
@@ -134,7 +149,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "holyfervoraura"
+      Name = "judicatorholyfervor"
     }
   }
 }

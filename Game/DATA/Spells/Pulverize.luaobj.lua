@@ -66,23 +66,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "DamageAmount",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -150,7 +133,6 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DamageAmount",
-      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         80,
         125,
@@ -175,6 +157,22 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "DamageAmount",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }

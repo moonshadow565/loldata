@@ -58,53 +58,14 @@ BuffOnUpdateActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MordekaiserCOTGDot",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 0.01,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      }
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CurrentHealth",
-      Src2Var = "DamageAmount",
-      CompareOp = CO_LESS_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSetBuffCasterUnit,
-        Params = {CasterVar = "Caster"}
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Caster",
-          TargetVar = "Owner",
-          PosVar = "Owner",
-          EndPosVar = "Owner",
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 1,
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -165,12 +126,56 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+BuffOnTakeDamageBuildingBlocks = {
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "targetHealth",
+      OwnerVar = "Owner",
+      Function = GetHealth,
+      PARType = PAR_MANA
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "targetHealth",
+      Value2 = 0,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Caster",
+          TargetVar = "Owner",
+          PosVar = "Owner",
+          EndPosVar = "Owner",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 1,
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
+        }
+      }
     }
   }
 }

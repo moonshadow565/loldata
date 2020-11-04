@@ -9,6 +9,10 @@ BuffName = "Shen Stand United Channel"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Nothing",
@@ -22,8 +26,9 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -49,7 +54,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -103,7 +109,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -137,7 +144,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -153,7 +161,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

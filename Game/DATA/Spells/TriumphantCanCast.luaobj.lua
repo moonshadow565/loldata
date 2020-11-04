@@ -2,7 +2,7 @@ BuffTextureName = "Minotaur_TriumphantRoar.dds"
 BuffName = "Buff_TriumphantCanCast"
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,
@@ -13,7 +13,7 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,

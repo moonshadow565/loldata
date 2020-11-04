@@ -50,7 +50,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,
@@ -59,7 +59,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,
@@ -68,7 +68,7 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
       SlotType = SpellSlots,
@@ -158,7 +158,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
       SlotType = SpellSlots,
@@ -167,7 +167,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 2,
       SlotType = SpellSlots,
@@ -176,7 +176,7 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSilenceSpellSlot,
+    Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 3,
       SlotType = SpellSlots,
