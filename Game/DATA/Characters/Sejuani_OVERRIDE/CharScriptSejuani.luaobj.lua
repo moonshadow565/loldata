@@ -68,6 +68,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "threesisters"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "sejuanifrostbuffer"
     }
   },

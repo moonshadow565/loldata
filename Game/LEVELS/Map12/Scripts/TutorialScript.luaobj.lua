@@ -1827,6 +1827,10 @@ function L0()
   L1 = "Tutorial_Extra_GoodJob1"
   L2 = "EventReturnPlatform"
   L0(L1, L2)
+  L0 = UnRegisterOnSpellAvatarCastCallback
+  L1 = 0
+  L2 = "Tutorial_Replenish"
+  L0(L1, L2)
   L0 = HideObjectiveText
   L0()
   L0 = HideAuxiliaryText

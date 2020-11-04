@@ -10,11 +10,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "turretdamagemanager"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "testturretlock"
-    }
   }
 }
