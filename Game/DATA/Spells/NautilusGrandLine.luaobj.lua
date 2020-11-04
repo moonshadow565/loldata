@@ -63,5 +63,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nautilusgrandlinetracker"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nautilusgrandlinetarget"
+    }
   }
 }

@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Nocturne_ShroudofDarkness.dds"
+BuffTextureName = "Fiora_Parry.dds"
 BuffName = "FioraRiposteBuff"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""

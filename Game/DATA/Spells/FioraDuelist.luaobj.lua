@@ -1,4 +1,4 @@
-BuffTextureName = "Jester_CarefulStrikes.dds"
+BuffTextureName = "Fiora_Duelist.dds"
 BuffName = "FioraDuelist"
 PersistsThroughDeath = true
 NonDispellable = true
@@ -20,5 +20,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "fioraduelisthotparticle"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "fiorarun"}
   }
 }

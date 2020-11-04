@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Renekton_Execute.dds"
+BuffTextureName = "Fiora_BurstofSpeed.dds"
 BuffName = "FioraFlurry"
 AutoBuffActivateEffect = "Fiora_Flurry_AS.troy"
 AutoBuffActivateAttachBoneName = ""

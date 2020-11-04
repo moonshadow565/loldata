@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Nocturne_ShroudofDarkness.dds"
+BuffTextureName = "Fiora_Parry.dds"
 BuffName = "FioraRiposte"
 AutoBuffActivateEffect = "Fiora_Parry_buf.troy"
 AutoBuffActivateAttachBoneName = "Weapon"
@@ -12,6 +12,12 @@ AutoBuffActivateEffect4 = ""
 AutoBuffActivateAttachBoneName4 = ""
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fiora_parry_block_sound.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

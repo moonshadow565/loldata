@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "oriana_ghost_bind_assaisin.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "oriana_ghost_bind.troy"
     }
   },

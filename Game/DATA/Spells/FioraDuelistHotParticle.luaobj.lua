@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Garen_Perseverance.dds"
+BuffTextureName = "Fiora_Duelist.dds"
 BuffName = "FioraDuelistHot"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
