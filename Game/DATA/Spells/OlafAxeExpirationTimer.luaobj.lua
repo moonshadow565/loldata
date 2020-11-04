@@ -1,9 +1,20 @@
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "olaf_axe_trigger.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_pentakill_axe_totem_team_id_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_pentakill_axe_totem_team_id_red.troy"
     }
   },
   {
@@ -28,6 +39,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "olaf_axe_refresh_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_pentakill_axe_trigger_02.troy"
     }
   },
   {

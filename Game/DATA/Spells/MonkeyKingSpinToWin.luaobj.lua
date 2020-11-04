@@ -3,10 +3,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 BuffTextureName = "MonkeyKingCyclone.dds"
 BuffName = "MonkeyKingSpinToWin"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {

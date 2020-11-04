@@ -6,6 +6,18 @@ BuffName = "Starcall"
 SpellDamageRatio = 0.35
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "soraka_cleric_starcall_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "starcall_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "starcalldamage"

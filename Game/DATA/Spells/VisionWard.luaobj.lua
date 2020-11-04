@@ -2,7 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "096_Eye_of_the_Observer.dds"
 BuffName = "Magical Sight Ward"
-AutoBuffActivateEffect = "ICU.troy"
+AutoBuffActivateEffect = "Ward_Vision_Idle.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

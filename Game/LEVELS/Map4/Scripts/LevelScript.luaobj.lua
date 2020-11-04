@@ -502,14 +502,14 @@ function L0_0()
   L0_3.NumOfArcherMinionsPerWave = 3
   L0_3.SingleMinionSpawnDelay = 800
   L0_3.DidPowerGroup = false
-  L3_6 = true
-  L0_3(L1_4, L2_5, L3_6)
-  L3_6 = false
-  L0_3(L1_4, L2_5, L3_6)
-  L3_6 = false
-  L0_3(L1_4, L2_5, L3_6)
 end
 OnLevelInit = L0_0
+function L0_0()
+  InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
+  InitTimer("IncreaseCannonMinionSpawnRate", INCREASE_CANNON_RATE_TIMER, false)
+  InitTimer("AllowDamageOnBuildings", 10, false)
+end
+OnLevelInitServer = L0_0
 function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua", 4)
   CreateLevelProps()

@@ -1,8 +1,17 @@
 BuffTextureName = "Chronokeeper_Timestop.dds"
 BuffName = "Slow"
-AutoBuffActivateEffect = "olaf_waterLog_Slow.troy"
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = "olaf_waterLog_debuf.troy"
-AutoBuffActivateAttachBoneName2 = "root"
-AutoBuffActivateEffect3 = ""
 PopupMessage1 = "game_floatingtext_Slowed"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_waterlog_slow.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "olaf_waterlog_debuf.troy"
+    }
+  }
+}

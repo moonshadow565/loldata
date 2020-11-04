@@ -421,6 +421,8 @@ function OnLevelInit()
   SpawnTable.NumOfArcherMinionsPerWave = 3
   SpawnTable.SingleMinionSpawnDelay = 800
   SpawnTable.DidPowerGroup = false
+end
+function OnLevelInitServer()
   InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
   InitTimer("IncreaseCannonMinionSpawnRate", INCREASE_CANNON_RATE_TIMER, false)
   InitTimer("AllowDamageOnBuildings", 10, false)

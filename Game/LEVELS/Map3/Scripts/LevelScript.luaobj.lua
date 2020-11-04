@@ -468,9 +468,6 @@ function L0_0()
     INITIAL_TIME_TO_SPAWN = L1_2
     L1_2.NumOfMeleeMinionsPerWave = 0
     L1_2.NumOfArcherMinionsPerWave = 0
-    L3_4 = 1
-    L4_5 = false
-    L1_2(L2_3, L3_4, L4_5)
   else
     L1_2(L2_3)
     L1_2(L2_3)
@@ -487,21 +484,22 @@ function L0_0()
     L3_4 = 3
     L1_2(L2_3, L3_4)
     L1_2()
-    L3_4 = UPGRADE_MINION_TIMER
-    L4_5 = true
-    L1_2(L2_3, L3_4, L4_5)
-    L3_4 = 10
-    L4_5 = false
-    L1_2(L2_3, L3_4, L4_5)
-    L3_4 = 1
-    L4_5 = false
-    L1_2(L2_3, L3_4, L4_5)
   end
   L1_2(L2_3)
   L4_5 = L2_3()
   L1_2(L2_3, L3_4, L4_5, L2_3())
 end
 OnLevelInit = L0_0
+function L0_0()
+  if GetGameMode() == "TUTORIAL" then
+    InitTimer("PlaceTutorialSpawnRunes", 1, false)
+  else
+    InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
+    InitTimer("AllowDamageOnBuildings", 10, false)
+    InitTimer("ApplyAramBuff", 1, false)
+  end
+end
+OnLevelInitServer = L0_0
 function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua", 3)
   if GetGameMode() == "TUTORIAL" then
