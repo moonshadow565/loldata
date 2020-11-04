@@ -18,11 +18,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zed_ult_pop_nokill.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "darius_passive_overhead_max_stack.troy"
-    }
   }
 }
