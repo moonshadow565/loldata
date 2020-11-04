@@ -28,39 +28,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBGetStat,
-        Params = {
-          Stat = GetFlatMagicDamageMod,
-          TargetVar = "Owner",
-          DestVar = "AkaliAP"
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src2Var = "AkaliAP",
-          Src1Value = 0.3,
-          Src2Value = 0,
-          DestVar = "AkaliAP1",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "AkaliDamage1",
-          Src2Var = "AkaliAP1",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "Spell3Display",
-          MathOp = MO_ADD
-        }
-      },
-      {
         Function = BBSetSpellToolTipVar,
         Params = {
           Value = 0,
-          ValueVar = "Spell3Display",
+          ValueVar = "AkaliDamage1",
           Index = 1,
           SlotNumber = 2,
           SlotType = SpellSlots,

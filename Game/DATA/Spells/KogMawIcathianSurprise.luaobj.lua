@@ -710,7 +710,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatAttackRangeMod,
       TargetVar = "Owner",
-      Delta = -450
+      Delta = -500
     }
   },
   {

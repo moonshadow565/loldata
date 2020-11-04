@@ -25,6 +25,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
           DamageVar = "DotDamage",

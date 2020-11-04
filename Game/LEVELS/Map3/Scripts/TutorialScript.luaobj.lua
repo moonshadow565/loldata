@@ -1978,7 +1978,7 @@ function L0()
   L4 = 0
   L5 = 0
   L0(L1, L2, L3, L4, L5)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = playerID
   L3 = "DisableHPRegen"
@@ -2161,7 +2161,7 @@ function L0()
   L1 = allyID
   L2 = singedGetsOwnedPos
   L0(L1, L2)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = allyID
   L3 = "SetNoRender"
@@ -2248,12 +2248,12 @@ function L0()
   L1 = "Tutorial_OhNo"
   L2 = "EventNoSupport"
   L0(L1, L2)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = allyID
   L3 = "JudicatorIntervention"
   L0(L1, L2, L3)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = allyID
   L3 = "Stun"
@@ -2837,12 +2837,12 @@ function L0()
   L0 = LogTutorial
   L1 = "Unstunning champion"
   L0(L1)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = botID
   L3 = "Stun"
   L0(L1, L2, L3)
-  L0 = SpellBuffRemove
+  L0 = TutorialSpellBuffRemove
   L1 = playerID
   L2 = botID
   L3 = "SetNoRender"

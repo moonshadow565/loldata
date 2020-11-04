@@ -83,7 +83,7 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner", Reset = true}
+    Params = {TargetVar = "Owner"}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -251,11 +251,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        12,
+        11,
         10,
         9,
-        8,
-        7,
-        6
+        8
       }
     }
   },

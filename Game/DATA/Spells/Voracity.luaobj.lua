@@ -32,7 +32,7 @@ BuffOnKillBuildingBlocks = {
       },
       {
         Function = BBIncGold,
-        Params = {TargetVar = "Owner", Delta = 50}
+        Params = {TargetVar = "Owner", Delta = 25}
       },
       {
         Function = BBSetSlotSpellCooldownTime,
@@ -118,7 +118,7 @@ BuffOnAssistBuildingBlocks = {
   },
   {
     Function = BBIncGold,
-    Params = {TargetVar = "Owner", Delta = 50}
+    Params = {TargetVar = "Owner", Delta = 25}
   },
   {
     Function = BBSetSlotSpellCooldownTime,

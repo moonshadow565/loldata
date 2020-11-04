@@ -1,5 +1,7 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
 BuffTextureName = "3154_WriggleLantern.dds"
 BuffName = "WriggleLantern"
 AutoBuffActivateEffect = ""
@@ -215,7 +217,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -236,7 +238,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name1",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -257,7 +259,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name2",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -278,7 +280,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name3",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -299,7 +301,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name4",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -320,7 +322,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name5",
-      Value2 = "WriggleLantern",
+      Value2 = "wrigglelantern",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {

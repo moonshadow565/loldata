@@ -18,29 +18,6 @@ UpdateSelfBuffStatsBuildingBlocks = {
           OwnerVar = "Owner",
           Function = GetSlotSpellLevel
         }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "GarenDamageVar",
-          Src1VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0.35,
-          DestVar = "Spell3Display",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "Spell3Display",
-          Index = 1,
-          SlotNumber = 2,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
-        }
       }
     }
   }
@@ -72,6 +49,42 @@ UpdateSelfBuffActionsBuildingBlocks = {
           TargetVar = "Owner",
           DestVar = "GarenDamageVar",
           DestVarTable = "InstanceVars"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "GarenDamageVar",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0.35,
+          DestVar = "Spell3Display",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "Spell3Display",
+          Index = 1,
+          SlotNumber = 2,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "GarenDamageVar",
+          ValueVarTable = "InstanceVars",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
         }
       },
       {

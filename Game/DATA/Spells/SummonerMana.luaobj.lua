@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 AdjustCooldownBuildingBlocks = {
   {
     Function = BBIf,
@@ -134,7 +135,8 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 600,
       Flags = "AffectFriends AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {

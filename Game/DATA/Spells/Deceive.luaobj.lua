@@ -37,6 +37,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -104,27 +105,41 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnSpellCastBuildingBlocks = {
   {
-    Function = BBGetCastInfo,
-    Params = {
-      DestVar = "BeingCasted",
-      Info = GetSpellName
-    }
-  },
-  {
     Function = BBIf,
     Params = {
-      Src1Var = "BeingCasted",
-      Value2 = "TwoShivPoison",
+      Src1Var = "CastingBreaksStealth",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Deceive"
-        }
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "CastingBreaksStealth",
+      Src1VarTable = "SpellVars",
+      Value2 = false,
+      CompareOp = CO_EQUAL
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "DoesntTriggerSpellCasts",
+      Src1VarTable = "SpellVars",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
       }
     }
   }
@@ -152,7 +167,8 @@ BuffOnPreAttackBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -163,11 +179,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        8.5,
-        8.5,
-        8.5,
-        8.5,
-        8.5
+        10,
+        10,
+        10,
+        10,
+        10
       }
     }
   },
@@ -253,6 +269,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -271,7 +288,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

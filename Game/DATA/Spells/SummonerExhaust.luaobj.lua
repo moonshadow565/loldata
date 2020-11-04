@@ -1,5 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
+CastingBreaksStealth = true
 BuffTextureName = "Summoner_exhaust.dds"
 BuffName = "Exhaust"
 AutoBuffActivateEffect = "Summoner_Banish.troy"
@@ -183,12 +184,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "ExhaustSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -204,12 +207,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "ExhaustSlow",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_Slow,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -257,13 +262,15 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "DurationTemp",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

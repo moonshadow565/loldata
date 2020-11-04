@@ -492,66 +492,7 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD},
-    SubBlocks = {
-      {
-        Function = BBGetTeamID,
-        Params = {TargetVar = "Attacker", DestVar = "teamID"}
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "Target",
-          EffectName = "TimeBombExplo.troy",
-          Flags = 0,
-          EffectIDVar = "par",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "teamID",
-          FOWVisibilityRadius = 500,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Attacker",
-          CenterVar = "Target",
-          Range = 350,
-          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit",
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              CallForHelpAttackerVar = "Attacker",
-              TargetVar = "Unit",
-              Damage = 0,
-              DamageVar = "DamageLevel",
-              DamageVarTable = "NextBuffVars",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELLAOE,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.9,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
         Function = BBSpellBuffAdd,

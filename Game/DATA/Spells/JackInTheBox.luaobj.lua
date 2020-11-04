@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
+CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Jester_DeathWard.dds"
 BuffName = "Jack In The Box"
@@ -107,6 +107,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 1000,
       DamageType = TRUE_DAMAGE,

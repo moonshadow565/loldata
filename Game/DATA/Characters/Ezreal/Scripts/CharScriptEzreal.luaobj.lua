@@ -26,12 +26,14 @@ CharOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "CantAttack",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -45,12 +47,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -60,12 +64,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -92,7 +98,36 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
+    }
+  }
+}
+UpdateSelfBuffActionsBuildingBlocks = {
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BaseDamage",
+      Src1Value = 1.1,
+      Src2Value = 0,
+      DestVar = "AttackDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AttackDamage",
+      Index = 1,
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
     }
   }
 }

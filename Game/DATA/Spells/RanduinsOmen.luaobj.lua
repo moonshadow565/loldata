@@ -289,7 +289,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -309,7 +309,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name1",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -329,7 +329,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name2",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -349,7 +349,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name3",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -369,7 +369,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name4",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -389,7 +389,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "name5",
-      Value2 = "RanduinsOmen",
+      Value2 = "randuinsomen",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {

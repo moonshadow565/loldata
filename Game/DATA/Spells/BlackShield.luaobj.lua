@@ -209,6 +209,27 @@ BuffOnAllowAddBuildingBlocks = {
         }
       },
       {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Suppression,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSay,
+            Params = {
+              OwnerVar = "Owner",
+              ToSay = "game_lua_BlackShield_immune"
+            }
+          },
+          {
+            Function = BBSetReturnValue,
+            Params = {SrcValue = false}
+          }
+        }
+      },
+      {
         Function = BBElse,
         Params = {},
         SubBlocks = {
@@ -232,30 +253,6 @@ BuffOnAllowAddBuildingBlocks = {
   }
 }
 OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanAttack
-    }
-  },
   {
     Function = BBRequireVar,
     Params = {
@@ -444,7 +441,8 @@ TargetExecuteBuildingBlocks = {
         7,
         8
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
