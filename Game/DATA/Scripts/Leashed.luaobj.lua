@@ -89,7 +89,6 @@ function AttackTarget(_ARG_0_)
     ResetAndStartTimer("TimerFrustrationSearch")
     StartTimer("TimerAttack")
   end
-  SetGhosted(false)
   if _ARG_0_ ~= nil then
     OutOfCombatRegen:Stop()
     SetStateAndCloseToTarget(AI_ATTACK, _ARG_0_)
@@ -192,6 +191,7 @@ function TimerReturningHome()
     return
   end
   SetCharVar("DistanceToHome", (GetDistToRetreat()))
+  SetGhosted(true)
   if GetState() == AI_RETREAT and IsMovementStopped() == true and GetDistToRetreat() < 25 then
     StopTimer("TimerReturningHome")
     SetLeashOrientation()
