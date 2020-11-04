@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "Nasus_Wither.dds"
-BuffName = "Wither"
+BuffTextureName = "Nasus_W.dds"
+BuffName = "NasusW"
 AutoBuffActivateEffect = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"
 SpellFXOverrideSkins = {

@@ -10,15 +10,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "spotter_marker.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "itemblackout"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "spotter_marker.troy"
     }
   },
   {

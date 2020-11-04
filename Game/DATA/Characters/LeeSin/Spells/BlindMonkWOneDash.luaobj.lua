@@ -1,5 +1,3 @@
-BuffTextureName = "AkaliShadowDance.dds"
-BuffName = "AkaliShadowDance"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

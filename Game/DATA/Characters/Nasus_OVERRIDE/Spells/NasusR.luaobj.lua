@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Nasus_R.dds"
-BuffName = "GodofDeath"
+BuffName = "NasusR"
 SpellFXOverrideSkins = {
   "NasusSkin05"
 }

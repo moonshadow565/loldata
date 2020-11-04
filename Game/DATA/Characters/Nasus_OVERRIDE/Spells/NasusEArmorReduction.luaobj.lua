@@ -1,2 +1,2 @@
-BuffTextureName = "Nasus_SpiritFire.dds"
-BuffName = "SpiritFire"
+BuffTextureName = "Nasus_E.dds"
+BuffName = "NasusE"
