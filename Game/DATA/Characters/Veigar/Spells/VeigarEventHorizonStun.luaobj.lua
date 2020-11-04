@@ -1,12 +1,3 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
-IsDamagingSpell = true
-AutoCooldownByLevel = {
-  24,
-  22,
-  20,
-  18,
-  16
-}
+BuffTextureName = "GSB_stun.dds"
+BuffName = "Stun"
+PopupMessage1 = "game_floatingtext_Stunned"
