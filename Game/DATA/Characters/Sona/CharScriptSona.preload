@@ -5,8 +5,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sonaepassivecheck"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="sonapassive"}}, 
-{Function=BBPreloadSpell, Params={Name="sonadjstategenre01"}}, 
-{Function=BBPreloadSpell, Params={Name="sonadjaudiomanagergenre01"}}, 
-{Function=BBPreloadSpell, Params={Name="sonadjtransition"}}, 
-{Function=BBPreloadSpell, Params={Name="sonadjtransitionlockout"}}, 
 }
