@@ -116,17 +116,10 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyStun,
-    Params = {
-      AttackerVar = "Owner",
-      TargetVar = "Target",
-      Duration = 2.5
-    }
-  },
-  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageToDeal",
@@ -137,6 +130,23 @@ ChannelingStartBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Suppression",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Suppression,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -233,6 +243,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Owner",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageToDeal",
@@ -296,6 +307,14 @@ ChannelingCancelStopBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Suppression"
+    }
+  },
+  {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "ParticleID",
@@ -336,6 +355,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "alzaharnethergrasp"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "suppression"
     }
   }
 }

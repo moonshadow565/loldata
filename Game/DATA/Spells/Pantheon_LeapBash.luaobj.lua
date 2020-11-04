@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
@@ -344,6 +344,7 @@ BuffOnMoveEndBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Owner",
           TargetVar = "Caster",
           Damage = 0,
           DamageVar = "DamageLvl",

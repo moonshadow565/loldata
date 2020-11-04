@@ -67,23 +67,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "XenZhaoKnockup",
-      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-      StacksExclusive = true,
-      BuffType = BUFF_Stun,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "HitResult",
@@ -138,6 +121,27 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "XenZhaoComboAutoFinish"
     }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "XenZhaoKnockup",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
+      BuffType = BUFF_Stun,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -151,6 +155,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "xenzhaocomboautofinish"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaoknockup"
     }
   }
 }

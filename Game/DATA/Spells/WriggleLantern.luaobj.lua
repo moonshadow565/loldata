@@ -6,7 +6,6 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
-OnBuffActivateBuildingBlocks = {}
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -14,56 +13,24 @@ BuffOnHitUnitBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
+        Params = {Value1 = 0.2, CompareOp = CO_RANDOM_CHANCE_LESS_THAN},
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {
-              Src1Var = "HitResult",
-              Value2 = HIT_Dodge,
-              CompareOp = CO_NOT_EQUAL
-            },
+            Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_TURRET},
             SubBlocks = {
               {
                 Function = BBIf,
-                Params = {
-                  Src1Var = "HitResult",
-                  Value2 = HIT_Miss,
-                  CompareOp = CO_NOT_EQUAL
-                },
+                Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_HERO},
                 SubBlocks = {
-                  {
-                    Function = BBGetTotalAttackDamage,
-                    Params = {
-                      TargetVar = "Target",
-                      DestVar = "TargetDamage"
-                    }
-                  },
                   {
                     Function = BBMath,
                     Params = {
-                      Src1Var = "TargetDamage",
+                      Src1Var = "DamageAmount",
                       Src1Value = 0,
-                      Src2Value = 0.35,
-                      DestVar = "DamageToApply",
-                      MathOp = MO_MULTIPLY
-                    }
-                  },
-                  {
-                    Function = BBApplyDamage,
-                    Params = {
-                      AttackerVar = "Owner",
-                      CallForHelpAttackerVar = "Attacker",
-                      TargetVar = "Target",
-                      Damage = 0,
-                      DamageVar = "DamageToApply",
-                      DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_PROC,
-                      PercentOfAttack = 1,
-                      SpellDamageRatio = 0,
-                      PhysicalDamageRatio = 1,
-                      IgnoreDamageIncreaseMods = false,
-                      IgnoreDamageCrit = false
+                      Src2Value = 500,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
                     }
                   }
                 }

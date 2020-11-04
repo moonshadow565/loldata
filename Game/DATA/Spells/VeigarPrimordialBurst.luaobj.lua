@@ -25,20 +25,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "TotalDamage",
       SrcValueByLevel = {
-        200,
-        350,
+        250,
+        375,
         500
       }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "TargetAP",
-      Src1Value = 0,
-      Src2Value = 0.8,
-      DestVar = "TargetAP",
-      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -56,13 +46,14 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "TotalDamage",
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.8,
+      SpellDamageRatio = 1,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

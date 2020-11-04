@@ -1,5 +1,8 @@
-NotSingleTargetSpell = false
+NotSingleTargetSpell = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
 BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "XenZhaoParry"
 AutoBuffActivateEffect = ""

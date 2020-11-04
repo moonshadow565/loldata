@@ -177,6 +177,18 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Poison}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Suppression}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_CombatDehancer}
   },
   {
@@ -242,10 +254,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Net}
-  },
-  {
-    Function = BBSpellBuffRemoveType,
-    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

@@ -409,6 +409,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Poison}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -510,7 +518,8 @@ OnBuffDeactivateBuildingBlocks = {
               OverrideCoolDownCheck = true,
               FireWithoutCasting = true,
               UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false
+              ForceCastingOrChannelling = false,
+              UpdateAutoAttackTimer = false
             }
           }
         }
@@ -622,6 +631,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "TotalDamage",
@@ -648,6 +658,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 10000,
       DamageType = TRUE_DAMAGE,

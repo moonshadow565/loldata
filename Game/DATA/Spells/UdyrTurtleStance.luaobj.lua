@@ -27,6 +27,23 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "TurtleStance.troy",
+      Flags = 0,
+      EffectIDVar = "Turtleparticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBOverrideAutoAttack,
     Params = {
       SpellSlot = 2,
@@ -82,6 +99,13 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSpellEffectRemove,
     Params = {
       EffectIDVar = "turtle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Turtleparticle",
       EffectIDVarTable = "InstanceVars"
     }
   },
@@ -365,22 +389,6 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "TurtleStance.troy",
-      Flags = 0,
-      EffectIDVar = "Turtleparticle",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
@@ -456,6 +464,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "turtlestance.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "udyrbearstance"
@@ -477,12 +491,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "udyrturtleactivation"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "turtlestance.troy"
     }
   }
 }

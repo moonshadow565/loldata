@@ -154,6 +154,46 @@ BuffOnAllowAddBuildingBlocks = {
             }
           }
         }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Blind,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src1Value = 0,
+              Src2Value = 0.35,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Silence,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "Duration",
+              Src1Value = 0,
+              Src2Value = 0.35,
+              DestVar = "Duration",
+              MathOp = MO_MULTIPLY
+            }
+          }
+        }
       }
     }
   }
@@ -255,8 +295,40 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBDispellNegativeBuffs,
-    Params = {AttackerVar = "Owner"}
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Stun}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Silence}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Taunt}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Slow}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Snare}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Fear}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Net}
+  },
+  {
+    Function = BBSpellBuffRemoveType,
+    Params = {TargetVar = "Owner", Type = BUFF_Blind}
   },
   {
     Function = BBSpellBuffAdd,

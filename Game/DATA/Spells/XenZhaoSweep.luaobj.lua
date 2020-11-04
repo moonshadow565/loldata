@@ -279,41 +279,6 @@ BuffOnMoveEndBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Caster",
-      Damage = 0,
-      DamageVar = "DamageDealt",
-      DamageVarTable = "InstanceVars",
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0.4,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Caster",
-      AttackerVar = "Owner",
-      BuffName = "Slow",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Slow,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 2.2,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
@@ -342,6 +307,10 @@ BuffOnMoveEndBuildingBlocks = {
           CompareOp = CO_NOT_EQUAL
         },
         SubBlocks = {
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Unit"}
+          },
           {
             Function = BBSpellEffectCreate,
             Params = {
@@ -396,6 +365,45 @@ BuffOnMoveEndBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Caster"}
+  },
+  {
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Caster",
+      Damage = 0,
+      DamageVar = "DamageDealt",
+      DamageVarTable = "InstanceVars",
+      DamageType = MAGIC_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0.4,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Caster",
+      AttackerVar = "Owner",
+      BuffName = "Slow",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Slow,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2.2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -418,13 +426,13 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "slow"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_audaciouscharge_tar_03_unit_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "slow"}
   }
 }
