@@ -1,6 +1,12 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "globalstealthscreentint"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "deceive"}
   },
   {

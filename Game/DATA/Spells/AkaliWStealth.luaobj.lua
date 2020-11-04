@@ -6,5 +6,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "temp_akalipoof2.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "globalstealthscreentint"
+    }
   }
 }
