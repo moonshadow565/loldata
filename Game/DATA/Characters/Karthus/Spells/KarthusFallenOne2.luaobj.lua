@@ -17,11 +17,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "karthus_base_r_explosion.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "Karthus_Base_R_Target.troy"
-    }
   }
 }

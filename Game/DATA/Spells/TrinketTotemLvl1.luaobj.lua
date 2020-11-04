@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "trinkettotemlvl1audio"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "relicyellowward"
     }
   },

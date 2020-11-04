@@ -16,6 +16,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "karthus_base_p_distortavatar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "karthus_base_p_explosion.troy"
     }
   },
