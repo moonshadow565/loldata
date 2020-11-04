@@ -5,7 +5,7 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Ryze_DesperatePower.dds"
 BuffName = "DesperatePower"
-AutoBuffActivateEffect = "ManaLeach_tar2.troy"
+AutoBuffActivateEffect = ""
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
@@ -23,6 +23,37 @@ OnBuffActivateBuildingBlocks = {
       DeltaVar = "BonusAP",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "ManaLeach_tar2.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "asdf",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -70,7 +101,16 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 8,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "manaleach_tar2.troy"
     }
   }
 }

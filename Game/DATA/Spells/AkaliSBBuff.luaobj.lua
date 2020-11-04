@@ -38,5 +38,15 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "ArmorIncrease",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
   }
 }

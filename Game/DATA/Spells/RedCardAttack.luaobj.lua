@@ -1,5 +1,9 @@
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetBaseAttackDamage,
@@ -97,8 +101,9 @@ TargetExecuteBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
                 }
               },
               {
@@ -126,7 +131,8 @@ TargetExecuteBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 0.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }

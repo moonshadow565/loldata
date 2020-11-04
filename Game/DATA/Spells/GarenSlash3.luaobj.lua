@@ -2,12 +2,54 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Garen_DecisiveStrike.dds"
 BuffName = "GarenSlash"
-AutoBuffActivateEffect = "garen_descisiveStrike_indicator.troy"
-AutoBuffActivateAttachBoneName = "BUFFBONE_WEAPON_2"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = "BUFFBONE_GLB_SHIELD"
-AutoBuffActivateEffect3 = "garen_descisiveStrike_indicator_02.troy"
+AutoBuffActivateAttachBoneName2 = ""
+AutoBuffActivateEffect3 = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "garen_descisiveStrike_indicator.troy",
+      Flags = 0,
+      EffectIDVar = "Geeves1",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE_WEAPON_2",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "garen_descisiveStrike_indicator_02.troy",
+      Flags = 0,
+      EffectIDVar = "Geeves2",
+      EffectIDVarTable = "InstanceVars",
+      BoneName = "BUFFBONE_GLB_SHIELD",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -33,6 +75,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -97,9 +140,24 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Geeves1",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Geeves2",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -132,7 +190,8 @@ BuffOnPreAttackBuildingBlocks = {
       OverrideCoolDownCheck = false,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   },
   {
@@ -145,6 +204,16 @@ BuffOnPreAttackBuildingBlocks = {
   }
 }
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SlotNumber = 0,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      OwnerVar = "Owner"
+    }
+  },
   {
     Function = BBSetVarInTable,
     Params = {
@@ -172,7 +241,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -229,11 +299,24 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_descisivestrike_indicator.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "garen_descisivestrike_indicator_02.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

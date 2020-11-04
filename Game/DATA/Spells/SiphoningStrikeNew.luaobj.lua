@@ -32,6 +32,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -129,6 +130,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -196,6 +198,10 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
             Function = BBMath,
             Params = {
               Src1Var = "LifestealAmount",
@@ -222,13 +228,15 @@ BuffOnHitUnitBuildingBlocks = {
               BindObjectVar = "Target",
               EffectName = "nassus_siphonStrike_tar.troy",
               Flags = 0,
+              EffectIDVar = "sdg",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -238,12 +246,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "SiphoningStrike",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -287,12 +297,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

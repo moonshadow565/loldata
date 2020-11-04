@@ -8,6 +8,10 @@ AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateAttachBoneName4 = ""
 BuffOnHitUnitBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -74,8 +78,9 @@ BuffOnHitUnitBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {

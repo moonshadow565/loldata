@@ -8,6 +8,27 @@ BuffName = "Pick A Card"
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "AnnieSparks.troy",
+      Flags = 0,
+      EffectIDVar = "Sparks",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "Counter",
@@ -44,7 +65,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -73,7 +95,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -97,7 +120,8 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
       }
@@ -171,6 +195,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -249,6 +274,10 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
         Function = BBMath,
         Params = {
           Src1Var = "Counter",
@@ -289,7 +318,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false
             }
           },
@@ -335,7 +365,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false
             }
           },
@@ -381,7 +412,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false
             }
           },
@@ -442,6 +474,7 @@ BuffOnSpellCastBuildingBlocks = {
             Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
               TargetVar = "Owner",
               State = true
@@ -538,6 +571,7 @@ BuffOnSpellCastBuildingBlocks = {
             Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
               TargetVar = "Owner",
               State = true
@@ -634,6 +668,7 @@ BuffOnSpellCastBuildingBlocks = {
             Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
               TargetVar = "Owner",
               State = true
@@ -730,6 +765,7 @@ BuffOnSpellCastBuildingBlocks = {
             Function = BBSealSpellSlot,
             Params = {
               SpellSlot = 1,
+              SpellbookType = SPELLBOOK_CHAMPION,
               SlotType = SpellSlots,
               TargetVar = "Owner",
               State = true
@@ -931,16 +967,24 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "anniesparks.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

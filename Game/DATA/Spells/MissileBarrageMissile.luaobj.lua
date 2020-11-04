@@ -1,5 +1,10 @@
-DoesntBreakShields = true
+DoesntBreakShields = false
+DoesntTriggerSpellCasts = true
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetStatus,
     Params = {
@@ -30,8 +35,9 @@ TargetExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -56,7 +62,8 @@ TargetExecuteBuildingBlocks = {
           CenterVar = "TargetPos",
           Range = 200,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -74,6 +81,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.3,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -110,8 +118,9 @@ TargetExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -136,7 +145,8 @@ TargetExecuteBuildingBlocks = {
               CenterVar = "TargetPos",
               Range = 200,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -154,6 +164,7 @@ TargetExecuteBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELLAOE,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.3,
+                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -202,8 +213,9 @@ TargetExecuteBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
                 }
               },
               {
@@ -228,7 +240,8 @@ TargetExecuteBuildingBlocks = {
                   CenterVar = "TargetPos",
                   Range = 200,
                   Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Unit"
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -246,6 +259,7 @@ TargetExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0.3,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }

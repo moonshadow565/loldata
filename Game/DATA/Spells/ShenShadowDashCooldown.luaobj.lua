@@ -1,5 +1,9 @@
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -13,7 +17,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   }

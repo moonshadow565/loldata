@@ -1,6 +1,13 @@
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Attacker",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -13,7 +20,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamOfOwner",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true
     }
   },
@@ -74,13 +82,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBGetTeamID,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "TeamOfOwner"
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "TeamOfOwner",
@@ -101,6 +102,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
           SendIfOnScreenOrDiscard = false
         }
@@ -118,6 +120,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_ORDER,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
           SendIfOnScreenOrDiscard = false
         }
@@ -141,6 +144,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_ORDER,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
           SendIfOnScreenOrDiscard = false
         }
@@ -158,6 +162,7 @@ OnBuffActivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_CHAOS,
           UseSpecificUnit = true,
           FOWTeam = TEAM_CHAOS,
+          FOWTeamOverrideVar = "TeamOfOwner",
           FOWVisibilityRadius = 400,
           SendIfOnScreenOrDiscard = false
         }
@@ -338,7 +343,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
-              FOWVisibilityRadius = 0,
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           },

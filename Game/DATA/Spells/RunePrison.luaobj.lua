@@ -3,9 +3,13 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Ryze_PowerOverwhelming.dds"
 BuffName = "Rune Prison"
-AutoBuffActivateEffect = "RunePrison_tar.troy"
+AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Snared"
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -63,6 +67,24 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "RunePrison_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf1",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Owner",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = false
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -72,6 +94,13 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanMove
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "asdf1",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -99,6 +128,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Owner",
           Damage = 0,
           DamageVar = "DamagePerTick",
@@ -121,6 +151,10 @@ BuffOnUpdateActionsBuildingBlocks = {
         },
         SubBlocks = {
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
             Function = BBSpellEffectCreate,
             Params = {
               BindObjectVar = "Owner",
@@ -132,7 +166,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           },
@@ -167,7 +202,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true
                     }
                   },
@@ -175,6 +211,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "UltDamage",
@@ -225,11 +262,18 @@ TargetExecuteBuildingBlocks = {
         2,
         2.4
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "runeprison_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

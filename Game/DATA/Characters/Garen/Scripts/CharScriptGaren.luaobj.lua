@@ -26,20 +26,8 @@ UpdateSelfBuffStatsBuildingBlocks = {
           Src1VarTable = "InstanceVars",
           Src1Value = 0,
           Src2Value = 0.35,
-          DestVar = "GarenDamage1",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "GarenDamage1",
-          Src2Var = "BladeBonus",
-          Src2VarTable = "InstanceVars",
-          Src1Value = 0,
-          Src2Value = 0,
           DestVar = "Spell3Display",
-          MathOp = MO_ADD
+          MathOp = MO_MULTIPLY
         }
       },
       {
@@ -146,7 +134,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -162,7 +151,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -178,7 +168,8 @@ CharOnActivateBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -296,7 +287,8 @@ CharOnLevelUpSpellBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 25000,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

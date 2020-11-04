@@ -15,11 +15,11 @@ CanCastBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        20,
-        35,
+        30,
         50,
-        65,
-        80
+        70,
+        90,
+        110
       }
     }
   },
@@ -102,7 +102,8 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

@@ -82,6 +82,10 @@ BuffOnPreDamageBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
+      },
+      {
         Function = BBMath,
         Params = {
           Src1Var = "DamageAmount",
@@ -113,8 +117,9 @@ BuffOnPreDamageBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {

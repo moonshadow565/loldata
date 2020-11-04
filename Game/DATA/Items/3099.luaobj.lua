@@ -1,17 +1,17 @@
 AutoItemActivateEffect = ""
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
     SubBlocks = {
       {
-        Function = BBExecutePeriodically,
-        Params = {
-          TimeBetweenExecutions = 0.9,
-          TrackTimeVar = "LastTimeExecuted",
-          TrackTimeVarTable = "InstanceVars",
-          ExecuteImmediately = false
-        },
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
         SubBlocks = {
           {
             Function = BBSetVarInTable,
@@ -30,62 +30,182 @@ UpdateSelfBuffActionsBuildingBlocks = {
             }
           },
           {
-            Function = BBForEachUnitInTargetArea,
-            Params = {
-              AttackerVar = "Owner",
-              CenterVar = "Owner",
-              Range = 1200,
-              Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit",
-              InclusiveBuffFilter = true
-            },
+            Function = BBIf,
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
             SubBlocks = {
               {
-                Function = BBIf,
+                Function = BBForEachUnitInTargetArea,
                 Params = {
-                  Src1Var = "Unit",
-                  Src2Var = "Owner",
-                  CompareOp = CO_EQUAL
+                  AttackerVar = "Owner",
+                  CenterVar = "Owner",
+                  Range = 1200,
+                  Flags = "AffectFriends AffectHeroes ",
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
+                    Function = BBIf,
                     Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "SoulShroudAuraSelf",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
+                      Src1Var = "Unit",
+                      Src2Var = "Owner",
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "SoulShroudAuraSelf",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1.2,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBElse,
+                    Params = {},
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "SoulShroudAuraFriend",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1.2,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
                     }
                   }
                 }
-              },
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
               {
-                Function = BBElse,
-                Params = {},
+                Function = BBForEachUnitInTargetArea,
+                Params = {
+                  AttackerVar = "Owner",
+                  CenterVar = "Owner",
+                  Range = 1200,
+                  Flags = "AffectFriends AffectHeroes ",
+                  IteratorVar = "Unit",
+                  InclusiveBuffFilter = true
+                },
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
+                    Function = BBGetPetOwner,
+                    Params = {PetVar = "Owner", DestVar = "Caster"}
+                  },
+                  {
+                    Function = BBIf,
                     Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Owner",
-                      BuffName = "SoulShroudAuraFriend",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0,
-                      CanMitigateDuration = false
+                      Src1Var = "Unit",
+                      Src2Var = "Owner",
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBIfNotHasBuff,
+                        Params = {
+                          OwnerVar = "Owner",
+                          CasterVar = "Caster",
+                          BuffName = "SoulShroudAuraFriend"
+                        },
+                        SubBlocks = {
+                          {
+                            Function = BBSpellBuffAdd,
+                            Params = {
+                              TargetVar = "Unit",
+                              AttackerVar = "Owner",
+                              BuffName = "SoulShroudAuraSelf",
+                              BuffAddType = BUFF_RENEW_EXISTING,
+                              StacksExclusive = true,
+                              BuffType = BUFF_Aura,
+                              MaxStack = 1,
+                              NumberOfStacks = 1,
+                              Duration = 1.2,
+                              BuffVarsTable = "NextBuffVars",
+                              TickRate = 0,
+                              CanMitigateDuration = false
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBIf,
+                    Params = {
+                      Src1Var = "Unit",
+                      Src2Var = "Owner",
+                      CompareOp = CO_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "SoulShroudAuraSelf",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1.2,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  },
+                  {
+                    Function = BBElseIf,
+                    Params = {
+                      Src1Var = "Unit",
+                      Src2Var = "Caster",
+                      CompareOp = CO_NOT_EQUAL
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Owner",
+                          BuffName = "SoulShroudAuraFriend",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1.2,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
                     }
                   }
                 }
@@ -126,6 +246,18 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshroudauraself"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "soulshroudaurafriend"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {

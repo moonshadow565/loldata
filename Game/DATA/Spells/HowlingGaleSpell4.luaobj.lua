@@ -58,6 +58,14 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
+      DestVar = "IdealDistance",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 100
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
       DestVar = "Speed",
       DestVarTable = "NextBuffVars",
       SrcValue = 100
@@ -84,7 +92,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

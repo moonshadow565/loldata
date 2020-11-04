@@ -5,6 +5,10 @@ PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "HealthPlusAbility",
@@ -30,7 +34,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   },

@@ -11,6 +11,13 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
+      RequiredVar = "IdealDistance",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
       RequiredVar = "Gravity",
       RequiredVarTable = "InstanceVars"
     }
@@ -54,7 +61,8 @@ OnBuffActivateBuildingBlocks = {
       DistanceInner = 0,
       MovementType = FIRST_COLLISION_HIT,
       MovementOrdersType = CANCEL_ORDER,
-      IdealDistance = 0
+      IdealDistance = 0,
+      IdealDistanceVar = "IdealDistance"
     }
   },
   {

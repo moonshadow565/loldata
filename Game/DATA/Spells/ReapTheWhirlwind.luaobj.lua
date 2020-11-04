@@ -224,7 +224,8 @@ OnBuffActivateBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -332,7 +333,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -347,8 +349,8 @@ ChannelingStartBuildingBlocks = {
       DestVar = "BaseTickAmount",
       SrcValueByLevel = {
         45,
-        75,
-        105
+        65,
+        85
       }
     }
   },
@@ -401,7 +403,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.5
+      TickRate = 0.5,
+      CanMitigateDuration = false
     }
   }
 }

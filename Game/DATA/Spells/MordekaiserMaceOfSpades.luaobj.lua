@@ -35,6 +35,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -95,6 +96,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -132,6 +134,10 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
+            Function = BBGetTeamID,
+            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+          },
+          {
             Function = BBSetVarInTable,
             Params = {
               DestVar = "WillRemove",
@@ -146,12 +152,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "MordekaiserSyphonParticle",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.2,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -211,7 +219,8 @@ BuffOnHitUnitBuildingBlocks = {
               CenterVar = "Target",
               Range = 450,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -242,7 +251,8 @@ BuffOnHitUnitBuildingBlocks = {
                   Range = 450,
                   Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
                   IteratorVar = "Unit",
-                  MaximumUnitsToPick = 4
+                  MaximumUnitsToPick = 4,
+                  InclusiveBuffFilter = true
                 },
                 SubBlocks = {
                   {
@@ -260,6 +270,7 @@ BuffOnHitUnitBuildingBlocks = {
                           TargetVar = "Unit",
                           PosVar = "Target",
                           EndPosVar = "Target",
+                          OverrideCastPosition = false,
                           SlotNumber = 2,
                           SlotType = ExtraSlots,
                           OverrideForceLevel = 0,
@@ -267,7 +278,8 @@ BuffOnHitUnitBuildingBlocks = {
                           OverrideCoolDownCheck = true,
                           FireWithoutCasting = true,
                           UseAutoAttackSpell = false,
-                          ForceCastingOrChannelling = false
+                          ForceCastingOrChannelling = false,
+                          UpdateAutoAttackTimer = false
                         }
                       }
                     }
@@ -286,7 +298,8 @@ BuffOnHitUnitBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true
                 }
               }
@@ -319,7 +332,8 @@ BuffOnHitUnitBuildingBlocks = {
                   SpecificTeamOnly = TEAM_UNKNOWN,
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
-                  FOWVisibilityRadius = 0,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
                   SendIfOnScreenOrDiscard = true
                 }
               }
@@ -340,12 +354,14 @@ BuffOnHitUnitBuildingBlocks = {
               AttackerVar = "Target",
               BuffName = "MordekaiserMaceOfSpadesDmg",
               BuffAddType = BUFF_RENEW_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0.001,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -435,12 +451,14 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

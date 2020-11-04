@@ -1,11 +1,15 @@
 BuffTextureName = "GragasBodySlam.dds"
 BuffName = "GragasBodySlamTargetSlow"
 AutoBuffActivateEffect = "Global_Slow.troy"
-AutoBuffActivateEffect2 = "gragas_bodySlam_unit_tar.troy"
+AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
-AutoBuffActivateEffect3 = "gragas_bodySlam_unit_tar_02.troy"
-AutoBuffActivateAttachBoneName3 = "chest"
+AutoBuffActivateEffect3 = ""
+AutoBuffActivateAttachBoneName3 = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -29,8 +33,43 @@ OnBuffActivateBuildingBlocks = {
     Function = BBApplyAssistMarker,
     Params = {
       Duration = 10,
-      TargetVar = "Owner",
+      TargetVar = "Attacker",
       SourceVar = "Attacker"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "gragas_bodySlam_unit_tar_02.troy",
+      Flags = 10,
+      EffectIDVar = "asdf1",
+      BoneName = "chest",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "gragas_bodySlam_unit_tar.troy",
+      Flags = 10,
+      EffectIDVar = "asdf2",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -43,6 +82,20 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "SlowAmount",
       DeltaVarTable = "InstanceVars",
       Delta = 0
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_bodyslam_unit_tar_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_bodyslam_unit_tar.troy"
     }
   }
 }

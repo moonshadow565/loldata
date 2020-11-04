@@ -15,32 +15,6 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "SpellVamp_Buff",
       RequiredVarTable = "InstanceVars"
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "RallyingBanner_itm.troy",
-      Flags = 0,
-      EffectIDVar = "WillPlaceholder",
-      EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Owner",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = true,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
-  }
-}
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "WillPlaceholder",
-      EffectIDVarTable = "InstanceVars"
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -62,14 +36,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "SpellVamp_Buff",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "rallyingbanner_itm.troy"
     }
   }
 }

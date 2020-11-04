@@ -5,6 +5,10 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ProperDamage",
@@ -58,6 +62,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "ProperDamage",
@@ -68,6 +73,24 @@ TargetExecuteBuildingBlocks = {
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Kennen_ts_tar.troy",
+          Flags = 0,
+          EffectIDVar = "gfasdf",
+          BoneName = "spine",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -111,6 +134,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "ProperDamage",
@@ -121,6 +145,24 @@ TargetExecuteBuildingBlocks = {
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "Kennen_ts_tar.troy",
+              Flags = 0,
+              EffectIDVar = "gfasdf",
+              BoneName = "spine",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -176,6 +218,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "ProperDamage",
@@ -186,6 +229,24 @@ TargetExecuteBuildingBlocks = {
                   PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "Kennen_ts_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "gfasdf",
+                  BoneName = "spine",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
                 }
               },
               {
@@ -206,6 +267,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "kennenmarkofstorm"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "kennen_ts_tar.troy"
     }
   }
 }

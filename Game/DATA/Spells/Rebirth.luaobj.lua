@@ -8,6 +8,10 @@ BuffName = "Rebirth"
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "OneFrame",
@@ -110,13 +114,14 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "EggTimer",
       EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
+      TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -218,6 +223,10 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -274,8 +283,9 @@ OnBuffDeactivateBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       }
     }

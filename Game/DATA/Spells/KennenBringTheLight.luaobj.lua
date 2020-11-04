@@ -51,6 +51,10 @@ CanCastBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -86,7 +90,8 @@ SelfExecuteBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 12,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -117,8 +122,9 @@ SelfExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -144,13 +150,14 @@ SelfExecuteBuildingBlocks = {
               EffectName = "kennen_btl_tar.troy",
               Flags = 0,
               EffectIDVar = "hi",
-              TargetObjectVar = "Target",
+              TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           }
         }

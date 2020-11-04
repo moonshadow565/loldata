@@ -8,6 +8,10 @@ AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Attacker",
@@ -257,6 +261,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "DamageVar",
@@ -267,6 +272,23 @@ TargetExecuteBuildingBlocks = {
           PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Target",
+          EffectName = "Ezreal_mysticshot_tar.troy",
+          Flags = 0,
+          EffectIDVar = "gragas",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -289,6 +311,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "DamageVar",
@@ -299,6 +322,23 @@ TargetExecuteBuildingBlocks = {
               PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "Ezreal_mysticshot_tar.troy",
+              Flags = 0,
+              EffectIDVar = "gragas",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -333,6 +373,7 @@ TargetExecuteBuildingBlocks = {
                 Function = BBApplyDamage,
                 Params = {
                   AttackerVar = "Attacker",
+                  CallForHelpAttackerVar = "Attacker",
                   TargetVar = "Target",
                   Damage = 0,
                   DamageVar = "DamageVar",
@@ -343,6 +384,23 @@ TargetExecuteBuildingBlocks = {
                   PhysicalDamageRatio = 0,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
+                }
+              },
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Target",
+                  EffectName = "Ezreal_mysticshot_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "gragas",
+                  TargetObjectVar = "Target",
+                  SpecificUnitOnlyVar = "Owner",
+                  SpecificTeamOnly = TEAM_UNKNOWN,
+                  UseSpecificUnit = false,
+                  FOWTeam = TEAM_UNKNOWN,
+                  FOWTeamOverrideVar = "TeamID",
+                  FOWVisibilityRadius = 10,
+                  SendIfOnScreenOrDiscard = true
                 }
               },
               {
@@ -363,6 +421,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "ezrealrisingspellforce"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "ezreal_mysticshot_tar.troy"
     }
   }
 }

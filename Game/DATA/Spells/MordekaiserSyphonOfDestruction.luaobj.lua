@@ -67,6 +67,10 @@ SelfExecuteBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -79,7 +83,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.001,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -117,7 +122,42 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.2,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "mordakaiser_siphonOfDestruction_tar_02.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "mordakaiser_siphonOfDestruction_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf1",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }
@@ -132,6 +172,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisersyphonparticle"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordakaiser_siphonofdestruction_tar_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "mordakaiser_siphonofdestruction_tar.troy"
     }
   }
 }

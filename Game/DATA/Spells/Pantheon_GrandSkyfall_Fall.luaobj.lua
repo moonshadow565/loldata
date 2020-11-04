@@ -1,8 +1,3 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = false
-IsDamagingSpell = true
 ChannelDuration = 1.5
 OnBuffActivateBuildingBlocks = {
   {
@@ -62,6 +57,10 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
@@ -97,8 +96,9 @@ OnBuffDeactivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -112,10 +112,6 @@ OnBuffDeactivateBuildingBlocks = {
       InclusiveBuffFilter = true
     },
     SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
       {
         Function = BBDistanceBetweenObjects,
         Params = {
@@ -168,6 +164,7 @@ OnBuffDeactivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "DamageRank",

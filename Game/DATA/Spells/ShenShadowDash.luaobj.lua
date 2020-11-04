@@ -31,6 +31,10 @@ BuffOnCollisionBuildingBlocks = {
                 },
                 SubBlocks = {
                   {
+                    Function = BBGetTeamID,
+                    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+                  },
+                  {
                     Function = BBSpellBuffAdd,
                     Params = {
                       TargetVar = "Target",
@@ -75,8 +79,9 @@ BuffOnCollisionBuildingBlocks = {
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
-                      SendIfOnScreenOrDiscard = false
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
+                      SendIfOnScreenOrDiscard = true
                     }
                   },
                   {
@@ -126,6 +131,10 @@ BuffOnCollisionBuildingBlocks = {
   }
 }
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -194,13 +203,14 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "SelfParticle",
       EffectIDVarTable = "InstanceVars",
-      TargetObjectVar = "Target",
+      TargetObjectVar = "Owner",
       SpecificUnitOnlyVar = "Owner",
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -288,6 +298,10 @@ CanCastBuildingBlocks = {
   }
 }
 SelfExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetCastSpellTargetPos,
     Params = {DestVar = "TargetPos"}
@@ -477,8 +491,9 @@ SelfExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
@@ -546,6 +561,10 @@ SelfExecuteBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -600,16 +619,17 @@ BuffOnMoveEndBuildingBlocks = {
           {
             Function = BBSpellEffectCreate,
             Params = {
-              BindObjectVar = "Owner",
+              BindObjectVar = "Unit",
               EffectName = "shen_shadowDash_unit_impact.troy",
               Flags = 0,
               EffectIDVar = "TargetParticle",
-              TargetObjectVar = "Target",
+              TargetObjectVar = "Unit",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = false
             }
           },

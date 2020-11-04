@@ -57,6 +57,10 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "Damage",
@@ -103,6 +107,23 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "SpellFlux_tar2.troy",
+      Flags = 0,
+      EffectIDVar = "asdf",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "Target",
@@ -142,6 +163,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "Damage",
@@ -164,6 +186,7 @@ TargetExecuteBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Target",
               Damage = 0,
               DamageVar = "Damage",
@@ -198,7 +221,8 @@ TargetExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           },
@@ -227,13 +251,14 @@ TargetExecuteBuildingBlocks = {
                       BindObjectVar = "Unit",
                       EffectName = "ManaLeach_tar.troy",
                       Flags = 0,
-                      EffectIDVar = "part",
+                      EffectIDVar = "part2",
                       TargetObjectVar = "Unit",
                       SpecificUnitOnlyVar = "Owner",
                       SpecificTeamOnly = TEAM_UNKNOWN,
                       UseSpecificUnit = false,
                       FOWTeam = TEAM_UNKNOWN,
-                      FOWVisibilityRadius = 0,
+                      FOWTeamOverrideVar = "TeamID",
+                      FOWVisibilityRadius = 10,
                       SendIfOnScreenOrDiscard = true
                     }
                   },
@@ -241,6 +266,7 @@ TargetExecuteBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "UltDamage",
@@ -263,6 +289,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "spellflux_tar2.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

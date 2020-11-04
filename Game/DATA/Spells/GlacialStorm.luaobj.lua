@@ -166,6 +166,7 @@ OnBuffActivateBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Unit",
           Damage = 0,
           DamageVar = "DamagePerLevel",
@@ -422,6 +423,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
+              CallForHelpAttackerVar = "Attacker",
               TargetVar = "Unit",
               Damage = 0,
               DamageVar = "DamagePerLevel",
@@ -546,9 +548,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            25,
             35,
-            50,
-            65
+            45
           }
         }
       },

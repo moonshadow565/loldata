@@ -14,7 +14,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1Value = 0,
-      Src2Value = 15,
+      Src2Value = 10,
       DestVar = "TotalAttackSpeed",
       MathOp = MO_MULTIPLY
     }
@@ -34,7 +34,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
-      Delta = 0.15
+      Delta = 0.1
     }
   }
 }

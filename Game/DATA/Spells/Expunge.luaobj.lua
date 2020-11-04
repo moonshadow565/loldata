@@ -3,6 +3,10 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ExplosionDamage",
@@ -22,7 +26,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 1200,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -91,6 +96,7 @@ TargetExecuteBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 1,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -101,13 +107,15 @@ TargetExecuteBuildingBlocks = {
               BindObjectVar = "Unit",
               EffectName = "Expunge_tar_02.troy",
               Flags = 0,
+              EffectIDVar = "asdf",
               TargetObjectVar = "Target",
               SpecificUnitOnlyVar = "Owner",
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
-              SendIfOnScreenOrDiscard = false
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {

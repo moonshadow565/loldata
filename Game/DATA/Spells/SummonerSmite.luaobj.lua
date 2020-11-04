@@ -89,7 +89,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
-      Src2Value = 35,
+      Src2Value = 25,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -114,7 +114,10 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   },
   {

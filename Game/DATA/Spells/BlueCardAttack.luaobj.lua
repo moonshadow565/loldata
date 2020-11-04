@@ -1,5 +1,9 @@
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Attacker", DestVar = "TeamID"}
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetBaseAttackDamage,
@@ -21,6 +25,23 @@ TargetExecuteBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Target",
+      EffectName = "PickaCard_blue_tar.troy",
+      Flags = 0,
+      EffectIDVar = "asdf1",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
+      SendIfOnScreenOrDiscard = true
     }
   },
   {
@@ -156,12 +177,14 @@ TargetExecuteBuildingBlocks = {
                   AttackerVar = "Attacker",
                   BuffName = "CardmasterBlueCardMana",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_Internal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 0.1,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -172,6 +195,12 @@ TargetExecuteBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pickacard_blue_tar.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "pickacard"}
