@@ -76,11 +76,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "IreliaTeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      SendIfOnScreenOrDiscard = false
     }
   },
   {
@@ -99,11 +95,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "IreliaTeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false,
-      PersistsThroughReconnect = false,
-      BindFlexToOwnerPAR = false,
-      FollowsGroundTilt = false,
-      FacesTarget = false
+      SendIfOnScreenOrDiscard = false
     }
   }
 }
@@ -141,11 +133,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "HealthRestoration",
       SrcValue = 0,
       SrcValueByLevel = {
-        6,
         10,
         14,
         18,
-        22
+        22,
+        26
       }
     }
   },
@@ -165,8 +157,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
-      BuffName = "IreliaHitenStyle",
-      ResetDuration = 0
+      BuffName = "IreliaHitenStyle"
     }
   }
 }
@@ -185,8 +176,7 @@ TargetExecuteBuildingBlocks = {
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      CanMitigateDuration = false
     }
   }
 }

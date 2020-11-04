@@ -67,8 +67,7 @@ OnBuffDeactivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false,
-      IsHiddenOnClient = false
+      CanMitigateDuration = false
     }
   }
 }
@@ -90,11 +89,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "TrueDamage",
       SrcValue = 0,
       SrcValueByLevel = {
-        10,
-        25,
-        40,
-        55,
-        70
+        15,
+        30,
+        45,
+        60,
+        75
       }
     }
   },
@@ -104,11 +103,11 @@ BuffOnHitUnitBuildingBlocks = {
       DestVar = "HealthRestoration",
       SrcValue = 0,
       SrcValueByLevel = {
-        6,
         10,
         14,
         18,
-        22
+        22,
+        26
       }
     }
   },

@@ -577,6 +577,18 @@ BuffOnMoveSuccessBuildingBlocks = {
         }
       },
       {
+        Function = BBUnlockAnimation,
+        Params = {OwnerVar = "Owner", Blend = false}
+      },
+      {
+        Function = BBIssueOrder,
+        Params = {
+          WhomToOrderVar = "Owner",
+          TargetOfOrderVar = "Caster",
+          Order = AI_ATTACKTO
+        }
+      },
+      {
         Function = BBIfHasBuff,
         Params = {
           OwnerVar = "Caster",
