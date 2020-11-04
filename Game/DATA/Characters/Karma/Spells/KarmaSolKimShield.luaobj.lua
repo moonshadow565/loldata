@@ -33,6 +33,12 @@ PreLoadBuildingBlocks = {
     Params = {Name = "karmaq"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmasolkimshieldlocket"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karma_souldshiled_ult_unit_tar.troy"
@@ -42,12 +48,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "karma_passive_refresh.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "karmasolkimshieldlocket"
     }
   },
   {

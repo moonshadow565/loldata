@@ -2,9 +2,6 @@ BuffTextureName = "Karma_W1.dds"
 BuffName = "KarmaSpiritBind"
 AutoBuffActivateEffect = "global_Watched.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
-SpellVOOverrideSkins = {
-  "KarmaClassic"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -19,6 +16,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmaspiritbindslow"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "karma_w_heal_01.troy"
@@ -28,12 +31,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "karma_w_heal_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempkarma_spiritbindtethermantra_beam.troy"
     }
   },
   {

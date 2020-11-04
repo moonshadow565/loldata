@@ -8,30 +8,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_spiritbindroot_tar5.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempkarma_spiritbindroot_tar4.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempkarma_spiritbindroot_tar3.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempkarma_spiritbindroot_tar2.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "tempkarma_spiritbindroot_tar.troy"
     }
   }
