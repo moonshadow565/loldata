@@ -32,5 +32,8 @@ SpellFXOverrideSkins = {
   "SightWardBattleCast",
   "SightwardPoro2014",
   "SightwardAstroPoro",
-  "SightwardGentlemanPoro"
+  "SightwardGentlemanPoro",
+  "SightwardPoroBattlecast",
+  "SightwardPoroDragon",
+  "SightwardPoroShadow"
 }
