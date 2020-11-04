@@ -14,6 +14,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "urgotqlockrangeringcheck"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "urgotplasmagrenade_hit.troy"

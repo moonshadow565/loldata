@@ -6,6 +6,12 @@ IsDamagingSpell = true
 BuffTextureName = "Cryophoenix_GlacialStorm.dds"
 BuffName = "GlacialStorm"
 SpellToggleSlot = 4
+SpellFXOverrideSkins = {
+  "BlackIceAnivia"
+}
+SpellVOOverrideSkins = {
+  "BlackIceAnivia"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

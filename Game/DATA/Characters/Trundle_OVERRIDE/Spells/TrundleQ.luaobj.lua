@@ -20,6 +20,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "trundleqdebuff"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "globalhit_physical.troy"
@@ -28,7 +34,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "trundleqdebuff"
+      Name = "trundleqreset"
     }
   }
 }

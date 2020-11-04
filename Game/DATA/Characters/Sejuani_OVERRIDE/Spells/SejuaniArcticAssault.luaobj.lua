@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Sejuani_Q.dds"
 BuffName = "SejuaniArcticAssault"
+SpellVOOverrideSkins = {
+  "SejuaniClassic"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

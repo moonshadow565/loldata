@@ -161,16 +161,16 @@ ann_AutoWelcome                         =                 1 ; Do we automaticall
 ; FOW
 
 ; Shop VO Variables
-shopvo_GlobalCooldown                   =             8.000 ; Minimum time between VO events
+shopvo_GlobalCooldown                   =             4.000 ; Minimum time between VO events
 shopvo_RichPlayer                       =          3000.000 ; How much gold the player needs to be considered rich
-shopvo_OpenVOChance                     =             0.250 ; Percentage chance(0->1) to play VO when the shop becomes open for business
+shopvo_OpenVOChance                     =             0.000 ; Percentage chance(0->1) to play VO when the shop becomes open for business
 shopvo_OpenVOInitialDelay               =            60.000 ; How long to wait until before the Shop Open VO can play
 shopvo_BrowsingVOInterval               =            15.000 ; How long to wait to check to see to play VO while browsing the shop
-shopvo_BrowsingVOChance                 =             0.900 ; Percentage chance(0->1) to play VO when the player is browsing the shop
+shopvo_BrowsingVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player is browsing the shop
 shopvo_AmbientVOInterval                =            20.000 ; How long to wait to check to see to play VO while not opening the shop but in range
-shopvo_AmbientVOChance                  =             0.450 ; Percentage chance(0->1) to play VO when the player is in range of the shop but doesn't have it open
-shopvo_MenuOpenVOChance                 =             0.250 ; Percentage chance(0->1) to play VO when the player opens the shop menu
-shopvo_MenuCloseVOChance                =             0.750 ; Percentage chance(0->1) to play VO when the player closes the shop menu
+shopvo_AmbientVOChance                  =             1.000 ; Percentage chance(0->1) to play VO when the player is in range of the shop but doesn't have it open
+shopvo_MenuOpenVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player opens the shop menu
+shopvo_MenuCloseVOChance                =             1.000 ; Percentage chance(0->1) to play VO when the player closes the shop menu
 shopvo_PurchaseVOChance                 =             1.000 ; Percentage chance(0->1) to play VO when the player purchases an item more expensive than shovo_PurchaseMinimumGold
 shovo_PurchaseMinimumGold               =               400 ; The minimum amount of gold an item has to cost to get VO
 shopvo_MultiMenuOpen                    =                 5 ; Number of times the menu has to be opened before leaving the shop area in which the VO will be played

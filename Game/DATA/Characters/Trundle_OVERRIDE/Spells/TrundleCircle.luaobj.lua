@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Trundle_E.dds"
 BuffName = "TrundleCircle"
+SpellVOOverrideSkins = {
+  "ClassicTrundle"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

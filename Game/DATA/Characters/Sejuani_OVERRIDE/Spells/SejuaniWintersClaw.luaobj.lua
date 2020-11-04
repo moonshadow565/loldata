@@ -3,6 +3,9 @@ BuffTextureName = "Sejuani_E_Bright.dds"
 BuffName = "SejuaniFrostArctic"
 AutoBuffActivateEffect = "Global_Freeze.troy"
 PopupMessage1 = "game_floatingtext_Slowed"
+SpellVOOverrideSkins = {
+  "SejuaniClassic"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

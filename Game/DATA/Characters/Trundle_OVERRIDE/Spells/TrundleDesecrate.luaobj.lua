@@ -1,3 +1,6 @@
+SpellVOOverrideSkins = {
+  "ClassicTrundle"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
