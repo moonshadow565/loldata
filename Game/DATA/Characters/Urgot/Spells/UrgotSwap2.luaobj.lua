@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "globalcannotclickobjects"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "urgotswapexecute"
     }
   },
