@@ -1,0 +1,20 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "fiddlesticks_dreadwarning_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "crowstorm5_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotfiddlesticksfakecrowstormbuff"
+    }
+  }
+}

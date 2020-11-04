@@ -790,6 +790,9 @@ function L0()
     L4 = NeutralMinionCamps
     L4 = L4[L3]
     L4.TimerType = ""
+    L4 = NeutralMinionCamps
+    L4 = L4[L3]
+    L4.MinimapIcon = ""
   end
   L1[1] = L2
   L0.Groups = L1
@@ -947,8 +950,9 @@ function L0(A0)
         L11 = NeutralMinionCamps
         L11 = L11[A0]
         L11 = L11.GroupDelaySpawnTime
-        L12 = false
-        L8(L9, L10, L11, L12)
+        L12 = 0
+        L13 = false
+        L8(L9, L10, L11, L12, L13)
       else
         if L1 <= L8 and L3 == false then
           L3 = true
@@ -1040,7 +1044,7 @@ function L0(A0, A1, A2)
       L8 = NeutralMinionCamps
       L8 = L8[L4]
       L8 = L8.GroupsRespawnTime
-      L5(L6, L7, L8, L9)
+      L5(L6, L7, L8, L9, L10)
     end
   end
 end

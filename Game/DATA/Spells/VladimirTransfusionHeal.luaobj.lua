@@ -9,13 +9,14 @@ AutoCooldownByLevel = {
   0
 }
 SpellFXOverrideSkins = {
-  "BloodkingVladimir"
+  "BloodkingVladimir",
+  "VladimirSkin06"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vampheal.troy"
+      Name = "vladimir_base_q_heal_tar.troy"
     }
   }
 }

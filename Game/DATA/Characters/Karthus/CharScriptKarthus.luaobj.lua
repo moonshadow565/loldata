@@ -32,6 +32,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "nightmarebotkarthusbuff"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "karthusdefilesounddummy"
     }
   },

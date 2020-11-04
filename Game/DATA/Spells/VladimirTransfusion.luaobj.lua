@@ -1,7 +1,16 @@
 DoesntBreakShields = true
 SpellFXOverrideSkins = {
-  "BloodkingVladimir"
+  "BloodkingVladimir",
+  "VladimirSkin06"
 }
 SpellVOOverrideSkins = {
   "BloodkingVladimir"
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "vladimir_base_q_cas.troy"
+    }
+  }
 }

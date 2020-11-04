@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vladhemoplague_nova.troy"
+      Name = "Vladimir_Base_R_AoE_nova.troy"
     }
   },
   {

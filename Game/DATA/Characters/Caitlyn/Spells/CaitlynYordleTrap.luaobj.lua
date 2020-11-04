@@ -4,7 +4,6 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "Caitlyn_YordleSnapTrap.dds"
-AutoBuffActivateEffect2 = "caitlyn_Base_yordleTrap_set.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -16,6 +15,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "caitlyn_base_yordletrap_idle_red.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "caitlyn_base_yordletrap_set.troy"
     }
   },
   {

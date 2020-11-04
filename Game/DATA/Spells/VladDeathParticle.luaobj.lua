@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "VladDeath.troy"
+      Name = "Vladimir_Base_death.troy"
     }
   },
   {

@@ -5,7 +5,8 @@ BuffTextureName = "Vladimir_SanguinePool.dds"
 BuffName = "VladimirSanguinePool"
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "BloodkingVladimir"
+  "BloodkingVladimir",
+  "VladimirSkin06"
 }
 SpellVOOverrideSkins = {
   "BloodkingVladimir"
@@ -15,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "vladsanguinepool_buf.troy"
+      Name = "vladimir_base_w_buf.troy"
     }
   },
   {

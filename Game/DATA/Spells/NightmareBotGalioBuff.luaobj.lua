@@ -1,0 +1,35 @@
+BuffTextureName = "Galio_ResoluteSmite.dds"
+BuffName = "NightmareBotGalioBuff"
+PersistsThroughDeath = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender10vision"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotgaliotauntzone"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotgalioresolutesmite"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotgaliorighteousgust"
+    }
+  }
+}

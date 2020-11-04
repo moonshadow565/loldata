@@ -1,0 +1,28 @@
+BuffTextureName = "MonkeyKingDecoy.dds"
+BuffName = "NightmareBotMonkeyKingBuff"
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotmonkeykingdoubleattack"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotmonkeykingdecoy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotmonkeykingnimbus"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "nightmarebotmonkeykingspintowin"
+    }
+  }
+}
