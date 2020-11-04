@@ -5,7 +5,6 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Ahri_SpiritRush.dds"
 BuffName = "AhriTumble"
-AutoBuffActivateEffect = ""
 PersistsThroughDeath = true
 ChainMissileParameters = {
   MaximumHits = {

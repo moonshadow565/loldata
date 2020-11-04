@@ -4,9 +4,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 1
 IsDeathRecapSource = true
-SpellFXOverrideSkins = {
-  "Zyra_hellvine"
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -24,6 +21,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "zyraplantdrzyra"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "zyra_q_plant_cas_hellvine.troy"
     }
   }
 }

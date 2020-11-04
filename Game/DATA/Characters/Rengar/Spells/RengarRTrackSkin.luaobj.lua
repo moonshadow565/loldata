@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rengarrskin.troy"
+    }
+  }
+}

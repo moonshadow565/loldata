@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "championchampiondelta"
+      Name = "blindmonkpassive_cosmetic"
     }
   },
   {

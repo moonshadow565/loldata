@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "leonasolarbarriertracker"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "leonasunlight"
     }
   },
@@ -15,12 +9,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "championchampiondelta"
     }
   },
   {
