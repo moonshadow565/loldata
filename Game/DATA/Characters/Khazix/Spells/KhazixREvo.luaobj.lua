@@ -17,7 +17,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "khazix_stealth_evolved_texture.troy"
+      Name = "Khazix_Base_R_Evo2_CharacterTexture.troy"
     }
   },
   {

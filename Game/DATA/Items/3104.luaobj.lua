@@ -1,6 +1,8 @@
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "pulverizer"}
+    Params = {
+      Name = "infinityedge"
+    }
   }
 }

@@ -11,6 +11,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "unstoppableforcemarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "virknockback"
     }
   },
