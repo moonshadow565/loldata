@@ -18,5 +18,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "apbonusdamagetotowers"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_passive_refresh.troy"
+    }
   }
 }

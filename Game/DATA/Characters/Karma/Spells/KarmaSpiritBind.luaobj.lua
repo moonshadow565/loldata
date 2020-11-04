@@ -18,6 +18,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "karma_w_heal_01.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_w_heal_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "tempkarma_spiritbindtether_beam.troy"
     }
   },

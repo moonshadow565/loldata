@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "karmaqmissileslow"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "karma_passive_refresh.troy"
+    }
   }
 }
