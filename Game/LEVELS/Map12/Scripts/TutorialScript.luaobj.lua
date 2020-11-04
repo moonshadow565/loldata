@@ -2333,7 +2333,7 @@ function L0()
   L5 = BUFF_Internal
   L6 = 1
   L7 = 1
-  L8 = 25000
+  L8 = 1
   L9 = buffVarsTable
   L10 = 0
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
@@ -2992,12 +2992,12 @@ function L0()
   L0 = TutorialSpellBuffAdd
   L1 = playerID
   L2 = playerID
-  L3 = "TutorialPhase3"
+  L3 = "TutorialPhase2"
   L4 = BUFF_RENEW_EXISTING
   L5 = BUFF_Internal
   L6 = 1
   L7 = 1
-  L8 = 25000
+  L8 = 1
   L9 = buffVarsTable
   L10 = 0
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)
@@ -3122,12 +3122,12 @@ function L0()
   L0 = TutorialSpellBuffAdd
   L1 = playerID
   L2 = playerID
-  L3 = "TutorialPhase4"
+  L3 = "TutorialPhase2"
   L4 = BUFF_RENEW_EXISTING
   L5 = BUFF_Internal
   L6 = 1
   L7 = 1
-  L8 = 25000
+  L8 = 1
   L9 = buffVarsTable
   L10 = 0
   L0(L1, L2, L3, L4, L5, L6, L7, L8, L9, L10)

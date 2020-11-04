@@ -2,6 +2,7 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Shen_VorpalBlade.dds"
 BuffName = "Shen Vorpal Star"
+SpellFXOverrideSkins = {"TPAShen"}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -19,6 +20,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "shendestabilize"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "shen_tpashen_vorpalstar_tar_sound.troy"
     }
   },
   {

@@ -14,3 +14,17 @@ SpellFXOverrideSkins = {
   "BadSantaVeigar"
 }
 SetSpellDamageRatio = 1
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "veigarprimordialburst"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "veigar_r_laugh.troy"
+    }
+  }
+}

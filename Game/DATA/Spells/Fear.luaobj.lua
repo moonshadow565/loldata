@@ -17,7 +17,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "global_fear.troy"
+      Name = "loc_fear.troy"
     }
   }
 }

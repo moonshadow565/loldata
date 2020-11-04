@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 BuffTextureName = "Corki_MissileBarrage.dds"
 BuffName = "MissileBarrageCheck"
 PersistsThroughDeath = true

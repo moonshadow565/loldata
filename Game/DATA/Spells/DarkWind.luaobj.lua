@@ -3,7 +3,9 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Fiddlesticks_DarkWind.dds"
 BuffName = "Silence"
-AutoBuffActivateEffect = "Global_Silence.troy"
+AutoBuffActivateEffect = "LOC_Silence.troy"
+AutoBuffActivateAttachBoneName = "head"
+PopupMessage1 = "game_floatingtext_Silenced"
 ChainMissileParameters = {
   MaximumHits = {
     2,
@@ -14,6 +16,7 @@ ChainMissileParameters = {
   },
   CanHitCaster = 0,
   CanHitSameTarget = 1,
-  CanHitSameTargetConsecutively = 0
+  CanHitSameTargetConsecutively = 0,
+  CanHitEnemies = 1,
+  CanHitFriends = 0
 }
-PopupMessage1 = "game_floatingtext_Silenced"

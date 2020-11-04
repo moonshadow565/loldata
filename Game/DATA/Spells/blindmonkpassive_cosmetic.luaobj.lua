@@ -1,0 +1,6 @@
+BuffTextureName = "BlindMonkPassive.dds"
+BuffName = "BlindMonkFlurry"
+AutoBuffActivateEffect = "blindMonk_passive_buf.troy"
+AutoBuffActivateAttachBoneName = "L_hand"
+AutoBuffActivateEffect2 = "blindMonk_passive_buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_hand"

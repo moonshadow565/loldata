@@ -20,13 +20,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimrampmarker"
+      Name = "hecarimrampmidair"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimrampmidair"
+      Name = "hecarimrampmarker"
     }
   },
   {
