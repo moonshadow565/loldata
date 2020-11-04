@@ -1,5 +1,4 @@
 BuffTextureName = "Burning.dds"
 BuffName = "Burning"
 AutoBuffActivateEffect = "Cape_neg_buf.troy"
-AutoBuffActivateEffect2 = "GLOBAL_SLOW.TROY"
 PopupMessage1 = "game_floatingtext_Slowed"

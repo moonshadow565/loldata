@@ -2,11 +2,11 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Vayne_Inquisition.dds"
 BuffName = "VayneInquisition"
-AutoBuffActivateEffect = "vayne_ult_primary_buf.troy"
+AutoBuffActivateEffect = "Vayne_Base_R_buf_chst.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"
-AutoBuffActivateEffect2 = "vayne_ult_primary_buf_02.troy"
+AutoBuffActivateEffect2 = "Vayne_Base_R_buf_cntr.troy"
 AutoBuffActivateAttachBoneName2 = "C_BUFFBONE_GLB_CENTER_LOC"
-AutoBuffActivateEffect3 = "vayne_ult_primary_buf_03.troy"
+AutoBuffActivateEffect3 = "Vayne_Base_R_buf_grnd.troy"
 AutoCooldownByLevel = {
   75,
   75,

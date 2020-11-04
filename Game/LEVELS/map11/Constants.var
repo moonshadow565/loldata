@@ -174,7 +174,6 @@ cam_KeyboardOrbitSpeedX                            =                            
 cam_KeyboardOrbitSpeedY                            =                                        50.000 ; Keyboard Orbit Speed y axis
 cr_MouseScrollSpeed                                =                                      3900.000 ; Mouse Scroll Speed
 cr_DragRepeatTime                                  =                                         0.250 ; How long the cursor delays between sending updates to the server
-cr_SpellCastFlashTime                              =                                         2.000 ; How long the cursor flashes when you cast a targeted spell
 
 ; HUD variables
 hud_BlinkFrequency                                 =                                          1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.

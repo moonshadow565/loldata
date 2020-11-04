@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="turretshield"}}, 
 {Function=BBPreloadSpell, Params={Name="structuredamagereduction"}}, 
 {Function=BBPreloadSpell, Params={Name="superminionbuff_blue"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_minionspawn_01.troy"}}, 
 }
