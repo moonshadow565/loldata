@@ -2,7 +2,7 @@ local L0, L1
 L0 = 0
 TEAM_UNKNOWN = L0
 L0 = 2
-EOG_SCOREBOARD_PHASE_DELAY_TIME = L0
+EOG_SCOREBOARD_PHASE_DELAY_TIME_DEFAULT = L0
 L0 = 10
 EOG_NEXUS_REVIVE_TIME = L0
 L0 = 0
@@ -145,9 +145,16 @@ function L0()
   L2 = EOG_MINION_FADE_TIME
   L3 = false
   L0(L1, L2, L3)
+  L0 = EOG_SCOREBOARD_PHASE_DELAY_TIME_DEFAULT
+  scoreboardPhaseDelay = L0
+  L0 = EOG_SCOREBOARD_PHASE_DELAY_TIME
+  if L0 ~= nil then
+    L0 = EOG_SCOREBOARD_PHASE_DELAY_TIME
+    scoreboardPhaseDelay = L0
+  end
   L0 = InitTimer
   L1 = "ScoreboardPhase"
-  L2 = EOG_SCOREBOARD_PHASE_DELAY_TIME
+  L2 = scoreboardPhaseDelay
   L3 = false
   L0(L1, L2, L3)
 end
