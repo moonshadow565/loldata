@@ -48,6 +48,24 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "lucian_q_laser.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "lucian_q_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "lucian_aa_tar.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "lucianwcastingbuff"
