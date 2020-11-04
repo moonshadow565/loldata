@@ -40,6 +40,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "virdunkstun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "expirationtimer"
     }
   },
