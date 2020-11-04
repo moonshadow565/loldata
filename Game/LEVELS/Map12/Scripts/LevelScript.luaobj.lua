@@ -565,6 +565,13 @@ function L0_0()
     L1_2(L2_3)
     L1_2(L2_3)
     L1_2(L2_3)
+    if L0_1 == "FIRSTBLOOD" then
+      L1_2(L2_3)
+      L1_2(L2_3)
+      L1_2(L2_3)
+      L1_2(L2_3)
+      L1_2(L2_3)
+    end
     L1_2(L2_3)
     L1_2(L2_3)
     L1_2.NumOfMeleeMinionsPerWave = 3
