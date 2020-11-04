@@ -21,11 +21,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "asc_relicprism_sand.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "elixirsight_aura_02.troy"
-    }
   }
 }

@@ -26,13 +26,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_w_plumbob.troy"
+      Name = "azir_base_w_sandbib.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_w_plumbob_enemy.troy"
+      Name = "azir_base_w_sandbib_enemy.troy"
     }
   },
   {
@@ -92,7 +92,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "azir_base_w_towerplumbob.troy"
+      Name = "azir_base_w_towersandbib.troy"
     }
   },
   {
