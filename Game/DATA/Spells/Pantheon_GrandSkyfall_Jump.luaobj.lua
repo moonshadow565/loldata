@@ -30,6 +30,73 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TargetPos",
+      SrcVar = "TargetPos",
+      SrcVarTable = "CharVars"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamOfOwner",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "CharVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPos",
+          EffectName = "pantheon_grandskyfall_tar_green.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "CharVars",
+          TargetObjectVar = "Target",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -154,7 +221,6 @@ SelfExecuteBuildingBlocks = {
     }
   }
 }
-ChannelingStartBuildingBlocks = {}
 ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -243,6 +309,15 @@ ChannelingSuccessStopBuildingBlocks = {
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = true
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Particle",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Particle",
+      SrcVarTable = "CharVars"
     }
   },
   {
@@ -368,6 +443,10 @@ ChannelingCancelStopBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellEffectRemove,
+    Params = {EffectIDVar = "Particle", EffectIDVarTable = "CharVars"}
+  },
+  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
@@ -381,6 +460,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "pantheon_grandskyfall_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pantheon_grandskyfall_tar_green.troy"
     }
   },
   {

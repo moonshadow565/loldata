@@ -22,7 +22,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           Src1Var = "MaxHealth",
           Src1Value = 0,
-          Src2Value = 0.005,
+          Src2Value = 0.01,
           DestVar = "HealthDamage",
           MathOp = MO_MULTIPLY
         }

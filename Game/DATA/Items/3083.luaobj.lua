@@ -18,6 +18,44 @@ UpdateSelfBuffStatsBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ExtraHP",
+      ValueVarTable = "InstanceVars",
+      Index = 1,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "ExtraRegen",
+      Src1VarTable = "InstanceVars",
+      Src1Value = 0,
+      Src2Value = 5,
+      DestVar = "ExtraRegenTT",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "ExtraRegenTT",
+      Index = 2,
+      SlotNumber = 0,
+      SlotNumberVar = "Slot",
+      SlotType = InventorySlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Attacker"
+    }
   }
 }
 ItemOnKillBuildingBlocks = {
@@ -130,24 +168,6 @@ ItemOnKillBuildingBlocks = {
     }
   }
 }
-OnActivateBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ExtraHP",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ExtraRegen",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  }
-}
 ItemOnAssistBuildingBlocks = {
   {
     Function = BBIf,
@@ -201,6 +221,24 @@ ItemOnAssistBuildingBlocks = {
           MathOp = MO_MIN
         }
       }
+    }
+  }
+}
+OnActivateBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ExtraHP",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ExtraRegen",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
     }
   }
 }

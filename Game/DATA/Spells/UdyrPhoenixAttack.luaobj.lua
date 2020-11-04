@@ -15,6 +15,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "baseDamage",
@@ -59,8 +60,8 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "Count",
           Src1VarTable = "CharVars",
-          Value2 = 4,
-          CompareOp = CO_EQUAL
+          Value2 = 3,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
         },
         SubBlocks = {
           {

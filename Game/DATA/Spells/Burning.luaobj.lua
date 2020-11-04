@@ -10,21 +10,55 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "TickDamage",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "attackSpeedMod",
+      RequiredVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeAttackSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "attackSpeedMod",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBApplyDamage,
+    Function = BBExecutePeriodically,
     Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Owner",
-      Damage = 0,
-      DamageVar = "TickDamage",
-      DamageVarTable = "InstanceVars",
-      DamageType = TRUE_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_PROC,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 0
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Owner",
+          Damage = 0,
+          DamageVar = "TickDamage",
+          DamageVarTable = "InstanceVars",
+          DamageType = TRUE_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_PROC,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }

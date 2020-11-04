@@ -34,7 +34,7 @@ ItemOnHitUnitBuildingBlocks = {
                     Params = {
                       DestVar = "ArmorReduction",
                       DestVarTable = "NextBuffVars",
-                      SrcValue = -12
+                      SrcValue = -15
                     }
                   },
                   {
@@ -46,7 +46,7 @@ ItemOnHitUnitBuildingBlocks = {
                       BuffAddType = BUFF_STACKS_AND_RENEWS,
                       StacksExclusive = true,
                       BuffType = BUFF_CombatDehancer,
-                      MaxStack = 5,
+                      MaxStack = 3,
                       NumberOfStacks = 1,
                       Duration = 5,
                       BuffVarsTable = "NextBuffVars",
