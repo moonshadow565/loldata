@@ -122,6 +122,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuoisemoting"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuonotincombat"
     }
   },

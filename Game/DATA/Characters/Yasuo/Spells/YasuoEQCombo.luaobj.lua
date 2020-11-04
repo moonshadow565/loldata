@@ -78,11 +78,23 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoeqcombosoundhit"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "yasuoq"}
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "yasuoq3w"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoeqcombosoundmiss"
+    }
   },
   {
     Function = BBPreloadParticle,

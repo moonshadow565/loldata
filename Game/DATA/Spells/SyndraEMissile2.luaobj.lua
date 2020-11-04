@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "syndraeimmunitystun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "syndraemarker"
     }
   },
