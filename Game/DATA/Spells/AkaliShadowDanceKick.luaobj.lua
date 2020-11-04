@@ -138,6 +138,24 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "AkaliShadowDanceKick"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "WillRemove",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
+    }
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
   },
@@ -166,6 +184,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Caster",
       Damage = 0,
       DamageVar = "DamageVar",
@@ -177,22 +196,6 @@ BuffOnMoveEndBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "AkaliShadowDanceKick"
     }
   }
 }
@@ -206,13 +209,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalishadowdancekickparticle"
+      Name = "akalishadowdancekick"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "akalishadowdancekick"
+      Name = "akalishadowdancekickparticle"
     }
   }
 }

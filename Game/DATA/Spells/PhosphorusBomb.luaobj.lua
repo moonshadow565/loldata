@@ -77,7 +77,7 @@ OnBuffActivateBuildingBlocks = {
       PosVar = "TargetPos",
       Duration = 4,
       SpecificUnitsClientOnlyVar = "Nothing",
-      RevealSteath = true,
+      RevealSteath = false,
       BubbleIDVar = "BubbleID",
       BubbleIDVarTable = "InstanceVars"
     }

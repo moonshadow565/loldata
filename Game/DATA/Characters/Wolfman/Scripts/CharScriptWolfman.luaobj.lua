@@ -6,24 +6,24 @@ SetVarsByLevelBuildingBlocks = {
       DestVar = "LifeStealAmount",
       DestVarTable = "CharVars",
       SrcValueByLevel = {
-        5,
-        5,
-        5,
-        5,
-        5,
-        5,
-        10,
-        10,
-        10,
-        10,
-        10,
-        10,
-        15,
-        15,
-        15,
-        15,
-        15,
-        15
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        12,
+        12,
+        12,
+        12,
+        12,
+        12,
+        18,
+        18,
+        18,
+        18,
+        18,
+        18
       }
     }
   }
@@ -66,9 +66,9 @@ CharOnHitUnitBuildingBlocks = {
                       BuffAddType = BUFF_STACKS_AND_RENEWS,
                       StacksExclusive = true,
                       BuffType = BUFF_Internal,
-                      MaxStack = 4,
+                      MaxStack = 3,
                       NumberOfStacks = 1,
-                      Duration = 3.1,
+                      Duration = 4.1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
                       CanMitigateDuration = false
@@ -181,26 +181,6 @@ CharOnActivateBuildingBlocks = {
     }
   }
 }
-CharOnDisconnectBuildingBlocks = {
-  {
-    Function = BBSpellCast,
-    Params = {
-      CasterVar = "Owner",
-      TargetVar = "Owner",
-      PosVar = "Owner",
-      EndPosVar = "Owner",
-      OverrideCastPosition = false,
-      SlotNumber = 6,
-      SlotType = InventorySlots,
-      OverrideForceLevel = 1,
-      OverrideCoolDownCheck = true,
-      FireWithoutCasting = false,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
-    }
-  }
-}
 CharOnLevelUpSpellBuildingBlocks = {
   {
     Function = BBIf,
@@ -248,6 +228,26 @@ CharOnLevelUpSpellBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+CharOnDisconnectBuildingBlocks = {
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Owner",
+      PosVar = "Owner",
+      EndPosVar = "Owner",
+      OverrideCastPosition = false,
+      SlotNumber = 6,
+      SlotType = InventorySlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = false,
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

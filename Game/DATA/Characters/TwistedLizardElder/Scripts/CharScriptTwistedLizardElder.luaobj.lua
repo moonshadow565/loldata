@@ -14,12 +14,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "BlessingoftheLizardElder",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 100000
+          TickRate = 100000,
+          CanMitigateDuration = false
         }
       }
     }
@@ -37,7 +39,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "HPPerLevel",
           DestVarTable = "NextBuffVars",
-          SrcValue = 150
+          SrcValue = 175
         }
       },
       {
@@ -47,12 +49,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "HPByPlayerLevel",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

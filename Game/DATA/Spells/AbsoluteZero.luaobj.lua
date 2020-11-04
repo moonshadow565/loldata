@@ -195,7 +195,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 0.25,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true

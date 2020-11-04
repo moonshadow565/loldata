@@ -180,6 +180,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 9999,
       DamageType = TRUE_DAMAGE,
@@ -238,7 +239,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.5,
+      TimeBetweenExecutions = 0.25,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -251,7 +252,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           CenterVar = "Owner",
           Range = 265,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -270,12 +272,14 @@ BuffOnUpdateActionsBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "MegaAdhesiveTarget",
               BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = true,
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 1,
+              Duration = 0.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }

@@ -89,9 +89,34 @@ OnBuffActivateBuildingBlocks = {
       IdealDistanceVar = "Distance",
       IdealDistanceVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Attacker",
+      EffectName = "xenZiou_AudaciousCharge_tar_unit_instant.troy",
+      Flags = 0,
+      EffectIDVar = "targetParticle",
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
+    }
+  },
   {
     Function = BBSealSpellSlot,
     Params = {
@@ -108,6 +133,24 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanMove
+    }
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "targetParticle",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -234,32 +277,9 @@ TargetExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Target",
-      EffectName = "xenZiou_AudaciousCharge_tar_unit_instant.troy",
-      Flags = 0,
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = true,
-      Status = SetCanMove
-    }
-  },
   {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
@@ -271,17 +291,12 @@ BuffOnMoveEndBuildingBlocks = {
       AttackerVar = "Caster",
       BuffName = "XenZhaoSweep"
     }
-  },
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
   {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -452,15 +467,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaosweep"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_audaciouscharge_tar_unit_instant.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaosweep"
     }
   },
   {

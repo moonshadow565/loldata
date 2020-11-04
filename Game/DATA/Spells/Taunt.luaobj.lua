@@ -21,11 +21,17 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyAssistMarker,
-    Params = {
-      Duration = 10,
-      TargetVar = "Owner",
-      SourceVar = "Attacker"
+    Function = BBIf,
+    Params = {Src1Var = "Attacker", CompareOp = CO_IS_TYPE_HERO},
+    SubBlocks = {
+      {
+        Function = BBApplyAssistMarker,
+        Params = {
+          Duration = 10,
+          TargetVar = "Owner",
+          SourceVar = "Attacker"
+        }
+      }
     }
   },
   {
@@ -41,7 +47,11 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBSetVarInTable,
-    Params = {DestVar = "removePart"}
+    Params = {
+      DestVar = "removePart",
+      DestVarTable = "InstanceVars",
+      SrcValue = false
+    }
   },
   {
     Function = BBIfHasBuff,
@@ -68,6 +78,14 @@ OnBuffActivateBuildingBlocks = {
           FOWTeamOverrideVar = "TeamID",
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "removePart",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
         }
       }
     }
@@ -115,6 +133,14 @@ OnBuffActivateBuildingBlocks = {
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = true
         }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "removePart",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
       }
     }
   },
@@ -144,6 +170,14 @@ OnBuffActivateBuildingBlocks = {
           FOWVisibilityRadius = 10,
           SendIfOnScreenOrDiscard = false
         }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "removePart",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
       }
     }
   }
@@ -158,10 +192,21 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
+    Function = BBIf,
     Params = {
-      EffectIDVar = "Part",
-      EffectIDVarTable = "InstanceVars"
+      Src1Var = "removePart",
+      Src1VarTable = "InstanceVars",
+      Value2 = true,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "Part",
+          EffectIDVarTable = "InstanceVars"
+        }
+      }
     }
   }
 }

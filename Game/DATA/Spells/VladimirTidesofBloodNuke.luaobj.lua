@@ -5,27 +5,10 @@ IsDamagingSpell = true
 SpellDamageRatio = 1
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetBuffCountFromAll,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      BuffName = "VladimirTidesofBloodNuke"
-    }
-  },
-  {
     Function = BBMath,
     Params = {
-      Src1Var = "Count",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "Count",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Count",
+      Src1Var = "numTideStacks",
+      Src1VarTable = "CharVars",
       Src1Value = 0,
       Src2Value = 0.25,
       DestVar = "Multiplier",
@@ -88,11 +71,68 @@ TargetExecuteBuildingBlocks = {
     }
   }
 }
+BuffOnHealBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Health",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetBuffCountFromAll,
+        Params = {
+          DestVar = "Count",
+          TargetVar = "Owner",
+          BuffName = "VladimirTidesofBloodCost"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Count",
+          Src1Value = 0,
+          Src2Value = 0.08,
+          DestVar = "bonusHealPercent",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusHealPercent",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "healRatio",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "healRatio",
+          Src2Var = "Health",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "EffectiveHeal",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetReturnValue,
+        Params = {
+          SrcVar = "EffectiveHeal"
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "vladimirtidesofbloodnuke"
+      Name = "vladimirtidesofbloodcost"
     }
   }
 }

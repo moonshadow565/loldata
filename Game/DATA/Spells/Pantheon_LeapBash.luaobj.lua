@@ -72,6 +72,104 @@ CanCastBuildingBlocks = {
     }
   }
 }
+SelfExecuteBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_AegisShield",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "Pantheon_AegisShield2"
+    },
+    SubBlocks = {
+      {
+        Function = BBIfNotHasBuff,
+        Params = {
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "Pantheon_AegisShield"
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "Pantheon_Aegis_Counter",
+              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+              StacksExclusive = false,
+              BuffType = BUFF_Aura,
+              MaxStack = 5,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBGetBuffCountFromAll,
+            Params = {
+              DestVar = "Count",
+              TargetVar = "Owner",
+              BuffName = "Pantheon_Aegis_Counter"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 5,
+              CompareOp = CO_GREATER_THAN_OR_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "Pantheon_AegisShield",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Aura,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 25000,
+                  BuffVarsTable = "NextBuffVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              },
+              {
+                Function = BBSpellBuffClear,
+                Params = {
+                  TargetVar = "Owner",
+                  BuffName = "Pantheon_Aegis_Counter"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
@@ -406,23 +504,6 @@ BuffOnMoveSuccessBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "Pantheon_AegisShield",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      },
-      {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Caster"}
       },
@@ -462,6 +543,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "pantheon_aegisshield"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_aegisshield2"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_aegis_counter"
     }
   }
 }

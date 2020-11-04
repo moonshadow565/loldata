@@ -295,6 +295,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ShieldHealth",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemoveCurrent,
+        Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
 BuffOnPreDamageBuildingBlocks = {
   {
     Function = BBIf,
@@ -428,31 +445,14 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        4,
         5,
-        6,
-        7,
-        8
+        5,
+        5,
+        5,
+        5
       },
       TickRate = 0,
       CanMitigateDuration = false
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "ShieldHealth",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
     }
   }
 }

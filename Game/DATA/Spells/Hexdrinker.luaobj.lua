@@ -16,6 +16,16 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
+    Function = BBMath,
+    Params = {
+      Src2Var = "LifeTime",
+      Src1Value = 60,
+      Src2Value = 0,
+      DestVar = "Duration",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -26,8 +36,9 @@ OnBuffDeactivateBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 56,
+      Duration = 0,
       BuffVarsTable = "NextBuffVars",
+      DurationVar = "Duration",
       TickRate = 0,
       CanMitigateDuration = false
     }

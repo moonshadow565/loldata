@@ -19,13 +19,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "OwnerPos",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "BaseCooldown",
       RequiredVarTable = "InstanceVars"
     }
@@ -34,6 +27,13 @@ OnBuffActivateBuildingBlocks = {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "CastPosition",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "OwnerPos",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -101,70 +101,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DoStuff",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBGetTeamID,
-    Params = {TargetVar = "Owner", DestVar = "CasterID"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CasterID",
-      Value2 = TEAM_ORDER,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "Leblanc_displacement_blink_indicator.troy",
-          Flags = 0,
-          EffectIDVar = "YellowIndicator",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_ORDER,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "Leblanc_displacement_blink_indicator.troy",
-          Flags = 0,
-          EffectIDVar = "YellowIndicator",
-          EffectIDVarTable = "InstanceVars",
-          TargetObjectVar = "Owner",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_CHAOS,
-          FOWVisibilityRadius = 250,
-          SendIfOnScreenOrDiscard = false
-        }
-      }
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -183,14 +119,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "RemoveIndicator",
-      DestVarTable = "InstanceVars",
-      SrcValue = 0
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
@@ -206,96 +134,38 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
+  },
+  {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBIf,
+    Function = BBUnlockAnimation,
+    Params = {OwnerVar = "Owner", Blend = true}
+  },
+  {
+    Function = BBSpellEffectRemove,
     Params = {
-      Src1Var = "DoStuff",
-      Src1VarTable = "InstanceVars",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "OwnerPos",
-          SrcVar = "OwnerPos",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBGetUnitPosition,
-        Params = {
-          UnitVar = "Owner",
-          PositionVar = "CurrentPosition"
-        }
-      },
-      {
-        Function = BBGetTeamID,
-        Params = {TargetVar = "Owner", DestVar = "CasterID"}
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "CurrentPosition",
-          EffectName = "leBlanc_displacement_cas.troy",
-          Flags = 0,
-          EffectIDVar = "SmokeBomb1",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "CasterID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBTeleportToPosition,
-        Params = {OwnerVar = "Owner", CastPositionName = "OwnerPos"}
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "leBlanc_displacement_cas.troy",
-          Flags = 0,
-          EffectIDVar = "SmokeBomb2",
-          TargetObjectVar = "Target",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "CasterID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Nothing",
-          PosVar = "OwnerPos",
-          EffectName = "Leblanc_displacement_blink_return_trigger.troy",
-          Flags = 0,
-          EffectIDVar = "a",
-          TargetObjectVar = "Owner",
-          TargetPosVar = "OwnerPos",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWTeamOverrideVar = "CasterID",
-          FOWVisibilityRadius = 10,
-          SendIfOnScreenOrDiscard = true
-        }
-      }
+      EffectIDVar = "DistortionFx",
+      EffectIDVarTable = "InstanceVars"
     }
   },
   {
@@ -306,148 +176,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBSealSpellSlot,
     Params = {
-      Src1Var = "RemoveIndicator",
-      Src1VarTable = "InstanceVars",
-      Value2 = 0,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "YellowIndicator",
-          EffectIDVarTable = "InstanceVars"
-        }
-      }
+      SpellSlot = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
     }
   },
   {
-    Function = BBIfHasBuff,
+    Function = BBSealSpellSlot,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "LeblancSlideWallFix"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "LeblancSlideWallFix"
-        }
-      }
-    }
-  }
-}
-BuffOnSpellCastBuildingBlocks = {
-  {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "SpellName", Info = GetSpellName}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "SpellName",
-      Value2 = "leblancslidereturn",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "RemoveIndicator",
-          Src1VarTable = "InstanceVars",
-          Value2 = 0,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "DoStuff",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          },
-          {
-            Function = BBIfHasBuff,
-            Params = {
-              OwnerVar = "Owner",
-              AttackerVar = "Nothing",
-              BuffName = "LeblancSlideM"
-            },
-            SubBlocks = {
-              {
-                Function = BBGetSlotSpellInfo,
-                Params = {
-                  DestVar = "CooldownTime",
-                  SpellSlotValue = 3,
-                  SpellbookType = SPELLBOOK_CHAMPION,
-                  SlotType = SpellSlots,
-                  OwnerVar = "Owner",
-                  Function = GetSlotSpellCooldownTime
-                }
-              },
-              {
-                Function = BBIf,
-                Params = {
-                  Src1Var = "CooldownTime",
-                  Value2 = 0,
-                  CompareOp = CO_LESS_THAN_OR_EQUAL
-                },
-                SubBlocks = {
-                  {
-                    Function = BBSetSlotSpellCooldownTime,
-                    Params = {
-                      SrcValue = 0.25,
-                      SpellbookType = SPELLBOOK_CHAMPION,
-                      SlotType = SpellSlots,
-                      SpellSlotValue = 3,
-                      OwnerVar = "Owner"
-                    }
-                  }
-                }
-              }
-            }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "SpellName",
-      Value2 = "leblancslidem",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "RemoveIndicator",
-          DestVarTable = "InstanceVars",
-          SrcValue = 1
-        }
-      },
-      {
-        Function = BBSpellEffectRemove,
-        Params = {
-          EffectIDVar = "YellowIndicator",
-          EffectIDVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
+      SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
     }
   }
 }
@@ -646,6 +391,23 @@ SelfExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
+      BuffName = "LeblancSlideMove",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "LeblancSlideWallFix",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
@@ -657,50 +419,15 @@ SelfExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
-  },
-  {
-    Function = BBSetSpell,
-    Params = {
-      SlotNumber = 1,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      SpellName = "LeblancSlideReturn",
-      TargetVar = "Owner"
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner", Blend = true}
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "DistortionFx",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
@@ -724,47 +451,6 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       PositionVar = "CurrentPosition"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
-    },
-    SubBlocks = {
-      {
-        Function = BBSealSpellSlot,
-        Params = {
-          SpellSlot = 3,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          TargetVar = "Owner",
-          State = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
     }
   },
   {
@@ -1049,12 +735,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "leblanc_displacement_blink_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "leblanc_displacement_blink_target.troy"
     }
   },
@@ -1071,27 +751,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "leblanc_displacement_blink_return_trigger.troy"
+      Name = "leblancslidemove"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "leblancslidewallfix"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancslidem"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "leblancslidereturn"
     }
   },
   {

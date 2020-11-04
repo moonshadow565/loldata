@@ -106,7 +106,7 @@ CharOnSpellCastBuildingBlocks = {
                   SlotNumber = 3,
                   SlotType = SpellSlots,
                   SlotBook = SPELLBOOK_CHAMPION,
-                  SpellName = "LeblancSlideM",
+                  SpellName = "leblancslidem",
                   TargetVar = "Owner"
                 }
               },

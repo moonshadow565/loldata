@@ -102,9 +102,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamagePerLevel",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        200,
-        300,
-        400
+        150,
+        250,
+        350
       }
     }
   },
@@ -114,9 +114,9 @@ TargetExecuteBuildingBlocks = {
       DestVar = "DamageIncrease",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -0.1,
         -0.14,
-        -0.18
+        -0.14,
+        -0.14
       }
     }
   },

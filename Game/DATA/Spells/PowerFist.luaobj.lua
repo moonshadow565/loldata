@@ -100,20 +100,21 @@ OnBuffDeactivateBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBGetTotalAttackDamage,
+    Function = BBGetStat,
     Params = {
+      Stat = GetBaseAttackDamage,
       TargetVar = "Owner",
-      DestVar = "AttackDamage"
+      DestVar = "BaseAttackDamage"
     }
   },
   {
     Function = BBMath,
     Params = {
       Src1Var = "DamageAmount",
-      Src2Var = "AttackDamage",
+      Src2Var = "BaseAttackDamage",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "DamageAmount",
+      DestVar = "DamageToDeal",
       MathOp = MO_ADD
     }
   },
@@ -130,8 +131,8 @@ BuffOnHitUnitBuildingBlocks = {
         Params = {},
         SubBlocks = {
           {
-            Function = BBGetTeamID,
-            Params = {TargetVar = "Owner", DestVar = "TeamID"}
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Target"}
           },
           {
             Function = BBSpellBuffAdd,
@@ -151,21 +152,31 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellEffectCreate,
+            Function = BBApplyDamage,
             Params = {
-              BindObjectVar = "Target",
-              EffectName = "Powerfist_tar.troy",
-              Flags = 0,
-              EffectIDVar = "asf",
-              BoneName = "head",
-              TargetObjectVar = "Target",
-              SpecificUnitOnlyVar = "Owner",
-              SpecificTeamOnly = TEAM_UNKNOWN,
-              UseSpecificUnit = false,
-              FOWTeam = TEAM_UNKNOWN,
-              FOWTeamOverrideVar = "TeamID",
-              FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = true
+              AttackerVar = "Owner",
+              CallForHelpAttackerVar = "Owner",
+              TargetVar = "Target",
+              Damage = 0,
+              DamageVar = "DamageToDeal",
+              DamageType = PHYSICAL_DAMAGE,
+              SourceDamageType = DAMAGESOURCE_DEFAULT,
+              PercentOfAttack = 1,
+              SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
+              IgnoreDamageIncreaseMods = false,
+              IgnoreDamageCrit = false
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageAmount",
+              Src2Var = "DamageAmount",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
             }
           }
         }
@@ -228,12 +239,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "powerfistslow"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "powerfist_tar.troy"
     }
   },
   {

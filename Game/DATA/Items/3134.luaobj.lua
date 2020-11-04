@@ -15,12 +15,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Brutalizer",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -46,12 +48,14 @@ OnActivateBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Brutalizer",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -60,6 +64,6 @@ OnActivateBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "Brutalizer"}
+    Params = {Name = "brutalizer"}
   }
 }

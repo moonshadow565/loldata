@@ -1,30 +1,63 @@
 UpdateSelfBuffStatsBuildingBlocks = {
   {
-    Function = BBGetPAROrHealth,
+    Function = BBExecutePeriodically,
     Params = {
-      DestVar = "PercentMana",
+      TimeBetweenExecutions = 9,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "ChaliceOfHarmony",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
+  }
+}
+OnActivateBuildingBlocks = {
+  {
+    Function = BBIfHasBuff,
+    Params = {
       OwnerVar = "Owner",
-      Function = GetPARPercent,
-      PARType = PAR_MANA
+      AttackerVar = "Owner",
+      BuffName = "ChaliceOfHarmony"
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src2Var = "PercentMana",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "PercentMissing",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBIncPercentPARRegenMod,
-    Params = {
-      PARType = PAR_MANA,
-      TargetVar = "Owner",
-      DeltaVar = "PercentMissing",
-      Delta = 0
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "ChaliceOfHarmony",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 10,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
     }
   }
 }

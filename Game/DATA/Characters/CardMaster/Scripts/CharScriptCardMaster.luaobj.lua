@@ -182,7 +182,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

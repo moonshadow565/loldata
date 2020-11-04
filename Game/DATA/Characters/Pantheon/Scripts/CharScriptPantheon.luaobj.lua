@@ -33,11 +33,11 @@ UpdateSelfBuffActionsBuildingBlocks = {
     Params = {
       DestVar = "HSS",
       SrcValueByLevel = {
-        0.18,
-        0.22,
-        0.26,
-        0.3,
-        0.34
+        0.28,
+        0.31,
+        0.34,
+        0.37,
+        0.4
       }
     }
   },

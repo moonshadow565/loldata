@@ -223,13 +223,15 @@ BuffOnDeathBuildingBlocks = {
               AttackerVar = "Attacker",
               BuffName = "BlessingoftheLizardElder_Twisted",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 0,
               BuffVarsTable = "NextBuffVars",
               DurationVar = "NewDuration",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -309,39 +311,125 @@ BuffOnHitUnitBuildingBlocks = {
                           AttackerVar = "Attacker",
                           BuffName = "Burning",
                           BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
                           BuffType = BUFF_Damage,
                           MaxStack = 1,
                           NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 1
+                          TickRate = 1,
+                          CanMitigateDuration = false
                         }
                       },
                       {
-                        Function = BBSetVarInTable,
-                        Params = {
-                          DestVar = "MoveSpeedMod",
-                          DestVarTable = "NextBuffVars",
-                          SrcValue = 0,
-                          SrcValueByLevel = {
-                            -0.15,
-                            -0.15,
-                            -0.15,
-                            -0.15,
-                            -0.15,
-                            -0.2,
-                            -0.2,
-                            -0.2,
-                            -0.2,
-                            -0.2,
-                            -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.25,
-                            -0.3,
-                            -0.3,
-                            -0.3
+                        Function = BBIf,
+                        Params = {Src1Var = "Owner", CompareOp = CO_IS_RANGED},
+                        SubBlocks = {
+                          {
+                            Function = BBSetVarInTable,
+                            Params = {
+                              DestVar = "MoveSpeedMod",
+                              DestVarTable = "NextBuffVars",
+                              SrcValue = 0,
+                              SrcValueByLevel = {
+                                -0.05,
+                                -0.05,
+                                -0.05,
+                                -0.05,
+                                -0.05,
+                                -0.05,
+                                -0.1,
+                                -0.1,
+                                -0.1,
+                                -0.1,
+                                -0.1,
+                                -0.1,
+                                -0.15,
+                                -0.15,
+                                -0.15,
+                                -0.15,
+                                -0.15,
+                                -0.15
+                              }
+                            }
+                          }
+                        }
+                      },
+                      {
+                        Function = BBElse,
+                        Params = {},
+                        SubBlocks = {
+                          {
+                            Function = BBIfHasBuff,
+                            Params = {
+                              OwnerVar = "Owner",
+                              AttackerVar = "Nothing",
+                              BuffName = "JudicatorRighteousFury"
+                            },
+                            SubBlocks = {
+                              {
+                                Function = BBSetVarInTable,
+                                Params = {
+                                  DestVar = "MoveSpeedMod",
+                                  DestVarTable = "NextBuffVars",
+                                  SrcValue = 0,
+                                  SrcValueByLevel = {
+                                    -0.05,
+                                    -0.05,
+                                    -0.05,
+                                    -0.05,
+                                    -0.05,
+                                    -0.05,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.15,
+                                    -0.15,
+                                    -0.15,
+                                    -0.15,
+                                    -0.15,
+                                    -0.15
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          {
+                            Function = BBElse,
+                            Params = {},
+                            SubBlocks = {
+                              {
+                                Function = BBSetVarInTable,
+                                Params = {
+                                  DestVar = "MoveSpeedMod",
+                                  DestVarTable = "NextBuffVars",
+                                  SrcValue = 0,
+                                  SrcValueByLevel = {
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.1,
+                                    -0.2,
+                                    -0.2,
+                                    -0.2,
+                                    -0.2,
+                                    -0.2,
+                                    -0.2,
+                                    -0.3,
+                                    -0.3,
+                                    -0.3,
+                                    -0.3,
+                                    -0.3,
+                                    -0.3
+                                  }
+                                }
+                              }
+                            }
                           }
                         }
                       },
@@ -380,12 +468,14 @@ BuffOnHitUnitBuildingBlocks = {
                           AttackerVar = "Attacker",
                           BuffName = "Slow",
                           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                          StacksExclusive = true,
                           BuffType = BUFF_Slow,
                           MaxStack = 100,
                           NumberOfStacks = 1,
                           Duration = 3,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }
@@ -433,6 +523,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "burning"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "judicatorrighteousfury"
+    }
   },
   {
     Function = BBPreloadSpell,
