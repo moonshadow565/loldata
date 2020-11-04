@@ -1,28 +1,26 @@
-BuffTextureName = "shadowninja_R2.dds"
-BuffName = "ZedUltExecute"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_ult_delayeddamage_tar.troy"
+      Name = "zed_stormblade_clonedeath.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_ult_pop_kill.troy"
+      Name = "zed_clonedeath.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "zed_ult_pop_nokill.troy"
+      Name = "zed_shadowsink.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_passive_overhead_max_stack.troy"
+      Name = "zed_clone_idle.troy"
     }
   }
 }

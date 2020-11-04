@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Zed_emote_joke_clonedeath.troy"
+      Name = "zed_emote_joke_clonedeath.troy"
     }
   }
 }

@@ -4,7 +4,7 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "shadowninja_W2.dds"
-BuffName = "ZedWHandler"
+BuffName = "ZedWHandlerBuffName"
 SpellToggleSlot = 2
 SpellFXOverrideSkins = {
   "ReefMalphite",
