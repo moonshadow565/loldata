@@ -87,7 +87,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 25000,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -165,7 +166,7 @@ BuffOnBeingHitBuildingBlocks = {
                   Src1Var = "LastHit",
                   Src1VarTable = "InstanceVars",
                   Src1Value = 0,
-                  Src2Value = 3,
+                  Src2Value = 2,
                   DestVar = "LastHit",
                   DestVarTable = "InstanceVars",
                   MathOp = MO_SUBTRACT
@@ -216,7 +217,8 @@ BuffOnBeingHitBuildingBlocks = {
                           NumberOfStacks = 1,
                           Duration = 25000,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }

@@ -67,7 +67,8 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Spell4",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = true
+      Loop = true,
+      Blend = false
     }
   },
   {
@@ -91,7 +92,7 @@ OnBuffActivateBuildingBlocks = {
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBSpellEffectRemove,
@@ -103,111 +104,24 @@ OnBuffDeactivateBuildingBlocks = {
 }
 CanCastBuildingBlocks = {
   {
-    Function = BBGetSlotSpellInfo,
+    Function = BBGetStatus,
     Params = {
-      DestVar = "Level",
-      SpellSlotValue = 2,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
     }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "Level",
-      Value2 = 0,
-      CompareOp = CO_GREATER_THAN
+      Src1Var = "CanMove",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "HealthCost",
-          SrcValueByLevel = {
-            30,
-            60,
-            90,
-            120,
-            150
-          }
-        }
-      },
-      {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "Temp1",
-          OwnerVar = "Owner",
-          Function = GetHealth,
-          PARType = PAR_MANA
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Temp1",
-          Src2Var = "HealthCost",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = true}
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "HealthCost",
-          Src2Var = "Temp1",
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "Temp1",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "HealthCost",
-              MathOp = MO_SUBTRACT
-            }
-          }
-        }
-      },
-      {
-        Function = BBGetStatus,
-        Params = {
-          TargetVar = "Owner",
-          DestVar = "CanMove",
-          Status = GetCanMove
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CanMove",
-          Value2 = false,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetReturnValue,
-            Params = {SrcValue = false}
-          }
-        }
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }
@@ -314,13 +228,15 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -357,7 +273,8 @@ BuffOnMoveEndBuildingBlocks = {
       CenterVar = "Owner",
       Range = 300,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -376,6 +293,7 @@ BuffOnMoveEndBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 1,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -387,12 +305,14 @@ BuffOnMoveEndBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "UnstoppableForceStun",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

@@ -23,11 +23,11 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       DestVar = "DamageMultiplier",
       SrcValueByLevel = {
-        1.5,
-        1.75,
-        2,
-        2.25,
-        2.5
+        1.8,
+        2.1,
+        2.4,
+        2.7,
+        3
       }
     }
   },
@@ -91,7 +91,8 @@ BuffOnHitUnitBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {

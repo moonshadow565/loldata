@@ -129,11 +129,11 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        0.24,
-        0.33,
-        0.42,
-        0.51,
-        0.6
+        0.3,
+        0.4,
+        0.5,
+        0.6,
+        0.7
       }
     }
   },
@@ -348,7 +348,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -363,7 +364,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {

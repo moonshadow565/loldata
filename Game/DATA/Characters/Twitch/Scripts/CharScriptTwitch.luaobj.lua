@@ -63,12 +63,14 @@ CharOnHitUnitBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "DeadlyVenom",
                       BuffAddType = BUFF_STACKS_AND_RENEWS,
-                      BuffType = BUFF_Damage,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
                       MaxStack = 6,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 8.1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   },
                   {
@@ -95,12 +97,14 @@ CharOnHitUnitBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "DeadlyVenom_Internal",
                       BuffAddType = BUFF_RENEW_EXISTING,
-                      BuffType = BUFF_Internal,
+                      StacksExclusive = true,
+                      BuffType = BUFF_CombatDehancer,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 8.1,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   }
                 }
@@ -120,12 +124,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "DeadlyVenom_marker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -135,12 +141,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -150,12 +158,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -167,12 +177,14 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
     }
   }
 }

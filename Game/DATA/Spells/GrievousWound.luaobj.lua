@@ -1,7 +1,17 @@
-BuffTextureName = "PlantKing_AnimateVitalis.dds"
+BuffTextureName = "GW_Debuff.dds"
 BuffName = "GrievousWound"
 AutoBuffActivateEffect = "Global_Mortal_Strike.troy"
 AutoBuffActivateAttachBoneName = "Head"
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBApplyAssistMarker,
+    Params = {
+      Duration = 10,
+      TargetVar = "Owner",
+      SourceVar = "Attacker"
+    }
+  }
+}
 BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIfHasBuff,
@@ -57,16 +67,6 @@ BuffOnHealBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBApplyAssistMarker,
-    Params = {
-      Duration = 10,
-      TargetVar = "Owner",
-      SourceVar = "Attacker"
     }
   }
 }

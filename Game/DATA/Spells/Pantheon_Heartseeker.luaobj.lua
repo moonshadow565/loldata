@@ -24,6 +24,22 @@ ChannelingStartBuildingBlocks = {
       DestVarTable = "InstanceVars",
       SrcValue = 0
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerSound",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 1.3,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
   }
 }
 ChannelingUpdateActionsBuildingBlocks = {
@@ -42,6 +58,7 @@ ChannelingUpdateActionsBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "CastPosition",
       EndPosVar = "CastPosition",
+      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -62,6 +79,34 @@ ChannelingUpdateActionsBuildingBlocks = {
       DestVar = "counter",
       DestVarTable = "InstanceVars",
       MathOp = MO_ADD
+    }
+  }
+}
+ChannelingCancelStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerSound"
+    }
+  }
+}
+ChannelingSuccessStopBuildingBlocks = {
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "Pantheon_HeartseekerSound"
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "pantheon_heartseekersound"
     }
   }
 }

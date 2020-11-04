@@ -143,9 +143,10 @@ TargetExecuteBuildingBlocks = {
       BuffType = BUFF_Net,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2,
+      Duration = 2.5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

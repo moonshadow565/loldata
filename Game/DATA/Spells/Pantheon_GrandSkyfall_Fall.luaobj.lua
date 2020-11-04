@@ -1,4 +1,4 @@
-ChannelDuration = 2
+ChannelDuration = 1.5
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -186,7 +186,8 @@ OnBuffDeactivateBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       },
       {
@@ -316,7 +317,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 2
+      TickRate = 2,
+      CanMitigateDuration = false
     }
   }
 }

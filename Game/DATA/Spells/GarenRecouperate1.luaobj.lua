@@ -39,7 +39,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -65,7 +66,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -91,7 +93,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -117,7 +120,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -143,7 +147,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -169,7 +174,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -195,7 +201,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -221,7 +228,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -247,7 +255,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -273,7 +282,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -298,6 +308,14 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = false
     }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GarenRecouperateOn"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -307,39 +325,26 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Part",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GarenRecouperateOn",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBGetLevel,
-    Params = {TargetVar = "Owner", DestVar = "Level"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HPRegen",
-      SrcValueByLevel = {
-        8,
-        9,
-        10,
-        11,
-        12,
-        13,
-        14,
-        15,
-        16,
-        17,
-        18,
-        19,
-        20,
-        21,
-        22,
-        23,
-        24,
-        25
-      }
-    }
-  },
   {
     Function = BBExecutePeriodically,
     Params = {
@@ -417,11 +422,31 @@ BuffOnUpdateStatsBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
       }
+    }
+  }
+}
+BuffOnTakeDamageBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GarenRecoupDebuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 7,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -436,6 +461,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "garen_heal.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenrecouperateon"
     }
   }
 }

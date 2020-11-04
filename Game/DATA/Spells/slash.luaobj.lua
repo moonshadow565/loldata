@@ -184,7 +184,8 @@ BuffOnUpdateActionsBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 2,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               },
               {
@@ -278,6 +279,52 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
+      }
+    }
+  }
+}
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
       }
     }
   }
@@ -434,22 +481,8 @@ SelfExecuteBuildingBlocks = {
     Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
-    Function = BBGetStat,
-    Params = {
-      Stat = GetMovementSpeed,
-      TargetVar = "Owner",
-      DestVar = "MoveSpeed"
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "MoveSpeed",
-      Src1Value = 0,
-      Src2Value = 300,
-      DestVar = "SlashSpeed",
-      MathOp = MO_ADD
-    }
+    Function = BBSetVarInTable,
+    Params = {DestVar = "SlashSpeed", SrcValue = 900}
   },
   {
     Function = BBMath,
@@ -509,7 +542,8 @@ SelfExecuteBuildingBlocks = {
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -517,52 +551,6 @@ BuffOnMoveEndBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveCurrent,
     Params = {TargetVar = "Owner"}
-  }
-}
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
-  },
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanCast",
-      Status = GetCanCast
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanCast",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {

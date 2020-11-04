@@ -33,28 +33,30 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBApplyTaunt,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 0,
-      DurationVar = "tauntDuration"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "PuncturingTauntArmorDebuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Taunt,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "tauntDuration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBApplyTaunt,
+    Params = {
+      AttackerVar = "Attacker",
+      TargetVar = "Target",
+      Duration = 0,
+      DurationVar = "tauntDuration"
     }
   }
 }

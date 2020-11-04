@@ -30,7 +30,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -56,7 +57,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -82,7 +84,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -108,7 +111,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -134,7 +138,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -160,7 +165,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -186,7 +192,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -212,7 +219,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -238,7 +246,8 @@ BuffOnAllowAddBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 7,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -256,7 +265,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {}
 BuffOnTakeDamageBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
@@ -271,7 +279,8 @@ BuffOnTakeDamageBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -289,7 +298,8 @@ BuffOnDealDamageBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 7,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

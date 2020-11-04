@@ -108,13 +108,6 @@ TargetExecuteBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           TargetVar = "Target",
-          DamageByLevel = {
-            0,
-            0,
-            0,
-            0,
-            0
-          },
           Damage = 0,
           DamageVar = "DamageToDeal",
           DamageType = MAGIC_DAMAGE,

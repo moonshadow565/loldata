@@ -43,7 +43,8 @@ BuffOnCollisionBuildingBlocks = {
                       NumberOfStacks = 1,
                       Duration = 1.5,
                       BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                      TickRate = 0,
+                      CanMitigateDuration = false
                     }
                   },
                   {
@@ -58,24 +59,6 @@ BuffOnCollisionBuildingBlocks = {
                       Duration = 0,
                       DurationVar = "tauntDuration",
                       DurationVarTable = "InstanceVars"
-                    }
-                  },
-                  {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Target",
-                      AttackerVar = "Attacker",
-                      BuffName = "ShenShadowDashTaunt",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      StacksExclusive = true,
-                      BuffType = BUFF_Taunt,
-                      MaxStack = 1,
-                      NumberOfStacks = 1,
-                      Duration = 0,
-                      BuffVarsTable = "NextBuffVars",
-                      DurationVar = "tauntDuration",
-                      DurationVarTable = "InstanceVars",
-                      TickRate = 0
                     }
                   },
                   {
@@ -441,7 +424,8 @@ SelfExecuteBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -473,7 +457,8 @@ SelfExecuteBuildingBlocks = {
               BuffVarsTable = "NextBuffVars",
               DurationVar = "tauntDuration",
               DurationVarTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -550,7 +535,8 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0.1
+      TickRate = 0.1,
+      CanMitigateDuration = false
     }
   }
 }
@@ -587,7 +573,8 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 1.5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           },
           {
@@ -602,24 +589,6 @@ BuffOnMoveEndBuildingBlocks = {
               Duration = 0,
               DurationVar = "tauntDuration",
               DurationVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Unit",
-              AttackerVar = "Attacker",
-              BuffName = "ShenShadowDashTaunt",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Taunt,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0,
-              BuffVarsTable = "NextBuffVars",
-              DurationVar = "tauntDuration",
-              DurationVarTable = "InstanceVars",
-              TickRate = 0
             }
           },
           {
@@ -692,12 +661,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "shenshadowdashtaunt"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_unit_impact.troy"
@@ -707,6 +670,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "shen_shadowdash_mis.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shenshadowdashtaunt"
     }
   }
 }

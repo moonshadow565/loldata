@@ -209,22 +209,6 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSpellEffectCreate,
-        Params = {
-          BindObjectVar = "Unit",
-          EffectName = "katarina_shadowStep_return.troy",
-          Flags = 0,
-          EffectIDVar = "b",
-          TargetObjectVar = "Unit",
-          SpecificUnitOnlyVar = "Owner",
-          SpecificTeamOnly = TEAM_UNKNOWN,
-          UseSpecificUnit = false,
-          FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = true
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Unit",
@@ -236,7 +220,8 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 0.5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -266,11 +251,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "drawabead"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "katarina_shadowstep_return.troy"
-    }
   }
 }

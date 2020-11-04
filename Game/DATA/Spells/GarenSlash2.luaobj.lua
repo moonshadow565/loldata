@@ -12,15 +12,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "SilenceDuration",
       SrcValueByLevel = {
-        2,
-        5,
-        2,
-        5,
         2.5,
-        2,
-        5,
-        2,
-        5
+        2.5,
+        2.5,
+        2.5,
+        2.5
       }
     }
   },
@@ -70,6 +66,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "TotalDamage",
       MathOp = MO_ADD
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {DestVar = "HitResult", SrcValue = false}
   },
   {
     Function = BBIf,

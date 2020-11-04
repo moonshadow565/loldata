@@ -98,10 +98,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "baseDamageBlock",
       SrcValueByLevel = {
         40,
-        75,
-        110,
-        145,
-        180
+        70,
+        100,
+        130,
+        160
       }
     }
   },
@@ -161,7 +161,8 @@ TargetExecuteBuildingBlocks = {
         1.5,
         1.5
       },
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

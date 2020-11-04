@@ -12,6 +12,17 @@ AutoCooldownByLevel = {
 }
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "HealthTick",
@@ -47,11 +58,29 @@ OnBuffActivateBuildingBlocks = {
 }
 BuffOnUpdateStatsBuildingBlocks = {
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBIncStat,
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      Delta = 30
+      Delta = 0,
+      DeltaByLevel = {
+        100,
+        150,
+        200,
+        250,
+        300
+      }
     }
   },
   {
@@ -59,7 +88,14 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      Delta = 30
+      Delta = 0,
+      DeltaByLevel = {
+        100,
+        150,
+        200,
+        250,
+        300
+      }
     }
   }
 }
@@ -67,7 +103,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -108,11 +144,11 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "HealthTick",
       SrcValueByLevel = {
-        25,
-        50,
-        83.3,
-        125,
-        183.3
+        11.7,
+        23.3,
+        35,
+        46.7,
+        58.3
       }
     }
   },
@@ -159,12 +195,14 @@ ChannelingStartBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Heal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 4.9,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

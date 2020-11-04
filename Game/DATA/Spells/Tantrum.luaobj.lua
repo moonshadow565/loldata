@@ -62,7 +62,7 @@ BuffOnBeingHitBuildingBlocks = {
         Params = {
           Src1Var = "Cooldown",
           Src1Value = 0,
-          Src2Value = 1,
+          Src2Value = 0.5,
           DestVar = "NewCooldown",
           MathOp = MO_SUBTRACT
         }
@@ -117,6 +117,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 0.5,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }
