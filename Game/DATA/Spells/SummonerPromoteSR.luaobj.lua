@@ -7,8 +7,6 @@ AutoBuffActivateEffect = "bloodboil_buf.troy"
 AutoBuffActivateAttachBoneName = "l_hand"
 AutoBuffActivateEffect2 = "bloodboil_buf.troy"
 AutoBuffActivateAttachBoneName2 = "r_hand"
-AutoBuffActivateAttachBoneName3 = ""
-AutoBuffActivateAttachBoneName4 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

@@ -37,12 +37,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyragraspingplantbirthsound"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "zyra_plant_spawn_vo_lasher.troy"

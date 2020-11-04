@@ -1,15 +1,23 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = ""
-BuffName = ""
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "fizzmarinerdoom"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerathr_beam_warning_green.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "xerathr_beam_warning_red.troy"
     }
   }
 }

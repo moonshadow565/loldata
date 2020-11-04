@@ -6,11 +6,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "eternalthirst_buf.troy"
+      Name = "chogath_battlecast_heal.troy"
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "feast"}
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "eternalthirst_buf.troy"
+    }
   }
 }

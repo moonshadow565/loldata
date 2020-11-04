@@ -5,7 +5,7 @@ BuffName = "Shen Stand United Shield"
 AutoBuffActivateEffect = ""
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
-AutoBuffActivateEvent = "DeathsCaress_buf.prt"
+AutoBuffActivateEvent = "DeathsCaress_buf.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

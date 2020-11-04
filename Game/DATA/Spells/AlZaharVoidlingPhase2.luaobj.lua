@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "voidlingtransform.prt"
+      Name = "voidlingtransform.troy"
     }
   }
 }

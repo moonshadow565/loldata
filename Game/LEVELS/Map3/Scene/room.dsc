@@ -27,12 +27,10 @@ LevelProp_ShopMale1.sco -100
 Turret_T1_C_08.sco -100
 Turret_OrderTurretShrine.sco -100
 Turret_T1_C_09.sco -100
-Turret_T1_C_010.sco -100
 LevelProp_Teemo.sco -100
 Barracks_T2_C1.sco -100
 HQ_T2.sco -100
 Turret_T2_L_02.sco -100
-Turret_T2_L_04.sco -100
 Turret_T2_L_03.sco -100
 ChaosShop01.sco -100
 LevelProp_ShopMale.sco -100

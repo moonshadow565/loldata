@@ -16,7 +16,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "staticfield_nova.prt"
+      Name = "staticfield_nova.troy"
     }
   }
 }

@@ -5,11 +5,14 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
 BuffName = "Vorpal Spikes"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
 SpellToggleSlot = 3
-AutoAuraBuffName = ""
 PersistsThroughDeath = true
+SpellFXOverrideSkins = {
+  "BattlecastChogath"
+}
+SpellVOOverrideSkins = {
+  "BattlecastChogath"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
