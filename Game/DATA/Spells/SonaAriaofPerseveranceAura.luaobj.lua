@@ -48,10 +48,10 @@ BuffOnUpdateActionsBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         8,
-        12,
-        16,
-        20,
-        24
+        11,
+        14,
+        17,
+        20
       }
     }
   },

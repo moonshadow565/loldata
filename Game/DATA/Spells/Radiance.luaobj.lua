@@ -429,7 +429,7 @@ AdjustCooldownBuildingBlocks = {
     SubBlocks = {
       {
         Function = BBSetReturnValue,
-        Params = {SrcValue = 0}
+        Params = {SrcValue = 0.75}
       }
     }
   }
@@ -543,7 +543,8 @@ SelfExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

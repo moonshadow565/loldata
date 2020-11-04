@@ -2,6 +2,13 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
+      RequiredVar = "MoveBonus",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
       RequiredVar = "StunDuration",
       RequiredVarTable = "InstanceVars"
     }
@@ -9,7 +16,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "StealthDuration",
+      RequiredVar = "DefenseBonus",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -55,6 +62,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -68,6 +76,33 @@ OnBuffDeactivateBuildingBlocks = {
       DestVar = "WillRemove",
       DestVarTable = "NextBuffVars",
       SrcValue = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MoveBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DefenseBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "InitialTime",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "InitialTime",
+      SrcVarTable = "InstanceVars"
     }
   },
   {
@@ -102,9 +137,32 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "DefenseBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "DefenseBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -129,7 +187,7 @@ BuffOnUpdateActionsBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "TimeSinceLastHit",
-      Value2 = 1.5,
+      Value2 = 1.24,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {

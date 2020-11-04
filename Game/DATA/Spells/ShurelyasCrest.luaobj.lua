@@ -24,10 +24,28 @@ OnBuffDeactivateBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 7,
+      SlotType = ExtraSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "ShurelyasSpell",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedMod",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 0.4
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "RanduinsOmen_cas.troy",
+      EffectName = "ShurelyasCrest_cas.troy",
       Flags = 0,
       EffectIDVar = "a",
       TargetObjectVar = "Target",
@@ -40,11 +58,34 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBForEachUnitInTargetArea,
     Params = {
-      DestVar = "MoveSpeedMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0.4
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 700,
+      Flags = "AffectFriends AffectHeroes NotAffectSelf ",
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Unit",
+          PosVar = "Unit",
+          EndPosVar = "Unit",
+          OverrideCastPosition = false,
+          SlotNumber = 7,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 1,
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
     }
   },
   {
@@ -52,7 +93,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 500,
+      Range = 700,
       Flags = "AffectFriends AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -64,12 +105,12 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Unit",
           AttackerVar = "Owner",
           BuffName = "Haste",
-          BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Haste,
           MaxStack = 100,
           NumberOfStacks = 1,
-          Duration = 3,
+          Duration = 2,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -266,9 +307,15 @@ SelfExecuteBuildingBlocks = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shurelyasspell"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "randuinsomen_cas.troy"
+      Name = "shurelyascrest_cas.troy"
     }
   },
   {

@@ -9,14 +9,28 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "StunDuration",
+      RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
     }
   },
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "WillRemove",
+      RequiredVar = "DefenseBonus",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "MoveBonus",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "StunDuration",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -47,6 +61,16 @@ OnBuffActivateBuildingBlocks = {
       Cost = -60,
       PARType = PAR_MANA
     }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0.5,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 1,
+      OwnerVar = "Owner"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -66,7 +90,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "BaseCooldown",
-      SrcValue = 12
+      SrcValue = 10
     }
   },
   {
@@ -128,9 +152,54 @@ OnBuffDeactivateBuildingBlocks = {
       Cost = 0,
       PARType = PAR_MANA
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DefenseBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "DefenseBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveBonus",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "MoveBonus",
+      SrcVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "ShadowWalkArmor",
+      BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "MoveBonus",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -429,14 +498,42 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
+          DestVar = "MoveBonus",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0.1,
+            0.14,
+            0.18,
+            0.22,
+            0.26
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
           DestVar = "StunDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             1,
-            1.25,
-            1.5,
-            1.75,
-            2
+            1,
+            1,
+            1,
+            1
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DefenseBonus",
+          DestVarTable = "NextBuffVars",
+          SrcValueByLevel = {
+            0,
+            0,
+            0,
+            0,
+            0
           }
         }
       },
@@ -446,11 +543,11 @@ TargetExecuteBuildingBlocks = {
           DestVar = "StealthDuration",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            20,
-            30,
             40,
-            50,
-            60
+            40,
+            40,
+            40,
+            40
           }
         }
       },
@@ -473,7 +570,7 @@ TargetExecuteBuildingBlocks = {
           BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 5,
+          Duration = 4,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
@@ -489,6 +586,12 @@ BuffOnLaunchAttackBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "shadowwalkarmor"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

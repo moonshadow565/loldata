@@ -68,7 +68,7 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0.175,
+      SpellDamageRatio = 0.233,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -133,7 +133,7 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.85,
+      TimeBetweenExecutions = 0.75,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -151,7 +151,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           DamageType = MAGIC_DAMAGE,
           SourceDamageType = DAMAGESOURCE_PERIODIC,
           PercentOfAttack = 1,
-          SpellDamageRatio = 0.175,
+          SpellDamageRatio = 0.233,
           PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
@@ -168,8 +168,8 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         50,
-        75,
-        100
+        83.3,
+        116.6
       }
     }
   },
@@ -184,10 +184,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Snare,
+      BuffType = BUFF_Stun,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.5,
+      Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

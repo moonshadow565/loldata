@@ -11,31 +11,6 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBIf,
         Params = {
           Src1Var = "Type",
-          Value2 = BUFF_CombatDehancer,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "BootsOfMobilityDebuff",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 5,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Type",
           Value2 = BUFF_Damage,
           CompareOp = CO_EQUAL
         },
@@ -47,12 +22,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -72,12 +49,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -97,12 +76,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -122,12 +103,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -147,12 +130,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -172,12 +157,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -197,12 +184,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -222,12 +211,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -247,12 +238,14 @@ BuffOnAllowAddBuildingBlocks = {
               AttackerVar = "Owner",
               BuffName = "BootsOfMobilityDebuff",
               BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
               Duration = 5,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -268,12 +261,33 @@ ItemOnTakeDamageBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "BootsOfMobilityDebuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  }
+}
+ItemOnDealDamageBuildingBlocks = {
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "BootsOfMobilityDebuff",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -294,23 +308,6 @@ OnDeactivateBuildingBlocks = {
           BuffName = "BootsOfMobilityDebuff"
         }
       }
-    }
-  }
-}
-ItemOnDealDamageBuildingBlocks = {
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "BootsOfMobilityDebuff",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
     }
   }
 }

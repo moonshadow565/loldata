@@ -142,11 +142,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "DamageReduction",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        0.35,
-        0.35,
-        0.35,
-        0.35,
-        0.35
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
       }
     }
   },

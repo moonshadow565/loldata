@@ -24,7 +24,17 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       IDVar = "CasterID",
       IDVarTable = "InstanceVars",
-      OverrideSpells = true
+      OverrideSpells = false
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DefensiveBallCurlCancel",
+      TargetVar = "Owner"
     }
   },
   {
@@ -144,13 +154,23 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBSetSpell,
     Params = {
-      SrcVar = "FinalCooldown",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotNumber = 1,
       SlotType = SpellSlots,
-      SpellSlotValue = 1,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "DefensiveBallCurl",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTimeVer2,
+    Params = {
+      Src = 0,
+      SrcVar = "FinalCooldown",
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SpellbookType = SPELLBOOK_CHAMPION,
       OwnerVar = "Owner"
     }
   },
@@ -284,21 +304,27 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "defensiveballcurlcancel"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "dbc_out.troy"
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "thornmail_tar.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "defensiveballcurl"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "thornmail_tar.troy"
     }
   }
 }

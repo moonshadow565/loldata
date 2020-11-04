@@ -9,7 +9,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "ArmorMod",
+      RequiredVar = "ArmorStealAmount",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "SpellStealAmount",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -20,7 +27,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatArmorMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
+      DeltaVar = "ArmorStealAmount",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -30,7 +37,7 @@ BuffOnUpdateStatsBuildingBlocks = {
     Params = {
       Stat = IncFlatSpellBlockMod,
       TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
+      DeltaVar = "SpellStealAmount",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -38,120 +45,190 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBIfHasBuff,
+    Function = BBSetVarInTable,
     Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "FromBehind"
+      DestVar = "ArmorMin",
+      SrcValueByLevel = {
+        -10,
+        -15,
+        -20,
+        -25,
+        -30
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "SpellMin",
+      SrcValueByLevel = {
+        -10,
+        -15,
+        -20,
+        -25,
+        -30
+      }
+    }
+  },
+  {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
+    Function = BBGetCastSpellTargetPos,
+    Params = {DestVar = "TargetPos"}
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetMovementSpeed,
+      TargetVar = "Owner",
+      DestVar = "MoveSpeed"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MoveSpeed",
+      Src1Value = 0,
+      Src2Value = 1200,
+      DestVar = "dashSpeed",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBDistanceBetweenObjects,
+    Params = {
+      DestVar = "Distance",
+      ObjectVar1 = "Owner",
+      ObjectVar2 = "Target"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "Distance",
+      Src1Value = 0,
+      Src2Value = 12,
+      DestVar = "Distance",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "TargetPos"}
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = 0,
+      DistanceVar = "Distance",
+      OffsetAngle = 0,
+      PositionVar = "TargetPos"
+    }
+  },
+  {
+    Function = BBIsPathable,
+    Params = {DestPosVar = "TargetPos", ResultVar = "CheckVar"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CheckVar",
+      Value2 = false,
+      CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorMod",
-          DestVarTable = "NextBuffVars",
-          SrcValueByLevel = {
-            -10,
-            -14,
-            -18,
-            -22,
-            -26
-          }
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_CombatDehancer,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 5,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
+        Function = BBGetCastSpellTargetPos,
+        Params = {DestVar = "TargetPos"}
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Owner",
-          Src2Var = "Target",
-          CompareOp = CO_IS_TARGET_IN_FRONT_OF_ME
-        },
-        SubBlocks = {
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Target",
-              Src2Var = "Owner",
-              CompareOp = CO_IS_TARGET_BEHIND_ME
-            },
-            SubBlocks = {
-              {
-                Function = BBSetVarInTable,
-                Params = {
-                  DestVar = "ArmorMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValueByLevel = {
-                    -10,
-                    -14,
-                    -18,
-                    -22,
-                    -26
-                  }
-                }
-              },
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Target",
-                  AttackerVar = "Attacker",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  BuffType = BUFF_CombatDehancer,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBApplyDamage,
+    Function = BBSetVarInTable,
     Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        80,
-        135,
-        190,
-        255,
-        320
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELL,
-      PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      DestVar = "TargetPos",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "TargetPos"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Distance",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Distance"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageVar",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        100,
+        175,
+        250,
+        0,
+        0
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "dashSpeed",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "dashSpeed"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorStealAmount",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "ArmorMin"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "SpellStealAmount",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "SpellMin"
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Level",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "Level"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Target",
+      BuffName = "RavageDash",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 2,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0.25,
+      CanMitigateDuration = false
     }
   }
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "frombehind"}
+    Params = {Name = "ravagedash"}
   }
 }

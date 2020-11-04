@@ -70,18 +70,6 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "CurrentHP",
-      Src2Var = "HPMod",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "CurrentHP",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,

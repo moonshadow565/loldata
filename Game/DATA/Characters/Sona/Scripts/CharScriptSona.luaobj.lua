@@ -334,10 +334,10 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             8,
-            12,
-            16,
-            20,
-            24
+            11,
+            14,
+            17,
+            20
           }
         }
       },
@@ -399,10 +399,10 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
             8,
-            12,
-            16,
-            20,
-            24
+            11,
+            14,
+            17,
+            20
           }
         }
       },
@@ -463,11 +463,11 @@ CharOnLevelUpSpellBuildingBlocks = {
           DestVar = "MSBoost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            12,
-            15,
-            18,
-            21,
-            24
+            8,
+            11,
+            14,
+            17,
+            20
           }
         }
       },

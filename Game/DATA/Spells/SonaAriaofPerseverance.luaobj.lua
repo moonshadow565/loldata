@@ -313,11 +313,11 @@ SelfExecuteBuildingBlocks = {
       Delta = 0,
       DeltaVar = "APMod",
       DeltaByLevel = {
-        50,
-        75,
-        100,
-        125,
-        150
+        40,
+        65,
+        90,
+        115,
+        140
       },
       HealerVar = "Attacker"
     }
@@ -383,7 +383,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.6,
+      Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

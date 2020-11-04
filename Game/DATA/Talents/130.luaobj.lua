@@ -11,7 +11,7 @@ SetVarsByLevelBuildingBlocks = {
     Params = {
       DestVar = "GhostMovementBonus",
       DestVarTable = "AvatarVars",
-      SrcValueByLevel = {0.08}
+      SrcValueByLevel = {0.06}
     }
   },
   {

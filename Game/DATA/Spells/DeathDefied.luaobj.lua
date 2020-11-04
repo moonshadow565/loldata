@@ -96,6 +96,16 @@ BuffOnPreDamageBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentRespawnTimeMod,
+      TargetVar = "Owner",
+      Delta = 0.2
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

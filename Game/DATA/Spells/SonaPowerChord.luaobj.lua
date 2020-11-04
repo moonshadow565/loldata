@@ -102,7 +102,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               Src1Var = "LevelDamage",
               Src1Value = 0,
-              Src2Value = 15,
+              Src2Value = 12,
               DestVar = "BonusDamage",
               MathOp = MO_MULTIPLY
             }
@@ -112,7 +112,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               Src1Var = "BonusDamage",
               Src1Value = 0,
-              Src2Value = 50,
+              Src2Value = 24,
               DestVar = "TotalDamage",
               MathOp = MO_ADD
             }
@@ -136,23 +136,6 @@ BuffOnHitUnitBuildingBlocks = {
               PhysicalDamageRatio = 0,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Target",
-              AttackerVar = "Owner",
-              BuffName = "SonaPowerChordDebuff",
-              BuffAddType = BUFF_STACKS_AND_OVERLAPS,
-              StacksExclusive = true,
-              BuffType = BUFF_CombatDehancer,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 3,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
             }
           },
           {
@@ -292,12 +275,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "sonasongofdiscord"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "sonapowerchorddebuff"
     }
   },
   {

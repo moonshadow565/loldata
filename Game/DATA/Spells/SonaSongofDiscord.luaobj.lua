@@ -153,11 +153,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
+        0.08,
+        0.11,
         0.14,
-        0.18,
-        0.22,
-        0.26,
-        0.3
+        0.17,
+        0.2
       }
     }
   },
@@ -276,7 +276,7 @@ SelfExecuteBuildingBlocks = {
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 0.6,
+      Duration = 0.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
