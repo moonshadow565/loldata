@@ -28,17 +28,28 @@ end
 L0.ComponentInit = L1
 L0 = NonAggressiveTauntBehavior
 function L1(A0)
-  local L1, L2
+  local L1, L2, L3
   L1 = TimerTaunt
   L1()
   L1 = ResetAndStartTimer
   L2 = "TimerTaunt"
   L1(L2)
+  L1 = Event
+  L2 = "WanderPause"
+  L1(L2)
+  L1 = Event
+  L2 = "SkittishPause"
+  L1(L2)
+  L1 = SetStateAndMove
+  L2 = AI_MOVE
+  L3 = GetMyPos
+  L3 = L3()
+  L1(L2, L3)
 end
 L0.OnTauntBegin = L1
 L0 = NonAggressiveTauntBehavior
 function L1(A0)
-  local L1, L2, L3
+  local L1, L2, L3, L4
   L1 = GetState
   L1 = L1()
   L2 = AI_HALTED
@@ -51,6 +62,14 @@ function L1(A0)
   L2 = Event
   L3 = "WanderResume"
   L2(L3)
+  L2 = Event
+  L3 = "SkittishResume"
+  L2(L3)
+  L2 = SetStateAndMove
+  L3 = AI_MOVE
+  L4 = GetWaypoint
+  L4 = L4()
+  L2(L3, L4)
 end
 L0.OnTauntEnd = L1
 function L0()

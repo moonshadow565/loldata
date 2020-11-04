@@ -1,0 +1,10 @@
+BuffTextureName = "GangplankRemoveScurvy.dds"
+BuffName = "GangplankWScurvyRemoved"
+AutoBuffActivateEffect3 = "pirate_attack_buf_01.troy"
+AutoBuffActivateAttachBoneName3 = "L_Hand"
+AutoBuffActivateEffect4 = "pirate_attack_buf_01.troy"
+AutoBuffActivateAttachBoneName4 = "R_Hand"
+PhysicalDamageRatio = 0
+PersistsThroughDeath = true
+NonDispellable = true
+Nondispellable = true

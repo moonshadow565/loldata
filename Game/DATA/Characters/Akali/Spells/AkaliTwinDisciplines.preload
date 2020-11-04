@@ -1,3 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="akali_base_twindisciplines_dmg_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="akali_base_twindisciplines_ap_buf.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="akali_base_mark_impact_tar.troy"}}, 
 }

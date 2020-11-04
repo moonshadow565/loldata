@@ -1,2 +1,2 @@
-BuffTextureName = "MissFortune_Strut.dds"
+BuffTextureName = "MissFortune_Passive.dds"
 BuffName = "MissFortuneStrutStacks"

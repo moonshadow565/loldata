@@ -1,2 +1,0 @@
-BuffTextureName = "Pirate_RemoveScurvy.dds"
-BuffName = "PirateScurvy"

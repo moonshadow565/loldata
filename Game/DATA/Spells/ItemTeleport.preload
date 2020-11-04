@@ -1,0 +1,11 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_flash_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_flash_red.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_arrive_blue.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_ss_teleport_arrive_red.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="itemteleporttarget"}}, 
+{Function=BBPreloadSpell, Params={Name="destealth"}}, 
+{Function=BBPreloadSpell, Params={Name="itemteleportcd"}}, 
+}

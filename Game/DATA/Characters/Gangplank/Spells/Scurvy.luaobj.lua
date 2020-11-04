@@ -1,9 +1,0 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = false
-CastingBreaksStealth = true
-IsDamagingSpell = false
-BuffTextureName = "Pirate_GrogSoakedBlade.dds"
-BuffName = "Scurvy"
-PersistsThroughDeath = true
-NonDispellable = true

@@ -1,4 +1,3 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="missfortunestrut"}}, 
-{Function=BBPreloadSpell, Params={Name="missfortunestrutdebuff"}}, 
 }

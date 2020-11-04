@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack1.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack3.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack4.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack5.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_abyssalscepter_stack6.troy"}}, 
+}

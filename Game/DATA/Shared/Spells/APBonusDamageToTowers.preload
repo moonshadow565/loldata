@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="disconnecttimer"}}, 
+{Function=BBPreloadSpell, Params={Name="attackmovemod"}}, 
 {Function=BBPreloadSpell, Params={Name="positivechampiondelta"}}, 
 }

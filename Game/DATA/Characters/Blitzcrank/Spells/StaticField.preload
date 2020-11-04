@@ -1,4 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="blitzcrank_base_r_tar_passive.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="blitzcrank_base_r_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="blitzcrank_base_r_idle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="blitzcrank_base_r_idle_chestglow.troy"}}, 
 }

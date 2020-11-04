@@ -189,3 +189,15 @@ function L0()
   L0(L1, L2)
 end
 StartAI = L0
+function L0()
+  local L0, L1
+  L0 = StopAI
+  L0()
+end
+StopLeashing = L0
+function L0()
+  local L0, L1
+  L0 = StartAI
+  L0()
+end
+StartLeashing = L0

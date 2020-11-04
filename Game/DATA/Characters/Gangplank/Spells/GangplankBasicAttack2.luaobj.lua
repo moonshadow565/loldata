@@ -1,4 +1,0 @@
-SpellVOOverrideSkins = {
-  "SpecialForcesGangplank",
-  "GangplankSkin06"
-}

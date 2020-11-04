@@ -1,2 +1,2 @@
-BuffTextureName = "MissFortune_ImpureShots.dds"
+BuffTextureName = "MissFortune_W.dds"
 BuffName = "MissFortunePassiveStack"

@@ -1,0 +1,10 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zekesdistanceindicator.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="rallyingbannerauraself"}}, 
+{Function=BBPreloadSpell, Params={Name="rallyingbanneraurafriend"}}, 
+{Function=BBPreloadSpell, Params={Name="itemstarksbindingallyproc"}}, 
+{Function=BBPreloadSpell, Params={Name="itemstarksbindingbufferproc"}}, 
+{Function=BBPreloadParticle, Params={Name="zekeschargesfull.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zekeschargehigh.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zekestetheractive.troy"}}, 
+}

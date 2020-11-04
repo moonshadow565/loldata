@@ -1,5 +1,10 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="raisemorale"}}, 
-{Function=BBPreloadSpell, Params={Name="scurvy"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankpassive"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankqwrapper"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankw"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplanke"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankrupgradetracker"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankwvotwistedfate"}}, 
+{Function=BBPreloadSpell, Params={Name="gangplankwaudiocleanse"}}, 
 }

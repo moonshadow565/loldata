@@ -5,7 +5,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="chogath_battlecast_eye_glow_r.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="chogath_battlecast_red_glow.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
-{Function=BBPreloadSpell, Params={Name="feast"}}, 
 {Function=BBPreloadSpell, Params={Name="feast_internal"}}, 
 {Function=BBPreloadParticle, Params={Name="chogath_battlecast_audio_feast1.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="chogath_battlecast_audio_feast3.troy"}}, 

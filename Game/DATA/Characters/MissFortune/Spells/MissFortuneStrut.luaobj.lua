@@ -1,3 +1,3 @@
-BuffTextureName = "MissFortune_Strut.dds"
+BuffTextureName = "MissFortune_Passive.dds"
 BuffName = "MissFortuneStrut"
 PersistsThroughDeath = true
