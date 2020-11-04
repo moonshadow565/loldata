@@ -81,11 +81,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "dravenspinningleft"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "draven_q_reticlecatchsuccess_reaper.troy"
-    }
   }
 }
