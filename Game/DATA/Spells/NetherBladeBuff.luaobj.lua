@@ -6,12 +6,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "kassadin_base_w_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "kassadin_base_w_cas.troy"
     }
   },

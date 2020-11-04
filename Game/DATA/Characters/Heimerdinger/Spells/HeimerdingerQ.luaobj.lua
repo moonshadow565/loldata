@@ -87,12 +87,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "heimerdingerrocketcharge"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "heimerturrettimer"
     }
   },
@@ -147,19 +141,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "itemplacementmissile"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "heimerdingerturretattackerlock"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "feelnopain_eff.troy"
     }
   },
   {
