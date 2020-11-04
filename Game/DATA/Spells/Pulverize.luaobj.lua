@@ -19,6 +19,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "pulverize_cas.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {Name = "pulverize"}
   }
