@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="steamgolemshield.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="blitzcrank_base_p_cas_shield.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="steamgolemshield_hit.troy"}}, 
 }

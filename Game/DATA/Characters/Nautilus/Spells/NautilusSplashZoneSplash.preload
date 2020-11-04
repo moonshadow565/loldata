@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nautilus_skin03_e_impact.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nautilus_base_e_impact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadSpell, Params={Name="nautilussplashzone"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilussplashzonehit"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilussplashzonemarker"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilussplashzoneslow"}}, 

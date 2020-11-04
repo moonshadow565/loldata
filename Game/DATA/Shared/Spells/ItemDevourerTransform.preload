@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="itemdevourertranformturntransparent.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="itemdevourer_transform_eff.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="item_devourer_ghost_particle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="itemdevourer_aatrox_base_basic_hit_effect_01.troy"}}, 
+}

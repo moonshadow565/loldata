@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="shyvanafireballdragonfxmissile"}}, 
+{Function=BBPreloadParticle, Params={Name="shyvana_base_r_e_cas.troy"}}, 
+}

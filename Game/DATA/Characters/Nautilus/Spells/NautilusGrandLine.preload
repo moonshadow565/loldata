@@ -6,7 +6,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nautilus_base_r_sequence_impact.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilusminorknockup"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
-{Function=BBPreloadSpell, Params={Name="nautilusgrandline"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilusgrandlinetracker"}}, 
 {Function=BBPreloadSpell, Params={Name="nautilusgrandlinetarget"}}, 
 {Function=BBPreloadParticle, Params={Name="nautilus_base_r_sequence_impact_02.troy"}}, 

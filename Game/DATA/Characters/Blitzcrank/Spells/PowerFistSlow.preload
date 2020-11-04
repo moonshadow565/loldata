@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="powerfist_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="blitzcrank_base_e_tar_2.troy"}}, 
 }

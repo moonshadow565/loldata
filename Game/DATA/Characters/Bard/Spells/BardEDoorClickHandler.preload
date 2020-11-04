@@ -4,5 +4,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="bard_hackskin1_e_pathing_to_door_indicator_line_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_hackskin0_e_pathing_to_door_indicator_line_beam.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bardedoormovement"}}, 
-{Function=BBPreloadSpell, Params={Name="bardedoorclickhandler"}}, 
 }

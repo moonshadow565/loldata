@@ -1,4 +1,4 @@
-BuffTextureName = "33.dds"
+BuffTextureName = "AkaliTwinDisciplines.dds"
 BuffName = "AkaliTwinDisciplines"
 AutoBuffActivateEffect = "Akali_Base_twindisciplines_dmg_buf.troy"
 AutoBuffActivateAttachBoneName = "L_hand"

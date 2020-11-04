@@ -1,0 +1,4 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_e_shield.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_e_shieldbreak.troy"}}, 
+}

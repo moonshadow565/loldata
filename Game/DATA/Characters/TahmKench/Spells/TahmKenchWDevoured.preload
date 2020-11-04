@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_audio_enemydevoured.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_buff_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="global_slow.troy"}}, 
+}

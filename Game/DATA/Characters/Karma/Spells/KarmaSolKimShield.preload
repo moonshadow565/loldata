@@ -3,7 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="karmasoulshieldsound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_base_e_shield_r_01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="karmasoulshieldanim"}}, 
-{Function=BBPreloadSpell, Params={Name="karmasolkimshield"}}, 
 {Function=BBPreloadSpell, Params={Name="karmaq"}}, 
 {Function=BBPreloadSpell, Params={Name="karmasolkimshieldlocket"}}, 
 }

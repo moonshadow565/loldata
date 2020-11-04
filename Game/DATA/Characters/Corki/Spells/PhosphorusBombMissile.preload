@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="corki_base_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="phosphorusbombblind"}}, 
+{Function=BBPreloadSpell, Params={Name="phosphorusbomb"}}, 
 }

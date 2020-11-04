@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="nashor_rune_buf_big.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nashor_rune_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="superrecall"}}, 
 {Function=BBPreloadSpell, Params={Name="superrecallimproved"}}, 

@@ -1,7 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="meditate_eff.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nunu_base_q_consume_heal.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nunuqbuffwolf"}}, 
-{Function=BBPreloadSpell, Params={Name="consume"}}, 
 {Function=BBPreloadSpell, Params={Name="nunuqbufflizard"}}, 
 {Function=BBPreloadSpell, Params={Name="nunuqbuffgolem"}}, 
 {Function=BBPreloadSpell, Params={Name="nunuqbuffwraith"}}, 

@@ -2,6 +2,4 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
-SpellFXOverrideSkins = {
-  "CyberEzreal"
-}
+SpellFXOverrideSkins = {"GnarSkin02"}

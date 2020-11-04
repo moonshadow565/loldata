@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="syndra_base_r_sphereactivate.troy"}}, 
+{Function=BBPreloadModule, Params={Name="Syndra.CharFunctionSyndra"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraqspell"}}, 
 {Function=BBPreloadSpell, Params={Name="syndrarwillfire"}}, 
 {Function=BBPreloadSpell, Params={Name="syndrartrigger"}}, 

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_mis.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="tahmkench_base_w_mis_trail.troy"}}, 
+{Function=BBPreloadModule, Params={Name="TahmKench.TahmKenchFunctions"}}, 
+}

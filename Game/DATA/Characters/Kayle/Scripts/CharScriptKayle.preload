@@ -4,4 +4,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="judicatorholyfervor"}}, 
 {Function=BBPreloadSpell, Params={Name="kayleanimationrun"}}, 
+{Function=BBPreloadSpell, Params={Name="kaylerighteousfurybuff"}}, 
+{Function=BBPreloadSpell, Params={Name="voidstone"}}, 
 }

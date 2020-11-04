@@ -15,5 +15,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="syndra_base_w_heldtarget_buf_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraqspell"}}, 
 {Function=BBPreloadSpell, Params={Name="syndrawneutralfix"}}, 
-{Function=BBPreloadSpell, Params={Name="syndraw"}}, 
+{Function=BBPreloadModule, Params={Name="Syndra.CharFunctionSyndra"}}, 
 }
