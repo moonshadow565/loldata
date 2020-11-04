@@ -22,7 +22,6 @@ function OnInit(A0_0)
   Event("ComponentInit")
   SetState(AI_ATTACK)
   SetCharVar("WillBeFrustrated", 0)
-  OutOfCombatRegen:Start()
   SetMyLeashedPos()
   SetMyLeashedOrientation()
   InitTimer("TimerFrustrationSearch", DEFAULT_FRUSTRATION_SEARCH_TIME, true)
@@ -172,19 +171,20 @@ function FindNearestAggressor(A0_20, A1_21)
   L2_22 = GetCampLeashRadius
   L2_22 = L2_22()
   L2_22 = L2_22 * 1.25
-  L3_23 = FindTargetNearPosition
-  L3_23 = L3_23(GetMyPos(), AGGRESSION_FIRST_SWEEP_RANGE)
+  L3_23 = FindTargetWithFilter
+  L3_23 = L3_23(AGGRESSION_FIRST_SWEEP_RANGE, UnitTagFlags.Minion + UnitTagFlags.Champion, UnitTagFlags.Special_Void + UnitTagFlags.Minion_Lane)
   if L3_23 == nil or not TargetWithinWalkBounds(L3_23, L2_22) then
-    L3_23 = FindTargetNearPosition(GetMyPos(), GetCampLeashRadius() + OUTER_RANGE_BOUND)
+    L3_23 = FindTargetWithFilter(GetCampLeashRadius() + OUTER_RANGE_BOUND, UnitTagFlags.Minion + UnitTagFlags.Champion, UnitTagFlags.Special_Void + UnitTagFlags.Minion_Lane)
   end
   if L3_23 == nil or not TargetWithinWalkBounds(L3_23, L2_22) then
-    L3_23 = FindTargetNearPosition(A0_20, GetCampLeashRadius() + OUTER_RANGE_BOUND)
+    L3_23 = FindTargetNearPosition(A0_20, GetCampLeashRadius())
     if L3_23 == nil or not TargetWithinWalkBounds(L3_23, L2_22) then
       L3_23 = A1_21
     end
   end
   if L3_23 == nil or not TargetWithinWalkBounds(L3_23, L2_22) then
-    L3_23 = FindTargetNearPosition(GetMyPos(), GetCampLeashRadius() + OUTER_RANGE_BOUND)
+    L3_23 = nil
+    L3_23 = FindTargetWithFilter(GetCampLeashRadius() + OUTER_RANGE_BOUND, UnitTagFlags.Minion + UnitTagFlags.Champion, UnitTagFlags.Special_Void + UnitTagFlags.Minion_Lane)
     return L3_23
   else
     return L3_23
@@ -374,7 +374,7 @@ function TimerReturningHome()
     SetLeashOrientation()
     AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
     SetLeashCounter(0)
-    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 0.25)
+    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 25000)
     SetGhosted(false)
     SetState(AI_ATTACK)
     SetRoamState(GetOriginalState())
@@ -473,7 +473,6 @@ function HaltAI()
   NetSetState(AI_HALTED)
 end
 function StopLeashing()
-  OutOfCombatRegen:Stop()
   StopTimer("TimerFrustrationSearch")
   StopTimer("TimerAttack")
 end
