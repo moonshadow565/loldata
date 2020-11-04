@@ -157,12 +157,22 @@ BuffOnUpdateActionsBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.4
+              SpellDamageRatio = 0.2
             }
           }
         }
       }
     }
+  }
+}
+ChannelingStartBuildingBlocks = {
+  {
+    Function = BBGetCastSpellTargetPos,
+    Params = {DestVar = "CastPos"}
+  },
+  {
+    Function = BBFaceDirection,
+    Params = {TargetVar = "Owner", LocationVar = "CastPos"}
   }
 }
 ChannelingSuccessStopBuildingBlocks = {
@@ -251,16 +261,6 @@ ChannelingSuccessStopBuildingBlocks = {
     }
   }
 }
-ChannelingStartBuildingBlocks = {
-  {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "CastPos"}
-  },
-  {
-    Function = BBFaceDirection,
-    Params = {TargetVar = "Owner", LocationVar = "CastPos"}
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -272,6 +272,24 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "crowstorm_green_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_flashback.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "summoner_flash.troy"
     }
   }
 }
