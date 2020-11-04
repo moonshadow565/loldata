@@ -6,5 +6,5 @@ IsDamagingSpell = false
 BuffTextureName = "Lulu_CommandPix.dds"
 BuffName = "LuluEShield"
 OnPreDamagePriority = 3
-SpellFXOverrideSkins = {"luluSkin04"}
+SpellFXOverrideSkins = {"luluSkin04", "LuluSkin05"}
 DoOnPreDamageInExpirationOrder = true

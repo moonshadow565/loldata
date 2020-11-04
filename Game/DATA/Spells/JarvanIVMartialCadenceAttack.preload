@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="jarvincritattack_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="jarvanivmartialcadencecheck"}}, 
+{Function=BBPreloadSpell, Params={Name="jarvanivmartialcadence"}}, 
 }

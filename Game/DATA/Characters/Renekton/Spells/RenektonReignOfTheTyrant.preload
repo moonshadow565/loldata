@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="renekton_base_r_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="renekton_skin04_r_off.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="renektonincombat"}}, 
+{Function=BBPreloadSpell, Params={Name="renektonreignofthetyrant"}}, 
 }

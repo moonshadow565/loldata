@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sivirpassivespeed"}}, 
+{Function=BBPreloadSpell, Params={Name="sivirw"}}, 
 {Function=BBPreloadParticle, Params={Name="globalhit_bloodslash.troy"}}, 
 }

@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="garenqsilence"}}, 
+{Function=BBPreloadSpell, Params={Name="garenq"}}, 
 }

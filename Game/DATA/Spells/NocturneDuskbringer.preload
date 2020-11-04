@@ -8,6 +8,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nocturneduskbringer_path_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nocturneduskbringer_path_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneduskbringerhaste"}}, 
+{Function=BBPreloadSpell, Params={Name="nocturneduskbringer"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneduskbringertrail"}}, 
 {Function=BBPreloadParticle, Params={Name="nocturneduskbringer_frost_buf.troy"}}, 

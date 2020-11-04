@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="quinnwdamage"}}, 
+{Function=BBPreloadSpell, Params={Name="quinnpassive"}}, 
 }

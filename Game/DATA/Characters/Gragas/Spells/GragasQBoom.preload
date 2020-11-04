@@ -2,6 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gragas_base_q_ally.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="gragas_base_q_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
-{Function=BBPreloadParticle, Params={Name="gragas_base_q_end.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gragasq"}}, 
+{Function=BBPreloadParticle, Params={Name="gragas_base_q_end.troy"}}, 
 }

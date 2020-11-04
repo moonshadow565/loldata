@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="trundlepainshred"}}, 
-{Function=BBPreloadSpell, Params={Name="trundlepain"}}, 
 {Function=BBPreloadParticle, Params={Name="trundle_r_voice1.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="trundle_r_voice2.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="trundle_r_voice3.troy"}}, 

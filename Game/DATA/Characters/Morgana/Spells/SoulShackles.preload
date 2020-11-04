@@ -4,11 +4,11 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="morgana_base_r_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_r_indicator_ring.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="soulshacklesstunsound"}}, 
+{Function=BBPreloadSpell, Params={Name="soulshackles"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_r_tar_explode.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="soulshacklesbreaksound"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_r_beam_break.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="morgana_base_r_beam_break_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="soulshacklesowner"}}, 
-{Function=BBPreloadSpell, Params={Name="soulshackles"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 }

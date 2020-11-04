@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="luxprismaticwaveshieldself"}}, 
+{Function=BBPreloadSpell, Params={Name="luxprismaticwave"}}, 
 {Function=BBPreloadSpell, Params={Name="luxprismaticwaveshield"}}, 
 }

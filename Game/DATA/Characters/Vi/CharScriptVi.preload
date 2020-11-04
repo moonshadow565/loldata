@@ -15,4 +15,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="vijaycesound"}}, 
 {Function=BBPreloadSpell, Params={Name="vieanimation2"}}, 
 {Function=BBPreloadSpell, Params={Name="vicaitagitate"}}, 
+{Function=BBPreloadSpell, Params={Name="viglasseson"}}, 
 }

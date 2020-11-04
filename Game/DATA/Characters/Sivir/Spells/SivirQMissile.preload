@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="sivirpassivespeed"}}, 
+{Function=BBPreloadSpell, Params={Name="sivirq"}}, 
 {Function=BBPreloadParticle, Params={Name="sivir_base_q_tar.troy"}}, 
 }

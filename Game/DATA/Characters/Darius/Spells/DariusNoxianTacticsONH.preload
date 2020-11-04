@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="darius_skin02_w_atomic_mist.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="darius_base_frost_mist.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="dariuszauntubedrain"}}, 
+{Function=BBPreloadSpell, Params={Name="dariusnoxiantacticsonh"}}, 
 }

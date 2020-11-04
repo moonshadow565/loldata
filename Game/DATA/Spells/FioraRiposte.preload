@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fiora_parry_block_sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fioraripostemissile"}}, 
-{Function=BBPreloadParticle, Params={Name="fiora_parry_block.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fiorariposte"}}, 
+{Function=BBPreloadParticle, Params={Name="fiora_parry_block.troy"}}, 
 }

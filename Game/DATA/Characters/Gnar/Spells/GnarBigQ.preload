@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gnarbigiscasting"}}, 
+{Function=BBPreloadSpell, Params={Name="gnarq"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_q_boomerang_end_point.troy"}}, 
 }

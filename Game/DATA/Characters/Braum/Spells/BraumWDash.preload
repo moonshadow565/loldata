@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="braum_base_w_indicator_land.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="braumwpassivestatsdoubler"}}, 
+{Function=BBPreloadSpell, Params={Name="braumw"}}, 
 {Function=BBPreloadParticle, Params={Name="braum_base_w_dash_land.troy"}}, 
 }

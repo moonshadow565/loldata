@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="akali_base_shadowdance_mis.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="akalishadowdancekickparticle"}}, 
+{Function=BBPreloadSpell, Params={Name="akalishadowdance"}}, 
 }

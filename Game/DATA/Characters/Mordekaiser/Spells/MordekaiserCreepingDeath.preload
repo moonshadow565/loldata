@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="mordekaiser_creepingdeath_aura.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="mordekaiser_base_w_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathdebuff"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaisercreepingdeathcast"}}, 
 }

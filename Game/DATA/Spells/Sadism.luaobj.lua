@@ -3,7 +3,7 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "DrMundo_Sadism.dds"
 BuffName = "Sadism"
-AutoBuffActivateEffect = "dr_mundo_heal.troy"
+AutoBuffActivateEffect = "DrMundo_Base_R_Heal.troy"
 AutoCooldownByLevel = {
   90,
   75,

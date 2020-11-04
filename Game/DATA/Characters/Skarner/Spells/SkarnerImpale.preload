@@ -5,8 +5,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_tar_04.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_tar_03.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpalevo"}}, 
-{Function=BBPreloadParticle, Params={Name="skarner_base_r_tar_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpale"}}, 
+{Function=BBPreloadParticle, Params={Name="skarner_base_r_tar_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpalebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpalerangecheck"}}, 
 }

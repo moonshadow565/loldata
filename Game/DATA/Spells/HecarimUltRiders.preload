@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gragas_bodyslam_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="norenderexpirationbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="hecarimult"}}, 
 }

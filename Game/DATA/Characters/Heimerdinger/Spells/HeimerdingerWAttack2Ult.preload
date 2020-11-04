@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="heimerdingerwattack2"}}, 
+{Function=BBPreloadSpell, Params={Name="heimerdingerultwdummyspell"}}, 
 {Function=BBPreloadParticle, Params={Name="heimerdinger_base_w_ult_tar.troy"}}, 
 }

@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nidalee_base_cougar_q_tar_marked.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="takedownblocker"}}, 
+{Function=BBPreloadSpell, Params={Name="takedown"}}, 
 {Function=BBPreloadParticle, Params={Name="nidalee_base_cougar_q_tar.troy"}}, 
 }

@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="globalwallmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="crystallize"}}, 
 {Function=BBPreloadSpell, Params={Name="globalwallpush"}}, 
 {Function=BBPreloadParticle, Params={Name="anivia_skn5_wallburst.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="anivia_skn5_wallburst_2.troy"}}, 

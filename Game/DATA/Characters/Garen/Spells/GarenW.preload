@@ -5,4 +5,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="garen_base_w_buff.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="garen_base_w_avatar_fade.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="garen_base_w_cas.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="garenw"}}, 
 }

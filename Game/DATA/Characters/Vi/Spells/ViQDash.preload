@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="viqmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="viq"}}, 
 {Function=BBPreloadSpell, Params={Name="vipassivebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="viwproc"}}, 
 {Function=BBPreloadSpell, Params={Name="viwvisual"}}, 

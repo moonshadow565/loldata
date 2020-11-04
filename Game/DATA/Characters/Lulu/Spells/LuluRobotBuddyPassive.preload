@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="lulu_faerie_idle_passive_team_id_ally.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="lulu_faerie_idle_passive_team_id_enemy.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_pix_idle_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_pix_idle_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaeriespawnbackup"}}, 
+{Function=BBPreloadSpell, Params={Name="lulupassivemissile"}}, 
 }

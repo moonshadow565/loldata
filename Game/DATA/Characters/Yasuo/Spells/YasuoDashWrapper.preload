@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="yasuodummyspell"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoeqcomboselfmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="yasuoqw"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuodash"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuodashcantcastsound"}}, 
 {Function=BBPreloadParticle, Params={Name="yasuo_skin01_e_timer1.troy"}}, 

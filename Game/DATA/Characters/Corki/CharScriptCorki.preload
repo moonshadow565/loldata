@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="rapidreload"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="corkimissilebarragenc"}}, 
-{Function=BBPreloadParticle, Params={Name="crashboom.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="missilebarrage"}}, 
+{Function=BBPreloadParticle, Params={Name="corki_base_death_01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 }

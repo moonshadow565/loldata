@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="mordekaisersyphonparticle"}}, 
-{Function=BBPreloadParticle, Params={Name="mordakaiser_maceofspades_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mordekaisermaceofspades"}}, 
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_q_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisermaceofspadesdmg"}}, 
 }

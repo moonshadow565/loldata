@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="lulu_faerie_blink.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_pix_e_teleport.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaerieshield"}}, 
+{Function=BBPreloadSpell, Params={Name="lulue"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaerieshieldcontroller"}}, 
 {Function=BBPreloadSpell, Params={Name="lulupassiveoff"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaerieattackaid"}}, 
@@ -8,5 +9,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="lulufaerieburn"}}, 
 {Function=BBPreloadSpell, Params={Name="luluevision"}}, 
 {Function=BBPreloadSpell, Params={Name="lulufaerieburncontroller"}}, 
-{Function=BBPreloadParticle, Params={Name="lulu_e_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_e_tar_enemy.troy"}}, 
 }

@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ahri_foxfire_obd-sound.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
+{Function=BBPreloadSpell, Params={Name="ahriorbofdeception"}}, 
 {Function=BBPreloadParticle, Params={Name="ahri_base_foxfire_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ahri_base_foxfire_weapon_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ahrifoxfire"}}, 

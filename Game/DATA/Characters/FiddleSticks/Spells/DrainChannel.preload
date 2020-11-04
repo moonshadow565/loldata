@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="drainchannel"}}, 
+{Function=BBPreloadSpell, Params={Name="drain"}}, 
 {Function=BBPreloadSpell, Params={Name="fearmonger_marker"}}, 
 {Function=BBPreloadParticle, Params={Name="fiddlesticks_base_drain.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="globaldrain"}}, 

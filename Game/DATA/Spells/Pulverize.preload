@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="alistartrample"}}, 
-{Function=BBPreloadParticle, Params={Name="pulverize_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="pulverize"}}, 
+{Function=BBPreloadParticle, Params={Name="pulverize_cas.troy"}}, 
 }

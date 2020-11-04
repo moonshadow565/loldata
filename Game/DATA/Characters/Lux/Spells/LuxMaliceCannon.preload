@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannondeathfix"}}, 
+{Function=BBPreloadSpell, Params={Name="luxmalicecannon"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonpartfix"}}, 
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonpartfix2"}}, 
@@ -8,5 +9,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="luxmalicecannonball"}}, 
 {Function=BBPreloadParticle, Params={Name="lux_skin05_r_mis_beam_middle.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="lux_base_r_mis_beam_middle.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="luxmalicecannon"}}, 
 }

@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fiora_dance_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="fioradancetarget"}}, 
+{Function=BBPreloadSpell, Params={Name="fioradance"}}, 
 {Function=BBPreloadSpell, Params={Name="fioradancerepeat"}}, 
 {Function=BBPreloadSpell, Params={Name="fioradancevisibility"}}, 
 }

@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="vladimir_base_r_aoe_nova.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="vladimirhemoplaguedebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="vladimirhemoplaguedamageamp"}}, 
+{Function=BBPreloadSpell, Params={Name="vladimirhemoplague"}}, 
 }

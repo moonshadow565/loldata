@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="yasuoqw"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuoq3misminion"}}, 
 {Function=BBPreloadParticle, Params={Name="yasuo_skin01_q_hit_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 

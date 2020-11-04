@@ -1,7 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="diana_skin01_q_end.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="diana_base_q_end.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="dianaarcthrow"}}, 
+{Function=BBPreloadSpell, Params={Name="dianaarc"}}, 
 {Function=BBPreloadSpell, Params={Name="dianamoonlight"}}, 
 {Function=BBPreloadParticle, Params={Name="diana_skin01_q_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="diana_base_q_tar.troy"}}, 

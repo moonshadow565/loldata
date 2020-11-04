@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="lulu_faerie_blink.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_pix_e_teleport.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_pix_e_teleport.troy"}}, 
 }

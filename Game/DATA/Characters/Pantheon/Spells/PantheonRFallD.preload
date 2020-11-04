@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
+{Function=BBPreloadSpell, Params={Name="pantheonrjump"}}, 
 {Function=BBPreloadParticle, Params={Name="globalhit_physical.troy"}}, 
 }

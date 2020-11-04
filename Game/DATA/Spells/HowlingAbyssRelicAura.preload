@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ha_ap_healingbuff.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="odinshieldrelicbuffheal"}}, 
+{Function=BBPreloadSpell, Params={Name="tt_speedshrine_buff"}}, 
 }

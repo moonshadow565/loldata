@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="orianaslow"}}, 
+{Function=BBPreloadSpell, Params={Name="orianadissonancecommand"}}, 
 {Function=BBPreloadSpell, Params={Name="orianahaste"}}, 
 }

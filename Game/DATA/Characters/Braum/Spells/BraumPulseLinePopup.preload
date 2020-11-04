@@ -3,6 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="braum_base_r_firstknockup_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="braumpulselineknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="braumrwrapper"}}, 
 {Function=BBPreloadParticle, Params={Name="braum_base_r_mis.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="braum_r_pulse_hitsound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="braum_base_r_small_mis.troy"}}, 

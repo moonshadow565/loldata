@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="unstoppableforcemarker"}}, 
+{Function=BBPreloadSpell, Params={Name="nocturneparanoia2"}}, 
 {Function=BBPreloadParticle, Params={Name="nocturneparanoiateamtarget.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="nocturneparanoiadash"}}, 
 }

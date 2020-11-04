@@ -2,6 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="ziggs_skin03_e_minescatter.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_base_e_minescatter.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="ziggsemine"}}, 
+{Function=BBPreloadSpell, Params={Name="ziggse"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_skin03_e_mine.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_skin04_w_mine.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="ziggs_base_e_mine.troy"}}, 

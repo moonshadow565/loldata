@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="gnareattackspeed"}}, 
+{Function=BBPreloadSpell, Params={Name="gnare"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarbige"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_base_e_bounce_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gnarwproc"}}, 
@@ -10,5 +11,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gnar_base_e_bounce_friend.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="gnar_base_e_trail.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="gnartransform"}}, 
-{Function=BBPreloadSpell, Params={Name="gnare"}}, 
 }

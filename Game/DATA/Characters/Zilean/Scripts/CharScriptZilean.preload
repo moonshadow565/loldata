@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="heightenedlearning"}}, 
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
+{Function=BBPreloadSpell, Params={Name="zileanq"}}, 
 {Function=BBPreloadSpell, Params={Name="zileanqallybomb"}}, 
 {Function=BBPreloadSpell, Params={Name="zileanqenemybomb"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_attach.troy"}}, 

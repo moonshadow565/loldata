@@ -1,6 +1,7 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="luluwbuff"}}, 
+{Function=BBPreloadSpell, Params={Name="luluw"}}, 
 {Function=BBPreloadSpell, Params={Name="unlockanimation"}}, 
-{Function=BBPreloadParticle, Params={Name="lulu_w_cast_ally-audio.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="lulu_w_cast_enemy-audio.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_w_audio_ally.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lulu_base_w_audio_enemy.troy"}}, 
 }

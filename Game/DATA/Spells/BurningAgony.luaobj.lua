@@ -4,6 +4,6 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "DrMundo_BurningAgony.dds"
 BuffName = "BurningAgony"
-AutoBuffActivateEffect = "dr_mundo_burning_agony_cas_02.troy"
+AutoBuffActivateEffect = "DrMundo_Base_W_cas.troy"
 AutoBuffActivateAttachBoneName2 = "root"
 SpellToggleSlot = 2

@@ -1,3 +1,3 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="galio_bulwark_heal.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="galio_base_w_heal.troy"}}, 
 }

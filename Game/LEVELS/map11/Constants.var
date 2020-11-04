@@ -8,10 +8,6 @@ ann_AutoAnnounceMinions                            =            1 ; Do we automa
 ; Tutorial variables
 tut_TutorialModeOn                                 =            0 ; Flag to turn TutorialMode On/Off
 
-; Item and Inventory variables
-it_UseExplicitItemInclusion                        =            0 ; Only the items explicitly listed in LEVELS\[MapName]\Items.ini will be in the store.
-it_UseExplicitItemInclusionTutorialOnly            =            0 ; Only the items explicitly listed in LEVELS\[MapName]\Items.ini will be in the store in tutorial mode.
-
 ; Attack Range variables
 ar_ClosingAttackRangeModifier                      =      300.000 ;  
 

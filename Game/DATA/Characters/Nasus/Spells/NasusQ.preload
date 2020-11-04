@@ -2,5 +2,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nasus_skin05_q_buf_axeglow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nasus_skin05_q_buf_axeheadglow.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="nasus_base_q_buf.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="nasusq"}}, 
 }

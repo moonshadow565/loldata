@@ -4,5 +4,6 @@ BuffTextureName = "Draven_Bloodrage.dds"
 BuffName = "DravenFury"
 AutoBuffActivateEffect = "Draven_Base_W_move_buf.troy"
 SpellFXOverrideSkins = {
-  "DravenSkin03"
+  "DravenSkin03",
+  "DravenSkin04"
 }

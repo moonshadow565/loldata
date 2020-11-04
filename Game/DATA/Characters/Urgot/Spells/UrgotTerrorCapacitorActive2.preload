@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="urgotterrorcapacitor_buf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="urgotslow"}}, 
+{Function=BBPreloadSpell, Params={Name="urgotterrorcapacitoractive2"}}, 
 }

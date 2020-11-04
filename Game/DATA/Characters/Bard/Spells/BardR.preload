@@ -13,6 +13,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="bard_base_r_stasis_tar_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_explo.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrstasis"}}, 
+{Function=BBPreloadSpell, Params={Name="bardr"}}, 
 {Function=BBPreloadSpell, Params={Name="bardrstasisspellimmunitycheck"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_audio_stasis_full.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_base_r_audio_stasis_quiet.troy"}}, 

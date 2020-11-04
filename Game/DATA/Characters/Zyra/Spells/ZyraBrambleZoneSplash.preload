@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="zyrabramblezoneknockup"}}, 
+{Function=BBPreloadSpell, Params={Name="zyrabramblezone"}}, 
 {Function=BBPreloadParticle, Params={Name="zyra_r_unit_impact_spike_hellvine.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zyra_ult_unit_ground_tar_hellvine.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zyra_r_unit_impact_spike.troy"}}, 

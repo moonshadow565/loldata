@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="fizzpiercingstrike"}}, 
 {Function=BBPreloadSpell, Params={Name="renektonbloodsplattertarget"}}, 
 {Function=BBPreloadSpell, Params={Name="fizzunlockanimation"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 

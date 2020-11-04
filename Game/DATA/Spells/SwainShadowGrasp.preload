@@ -6,5 +6,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="swain_shadowgrasp_warning_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="swain_shadowgrasp_transform.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="swainshadowgrasproot"}}, 
+{Function=BBPreloadSpell, Params={Name="swainshadowgrasp"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 }

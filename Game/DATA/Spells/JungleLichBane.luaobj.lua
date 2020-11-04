@@ -1,0 +1,6 @@
+BuffTextureName = "3057_Sheen.dds"
+BuffName = "JungleLichBane"
+AutoBuffActivateEffect = "Item_JungleLichbane_Glow_buf.troy"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateEffect2 = "Item_JungleLichbane_Glow_buf.troy"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"

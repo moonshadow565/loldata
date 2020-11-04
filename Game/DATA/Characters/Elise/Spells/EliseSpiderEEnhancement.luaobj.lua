@@ -1,0 +1,13 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+ChannelDuration = 2.5
+BuffTextureName = "EliseSpiderE.dds"
+BuffName = "BuffEliseRappelBites"
+AutoBuffActivateEffect = "Elise_Base_E_buf_01.troy"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateEffect2 = "Elise_Base_E_buf_01.troy"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
+SpellToggleSlot = 3

@@ -1,7 +1,7 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="nautilus_w_shield.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="nautilus_w_eyeglow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="nautilus_w_eyeglow2.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="nautilus_w_shield_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nautilus_base_w_shield.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nautilus_base_w_eyeglow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nautilus_base_w_eyeglow2.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nautilus_base_w_shield_cas.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="spelleffect_proc.troy"}}, 
 }

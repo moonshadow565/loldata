@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="jarvangoldenaegis_buf.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="jarvanivgoldenaegis"}}, 
 {Function=BBPreloadParticle, Params={Name="jarvangoldenaegis_nova.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 {Function=BBPreloadParticle, Params={Name="jarvangoldenaegis_tar.troy"}}, 

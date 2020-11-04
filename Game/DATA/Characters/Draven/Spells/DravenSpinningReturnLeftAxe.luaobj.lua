@@ -1,4 +1,5 @@
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "Draven_Gladiator"
+  "Draven_Gladiator",
+  "DravenSkin04"
 }

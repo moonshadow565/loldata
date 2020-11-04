@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="cryo_storm.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="chilled"}}, 
+{Function=BBPreloadSpell, Params={Name="glacialstorm"}}, 
 }
