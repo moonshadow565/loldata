@@ -9,12 +9,6 @@ PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yoricksummonspectral"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "yorick_spectralghoul_attack_buf_tar.troy"
@@ -24,12 +18,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickspectralprimarytarget"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yorickspectral"
     }
   },
   {

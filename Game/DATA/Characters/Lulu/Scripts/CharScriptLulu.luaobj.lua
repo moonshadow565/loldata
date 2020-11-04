@@ -19,10 +19,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "luluq"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "lulufaerieoverridetemp"
     }

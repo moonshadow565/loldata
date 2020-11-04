@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "twitch_invis_cas.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "hideinshadows_internal"

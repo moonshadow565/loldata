@@ -1,0 +1,8 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "feast_tar_indicator.troy"
+    }
+  }
+}

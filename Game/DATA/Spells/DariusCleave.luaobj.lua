@@ -5,11 +5,30 @@ BuffTextureName = "AkaliCrescentSlash.dds"
 BuffName = "RenekthonCleaveReady"
 SpellToggleSlot = 1
 IsDeathRecapSource = true
+SpellFXOverrideSkins = {
+  "Darius_ZaunKnight"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_q_aoe_cast.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_q_aoe_cast_mist.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_atomic_mist_02.troy"
     }
   },
   {

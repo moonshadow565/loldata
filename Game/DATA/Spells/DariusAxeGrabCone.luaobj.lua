@@ -26,15 +26,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "dariusaxegrabcone"
+      Name = "darius_e_activate_zaunknight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "olaf_recklessswing_tar_02.troy"
+      Name = "darius_atomic_mist_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariusaxegrabcone"
     }
   },
   {

@@ -3,9 +3,6 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FizzMarinerDoom.dds"
 BuffName = "FizzChurnTheWatersCling"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,

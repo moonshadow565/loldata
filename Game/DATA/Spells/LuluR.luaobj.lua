@@ -30,9 +30,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lulu_r_expire.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
   }
 }
