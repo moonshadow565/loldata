@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="mordekeiser_cotg_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_debuf.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgdot"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgrevive"}}, 
 {Function=BBPreloadSpell, Params={Name="spellnostackcdreset"}}, 

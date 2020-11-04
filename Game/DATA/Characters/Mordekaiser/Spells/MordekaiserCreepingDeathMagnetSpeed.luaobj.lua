@@ -1,3 +1,3 @@
 BuffTextureName = "MordekaiserCreepingDeath.dds"
 BuffName = "MordekaiserCreepingDeathBuff"
-AutoBuffActivateEffect = "Boots_Deathmarch.troy"
+AutoBuffActivateEffect = "Mordekaiser_Base_W_speed_buf.troy"

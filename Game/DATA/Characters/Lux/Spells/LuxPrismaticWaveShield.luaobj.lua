@@ -7,7 +7,6 @@ BuffTextureName = "LuxPrismaWrap.dds"
 BuffName = "LuxShield"
 OnPreDamagePriority = 3
 SpellFXOverrideSkins = {
-  "SteelLegionLux",
-  "LuxSkin06"
+  "SteelLegionLux"
 }
 DoOnPreDamageInExpirationOrder = true

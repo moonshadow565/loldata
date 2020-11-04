@@ -1,6 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="mordekeiser_cotg_skin.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="mordekaiser_cotg_ring.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_pet.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="mordekaiser_base_r_tar_pet_ring.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgself"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgpetbuff"}}, 
 {Function=BBPreloadSpell, Params={Name="mordekaisercotgguide"}}, 
