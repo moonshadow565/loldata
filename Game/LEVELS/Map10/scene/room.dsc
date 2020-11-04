@@ -3,6 +3,7 @@ orderShop01.sco -100
 LevelProp_TT_Brazier2.sco -100
 LevelProp_TT_Chains_Order_Periph.sco -100
 Turret_T1_R_02.sco -100
+Turret_T1_R_03.sco -100
 Turret_T2_L_01.sco -100
 LevelProp_TT_Speedshrine_Gears.sco -100
 LevelProp_Teemo.sco -100
@@ -14,6 +15,7 @@ LevelProp_TT_Chains_Xaos_Base.sco -100
 LevelProp_TT_Chains_Order_Base.sco -100
 Turret_T2_C_01.sco -100
 chaosShop01.sco -100
+Turret_T2_R_03.sco -100
 Turret_T2_R_02.sco -100
 Turret_T1_C_06.sco -100
 LevelProp_TT_Brazier8.sco -100
@@ -26,5 +28,7 @@ LevelProp_TT_Brazier5.sco -100
 LevelProp_TT_Chains_Bot_Lane.sco -100
 LevelProp_TT_Brazier7.sco -100
 LevelProp_Tryndamere.sco -100
+Turret_T2_L_03.sco -100
 Turret_T2_R_01.sco -100
+Turret_T1_L_03.sco -100
 LevelProp_TT_Brazier3.sco -100
