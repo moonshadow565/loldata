@@ -55,6 +55,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "morgana_base_r_indicator_ring.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "morgana_skin06_r_tar_explode.troy"
     }
   },

@@ -26,12 +26,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "relicyellowward"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "itemplacementmissile"
     }
   },

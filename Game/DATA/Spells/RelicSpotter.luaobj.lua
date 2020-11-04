@@ -10,12 +10,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "global_trinket_spotter.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "itemblackout"

@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "itemdisable"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "teemo_panda_shroommine.troy"

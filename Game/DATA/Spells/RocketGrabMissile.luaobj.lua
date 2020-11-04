@@ -9,7 +9,7 @@ AutoCooldownByLevel = {
 }
 SpellFXOverrideSkins = {
   "iBlitz",
-  "BlitzcrankSkin08"
+  "BlitzcrankSkin07"
 }
 PreLoadBuildingBlocks = {
   {

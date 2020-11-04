@@ -16,5 +16,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "structuredamagereduction"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "superminionbuff_blue"
+    }
   }
 }

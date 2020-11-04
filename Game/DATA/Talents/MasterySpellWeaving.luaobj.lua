@@ -1,2 +1,2 @@
 BuffTextureName = "551.dds"
-BuffName = "MasterAttackSpeedBuff"
+BuffName = "MasterySpellWeaving"
