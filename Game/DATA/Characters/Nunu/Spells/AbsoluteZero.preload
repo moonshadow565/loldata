@@ -3,5 +3,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="nunu_base_r_indicator_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="absolutezeroslow"}}, 
 {Function=BBPreloadParticle, Params={Name="nunu_base_r_explo.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="absolutezero_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nunu_base_r_hit_tar.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="nunu_base_r_full_explo.troy"}}, 
 }

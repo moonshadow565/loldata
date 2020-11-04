@@ -1,5 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="kalistarchannelandcastmanager"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistarx"}}, 
 {Function=BBPreloadSpell, Params={Name="kalistarinvuln"}}, 
 }

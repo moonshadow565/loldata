@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="item_zekes_impact_a.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zekes_enraged.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="itemstarksbindingprocmissile"}}, 
+}

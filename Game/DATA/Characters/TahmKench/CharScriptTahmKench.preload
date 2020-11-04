@@ -2,6 +2,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="crestbigmarker"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchallychannelmonitor"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchnautical"}}, 
 {Function=BBPreloadParticle, Params={Name="tahmkench_base_q_indicator.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="tahmkench_base_q_indicator_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="tahmkenchqtongueinflight"}}, 
