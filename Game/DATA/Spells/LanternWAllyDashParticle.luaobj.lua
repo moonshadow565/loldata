@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "irelia_frostblade_gotasu_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "irelia_gotasu_tar.troy"
+    }
+  }
+}

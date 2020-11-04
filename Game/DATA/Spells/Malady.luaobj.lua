@@ -1,5 +1,11 @@
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "interventionheal_buf.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "maladycounter"

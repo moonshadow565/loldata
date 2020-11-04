@@ -2,18 +2,10 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "Sejuani_GlacialPrison.dds"
-BuffName = "Dark Binding"
-AutoBuffActivateEffect = ""
-AutoBuffActivateEffect2 = ""
-PersistsThroughDeath = true
+BuffName = "Glacial Prison Start"
 PopupMessage1 = "game_floatingtext_Snared"
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_glacialprisondetonate_cas.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {

@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "recalloverride"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "khazixhatred"
     }
   },

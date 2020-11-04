@@ -21,18 +21,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sejuani_arctic_assault_unit_tar_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_arctic_assault_unit_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "sejuani_arctic_assault_cas_04.troy"
     }
   },

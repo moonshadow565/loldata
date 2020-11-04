@@ -16,18 +16,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "sejuani_glacialprisondetonate_cas.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "landslide_blue_nova.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "sejuaniglacialprisondetonate"

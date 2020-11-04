@@ -9,20 +9,13 @@ IsDeathRecapSource = true
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "ZiggsMadScientist",
-  "ZiggsPoolParty",
-  "ZiggsSnowday"
+  "ZiggsPoolParty"
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "ziggspassive_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "ziggsshortfusecooldown"
     }
   }
 }

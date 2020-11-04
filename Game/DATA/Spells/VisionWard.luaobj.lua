@@ -8,17 +8,9 @@ SpellFXOverrideSkins = {
   "SightWardStone",
   "SightWardSpider",
   "SightWardTree",
-  "SightWardGhost",
-  "SightWardSnowMan",
-  "SightWardGingerBread"
+  "SightWardGhost"
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "ward_vision_death.troy"
-    }
-  },
   {
     Function = BBPreloadSpell,
     Params = {

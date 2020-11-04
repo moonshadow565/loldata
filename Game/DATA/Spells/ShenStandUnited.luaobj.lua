@@ -6,7 +6,6 @@ IsDamagingSpell = false
 ChannelDuration = 3
 BuffTextureName = "Shen_StandUnited.dds"
 BuffName = "Shen Stand United Channel"
-AutoBuffActivateEffect = ""
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
