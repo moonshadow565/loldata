@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="shyvana_doubleattack_tar_shadow.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="shyvana_base_doubleattack_tar.troy"}}, 
-}
