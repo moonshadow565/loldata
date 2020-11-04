@@ -1,6 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="karmaspiritbind"}}, 
-{Function=BBPreloadSpell, Params={Name="karmaspiritbindslow"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_w_heal_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_w_heal_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="karma_base_w_beam_r.troy"}}, 
