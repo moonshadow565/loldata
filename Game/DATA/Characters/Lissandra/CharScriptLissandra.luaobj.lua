@@ -2,12 +2,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "threesisters"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "championchampiondelta"
     }
   },
@@ -33,12 +27,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "globalruncyclemanager"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "crestbigmarker"
     }
   },
   {
