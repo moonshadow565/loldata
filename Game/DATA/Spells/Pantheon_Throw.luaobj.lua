@@ -1,7 +1,11 @@
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "AtkDmg"}
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "AtkDmg"
+    }
   },
   {
     Function = BBSetVarInTable,
@@ -9,10 +13,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "PerDmg",
       SrcValueByLevel = {
         1,
-        1.15,
+        1.1,
+        1.2,
         1.3,
-        1.45,
-        1.6
+        1.4
       }
     }
   },
@@ -62,7 +66,6 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_PROC,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
-      PhysicalDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = true
     }

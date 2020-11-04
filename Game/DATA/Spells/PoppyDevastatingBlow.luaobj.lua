@@ -38,7 +38,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
@@ -99,7 +98,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
@@ -213,10 +211,6 @@ BuffOnHitUnitBuildingBlocks = {
             }
           },
           {
-            Function = BBBreakSpellShields,
-            Params = {TargetVar = "Target"}
-          },
-          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -227,7 +221,6 @@ BuffOnHitUnitBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELL,
               PercentOfAttack = 1,
               SpellDamageRatio = 0.6,
-              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -291,14 +284,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   },
   {

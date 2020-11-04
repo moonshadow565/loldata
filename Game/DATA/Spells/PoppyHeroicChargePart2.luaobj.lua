@@ -188,10 +188,6 @@ BuffOnMoveEndBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBBreakSpellShields,
-                Params = {TargetVar = "Owner"}
-              },
-              {
                 Function = BBSpellEffectCreate,
                 Params = {
                   BindObjectVar = "Owner",
@@ -251,8 +247,7 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
+              TickRate = 0
             }
           }
         }

@@ -1,7 +1,5 @@
 NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = false
+DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 SpellDamageRatio = 0.5
 SelfExecuteBuildingBlocks = {
@@ -51,7 +49,6 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "TargetPos",
       EndPosVar = "TargetPos",
-      OverrideCastPosition = false,
       SlotNumber = 1,
       SlotType = ExtraSlots,
       OverrideForceLevel = 0,
@@ -59,8 +56,7 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      ForceCastingOrChannelling = false
     }
   }
 }

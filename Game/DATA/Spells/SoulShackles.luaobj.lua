@@ -114,7 +114,7 @@ OnBuffDeactivateBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 1,
+              SpellDamageRatio = 1.5,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -314,8 +314,7 @@ SelfExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   }
 }
@@ -366,8 +365,7 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   },
   {
@@ -381,7 +379,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1,
+      SpellDamageRatio = 0.5,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
@@ -416,8 +414,7 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 4,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   }
 }

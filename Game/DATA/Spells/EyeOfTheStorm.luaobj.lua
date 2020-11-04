@@ -114,6 +114,13 @@ BuffOnPreDamageBuildingBlocks = {
         }
       },
       {
+        Function = BBSpellEffectRemove,
+        Params = {
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars"
+        }
+      },
+      {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }

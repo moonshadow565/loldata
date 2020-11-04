@@ -44,12 +44,20 @@ BuffOnHitUnitBuildingBlocks = {
               DestVar = "MovementSpeedMod",
               DestVarTable = "NextBuffVars",
               SrcValueByLevel = {
-                -0.15,
-                -0.2,
-                -0.25,
-                -0.3,
-                -0.35
+                -0.1,
+                -0.17,
+                -0.24,
+                -0.31,
+                -0.38
               }
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "AttackSpeedMod",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 0
             }
           },
           {
@@ -57,7 +65,7 @@ BuffOnHitUnitBuildingBlocks = {
             Params = {
               TargetVar = "Target",
               AttackerVar = "Owner",
-              BuffName = "FrostArrow",
+              BuffName = "Chilled",
               BuffAddType = BUFF_RENEW_EXISTING,
               StacksExclusive = true,
               BuffType = BUFF_Slow,
@@ -77,6 +85,6 @@ BuffOnHitUnitBuildingBlocks = {
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "frostarrow"}
+    Params = {Name = "chilled"}
   }
 }

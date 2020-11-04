@@ -62,58 +62,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
-  {
-    Function = BBGetBuffCountFromCaster,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "Feast"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthPerStack",
-      SrcValueByLevel = {
-        90,
-        120,
-        150
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthPerStack",
-      Src2Var = "Count",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusHealth",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "BonusHealth",
-      Index = 1
-    }
-  }
-}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetBuffCountFromCaster,
@@ -303,58 +251,6 @@ TargetExecuteBuildingBlocks = {
           IgnoreDamageCrit = false
         }
       }
-    }
-  }
-}
-BuffOnLevelUpSpellBuildingBlocks = {
-  {
-    Function = BBGetBuffCountFromCaster,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "Feast"
-    }
-  },
-  {
-    Function = BBGetSlotSpellInfo,
-    Params = {
-      DestVar = "Level",
-      SpellSlotValue = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      OwnerVar = "Owner",
-      Function = GetSlotSpellLevel
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HealthPerStack",
-      SrcValueByLevel = {
-        90,
-        120,
-        150
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "HealthPerStack",
-      Src2Var = "Count",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusHealth",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetBuffToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "BonusHealth",
-      Index = 1
     }
   }
 }

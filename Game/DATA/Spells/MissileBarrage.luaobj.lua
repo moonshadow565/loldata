@@ -1,6 +1,5 @@
 BuffTextureName = "Corki_MissileBarrage.dds"
 BuffName = "MissileBarrageCheck"
-PersistsThroughDeath = true
 NonDispellable = true
 CanCastBuildingBlocks = {
   {
@@ -38,16 +37,140 @@ CanCastBuildingBlocks = {
 }
 SelfExecuteBuildingBlocks = {
   {
-    Function = BBGetCastSpellTargetPos,
-    Params = {DestVar = "Pos"}
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "MissileBarrage"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetCastSpellTargetPos,
+        Params = {DestVar = "Pos"}
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MissileBarrage"
+        }
+      }
+    }
   },
   {
-    Function = BBSpellBuffRemoveStacks,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "MissileBarrage",
-      NumStacks = 1
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Attacker",
+          BuffName = "MissileBarrage",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          BuffType = BUFF_Aura,
+          MaxStack = 7,
+          NumberStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0
+        }
+      },
+      {
+        Function = BBGetCastSpellTargetPos,
+        Params = {DestVar = "Pos"}
+      }
     }
   },
   {
@@ -100,16 +223,21 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "Pos",
           EndPosVar = "Pos",
-          OverrideCastPosition = false,
           SlotNumber = 2,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          UseAutoAttackSpell = false
+        }
+      },
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MBCheck2"
         }
       }
     }
@@ -125,148 +253,13 @@ SelfExecuteBuildingBlocks = {
           TargetVar = "Nothing",
           PosVar = "Pos",
           EndPosVar = "Pos",
-          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBGetBuffCountFromAll,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      BuffName = "MissileBarrage"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Count",
-      Value2 = 6,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "CorkiMissileBarrageCounter",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "BarrageCounter",
-      Src1VarTable = "CharVars",
-      Value2 = 3,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveStacks,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "CorkiMissileBarrageNC",
-          NumStacks = 0
-        }
-      },
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "MBCheck2",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "BarrageCounter",
-          Src1VarTable = "CharVars",
-          Value2 = 4,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "BarrageCounter",
-              Src1VarTable = "CharVars",
-              Src1Value = 0,
-              Src2Value = 4,
-              DestVar = "BarrageCounter",
-              DestVarTable = "CharVars",
-              MathOp = MO_SUBTRACT
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "MBCheck2"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "CorkiMissileBarrageNC",
-              BuffAddType = BUFF_STACKS_AND_RENEWS,
-              StacksExclusive = true,
-              BuffType = BUFF_Aura,
-              MaxStack = 3,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
+          UseAutoAttackSpell = false
         }
       }
     }
@@ -282,17 +275,5 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "mbcheck2"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "corkimissilebarragecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "corkimissilebarragenc"
-    }
   }
 }

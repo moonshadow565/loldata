@@ -1,2 +1,0 @@
-BuffTextureName = "KogMaw_IcathianSurprise.dds"
-BuffName = "KogMawIcathianSurpriseSound"

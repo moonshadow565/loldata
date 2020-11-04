@@ -14,9 +14,9 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseHealthToHeal",
       SrcValueByLevel = {
-        200,
-        320,
-        440
+        250,
+        400,
+        550
       }
     }
   },
@@ -25,7 +25,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       Src1Var = "SpellPower",
       Src1Value = 0,
-      Src2Value = 1.3,
+      Src2Value = 1.5,
       DestVar = "SpellPowerBonus",
       MathOp = MO_MULTIPLY
     }

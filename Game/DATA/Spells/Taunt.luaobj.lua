@@ -1,7 +1,7 @@
 BuffTextureName = "GSB_taunt.dds"
 BuffName = "Taunt"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+AutoBuffActivateEffect = "Global_Taunt_multi_unit.troy"
+AutoBuffActivateAttachBoneName = "head"
 PopupMessage1 = "game_floatingtext_Taunted"
 OnBuffActivateBuildingBlocks = {
   {

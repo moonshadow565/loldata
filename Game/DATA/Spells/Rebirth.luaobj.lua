@@ -8,14 +8,6 @@ BuffName = "Rebirth"
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "OneFrame",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "RebirthArmorMod",
@@ -335,34 +327,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "RebirthArmorMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "OneFrame",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
-    }
-  }
-}
-BuffOnPreDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "OneFrame",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "DamageAmount",
-          SrcValue = 0
-        }
-      }
     }
   }
 }

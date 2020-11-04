@@ -1,8 +1,3 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = false
-IsDamagingSpell = true
 ChannelDuration = 1.5
 OnBuffActivateBuildingBlocks = {
   {
@@ -112,10 +107,6 @@ OnBuffDeactivateBuildingBlocks = {
       InclusiveBuffFilter = true
     },
     SubBlocks = {
-      {
-        Function = BBBreakSpellShields,
-        Params = {TargetVar = "Unit"}
-      },
       {
         Function = BBDistanceBetweenObjects,
         Params = {

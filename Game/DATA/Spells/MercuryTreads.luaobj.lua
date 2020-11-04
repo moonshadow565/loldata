@@ -20,7 +20,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -40,7 +40,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -60,7 +60,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -80,7 +80,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -100,7 +100,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -120,7 +120,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }
@@ -140,7 +140,7 @@ BuffOnAllowAddBuildingBlocks = {
             Params = {
               Src1Var = "Duration",
               Src1Value = 0,
-              Src2Value = 0.65,
+              Src2Value = 0.6,
               DestVar = "Duration",
               MathOp = MO_MULTIPLY
             }

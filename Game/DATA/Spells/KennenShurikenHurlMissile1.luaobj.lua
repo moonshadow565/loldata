@@ -50,8 +50,7 @@ TargetExecuteBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 12,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       },
       {
@@ -103,8 +102,7 @@ TargetExecuteBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 12,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
+              TickRate = 0
             }
           },
           {
@@ -168,8 +166,7 @@ TargetExecuteBuildingBlocks = {
                   NumberOfStacks = 1,
                   Duration = 12,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  TickRate = 0
                 }
               },
               {

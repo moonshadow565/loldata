@@ -38,14 +38,12 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "LightstrikerBuff",
       BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 8,
+      NumberStacks = 1,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   },
   {

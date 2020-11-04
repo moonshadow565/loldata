@@ -15,7 +15,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = -14,
+      OffsetAngle = -15,
       PositionVar = "Pos"
     }
   },
@@ -26,14 +26,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -52,14 +50,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -67,7 +63,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = 7,
+      OffsetAngle = 5,
       PositionVar = "Pos"
     }
   },
@@ -78,14 +74,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -93,7 +87,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = -7,
+      OffsetAngle = -5,
       PositionVar = "Pos"
     }
   },
@@ -104,14 +98,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -119,7 +111,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = 14,
+      OffsetAngle = 10,
       PositionVar = "Pos"
     }
   },
@@ -130,14 +122,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -145,7 +135,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = -21,
+      OffsetAngle = -10,
       PositionVar = "Pos"
     }
   },
@@ -156,14 +146,12 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
     }
   },
   {
@@ -171,7 +159,7 @@ SelfExecuteBuildingBlocks = {
     Params = {
       UnitVar = "Owner",
       Distance = 1000,
-      OffsetAngle = 21,
+      OffsetAngle = 15,
       PositionVar = "Pos"
     }
   },
@@ -182,14 +170,60 @@ SelfExecuteBuildingBlocks = {
       TargetVar = "Nothing",
       PosVar = "Pos",
       EndPosVar = "Pos",
-      OverrideCastPosition = false,
       SlotNumber = 0,
       SlotType = ExtraSlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
-      UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      UseAutoAttackSpell = false
+    }
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = 1000,
+      OffsetAngle = -20,
+      PositionVar = "Pos"
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Nothing",
+      PosVar = "Pos",
+      EndPosVar = "Pos",
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false
+    }
+  },
+  {
+    Function = BBGetPointByUnitFacingOffset,
+    Params = {
+      UnitVar = "Owner",
+      Distance = 1000,
+      OffsetAngle = 20,
+      PositionVar = "Pos"
+    }
+  },
+  {
+    Function = BBSpellCast,
+    Params = {
+      CasterVar = "Owner",
+      TargetVar = "Nothing",
+      PosVar = "Pos",
+      EndPosVar = "Pos",
+      SlotNumber = 0,
+      SlotType = ExtraSlots,
+      OverrideForceLevel = 1,
+      OverrideCoolDownCheck = true,
+      FireWithoutCasting = true,
+      UseAutoAttackSpell = false
     }
   }
 }

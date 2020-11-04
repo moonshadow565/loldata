@@ -24,14 +24,12 @@ BuffOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "UdyrMonkeyAgilityBuff",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 3,
-          NumberOfStacks = 1,
+          NumberStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }

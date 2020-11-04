@@ -49,8 +49,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               Range = 425,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
-              MaximumUnitsToPick = 1,
-              InclusiveBuffFilter = true
+              MaximumUnitsToPick = 1
             },
             SubBlocks = {
               {
@@ -68,7 +67,6 @@ BuffOnUpdateActionsBuildingBlocks = {
                   SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0.2,
-                  PhysicalDamageRatio = 1,
                   IgnoreDamageIncreaseMods = false,
                   IgnoreDamageCrit = false
                 }
@@ -136,17 +134,8 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBApplySilence,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 0.5
     }
   }
 }

@@ -26,10 +26,20 @@ OnBuffActivateBuildingBlocks = {
 }
 OnBuffDeactivateBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
+    Function = BBSpellEffectCreate,
     Params = {
+      BindObjectVar = "Owner",
+      EffectName = "UdyrBuff.troy",
+      Flags = 0,
       EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
+      EffectIDVarTable = "InstanceVars",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = true
     }
   }
 }

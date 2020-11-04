@@ -2,8 +2,57 @@ BuffTextureName = "Corki_RapidReload.dds"
 BuffName = "RapidReload"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
-PersistsThroughDeath = true
 NonDispellable = true
+NonDispellable = true
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 14,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = false
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Owner",
+              BuffName = "MissileBarrage",
+              BuffAddType = BUFF_STACKS_AND_RENEWS,
+              BuffType = BUFF_Aura,
+              MaxStack = 7,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
+        }
+      }
+    }
+  }
+}
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
@@ -96,6 +145,14 @@ BuffOnHitUnitBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "missilebarrage"
     }
   }
 }

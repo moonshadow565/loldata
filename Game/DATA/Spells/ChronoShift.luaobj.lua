@@ -96,15 +96,14 @@ BuffOnPreDamageBuildingBlocks = {
           TargetVar = "Owner",
           AttackerVar = "Caster",
           BuffName = "ChronoRevive",
-          BuffAddType = BUFF_RENEW_EXISTING,
+          BuffAddType = BUFF_REPLACE_EXISTING,
           StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 3,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
@@ -194,8 +193,7 @@ TargetExecuteBuildingBlocks = {
         15,
         15
       },
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   }
 }

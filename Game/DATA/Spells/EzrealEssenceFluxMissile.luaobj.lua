@@ -62,6 +62,20 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "BaseHeal",
+      SrcValue = 0,
+      SrcValueByLevel = {
+        75,
+        125,
+        175,
+        225,
+        275
+      }
+    }
+  },
+  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
@@ -76,6 +90,27 @@ TargetExecuteBuildingBlocks = {
       Src1Value = 0,
       Src2Value = 0.6,
       DestVar = "AbilityPowerMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AbilityPowerMod",
+      Src2Var = "BaseHeal",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "TotalHeal",
+      MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "TotalHeal",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "TotalHeal",
       MathOp = MO_MULTIPLY
     }
   },
@@ -119,11 +154,11 @@ TargetExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValue = 0,
       SrcValueByLevel = {
+        0.05,
+        0.1,
+        0.15,
         0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
+        0.25
       }
     }
   },
@@ -135,6 +170,15 @@ TargetExecuteBuildingBlocks = {
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
+      {
+        Function = BBIncHealth,
+        Params = {
+          TargetVar = "Target",
+          Delta = 0,
+          DeltaVar = "TotalHeal",
+          HealerVar = "Attacker"
+        }
+      },
       {
         Function = BBApplyAssistMarker,
         Params = {

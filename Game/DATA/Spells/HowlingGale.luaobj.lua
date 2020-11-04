@@ -139,22 +139,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Speed",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 150
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Gravity",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 45
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
@@ -196,8 +180,7 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -244,8 +227,7 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -292,8 +274,7 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -335,8 +316,7 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = false
         }
       }
     }

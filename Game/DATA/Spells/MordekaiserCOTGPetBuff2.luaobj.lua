@@ -254,14 +254,12 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "MordekaiserCOTGSelf",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   },
   {
@@ -271,14 +269,12 @@ OnBuffActivateBuildingBlocks = {
       AttackerVar = "Attacker",
       BuffName = "MordekaiserCOTGPetBuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   }
 }
@@ -371,42 +367,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "MovespeedDiff",
       Delta = 0
     }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KogMawIcathianSurprise"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "KogMawIcathianSurprise"
-        }
-      }
-    }
-  },
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "KogMawIcathianSurpriseReady"
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "KogMawIcathianSurpriseReady"
-        }
-      }
-    }
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {
@@ -463,14 +423,12 @@ BuffOnHitUnitBuildingBlocks = {
       AttackerVar = "Target",
       BuffName = "MordekaiserCOTGPetDmg",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 0.001,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      TickRate = 0
     }
   }
 }
@@ -497,18 +455,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "mordekaisercotgpetbuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurprise"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "kogmawicathiansurpriseready"
     }
   },
   {

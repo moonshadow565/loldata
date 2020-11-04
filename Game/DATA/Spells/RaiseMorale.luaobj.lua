@@ -42,15 +42,15 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatPhysicalDamageMod,
+      Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        8,
-        12,
-        16,
-        20,
-        24
+        0.12,
+        0.18,
+        0.24,
+        0.3,
+        0.36
       }
     }
   }
@@ -86,15 +86,15 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncFlatPhysicalDamageMod,
+      Stat = IncPercentAttackSpeedMod,
       TargetVar = "Owner",
       Delta = 0,
       DeltaByLevel = {
-        8,
-        12,
-        16,
-        20,
-        24
+        0.12,
+        0.18,
+        0.24,
+        0.3,
+        0.36
       }
     }
   },
@@ -105,8 +105,7 @@ SelfExecuteBuildingBlocks = {
       CenterVar = "Owner",
       Range = 1000,
       Flags = "AffectFriends AffectHeroes ",
-      IteratorVar = "Unit",
-      InclusiveBuffFilter = true
+      IteratorVar = "Unit"
     },
     SubBlocks = {
       {
@@ -126,14 +125,14 @@ SelfExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "AttackDmgMod",
+          DestVar = "AttackSpeedMod",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            8,
-            12,
-            16,
-            20,
-            24
+            0.12,
+            0.18,
+            0.24,
+            0.3,
+            0.36
           }
         }
       },
@@ -144,14 +143,12 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "RaiseMoraleTeamBuff",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
-          NumberOfStacks = 1,
+          NumberStacks = 1,
           Duration = 10,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
@@ -167,10 +164,7 @@ TargetExecuteBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      SpellDamageRatio = 1
     }
   }
 }

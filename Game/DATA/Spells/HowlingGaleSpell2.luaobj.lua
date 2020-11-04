@@ -32,24 +32,6 @@ BuffOnSpellHitBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Speed",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "Speed",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Gravity",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "Gravity",
-      SrcVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBIf,
     Params = {
       Src1Var = "IsStealthed",
@@ -102,6 +84,22 @@ BuffOnSpellHitBuildingBlocks = {
           DestVar = "Position",
           DestVarTable = "NextBuffVars",
           SrcVar = "BouncePos"
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Speed",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 100
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Gravity",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 20
         }
       },
       {
@@ -176,6 +174,22 @@ BuffOnSpellHitBuildingBlocks = {
               DestVar = "Position",
               DestVarTable = "NextBuffVars",
               SrcVar = "BouncePos"
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Speed",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 100
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "Gravity",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 20
             }
           },
           {
@@ -265,6 +279,22 @@ BuffOnSpellHitBuildingBlocks = {
                 }
               },
               {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Speed",
+                  DestVarTable = "NextBuffVars",
+                  SrcValue = 100
+                }
+              },
+              {
+                Function = BBSetVarInTable,
+                Params = {
+                  DestVar = "Gravity",
+                  DestVarTable = "NextBuffVars",
+                  SrcValue = 20
+                }
+              },
+              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Target",
@@ -285,22 +315,6 @@ BuffOnSpellHitBuildingBlocks = {
           }
         }
       }
-    }
-  }
-}
-OnBuffActivateBuildingBlocks = {
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Speed",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "Gravity",
-      RequiredVarTable = "InstanceVars"
     }
   }
 }

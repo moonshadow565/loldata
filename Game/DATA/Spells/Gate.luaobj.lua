@@ -10,126 +10,6 @@ AutoCooldownByLevel = {
   55,
   40
 }
-BuffOnAllowAddBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Owner",
-      Src2Var = "Attacker",
-      CompareOp = CO_DIFFERENT_TEAM
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Fear,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Net,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Sleep,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Stun,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Taunt,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "Type",
-          Value2 = BUFF_Silence,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "IsDisabled",
-              DestVarTable = "InstanceVars",
-              SrcValue = 1
-            }
-          }
-        }
-      }
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -541,8 +421,7 @@ SelfExecuteBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -550,6 +429,108 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  }
+}
+BuffOnAllowAddBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Owner",
+      Src2Var = "Attacker",
+      CompareOp = CO_DIFFERENT_TEAM
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Fear,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Net,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Sleep,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Stun,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Type",
+          Value2 = BUFF_Taunt,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {
+              DestVar = "IsDisabled",
+              DestVarTable = "InstanceVars",
+              SrcValue = 1
+            }
+          }
+        }
+      }
+    }
   }
 }
 PreLoadBuildingBlocks = {

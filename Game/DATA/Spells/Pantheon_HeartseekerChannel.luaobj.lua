@@ -1,12 +1,11 @@
-NotSingleTargetSpell = true
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = false
-IsDamagingSpell = true
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDmg"}
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDmg"
+    }
   },
   {
     Function = BBSetVarInTable,
@@ -26,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "PerLevel",
       SrcValueByLevel = {
-        0.2,
-        0.25,
-        0.3,
-        0.35,
-        0.4
+        0.18,
+        0.21,
+        0.24,
+        0.27,
+        0.3
       }
     }
   },
@@ -78,10 +77,9 @@ TargetExecuteBuildingBlocks = {
           Damage = 0,
           DamageVar = "FinalDmg",
           DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          SourceDamageType = DAMAGESOURCE_PROC,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -100,10 +98,9 @@ TargetExecuteBuildingBlocks = {
           Damage = 0,
           DamageVar = "FinalDmg",
           DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          SourceDamageType = DAMAGESOURCE_DEFAULT,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }

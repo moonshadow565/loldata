@@ -8,6 +8,20 @@ AutoBuffActivateEffect2 = ""
 PopupMessage1 = "game_floatingtext_Snared"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "DamageAmount",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "NumOfTicks",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -22,9 +36,46 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TickCount",
+      DestVarTable = "InstanceVars",
+      SrcValue = 0
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "NumOfTicks",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "TickCount",
+      Src2VarTable = "InstanceVars",
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Owner",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.085,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
   {
     Function = BBSetStatus,
     Params = {
@@ -44,6 +95,48 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateActionsBuildingBlocks = {
+  {
+    Function = BBExecutePeriodically,
+    Params = {
+      TimeBetweenExecutions = 0.25,
+      TrackTimeVar = "LastTimeExecuted",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          TargetVar = "Owner",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageVarTable = "InstanceVars",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.085,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TickCount",
+          Src1VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "TickCount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetStatus,
@@ -57,12 +150,27 @@ TargetExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "DamageAmount",
+      DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        80,
-        135,
-        190,
-        245,
-        300
+        10,
+        14.5,
+        19,
+        22.27,
+        25
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "NumOfTicks",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        8,
+        9,
+        10,
+        11,
+        12
       }
     }
   },
@@ -78,22 +186,6 @@ TargetExecuteBuildingBlocks = {
         Function = BBDestroyMissile,
         Params = {
           MissileIDVar = "MissileNetworkID"
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "DamageAmount",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.9,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
         }
       },
       {
@@ -115,8 +207,7 @@ TargetExecuteBuildingBlocks = {
             2.75,
             3
           },
-          TickRate = 0,
-          CanMitigateDuration = false
+          TickRate = 0
         }
       }
     }
@@ -133,22 +224,6 @@ TargetExecuteBuildingBlocks = {
             Function = BBDestroyMissile,
             Params = {
               MissileIDVar = "MissileNetworkID"
-            }
-          },
-          {
-            Function = BBApplyDamage,
-            Params = {
-              AttackerVar = "Attacker",
-              TargetVar = "Target",
-              Damage = 0,
-              DamageVar = "DamageAmount",
-              DamageType = MAGIC_DAMAGE,
-              SourceDamageType = DAMAGESOURCE_SPELL,
-              PercentOfAttack = 1,
-              SpellDamageRatio = 0.9,
-              PhysicalDamageRatio = 1,
-              IgnoreDamageIncreaseMods = false,
-              IgnoreDamageCrit = false
             }
           },
           {
@@ -170,8 +245,7 @@ TargetExecuteBuildingBlocks = {
                 2.75,
                 3
               },
-              TickRate = 0,
-              CanMitigateDuration = false
+              TickRate = 0
             }
           }
         }
@@ -203,22 +277,6 @@ TargetExecuteBuildingBlocks = {
                 }
               },
               {
-                Function = BBApplyDamage,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Target",
-                  Damage = 0,
-                  DamageVar = "DamageAmount",
-                  DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_SPELL,
-                  PercentOfAttack = 1,
-                  SpellDamageRatio = 0.9,
-                  PhysicalDamageRatio = 1,
-                  IgnoreDamageIncreaseMods = false,
-                  IgnoreDamageCrit = false
-                }
-              },
-              {
                 Function = BBSpellBuffAdd,
                 Params = {
                   TargetVar = "Target",
@@ -237,8 +295,7 @@ TargetExecuteBuildingBlocks = {
                     2.75,
                     3
                   },
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  TickRate = 0
                 }
               }
             }

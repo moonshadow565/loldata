@@ -1,8 +1,3 @@
-NotSingleTargetSpell = false
-DoesntBreakShields = true
-DoesntTriggerSpellCasts = true
-CastingBreaksStealth = true
-IsDamagingSpell = false
 SelfExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -58,8 +53,7 @@ SelfExecuteBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false,
-      UpdateAutoAttackTimer = false
+      ForceCastingOrChannelling = false
     }
   }
 }

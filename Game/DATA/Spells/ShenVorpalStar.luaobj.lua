@@ -121,11 +121,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "baseLifeTapMod",
       SrcValueByLevel = {
-        3.3,
-        6.6,
+        5,
         10,
-        13.3,
-        16.6
+        15,
+        20,
+        25
       }
     }
   },
