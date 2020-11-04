@@ -8,6 +8,12 @@ BuffName = "RiftWalk"
 AutoBuffActivateEvent = ""
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diana_r_end.troy"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "dianateleportmarker"
@@ -47,12 +53,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "dianaarccatch"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "diana_r_end.troy"
     }
   },
   {

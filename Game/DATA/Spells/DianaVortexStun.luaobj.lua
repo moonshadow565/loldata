@@ -1,5 +1,5 @@
 BuffTextureName = "Diana_E_MoonFall.dds"
-BuffName = "MaokaiStun"
+BuffName = "Stun"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

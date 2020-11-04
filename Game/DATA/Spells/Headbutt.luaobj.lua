@@ -29,10 +29,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "headbutt"}
-  },
-  {
-    Function = BBPreloadSpell,
     Params = {
       Name = "headbutttarget"
     }
