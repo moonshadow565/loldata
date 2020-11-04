@@ -2345,49 +2345,140 @@ function L0_0()
   EndGame(winningTeam)
 end
 ScoreboardPhase = L0_0
-L0_0 = 90
-EOG_EASTER_EGG_PAN_TO_NEXUS_TIME = L0_0
 L0_0 = 20
 EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY = L0_0
-L0_0 = 10
-EOG_EASTER_EGG_PAUSE_AT_NEXUS_TIME = L0_0
+L0_0 = 4
+EOG_EASTER_EGG_MUSIC_FADE_TIME = L0_0
+L0_0 = 100
+EOG_EASTER_EGG_CAMERA_MOVESPEED = L0_0
 function L0_0(A0_59)
-  local L1_60, L2_61
+  local L1_60, L2_61, L3_62, L4_63, L5_64, L6_65, L7_66, L8_67, L9_68, L10_69, L11_70
   L1_60 = Make3DPoint
   L2_61 = 2586
-  L1_60 = L1_60(L2_61, -152, 1986)
+  L3_62 = -152
+  L4_63 = 1986
+  L1_60 = L1_60(L2_61, L3_62, L4_63)
   L2_61 = Make3DPoint
-  L2_61 = L2_61(10702, -152, 10193)
-  if A0_59 == TEAM_CHAOS then
-    L1_60, L2_61 = L2_61, L1_60
-  end
-  POST_GAME_EVENTS = {
-    [1] = {
-      delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY,
-      cameraLocation = L2_61,
-      travelTime = EOG_EASTER_EGG_PAN_TO_NEXUS_TIME,
-      soundName = "LoL_Audio_en_US/Dialogue/TEMP-DONOTSHIP/freljordlore"
-    },
-    [2] = {
-      delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY + EOG_EASTER_EGG_PAN_TO_NEXUS_TIME + EOG_EASTER_EGG_PAUSE_AT_NEXUS_TIME,
-      cameraLocation = L1_60,
-      travelTime = EOG_EASTER_EGG_PAN_TO_NEXUS_TIME
-    }
+  L3_62 = 10702
+  L4_63 = -152
+  L5_64 = 10193
+  L2_61 = L2_61(L3_62, L4_63, L5_64)
+  L3_62 = {
+    L4_63,
+    L5_64,
+    L6_65,
+    L7_66,
+    L8_67,
+    L9_68,
+    L10_69,
+    L11_70,
+    Make3DPoint(2300, -152, 2000)
   }
+  L4_63 = Make3DPoint
+  L5_64 = 1200
+  L6_65 = -152
+  L7_66 = 2400
+  L4_63 = L4_63(L5_64, L6_65, L7_66)
+  L5_64 = Make3DPoint
+  L6_65 = 2400
+  L7_66 = -152
+  L8_67 = 5500
+  L5_64 = L5_64(L6_65, L7_66, L8_67)
+  L6_65 = Make3DPoint
+  L7_66 = 4500
+  L8_67 = -152
+  L9_68 = 10500
+  L6_65 = L6_65(L7_66, L8_67, L9_68)
+  L7_66 = Make3DPoint
+  L8_67 = 7600
+  L9_68 = -152
+  L10_69 = 10400
+  L7_66 = L7_66(L8_67, L9_68, L10_69)
+  L8_67 = Make3DPoint
+  L9_68 = 10300
+  L10_69 = -152
+  L11_70 = 11700
+  L8_67 = L8_67(L9_68, L10_69, L11_70)
+  L9_68 = Make3DPoint
+  L10_69 = 11200
+  L11_70 = -152
+  L9_68 = L9_68(L10_69, L11_70, 10400)
+  L10_69 = Make3DPoint
+  L11_70 = 9700
+  L10_69 = L10_69(L11_70, -152, 8700)
+  L11_70 = Make3DPoint
+  L11_70 = L11_70(4000, -152, 3000)
+  L4_63 = 5
+  L5_64 = 1
+  L6_65 = L4_63
+  L7_66 = TEAM_CHAOS
+  if A0_59 == L7_66 then
+    L7_66 = L2_61
+    L2_61 = L1_60
+    L1_60 = L7_66
+    L6_65 = L5_64
+  end
+  L7_66 = {}
+  L8_67 = {}
+  L9_68 = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY
+  L8_67.delay = L9_68
+  L8_67.fadeMusic = true
+  L7_66[1] = L8_67
+  L8_67 = {}
+  L9_68 = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY
+  L10_69 = EOG_EASTER_EGG_MUSIC_FADE_TIME
+  L9_68 = L9_68 + L10_69
+  L8_67.delay = L9_68
+  L8_67.soundName = "LoL_Audio_en_US/Dialogue/TEMP-DONOTSHIP/freljordlore"
+  L7_66[2] = L8_67
+  POST_GAME_EVENTS = L7_66
+  L7_66 = table
+  L7_66 = L7_66.getn
+  L8_67 = L3_62
+  L7_66 = L7_66(L8_67)
+  L8_67 = L2_61
+  L9_68 = L6_65
+  L10_69 = POST_GAME_EVENTS
+  L10_69 = L10_69[1]
+  L10_69 = L10_69.delay
+  while L7_66 > 0 do
+    L11_70 = {}
+    L11_70.cameraLocation = L3_62[L9_68]
+    L11_70.delay = L10_69
+    L11_70.travelTime = math.sqrt((L3_62[L9_68].x - L8_67.x) * (L3_62[L9_68].x - L8_67.x) + (L3_62[L9_68].z - L8_67.z) * (L3_62[L9_68].z - L8_67.z)) / EOG_EASTER_EGG_CAMERA_MOVESPEED
+    table.insert(POST_GAME_EVENTS, L11_70)
+    L8_67, L10_69 = L3_62[L9_68], L10_69 + L11_70.travelTime
+    if A0_59 == TEAM_CHAOS then
+      L9_68 = L9_68 + 1
+    else
+      L9_68 = L9_68 - 1
+    end
+    if L9_68 > table.getn(L3_62) then
+      L9_68 = 1
+    elseif L9_68 <= 0 then
+      L9_68 = table.getn(L3_62)
+    end
+    L7_66 = L7_66 - 1
+  end
 end
 PostGameSetup = L0_0
-function L0_0(A0_62, A1_63, A2_64)
-  if A1_63 ~= A2_64 then
+function L0_0(A0_71, A1_72, A2_73)
+  local L3_74, L4_75, L5_76, L6_77
+  if A1_72 ~= A2_73 then
     return
   end
-  for _FORV_6_, _FORV_7_ in pairs(POST_GAME_EVENTS) do
-    if A0_62 > _FORV_7_.delay then
-      ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_7_.cameraLocation, _FORV_7_.travelTime)
-      if _FORV_7_.soundName then
+  for L6_77, _FORV_7_ in L3_74(L4_75) do
+    if A0_71 > _FORV_7_.delay then
+      if _FORV_7_.cameraLocation then
+        ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_7_.cameraLocation, _FORV_7_.travelTime)
+      end
+      if _FORV_7_.fadeMusic then
         ClientSide_FadeOutMusic()
+      end
+      if _FORV_7_.soundName then
         ClientSide_PlaySoundFile(_FORV_7_.soundName)
       end
-      _FORV_7_.delay = _FORV_7_.delay + EOG_EASTER_EGG_PAN_TO_NEXUS_TIME + EOG_EASTER_EGG_PAUSE_AT_NEXUS_TIME * 2
+      table.remove(POST_GAME_EVENTS, L6_77)
       break
     end
   end
