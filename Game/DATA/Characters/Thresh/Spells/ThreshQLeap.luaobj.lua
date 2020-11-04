@@ -16,5 +16,9 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "threshqleapattack"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "threshq"}
   }
 }

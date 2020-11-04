@@ -1,4 +1,4 @@
-BuffTextureName = "RivenWindScar.dds"
+BuffTextureName = "Thresh_Q.dds"
 BuffName = "ThreshQPassive"
 IsDeathRecapSource = true
 PersistsThroughDeath = true
