@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 PersistsThroughDeath = true
@@ -7,6 +8,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "global_trinket_greaterspotter.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "trinketlenslvl3audio.troy"
     }
   },
   {

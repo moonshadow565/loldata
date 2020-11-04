@@ -11,5 +11,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "wrigglelantern"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dummywardtracker"
+    }
   }
 }

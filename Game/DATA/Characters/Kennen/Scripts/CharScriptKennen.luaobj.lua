@@ -15,5 +15,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "kennendoublestrikeproc"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "kennenbringthelight"
+    }
   }
 }

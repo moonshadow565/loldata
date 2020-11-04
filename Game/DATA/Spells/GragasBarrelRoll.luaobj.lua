@@ -9,22 +9,6 @@ SpellToggleSlot = 1
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
-    Function = BBPreloadCharacter,
-    Params = {Name = "testcube"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragasbarrelrollboom"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "gragasbarrelrollrender"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "gragasbarrelroll"

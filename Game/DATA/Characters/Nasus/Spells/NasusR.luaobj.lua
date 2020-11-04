@@ -15,6 +15,22 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nasus_skin05_r_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_r_buf_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "nasusult"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nasus_base_r_avatar.troy"
     }
   },
@@ -33,29 +49,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "nasus_skin05_r_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "nasus_skin05_r_buf_sound.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {Name = "nasusult"}
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "nasus_base_r_transform.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "deathingodofdeath"
     }
   }
 }

@@ -9,6 +9,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "trinketorblvl2audio.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "global_trinket_itemclairvoyance_cas.troy"
     }
   },

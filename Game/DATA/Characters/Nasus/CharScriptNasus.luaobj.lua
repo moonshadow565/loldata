@@ -34,5 +34,21 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nasustauntrenekton"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_r_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "nasus_skin05_r_buf_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "nasusult"}
   }
 }
