@@ -17,6 +17,8 @@ L0 = 50
 START_OF_GAME_ADDITIONAL_DELAY_DRAGON = L0
 L0 = 140
 START_OF_GAME_ADDITIONAL_DELAY_HERALD = L0
+L0 = 1100
+START_OF_GAME_ADDITIONAL_DELAY_BARON = L0
 L0 = 1
 HOSTILE = L0
 L0 = 0
@@ -1601,7 +1603,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 420
-  L0.GroupDelaySpawnTime = 1115
+  L0.GroupDelaySpawnTime = L1
   L0.CampLevel = 2
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_NASHOR_KILL"
   L0.KillEvents = L1

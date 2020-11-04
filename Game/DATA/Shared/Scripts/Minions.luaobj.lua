@@ -60,6 +60,7 @@ function L0_0(A0_1, A1_2)
     return
   end
   if A1_2 and (GetState() == AI_ATTACKMOVESTATE or GetState() == AI_ATTACKMOVE_ATTACKING) then
+    SetTargetAcquisitionMode(TARGET_ACQUISITION_MODE_DEFAULT)
     SetStateAndCloseToTarget(AI_ATTACKMOVE_ATTACKING, A1_2)
     ResetAndStartTimer("TimerAntiKite")
   end
