@@ -3,5 +3,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="globalrecallfacingsouth"}}, 
 {Function=BBPreloadSpell, Params={Name="nightmarebotveigarbuff"}}, 
+{Function=BBPreloadParticle, Params={Name="veigar_base_e_warning_green.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="veigar_base_e_warning_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="veigarrecall"}}, 
 }

@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="megaadhesivesnare"}}, 
 {Function=BBPreloadParticle, Params={Name="fling_land.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="flingdebuff"}}, 

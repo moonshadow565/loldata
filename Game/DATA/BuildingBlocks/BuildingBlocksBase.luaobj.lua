@@ -1092,1050 +1092,1067 @@ function L0_0(A0_317, A1_318, A2_319)
   end
 end
 BBWhile = L0_0
-function L0_0(A0_325, A1_326)
-  return A0_325 * A1_326
+function L0_0(A0_325, A1_326, A2_327)
+  local L3_328, L4_329, L5_330
+  L3_328 = GetParam
+  L4_329 = "Start"
+  L5_330 = A0_325
+  L3_328 = L3_328(L4_329, L5_330, A1_326)
+  L4_329 = GetParam
+  L5_330 = "End"
+  L4_329 = L4_329(L5_330, A0_325, A1_326)
+  L5_330 = L3_328
+  while L4_329 >= L5_330 do
+    SetVarInTable(A0_325, A1_326, L5_330)
+    ExecuteBuildingBlocks(A2_327, A0_325)
+    L5_330 = L5_330 + 1
+  end
+end
+BBFor = L0_0
+function L0_0(A0_331, A1_332)
+  return A0_331 * A1_332
 end
 MO_MULTIPLY = L0_0
-function L0_0(A0_327, A1_328)
-  return A0_327 + A1_328
+function L0_0(A0_333, A1_334)
+  return A0_333 + A1_334
 end
 MO_ADD = L0_0
-function L0_0(A0_329, A1_330)
-  return A0_329 - A1_330
+function L0_0(A0_335, A1_336)
+  return A0_335 - A1_336
 end
 MO_SUBTRACT = L0_0
-function L0_0(A0_331, A1_332)
-  return A0_331 / A1_332
+function L0_0(A0_337, A1_338)
+  return A0_337 / A1_338
 end
 MO_DIVIDE = L0_0
-function L0_0(A0_333, A1_334)
-  if A0_333 < A1_334 then
-    return A0_333
+function L0_0(A0_339, A1_340)
+  if A0_339 < A1_340 then
+    return A0_339
   else
-    return A1_334
+    return A1_340
   end
 end
 MO_MIN = L0_0
-function L0_0(A0_335, A1_336)
-  if A1_336 < A0_335 then
-    return A0_335
+function L0_0(A0_341, A1_342)
+  if A1_342 < A0_341 then
+    return A0_341
   else
-    return A1_336
+    return A1_342
   end
 end
 MO_MAX = L0_0
-function L0_0(A0_337, A1_338)
-  return A0_337 % A1_338
+function L0_0(A0_343, A1_344)
+  return A0_343 % A1_344
 end
 MO_MODULO = L0_0
-function L0_0(A0_339)
-  return math.floor(A0_339 + 0.5)
+function L0_0(A0_345)
+  return math.floor(A0_345 + 0.5)
 end
 MO_ROUND = L0_0
-function L0_0(A0_340)
-  return math.ceil(A0_340)
+function L0_0(A0_346)
+  return math.ceil(A0_346)
 end
 MO_ROUNDUP = L0_0
-function L0_0(A0_341)
-  return math.floor(A0_341)
+function L0_0(A0_347)
+  return math.floor(A0_347)
 end
 MO_ROUNDDOWN = L0_0
-function L0_0(A0_342)
-  return math.sin(math.rad(A0_342))
+function L0_0(A0_348)
+  return math.sin(math.rad(A0_348))
 end
 MO_SIN = L0_0
-function L0_0(A0_343)
-  return math.cos(math.rad(A0_343))
+function L0_0(A0_349)
+  return math.cos(math.rad(A0_349))
 end
 MO_COSINE = L0_0
-function L0_0(A0_344)
-  return math.tan(math.rad(A0_344))
+function L0_0(A0_350)
+  return math.tan(math.rad(A0_350))
 end
 MO_TANGENT = L0_0
-function L0_0(A0_345)
-  return math.deg(math.asin(A0_345))
+function L0_0(A0_351)
+  return math.deg(math.asin(A0_351))
 end
 MO_ASIN = L0_0
-function L0_0(A0_346)
-  return math.deg(math.acos(A0_346))
+function L0_0(A0_352)
+  return math.deg(math.acos(A0_352))
 end
 MO_ACOS = L0_0
-function L0_0(A0_347)
-  return math.deg(math.atan(A0_347))
+function L0_0(A0_353)
+  return math.deg(math.atan(A0_353))
 end
 MO_ATAN = L0_0
-function L0_0(A0_348, A1_349)
-  return math.pow(A0_348, A1_349)
+function L0_0(A0_354, A1_355)
+  return math.pow(A0_354, A1_355)
 end
 MO_POW = L0_0
-function L0_0(A0_350)
-  return math.sqrt(A0_350)
+function L0_0(A0_356)
+  return math.sqrt(A0_356)
 end
 MO_SQUARE_ROOT = L0_0
-function L0_0(A0_351, A1_352)
-  local L2_353
-  L2_353 = A0_351 and A1_352
-  return L2_353
+function L0_0(A0_357, A1_358)
+  local L2_359
+  L2_359 = A0_357 and A1_358
+  return L2_359
 end
 MO_BOOLEAN_AND = L0_0
-function L0_0(A0_354, A1_355)
-  local L2_356
-  L2_356 = A0_354 or A1_355
-  return L2_356
+function L0_0(A0_360, A1_361)
+  local L2_362
+  L2_362 = A0_360 or A1_361
+  return L2_362
 end
 MO_BOOLEAN_OR = L0_0
-function L0_0(A0_357)
-  local L1_358
-  L1_358 = not A0_357
-  return L1_358
+function L0_0(A0_363)
+  local L1_364
+  L1_364 = not A0_363
+  return L1_364
 end
 MO_BOOLEAN_NOT = L0_0
-function L0_0(A0_359)
-  return math.abs(A0_359)
+function L0_0(A0_365)
+  return math.abs(A0_365)
 end
 MO_ABS = L0_0
-function L0_0(A0_360, A1_361)
-  return math.random(A0_360, A1_361)
+function L0_0(A0_366, A1_367)
+  return math.random(A0_366, A1_367)
 end
 MO_RAND_INT_RANGE = L0_0
-function L0_0(A0_362, A1_363)
-  local L2_364, L3_365, L4_366, L5_367
-  L2_364 = GetMathNumber
-  L3_365 = A0_362
-  L4_366 = A1_363.Src1VarTable
-  L5_367 = A1_363.Src1Var
-  L2_364 = L2_364(L3_365, L4_366, L5_367, A1_363.Src1Value)
-  L3_365 = GetMathNumber
-  L4_366 = A0_362
-  L5_367 = A1_363.Src2VarTable
-  L3_365 = L3_365(L4_366, L5_367, A1_363.Src2Var, A1_363.Src2Value)
-  L4_366 = GetTable
-  L5_367 = A0_362
-  L4_366 = L4_366(L5_367, A1_363.DestVarTable)
-  L5_367 = A1_363.MathOp
-  L5_367 = L5_367(L2_364, L3_365)
-  SetVarInTable(A0_362, A1_363, L5_367)
+function L0_0(A0_368, A1_369)
+  local L2_370, L3_371, L4_372, L5_373
+  L2_370 = GetMathNumber
+  L3_371 = A0_368
+  L4_372 = A1_369.Src1VarTable
+  L5_373 = A1_369.Src1Var
+  L2_370 = L2_370(L3_371, L4_372, L5_373, A1_369.Src1Value)
+  L3_371 = GetMathNumber
+  L4_372 = A0_368
+  L5_373 = A1_369.Src2VarTable
+  L3_371 = L3_371(L4_372, L5_373, A1_369.Src2Var, A1_369.Src2Value)
+  L4_372 = GetTable
+  L5_373 = A0_368
+  L4_372 = L4_372(L5_373, A1_369.DestVarTable)
+  L5_373 = A1_369.MathOp
+  L5_373 = L5_373(L2_370, L3_371)
+  SetVarInTable(A0_368, A1_369, L5_373)
 end
 BBMath = L0_0
-function L0_0(A0_368, A1_369, A2_370, A3_371)
-  if A2_370 ~= nil and GetTable(A0_368, A1_369)[A2_370] ~= nil then
-    return GetTable(A0_368, A1_369)[A2_370]
+function L0_0(A0_374, A1_375, A2_376, A3_377)
+  if A2_376 ~= nil and GetTable(A0_374, A1_375)[A2_376] ~= nil then
+    return GetTable(A0_374, A1_375)[A2_376]
   end
-  return A3_371
+  return A3_377
 end
 GetMathNumber = L0_0
-function L0_0(A0_372, A1_373)
-  if type(A1_373) == "number" then
-    return A1_373
-  elseif type(A1_373) == "function" then
-    return A1_373(A0_372)
-  elseif type(A1_373) == "string" then
-    return A0_372[A1_373]
+function L0_0(A0_378, A1_379)
+  if type(A1_379) == "number" then
+    return A1_379
+  elseif type(A1_379) == "function" then
+    return A1_379(A0_378)
+  elseif type(A1_379) == "string" then
+    return A0_378[A1_379]
   end
 end
 GetNumber = L0_0
-function L0_0(A0_374, A1_375)
-  return VectorAdd(A0_374, A1_375)
+function L0_0(A0_380, A1_381)
+  return VectorAdd(A0_380, A1_381)
 end
 VEC_ADD = L0_0
-function L0_0(A0_376, A1_377)
-  return VectorSubtract(A0_376, A1_377)
+function L0_0(A0_382, A1_383)
+  return VectorSubtract(A0_382, A1_383)
 end
 VEC_SUBTRACT = L0_0
-function L0_0(A0_378, A1_379)
-  return VectorScalarMultiply(A0_378, A1_379)
+function L0_0(A0_384, A1_385)
+  return VectorScalarMultiply(A0_384, A1_385)
 end
 VEC_SCALAR_MULTIPLY = L0_0
-function L0_0(A0_380, A1_381)
-  return VectorScalarDivide(A0_380, A1_381)
+function L0_0(A0_386, A1_387)
+  return VectorScalarDivide(A0_386, A1_387)
 end
 VEC_SCALAR_DIVIDE = L0_0
-function L0_0(A0_382, A1_383)
-  return VectorRotateY(A0_382, A1_383)
+function L0_0(A0_388, A1_389)
+  return VectorRotateY(A0_388, A1_389)
 end
 VEC_ROTATE = L0_0
-function L0_0(A0_384, A1_385)
-  BBMath(A0_384, A1_385)
+function L0_0(A0_390, A1_391)
+  BBMath(A0_390, A1_391)
 end
 BBVectorMath = L0_0
-function L0_0(A0_386, A1_387)
-  local L2_388, L3_389, L4_390, L5_391
-  L2_388 = A0_386.InstanceVars
-  L3_389 = L2_388.InterpDelta
-  if L3_389 == nil then
-    L3_389 = A1_387.Amount
-    L4_390 = A1_387.AmountVar
-    if L4_390 ~= nil then
-      L4_390 = GetTable
-      L5_391 = A0_386
-      L4_390 = L4_390(L5_391, A1_387.AmountVarTable)
-      L5_391 = A1_387.AmountVar
-      L3_389 = L4_390[L5_391]
+function L0_0(A0_392, A1_393)
+  local L2_394, L3_395, L4_396, L5_397
+  L2_394 = A0_392.InstanceVars
+  L3_395 = L2_394.InterpDelta
+  if L3_395 == nil then
+    L3_395 = A1_393.Amount
+    L4_396 = A1_393.AmountVar
+    if L4_396 ~= nil then
+      L4_396 = GetTable
+      L5_397 = A0_392
+      L4_396 = L4_396(L5_397, A1_393.AmountVarTable)
+      L5_397 = A1_393.AmountVar
+      L3_395 = L4_396[L5_397]
     end
-    L4_390 = GetPosition
-    L5_391 = A1_387.TargetVar
-    L5_391 = A0_386[L5_391]
-    L4_390 = L4_390(L5_391)
-    L2_388.KnockBackStart = L4_390
-    L4_390 = GetNormalizedPositionDelta
-    L5_391 = A1_387.TargetVar
-    L5_391 = A0_386[L5_391]
-    L4_390 = L4_390(L5_391, A0_386[A1_387.AttackerVar], true)
-    L5_391 = {}
-    L5_391.x = L4_390.x * L3_389
-    L5_391.y = 0
-    L5_391.z = L4_390.z * L3_389
-    L2_388.InterpDelta = L5_391
-    L5_391 = GetTime
-    L5_391 = L5_391()
-    L2_388.StartTime = L5_391
-    L5_391 = A1_387.KnockBackDuration
-    L2_388.KnockBackDuration = L5_391
+    L4_396 = GetPosition
+    L5_397 = A1_393.TargetVar
+    L5_397 = A0_392[L5_397]
+    L4_396 = L4_396(L5_397)
+    L2_394.KnockBackStart = L4_396
+    L4_396 = GetNormalizedPositionDelta
+    L5_397 = A1_393.TargetVar
+    L5_397 = A0_392[L5_397]
+    L4_396 = L4_396(L5_397, A0_392[A1_393.AttackerVar], true)
+    L5_397 = {}
+    L5_397.x = L4_396.x * L3_395
+    L5_397.y = 0
+    L5_397.z = L4_396.z * L3_395
+    L2_394.InterpDelta = L5_397
+    L5_397 = GetTime
+    L5_397 = L5_397()
+    L2_394.StartTime = L5_397
+    L5_397 = A1_393.KnockBackDuration
+    L2_394.KnockBackDuration = L5_397
   end
-  L3_389 = A1_387.TargetVar
-  L3_389 = A0_386[L3_389]
-  L4_390 = GetTime
-  L4_390 = L4_390()
-  L5_391 = L2_388.StartTime
-  L4_390 = L4_390 - L5_391
-  L5_391 = L2_388.KnockBackDuration
-  L4_390 = L4_390 / L5_391
-  L5_391 = {}
-  L5_391.x = L2_388.KnockBackStart.x + L2_388.InterpDelta.x * L4_390
-  L5_391.y = L2_388.KnockBackStart.y
-  L5_391.z = L2_388.KnockBackStart.z + L2_388.InterpDelta.z * L4_390
-  SetPosition(L3_389, L5_391)
+  L3_395 = A1_393.TargetVar
+  L3_395 = A0_392[L3_395]
+  L4_396 = GetTime
+  L4_396 = L4_396()
+  L5_397 = L2_394.StartTime
+  L4_396 = L4_396 - L5_397
+  L5_397 = L2_394.KnockBackDuration
+  L4_396 = L4_396 / L5_397
+  L5_397 = {}
+  L5_397.x = L2_394.KnockBackStart.x + L2_394.InterpDelta.x * L4_396
+  L5_397.y = L2_394.KnockBackStart.y
+  L5_397.z = L2_394.KnockBackStart.z + L2_394.InterpDelta.z * L4_396
+  SetPosition(L3_395, L5_397)
 end
 BBKnockback = L0_0
-function L0_0(A0_392, A1_393)
-  local L2_394, L3_395
-  L2_394 = GetParam
-  L3_395 = "Left"
-  L2_394 = L2_394(L3_395, A0_392, A1_393)
-  L3_395 = GetParam
-  L3_395 = L3_395("Right", A0_392, A1_393)
-  GetTable(A0_392, A1_393.DestVarTable, true)[A1_393.DestVar] = tostring(L2_394) .. tostring(L3_395)
+function L0_0(A0_398, A1_399)
+  local L2_400, L3_401
+  L2_400 = GetParam
+  L3_401 = "Left"
+  L2_400 = L2_400(L3_401, A0_398, A1_399)
+  L3_401 = GetParam
+  L3_401 = L3_401("Right", A0_398, A1_399)
+  GetTable(A0_398, A1_399.DestVarTable, true)[A1_399.DestVar] = tostring(L2_400) .. tostring(L3_401)
 end
 BBAppendString = L0_0
-function L0_0(A0_396, A1_397)
-  local L2_398
-  L2_398 = 0
-  if A1_397.Delta ~= nil then
-    L2_398 = L2_398 + A1_397.Delta
+function L0_0(A0_402, A1_403)
+  local L2_404
+  L2_404 = 0
+  if A1_403.Delta ~= nil then
+    L2_404 = L2_404 + A1_403.Delta
   end
-  if A1_397.DeltaByLevel ~= nil and A0_396.Level ~= nil then
-    L2_398 = L2_398 + A1_397.DeltaByLevel[A0_396.Level]
+  if A1_403.DeltaByLevel ~= nil and A0_402.Level ~= nil then
+    L2_404 = L2_404 + A1_403.DeltaByLevel[A0_402.Level]
   end
-  if A1_397.DeltaVar ~= nil then
-    L2_398 = L2_398 + GetTable(A0_396, A1_397.DeltaVarTable, true)[A1_397.DeltaVar]
+  if A1_403.DeltaVar ~= nil then
+    L2_404 = L2_404 + GetTable(A0_402, A1_403.DeltaVarTable, true)[A1_403.DeltaVar]
   end
-  if A1_397.TargetVar ~= nil then
-    A1_397.Stat(L2_398, A0_396[A1_397.TargetVar])
+  if A1_403.TargetVar ~= nil then
+    A1_403.Stat(L2_404, A0_402[A1_403.TargetVar])
   else
-    A1_397.Stat(L2_398)
+    A1_403.Stat(L2_404)
   end
 end
 BBIncStat = L0_0
-function L0_0(A0_399, A1_400)
-  local L2_401
-  L2_401 = 0
-  if A1_400.Delta ~= nil then
-    L2_401 = L2_401 + A1_400.Delta
+function L0_0(A0_405, A1_406)
+  local L2_407
+  L2_407 = 0
+  if A1_406.Delta ~= nil then
+    L2_407 = L2_407 + A1_406.Delta
   end
-  if A1_400.DeltaByLevel ~= nil and A0_399.Level ~= nil then
-    L2_401 = L2_401 + A1_400.DeltaByLevel[A0_399.Level]
+  if A1_406.DeltaByLevel ~= nil and A0_405.Level ~= nil then
+    L2_407 = L2_407 + A1_406.DeltaByLevel[A0_405.Level]
   end
-  if A1_400.DeltaVar ~= nil then
-    L2_401 = L2_401 + GetTable(A0_399, A1_400.DeltaVarTable, true)[A1_400.DeltaVar]
+  if A1_406.DeltaVar ~= nil then
+    L2_407 = L2_407 + GetTable(A0_405, A1_406.DeltaVarTable, true)[A1_406.DeltaVar]
   end
-  if A1_400.TargetVar ~= nil then
-    A1_400.Stat(L2_401, A0_399[A1_400.TargetVar])
+  if A1_406.TargetVar ~= nil then
+    A1_406.Stat(L2_407, A0_405[A1_406.TargetVar])
   else
-    A1_400.Stat(L2_401)
+    A1_406.Stat(L2_407)
   end
 end
 BBIncPermanentStat = L0_0
-function L0_0(A0_402, A1_403)
-  local L2_404, L3_405
-  L2_404 = A1_403.TargetVar
-  L3_405 = 0
-  if A1_403.LaneVar ~= nil then
-    L3_405 = L3_405 + GetTable(A0_402, A1_403.LaneVarTable, true)[A1_403.LaneVar]
+function L0_0(A0_408, A1_409)
+  local L2_410, L3_411
+  L2_410 = A1_409.TargetVar
+  L3_411 = 0
+  if A1_409.LaneVar ~= nil then
+    L3_411 = L3_411 + GetTable(A0_408, A1_409.LaneVarTable, true)[A1_409.LaneVar]
   end
-  if A1_403.Lane ~= nil then
-    L3_405 = L3_405 + A1_403.Lane
+  if A1_409.Lane ~= nil then
+    L3_411 = L3_411 + A1_409.Lane
   end
-  SetMinionLane(A0_402[L2_404], L3_405)
+  SetMinionLane(A0_408[L2_410], L3_411)
 end
 BBSetMinionLane = L0_0
-function L0_0(A0_406, A1_407)
-  if A1_407.AttackVar ~= nil then
+function L0_0(A0_412, A1_413)
+  if A1_413.AttackVar ~= nil then
   end
-  if A1_407.Attack ~= nil then
+  if A1_413.Attack ~= nil then
   end
-  if A1_407.TotalCoefficientVar ~= nil then
+  if A1_413.TotalCoefficientVar ~= nil then
   end
-  if A1_407.TotalCoefficient ~= nil then
+  if A1_413.TotalCoefficient ~= nil then
   end
-  if A1_407.TargetVar ~= nil then
-    GetTable(A0_406, A1_407.DestVarTable, false)[A1_407.DestVar] = (0 + GetTable(A0_406, A1_407.AttackVarTable, true)[A1_407.AttackVar] + A1_407.Attack) * (2 * (1 + GetPercentCritDamageMod(A0_406[A1_407.TargetVar])) + GetFlatCritDamageMod(A0_406[A1_407.TargetVar])) * (0 + GetTable(A0_406, A1_407.TotalCoefficientVarTable, true)[A1_407.TotalCoefficientVar] + A1_407.TotalCoefficient)
+  if A1_413.TargetVar ~= nil then
+    GetTable(A0_412, A1_413.DestVarTable, false)[A1_413.DestVar] = (0 + GetTable(A0_412, A1_413.AttackVarTable, true)[A1_413.AttackVar] + A1_413.Attack) * (2 * (1 + GetPercentCritDamageMod(A0_412[A1_413.TargetVar])) + GetFlatCritDamageMod(A0_412[A1_413.TargetVar])) * (0 + GetTable(A0_412, A1_413.TotalCoefficientVarTable, true)[A1_413.TotalCoefficientVar] + A1_413.TotalCoefficient)
   else
-    GetTable(A0_406, A1_407.DestVarTable, false)[A1_407.DestVar] = 2 * A1_407.Attack
+    GetTable(A0_412, A1_413.DestVarTable, false)[A1_413.DestVar] = 2 * A1_413.Attack
   end
 end
 BBCalculateCriticalDamage = L0_0
-function L0_0(A0_408, A1_409)
-  local L2_410, L3_411, L4_412, L5_413, L6_414, L7_415
-  L2_410 = GetTable
-  L3_411 = A0_408
-  L4_412 = A1_409.DestVarTable
-  L5_413 = false
-  L2_410 = L2_410(L3_411, L4_412, L5_413)
-  L3_411 = GetTable
-  L4_412 = A0_408
-  L5_413 = A1_409.AmountVarTable
-  L6_414 = true
-  L3_411 = L3_411(L4_412, L5_413, L6_414)
-  L4_412 = GetTable
-  L5_413 = A0_408
-  L6_414 = A0_408.NextBuffVars
-  L7_415 = false
-  L4_412 = L4_412(L5_413, L6_414, L7_415)
-  L5_413 = A1_409.AmountVar
-  L5_413 = L3_411[L5_413]
-  L6_414 = A1_409.Amount
-  L5_413 = L5_413 + L6_414
-  L4_412.InitializeShield_Amount = L5_413
-  L5_413 = A1_409.AmountVar
-  if L5_413 ~= nil then
-    L5_413 = A1_409.HealShieldMod
-    if L5_413 ~= nil and L5_413 == true then
-      L6_414 = A1_409.AttackerVar
-      L7_415 = 0
-      if L6_414 ~= nil then
-        L7_415 = GetPercentHealingAmountMod(A0_408[L6_414])
+function L0_0(A0_414, A1_415)
+  local L2_416, L3_417, L4_418, L5_419, L6_420, L7_421
+  L2_416 = GetTable
+  L3_417 = A0_414
+  L4_418 = A1_415.DestVarTable
+  L5_419 = false
+  L2_416 = L2_416(L3_417, L4_418, L5_419)
+  L3_417 = GetTable
+  L4_418 = A0_414
+  L5_419 = A1_415.AmountVarTable
+  L6_420 = true
+  L3_417 = L3_417(L4_418, L5_419, L6_420)
+  L4_418 = GetTable
+  L5_419 = A0_414
+  L6_420 = A0_414.NextBuffVars
+  L7_421 = false
+  L4_418 = L4_418(L5_419, L6_420, L7_421)
+  L5_419 = A1_415.AmountVar
+  L5_419 = L3_417[L5_419]
+  L6_420 = A1_415.Amount
+  L5_419 = L5_419 + L6_420
+  L4_418.InitializeShield_Amount = L5_419
+  L5_419 = A1_415.AmountVar
+  if L5_419 ~= nil then
+    L5_419 = A1_415.HealShieldMod
+    if L5_419 ~= nil and L5_419 == true then
+      L6_420 = A1_415.AttackerVar
+      L7_421 = 0
+      if L6_420 ~= nil then
+        L7_421 = GetPercentHealingAmountMod(A0_414[L6_420])
       end
-      L4_412.InitializeShield_Amount, L3_411[A1_409.AmountVar] = (A1_409.Amount + L3_411[A1_409.AmountVar]) * (1 + L7_415), (A1_409.Amount + L3_411[A1_409.AmountVar]) * (1 + L7_415)
+      L4_418.InitializeShield_Amount, L3_417[A1_415.AmountVar] = (A1_415.Amount + L3_417[A1_415.AmountVar]) * (1 + L7_421), (A1_415.Amount + L3_417[A1_415.AmountVar]) * (1 + L7_421)
     end
   end
-  L5_413 = SpellBuffAddNoRenew
-  L6_414 = A1_409.AttackerVar
-  L6_414 = A0_408[L6_414]
-  L7_415 = A1_409.UnitVar
-  L7_415 = A0_408[L7_415]
-  L5_413(L6_414, L7_415, "InitializeShieldMarker", 0, 1, 25000, L4_412)
-  L5_413 = BBIncreaseShield
-  L6_414 = A0_408
-  L7_415 = A1_409
-  L5_413(L6_414, L7_415)
+  L5_419 = SpellBuffAddNoRenew
+  L6_420 = A1_415.AttackerVar
+  L6_420 = A0_414[L6_420]
+  L7_421 = A1_415.UnitVar
+  L7_421 = A0_414[L7_421]
+  L5_419(L6_420, L7_421, "InitializeShieldMarker", 0, 1, 25000, L4_418)
+  L5_419 = BBIncreaseShield
+  L6_420 = A0_414
+  L7_421 = A1_415
+  L5_419(L6_420, L7_421)
 end
 BBInitializeShield = L0_0
-function L0_0(A0_416, A1_417)
-  if A1_417.CDVar ~= nil then
+function L0_0(A0_422, A1_423)
+  if A1_423.CDVar ~= nil then
   end
-  if A1_417.CD ~= nil then
+  if A1_423.CD ~= nil then
   end
-  if A1_417.TargetVar ~= nil then
-    GetTable(A0_416, A1_417.DestVarTable, false)[A1_417.DestVar] = (0 + GetTable(A0_416, A1_417.CDVarTable, true)[A1_417.CDVar] + A1_417.CD) * (1 + GetPercentCooldownMod(A0_416[A1_417.TargetVar]))
+  if A1_423.TargetVar ~= nil then
+    GetTable(A0_422, A1_423.DestVarTable, false)[A1_423.DestVar] = (0 + GetTable(A0_422, A1_423.CDVarTable, true)[A1_423.CDVar] + A1_423.CD) * (1 + GetPercentCooldownMod(A0_422[A1_423.TargetVar]))
   else
-    GetTable(A0_416, A1_417.DestVarTable, false)[A1_417.DestVar] = A1_417.CD
+    GetTable(A0_422, A1_423.DestVarTable, false)[A1_423.DestVar] = A1_423.CD
   end
 end
 BBGetModifiedCooldown = L0_0
-function L0_0(A0_418, A1_419)
-  local L2_420, L3_421
-  L3_421 = A1_419.TargetVar
-  if L3_421 ~= nil then
-    L2_420 = A1_419.Stat(A0_418[L3_421])
+function L0_0(A0_424, A1_425)
+  local L2_426, L3_427
+  L3_427 = A1_425.TargetVar
+  if L3_427 ~= nil then
+    L2_426 = A1_425.Stat(A0_424[L3_427])
   else
-    L2_420 = A1_419.Stat()
+    L2_426 = A1_425.Stat()
   end
-  SetVarInTable(A0_418, A1_419, L2_420)
+  SetVarInTable(A0_424, A1_425, L2_426)
 end
 BBGetStat = L0_0
-function L0_0(A0_422, A1_423)
-  if A1_423.TargetVar ~= nil then
-    GetTable(A0_422, A1_423.DestVarTable, false)[A1_423.DestVar] = GetLevel(A0_422[A1_423.TargetVar])
+function L0_0(A0_428, A1_429)
+  if A1_429.TargetVar ~= nil then
+    GetTable(A0_428, A1_429.DestVarTable, false)[A1_429.DestVar] = GetLevel(A0_428[A1_429.TargetVar])
   else
-    GetTable(A0_422, A1_423.DestVarTable, false)[A1_423.DestVar] = GetLevel()
+    GetTable(A0_428, A1_429.DestVarTable, false)[A1_429.DestVar] = GetLevel()
   end
 end
 BBGetLevel = L0_0
-function L0_0(A0_424, A1_425)
-  if A1_425.TargetVar ~= nil then
-    GetTable(A0_424, A1_425.DestVarTable, false)[A1_425.DestVar] = GetUnitSignificance(A0_424[A1_425.TargetVar])
+function L0_0(A0_430, A1_431)
+  if A1_431.TargetVar ~= nil then
+    GetTable(A0_430, A1_431.DestVarTable, false)[A1_431.DestVar] = GetUnitSignificance(A0_430[A1_431.TargetVar])
   else
-    GetTable(A0_424, A1_425.DestVarTable, false)[A1_425.DestVar] = GetUnitSignificance()
+    GetTable(A0_430, A1_431.DestVarTable, false)[A1_431.DestVar] = GetUnitSignificance()
   end
 end
 BBGetUnitSignificance = L0_0
-function L0_0(A0_426, A1_427)
-  if A1_427.TargetVar ~= nil then
-    GetTable(A0_426, A1_427.DestVarTable, false)[A1_427.DestVar] = GetArmor(A0_426[A1_427.TargetVar])
+function L0_0(A0_432, A1_433)
+  if A1_433.TargetVar ~= nil then
+    GetTable(A0_432, A1_433.DestVarTable, false)[A1_433.DestVar] = GetArmor(A0_432[A1_433.TargetVar])
   else
-    GetTable(A0_426, A1_427.DestVarTable, false)[A1_427.DestVar] = GetArmor()
+    GetTable(A0_432, A1_433.DestVarTable, false)[A1_433.DestVar] = GetArmor()
   end
 end
 BBGetArmor = L0_0
-function L0_0(A0_428, A1_429)
-  if A1_429.TargetVar ~= nil then
-    GetTable(A0_428, A1_429.DestVarTable, false)[A1_429.DestVar] = GetSpellBlock(A0_428[A1_429.TargetVar])
+function L0_0(A0_434, A1_435)
+  if A1_435.TargetVar ~= nil then
+    GetTable(A0_434, A1_435.DestVarTable, false)[A1_435.DestVar] = GetSpellBlock(A0_434[A1_435.TargetVar])
   else
-    GetTable(A0_428, A1_429.DestVarTable, false)[A1_429.DestVar] = GetSpellBlock()
+    GetTable(A0_434, A1_435.DestVarTable, false)[A1_435.DestVar] = GetSpellBlock()
   end
 end
 BBGetSpellBlock = L0_0
-function L0_0(A0_430, A1_431)
-  local L2_432, L3_433
-  L3_433 = A1_431.TargetVar
-  if L3_433 ~= nil then
-    L2_432 = GetTeamID(A0_430[L3_433])
+function L0_0(A0_436, A1_437)
+  local L2_438, L3_439
+  L3_439 = A1_437.TargetVar
+  if L3_439 ~= nil then
+    L2_438 = GetTeamID(A0_436[L3_439])
   else
-    L2_432 = GetTeamID()
+    L2_438 = GetTeamID()
   end
-  SetVarInTable(A0_430, A1_431, L2_432)
+  SetVarInTable(A0_436, A1_437, L2_438)
 end
 BBGetTeamID = L0_0
-function L0_0(A0_434, A1_435)
-  local L2_436, L3_437, L4_438
-  L2_436 = GetTable
-  L3_437 = A0_434
-  L4_438 = A1_435.DestVarTable
-  L2_436 = L2_436(L3_437, L4_438, false)
-  L3_437 = A1_435.TargetVar
-  L4_438 = nil
-  if L3_437 ~= nil then
-    L4_438 = GetTeamID(A0_434[L3_437])
+function L0_0(A0_440, A1_441)
+  local L2_442, L3_443, L4_444
+  L2_442 = GetTable
+  L3_443 = A0_440
+  L4_444 = A1_441.DestVarTable
+  L2_442 = L2_442(L3_443, L4_444, false)
+  L3_443 = A1_441.TargetVar
+  L4_444 = nil
+  if L3_443 ~= nil then
+    L4_444 = GetTeamID(A0_440[L3_443])
   else
-    L4_438 = GetTeamID()
+    L4_444 = GetTeamID()
   end
-  if L4_438 == TEAM_ORDER then
-    L2_436[A1_435.DestVar] = TEAM_CHAOS
-  elseif L4_438 == TEAM_CHAOS then
-    L2_436[A1_435.DestVar] = TEAM_ORDER
+  if L4_444 == TEAM_ORDER then
+    L2_442[A1_441.DestVar] = TEAM_CHAOS
+  elseif L4_444 == TEAM_CHAOS then
+    L2_442[A1_441.DestVar] = TEAM_ORDER
   end
 end
 BBGetEnemyTeamID = L0_0
-function L0_0(A0_439, A1_440)
-  if A1_440.TargetVar ~= nil then
-    GetTable(A0_439, A1_440.DestVarTable, false)[A1_440.DestVar] = GetUnitSkinName(A0_439[A1_440.TargetVar])
+function L0_0(A0_445, A1_446)
+  if A1_446.TargetVar ~= nil then
+    GetTable(A0_445, A1_446.DestVarTable, false)[A1_446.DestVar] = GetUnitSkinName(A0_445[A1_446.TargetVar])
   end
 end
 BBGetUnitSkinName = L0_0
-function L0_0(A0_441, A1_442)
-  local L2_443, L3_444, L4_445
-  L2_443 = GetTable
-  L3_444 = A0_441
-  L4_445 = A1_442.DestVarTable
-  L2_443 = L2_443(L3_444, L4_445, false)
-  L3_444 = A0_441.Owner
-  L4_445 = nil
-  if A1_442.TargetVar ~= nil then
-    L4_445 = GetTotalAttackDamage(A0_441[A1_442.TargetVar])
+function L0_0(A0_447, A1_448)
+  local L2_449, L3_450, L4_451
+  L2_449 = GetTable
+  L3_450 = A0_447
+  L4_451 = A1_448.DestVarTable
+  L2_449 = L2_449(L3_450, L4_451, false)
+  L3_450 = A0_447.Owner
+  L4_451 = nil
+  if A1_448.TargetVar ~= nil then
+    L4_451 = GetTotalAttackDamage(A0_447[A1_448.TargetVar])
   else
-    L4_445 = GetTotalAttackDamage()
+    L4_451 = GetTotalAttackDamage()
   end
-  SetVarInTable(A0_441, A1_442, L4_445)
+  SetVarInTable(A0_447, A1_448, L4_451)
 end
 BBGetTotalAttackDamage = L0_0
-function L0_0(A0_446, A1_447)
-  GetTable(A0_446, A1_447.DestVarTable, true)[A1_447.DestVar] = A1_447.Status(A0_446[A1_447.TargetVar])
+function L0_0(A0_452, A1_453)
+  GetTable(A0_452, A1_453.DestVarTable, true)[A1_453.DestVar] = A1_453.Status(A0_452[A1_453.TargetVar])
 end
 BBGetStatus = L0_0
-function L0_0(A0_448, A1_449)
-  local L2_450
-  L2_450 = A1_449.TargetVar
-  L2_450 = A0_448[L2_450]
-  ClearAttackTarget(L2_450)
+function L0_0(A0_454, A1_455)
+  local L2_456
+  L2_456 = A1_455.TargetVar
+  L2_456 = A0_454[L2_456]
+  ClearAttackTarget(L2_456)
 end
 BBClearAttackTarget = L0_0
-function L0_0(A0_451, A1_452)
-  local L2_453, L3_454
-  L2_453 = GetTable
-  L3_454 = A0_451
-  L2_453 = L2_453(L3_454, A1_452.DestVarTable, true)
-  L3_454 = A1_452.Info
-  L3_454 = L3_454(A0_451[A1_452.TargetVar])
-  SetVarInTable(A0_451, A1_452, L3_454)
+function L0_0(A0_457, A1_458)
+  local L2_459, L3_460
+  L2_459 = GetTable
+  L3_460 = A0_457
+  L2_459 = L2_459(L3_460, A1_458.DestVarTable, true)
+  L3_460 = A1_458.Info
+  L3_460 = L3_460(A0_457[A1_458.TargetVar])
+  SetVarInTable(A0_457, A1_458, L3_460)
 end
 BBGetCastInfo = L0_0
-function L0_0(A0_455, A1_456, A2_457)
-  local L3_458, L4_459, L5_460, L6_461
-  L3_458 = GetTable
-  L4_459 = A0_455
-  L5_460 = A1_456.TrackTimeVarTable
-  L6_461 = false
-  L3_458 = L3_458(L4_459, L5_460, L6_461)
-  L4_459 = GetTime
-  L4_459 = L4_459()
-  L5_460 = A1_456.ExecuteImmediately
-  L6_461 = GetParam
-  L6_461 = L6_461("TimeBetweenExecutions", A0_455, A1_456)
-  if A1_456.TickTimeVar ~= nil and GetTable(A0_455, A1_456.TickTimeVarTable, false)[A1_456.TickTimeVar] ~= nil then
-    L6_461 = GetTable(A0_455, A1_456.TickTimeVarTable, false)[A1_456.TickTimeVar]
+function L0_0(A0_461, A1_462, A2_463)
+  local L3_464, L4_465, L5_466, L6_467
+  L3_464 = GetTable
+  L4_465 = A0_461
+  L5_466 = A1_462.TrackTimeVarTable
+  L6_467 = false
+  L3_464 = L3_464(L4_465, L5_466, L6_467)
+  L4_465 = GetTime
+  L4_465 = L4_465()
+  L5_466 = A1_462.ExecuteImmediately
+  L6_467 = GetParam
+  L6_467 = L6_467("TimeBetweenExecutions", A0_461, A1_462)
+  if A1_462.TickTimeVar ~= nil and GetTable(A0_461, A1_462.TickTimeVarTable, false)[A1_462.TickTimeVar] ~= nil then
+    L6_467 = GetTable(A0_461, A1_462.TickTimeVarTable, false)[A1_462.TickTimeVar]
   end
-  if L3_458[A1_456.TrackTimeVar] == nil then
-    L3_458[A1_456.TrackTimeVar] = L4_459
-    if L5_460 == true then
-      ExecuteBuildingBlocks(A2_457, A0_455)
+  if L3_464[A1_462.TrackTimeVar] == nil then
+    L3_464[A1_462.TrackTimeVar] = L4_465
+    if L5_466 == true then
+      ExecuteBuildingBlocks(A2_463, A0_461)
     end
   end
-  if L4_459 >= L3_458[A1_456.TrackTimeVar] + L6_461 then
-    L3_458[A1_456.TrackTimeVar] = L3_458[A1_456.TrackTimeVar] + L6_461
-    ExecuteBuildingBlocks(A2_457, A0_455)
+  if L4_465 >= L3_464[A1_462.TrackTimeVar] + L6_467 then
+    L3_464[A1_462.TrackTimeVar] = L3_464[A1_462.TrackTimeVar] + L6_467
+    ExecuteBuildingBlocks(A2_463, A0_461)
   end
 end
 BBExecutePeriodically = L0_0
-function L0_0(A0_462, A1_463, A2_464)
-  GetTable(A0_462, A1_463.TrackTimeVarTable, false)[A1_463.TrackTimeVar] = nil
+function L0_0(A0_468, A1_469, A2_470)
+  GetTable(A0_468, A1_469.TrackTimeVarTable, false)[A1_469.TrackTimeVar] = nil
 end
 BBExecutePeriodicallyReset = L0_0
-function L0_0(A0_465, A1_466)
-  local L2_467
-  L2_467 = A1_466.SrcValue
-  if A1_466.SrcVar ~= nil then
-    L2_467 = GetTable(A0_465, A1_466.SrcVarTable, true)[A1_466.SrcVar]
+function L0_0(A0_471, A1_472)
+  local L2_473
+  L2_473 = A1_472.SrcValue
+  if A1_472.SrcVar ~= nil then
+    L2_473 = GetTable(A0_471, A1_472.SrcVarTable, true)[A1_472.SrcVar]
   end
-  A1_466.Status(A0_465[A1_466.TargetVar], L2_467)
+  A1_472.Status(A0_471[A1_472.TargetVar], L2_473)
 end
 BBSetStatus = L0_0
-function L0_0(A0_468, A1_469)
-  local L2_470
-  L2_470 = A1_469.ToAlert
-  if GetTable(A0_468, A1_469.SrcVarTable, false) ~= nil and A1_469.SrcVar ~= nil then
-    L2_470 = L2_470 .. GetTable(A0_468, A1_469.SrcVarTable, false)[A1_469.SrcVar]
+function L0_0(A0_474, A1_475)
+  local L2_476
+  L2_476 = A1_475.ToAlert
+  if GetTable(A0_474, A1_475.SrcVarTable, false) ~= nil and A1_475.SrcVar ~= nil then
+    L2_476 = L2_476 .. GetTable(A0_474, A1_475.SrcVarTable, false)[A1_475.SrcVar]
   end
-  _ALERT(L2_470)
+  _ALERT(L2_476)
 end
 BBAlert = L0_0
-function L0_0(A0_471, A1_472)
-  local L2_473, L3_474, L4_475, L5_476, L6_477, L7_478
-  L2_473 = GetParam
-  L3_474 = "Value"
-  L4_475 = A0_471
-  L5_476 = A1_472
-  L2_473 = L2_473(L3_474, L4_475, L5_476)
-  if L2_473 == nil then
-    L3_474 = ReportError
-    L4_475 = "Could not resolve Value param"
-    L3_474(L4_475)
+function L0_0(A0_477, A1_478)
+  local L2_479, L3_480, L4_481, L5_482, L6_483, L7_484
+  L2_479 = GetParam
+  L3_480 = "Value"
+  L4_481 = A0_477
+  L5_482 = A1_478
+  L2_479 = L2_479(L3_480, L4_481, L5_482)
+  if L2_479 == nil then
+    L3_480 = ReportError
+    L4_481 = "Could not resolve Value param"
+    L3_480(L4_481)
     return
   end
-  L3_474 = true
-  L4_475 = GetParam
-  L5_476 = "OnUnit"
-  L6_477 = A0_471
-  L7_478 = A1_472
-  L4_475 = L4_475(L5_476, L6_477, L7_478)
-  if L4_475 == nil then
-    L3_474 = false
-    L5_476 = GetParam
-    L6_477 = "OnUnitByFlag"
-    L7_478 = A0_471
-    L5_476 = L5_476(L6_477, L7_478, A1_472)
-    L4_475 = L5_476
+  L3_480 = true
+  L4_481 = GetParam
+  L5_482 = "OnUnit"
+  L6_483 = A0_477
+  L7_484 = A1_478
+  L4_481 = L4_481(L5_482, L6_483, L7_484)
+  if L4_481 == nil then
+    L3_480 = false
+    L5_482 = GetParam
+    L6_483 = "OnUnitByFlag"
+    L7_484 = A0_477
+    L5_482 = L5_482(L6_483, L7_484, A1_478)
+    L4_481 = L5_482
   end
-  if L4_475 == nil then
-    L5_476 = ReportError
-    L6_477 = "Could not resolve OnUnit param"
-    L5_476(L6_477)
+  if L4_481 == nil then
+    L5_482 = ReportError
+    L6_483 = "Could not resolve OnUnit param"
+    L5_482(L6_483)
     return
   end
-  L5_476 = true
-  L6_477 = GetParam
-  L7_478 = "ChampionToSayTo"
-  L6_477 = L6_477(L7_478, A0_471, A1_472)
-  if L6_477 == nil then
-    L5_476 = false
-    L7_478 = GetParam
-    L7_478 = L7_478("ChampionToSayToByFlag", A0_471, A1_472)
-    L6_477 = L7_478
+  L5_482 = true
+  L6_483 = GetParam
+  L7_484 = "ChampionToSayTo"
+  L6_483 = L6_483(L7_484, A0_477, A1_478)
+  if L6_483 == nil then
+    L5_482 = false
+    L7_484 = GetParam
+    L7_484 = L7_484("ChampionToSayToByFlag", A0_477, A1_478)
+    L6_483 = L7_484
   end
-  if L6_477 == nil then
-    L7_478 = ReportError
-    L7_478("Could not resolve ChampionToSayTo param")
+  if L6_483 == nil then
+    L7_484 = ReportError
+    L7_484("Could not resolve ChampionToSayTo param")
     return
   end
-  L7_478 = GetParam
-  L7_478 = L7_478("ShowToSpectator", A0_471, A1_472)
-  if L7_478 == nil then
+  L7_484 = GetParam
+  L7_484 = L7_484("ShowToSpectator", A0_477, A1_478)
+  if L7_484 == nil then
     ReportError("Could not resolve ShowToSpectator param")
     return
   end
-  DisplayNumericFloatingTextOnUnitToChampion(L2_473, A1_472.TextType, L4_475, L3_474, L6_477, L5_476, L7_478)
+  DisplayNumericFloatingTextOnUnitToChampion(L2_479, A1_478.TextType, L4_481, L3_480, L6_483, L5_482, L7_484)
 end
 BBDisplayNumericFloatingTextOnUnitToChampion = L0_0
-function L0_0(A0_479, A1_480)
-  local L2_481, L3_482, L4_483, L5_484, L6_485, L7_486
-  L2_481 = GetParam
-  L3_482 = "Message"
-  L4_483 = A0_479
-  L5_484 = A1_480
-  L2_481 = L2_481(L3_482, L4_483, L5_484)
-  if L2_481 == nil then
-    L3_482 = ReportError
-    L4_483 = "Could not resolve Message param"
-    L3_482(L4_483)
+function L0_0(A0_485, A1_486)
+  local L2_487, L3_488, L4_489, L5_490, L6_491, L7_492
+  L2_487 = GetParam
+  L3_488 = "Message"
+  L4_489 = A0_485
+  L5_490 = A1_486
+  L2_487 = L2_487(L3_488, L4_489, L5_490)
+  if L2_487 == nil then
+    L3_488 = ReportError
+    L4_489 = "Could not resolve Message param"
+    L3_488(L4_489)
     return
   end
-  L3_482 = true
-  L4_483 = GetParam
-  L5_484 = "OnUnit"
-  L6_485 = A0_479
-  L7_486 = A1_480
-  L4_483 = L4_483(L5_484, L6_485, L7_486)
-  if L4_483 == nil then
-    L3_482 = false
-    L5_484 = GetParam
-    L6_485 = "OnUnitByFlag"
-    L7_486 = A0_479
-    L5_484 = L5_484(L6_485, L7_486, A1_480)
-    L4_483 = L5_484
+  L3_488 = true
+  L4_489 = GetParam
+  L5_490 = "OnUnit"
+  L6_491 = A0_485
+  L7_492 = A1_486
+  L4_489 = L4_489(L5_490, L6_491, L7_492)
+  if L4_489 == nil then
+    L3_488 = false
+    L5_490 = GetParam
+    L6_491 = "OnUnitByFlag"
+    L7_492 = A0_485
+    L5_490 = L5_490(L6_491, L7_492, A1_486)
+    L4_489 = L5_490
   end
-  if L4_483 == nil then
-    L5_484 = ReportError
-    L6_485 = "Could not resolve OnUnit param"
-    L5_484(L6_485)
+  if L4_489 == nil then
+    L5_490 = ReportError
+    L6_491 = "Could not resolve OnUnit param"
+    L5_490(L6_491)
     return
   end
-  L5_484 = true
-  L6_485 = GetParam
-  L7_486 = "ChampionToSayTo"
-  L6_485 = L6_485(L7_486, A0_479, A1_480)
-  if L6_485 == nil then
-    L5_484 = false
-    L7_486 = GetParam
-    L7_486 = L7_486("ChampionToSayToByFlag", A0_479, A1_480)
-    L6_485 = L7_486
+  L5_490 = true
+  L6_491 = GetParam
+  L7_492 = "ChampionToSayTo"
+  L6_491 = L6_491(L7_492, A0_485, A1_486)
+  if L6_491 == nil then
+    L5_490 = false
+    L7_492 = GetParam
+    L7_492 = L7_492("ChampionToSayToByFlag", A0_485, A1_486)
+    L6_491 = L7_492
   end
-  if L6_485 == nil then
-    L7_486 = ReportError
-    L7_486("Could not resolve ChampionToSayTo param")
+  if L6_491 == nil then
+    L7_492 = ReportError
+    L7_492("Could not resolve ChampionToSayTo param")
     return
   end
-  L7_486 = GetParam
-  L7_486 = L7_486("ShowToSpectator", A0_479, A1_480)
-  if L7_486 == nil then
+  L7_492 = GetParam
+  L7_492 = L7_492("ShowToSpectator", A0_485, A1_486)
+  if L7_492 == nil then
     ReportError("Could not resolve ShowToSpectator param")
     return
   end
-  SayWithFloatingTextOnUnitToChampion(tostring(L2_481), A1_480.TextType, L4_483, L3_482, L6_485, L5_484, L7_486)
+  SayWithFloatingTextOnUnitToChampion(tostring(L2_487), A1_486.TextType, L4_489, L3_488, L6_491, L5_490, L7_492)
 end
 BBSayWithFloatingTextOnUnitToChampion = L0_0
-function L0_0(A0_487, A1_488)
-  local L2_489, L3_490, L4_491
-  L2_489 = A1_488.ToSay
-  L3_490 = GetTable
-  L4_491 = A0_487
-  L3_490 = L3_490(L4_491, A1_488.SrcVarTable, false)
-  if L3_490 ~= nil then
-    L4_491 = A1_488.SrcVar
-    if L4_491 ~= nil then
-      L4_491 = L2_489
-      L2_489 = L4_491 .. tostring(L3_490[A1_488.SrcVar])
+function L0_0(A0_493, A1_494)
+  local L2_495, L3_496, L4_497
+  L2_495 = A1_494.ToSay
+  L3_496 = GetTable
+  L4_497 = A0_493
+  L3_496 = L3_496(L4_497, A1_494.SrcVarTable, false)
+  if L3_496 ~= nil then
+    L4_497 = A1_494.SrcVar
+    if L4_497 ~= nil then
+      L4_497 = L2_495
+      L2_495 = L4_497 .. tostring(L3_496[A1_494.SrcVar])
     end
   end
-  L4_491 = nil
-  if A1_488.OwnerVar ~= nil then
-    L4_491 = A0_487[A1_488.OwnerVar]
+  L4_497 = nil
+  if A1_494.OwnerVar ~= nil then
+    L4_497 = A0_493[A1_494.OwnerVar]
   else
-    L4_491 = A0_487.Owner
+    L4_497 = A0_493.Owner
   end
-  if A1_488.TextType == nil then
-    A1_488.TextType = 0
+  if A1_494.TextType == nil then
+    A1_494.TextType = 0
   end
-  Say(L4_491, L2_489, A1_488.TextType)
+  Say(L4_497, L2_495, A1_494.TextType)
 end
 BBSay = L0_0
-function L0_0(A0_492, A1_493)
-  local L2_494, L3_495, L4_496
-  L2_494 = A1_493.ToSay
-  L3_495 = GetTable
-  L4_496 = A0_492
-  L3_495 = L3_495(L4_496, A1_493.SrcVarTable, false)
-  if L3_495 ~= nil then
-    L4_496 = A1_493.SrcVar
-    if L4_496 ~= nil then
-      L4_496 = L2_494
-      L2_494 = L4_496 .. tostring(L3_495[A1_493.SrcVar])
+function L0_0(A0_498, A1_499)
+  local L2_500, L3_501, L4_502
+  L2_500 = A1_499.ToSay
+  L3_501 = GetTable
+  L4_502 = A0_498
+  L3_501 = L3_501(L4_502, A1_499.SrcVarTable, false)
+  if L3_501 ~= nil then
+    L4_502 = A1_499.SrcVar
+    if L4_502 ~= nil then
+      L4_502 = L2_500
+      L2_500 = L4_502 .. tostring(L3_501[A1_499.SrcVar])
     end
   end
-  L4_496 = nil
-  if A1_493.OwnerVar ~= nil then
-    L4_496 = A0_492[A1_493.OwnerVar]
+  L4_502 = nil
+  if A1_499.OwnerVar ~= nil then
+    L4_502 = A0_498[A1_499.OwnerVar]
   else
-    L4_496 = A0_492.Owner
+    L4_502 = A0_498.Owner
   end
-  if A1_493.TextType == nil then
-    A1_493.TextType = 0
+  if A1_499.TextType == nil then
+    A1_499.TextType = 0
   end
-  Say(L4_496, L2_494, A1_493.TextType)
+  Say(L4_502, L2_500, A1_499.TextType)
 end
 BBDebugSay = L0_0
-function L0_0(A0_497, A1_498)
-  GetTable(A0_497, A1_498.DestVarTable, true)[A1_498.DestVar] = BBLuaGetGold(A0_497, A1_498)
+function L0_0(A0_503, A1_504)
+  GetTable(A0_503, A1_504.DestVarTable, true)[A1_504.DestVar] = BBLuaGetGold(A0_503, A1_504)
 end
 BBGetGold = L0_0
-function L0_0(A0_499, A1_500)
-  GetTable(A0_499, A1_500.DestVarTable, true)[A1_500.DestVar] = BBLuaGetTotalGold(A0_499, A1_500)
+function L0_0(A0_505, A1_506)
+  GetTable(A0_505, A1_506.DestVarTable, true)[A1_506.DestVar] = BBLuaGetTotalGold(A0_505, A1_506)
 end
 BBGetTotalGold = L0_0
-function L0_0(A0_501, A1_502)
-  SpellBuffAdd(A0_501[A1_502.OwnerVar], A0_501[A1_502.OwnerVar], "TeleportMarker", 0, 1, 25000, A0_501.NextBuffVars)
-  BBTeleportToPositionHelper(A0_501, A1_502)
+function L0_0(A0_507, A1_508)
+  SpellBuffAdd(A0_507[A1_508.OwnerVar], A0_507[A1_508.OwnerVar], "TeleportMarker", 0, 1, 25000, A0_507.NextBuffVars)
+  BBTeleportToPositionHelper(A0_507, A1_508)
 end
 BBTeleportToPosition = L0_0
-function L0_0(A0_503, A1_504)
-  if A1_504.XVar ~= nil and GetTable(A0_503, A1_504.XVarTable, true) ~= nil then
-    Xloc = GetTable(A0_503, A1_504.XVarTable, true)[A1_504.XVar]
+function L0_0(A0_509, A1_510)
+  if A1_510.XVar ~= nil and GetTable(A0_509, A1_510.XVarTable, true) ~= nil then
+    Xloc = GetTable(A0_509, A1_510.XVarTable, true)[A1_510.XVar]
   else
-    Xloc = A1_504.X
+    Xloc = A1_510.X
   end
-  if A1_504.YVar ~= nil and GetTable(A0_503, A1_504.YVarTable, true) ~= nil then
-    Yloc = GetTable(A0_503, A1_504.YVarTable, true)[A1_504.YVar]
+  if A1_510.YVar ~= nil and GetTable(A0_509, A1_510.YVarTable, true) ~= nil then
+    Yloc = GetTable(A0_509, A1_510.YVarTable, true)[A1_510.YVar]
   else
-    Yloc = A1_504.Y
+    Yloc = A1_510.Y
   end
-  if A1_504.ZVar ~= nil and GetTable(A0_503, A1_504.ZVarTable, true) ~= nil then
-    Zloc = GetTable(A0_503, A1_504.ZVarTable, true)[A1_504.ZVar]
+  if A1_510.ZVar ~= nil and GetTable(A0_509, A1_510.ZVarTable, true) ~= nil then
+    Zloc = GetTable(A0_509, A1_510.ZVarTable, true)[A1_510.ZVar]
   else
-    Zloc = A1_504.Z
+    Zloc = A1_510.Z
   end
-  A1_504.OwnerVar, A0_503.position = A1_504.OwnerVar, Make3DPoint(Xloc, Yloc, Zloc)
-  A1_504.CastPositionName = "position"
-  BBTeleportToPosition(A0_503, A1_504)
+  A1_510.OwnerVar, A0_509.position = A1_510.OwnerVar, Make3DPoint(Xloc, Yloc, Zloc)
+  A1_510.CastPositionName = "position"
+  BBTeleportToPosition(A0_509, A1_510)
 end
 BBTeleportToPoint = L0_0
-function L0_0(A0_505, A1_506)
-  A1_506.TimeoutInFOW = 999999
-  A1_506.BindFlexToOwnerPAR = false
-  A1_506.Flags = 0
-  A1_506.FollowsGroundTilt = false
-  A1_506.FacesTarget = false
-  A1_506.HideFromSpectator = false
-  A1_506.SendIfOnScreenOrDiscard = false
-  A1_506.PersistsThroughReconnect = true
-  A1_506.FOWVisibilityRadius = 10
-  A1_506.Scale = 1
-  A1_506.BindObjectVar = A1_506.BindObject1Var
-  A1_506.EffectID2Var = A1_506.OtherTeamEffectIDVar
-  A1_506.TargetObjectVar = A1_506.BindObject2Var
-  A1_506.FOWTeamOverrideVar = A1_506.FOWTeamVar
-  A1_506.BoneName = A1_506.BindObject1BoneName
-  A1_506.TargetBoneName = A1_506.BindObject2BoneName
-  A1_506.EffectName = A1_506.EffectParticleFile
-  A1_506.EffectNameForOtherTeam = A1_506.OtherTeamParticleFile
-  BBSpellEffectCreate(A0_505, A1_506)
+function L0_0(A0_511, A1_512)
+  A1_512.TimeoutInFOW = 999999
+  A1_512.BindFlexToOwnerPAR = false
+  A1_512.Flags = 0
+  A1_512.FollowsGroundTilt = false
+  A1_512.FacesTarget = false
+  A1_512.HideFromSpectator = false
+  A1_512.SendIfOnScreenOrDiscard = false
+  A1_512.PersistsThroughReconnect = true
+  A1_512.FOWVisibilityRadius = 10
+  A1_512.Scale = 1
+  A1_512.BindObjectVar = A1_512.BindObject1Var
+  A1_512.EffectID2Var = A1_512.OtherTeamEffectIDVar
+  A1_512.TargetObjectVar = A1_512.BindObject2Var
+  A1_512.FOWTeamOverrideVar = A1_512.FOWTeamVar
+  A1_512.BoneName = A1_512.BindObject1BoneName
+  A1_512.TargetBoneName = A1_512.BindObject2BoneName
+  A1_512.EffectName = A1_512.EffectParticleFile
+  A1_512.EffectNameForOtherTeam = A1_512.OtherTeamParticleFile
+  BBSpellEffectCreate(A0_511, A1_512)
 end
 BBSpellEffectCreate_EasyBeam = L0_0
-function L0_0(A0_507, A1_508)
-  A1_508.TimeoutInFOW = 999999
-  A1_508.BindFlexToOwnerPAR = false
-  A1_508.Flags = 0
-  A1_508.FollowsGroundTilt = false
-  A1_508.FacesTarget = false
-  A1_508.HideFromSpectator = false
-  A1_508.SendIfOnScreenOrDiscard = true
-  A1_508.PersistsThroughReconnect = false
-  A1_508.FOWVisibilityRadius = 10
-  A1_508.Scale = 1
-  A1_508.FOWTeamOverrideVar = A1_508.FOWTeamVar
-  A1_508.EffectName = A1_508.ParticleFile
-  A1_508.EffectNameForOtherTeam = A1_508.ParticleFileForOtherTeam
-  A1_508.BoneName = A1_508.BindObjectBoneName
-  BBSpellEffectCreate(A0_507, A1_508)
+function L0_0(A0_513, A1_514)
+  A1_514.TimeoutInFOW = 999999
+  A1_514.BindFlexToOwnerPAR = false
+  A1_514.Flags = 0
+  A1_514.FollowsGroundTilt = false
+  A1_514.FacesTarget = false
+  A1_514.HideFromSpectator = false
+  A1_514.SendIfOnScreenOrDiscard = true
+  A1_514.PersistsThroughReconnect = false
+  A1_514.FOWVisibilityRadius = 10
+  A1_514.Scale = 1
+  A1_514.FOWTeamOverrideVar = A1_514.FOWTeamVar
+  A1_514.EffectName = A1_514.ParticleFile
+  A1_514.EffectNameForOtherTeam = A1_514.ParticleFileForOtherTeam
+  A1_514.BoneName = A1_514.BindObjectBoneName
+  BBSpellEffectCreate(A0_513, A1_514)
 end
 BBSpellEffectCreate_EasyHit = L0_0
-function L0_0(A0_509, A1_510)
-  ReincarnateNonDeadHero(GetTable(A0_509, A1_510.TargetTable, false)[A1_510.TargetVar])
+function L0_0(A0_515, A1_516)
+  ReincarnateNonDeadHero(GetTable(A0_515, A1_516.TargetTable, false)[A1_516.TargetVar])
 end
 BBReincarnateHero = L0_0
-function L0_0(A0_511, A1_512)
-  GetTable(A0_511, A1_512.DestVarTable, true)[A1_512.DestVar] = A1_512.Function(A0_511[A1_512.OwnerVar], A1_512.PARType)
+function L0_0(A0_517, A1_518)
+  GetTable(A0_517, A1_518.DestVarTable, true)[A1_518.DestVar] = A1_518.Function(A0_517[A1_518.OwnerVar], A1_518.PARType)
 end
 BBGetPAROrHealth = L0_0
-function L0_0(A0_513, A1_514)
-  local L2_515, L3_516, L4_517, L5_518
-  L2_515 = A1_514.WhomToOrderVar
-  L2_515 = A0_513[L2_515]
-  L3_516 = A1_514.TargetOfOrderVar
-  L3_516 = A0_513[L3_516]
-  L4_517 = GetTable
-  L5_518 = A0_513
-  L4_517 = L4_517(L5_518, A1_514.SrcVarTable, false)
-  L5_518 = nil
-  if A1_514.SrcVar ~= nil and L4_517 ~= nil then
-    L5_518 = L4_517[A1_514.SrcVar]
+function L0_0(A0_519, A1_520)
+  local L2_521, L3_522, L4_523, L5_524
+  L2_521 = A1_520.WhomToOrderVar
+  L2_521 = A0_519[L2_521]
+  L3_522 = A1_520.TargetOfOrderVar
+  L3_522 = A0_519[L3_522]
+  L4_523 = GetTable
+  L5_524 = A0_519
+  L4_523 = L4_523(L5_524, A1_520.SrcVarTable, false)
+  L5_524 = nil
+  if A1_520.SrcVar ~= nil and L4_523 ~= nil then
+    L5_524 = L4_523[A1_520.SrcVar]
   else
-    L5_518 = GetPosition(L3_516)
+    L5_524 = GetPosition(L3_522)
   end
-  if L3_516 == nil then
-    L3_516 = L2_515
+  if L3_522 == nil then
+    L3_522 = L2_521
   end
-  IssueOrder(L2_515, A1_514.Order, L5_518, L3_516)
+  IssueOrder(L2_521, A1_520.Order, L5_524, L3_522)
 end
 BBIssueOrder = L0_0
-function L0_0(A0_519, A1_520)
-  local L2_521
-  L2_521 = GetParam
-  L2_521 = L2_521("NewRange", A0_519, A1_520)
-  SetSpellCastRange(L2_521)
+function L0_0(A0_525, A1_526)
+  local L2_527
+  L2_527 = GetParam
+  L2_527 = L2_527("NewRange", A0_525, A1_526)
+  SetSpellCastRange(L2_527)
 end
 BBSetSpellCastRange = L0_0
-function L0_0(A0_522, A1_523)
-  GetTable(A0_522, A1_523.DestVarTable, true)[A1_523.DestVar] = GetTime()
+function L0_0(A0_528, A1_529)
+  GetTable(A0_528, A1_529.DestVarTable, true)[A1_529.DestVar] = GetTime()
 end
 BBGetTime = L0_0
-function L0_0(A0_524, A1_525)
-  local L2_526, L3_527
-  L2_526 = A1_525.ObjectVar1
-  L2_526 = A0_524[L2_526]
-  L3_527 = A1_525.ObjectVar2
-  L3_527 = A0_524[L3_527]
-  GetTable(A0_524, A1_525.DestVarTable, true)[A1_525.DestVar] = DistanceBetweenObjectBounds(L2_526, L3_527)
+function L0_0(A0_530, A1_531)
+  local L2_532, L3_533
+  L2_532 = A1_531.ObjectVar1
+  L2_532 = A0_530[L2_532]
+  L3_533 = A1_531.ObjectVar2
+  L3_533 = A0_530[L3_533]
+  GetTable(A0_530, A1_531.DestVarTable, true)[A1_531.DestVar] = DistanceBetweenObjectBounds(L2_532, L3_533)
 end
 BBDistanceBetweenObjects = L0_0
-function L0_0(A0_528, A1_529)
-  local L2_530, L3_531, L4_532
-  L2_530 = A1_529.ObjectVar
-  L2_530 = A0_528[L2_530]
-  L3_531 = GetTable
-  L4_532 = A0_528
-  L3_531 = L3_531(L4_532, A1_529.PointVarTable, true)
-  L4_532 = A1_529.PointVar
-  L4_532 = L3_531[L4_532]
-  GetTable(A0_528, A1_529.DestVarTable, true)[A1_529.DestVar] = DistanceBetweenObjectCenterAndPoint(L2_530, L4_532)
+function L0_0(A0_534, A1_535)
+  local L2_536, L3_537, L4_538
+  L2_536 = A1_535.ObjectVar
+  L2_536 = A0_534[L2_536]
+  L3_537 = GetTable
+  L4_538 = A0_534
+  L3_537 = L3_537(L4_538, A1_535.PointVarTable, true)
+  L4_538 = A1_535.PointVar
+  L4_538 = L3_537[L4_538]
+  GetTable(A0_534, A1_535.DestVarTable, true)[A1_535.DestVar] = DistanceBetweenObjectCenterAndPoint(L2_536, L4_538)
 end
 BBDistanceBetweenObjectAndPoint = L0_0
-function L0_0(A0_533, A1_534)
-  local L2_535, L3_536
-  L2_535 = GetParam
-  L3_536 = "Point1"
-  L2_535 = L2_535(L3_536, A0_533, A1_534)
-  L3_536 = GetParam
-  L3_536 = L3_536("Point2", A0_533, A1_534)
-  GetTable(A0_533, A1_534.DestVarTable, true)[A1_534.DestVar] = DistanceBetweenPoints(L2_535, L3_536)
+function L0_0(A0_539, A1_540)
+  local L2_541, L3_542
+  L2_541 = GetParam
+  L3_542 = "Point1"
+  L2_541 = L2_541(L3_542, A0_539, A1_540)
+  L3_542 = GetParam
+  L3_542 = L3_542("Point2", A0_539, A1_540)
+  GetTable(A0_539, A1_540.DestVarTable, true)[A1_540.DestVar] = DistanceBetweenPoints(L2_541, L3_542)
 end
 BBDistanceBetweenPoints = L0_0
 L0_0 = 1
 OBJECT_CENTER = L0_0
 L0_0 = 2
 OBJECT_BOUNDARY = L0_0
-function L0_0(A0_537, A1_538, A2_539)
-  local L3_540, L4_541, L5_542, L6_543, L7_544, L8_545
-  L5_542 = 0
-  L6_543 = nil
-  L7_544 = A1_538.ObjectDistanceType
-  L8_545 = A1_538.ObjectVar1
-  L3_540 = A0_537[L8_545]
-  L8_545 = A1_538.ObjectVar2
-  L4_541 = A0_537[L8_545]
-  if nil == L4_541 then
-    L8_545 = A1_538.Point2Var
-    if nil ~= L8_545 then
-      L8_545 = GetTable
-      L8_545 = L8_545(A0_537, A1_538.Point2VarTable, true)
-      L4_541 = L8_545[A1_538.Point2Var]
-      L5_542 = L5_542 + 1
+function L0_0(A0_543, A1_544, A2_545)
+  local L3_546, L4_547, L5_548, L6_549, L7_550, L8_551
+  L5_548 = 0
+  L6_549 = nil
+  L7_550 = A1_544.ObjectDistanceType
+  L8_551 = A1_544.ObjectVar1
+  L3_546 = A0_543[L8_551]
+  L8_551 = A1_544.ObjectVar2
+  L4_547 = A0_543[L8_551]
+  if nil == L4_547 then
+    L8_551 = A1_544.Point2Var
+    if nil ~= L8_551 then
+      L8_551 = GetTable
+      L8_551 = L8_551(A0_543, A1_544.Point2VarTable, true)
+      L4_547 = L8_551[A1_544.Point2Var]
+      L5_548 = L5_548 + 1
     end
   end
-  if nil == L3_540 then
-    L8_545 = A1_538.Point1Var
-    if nil ~= L8_545 then
-      L8_545 = GetTable
-      L8_545 = L8_545(A0_537, A1_538.Point1VarTable, true)
-      L3_540 = L8_545[A1_538.Point1Var]
-      L5_542 = L5_542 + 1
-      if 1 == L5_542 then
-        L3_540, L4_541 = L4_541, L3_540
+  if nil == L3_546 then
+    L8_551 = A1_544.Point1Var
+    if nil ~= L8_551 then
+      L8_551 = GetTable
+      L8_551 = L8_551(A0_543, A1_544.Point1VarTable, true)
+      L3_546 = L8_551[A1_544.Point1Var]
+      L5_548 = L5_548 + 1
+      if 1 == L5_548 then
+        L3_546, L4_547 = L4_547, L3_546
       end
     end
   end
-  if nil ~= L7_544 then
-    if 0 == L5_542 then
-      L8_545 = OBJECT_CENTER
-      if L8_545 == L7_544 then
-        L6_543 = IfDistanceBetweenObjectCentersLessThan
+  if nil ~= L7_550 then
+    if 0 == L5_548 then
+      L8_551 = OBJECT_CENTER
+      if L8_551 == L7_550 then
+        L6_549 = IfDistanceBetweenObjectCentersLessThan
       else
-        L8_545 = OBJECT_BOUNDARY
-        if L8_545 == L7_544 then
-          L6_543 = IfDistanceBetweenObjectBoundsLessThan
+        L8_551 = OBJECT_BOUNDARY
+        if L8_551 == L7_550 then
+          L6_549 = IfDistanceBetweenObjectBoundsLessThan
         else
-          L8_545 = A1_538.OwnerVar
-          L8_545 = A0_537[L8_545]
-          Say(L8_545, "invalid object distance type", 0)
+          L8_551 = A1_544.OwnerVar
+          L8_551 = A0_543[L8_551]
+          Say(L8_551, "invalid object distance type", 0)
         end
       end
-    elseif 1 == L5_542 then
-      L8_545 = OBJECT_CENTER
-      if L8_545 == L7_544 then
-        L6_543 = IfDistanceBetweenObjectCenterAndPointLessThan
+    elseif 1 == L5_548 then
+      L8_551 = OBJECT_CENTER
+      if L8_551 == L7_550 then
+        L6_549 = IfDistanceBetweenObjectCenterAndPointLessThan
       else
-        L8_545 = OBJECT_BOUNDARY
-        if L8_545 == L7_544 then
-          L6_543 = IfDistanceBetweenObjectBoundAndPointLessThan
+        L8_551 = OBJECT_BOUNDARY
+        if L8_551 == L7_550 then
+          L6_549 = IfDistanceBetweenObjectBoundAndPointLessThan
         else
-          L8_545 = A1_538.OwnerVar
-          L8_545 = A0_537[L8_545]
-          Say(L8_545, "invalid object distance type", 0)
+          L8_551 = A1_544.OwnerVar
+          L8_551 = A0_543[L8_551]
+          Say(L8_551, "invalid object distance type", 0)
         end
       end
     else
-      L6_543 = IfDistanceBetweenPointsLessThan
+      L6_549 = IfDistanceBetweenPointsLessThan
     end
   end
-  L8_545 = A1_538.Distance
-  if A1_538.DistanceVar ~= nil and GetTable(A0_537, A1_538.DistanceVarTable, true) ~= nil then
-    L8_545 = L8_545 + GetTable(A0_537, A1_538.DistanceVarTable, true)[A1_538.DistanceVar]
+  L8_551 = A1_544.Distance
+  if A1_544.DistanceVar ~= nil and GetTable(A0_543, A1_544.DistanceVarTable, true) ~= nil then
+    L8_551 = L8_551 + GetTable(A0_543, A1_544.DistanceVarTable, true)[A1_544.DistanceVar]
   end
-  if L3_540 ~= nil and L4_541 ~= nil and L6_543 ~= nil and L8_545 ~= nil then
-    if not L6_543(L3_540, L4_541, L8_545) then
-      ExecuteBuildingBlocks(A2_539, A0_537)
-      A0_537.LastIfSucceeded = true
+  if L3_546 ~= nil and L4_547 ~= nil and L6_549 ~= nil and L8_551 ~= nil then
+    if not L6_549(L3_546, L4_547, L8_551) then
+      ExecuteBuildingBlocks(A2_545, A0_543)
+      A0_543.LastIfSucceeded = true
     else
-      A0_537.LastIfSucceeded = false
+      A0_543.LastIfSucceeded = false
     end
   else
-    A0_537.LastIfSucceeded = false
+    A0_543.LastIfSucceeded = false
   end
 end
 BBIfDistanceBetween = L0_0
-function L0_0(A0_546, A1_547)
-  local L2_548, L3_549
-  L2_548 = A1_547.TargetVar
-  L2_548 = A0_546[L2_548]
-  L3_549 = A1_547.CasterVar
-  L3_549 = A0_546[L3_549]
-  GetTable(A0_546, A1_547.DestVarTable, true)[A1_547.DestVar] = SpellBuffCount(L2_548, A1_547.BuffName, L3_549)
+function L0_0(A0_552, A1_553)
+  local L2_554, L3_555
+  L2_554 = A1_553.TargetVar
+  L2_554 = A0_552[L2_554]
+  L3_555 = A1_553.CasterVar
+  L3_555 = A0_552[L3_555]
+  GetTable(A0_552, A1_553.DestVarTable, true)[A1_553.DestVar] = SpellBuffCount(L2_554, A1_553.BuffName, L3_555)
 end
 BBGetBuffCountFromCaster = L0_0
-function L0_0(A0_550, A1_551)
-  local L2_552
-  L2_552 = A1_551.TargetVar
-  L2_552 = A0_550[L2_552]
-  GetTable(A0_550, A1_551.DestVarTable, true)[A1_551.DestVar] = SpellBuffCount(L2_552, A1_551.BuffName, caster)
+function L0_0(A0_556, A1_557)
+  local L2_558
+  L2_558 = A1_557.TargetVar
+  L2_558 = A0_556[L2_558]
+  GetTable(A0_556, A1_557.DestVarTable, true)[A1_557.DestVar] = SpellBuffCount(L2_558, A1_557.BuffName, caster)
 end
 BBGetBuffCountFromAll = L0_0
-function L0_0(A0_553, A1_554)
-  local L2_555, L3_556
-  L2_555 = GetTable
-  L3_556 = A0_553
-  L2_555 = L2_555(L3_556, A1_554.ScaleVarTable, false)
-  L3_556 = nil
-  if A1_554.OwnerVar ~= nil then
-    L3_556 = A0_553[A1_554.OwnerVar]
+function L0_0(A0_559, A1_560)
+  local L2_561, L3_562
+  L2_561 = GetTable
+  L3_562 = A0_559
+  L2_561 = L2_561(L3_562, A1_560.ScaleVarTable, false)
+  L3_562 = nil
+  if A1_560.OwnerVar ~= nil then
+    L3_562 = A0_559[A1_560.OwnerVar]
   else
-    L3_556 = A0_553.Owner
+    L3_562 = A0_559.Owner
   end
-  if A1_554.ScaleVar ~= nil and A1_554.ScaleVarTable ~= nil then
-    SetScaleSkinCoef(L2_555[A1_554.ScaleVar], L3_556)
+  if A1_560.ScaleVar ~= nil and A1_560.ScaleVarTable ~= nil then
+    SetScaleSkinCoef(L2_561[A1_560.ScaleVar], L3_562)
   else
-    SetScaleSkinCoef(A1_554.Scale, L3_556)
+    SetScaleSkinCoef(A1_560.Scale, L3_562)
   end
 end
 BBSetScaleSkinCoef = L0_0
-function L0_0(A0_557, A1_558)
-  SpellBuffAdd(A0_557[A1_558.TargetVar], A0_557[A1_558.TargetVar], "SpellShieldMarker", 0, 1, 37037, A0_557.NextBuffVars)
+function L0_0(A0_563, A1_564)
+  SpellBuffAdd(A0_563[A1_564.TargetVar], A0_563[A1_564.TargetVar], "SpellShieldMarker", 0, 1, 37037, A0_563.NextBuffVars)
 end
 BBBreakSpellShields = L0_0
-function L0_0(A0_559, A1_560, A2_561)
-  local L3_562, L4_563
-  L3_562 = A1_560.TargetVar
-  L3_562 = A0_559[L3_562]
-  L4_563 = A1_560.NumStacks
-  if GetParam("NumStacks", A0_559, A1_560) == 0 then
-    L4_563 = SpellBuffCount(L3_562, A1_560.BuffName, caster)
+function L0_0(A0_565, A1_566, A2_567)
+  local L3_568, L4_569
+  L3_568 = A1_566.TargetVar
+  L3_568 = A0_565[L3_568]
+  L4_569 = A1_566.NumStacks
+  if GetParam("NumStacks", A0_565, A1_566) == 0 then
+    L4_569 = SpellBuffCount(L3_568, A1_566.BuffName, caster)
   else
-    L4_563 = GetParam("NumStacks", A0_559, A1_560)
+    L4_569 = GetParam("NumStacks", A0_565, A1_566)
   end
-  while L4_563 > 0 do
-    SpellBuffRemove(L3_562, A1_560.BuffName, A0_559[A1_560.AttackerVar])
-    L4_563 = L4_563 - 1
+  while L4_569 > 0 do
+    SpellBuffRemove(L3_568, A1_566.BuffName, A0_565[A1_566.AttackerVar])
+    L4_569 = L4_569 - 1
   end
 end
 BBSpellBuffRemoveStacks = L0_0
-function L0_0(A0_564, A1_565)
-  local L2_566, L3_567
-  L2_566 = GetParam
-  L3_567 = "Unit"
-  L2_566 = L2_566(L3_567, A0_564, A1_565)
-  unit = L2_566
-  L2_566 = unit
-  if L2_566 == nil then
-    L2_566 = ReportError
-    L3_567 = "Could not resolve Unit param"
-    L2_566(L3_567)
+function L0_0(A0_570, A1_571)
+  local L2_572, L3_573
+  L2_572 = GetParam
+  L3_573 = "Unit"
+  L2_572 = L2_572(L3_573, A0_570, A1_571)
+  unit = L2_572
+  L2_572 = unit
+  if L2_572 == nil then
+    L2_572 = ReportError
+    L3_573 = "Could not resolve Unit param"
+    L2_572(L3_573)
     return
   end
-  L2_566 = true
-  L3_567 = GetParam
-  L3_567 = L3_567("ChampionToShowTo", A0_564, A1_565)
-  if L3_567 == nil then
-    L2_566 = false
-    L3_567 = GetParam("ChampionToShowToByFlag", A0_564, A1_565)
+  L2_572 = true
+  L3_573 = GetParam
+  L3_573 = L3_573("ChampionToShowTo", A0_570, A1_571)
+  if L3_573 == nil then
+    L2_572 = false
+    L3_573 = GetParam("ChampionToShowToByFlag", A0_570, A1_571)
   end
-  if L3_567 == nil then
+  if L3_573 == nil then
     ReportError("Could not resolve ChampionToShowTo param")
     return
   end
-  SetShowHealthBarToChampion(unit, A1_565.Show, L3_567, L2_566, A1_565.ApplyToSpectator)
+  SetShowHealthBarToChampion(unit, A1_571.Show, L3_573, L2_572, A1_571.ApplyToSpectator)
 end
 BBSetShowHealthBarToChampion = L0_0
-function L0_0(A0_568, A1_569)
-  if GetParam("Vector", A0_568, A1_569) ~= nil then
-    GetTable(A0_568, A1_569.DestVarTable, false)[A1_569.DestVar] = math.sqrt(GetParam("Vector", A0_568, A1_569).x * GetParam("Vector", A0_568, A1_569).x + GetParam("Vector", A0_568, A1_569).y * GetParam("Vector", A0_568, A1_569).y + GetParam("Vector", A0_568, A1_569).z * GetParam("Vector", A0_568, A1_569).z)
+function L0_0(A0_574, A1_575)
+  if GetParam("Vector", A0_574, A1_575) ~= nil then
+    GetTable(A0_574, A1_575.DestVarTable, false)[A1_575.DestVar] = math.sqrt(GetParam("Vector", A0_574, A1_575).x * GetParam("Vector", A0_574, A1_575).x + GetParam("Vector", A0_574, A1_575).y * GetParam("Vector", A0_574, A1_575).y + GetParam("Vector", A0_574, A1_575).z * GetParam("Vector", A0_574, A1_575).z)
   end
 end
 BBGetVectorLength = L0_0
-function L0_0(A0_570, A1_571, A2_572)
-  if A0_570.EmoteId == A1_571.EmoteId then
-    ExecuteBuildingBlocks(A2_572, A0_570)
-    A0_570.LastIfSucceeded = true
+function L0_0(A0_576, A1_577, A2_578)
+  if A0_576.EmoteId == A1_577.EmoteId then
+    ExecuteBuildingBlocks(A2_578, A0_576)
+    A0_576.LastIfSucceeded = true
   else
-    A0_570.LastIfSucceeded = false
+    A0_576.LastIfSucceeded = false
   end
 end
 BBIfEmoteIs = L0_0
-function L0_0(A0_573, A1_574, A2_575)
-  if A0_573.EmoteId ~= A1_574.EmoteId then
-    ExecuteBuildingBlocks(A2_575, A0_573)
-    A0_573.LastIfSucceeded = true
+function L0_0(A0_579, A1_580, A2_581)
+  if A0_579.EmoteId ~= A1_580.EmoteId then
+    ExecuteBuildingBlocks(A2_581, A0_579)
+    A0_579.LastIfSucceeded = true
   else
-    A0_573.LastIfSucceeded = false
+    A0_579.LastIfSucceeded = false
   end
 end
 BBIfEmoteIsNot = L0_0
-function L0_0(A0_576, A1_577)
-  local L2_578, L3_579, L4_580, L5_581
-  L2_578 = GetTable
-  L3_579 = A0_576
-  L4_580 = A1_577.String1VarTable
-  L5_581 = false
-  L2_578 = L2_578(L3_579, L4_580, L5_581)
-  L3_579 = A1_577.String1Var
-  L3_579 = L2_578[L3_579]
-  L4_580 = GetTable
-  L5_581 = A0_576
-  L4_580 = L4_580(L5_581, A1_577.String2VarTable, false)
-  L5_581 = A1_577.String2Var
-  L5_581 = L4_580[L5_581]
-  GetTable(A0_576, A1_577.ResultVarTable, false)[A1_577.ResultVar] = L3_579 .. L5_581
-end
-BBConcatenateStrings = L0_0
 function L0_0(A0_582, A1_583)
-  local L2_584, L3_585
+  local L2_584, L3_585, L4_586, L5_587
   L2_584 = GetTable
   L3_585 = A0_582
-  L2_584 = L2_584(L3_585, A1_583.VariableVarTable, false)
-  L3_585 = A1_583.VariableVar
+  L4_586 = A1_583.String1VarTable
+  L5_587 = false
+  L2_584 = L2_584(L3_585, L4_586, L5_587)
+  L3_585 = A1_583.String1Var
   L3_585 = L2_584[L3_585]
-  GetTable(A0_582, A1_583.ResultVarTable, false)[A1_583.ResultVar] = "(" .. L3_585 .. ")"
+  L4_586 = GetTable
+  L5_587 = A0_582
+  L4_586 = L4_586(L5_587, A1_583.String2VarTable, false)
+  L5_587 = A1_583.String2Var
+  L5_587 = L4_586[L5_587]
+  GetTable(A0_582, A1_583.ResultVarTable, false)[A1_583.ResultVar] = L3_585 .. L5_587
+end
+BBConcatenateStrings = L0_0
+function L0_0(A0_588, A1_589)
+  local L2_590, L3_591
+  L2_590 = GetTable
+  L3_591 = A0_588
+  L2_590 = L2_590(L3_591, A1_589.VariableVarTable, false)
+  L3_591 = A1_589.VariableVar
+  L3_591 = L2_590[L3_591]
+  GetTable(A0_588, A1_589.ResultVarTable, false)[A1_589.ResultVar] = "(" .. L3_591 .. ")"
 end
 BBEncaseInParantheses = L0_0
-function L0_0(A0_586, A1_587)
-  BBGetMinionKills(A0_586, A1_587)
-  A0_586.MinionKillSource = GetParam("MinionKillTarget")
-  A0_586.MinionKills = A0_586.MinionsKilled + GetParam("MinionKills", A0_586, A1_587)
-  BBSetMinionKills(A0_586, A1_587)
+function L0_0(A0_592, A1_593)
+  BBGetMinionKills(A0_592, A1_593)
+  A0_592.MinionKillSource = GetParam("MinionKillTarget")
+  A0_592.MinionKills = A0_592.MinionsKilled + GetParam("MinionKills", A0_592, A1_593)
+  BBSetMinionKills(A0_592, A1_593)
 end
 BBIncreaseMinionKills = L0_0
