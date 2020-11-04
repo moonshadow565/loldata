@@ -47,25 +47,63 @@ BuffOnHitUnitBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBIfHasBuff,
                 Params = {
-                  Src1Var = "BaseDamage",
-                  Src1VarTable = "InstanceVars",
-                  Src1Value = 0,
-                  Src2Value = 1.5,
-                  DestVar = "PercentBase",
-                  MathOp = MO_MULTIPLY
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrTigerStance"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "BaseDamage",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 4.5,
+                      DestVar = "PercentBase",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src2Var = "PercentBase",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
+                    }
+                  }
                 }
               },
               {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "DamageAmount",
-                  Src2Var = "PercentBase",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "DamageAmount",
-                  MathOp = MO_ADD
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "BaseDamage",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 1.5,
+                      DestVar = "PercentBase",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src2Var = "PercentBase",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
+                    }
+                  }
                 }
               },
               {
@@ -115,25 +153,63 @@ BuffOnHitUnitBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBIfHasBuff,
                 Params = {
-                  Src1Var = "BaseDamage",
-                  Src1VarTable = "InstanceVars",
-                  Src1Value = 0,
-                  Src2Value = 1,
-                  DestVar = "PercentBase",
-                  MathOp = MO_MULTIPLY
+                  OwnerVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "UdyrTigerStance"
+                },
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "BaseDamage",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 3,
+                      DestVar = "PercentBase",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src2Var = "PercentBase",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
+                    }
+                  }
                 }
               },
               {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "DamageAmount",
-                  Src2Var = "PercentBase",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "DamageAmount",
-                  MathOp = MO_ADD
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "BaseDamage",
+                      Src1VarTable = "InstanceVars",
+                      Src1Value = 0,
+                      Src2Value = 1,
+                      DestVar = "PercentBase",
+                      MathOp = MO_MULTIPLY
+                    }
+                  },
+                  {
+                    Function = BBMath,
+                    Params = {
+                      Src1Var = "DamageAmount",
+                      Src2Var = "PercentBase",
+                      Src1Value = 0,
+                      Src2Value = 0,
+                      DestVar = "DamageAmount",
+                      MathOp = MO_ADD
+                    }
+                  }
                 }
               },
               {
@@ -208,6 +284,12 @@ CharOnLaunchAttackBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "udyrtigerstance"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "sheendelay"}

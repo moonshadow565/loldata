@@ -95,6 +95,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 4000,
       DamageType = TRUE_DAMAGE,
@@ -183,7 +184,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               FOWTeam = TEAM_UNKNOWN,
               FOWTeamOverrideVar = "TeamID",
               FOWVisibilityRadius = 10,
-              SendIfOnScreenOrDiscard = false
+              SendIfOnScreenOrDiscard = true
             }
           },
           {

@@ -69,12 +69,14 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "MordekaiserCreepingDeathCheck",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 30,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -91,10 +93,10 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DamagePerTick",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            20,
-            35,
-            50,
-            65,
+            24,
+            38,
+            52,
+            66,
             80
           }
         }
@@ -120,12 +122,14 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "MordekaiserCreepingDeath",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 6,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -139,6 +143,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           CasterVar = "Owner",
           TargetVar = "Target",
+          OverrideCastPosition = false,
           SlotNumber = 1,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
@@ -146,7 +151,8 @@ TargetExecuteBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = true
+          ForceCastingOrChannelling = true,
+          UpdateAutoAttackTimer = false
         }
       }
     }

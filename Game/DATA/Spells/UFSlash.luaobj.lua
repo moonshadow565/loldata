@@ -2,6 +2,9 @@ NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
+SpellFXOverrideSkins = {
+  "ReefMalphite"
+}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetTeamID,
@@ -25,13 +28,6 @@ OnBuffActivateBuildingBlocks = {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "Damage",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -145,10 +141,6 @@ SelfExecuteBuildingBlocks = {
     Params = {DestVar = "TargetPos"}
   },
   {
-    Function = BBGetUnitPosition,
-    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "TargetPos",
@@ -171,12 +163,8 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WillRemove",
-      DestVarTable = "NextBuffVars",
-      SrcValue = false
-    }
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
   },
   {
     Function = BBGetStat,
@@ -272,6 +260,20 @@ SelfExecuteBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "UnstoppableForceMarker"
+    }
+  },
+  {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
@@ -345,17 +347,13 @@ BuffOnMoveEndBuildingBlocks = {
           BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberOfStacks = 1,
-          Duration = 1,
+          Duration = 1.5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
         }
       }
     }
-  },
-  {
-    Function = BBSpellBuffRemoveCurrent,
-    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {

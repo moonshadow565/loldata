@@ -3,7 +3,7 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-ChannelDuration = 6
+ChannelDuration = 5
 BuffTextureName = "Fiddlesticks_ConjureScarecrow.dds"
 BuffName = "Drain"
 AutoBuffActivateEffect = ""
@@ -17,14 +17,6 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "AbilityPower",
-      DestVarTable = "CharVars",
-      SrcVar = "AbilityPower"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -34,7 +26,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 6,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -51,7 +43,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_Heal,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 6,
+      Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
@@ -121,11 +113,11 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        25,
-        37.5,
-        50,
-        65,
-        80
+        30,
+        45,
+        60,
+        75,
+        90
       }
     }
   },
@@ -133,9 +125,8 @@ ChannelingStartBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src1Var = "AbilityPower",
-      Src1VarTable = "CharVars",
       Src1Value = 0,
-      Src2Value = 0.2,
+      Src2Value = 0.24,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -155,7 +146,7 @@ ChannelingStartBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Owner",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "DamageToDeal",
@@ -173,7 +164,7 @@ ChannelingUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.47,
+      TimeBetweenExecutions = 0.5,
       TrackTimeVar = "DrainExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = false
@@ -274,15 +265,23 @@ ChannelingUpdateActionsBuildingBlocks = {
                 }
               },
               {
+                Function = BBGetStat,
+                Params = {
+                  Stat = GetFlatMagicDamageMod,
+                  TargetVar = "Owner",
+                  DestVar = "AbilityPower"
+                }
+              },
+              {
                 Function = BBSetVarInTable,
                 Params = {
                   DestVar = "BaseDamage",
                   SrcValueByLevel = {
-                    25,
-                    37.5,
-                    50,
-                    65,
-                    80
+                    30,
+                    45,
+                    60,
+                    75,
+                    90
                   }
                 }
               },
@@ -290,9 +289,8 @@ ChannelingUpdateActionsBuildingBlocks = {
                 Function = BBMath,
                 Params = {
                   Src1Var = "AbilityPower",
-                  Src1VarTable = "CharVars",
                   Src1Value = 0,
-                  Src2Value = 0.2,
+                  Src2Value = 0.24,
                   DestVar = "BonusDamage",
                   MathOp = MO_MULTIPLY
                 }

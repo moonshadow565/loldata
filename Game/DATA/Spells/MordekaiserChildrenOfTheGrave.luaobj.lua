@@ -39,7 +39,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -139,17 +139,6 @@ BuffOnDeathBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "LifestealPercent",
-      SrcValueByLevel = {
-        0.03,
-        0.035,
-        0.04
-      }
-    }
-  },
-  {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
@@ -158,24 +147,75 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBSetVarInTable,
     Params = {
-      Src1Var = "MordAP",
-      Src1Value = 0,
-      Src2Value = 50000,
-      DestVar = "MordAP",
-      MathOp = MO_DIVIDE
+      DestVar = "DamageToDeal",
+      SrcValueByLevel = {
+        0.24,
+        0.29,
+        0.34
+      }
+    }
+  },
+  {
+    Function = BBGetPAROrHealth,
+    Params = {
+      DestVar = "MaxHealth",
+      OwnerVar = "Target",
+      Function = GetMaxHealth,
+      PARType = PAR_MANA
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "LifestealPercent",
-      Src2Var = "MordAP",
+      Src1Var = "MordAP",
+      Src1Value = 0,
+      Src2Value = 4.0E-4,
+      DestVar = "MordAP1",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageToDeal",
+      Src2Var = "MordAP1",
       Src1Value = 0,
       Src2Value = 0,
-      DestVar = "LifestealPercent",
+      DestVar = "DamageToDeal",
       MathOp = MO_ADD
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageToDeal",
+      Src1Value = 0,
+      Src2Value = 0.5,
+      DestVar = "DamageToDeal",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "MaxHealth",
+      Src2Var = "DamageToDeal",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "initialDamageToDeal",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageToDeal",
+      Src1Value = 0,
+      Src2Value = 0.1,
+      DestVar = "tickDamage",
+      MathOp = MO_MULTIPLY
     }
   },
   {
@@ -183,7 +223,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "LifestealPercent",
       DestVarTable = "NextBuffVars",
-      SrcVar = "LifestealPercent"
+      SrcVar = "tickDamage"
     }
   },
   {
@@ -193,10 +233,35 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Damage,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8,
+      Duration = 10.4,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "DamageToDeal",
+      DestVarTable = "NextBuffVars",
+      SrcVar = "initialDamageToDeal"
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Target",
+      BuffName = "MordekaiserCOTGDot",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

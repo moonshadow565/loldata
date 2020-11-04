@@ -219,7 +219,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "PetDamage",
-      Src1Value = 0.25,
+      Src1Value = 0.2,
       Src2Value = 0,
       DestVar = "PetDamage",
       MathOp = MO_MULTIPLY
@@ -237,7 +237,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "PetAP",
-      Src1Value = 0.25,
+      Src1Value = 0.2,
       Src2Value = 0,
       DestVar = "PetAP",
       MathOp = MO_MULTIPLY
@@ -299,7 +299,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
-      CallForHelpAttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Owner",
       TargetVar = "Owner",
       Damage = 10000,
       DamageType = TRUE_DAMAGE,
@@ -447,43 +447,100 @@ BuffOnUpdateActionsBuildingBlocks = {
 }
 BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageToDeal",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "DamageAmount"
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    SubBlocks = {
+      {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageToDeal",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "DamageAmount"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src2Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Caster",
+          AttackerVar = "Target",
+          BuffName = "MordekaiserCOTGPetDmg",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.001,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src1Var = "DamageAmount",
-      Src2Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "DamageAmount",
-      MathOp = MO_SUBTRACT
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Caster",
-      AttackerVar = "Target",
-      BuffName = "MordekaiserCOTGPetDmg",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Internal,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 0.001,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSetBuffCasterUnit,
+        Params = {CasterVar = "Caster"}
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Caster",
+          AttackerVar = "Caster",
+          BuffName = "MordekaiserCOTGPetDmg",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.001,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Caster",
+          CallForHelpAttackerVar = "Caster",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "DamageAmount",
+          DamageType = PHYSICAL_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_PROC,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 0,
+          IgnoreDamageIncreaseMods = true,
+          IgnoreDamageCrit = true
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
     }
   }
 }

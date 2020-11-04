@@ -60,6 +60,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       DamageByLevel = {
         350,
@@ -71,7 +72,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 0,
       PercentOfAttackVar = "percentOfAttack",
-      SpellDamageRatio = 0.8,
+      SpellDamageRatio = 0.9,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

@@ -2,29 +2,55 @@ PersistsThroughDeath = true
 NonDispellable = true
 BuffOnUpdateActionsBuildingBlocks = {
   {
-    Function = BBExecutePeriodically,
-    Params = {
-      TimeBetweenExecutions = 10,
-      TrackTimeVar = "LastTimeExecuted",
-      TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = false
-    },
+    Function = BBIf,
+    Params = {Src1Var = "Owner", CompareOp = CO_IS_NOT_DEAD},
     SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
+        Function = BBIfNotHasBuff,
         Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "MissileBarrage",
-          BuffAddType = BUFF_STACKS_AND_RENEWS,
-          StacksExclusive = true,
-          BuffType = BUFF_Aura,
-          MaxStack = 7,
-          NumberOfStacks = 1,
-          Duration = 25000,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
+          OwnerVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "CorkiMissileBarrageTimer"
+        },
+        SubBlocks = {
+          {
+            Function = BBGetBuffCountFromCaster,
+            Params = {
+              DestVar = "Count",
+              TargetVar = "Owner",
+              CasterVar = "Owner",
+              BuffName = "MissileBarrage"
+            }
+          },
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Count",
+              Value2 = 7,
+              CompareOp = CO_NOT_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellBuffAdd,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
+                  BuffName = "CorkiMissileBarrageTimer",
+                  BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
+                  BuffType = BUFF_Internal,
+                  MaxStack = 1,
+                  NumberOfStacks = 1,
+                  Duration = 0,
+                  BuffVarsTable = "NextBuffVars",
+                  DurationVar = "ChargeCooldown",
+                  DurationVarTable = "CharVars",
+                  TickRate = 0,
+                  CanMitigateDuration = false
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -59,6 +85,12 @@ BuffOnSpellCastBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "corkimissilebarragetimer"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {

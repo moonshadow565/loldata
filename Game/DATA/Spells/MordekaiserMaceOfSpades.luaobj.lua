@@ -10,19 +10,6 @@ AutoBuffActivateAttachBoneName2 = "BUFFBONE_WEAPON_1"
 AutoBuffActivateEffect3 = ""
 AutoBuffActivateAttachBoneName3 = ""
 AutoBuffActivateEffect4 = ""
-NonDispellable = true
-ChainMissileParameters = {
-  MaximumHits = {
-    4,
-    4,
-    4,
-    4,
-    4
-  },
-  CanHitCaster = 0,
-  CanHitSameTarget = 0,
-  CanHitSameTargetConsecutively = 0
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -131,247 +118,270 @@ BuffOnUpdateActionsBuildingBlocks = {
 BuffOnHitUnitBuildingBlocks = {
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
+    Params = {Src1Var = "Target", CompareOp = CO_IS_NOT_AI}
+  },
+  {
+    Function = BBElseIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+  },
+  {
+    Function = BBElse,
+    Params = {},
     SubBlocks = {
       {
-        Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET}
+        Function = BBGetTeamID,
+        Params = {TargetVar = "Owner", DestVar = "TeamID"}
       },
       {
-        Function = BBElse,
-        Params = {},
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "WillRemove",
+          DestVarTable = "InstanceVars",
+          SrcValue = true
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "MordekaiserSyphonParticle",
+          BuffAddType = BUFF_RENEW_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.2,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseDamage",
+          SrcValueByLevel = {
+            80,
+            110,
+            140,
+            170,
+            200
+          }
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "BaseDamage",
+          Src2Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "BaseDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "UnitCount", SrcValue = 0}
+      },
+      {
+        Function = BBForEachUnitInTargetArea,
+        Params = {
+          AttackerVar = "Owner",
+          CenterVar = "Target",
+          Range = 450,
+          Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
-            Function = BBGetTeamID,
-            Params = {TargetVar = "Owner", DestVar = "TeamID"}
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "WillRemove",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "MordekaiserSyphonParticle",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.2,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          },
-          {
-            Function = BBGetSlotSpellInfo,
-            Params = {
-              DestVar = "Level",
-              SpellSlotValue = 0,
-              SpellbookType = SPELLBOOK_CHAMPION,
-              SlotType = SpellSlots,
-              OwnerVar = "Owner",
-              Function = GetSlotSpellLevel
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "BonusDamage",
-              SrcValueByLevel = {
-                20,
-                40,
-                60,
-                80,
-                100
-              }
-            }
-          },
-          {
             Function = BBMath,
             Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "BonusDamage",
+              Src1Var = "UnitCount",
               Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "BaseDamage",
+              Src2Value = 1,
+              DestVar = "UnitCount",
               MathOp = MO_ADD
             }
-          },
+          }
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "UnitCount",
+          Value2 = 1,
+          CompareOp = CO_GREATER_THAN
+        },
+        SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBSpellEffectCreate,
             Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "DamageAmount",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_SUBTRACT
+              BindObjectVar = "Target",
+              EffectName = "mordakaiser_maceOfSpades_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
             }
           },
           {
-            Function = BBSetVarInTable,
-            Params = {DestVar = "UnitCount", SrcValue = 0}
-          },
-          {
-            Function = BBForEachUnitInTargetArea,
+            Function = BBForNClosestUnitsInTargetArea,
             Params = {
               AttackerVar = "Owner",
               CenterVar = "Target",
               Range = 450,
               Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
               IteratorVar = "Unit",
+              MaximumUnitsToPick = 4,
               InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
-                Function = BBMath,
+                Function = BBIf,
                 Params = {
-                  Src1Var = "UnitCount",
-                  Src1Value = 0,
-                  Src2Value = 1,
-                  DestVar = "UnitCount",
-                  MathOp = MO_ADD
-                }
-              }
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "UnitCount",
-              Value2 = 1,
-              CompareOp = CO_GREATER_THAN
-            },
-            SubBlocks = {
-              {
-                Function = BBForNClosestUnitsInTargetArea,
-                Params = {
-                  AttackerVar = "Owner",
-                  CenterVar = "Target",
-                  Range = 450,
-                  Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-                  IteratorVar = "Unit",
-                  MaximumUnitsToPick = 4,
-                  InclusiveBuffFilter = true
+                  Src1Var = "Unit",
+                  Src2Var = "Target",
+                  CompareOp = CO_NOT_EQUAL
                 },
                 SubBlocks = {
                   {
-                    Function = BBIf,
+                    Function = BBSpellCast,
                     Params = {
-                      Src1Var = "Unit",
-                      Src2Var = "Target",
-                      CompareOp = CO_NOT_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellCast,
-                        Params = {
-                          CasterVar = "Owner",
-                          TargetVar = "Unit",
-                          PosVar = "Target",
-                          EndPosVar = "Target",
-                          OverrideCastPosition = false,
-                          SlotNumber = 2,
-                          SlotType = ExtraSlots,
-                          OverrideForceLevel = 0,
-                          OverrideForceLevelVar = "Level",
-                          OverrideCoolDownCheck = true,
-                          FireWithoutCasting = true,
-                          UseAutoAttackSpell = false,
-                          ForceCastingOrChannelling = false,
-                          UpdateAutoAttackTimer = false
-                        }
-                      }
+                      CasterVar = "Owner",
+                      TargetVar = "Unit",
+                      PosVar = "Target",
+                      EndPosVar = "Target",
+                      OverrideCastPosition = false,
+                      SlotNumber = 2,
+                      SlotType = ExtraSlots,
+                      OverrideForceLevel = 0,
+                      OverrideForceLevelVar = "Level",
+                      OverrideCoolDownCheck = true,
+                      FireWithoutCasting = true,
+                      UseAutoAttackSpell = false,
+                      ForceCastingOrChannelling = false,
+                      UpdateAutoAttackTimer = false
                     }
                   }
                 }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Target",
-                  EffectName = "mordakaiser_maceOfSpades_tar.troy",
-                  Flags = 0,
-                  EffectIDVar = "a",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
-                }
               }
-            }
-          },
-          {
-            Function = BBElse,
-            Params = {},
-            SubBlocks = {
-              {
-                Function = BBMath,
-                Params = {
-                  Src1Var = "BonusDamage",
-                  Src2Var = "BaseDamage",
-                  Src1Value = 0,
-                  Src2Value = 0,
-                  DestVar = "BaseDamage",
-                  MathOp = MO_ADD
-                }
-              },
-              {
-                Function = BBSpellEffectCreate,
-                Params = {
-                  BindObjectVar = "Target",
-                  EffectName = "mordakaiser_maceOfSpades_tar.troy",
-                  Flags = 0,
-                  EffectIDVar = "b",
-                  TargetObjectVar = "Target",
-                  SpecificUnitOnlyVar = "Owner",
-                  SpecificTeamOnly = TEAM_UNKNOWN,
-                  UseSpecificUnit = false,
-                  FOWTeam = TEAM_UNKNOWN,
-                  FOWTeamOverrideVar = "TeamID",
-                  FOWVisibilityRadius = 10,
-                  SendIfOnScreenOrDiscard = true
-                }
-              }
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "BaseDamage",
-              DestVarTable = "NextBuffVars",
-              SrcVar = "BaseDamage"
-            }
-          },
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Target",
-              BuffName = "MordekaiserMaceOfSpadesDmg",
-              BuffAddType = BUFF_RENEW_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 0.001,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
             }
           }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "BaseDamage",
+              Src1Value = 0,
+              Src2Value = 1.75,
+              DestVar = "BaseDamage",
+              MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "mordakaiser_maceOfSpades_tar.troy",
+              Flags = 0,
+              EffectIDVar = "b",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src2Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageAmount",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "BaseDamage",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "BaseDamage"
+        }
+      },
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Target",
+          BuffName = "MordekaiserMaceOfSpadesDmg",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 0.001,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -383,11 +393,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "HealthCost",
       SrcValueByLevel = {
-        30,
-        35,
-        40,
-        45,
-        50
+        25,
+        32,
+        39,
+        46,
+        53
       }
     }
   },

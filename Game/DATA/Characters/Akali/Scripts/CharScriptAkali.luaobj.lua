@@ -38,6 +38,118 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
         }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 0,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSetVarInTable,
+            Params = {DestVar = "Level", SrcValue = 1}
+          }
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DanceTimerCooldown",
+          SrcValueByLevel = {
+            25,
+            20,
+            15
+          }
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetPercentCooldownMod,
+          TargetVar = "Owner",
+          DestVar = "CooldownMod"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CooldownMod",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "CooldownMod",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DanceTimerCooldown",
+          Src2Var = "CooldownMod",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DanceTimerCooldown",
+          DestVarTable = "CharVars",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "DanceTimerCooldown",
+          ValueVarTable = "CharVars",
+          Index = 1,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DanceTimerCooldown",
+          Src1Value = 0,
+          Src2Value = 5,
+          DestVar = "DanceTimerCooldownNL",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DanceTimerCooldownNL",
+          Src2Var = "CooldownMod",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DanceTimerCooldownNL",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "DanceTimerCooldownNL",
+          Index = 2,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
       }
     }
   }

@@ -250,105 +250,6 @@ TargetExecuteBuildingBlocks = {
       TickRate = 0.25,
       CanMitigateDuration = false
     }
-  },
-  {
-    Function = BBGetBuffCountFromAll,
-    Params = {
-      DestVar = "Count",
-      TargetVar = "Owner",
-      BuffName = "AkaliShadowDance"
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Count",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "AkaliShadowDanceCounter"
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "AkaliShadowDanceCounter2"
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter2",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      },
-      {
-        Function = BBIfHasBuff,
-        Params = {
-          OwnerVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "AkaliShadowDanceCounter3"
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellBuffAdd,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "AkaliShadowDanceCounter3",
-              BuffAddType = BUFF_REPLACE_EXISTING,
-              StacksExclusive = true,
-              BuffType = BUFF_Internal,
-              MaxStack = 1,
-              NumberOfStacks = 1,
-              Duration = 25000,
-              BuffVarsTable = "NextBuffVars",
-              TickRate = 0,
-              CanMitigateDuration = false
-            }
-          }
-        }
-      }
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -380,24 +281,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "akalishadowdancekick"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdancecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdancecounter2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "akalishadowdancecounter3"
     }
   }
 }
