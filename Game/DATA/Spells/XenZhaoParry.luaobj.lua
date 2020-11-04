@@ -3,11 +3,15 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "XenZhao_CrescentSweepNew.dds"
+BuffTextureName = "XinZhao_CrescentSweep.dds"
 BuffName = "XenZhaoParry"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
   {
     Function = BBGetSlotSpellInfo,
     Params = {
@@ -49,7 +53,8 @@ OnBuffActivateBuildingBlocks = {
       SpecificTeamOnly = TEAM_UNKNOWN,
       UseSpecificUnit = false,
       FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
+      FOWTeamOverrideVar = "TeamID",
+      FOWVisibilityRadius = 10,
       SendIfOnScreenOrDiscard = false
     }
   }
@@ -128,16 +133,24 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 450,
+      Range = 500,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },
     SubBlocks = {
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
+      },
       {
         Function = BBGetPAROrHealth,
         Params = {
@@ -181,8 +194,9 @@ SelfExecuteBuildingBlocks = {
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -191,14 +205,32 @@ SelfExecuteBuildingBlocks = {
           BindObjectVar = "Unit",
           EffectName = "xenZiou_utl_tar.troy",
           Flags = 0,
-          EffectIDVar = "bye",
+          EffectIDVar = "gda",
           TargetObjectVar = "Unit",
           SpecificUnitOnlyVar = "Owner",
           SpecificTeamOnly = TEAM_UNKNOWN,
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
-          FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Unit",
+          EffectName = "xenZiou_utl_tar_03.troy",
+          Flags = 0,
+          EffectIDVar = "asdf",
+          TargetObjectVar = "Unit",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
         }
       },
       {
@@ -304,22 +336,6 @@ SelfExecuteBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Unit",
-      EffectName = "xenZiou_utl_tar_03.troy",
-      Flags = 0,
-      EffectIDVar = "bye",
-      TargetObjectVar = "Unit",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -348,15 +364,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaosweeparmor"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_utl_tar_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "xenzhaosweeparmor"
     }
   }
 }

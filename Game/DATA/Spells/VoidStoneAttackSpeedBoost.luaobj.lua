@@ -53,26 +53,36 @@ BuffOnUpdateStatsBuildingBlocks = {
 }
 BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIf,
     Params = {
-      Src1Var = "DamageAmount",
-      Src1Value = 0,
-      Src2Value = 0.0015,
-      DestVar = "AttackSpeedIncrement",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AttackSpeedIncrement",
-      Src2Var = "AttackSpeedBoost",
-      Src2VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "AttackSpeedBoost",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_ADD
+      Src1Var = "DamageType",
+      Value2 = MAGIC_DAMAGE,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageAmount",
+          Src1Value = 0,
+          Src2Value = 0.0015,
+          DestVar = "AttackSpeedIncrement",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "AttackSpeedIncrement",
+          Src2Var = "AttackSpeedBoost",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "AttackSpeedBoost",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_ADD
+        }
+      }
     }
   }
 }

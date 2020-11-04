@@ -11,6 +11,13 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "DamageLvl",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "stunLength",
+      RequiredVarTable = "InstanceVars"
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -77,6 +84,20 @@ TargetExecuteBuildingBlocks = {
         100,
         125,
         150
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "stunLength",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        1,
+        1.25,
+        1.5,
+        1.75,
+        2
       }
     }
   },
@@ -300,6 +321,12 @@ TargetExecuteBuildingBlocks = {
 }
 BuffOnMoveEndBuildingBlocks = {
   {
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {
+  {
     Function = BBSetBuffCasterUnit,
     Params = {CasterVar = "Caster"}
   },
@@ -315,7 +342,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "DistanceTar",
-      Value2 = 250,
+      Value2 = 500,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     },
     SubBlocks = {
@@ -363,7 +390,9 @@ BuffOnMoveEndBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           TargetVar = "Caster",
-          Duration = 1.5
+          Duration = 0,
+          DurationVar = "stunLength",
+          DurationVarTable = "InstanceVars"
         }
       }
     }

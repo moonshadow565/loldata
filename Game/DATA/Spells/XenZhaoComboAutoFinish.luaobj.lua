@@ -1,4 +1,4 @@
-BuffTextureName = "XenZhao_ThreeTalon.dds"
+BuffTextureName = "XinZhao_ThreeTalon.dds"
 BuffName = "XenZhaoComboAutoFinish"
 OnBuffActivateBuildingBlocks = {
   {

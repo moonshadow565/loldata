@@ -352,17 +352,6 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
   {
-    Function = BBClearOverrideAnimation,
-    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
-  },
-  {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "a",
-      EffectIDVarTable = "InstanceVars"
-    }
-  },
-  {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Owner",
@@ -490,6 +479,41 @@ BuffOnMoveEndBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "gragas_bodySlam_unit_tar_02.troy",
+              Flags = 10,
+              EffectIDVar = "asdf1",
+              BoneName = "chest",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "gragas_bodySlam_unit_tar.troy",
+              Flags = 10,
+              EffectIDVar = "asdf2",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -535,6 +559,41 @@ BuffOnMoveEndBuildingBlocks = {
             Params = {TargetVar = "Unit"}
           },
           {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "gragas_bodySlam_unit_tar_02.troy",
+              Flags = 10,
+              EffectIDVar = "asdf1",
+              BoneName = "chest",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Unit",
+              EffectName = "gragas_bodySlam_unit_tar.troy",
+              Flags = 10,
+              EffectIDVar = "asdf2",
+              TargetObjectVar = "Unit",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TeamID",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -573,6 +632,20 @@ BuffOnMoveEndBuildingBlocks = {
     }
   }
 }
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBClearOverrideAnimation,
+    Params = {ToOverrideAnim = "Run", OwnerVar = "Owner"}
+  }
+}
+BuffOnMoveSuccessBuildingBlocks = {}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -602,6 +675,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "gragas_bodyslam_cas_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_bodyslam_unit_tar_02.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "gragas_bodyslam_unit_tar.troy"
     }
   },
   {

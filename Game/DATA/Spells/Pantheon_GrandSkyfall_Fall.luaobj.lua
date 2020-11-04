@@ -1,3 +1,4 @@
+DoesntBreakShields = true
 ChannelDuration = 1.5
 OnBuffActivateBuildingBlocks = {
   {
@@ -102,6 +103,10 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetUnitPosition,
+    Params = {UnitVar = "Owner", PositionVar = "OwnerPos"}
+  },
+  {
     Function = BBForEachUnitInTargetArea,
     Params = {
       AttackerVar = "Owner",
@@ -113,11 +118,15 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBDistanceBetweenObjects,
+        Function = BBGetUnitPosition,
+        Params = {UnitVar = "Unit", PositionVar = "UnitPos"}
+      },
+      {
+        Function = BBDistanceBetweenPoints,
         Params = {
           DestVar = "Distance",
-          ObjectVar1 = "Unit",
-          ObjectVar2 = "Owner"
+          Point1Var = "OwnerPos",
+          Point2Var = "UnitPos"
         }
       },
       {
@@ -159,6 +168,10 @@ OnBuffDeactivateBuildingBlocks = {
           DestVar = "PercentDamage",
           MathOp = MO_MAX
         }
+      },
+      {
+        Function = BBBreakSpellShields,
+        Params = {TargetVar = "Unit"}
       },
       {
         Function = BBApplyDamage,

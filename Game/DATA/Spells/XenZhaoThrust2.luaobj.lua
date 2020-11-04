@@ -4,6 +4,20 @@ IsDamagingSpell = true
 SpellDamageRatio = 0.5
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBIf,
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Dodge,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "HitResult", SrcValue = HIT_Normal}
+      }
+    }
+  },
+  {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
@@ -129,6 +143,14 @@ TargetExecuteBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false
+    }
+  },
+  {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Attacker",
+      TargetOfOrderVar = "Target",
+      Order = AI_ATTACKTO
     }
   }
 }

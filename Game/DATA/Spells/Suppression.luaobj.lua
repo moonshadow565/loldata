@@ -1,5 +1,6 @@
-BuffTextureName = "48thSlave_Pacify.dds"
+BuffTextureName = "48thSlave_RenderingCry.dds"
 BuffName = "Suppression"
+PopupMessage1 = "game_floatingtext_Suppressed"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -32,7 +33,7 @@ OnBuffActivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_SUMMONER,
       SlotType = SpellSlots,
       TargetVar = "Owner",
-      State = false
+      State = true
     }
   },
   {
@@ -42,7 +43,7 @@ OnBuffActivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_SUMMONER,
       SlotType = SpellSlots,
       TargetVar = "Owner",
-      State = false
+      State = true
     }
   }
 }
@@ -78,7 +79,7 @@ OnBuffDeactivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_SUMMONER,
       SlotType = SpellSlots,
       TargetVar = "Owner",
-      State = true
+      State = false
     }
   },
   {
@@ -88,7 +89,7 @@ OnBuffDeactivateBuildingBlocks = {
       SpellbookType = SPELLBOOK_SUMMONER,
       SlotType = SpellSlots,
       TargetVar = "Owner",
-      State = true
+      State = false
     }
   }
 }

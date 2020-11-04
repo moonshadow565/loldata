@@ -41,10 +41,34 @@ TargetExecuteBuildingBlocks = {
                         }
                       },
                       {
+                        Function = BBGetSlotSpellInfo,
+                        Params = {
+                          DestVar = "Level",
+                          SpellSlotValue = 2,
+                          SpellbookType = SPELLBOOK_CHAMPION,
+                          SlotType = SpellSlots,
+                          OwnerVar = "Owner",
+                          Function = GetSlotSpellLevel
+                        }
+                      },
+                      {
+                        Function = BBSetVarInTable,
+                        Params = {
+                          DestVar = "hpThreshold",
+                          SrcValueByLevel = {
+                            0.15,
+                            0.15,
+                            0.15,
+                            0.15,
+                            0.15
+                          }
+                        }
+                      },
+                      {
                         Function = BBIf,
                         Params = {
                           Src1Var = "TarHP",
-                          Value2 = 0.15,
+                          Src2Var = "hpThreshold",
                           CompareOp = CO_LESS_THAN_OR_EQUAL
                         },
                         SubBlocks = {
@@ -76,6 +100,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "BaseDamage",
@@ -83,6 +108,7 @@ TargetExecuteBuildingBlocks = {
       SourceDamageType = DAMAGESOURCE_DEFAULT,
       PercentOfAttack = 1,
       SpellDamageRatio = 1,
+      PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
     }

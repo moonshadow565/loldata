@@ -1,7 +1,11 @@
-BuffTextureName = "XenZhao_ThreeTalon.dds"
+BuffTextureName = "XinZhao_ThreeTalon.dds"
 BuffName = "XenZhaoComboTarget"
 SpellToggleSlot = 1
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBCancelAutoAttack,
+    Params = {TargetVar = "Owner", Reset = true}
+  },
   {
     Function = BBSpellEffectCreate,
     Params = {
@@ -68,10 +72,6 @@ OnBuffActivateBuildingBlocks = {
       OwnerVar = "Owner",
       Function = GetSlotSpellLevel
     }
-  },
-  {
-    Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner"}
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -90,6 +90,16 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSealSpellSlot,
+    Params = {
+      SpellSlot = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      TargetVar = "Owner",
+      State = false
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "Expired",
@@ -98,13 +108,67 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBSealSpellSlot,
+        Function = BBGetStat,
         Params = {
-          SpellSlot = 0,
+          Stat = GetPercentCooldownMod,
+          TargetVar = "Owner",
+          DestVar = "CDMod"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
           SpellbookType = SPELLBOOK_CHAMPION,
           SlotType = SpellSlots,
-          TargetVar = "Owner",
-          State = false
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "CooldownByLevel",
+          SrcValueByLevel = {
+            12,
+            11,
+            10,
+            9,
+            8
+          }
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "CDMod",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "ModulatedCD",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "ModulatedCD",
+          Src2Var = "CooldownByLevel",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "TrueCD",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "TrueCD",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
         }
       }
     }
@@ -152,14 +216,6 @@ BuffOnPreAttackBuildingBlocks = {
               ForceCastingOrChannelling = false,
               UpdateAutoAttackTimer = true
             }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "XenZhaoComboTarget"
-            }
           }
         }
       }
@@ -189,12 +245,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_chainattack_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaocombotarget"
     }
   }
 }

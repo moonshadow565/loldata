@@ -83,7 +83,7 @@ OnBuffActivateBuildingBlocks = {
   },
   {
     Function = BBCancelAutoAttack,
-    Params = {TargetVar = "Owner"}
+    Params = {TargetVar = "Owner", Reset = true}
   }
 }
 OnBuffDeactivateBuildingBlocks = {

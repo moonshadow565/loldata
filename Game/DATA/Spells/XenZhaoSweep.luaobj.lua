@@ -404,6 +404,14 @@ BuffOnMoveEndBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBIssueOrder,
+    Params = {
+      WhomToOrderVar = "Owner",
+      TargetOfOrderVar = "Caster",
+      Order = AI_ATTACKTO
+    }
   }
 }
 PreLoadBuildingBlocks = {

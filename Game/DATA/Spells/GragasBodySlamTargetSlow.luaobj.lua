@@ -36,41 +36,6 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Attacker",
       SourceVar = "Attacker"
     }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "gragas_bodySlam_unit_tar_02.troy",
-      Flags = 10,
-      EffectIDVar = "asdf1",
-      BoneName = "chest",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "gragas_bodySlam_unit_tar.troy",
-      Flags = 10,
-      EffectIDVar = "asdf2",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWTeamOverrideVar = "TeamID",
-      FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = true
-    }
   }
 }
 BuffOnUpdateStatsBuildingBlocks = {
@@ -82,20 +47,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "SlowAmount",
       DeltaVarTable = "InstanceVars",
       Delta = 0
-    }
-  }
-}
-PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gragas_bodyslam_unit_tar_02.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "gragas_bodyslam_unit_tar.troy"
     }
   }
 }

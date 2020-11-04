@@ -13,11 +13,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "DmgPerLvl",
       SrcValueByLevel = {
+        4,
         6,
-        9,
-        12,
-        15,
-        18
+        8,
+        10,
+        12
       }
     }
   },
@@ -26,11 +26,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "PerLevel",
       SrcValueByLevel = {
-        0.2,
-        0.25,
+        0.18,
+        0.22,
+        0.26,
         0.3,
-        0.35,
-        0.4
+        0.34
       }
     }
   },
@@ -74,6 +74,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "FinalDmg",
@@ -96,6 +97,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
           TargetVar = "Target",
           Damage = 0,
           DamageVar = "FinalDmg",

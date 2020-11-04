@@ -10,7 +10,6 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
-PopupMessage1 = "game_floatingtext_Stunned"
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,

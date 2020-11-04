@@ -1,4 +1,4 @@
-BuffTextureName = "XenZhao_ThreeTalon.dds"
+BuffTextureName = "XinZhao_ThreeTalon.dds"
 BuffName = "XenZhaoKnockup"
 OnBuffActivateBuildingBlocks = {
   {
@@ -56,32 +56,6 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanCast
-    }
-  },
-  {
-    Function = BBSetStatus,
-    Params = {
-      TargetVar = "Owner",
-      SrcValue = false,
-      Status = SetCanMove
-    }
-  }
-}
 OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBSetStatus,
@@ -105,6 +79,32 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanCast
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanAttack
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanCast
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
     }
   }
 }

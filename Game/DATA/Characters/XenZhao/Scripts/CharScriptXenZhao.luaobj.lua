@@ -84,6 +84,44 @@ CharOnResurrectBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 1,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "XenZhaoBattleCryPassive",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Aura,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      }
+    }
   }
 }
 CharOnLevelUpSpellBuildingBlocks = {
@@ -167,13 +205,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xenzhaobattlecryph"
+      Name = "xenzhaobattlecrypassive"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "xenzhaobattlecrypassive"
+      Name = "xenzhaobattlecryph"
     }
   }
 }
