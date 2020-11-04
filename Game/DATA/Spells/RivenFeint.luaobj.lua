@@ -17,7 +17,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "exile_e_mis.troy  "
+      Name = "exile_e_mis.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "riventricleaveghost"
     }
   }
 }

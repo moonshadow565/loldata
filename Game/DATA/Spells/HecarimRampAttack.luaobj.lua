@@ -10,6 +10,9 @@ AutoBuffActivateAttachBoneName = "Weapon"
 AutoBuffActivateEffect2 = "Hecarim_E_weapon_buf2.troy"
 AutoBuffActivateAttachBoneName2 = "BUFFBONE_GLB_WEAPON_1"
 SpellToggleSlot = 1
+SpellFXOverrideSkins = {
+  "HecarimArcade"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

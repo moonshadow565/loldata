@@ -5,6 +5,9 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "GragasBodySlam.dds"
 BuffName = "GragasBodySlam"
+SpellFXOverrideSkins = {
+  "HecarimArcade"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
@@ -29,9 +32,21 @@ PreLoadBuildingBlocks = {
     Params = {Name = "spellbook1"}
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {
+      Name = "testcuberender"
+    }
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "hecarim_skn4_r.troy"
     }
   },
   {

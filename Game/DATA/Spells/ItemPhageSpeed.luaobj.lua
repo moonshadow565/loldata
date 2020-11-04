@@ -1,0 +1,7 @@
+BuffTextureName = "Summoner_haste.dds"
+BuffName = "ItemPhageSpeed"
+AutoBuffActivateEffect = "Boots_Deathmarch.troy"
+AutoBuffActivateEffect2 = "Global_Haste.troy"
+AutoBuffActivateAttachBoneName2 = "L_BUFFBONE_GLB_FOOT_LOC"
+AutoBuffActivateEffect3 = "Global_Haste.troy"
+AutoBuffActivateAttachBoneName3 = "R_BUFFBONE_GLB_FOOT_LOC"

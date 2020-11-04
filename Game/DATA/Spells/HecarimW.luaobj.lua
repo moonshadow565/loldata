@@ -3,6 +3,12 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "Hecarim_SpiritofDread.dds"
 BuffName = "HecarimW"
+SpellFXOverrideSkins = {
+  "HecarimArcade"
+}
+SpellVOOverrideSkins = {
+  "HecarimArcade"
+}
 TriggersSpellCasts = true
 PreLoadBuildingBlocks = {
   {
@@ -20,13 +26,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "hecarimdefilelifeleech"
+      Name = "hecarim_skn3_w_debuff"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "hecarimdefilelifeleechminion"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "hecarimdefilelifeleech"
     }
   },
   {

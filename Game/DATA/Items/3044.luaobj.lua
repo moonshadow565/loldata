@@ -1,18 +1,7 @@
+AutoBuffActivateEffect = "Boots_Deathmarch.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "itemslow"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "internal_30slow"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "internal_20slow"
-    }
+    Params = {Name = "itemphage"}
   }
 }

@@ -68,6 +68,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "lucianqdamage"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "lucianwcastingbuff"
     }
   }
