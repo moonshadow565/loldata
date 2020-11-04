@@ -10,5 +10,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yasuo_r_clonevfx.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "expirationtimer"
+    }
   }
 }
