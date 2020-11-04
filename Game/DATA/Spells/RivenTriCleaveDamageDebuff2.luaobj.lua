@@ -2,10 +2,6 @@ NotSingleTargetSpell = false
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 BuffName = "BlindMonkSafeguard"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 AutoCooldownByLevel = {
   22,
   18,
@@ -14,6 +10,18 @@ AutoCooldownByLevel = {
   6
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_tar_03.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_s2_q_tar_04.troy"
+    }
+  },
   {
     Function = BBPreloadParticle,
     Params = {
