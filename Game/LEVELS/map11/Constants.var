@@ -143,6 +143,9 @@ ai_MinionDenialPercentage                          =                            
 ; Server Culling
 ser_ClosenessLineOfSightThresholdTurret            =                                       200.000 ; Distances greater then this for turrets perform the LOS check, otherwise they don't.  This was put in because of all the collision around Turrets. 
 
+; AIHero variables
+ai_MaximumHPMaxPenalty                             =                                         0.500 ; Between 0 to 1, highest amount relative to max Hp HPMaxPenalty can be
+
 ; Death FX Variables
 DeathFX_AllyKillSound                              =  LoL_Audio/HUD/KillCallOuts/OnAllyKill3DLevel ; Sound to play when an ally gets a kill. A number will be added to the end of the string automatically that corresponds to the death count in a fight
 DeathFX_EnemyKillSound                             = LoL_Audio/HUD/KillCallOuts/OnEnemyKill3DLevel ; Sound to play when an enemy gets a kill. A number will be added to the end of the string automatically that corresponds to the death count in a fight
@@ -174,7 +177,6 @@ cam_KeyboardOrbitSpeedX                            =                            
 cam_KeyboardOrbitSpeedY                            =                                        50.000 ; Keyboard Orbit Speed y axis
 cr_MouseScrollSpeed                                =                                      3900.000 ; Mouse Scroll Speed
 cr_DragRepeatTime                                  =                                         0.250 ; How long the cursor delays between sending updates to the server
-cr_SpellCastFlashTime                              =                                         2.000 ; How long the cursor flashes when you cast a targeted spell
 
 ; HUD variables
 hud_BlinkFrequency                                 =                                          1000 ; Sets the 'peak to peak' duration (in ms) of one pulse of the HUD highlight glow.
@@ -202,7 +204,7 @@ events_NoDamageCancelTime                          =                            
 sp_RegenRadius                                     =                                      1100.000 ; The spawn point will heal units in this radius.
 sp_HealthRegenPercent                              =                                         0.021 ; The percentage of max HP a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_HealthRegenPercentARAM                          =                                         0.000 ; Same as above, for ARAM. Needed because we use the same map for ARAM as we do the tutorial
-sp_HPMaxPenaltyRegenPercent                        =                                         0.080 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
+sp_HPMaxPenaltyRegenPercent                        =                                         0.021 ; The percentage of max HP Penalty a unit will regenerate per tick. A float value between 0.0 and 1.0.
 sp_ManaRegenPercent                                =                                         0.021 ; The percentage of max Mana a unit will regenerate per tick.  A float value between 0.0 and 1.0.
 sp_RegenTickInterval                               =                                         0.250 ; Interval between spawn point regen ticks.
 

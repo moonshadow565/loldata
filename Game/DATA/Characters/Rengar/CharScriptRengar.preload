@@ -10,5 +10,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarrunspeed"}}, 
 {Function=BBPreloadSpell, Params={Name="rengartrophynoitem"}}, 
+{Function=BBPreloadParticle, Params={Name="rengar_vo_trophy1.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="rengarpassiverootcheck"}}, 
 }
