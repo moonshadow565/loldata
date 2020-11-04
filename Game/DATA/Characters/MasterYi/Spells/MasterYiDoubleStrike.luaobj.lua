@@ -1,8 +1,11 @@
+SpellFXOverrideSkins = {
+  "CouncilMasterYi"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "globalhit_yellow_tar.troy"
+      Name = "masteryi_base_p_tar.troy"
     }
   }
 }

@@ -14,6 +14,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "tempkarma_mantraactivate_aura_start.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "tempkarma_mantraactivate_stones_start.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "tempkarma_mantraactivate_aura.troy"
     }
   },

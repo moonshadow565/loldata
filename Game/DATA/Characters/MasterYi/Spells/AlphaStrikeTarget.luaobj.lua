@@ -1,11 +1,16 @@
 BuffTextureName = "MasterYi_LeapStrike.dds"
 BuffName = "Alpha Strike"
-AutoBuffActivateEffect = "AlphaStrike_prison.troy"
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "alphastrike_slash.troy"
+      Name = "masteryi_base_q_hit.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "masteryi_base_q_crit_tar.troy"
     }
   }
 }

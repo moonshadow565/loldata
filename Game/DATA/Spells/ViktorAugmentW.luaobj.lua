@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "viktorgravitonfieldaugment"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "viktorgravitonfield"
+    }
   }
 }

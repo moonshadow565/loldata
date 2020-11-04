@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-ChannelDuration = 5
-BuffTextureName = "MasterYi_Vanish.dds"
+ChannelDuration = 4
+BuffTextureName = "MasterYi_W.dds"
 BuffName = "Meditate"
 AutoCooldownByLevel = {
   50,
@@ -14,7 +14,25 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "meditate_eff.troy"
+      Name = "masteryi_base_w_cas.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "masteryi_base_w_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "meditatedefense"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "masteryi_base_w_dmg.troy"
     }
   }
 }
