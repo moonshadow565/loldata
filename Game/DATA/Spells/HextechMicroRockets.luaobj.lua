@@ -18,9 +18,9 @@ CanCastBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
       Range = 1000,
-      Flags = "AffectEnemies AffectHeroes ",
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
-      MaximumUnitsToPick = 1
+      MaximumUnitsToPick = 3
     },
     SubBlocks = {
       {
@@ -89,215 +89,62 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBForNClosestUnitsInTargetArea,
     Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 1000,
+      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 3
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetAreaRandom,
+        Function = BBCanSeeTarget,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 1000,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 1
-        },
-        SubBlocks = {
-          {
-            Function = BBCanSeeTarget,
-            Params = {
-              ViewerVar = "Owner",
-              TargetVar = "Unit",
-              ResultVar = "Result"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Result",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBAddUnitPerceptionBubble,
-                Params = {
-                  TeamVar = "CasterID",
-                  Radius = 300,
-                  TargetVar = "Unit",
-                  Duration = 1,
-                  SpecificUnitsClientOnlyVar = "Nothing",
-                  RevealSpecificUnitOnlyVar = "Nothing",
-                  RevealSteath = false,
-                  BubbleIDVar = "BubbleID",
-                  BubbleIDVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 1,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false
-                }
-              }
-            }
-          }
+          ViewerVar = "Owner",
+          TargetVar = "Unit",
+          ResultVar = "Result"
         }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 4,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
+      },
       {
-        Function = BBForEachUnitInTargetAreaRandom,
+        Function = BBIf,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 1000,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 2
+          Src1Var = "Result",
+          Value2 = true,
+          CompareOp = CO_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBCanSeeTarget,
+            Function = BBAddUnitPerceptionBubble,
             Params = {
-              ViewerVar = "Owner",
+              TeamVar = "CasterID",
+              Radius = 300,
               TargetVar = "Unit",
-              ResultVar = "Result"
+              Duration = 1,
+              SpecificUnitsClientOnlyVar = "Nothing",
+              RevealSpecificUnitOnlyVar = "Nothing",
+              RevealSteath = false,
+              BubbleIDVar = "BubbleID",
+              BubbleIDVarTable = "InstanceVars"
             }
           },
           {
-            Function = BBIf,
+            Function = BBSpellCast,
             Params = {
-              Src1Var = "Result",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBAddUnitPerceptionBubble,
-                Params = {
-                  TeamVar = "CasterID",
-                  Radius = 300,
-                  TargetVar = "Unit",
-                  Duration = 1,
-                  SpecificUnitsClientOnlyVar = "Nothing",
-                  RevealSpecificUnitOnlyVar = "Nothing",
-                  RevealSteath = false,
-                  BubbleIDVar = "BubbleID",
-                  BubbleIDVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 1,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 5,
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetAreaRandom,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 1000,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 3
-        },
-        SubBlocks = {
-          {
-            Function = BBCanSeeTarget,
-            Params = {
-              ViewerVar = "Owner",
+              CasterVar = "Owner",
               TargetVar = "Unit",
-              ResultVar = "Result"
-            }
-          },
-          {
-            Function = BBIf,
-            Params = {
-              Src1Var = "Result",
-              Value2 = true,
-              CompareOp = CO_EQUAL
-            },
-            SubBlocks = {
-              {
-                Function = BBAddUnitPerceptionBubble,
-                Params = {
-                  TeamVar = "CasterID",
-                  Radius = 300,
-                  TargetVar = "Unit",
-                  Duration = 1,
-                  SpecificUnitsClientOnlyVar = "Nothing",
-                  RevealSpecificUnitOnlyVar = "Nothing",
-                  RevealSteath = false,
-                  BubbleIDVar = "BubbleID",
-                  BubbleIDVarTable = "InstanceVars"
-                }
-              },
-              {
-                Function = BBSpellCast,
-                Params = {
-                  CasterVar = "Owner",
-                  TargetVar = "Unit",
-                  PosVar = "Owner",
-                  EndPosVar = "Owner",
-                  SlotNumber = 1,
-                  SlotType = ExtraSlots,
-                  OverrideForceLevel = 0,
-                  OverrideForceLevelVar = "Level",
-                  OverrideCoolDownCheck = true,
-                  FireWithoutCasting = true,
-                  UseAutoAttackSpell = false,
-                  ForceCastingOrChannelling = false
-                }
-              }
+              PosVar = "Owner",
+              EndPosVar = "Owner",
+              OverrideCastPosition = false,
+              SlotNumber = 1,
+              SlotType = ExtraSlots,
+              OverrideForceLevel = 0,
+              OverrideForceLevelVar = "Level",
+              OverrideCoolDownCheck = true,
+              FireWithoutCasting = true,
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
             }
           }
         }

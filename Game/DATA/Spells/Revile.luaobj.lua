@@ -288,7 +288,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBIfNotHasBuff,
         Params = {
           OwnerVar = "Unit",
-          CasterVar = "Owner",
+          CasterVar = "Attacker",
           BuffName = "RevileMarker"
         },
         SubBlocks = {
@@ -296,7 +296,7 @@ BuffOnUpdateActionsBuildingBlocks = {
             Function = BBIfNotHasBuff,
             Params = {
               OwnerVar = "Unit",
-              CasterVar = "Owner",
+              CasterVar = "Attacker",
               BuffName = "RevilePrevent"
             },
             SubBlocks = {
@@ -409,7 +409,7 @@ SelfExecuteBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Other3",
-      AttackerVar = "Attacker",
+      AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,

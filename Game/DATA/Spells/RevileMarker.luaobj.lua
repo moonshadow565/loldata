@@ -88,38 +88,32 @@ OnBuffActivateBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBIf,
-            Params = {Src1Var = "Attacker", CompareOp = CO_IS_NOT_DEAD},
-            SubBlocks = {
-              {
-                Function = BBSpellBuffAdd,
-                Params = {
-                  TargetVar = "Owner",
-                  AttackerVar = "Attacker",
-                  BuffName = "RevilePrevent",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 3.5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
-                }
-              },
-              {
-                Function = BBBreakSpellShields,
-                Params = {TargetVar = "Owner"}
-              },
-              {
-                Function = BBApplyStun,
-                Params = {
-                  AttackerVar = "Attacker",
-                  TargetVar = "Owner",
-                  Duration = 0,
-                  DurationVar = "StunDuration",
-                  DurationVarTable = "InstanceVars"
-                }
-              }
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Owner",
+              AttackerVar = "Attacker",
+              BuffName = "RevilePrevent",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              BuffType = BUFF_Internal,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 3.5,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Owner"}
+          },
+          {
+            Function = BBApplyStun,
+            Params = {
+              AttackerVar = "Attacker",
+              TargetVar = "Owner",
+              Duration = 0,
+              DurationVar = "StunDuration",
+              DurationVarTable = "InstanceVars"
             }
           },
           {
@@ -242,15 +236,15 @@ BuffOnUpdateActionsBuildingBlocks = {
                   DurationVar = "StunDuration",
                   DurationVarTable = "InstanceVars"
                 }
+              },
+              {
+                Function = BBSpellBuffRemove,
+                Params = {
+                  TargetVar = "Owner",
+                  AttackerVar = "Attacker",
+                  BuffName = "RevileMarker"
+                }
               }
-            }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Attacker",
-              BuffName = "RevileMarker"
             }
           }
         }

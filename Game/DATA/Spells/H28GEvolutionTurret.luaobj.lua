@@ -74,6 +74,13 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "BonusStats",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBSetStatus,
     Params = {
       TargetVar = "Owner",
@@ -125,6 +132,26 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = false,
       Status = SetCanMove
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatArmorMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusStats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatSpellBlockMod,
+      TargetVar = "Owner",
+      DeltaVar = "BonusStats",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }
@@ -242,11 +269,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "MaxStacks",
       SrcValueByLevel = {
+        1,
+        2,
         2,
         3,
-        4,
-        5,
-        6
+        3
       }
     }
   },
@@ -552,6 +579,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -599,6 +627,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -646,6 +675,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -693,6 +723,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -740,6 +771,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -782,6 +814,7 @@ SelfExecuteBuildingBlocks = {
                       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0,
+                      PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
                     }
@@ -825,11 +858,11 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        20,
-        26,
-        32,
-        38,
-        44
+        28,
+        36,
+        44,
+        52,
+        60
       }
     }
   },
@@ -861,8 +894,19 @@ SelfExecuteBuildingBlocks = {
     Params = {
       Src1Var = "OwnerLevel",
       Src1Value = 0,
-      Src2Value = 14,
+      Src2Value = 21,
       DestVar = "BonusHealth",
+      DestVarTable = "NextBuffVars",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "OwnerLevel",
+      Src1Value = 0,
+      Src2Value = 1,
+      DestVar = "BonusStats",
       DestVarTable = "NextBuffVars",
       MathOp = MO_MULTIPLY
     }
@@ -882,23 +926,144 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpawnMinion,
+    Function = BBIf,
     Params = {
-      Name = "H-28G Evolution Turret",
-      Skin = "H28GEvolutionTurret",
-      AiScript = "Minion.lua",
-      PosVar = "TargetPos",
-      Team = TEAM_CASTER,
-      TeamVar = "TeamID",
-      Stunned = false,
-      Rooted = false,
-      Silenced = true,
-      Invulnerable = false,
-      MagicImmune = false,
-      IgnoreCollision = false,
-      VisibilitySize = 0,
-      DestVar = "Other3",
-      GoldRedirectTargetVar = "Owner"
+      Src1Var = "Level",
+      Value2 = 3,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSpawnMinion,
+        Params = {
+          Name = "H-28G Evolution Turret",
+          Skin = "H28GEvolutionTurret",
+          AiScript = "Minion.lua",
+          PosVar = "TargetPos",
+          Team = TEAM_CASTER,
+          TeamVar = "TeamID",
+          Stunned = false,
+          Rooted = false,
+          Silenced = true,
+          Invulnerable = false,
+          MagicImmune = false,
+          IgnoreCollision = false,
+          VisibilitySize = 0,
+          DestVar = "Other3",
+          GoldRedirectTargetVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 3,
+      CompareOp = CO_GREATER_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Level",
+          Value2 = 5,
+          CompareOp = CO_LESS_THAN
+        },
+        SubBlocks = {
+          {
+            Function = BBSpawnMinion,
+            Params = {
+              Name = "H-28G Evolution Turret",
+              Skin = "H28Green",
+              AiScript = "Minion.lua",
+              PosVar = "TargetPos",
+              Team = TEAM_CASTER,
+              TeamVar = "TeamID",
+              Stunned = false,
+              Rooted = false,
+              Silenced = true,
+              Invulnerable = false,
+              MagicImmune = false,
+              IgnoreCollision = false,
+              VisibilitySize = 0,
+              DestVar = "Other3",
+              GoldRedirectTargetVar = "Owner"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Other3",
+              AttackerVar = "Owner",
+              BuffName = "UrAniumRounds",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBSpawnMinion,
+            Params = {
+              Name = "H-28G Evolution Turret",
+              Skin = "H28Red",
+              AiScript = "Minion.lua",
+              PosVar = "TargetPos",
+              Team = TEAM_CASTER,
+              TeamVar = "TeamID",
+              Stunned = false,
+              Rooted = false,
+              Silenced = true,
+              Invulnerable = false,
+              MagicImmune = false,
+              IgnoreCollision = false,
+              VisibilitySize = 0,
+              DestVar = "Other3",
+              GoldRedirectTargetVar = "Owner"
+            }
+          },
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Other3",
+              AttackerVar = "Owner",
+              BuffName = "ExplosiveCartridges",
+              BuffAddType = BUFF_RENEW_EXISTING,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Other3",
+      AttackerVar = "Owner",
+      BuffName = "UPGRADE!!!Proof",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   },
   {
@@ -1308,5 +1473,31 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "markersix"}
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "h28green"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "uraniumrounds"
+    }
+  },
+  {
+    Function = BBPreloadCharacter,
+    Params = {Name = "h28red"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "explosivecartridges"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "upgrade!!!proof"
+    }
   }
 }
