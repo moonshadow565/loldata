@@ -38,7 +38,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tempkarma_mqexplosion_nova_red.troy"
+      Name = "karma_base_q_impact_red_r_01.troy"
     }
   },
   {

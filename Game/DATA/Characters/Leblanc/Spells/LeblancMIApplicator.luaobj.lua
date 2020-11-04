@@ -15,6 +15,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "leblancmistealth"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "leblancpassivecooldown"
     }
   },

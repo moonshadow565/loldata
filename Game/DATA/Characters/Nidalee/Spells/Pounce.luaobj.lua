@@ -27,6 +27,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "nidalee_base_cougar_e_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "swipeblocker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "nidalee_base_cougar_w_marked_cas.troy"
     }
   },

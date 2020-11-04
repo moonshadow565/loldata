@@ -10,18 +10,18 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "sorakaemana"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "sorakaepacify"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {Name = "sorakae"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "sorakaemana"
+    }
   },
   {
     Function = BBPreloadSpell,

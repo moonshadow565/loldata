@@ -20,19 +20,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "sorakaqringgreen.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_e_ring_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_e_ring_red.troy"
+      Name = "soraka_base_w_buf.troy"
     }
   },
   {
@@ -45,30 +33,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "soraka_base_r_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_q_indicator_green.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_q_indicator_red.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
     }
   },
   {

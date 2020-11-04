@@ -26,21 +26,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "astralblessing"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "soraka_base_w_buf.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "soraka_base_w_beam.troy"
     }
   }
 }
