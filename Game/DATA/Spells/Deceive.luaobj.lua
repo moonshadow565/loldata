@@ -4,13 +4,6 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "CastPos",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
       RequiredVar = "CritDmgBonus",
       RequiredVarTable = "InstanceVars"
     }
@@ -20,23 +13,6 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "DCooldown",
       RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBPushCharacterFade,
-    Params = {
-      TargetVar = "Owner",
-      FadeAmount = 0.2,
-      fadeTime = 0,
-      IDVar = "ID"
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "Teleported",
-      DestVarTable = "InstanceVars",
-      SrcValue = false
     }
   }
 }
@@ -123,47 +99,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetStealthed
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Teleported",
-      Src1VarTable = "InstanceVars",
-      Value2 = false,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "LifeTime",
-          Value2 = 0.05,
-          CompareOp = CO_GREATER_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "CastPos",
-              SrcVar = "CastPos",
-              SrcVarTable = "InstanceVars"
-            }
-          },
-          {
-            Function = BBTeleportToPosition,
-            Params = {OwnerVar = "Owner", CastPositionName = "CastPos"}
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Teleported",
-              DestVarTable = "InstanceVars",
-              SrcValue = true
-            }
-          }
-        }
-      }
     }
   }
 }
@@ -315,27 +250,28 @@ SelfExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Invisibility,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 4.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
     Function = BBSilenceSpellSlot,
     Params = {
       SpellSlot = 0,
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = true
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "DeceiveFade",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Internal,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0.05,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   },
   {
@@ -364,6 +300,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "jackintheboxpoof2.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "deceivefade"
     }
   }
 }

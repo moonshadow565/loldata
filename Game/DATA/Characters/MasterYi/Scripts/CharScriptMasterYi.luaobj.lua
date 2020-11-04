@@ -56,12 +56,14 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   AttackerVar = "Owner",
                   BuffName = "WujuStyle",
                   BuffAddType = BUFF_REPLACE_EXISTING,
+                  StacksExclusive = true,
                   BuffType = BUFF_CombatEnchancer,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 25000,
                   BuffVarsTable = "NextBuffVars",
-                  TickRate = 0
+                  TickRate = 0,
+                  CanMitigateDuration = false
                 }
               }
             }
@@ -91,12 +93,14 @@ CharOnSpellCastBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "AlphaStrike",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -106,31 +110,18 @@ CharOnActivateBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "DoubleStrikeIcon",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_Aura,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 25000,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "ChampionChampionDelta",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -140,12 +131,14 @@ CharOnActivateBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "APBonusDamageToTowers",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -157,12 +150,98 @@ CharOnDisconnectBuildingBlocks = {
       TargetVar = "Owner",
       PosVar = "Owner",
       EndPosVar = "Owner",
+      OverrideCastPosition = false,
       SlotNumber = 6,
       SlotType = InventorySlots,
       OverrideForceLevel = 1,
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
-      UseAutoAttackSpell = false
+      UseAutoAttackSpell = false,
+      ForceCastingOrChannelling = false
+    }
+  }
+}
+CharOnHitUnitBuildingBlocks = {
+  {
+    Function = BBIfNotHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      CasterVar = "Owner",
+      BuffName = "DoubleStrikeIcon"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Attacker",
+          AttackerVar = "Attacker",
+          BuffName = "DoubleStrike",
+          BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
+          BuffType = BUFF_CombatEnchancer,
+          MaxStack = 6,
+          NumberOfStacks = 1,
+          Duration = 25000,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBGetBuffCountFromCaster,
+        Params = {
+          DestVar = "DSCount",
+          TargetVar = "Owner",
+          CasterVar = "Owner",
+          BuffName = "DoubleStrike"
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "DSCount",
+          Value2 = 6,
+          CompareOp = CO_GREATER_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellBuffAdd,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "DoubleStrikeIcon",
+              BuffAddType = BUFF_REPLACE_EXISTING,
+              StacksExclusive = true,
+              BuffType = BUFF_CombatEnchancer,
+              MaxStack = 1,
+              NumberOfStacks = 1,
+              Duration = 25000,
+              BuffVarsTable = "NextBuffVars",
+              TickRate = 0,
+              CanMitigateDuration = false
+            }
+          },
+          {
+            Function = BBSpellBuffRemoveStacks,
+            Params = {
+              TargetVar = "Attacker",
+              AttackerVar = "Attacker",
+              BuffName = "DoubleStrike",
+              NumStacks = 6
+            }
+          },
+          {
+            Function = BBOverrideAutoAttack,
+            Params = {
+              SpellSlot = 0,
+              SlotType = ExtraSlots,
+              OwnerVar = "Attacker",
+              AutoAttackSpellLevel = 1,
+              CancelAttack = true
+            }
+          }
+        }
+      }
     }
   }
 }
@@ -180,12 +259,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "doublestrikeicon"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "championchampiondelta"
     }
   },
@@ -193,6 +266,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "apbonusdamagetotowers"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "doublestrikeicon"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "doublestrike"
     }
   }
 }

@@ -32,7 +32,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "InitialDamage",
       Src1Value = 0,
-      Src2Value = 0.02,
+      Src2Value = 0.01,
       DestVar = "InitialDamage",
       MathOp = MO_ADD
     }
@@ -69,13 +69,13 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "RangeVar",
+      DestVar = "BaseDamage",
       SrcValueByLevel = {
-        250,
-        275,
-        300,
-        325,
-        350
+        8,
+        12,
+        16,
+        20,
+        24
       }
     }
   },
@@ -84,10 +84,10 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Owner",
-      Range = 0,
-      RangeVar = "RangeVar",
+      Range = 350,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -121,6 +121,17 @@ OnBuffActivateBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src1Var = "PercentDamage",
+          Src2Var = "BaseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "PercentDamage",
+          MathOp = MO_ADD
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -131,6 +142,7 @@ OnBuffActivateBuildingBlocks = {
           SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
           IgnoreDamageIncreaseMods = false,
           IgnoreDamageCrit = false
         }
@@ -188,7 +200,11 @@ BuffOnUpdateActionsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBIncPAR,
-            Params = {TargetVar = "Owner", Delta = -10}
+            Params = {
+              TargetVar = "Owner",
+              Delta = -10,
+              PARType = PAR_MANA
+            }
           }
         }
       },
@@ -207,7 +223,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           Src1Var = "InitialDamage",
           Src1Value = 0,
-          Src2Value = 0.02,
+          Src2Value = 0.01,
           DestVar = "InitialDamage",
           MathOp = MO_ADD
         }
@@ -244,13 +260,13 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "RangeVar",
+          DestVar = "BaseDamage",
           SrcValueByLevel = {
-            250,
-            275,
-            300,
-            325,
-            350
+            8,
+            12,
+            16,
+            20,
+            24
           }
         }
       },
@@ -259,10 +275,10 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           AttackerVar = "Owner",
           CenterVar = "Owner",
-          Range = 0,
-          RangeVar = "RangeVar",
+          Range = 350,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -296,6 +312,17 @@ BuffOnUpdateActionsBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "PercentDamage",
+              Src2Var = "BaseDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "PercentDamage",
+              MathOp = MO_ADD
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -306,6 +333,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -345,12 +373,14 @@ SelfExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "AuraofDespair",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Aura,
           MaxStack = 1,
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

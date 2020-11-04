@@ -29,7 +29,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
               CenterVar = "Owner",
               Range = 800,
               Flags = "AffectFriends AffectHeroes ",
-              IteratorVar = "Unit"
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
@@ -47,9 +48,10 @@ UpdateSelfBuffActionsBuildingBlocks = {
                       AttackerVar = "Attacker",
                       BuffName = "ManaManipulatorAuraSelf",
                       BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
                       BuffType = BUFF_Aura,
                       MaxStack = 1,
-                      NumberStacks = 1,
+                      NumberOfStacks = 1,
                       Duration = 1,
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0
@@ -62,18 +64,25 @@ UpdateSelfBuffActionsBuildingBlocks = {
                 Params = {},
                 SubBlocks = {
                   {
-                    Function = BBSpellBuffAdd,
-                    Params = {
-                      TargetVar = "Unit",
-                      AttackerVar = "Attacker",
-                      BuffName = "ManaManipulatorAuraFriend",
-                      BuffAddType = BUFF_RENEW_EXISTING,
-                      BuffType = BUFF_Aura,
-                      MaxStack = 1,
-                      NumberStacks = 1,
-                      Duration = 1,
-                      BuffVarsTable = "NextBuffVars",
-                      TickRate = 0
+                    Function = BBIf,
+                    Params = {Src1Var = "Unit", CompareOp = CO_IS_TYPE_HERO},
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Attacker",
+                          BuffName = "ManaManipulatorAuraFriend",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 1,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0
+                        }
+                      }
                     }
                   }
                 }

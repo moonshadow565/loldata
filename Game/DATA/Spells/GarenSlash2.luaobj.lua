@@ -12,11 +12,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "SilenceDuration",
       SrcValueByLevel = {
-        1.5,
-        2,
         2.5,
-        3,
-        3.5
+        2.5,
+        2.5,
+        2.5,
+        2.5
       }
     }
   },
@@ -25,11 +25,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        20,
-        35,
-        50,
-        65,
-        80
+        40,
+        60,
+        80,
+        100,
+        120
       }
     }
   },

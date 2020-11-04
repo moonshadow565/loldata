@@ -62,23 +62,23 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncMaxHealth,
     Params = {
-      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
+      Delta = 0,
       DeltaVar = "APHealthAdded",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      IncCurrentHealth = false
     }
   },
   {
-    Function = BBIncStat,
+    Function = BBIncMaxHealth,
     Params = {
-      Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
+      Delta = 0,
       DeltaVar = "AttackHealthAdded",
       DeltaVarTable = "InstanceVars",
-      Delta = 0
+      IncCurrentHealth = false
     }
   }
 }

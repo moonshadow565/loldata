@@ -75,6 +75,41 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "KIDamage",
+      SrcValueByLevel = {
+        8,
+        12,
+        16,
+        20,
+        24
+      }
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "DamageVar",
+      Src2Var = "KIDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageVar",
+      MathOp = MO_ADD
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -82,17 +117,6 @@ TargetExecuteBuildingBlocks = {
       BuffName = "KillerInstinct"
     },
     SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
       {
         Function = BBSetVarInTable,
         Params = {

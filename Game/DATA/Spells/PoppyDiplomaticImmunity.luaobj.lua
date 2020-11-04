@@ -112,7 +112,11 @@ OnBuffActivateBuildingBlocks = {
       },
       {
         Function = BBForEachChampion,
-        Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
+        Params = {
+          IteratorVar = "Unit",
+          Team = TEAM_CHAOS,
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
             Function = BBIf,
@@ -191,7 +195,11 @@ OnBuffActivateBuildingBlocks = {
       },
       {
         Function = BBForEachChampion,
-        Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
+        Params = {
+          IteratorVar = "Unit",
+          Team = TEAM_ORDER,
+          InclusiveBuffFilter = true
+        },
         SubBlocks = {
           {
             Function = BBIf,
@@ -299,6 +307,28 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "PoppyDITarget",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 0,
+      BuffVarsTable = "NextBuffVars",
+      DurationByLevel = {
+        6,
+        7,
+        8
+      },
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "PoppyDITargetDmg",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,
@@ -330,6 +360,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "diplomaticimmunity_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "poppyditargetdmg"
     }
   }
 }

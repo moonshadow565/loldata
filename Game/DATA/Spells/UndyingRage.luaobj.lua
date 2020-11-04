@@ -11,9 +11,9 @@ AutoBuffActivateAttachBoneName3 = "R_calf"
 AutoBuffActivateEffect4 = "UndyingRageSpine_glow.troy"
 AutoBuffActivateAttachBoneName4 = "spine"
 AutoCooldownByLevel = {
-  140,
-  120,
-  100
+  110,
+  100,
+  90
 }
 NonDispellable = true
 OnBuffDeactivateBuildingBlocks = {
@@ -141,9 +141,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -217,9 +218,10 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "Bloodlust",
           BuffAddType = BUFF_STACKS_AND_RENEWS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatEnchancer,
           MaxStack = 8,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 15,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -244,9 +246,10 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "BloodlustParticle",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 15,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

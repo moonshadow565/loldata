@@ -33,23 +33,17 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-BuffOnPreDealDamageBuildingBlocks = {
+BuffOnHitUnitBuildingBlocks = {
   {
-    Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "BonusDamage",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "DamageAmount",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "DamageAmount",
-          MathOp = MO_ADD
-        }
-      }
+    Function = BBMath,
+    Params = {
+      Src1Var = "BonusDamage",
+      Src1VarTable = "InstanceVars",
+      Src2Var = "DamageAmount",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "DamageAmount",
+      MathOp = MO_ADD
     }
   }
 }

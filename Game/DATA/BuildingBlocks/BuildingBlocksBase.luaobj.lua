@@ -574,6 +574,55 @@ function L0(A0, A1, A2)
 end
 BBIfNotHasBuff = L0
 function L0(A0, A1, A2)
+  local L3, L4, L5, L6, L7, L8
+  L5 = A1.OwnerVar
+  if L5 ~= nil then
+    L5 = A1.OwnerVar
+    L3 = A0[L5]
+  else
+    L3 = A0.Owner
+  end
+  L5 = HasPARType
+  L6 = L3
+  L7 = A1.PARType
+  L5 = L5(L6, L7)
+  if L5 then
+    L6 = ExecuteBuildingBlocks
+    L7 = A2
+    L8 = A0
+    L6(L7, L8)
+    A0.LastIfSucceeded = true
+  else
+    A0.LastIfSucceeded = false
+  end
+end
+BBIfPARTypeEquals = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5, L6, L7, L8
+  L5 = A1.OwnerVar
+  if L5 ~= nil then
+    L5 = A1.OwnerVar
+    L3 = A0[L5]
+  else
+    L3 = A0.Owner
+  end
+  L5 = HasPARType
+  L6 = L3
+  L7 = A1.PARType
+  L5 = L5(L6, L7)
+  L5 = not L5
+  if L5 then
+    L6 = ExecuteBuildingBlocks
+    L7 = A2
+    L8 = A0
+    L6(L7, L8)
+    A0.LastIfSucceeded = true
+  else
+    A0.LastIfSucceeded = false
+  end
+end
+BBIfPARTypeNotEquals = L0
+function L0(A0, A1, A2)
   local L3, L4, L5, L6, L7, L8, L9, L10
   L3 = GetTable
   L4 = A0

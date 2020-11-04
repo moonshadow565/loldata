@@ -31,11 +31,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BBBaseDamage",
       SrcValueByLevel = {
-        25,
-        45,
-        65,
-        85,
-        105
+        20,
+        40,
+        60,
+        80,
+        100
       }
     }
   },
@@ -47,18 +47,32 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBGetCastInfo,
+    Params = {DestVar = "BBCounter", Info = GetCastSpellTargetsHitPlusOne}
+  },
+  {
+    Function = BBGetSlotSpellInfo,
     Params = {
-      Src2Var = "TotalDamage",
-      Src1Value = 0.9,
-      Src2Value = 0,
-      DestVar = "TotalDamage",
-      MathOp = MO_MULTIPLY
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
     }
   },
   {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "BBCounter", Info = GetCastSpellTargetsHitPlusOne}
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "KIDamage",
+      SrcValueByLevel = {
+        8,
+        12,
+        16,
+        20,
+        24
+      }
+    }
   },
   {
     Function = BBIfHasBuff,
@@ -103,25 +117,6 @@ TargetExecuteBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "Level",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "Level"
-        }
-      },
-      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Target",
@@ -158,6 +153,17 @@ TargetExecuteBuildingBlocks = {
         Params = {
           Src1Var = "TotalDamage",
           Src2Var = "BBBaseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "DamageVar",
+          MathOp = MO_ADD
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "DamageVar",
+          Src2Var = "KIDamage",
           Src1Value = 0,
           Src2Value = 0,
           DestVar = "DamageVar",
@@ -234,22 +240,6 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Target",
-          AttackerVar = "Attacker",
-          BuffName = "VoracityMarker",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 15,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
-        }
-      },
-      {
         Function = BBIf,
         Params = {
           Src1Var = "BBCounter",
@@ -265,6 +255,17 @@ TargetExecuteBuildingBlocks = {
               Src2Value = 0.5,
               DestVar = "DamageVar",
               MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
             }
           },
           {
@@ -304,6 +305,17 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -337,6 +349,17 @@ TargetExecuteBuildingBlocks = {
               Src2Value = 0.7,
               DestVar = "DamageVar",
               MathOp = MO_MULTIPLY
+            }
+          },
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
             }
           },
           {
@@ -376,6 +399,17 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -412,6 +446,17 @@ TargetExecuteBuildingBlocks = {
             }
           },
           {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
+            }
+          },
+          {
             Function = BBApplyDamage,
             Params = {
               AttackerVar = "Attacker",
@@ -433,6 +478,17 @@ TargetExecuteBuildingBlocks = {
         Function = BBElse,
         Params = {},
         SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "DamageVar",
+              Src2Var = "KIDamage",
+              Src1Value = 0,
+              Src2Value = 0,
+              DestVar = "DamageVar",
+              MathOp = MO_ADD
+            }
+          },
           {
             Function = BBApplyDamage,
             Params = {
@@ -477,12 +533,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "grievouswound"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "voracitymarker"
     }
   }
 }

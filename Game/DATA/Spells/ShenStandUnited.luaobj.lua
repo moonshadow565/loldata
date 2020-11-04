@@ -57,9 +57,9 @@ ChannelingStartBuildingBlocks = {
     Params = {
       DestVar = "baseShieldHealth",
       SrcValueByLevel = {
-        350,
-        600,
-        850
+        300,
+        525,
+        750
       }
     }
   },
@@ -101,7 +101,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8.5,
+      Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -135,7 +135,7 @@ ChannelingStartBuildingBlocks = {
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 8.5,
+      Duration = 7.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }

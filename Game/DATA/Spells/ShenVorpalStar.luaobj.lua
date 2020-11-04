@@ -62,6 +62,7 @@ BuffOnBeingHitBuildingBlocks = {
           AttackerVar = "Caster",
           BuffName = "ShenVorpalStarHeal",
           BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
           BuffType = BUFF_Heal,
           MaxStack = 1,
           NumberOfStacks = 1,
@@ -81,10 +82,10 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       DamageByLevel = {
         50,
-        95,
-        140,
-        185,
-        230
+        100,
+        150,
+        200,
+        250
       },
       Damage = 0,
       DamageType = MAGIC_DAMAGE,
@@ -152,6 +153,7 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatDehancer,
       MaxStack = 1,
       NumberOfStacks = 1,

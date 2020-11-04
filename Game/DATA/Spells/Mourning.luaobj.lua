@@ -39,31 +39,15 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Target",
-      BuffName = "Internal_50MS",
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "ExecutionersCalling",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 7,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffName = "GrievousWound",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 7,
+      Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
     }
@@ -145,7 +129,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 0,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -165,7 +149,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 1,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -185,7 +169,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 2,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -205,7 +189,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 3,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -225,7 +209,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 4,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -245,7 +229,7 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetSlotSpellCooldownTimeVer2,
         Params = {
-          Src = 40,
+          Src = 60,
           SlotNumber = 5,
           SlotType = InventorySlots,
           SpellbookType = SPELLBOOK_CHAMPION,
@@ -259,13 +243,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "internal_50ms"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "grievouswound"
+      Name = "executionerscalling"
     }
   }
 }
