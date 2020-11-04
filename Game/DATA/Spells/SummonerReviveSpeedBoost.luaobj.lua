@@ -5,5 +5,4 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Summoner_revive.dds"
 BuffName = "SummonerReviveSpeedBoost"
-AutoBuffActivateEffect = "ArmordilloSpin.troy"
-AutoBuffActivateEffect2 = "Powerball_buf.troy"
+AutoBuffActivateEffect2 = "Global_SS_Revive_buf.troy"

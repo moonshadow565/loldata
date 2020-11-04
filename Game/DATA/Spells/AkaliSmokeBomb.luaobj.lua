@@ -12,10 +12,6 @@ PreLoadBuildingBlocks = {
     Params = {Name = "testcube"}
   },
   {
-    Function = BBPreloadSpell,
-    Params = {Name = "akaliw"}
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "akali_smoke_bomb_tar_team_green.troy"
