@@ -189,6 +189,7 @@ mvm_StartTime                                      =      210.000 ; Time when we
 mvm_PercentDamageToOtherMinionsBase                =        0.050 ; Percentage increase of minions with an advantage damage to other minions
 mvm_PercentDamageToOtherMinionsByTowerAdvantage    =        0.050 ; Percentage increase of minions with an advantage damage to other minions per turret up
 mvm_FlatDRFromOtherMinionsBase                     =        1.000 ; Bonus damage reduction from minions when a barracks has an advantage
+mvm_LevelDiffCap                                   =        3.000 ; The cap on level differential for minion scaling. Any level differential higher than this value will be set to this value. A negative value will leave the level differential uncapped.
 
 ; Inhibitor (BarracksDampener) variables
 inhib_UseDeathAndRespawnAnimations                 =            1 ; Flag to tell the Inhib to use its death and respawn animations

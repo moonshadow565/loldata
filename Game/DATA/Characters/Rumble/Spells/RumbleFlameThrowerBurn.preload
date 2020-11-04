@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="rumbleflamethrower"}}, 
 {Function=BBPreloadParticle, Params={Name="rumble_gun_unit_impact.troy"}}, 
 }

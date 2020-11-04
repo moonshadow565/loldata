@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="to_graspoftheundying_ready_handglow.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="mastery6261deathrecapdummy"}}, 
 {Function=BBPreloadParticle, Params={Name="to_graspoftheundying_tar.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="to_masteryring_flash.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="to_graspoftheundying_swirlup.troy"}}, 

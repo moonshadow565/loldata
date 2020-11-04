@@ -12,7 +12,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="poppyrekkotracker"}}, 
 {Function=BBPreloadSpell, Params={Name="poppyrknockupminion"}}, 
 {Function=BBPreloadSpell, Params={Name="poppyr"}}, 
-{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_blue.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="poppy_base_q_warning_red.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="poppywbuff"}}, 
 }

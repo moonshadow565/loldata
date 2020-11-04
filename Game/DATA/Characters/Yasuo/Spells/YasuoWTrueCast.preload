@@ -4,4 +4,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="yasuowmovingwallmisr"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuowmovingwallmisvis"}}, 
 {Function=BBPreloadSpell, Params={Name="yasuowmovingwall"}}, 
+{Function=BBPreloadSpell, Params={Name="yasuowmovingwallleakprevention"}}, 
 }

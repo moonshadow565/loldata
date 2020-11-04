@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="npcinitializer"}}, 
 {Function=BBPreloadSpell, Params={Name="resistantskinminibaron"}}, 
 {Function=BBPreloadSpell, Params={Name="sru_riftheralddance"}}, 
-{Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
+{Function=BBPreloadCharacter, Params={Name="sru_riftherald_relic"}}, 
 {Function=BBPreloadSpell, Params={Name="eyeshrinebuff"}}, 
 {Function=BBPreloadParticle, Params={Name="sru_riftherald_death.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="minibaronincombat"}}, 

@@ -9,6 +9,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="caitlyn_base_yordletrap_trigger_02.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynyordletrapdebuff"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynyordletrapinternal"}}, 
+{Function=BBPreloadSpell, Params={Name="caitlynheadshotrangecheck"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynyordletrapprotect"}}, 
 {Function=BBPreloadSpell, Params={Name="caitlynyordletrapsight"}}, 
 }

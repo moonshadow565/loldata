@@ -1,0 +1,3 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="yasuo_base_w_windwall_big_impact.troy"}}, 
+}

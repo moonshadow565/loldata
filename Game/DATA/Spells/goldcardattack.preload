@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="pickacard_yellow_tar.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="pickacard"}}, 
 {Function=BBPreloadParticle, Params={Name="twistedfate_gravesstun.troy"}}, 
 }

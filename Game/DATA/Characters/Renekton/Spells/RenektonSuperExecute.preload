@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="renektonweaponglowfade"}}, 
 {Function=BBPreloadSpell, Params={Name="renektonpreexecute"}}, 
+{Function=BBPreloadSpell, Params={Name="renektonweaponglowfade"}}, 
 }

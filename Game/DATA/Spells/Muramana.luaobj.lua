@@ -3,7 +3,8 @@ DoesntTriggerSpellCasts = true
 BuffTextureName = "3042_Muramana.dds"
 BuffName = "Muramana"
 AutoBuffActivateEffect = "ItemMuramanaToggle.troy"
-AutoBuffActivateAttachBoneName = "BUFFBONE_GLB_WEAPON_1"
+AutoBuffActivateAttachBoneName = "L_Buffbone_Glb_Hand_Loc"
+AutoBuffActivateAttachBoneName2 = "R_Buffbone_Glb_Hand_Loc"
 AutoCooldownByLevel = {
   0,
   0,

@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="bard_hackskin1_e_door_click_confirm.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_hackskin5_e_door_click_confirm.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_hackskin0_e_door_click_confirm.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="bard_hackskin1_e_pathing_to_door_indicator_line_beam.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="bard_hackskin0_e_pathing_to_door_indicator_line_beam.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="bard_hackskin1_e_pathing_to_door_indicator_line_beam.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="bardedoormovement"}}, 
 }

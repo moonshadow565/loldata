@@ -1,3 +1,4 @@
 SpellVOOverrideSkins = {
-  "MonkeyKingSkin04"
+  "MonkeyKingSkin04",
+  "MonkeyKingSkin05"
 }

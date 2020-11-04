@@ -7,6 +7,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="leblancchaosorbproc"}}, 
 {Function=BBPreloadSpell, Params={Name="leblancchaosorbmproc"}}, 
 {Function=BBPreloadSpell, Params={Name="leblancsoulshacklenetm"}}, 
-{Function=BBPreloadSpell, Params={Name="leblancsoulshacklem"}}, 
 {Function=BBPreloadSpell, Params={Name="slow"}}, 
 }

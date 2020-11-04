@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="monkeykingdecoyclone"}}, 
+{Function=BBPreloadSpell, Params={Name="monkeykingdecoy"}}, 
 {Function=BBPreloadSpell, Params={Name="monkeykingdecoystealth"}}, 
 }
