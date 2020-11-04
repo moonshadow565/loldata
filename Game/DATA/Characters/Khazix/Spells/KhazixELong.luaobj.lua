@@ -16,7 +16,17 @@ SpellVOOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "khazixe"}
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {Name = "testcube"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "khazixetarget"
+    }
   }
 }
