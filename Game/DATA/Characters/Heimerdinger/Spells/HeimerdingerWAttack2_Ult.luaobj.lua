@@ -17,7 +17,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_hextech_missile_tar.troy"
+      Name = "heimerdinger_base_w_ult_tar.troy"
     }
   },
   {

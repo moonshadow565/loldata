@@ -1,2 +1,0 @@
-IsDeathRecapSource = true
-DeathRecap = true

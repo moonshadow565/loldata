@@ -77,11 +77,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "timebombexplo.troy"
     }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "summoner_barrier_activate.troy"
-    }
   }
 }

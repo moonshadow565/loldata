@@ -5,13 +5,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "teleport_target_green.troy"
+      Name = "global_ss_teleport_target_blue.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "teleport_target_red.troy"
+      Name = "global_ss_teleport_target_red.troy"
     }
   }
 }

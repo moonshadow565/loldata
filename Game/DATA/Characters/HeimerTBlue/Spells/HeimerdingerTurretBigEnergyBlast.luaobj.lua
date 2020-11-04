@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "skarner_fracture_tar_consume.troy"
+      Name = "heimerdinger_base_r_megaturret_charged_tar.troy"
     }
   }
 }

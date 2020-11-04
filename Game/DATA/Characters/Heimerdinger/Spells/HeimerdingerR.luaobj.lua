@@ -1,22 +1,30 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = true
-BuffTextureName = "Heimerdinger_UPGRADE.dds"
+BuffTextureName = "Heimerdinger_R.dds"
 BuffName = "HeimerdingerR"
-AutoBuffActivateEffect = "HolyFervor_buf.troy"
+AutoBuffActivateEffect = "Heimerdinger_Base_R_Antenna_Glow.troy"
+AutoBuffActivateAttachBoneName = "R_Buffbone_Cstm_Antenna"
+AutoBuffActivateEffect2 = "Heimerdinger_Base_R_Antenna_Glow.troy"
+AutoBuffActivateAttachBoneName2 = "L_Buffbone_Cstm_Antenna"
 SpellToggleSlot = 4
-PersistsThroughDeath = true
 NonDispellable = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "heimerdingere_ult"
+      Name = "heimerdingereult"
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdingerqult"
+      Name = "heimerdinger_base_r_beam.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "heimerdinger_base_r_antenna_glow.troy"
     }
   },
   {
@@ -26,15 +34,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "heimerdingerq"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_r_cast.troy"
+      Name = "heimerdinger_base_r_cast.troy"
     }
   }
 }

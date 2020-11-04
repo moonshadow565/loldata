@@ -14,7 +14,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_turret_standard_tar.troy"
+      Name = "heimerdinger_base_q_turret_tar.troy"
     }
   },
   {

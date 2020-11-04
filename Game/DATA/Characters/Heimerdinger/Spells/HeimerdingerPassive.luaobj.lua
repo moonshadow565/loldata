@@ -1,4 +1,4 @@
-BuffTextureName = "Heimerdinger_TechmaturgicalRepairBots.dds"
+BuffTextureName = "Heimerdinger_Passive.dds"
 BuffName = "HeimerdingerPassive"
 PersistsThroughDeath = true
 PreLoadBuildingBlocks = {

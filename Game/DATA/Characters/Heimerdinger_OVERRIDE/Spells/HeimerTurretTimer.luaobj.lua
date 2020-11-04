@@ -1,1 +1,0 @@
-AutoBuffActivateEffect = "TurretTimer.troy"

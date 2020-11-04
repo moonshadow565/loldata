@@ -37,7 +37,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_r_cast.troy"
+      Name = "Heimerdinger_Base_R_Cast.troy"
     }
   }
 }

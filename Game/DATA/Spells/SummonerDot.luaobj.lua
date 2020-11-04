@@ -7,7 +7,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "summoner_dot.troy"
+      Name = "global_ss_ignite.troy"
     }
   },
   {

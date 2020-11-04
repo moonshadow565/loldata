@@ -25,12 +25,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "deathdefied"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "kogmawicathiansurpriseready"
     }
   },

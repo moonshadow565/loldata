@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "rumblecarpetbomb"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "rumble_skin03_r_trench_01.troy"
+    }
   }
 }

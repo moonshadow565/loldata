@@ -1,2 +1,0 @@
-BuffTextureName = "Heimerdinger_Passive.dds"
-BuffName = "TechmaturgicalRepairBots"

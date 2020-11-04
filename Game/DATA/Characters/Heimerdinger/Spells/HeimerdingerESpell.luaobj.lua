@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "Heimerdinger_CH1ConcussionGrenade.dds"
+BuffTextureName = "Heimerdinger_E1.dds"
 BuffName = "Slow"
 AutoBuffActivateEffect = "GLOBAL_SLOW.troy"
 AutoBuffActivateAttachBoneName = "root"
@@ -12,7 +12,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_ch1_grenade_tar.troy"
+      Name = "heimerdinger_base_e_explosion.troy"
     }
   },
   {
@@ -24,7 +24,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heimerdinger_ch1_grenade_unit_tar.troy"
+      Name = "heimerdinger_base_e_tar.troy"
     }
   },
   {
