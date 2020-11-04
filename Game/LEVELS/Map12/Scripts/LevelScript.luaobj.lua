@@ -560,7 +560,7 @@ function L0_0()
   local L0_7, L1_8, L2_9, L3_10, L4_11, L5_12, L6_13
   L0_7 = CENTER_LANE
   for L4_11 = BACK_TOWER2, FRONT_TOWER do
-    L5_12 = GetTurret
+    L5_12 = GetTurretNotDead
     L6_13 = TEAM_ORDER
     L5_12 = L5_12(L6_13, L0_7, L4_11)
     if L5_12 ~= nil then
@@ -578,7 +578,7 @@ function L0_0()
       end
     else
     end
-    L6_13 = GetTurret
+    L6_13 = GetTurretNotDead
     L6_13 = L6_13(TEAM_CHAOS, L0_7, L4_11)
     if L6_13 ~= nil then
       if L4_11 == FRONT_TOWER then
@@ -1365,7 +1365,7 @@ function L0_0(A0_25, A1_26, A2_27)
     L4_29 = FRONT_TOWER
     if A2_27 == L4_29 then
       L3_28.Turret4 = false
-      L4_29 = GetTurret
+      L4_29 = GetTurretNotDead
       L4_29 = L4_29(A0_25, A1_26, MID_TOWER)
       SetInvulnerable(L4_29, false)
       SetTargetable(L4_29, true)
@@ -1896,11 +1896,11 @@ function L0_0(A0_44, A1_45)
     L3_47 = HQ
     L4_48 = false
     L2_46(L3_47, L4_48)
-    L2_46 = GetTurret
+    L2_46 = GetTurretNotDead
     L3_47 = TEAM_CHAOS
     L4_48 = lane
     L2_46 = L2_46(L3_47, L4_48, BACK_TOWER)
-    L3_47 = GetTurret
+    L3_47 = GetTurretNotDead
     L4_48 = TEAM_CHAOS
     L3_47 = L3_47(L4_48, lane, BACK_TOWER2)
     L4_48 = Nil
@@ -2093,10 +2093,10 @@ function L0_0(A0_44, A1_45)
       L3_47 = SetTargetable
       L4_48 = L2_46
       L3_47(L4_48, false)
-      L3_47 = GetTurret
+      L3_47 = GetTurretNotDead
       L4_48 = TEAM_ORDER
       L3_47 = L3_47(L4_48, lane, BACK_TOWER)
-      L4_48 = GetTurret
+      L4_48 = GetTurretNotDead
       L4_48 = L4_48(TEAM_ORDER, lane, BACK_TOWER2)
       if L3_47 ~= Nil then
         SetInvulnerable(L3_47, true)
@@ -2191,11 +2191,11 @@ function L0_0(A0_52)
       L3_55 = L1_53
       L2_54(L3_55, true)
     else
-      L1_53 = GetTurret
+      L1_53 = GetTurretNotDead
       L2_54 = barrackTeam
       L3_55 = barrackLane
       L1_53 = L1_53(L2_54, L3_55, BACK_TOWER)
-      L2_54 = GetTurret
+      L2_54 = GetTurretNotDead
       L3_55 = barrackTeam
       L2_54 = L2_54(L3_55, barrackLane, BACK_TOWER2)
       L3_55 = Nil
@@ -2273,6 +2273,16 @@ function L0_0(A0_52)
   return L2_54
 end
 HandleDestroyedObject = L0_0
+function L0_0(A0_56, A1_57, A2_58)
+  local L3_59
+  L3_59 = GetTurret
+  L3_59 = L3_59(A0_56, A1_57, A2_58)
+  if L3_59 ~= nil and IsDead(L3_59) == true then
+    L3_59 = nil
+  end
+  return L3_59
+end
+GetTurretNotDead = L0_0
 L0_0 = 0
 TEAM_UNKNOWN = L0_0
 L0_0 = 3
@@ -2292,7 +2302,7 @@ L0_0 = 0
 EOG_MINION_FADE_AMOUNT = L0_0
 L0_0 = 2
 EOG_MINION_FADE_TIME = L0_0
-function L0_0(A0_56, A1_57)
+function L0_0(A0_60, A1_61)
   orderHQ = GetHQ(TEAM_ORDER)
   SetInvulnerable(orderHQ, true)
   SetTargetable(orderHQ, false)
@@ -2301,7 +2311,7 @@ function L0_0(A0_56, A1_57)
   SetInvulnerable(chaosHQ, true)
   SetTargetable(chaosHQ, false)
   SetBuildingHealthRegenEnabled(chaosHQ, false)
-  winningTeam = A0_56
+  winningTeam = A0_60
   if winningTeam == TEAM_ORDER then
     losingTeam = TEAM_CHAOS
     losingHQPosition = GetPosition(chaosHQ)
@@ -2327,9 +2337,9 @@ function L0_0(A0_56, A1_57)
   InitTimer("DestroyNexusPhase", EOG_NEXUS_EXPLOSION_TIME, false)
 end
 EndOfGameCeremony = L0_0
-function L0_0(A0_58)
-  MoveCameraFromCurrentPositionToPoint(A0_58, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
-  SetGreyscaleEnabledWhenDead(A0_58, false)
+function L0_0(A0_62)
+  MoveCameraFromCurrentPositionToPoint(A0_62, losingHQPosition, EOG_PAN_TO_NEXUS_TIME)
+  SetGreyscaleEnabledWhenDead(A0_62, false)
 end
 ChampionEoGCeremony = L0_0
 function L0_0()
@@ -2356,36 +2366,36 @@ L0_0 = 154
 EOG_EASTER_EGG_CAMERA_PATH_TIME = L0_0
 L0_0 = 4
 EOG_EASTER_EGG_MUSIC_FADE_TIME = L0_0
-function L0_0(A0_59)
-  local L1_60, L2_61, L3_62, L4_63, L5_64
-  L1_60 = GetGameMode
-  L1_60 = L1_60()
-  if L1_60 == "TUTORIAL" then
+function L0_0(A0_63)
+  local L1_64, L2_65, L3_66, L4_67, L5_68
+  L1_64 = GetGameMode
+  L1_64 = L1_64()
+  if L1_64 == "TUTORIAL" then
     return
   end
-  L2_61 = Make3DPoint
-  L3_62 = 2586
-  L4_63 = 0
-  L5_64 = 1986
-  L2_61 = L2_61(L3_62, L4_63, L5_64)
-  L3_62 = Make3DPoint
-  L4_63 = 10702
-  L5_64 = 0
-  L3_62 = L3_62(L4_63, L5_64, 10193)
-  L4_63 = {
-    L5_64,
+  L2_65 = Make3DPoint
+  L3_66 = 2586
+  L4_67 = 0
+  L5_68 = 1986
+  L2_65 = L2_65(L3_66, L4_67, L5_68)
+  L3_66 = Make3DPoint
+  L4_67 = 10702
+  L5_68 = 0
+  L3_66 = L3_66(L4_67, L5_68, 10193)
+  L4_67 = {
+    L5_68,
     Make3DPoint(2500, 0, 2000),
     Make3DPoint(2500, 0, 2000)
   }
-  L5_64 = Make3DPoint
-  L5_64 = L5_64(5700, 0, 6900)
-  L5_64 = {
+  L5_68 = Make3DPoint
+  L5_68 = L5_68(5700, 0, 6900)
+  L5_68 = {
     Make3DPoint(5700, 0, 6900),
     Make3DPoint(10700, 0, 10700),
     Make3DPoint(10700, 0, 10700)
   }
-  if A0_59 == TEAM_CHAOS then
-    L2_61, L3_62 = L3_62, L2_61
+  if A0_63 == TEAM_CHAOS then
+    L2_65, L3_66 = L3_66, L2_65
   end
   POST_GAME_EVENTS = {
     [1] = {delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY},
@@ -2393,19 +2403,19 @@ function L0_0(A0_59)
       delay = EOG_EASTER_EGG_PAN_TO_NEXUS_DELAY + EOG_EASTER_EGG_MUSIC_FADE_TIME,
       soundCharacterName = "Lissandra",
       soundName = "freljordlore",
-      cameraPath = L5_64,
+      cameraPath = L5_68,
       travelTime = EOG_EASTER_EGG_CAMERA_PATH_TIME
     }
   }
 end
 PostGameSetup = L0_0
-function L0_0(A0_65, A1_66, A2_67)
-  local L3_68, L4_69, L5_70, L6_71
-  if A1_66 ~= A2_67 then
+function L0_0(A0_69, A1_70, A2_71)
+  local L3_72, L4_73, L5_74, L6_75
+  if A1_70 ~= A2_71 then
     return
   end
-  for L6_71, _FORV_7_ in L3_68(L4_69) do
-    if A0_65 > _FORV_7_.delay then
+  for L6_75, _FORV_7_ in L3_72(L4_73) do
+    if A0_69 > _FORV_7_.delay then
       if _FORV_7_.cameraLocation then
         ClientSide_CameraMoveCameraFromCurrentPositionToPoint(_FORV_7_.cameraLocation, _FORV_7_.travelTime)
       end
@@ -2422,7 +2432,7 @@ function L0_0(A0_65, A1_66, A2_67)
           ClientSide_PlaySoundFile(_FORV_7_.soundName)
         end
       end
-      table.remove(POST_GAME_EVENTS, L6_71)
+      table.remove(POST_GAME_EVENTS, L6_75)
       break
     end
   end
