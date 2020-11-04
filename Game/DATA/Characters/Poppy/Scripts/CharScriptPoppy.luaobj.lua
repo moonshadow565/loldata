@@ -88,7 +88,7 @@ CharOnLevelUpSpellBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "PoppyParagonManager",
           BuffAddType = BUFF_RENEW_EXISTING,
-          BuffType = BUFF_Aura,
+          BuffType = BUFF_Internal,
           MaxStack = 1,
           NumberStacks = 1,
           Duration = 25000,
@@ -116,6 +116,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "poppyvaliantfighter"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "poppyparagonmanager"
     }
   }
 }

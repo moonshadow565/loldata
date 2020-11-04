@@ -1,5 +1,6 @@
 BuffTextureName = "WaterWizard_Typhoon.dds"
 BuffName = "Crest Of Flowing Water"
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -61,7 +62,7 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 60,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

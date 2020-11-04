@@ -1,8 +1,33 @@
+NotSingleTargetSpell = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
 BuffTextureName = "CardMaster_FatesGambit.dds"
 BuffName = "Pick A Card"
 AutoBuffActivateEffect = ""
 SpellToggleSlot = 3
 OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "PickACardLock",
+      TargetVar = "Owner"
+    }
+  },
+  {
+    Function = BBSetSlotSpellCooldownTime,
+    Params = {
+      SrcValue = 0.5,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      SpellSlotValue = 1,
+      OwnerVar = "Owner"
+    }
+  },
   {
     Function = BBRequireVar,
     Params = {
@@ -166,6 +191,16 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "EffectID",
       EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSetSpell,
+    Params = {
+      SlotNumber = 1,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      SpellName = "PickACard",
+      TargetVar = "Owner"
     }
   },
   {
@@ -395,7 +430,7 @@ BuffOnSpellCastBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "SpellName",
-      Value2 = "PickACard",
+      Value2 = "PickACardLock",
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
@@ -545,219 +580,163 @@ BuffOnHitUnitBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBIfNotHasBuff,
+    Function = BBIf,
     Params = {
-      OwnerVar = "Owner",
-      CasterVar = "Owner",
-      BuffName = "PickACard"
+      Src1Var = "Rnd1",
+      Value2 = 0.1,
+      CompareOp = CO_LESS_THAN
     },
     SubBlocks = {
       {
-        Function = BBIf,
+        Function = BBSetVarInTable,
         Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.1,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 0
-            }
-          }
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 0
         }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.2,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 1
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.3,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 2
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.4,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 3
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.5,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 4
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.6,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 5
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.7,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 6
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.8,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 7
-            }
-          }
-        }
-      },
-      {
-        Function = BBElseIf,
-        Params = {
-          Src1Var = "Rnd1",
-          Value2 = 0.9,
-          CompareOp = CO_LESS_THAN
-        },
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 8
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "Counter",
-              DestVarTable = "NextBuffVars",
-              SrcValue = 9
-            }
-          }
-        }
-      },
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.2,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "WillRemove",
+          DestVar = "Counter",
           DestVarTable = "NextBuffVars",
-          SrcValue = false
+          SrcValue = 1
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.3,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
       {
-        Function = BBSpellBuffAdd,
+        Function = BBSetVarInTable,
         Params = {
-          TargetVar = "Target",
-          AttackerVar = "Owner",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_CombatEnchancer,
-          MaxStack = 1,
-          NumberStacks = 1,
-          Duration = 10,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 2
         }
-      },
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.4,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
       {
-        Function = BBSetSlotSpellCooldownTime,
+        Function = BBSetVarInTable,
         Params = {
-          SrcValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          SpellSlotValue = 1,
-          OwnerVar = "Owner"
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 3
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.5,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 4
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.6,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 5
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.7,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 6
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.8,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 7
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Rnd1",
+      Value2 = 0.9,
+      CompareOp = CO_LESS_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 8
         }
       }
     }
@@ -767,24 +746,35 @@ TargetExecuteBuildingBlocks = {
     Params = {},
     SubBlocks = {
       {
-        Function = BBSilenceSpellSlot,
+        Function = BBSetVarInTable,
         Params = {
-          SpellSlot = 1,
-          SlotType = SpellSlots,
-          TargetVar = "Owner",
-          State = true
-        }
-      },
-      {
-        Function = BBSetSlotSpellCooldownTime,
-        Params = {
-          SrcValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          SpellSlotValue = 1,
-          OwnerVar = "Owner"
+          DestVar = "Counter",
+          DestVarTable = "NextBuffVars",
+          SrcValue = 9
         }
       }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "WillRemove",
+      DestVarTable = "NextBuffVars",
+      SrcValue = false
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 10,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
     }
   }
 }

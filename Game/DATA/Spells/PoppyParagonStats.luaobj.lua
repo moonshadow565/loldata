@@ -11,13 +11,16 @@ BuffOnUpdateStatsBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
+    Function = BBSetVarInTable,
     Params = {
-      Src2Var = "Level",
-      Src1Value = 1,
-      Src2Value = 0,
       DestVar = "ArmorDamageValue",
-      MathOp = MO_ADD
+      SrcValueByLevel = {
+        1.5,
+        2,
+        2.5,
+        3,
+        3.5
+      }
     }
   },
   {

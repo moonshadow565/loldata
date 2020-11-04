@@ -1,4 +1,5 @@
 NotSingleTargetSpell = true
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
 AutoBuffActivateEffect = ""
 OnBuffActivateBuildingBlocks = {
@@ -54,7 +55,9 @@ OnBuffActivateBuildingBlocks = {
       SpeedVar = "SlashSpeed",
       SpeedVarTable = "InstanceVars",
       Gravity = 0,
-      MoveBackBy = 0
+      MoveBackBy = 0,
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER
     }
   },
   {
@@ -427,7 +430,7 @@ BuffOnMoveEndBuildingBlocks = {
           AttackerVar = "Owner",
           BuffName = "UnstoppableForceStun",
           BuffAddType = BUFF_REPLACE_EXISTING,
-          BuffType = BUFF_Internal,
+          BuffType = BUFF_Stun,
           MaxStack = 1,
           NumberStacks = 1,
           Duration = 1,

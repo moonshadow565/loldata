@@ -46,6 +46,15 @@ OnBuffActivateBuildingBlocks = {
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TotalArmorAmount",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -220,7 +229,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 12,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

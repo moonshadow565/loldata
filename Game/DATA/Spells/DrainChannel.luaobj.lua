@@ -12,7 +12,7 @@ ChannelingStartBuildingBlocks = {
     Function = BBGetStat,
     Params = {
       Stat = GetFlatMagicDamageMod,
-      TargetVar = "Attacker",
+      TargetVar = "Owner",
       DestVar = "AbilityPower"
     }
   },
@@ -28,11 +28,11 @@ ChannelingStartBuildingBlocks = {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
-      AttackerVar = "Attacker",
+      AttackerVar = "Owner",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Damage,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -41,13 +41,13 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "Fearmonger_marker",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Heal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 6,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -56,7 +56,7 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
     Params = {
-      BindObjectVar = "Attacker",
+      BindObjectVar = "Owner",
       EffectName = "Drain.troy",
       Flags = 0,
       EffectIDVar = "ParticleID",
@@ -98,13 +98,13 @@ ChannelingStartBuildingBlocks = {
   {
     Function = BBSpellBuffAdd,
     Params = {
-      TargetVar = "Attacker",
-      AttackerVar = "Attacker",
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
       BuffName = "GlobalDrain",
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -153,7 +153,7 @@ ChannelingStartBuildingBlocks = {
       Damage = 0,
       DamageVar = "DamageToDeal",
       DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
+      SourceDamageType = DAMAGESOURCE_SPELL,
       PercentOfAttack = 1,
       SpellDamageRatio = 0,
       IgnoreDamageIncreaseMods = false,
@@ -176,7 +176,7 @@ ChannelingUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "Distance",
           ObjectVar1 = "Target",
-          ObjectVar2 = "Attacker"
+          ObjectVar2 = "Owner"
         }
       },
       {
@@ -190,7 +190,7 @@ ChannelingUpdateActionsBuildingBlocks = {
           {
             Function = BBStopChanneling,
             Params = {
-              CasterVar = "Attacker",
+              CasterVar = "Owner",
               StopCondition = ChannelingStopCondition_Cancel,
               StopSource = ChannelingStopSource_LostTarget
             }
@@ -199,7 +199,17 @@ ChannelingUpdateActionsBuildingBlocks = {
       },
       {
         Function = BBIf,
-        Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD}
+        Params = {Src1Var = "Target", CompareOp = CO_IS_DEAD},
+        SubBlocks = {
+          {
+            Function = BBStopChanneling,
+            Params = {
+              CasterVar = "Owner",
+              StopCondition = ChannelingStopCondition_Cancel,
+              StopSource = ChannelingStopSource_LostTarget
+            }
+          }
+        }
       },
       {
         Function = BBElse,
@@ -207,7 +217,7 @@ ChannelingUpdateActionsBuildingBlocks = {
         SubBlocks = {
           {
             Function = BBIf,
-            Params = {Src1Var = "Attacker", CompareOp = CO_IS_DEAD},
+            Params = {Src1Var = "Owner", CompareOp = CO_IS_DEAD},
             SubBlocks = {
               {
                 Function = BBSpellEffectRemove,
@@ -241,13 +251,13 @@ ChannelingUpdateActionsBuildingBlocks = {
               {
                 Function = BBSpellBuffAdd,
                 Params = {
-                  TargetVar = "Attacker",
-                  AttackerVar = "Attacker",
+                  TargetVar = "Owner",
+                  AttackerVar = "Owner",
                   BuffName = "GlobalDrain",
                   BuffAddType = BUFF_REPLACE_EXISTING,
-                  BuffType = BUFF_Internal,
+                  BuffType = BUFF_Aura,
                   MaxStack = 1,
-                  NumberStacks = 1,
+                  NumberOfStacks = 1,
                   Duration = 0.01,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0
@@ -296,7 +306,7 @@ ChannelingUpdateActionsBuildingBlocks = {
                   Damage = 0,
                   DamageVar = "DamageToDeal",
                   DamageType = MAGIC_DAMAGE,
-                  SourceDamageType = DAMAGESOURCE_PERIODIC,
+                  SourceDamageType = DAMAGESOURCE_SPELL,
                   PercentOfAttack = 1,
                   SpellDamageRatio = 0,
                   IgnoreDamageIncreaseMods = false,

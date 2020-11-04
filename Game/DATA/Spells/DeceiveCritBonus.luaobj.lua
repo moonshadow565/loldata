@@ -1,15 +1,5 @@
 OnBuffActivateBuildingBlocks = {
   {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatCritDamageMod,
-      TargetVar = "Owner",
-      DeltaVar = "CritDmgBonus",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "HasHit",
@@ -18,39 +8,17 @@ OnBuffActivateBuildingBlocks = {
     }
   }
 }
-OnBuffDeactivateBuildingBlocks = {
+BuffOnUpdateStatsBuildingBlocks = {
   {
-    Function = BBMath,
+    Function = BBIncStat,
     Params = {
-      Src1Var = "CritDmgBonus",
-      Src1VarTable = "InstanceVars",
-      Src1Value = 0,
-      Src2Value = -1,
-      DestVar = "NewCritDmgBonus",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBIncPermanentStat,
-    Params = {
-      Stat = IncPermanentFlatCritDamageMod,
+      Stat = IncFlatCritDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "NewCritDmgBonus",
+      DeltaVar = "CritDmgBonus",
+      DeltaVarTable = "InstanceVars",
       Delta = 0
     }
-  }
-}
-BuffOnHitUnitBuildingBlocks = {
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "HasHit",
-      DestVarTable = "InstanceVars",
-      SrcValue = true
-    }
-  }
-}
-BuffOnUpdateStatsBuildingBlocks = {
+  },
   {
     Function = BBIf,
     Params = {
@@ -64,6 +32,16 @@ BuffOnUpdateStatsBuildingBlocks = {
         Function = BBSpellBuffRemoveCurrent,
         Params = {TargetVar = "Owner"}
       }
+    }
+  }
+}
+BuffOnHitUnitBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HasHit",
+      DestVarTable = "InstanceVars",
+      SrcValue = true
     }
   }
 }

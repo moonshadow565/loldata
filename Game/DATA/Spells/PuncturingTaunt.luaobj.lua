@@ -6,21 +6,6 @@ IsDamagingSpell = false
 BuffTextureName = "Armordillo_ScaledPlating.dds"
 TargetExecuteBuildingBlocks = {
   {
-    Function = BBApplyTaunt,
-    Params = {
-      AttackerVar = "Attacker",
-      TargetVar = "Target",
-      Duration = 0,
-      DurationByLevel = {
-        1,
-        1.5,
-        2,
-        2.5,
-        3
-      }
-    }
-  },
-  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "ArmorDebuff",
@@ -35,24 +20,40 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "tauntDuration",
+      SrcValueByLevel = {
+        1,
+        1.5,
+        2,
+        2.5,
+        3
+      }
+    }
+  },
+  {
+    Function = BBApplyTaunt,
+    Params = {
+      AttackerVar = "Attacker",
+      TargetVar = "Target",
+      Duration = 0,
+      DurationVar = "tauntDuration"
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "PuncturingTauntArmorDebuff",
       BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatDehancer,
+      BuffType = BUFF_Taunt,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        1,
-        1.5,
-        2,
-        2.5,
-        3
-      },
+      DurationVar = "tauntDuration",
       TickRate = 0
     }
   }

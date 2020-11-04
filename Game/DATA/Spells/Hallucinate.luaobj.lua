@@ -107,7 +107,8 @@ TargetExecuteBuildingBlocks = {
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
     }
@@ -155,9 +156,9 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DamageDealt",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            1,
-            1,
-            1
+            0.7,
+            0.7,
+            0.7
           }
         }
       },
@@ -167,9 +168,9 @@ TargetExecuteBuildingBlocks = {
           DestVar = "DamageTaken",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
-            1.7,
             1.35,
-            1
+            1.35,
+            1.35
           }
         }
       },

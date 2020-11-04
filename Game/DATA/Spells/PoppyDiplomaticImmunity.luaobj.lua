@@ -1,11 +1,11 @@
 NotSingleTargetSpell = true
-DoesntBreakShields = true
+DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Poppy_DiplomaticImmunity.dds"
 BuffName = "PoppyDiplomaticImmunity"
-AutoBuffActivateEffect = "DiplomaticImmunity_buf.troy"
+AutoBuffActivateEffect = ""
 AutoBuffActivateEvent = ""
 BuffOnAllowAddBuildingBlocks = {
   {
@@ -50,6 +50,197 @@ BuffOnAllowAddBuildingBlocks = {
         Function = BBSetReturnValue,
         Params = {SrcValue = true}
       }
+    }
+  }
+}
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TeamOfOwner"
+    }
+  },
+  {
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TeamOfOwner",
+      Value2 = TEAM_ORDER,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "DiplomaticImmunity_buf.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_ORDER,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_ORDER,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBForEachChampion,
+        Params = {IteratorVar = "Unit", Team = TEAM_CHAOS},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Unit",
+              Src2Var = "Caster",
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "DiplomaticImmunity_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle2",
+                  EffectIDVarTable = "InstanceVars",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_CHAOS,
+                  UseSpecificUnit = true,
+                  FOWTeam = TEAM_ORDER,
+                  FOWVisibilityRadius = 500,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "DiplomaticImmunity_buf.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle2",
+                  EffectIDVarTable = "InstanceVars",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_CHAOS,
+                  UseSpecificUnit = true,
+                  FOWTeam = TEAM_ORDER,
+                  FOWVisibilityRadius = 500,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "DiplomaticImmunity_buf.troy",
+          Flags = 0,
+          EffectIDVar = "Particle",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Nothing",
+          SpecificTeamOnly = TEAM_CHAOS,
+          UseSpecificUnit = true,
+          FOWTeam = TEAM_CHAOS,
+          FOWVisibilityRadius = 500,
+          SendIfOnScreenOrDiscard = false
+        }
+      },
+      {
+        Function = BBForEachChampion,
+        Params = {IteratorVar = "Unit", Team = TEAM_ORDER},
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "Unit",
+              Src2Var = "Caster",
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "DiplomaticImmunity_tar.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle2",
+                  EffectIDVarTable = "InstanceVars",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_ORDER,
+                  UseSpecificUnit = true,
+                  FOWTeam = TEAM_CHAOS,
+                  FOWVisibilityRadius = 500,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
+            }
+          },
+          {
+            Function = BBElse,
+            Params = {},
+            SubBlocks = {
+              {
+                Function = BBSpellEffectCreate,
+                Params = {
+                  BindObjectVar = "Owner",
+                  EffectName = "DiplomaticImmunity_buf.troy",
+                  Flags = 0,
+                  EffectIDVar = "Particle2",
+                  EffectIDVarTable = "InstanceVars",
+                  TargetObjectVar = "Owner",
+                  SpecificUnitOnlyVar = "Unit",
+                  SpecificTeamOnly = TEAM_ORDER,
+                  UseSpecificUnit = true,
+                  FOWTeam = TEAM_ORDER,
+                  FOWVisibilityRadius = 500,
+                  SendIfOnScreenOrDiscard = false
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle",
+      EffectIDVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "Particle2",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -100,25 +291,6 @@ TargetExecuteBuildingBlocks = {
       },
       TickRate = 0
     }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      BuffType = BUFF_CombatEnchancer,
-      MaxStack = 1,
-      NumberStacks = 1,
-      Duration = 0,
-      BuffVarsTable = "NextBuffVars",
-      DurationByLevel = {
-        6,
-        7,
-        8
-      },
-      TickRate = 0
-    }
   }
 }
 PreLoadBuildingBlocks = {
@@ -126,6 +298,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "poppyditarget"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diplomaticimmunity_buf.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "diplomaticimmunity_tar.troy"
     }
   }
 }

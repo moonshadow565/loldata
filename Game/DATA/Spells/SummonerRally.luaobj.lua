@@ -90,56 +90,28 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "DamageIncrease",
-      SrcValue = 0.3
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MagicDamageIncrease",
-      SrcValue = 0
+      DestVar = "WillPumpAP",
+      DestVarTable = "NextBuffVars",
+      SrcValue = false
     }
   },
   {
     Function = BBIf,
     Params = {
-      Src1Var = "RallyMagicDamageMod",
+      Src1Var = "RallyAPMod",
       Src1VarTable = "AvatarVars",
-      Value2 = 0.2,
+      Value2 = 70,
       CompareOp = CO_EQUAL
     },
     SubBlocks = {
       {
-        Function = BBMath,
+        Function = BBSetVarInTable,
         Params = {
-          Src1Var = "RallyMagicDamageMod",
-          Src1VarTable = "AvatarVars",
-          Src2Var = "MagicDamageIncrease",
-          Src1Value = 0,
-          Src2Value = 0,
-          DestVar = "MagicDamageIncrease",
-          MathOp = MO_ADD
+          DestVar = "WillPumpAP",
+          DestVarTable = "NextBuffVars",
+          SrcValue = true
         }
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "DamageIncrease",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "DamageIncrease",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "MagicDamageIncrease",
-      DestVarTable = "NextBuffVars",
-      SrcVar = "MagicDamageIncrease",
-      SrcValue = 0
     }
   },
   {
@@ -188,56 +160,6 @@ TargetExecuteBuildingBlocks = {
           Src2Value = 0,
           DestVar = "Duration",
           MathOp = MO_ADD
-        }
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "ArmorMod",
-      DestVarTable = "NextBuffVars",
-      SrcValue = 0
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "RallyArmorBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 10,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorMod",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "RallyArmorBonus",
-          SrcVarTable = "AvatarVars",
-          SrcValue = 0
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "RallyArmorBonus",
-      Src1VarTable = "AvatarVars",
-      Value2 = 20,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "ArmorMod",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "RallyArmorBonus",
-          SrcVarTable = "AvatarVars",
-          SrcValue = 0
         }
       }
     }
@@ -307,7 +229,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Aura,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",

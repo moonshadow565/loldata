@@ -37,9 +37,9 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       DestVar = "AoEDamage",
       SrcValueByLevel = {
+        0.5,
         0.65,
-        0.65,
-        0.65
+        0.8
       }
     }
   },
@@ -170,7 +170,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                       DamageVar = "UltDamage",
                       DamageVarTable = "InstanceVars",
                       DamageType = MAGIC_DAMAGE,
-                      SourceDamageType = DAMAGESOURCE_SPELL,
+                      SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
                       SpellDamageRatio = 0.15,
                       IgnoreDamageIncreaseMods = false,
@@ -203,7 +203,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_Net,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {

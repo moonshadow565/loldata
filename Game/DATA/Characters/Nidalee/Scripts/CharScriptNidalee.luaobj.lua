@@ -31,7 +31,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 1,
+      TimeBetweenExecutions = 5,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -65,7 +65,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             SubBlocks = {
               {
                 Function = BBIncExp,
-                Params = {TargetVar = "Unit", Delta = 1}
+                Params = {TargetVar = "Unit", Delta = 5}
               }
             }
           }

@@ -57,7 +57,8 @@ BuffOnUpdateActionsBuildingBlocks = {
               OverrideForceLevel = 1,
               OverrideCoolDownCheck = true,
               FireWithoutCasting = false,
-              UseAutoAttackSpell = false
+              UseAutoAttackSpell = false,
+              ForceCastingOrChannelling = false
             }
           },
           {
@@ -78,7 +79,7 @@ TargetExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0
@@ -107,6 +108,10 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {DestVar = "SpeedVar", SrcValue = 1150}
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {DestVar = "Distance", SrcValue = 600}
       }
     }
   },
@@ -228,7 +233,10 @@ TargetExecuteBuildingBlocks = {
       Gravity = 0,
       GravityVar = "GravityVar",
       MoveBackBy = 100,
-      MovementType = FURTHEST_WITHIN_RANGE
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0,
+      IdealDistanceVar = "Distance"
     }
   }
 }

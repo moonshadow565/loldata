@@ -121,11 +121,11 @@ BuffOnHitUnitBuildingBlocks = {
     Params = {
       DestVar = "MaxDamage",
       SrcValueByLevel = {
+        75,
         150,
         225,
         300,
-        375,
-        450
+        375
       }
     }
   },
@@ -255,11 +255,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        10,
-        9,
         8,
         7,
-        6
+        6,
+        5,
+        4
       }
     }
   },
@@ -270,10 +270,10 @@ SelfExecuteBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         20,
+        40,
         60,
-        100,
-        140,
-        180
+        80,
+        100
       }
     }
   },
@@ -285,7 +285,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_RENEW_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 10,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

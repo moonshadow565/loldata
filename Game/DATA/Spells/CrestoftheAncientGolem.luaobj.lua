@@ -1,6 +1,7 @@
 BuffTextureName = "48thSlave_Tattoo.dds"
 BuffName = "CrestoftheAncientGolem"
 AutoBuffActivateEffect = ""
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -185,7 +186,7 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 150,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

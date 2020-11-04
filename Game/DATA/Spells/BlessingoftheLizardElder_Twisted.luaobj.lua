@@ -1,6 +1,7 @@
 BuffTextureName = "48thSlave_WaveOfLoathing.dds"
 BuffName = "BlessingoftheLizardElder"
 AutoBuffActivateEffect = ""
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,

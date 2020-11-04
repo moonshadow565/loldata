@@ -18,21 +18,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "MagicDamageIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "DamageIncrease",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "ArmorMod",
+      RequiredVar = "WillPumpAP",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -70,7 +56,9 @@ OnBuffDeactivateBuildingBlocks = {
       DamageType = TRUE_DAMAGE,
       SourceDamageType = DAMAGESOURCE_INTERNALRAW,
       PercentOfAttack = 1,
-      SpellDamageRatio = 1
+      SpellDamageRatio = 1,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = false
     }
   }
 }
@@ -81,16 +69,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       Stat = IncFlatHPPoolMod,
       TargetVar = "Owner",
       DeltaVar = "BonusHealth",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatArmorMod,
-      TargetVar = "Owner",
-      DeltaVar = "ArmorMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }
@@ -125,18 +103,9 @@ BuffOnUpdateActionsBuildingBlocks = {
       {
         Function = BBSetVarInTable,
         Params = {
-          DestVar = "DamageIncrease",
+          DestVar = "WillPumpAP",
           DestVarTable = "NextBuffVars",
-          SrcVar = "DamageIncrease",
-          SrcVarTable = "InstanceVars"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "MagicDamageIncrease",
-          DestVarTable = "NextBuffVars",
-          SrcVar = "MagicDamageIncrease",
+          SrcVar = "WillPumpAP",
           SrcVarTable = "InstanceVars"
         }
       },
@@ -161,7 +130,7 @@ BuffOnUpdateActionsBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Aura,
           BuffMaxStack = 1,
-          BuffNumberStacks = 1,
+          BuffNumberOfStacks = 1,
           BuffDuration = 1.1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0

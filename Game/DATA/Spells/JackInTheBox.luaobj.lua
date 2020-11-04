@@ -40,6 +40,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Owner", DestVar = "TeamID"}
   },
@@ -110,6 +118,16 @@ OnBuffDeactivateBuildingBlocks = {
     }
   }
 }
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBIf,
@@ -153,7 +171,7 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 60,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -209,7 +227,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Params = {
                       AttackerVar = "Unit",
                       TargetVar = "Owner",
-                      Duration = 1
+                      Duration = 0.01
                     }
                   },
                   {
@@ -262,7 +280,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                             Params = {
                               AttackerVar = "Unit",
                               TargetVar = "Owner",
-                              Duration = 1
+                              Duration = 0.01
                             }
                           }
                         }
@@ -328,7 +346,7 @@ BuffOnPreAttackBuildingBlocks = {
           BuffAddType = BUFF_RENEW_EXISTING,
           BuffType = BUFF_Internal,
           MaxStack = 1,
-          NumberStacks = 1,
+          NumberOfStacks = 1,
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0
@@ -413,7 +431,7 @@ SelfExecuteBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Internal,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 0.1,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

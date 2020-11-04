@@ -35,7 +35,9 @@ OnBuffActivateBuildingBlocks = {
       Speed = 100,
       Gravity = 20,
       MoveBackBy = 0,
-      MovementType = FURTHEST_WITHIN_RANGE
+      MovementType = FURTHEST_WITHIN_RANGE,
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 100
     }
   },
   {
@@ -106,7 +108,7 @@ OnBuffDeactivateBuildingBlocks = {
       BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_Slow,
       MaxStack = 1,
-      NumberStacks = 1,
+      NumberOfStacks = 1,
       Duration = 1.5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0

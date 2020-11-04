@@ -37,10 +37,10 @@ TargetExecuteBuildingBlocks = {
           DamageVar = "SwipeDamage",
           DamageVarTable = "CharVars",
           DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
           PercentOfAttack = 1,
           SpellDamageRatio = 0.2,
-          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageIncreaseMods = true,
           IgnoreDamageCrit = true
         }
       }

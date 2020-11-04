@@ -66,6 +66,16 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBMath,
+        Params = {
+          Src2Var = "LeechAmount",
+          Src1Value = 0.5,
+          Src2Value = 0,
+          DestVar = "ManaLeechAmount",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
         Function = BBIncHealth,
         Params = {
           TargetVar = "Owner",
@@ -79,7 +89,7 @@ TargetExecuteBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           Delta = 0,
-          DeltaVar = "LeechAmount"
+          DeltaVar = "ManaLeechAmount"
         }
       },
       {

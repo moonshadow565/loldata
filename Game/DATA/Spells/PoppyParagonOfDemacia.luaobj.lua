@@ -25,7 +25,7 @@ SelfExecuteBuildingBlocks = {
       BuffName = "PoppyParagonStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 10,
       NumberStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -40,7 +40,7 @@ SelfExecuteBuildingBlocks = {
       BuffName = "PoppyParagonStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 10,
       NumberStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -55,7 +55,7 @@ SelfExecuteBuildingBlocks = {
       BuffName = "PoppyParagonStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 10,
       NumberStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -70,7 +70,7 @@ SelfExecuteBuildingBlocks = {
       BuffName = "PoppyParagonStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 10,
       NumberStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -85,7 +85,82 @@ SelfExecuteBuildingBlocks = {
       BuffName = "PoppyParagonStats",
       BuffAddType = BUFF_STACKS_AND_RENEWS,
       BuffType = BUFF_Internal,
-      MaxStack = 5,
+      MaxStack = 10,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonStats",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_Internal,
+      MaxStack = 10,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonStats",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_Internal,
+      MaxStack = 10,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonStats",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_Internal,
+      MaxStack = 10,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonStats",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_Internal,
+      MaxStack = 10,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonStats",
+      BuffAddType = BUFF_STACKS_AND_RENEWS,
+      BuffType = BUFF_Internal,
+      MaxStack = 10,
       NumberStacks = 1,
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
@@ -114,6 +189,21 @@ SelfExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       BuffName = "PoppyParagonSpeed",
       BuffAddType = BUFF_RENEW_EXISTING,
+      BuffType = BUFF_CombatEnchancer,
+      MaxStack = 1,
+      NumberStacks = 1,
+      Duration = 5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0
+    }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PoppyParagonIcon",
+      BuffAddType = BUFF_REPLACE_EXISTING,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberStacks = 1,

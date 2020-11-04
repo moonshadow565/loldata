@@ -1,5 +1,6 @@
 BuffTextureName = "PlantKing_AnimateVitalis.dds"
 BuffName = "Crest Of Natures Fury"
+Nondispellable = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -77,7 +78,7 @@ BuffOnDeathBuildingBlocks = {
               BuffAddType = BUFF_REPLACE_EXISTING,
               BuffType = BUFF_CombatEnchancer,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 60,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0

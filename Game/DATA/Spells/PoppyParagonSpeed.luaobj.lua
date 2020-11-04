@@ -1,16 +1,6 @@
 BuffTextureName = "Poppy_MightOfDemacia.dds"
 BuffName = "PoppyParagonSpeed"
 AutoBuffActivateEffect = ""
-BuffOnUpdateStatsBuildingBlocks = {
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentMultiplicativeMovementSpeedMod,
-      TargetVar = "Owner",
-      Delta = 0.2
-    }
-  }
-}
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellEffectCreate,
@@ -28,6 +18,31 @@ OnBuffActivateBuildingBlocks = {
       FOWVisibilityRadius = 0,
       SendIfOnScreenOrDiscard = true
     }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 1,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "MoveSpeedVar",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        0.17,
+        0.19,
+        0.21,
+        0.23,
+        0.25
+      }
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -36,6 +51,18 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       EffectIDVar = "SpeedParticle",
       EffectIDVarTable = "InstanceVars"
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncPercentMultiplicativeMovementSpeedMod,
+      TargetVar = "Owner",
+      DeltaVar = "MoveSpeedVar",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
     }
   }
 }

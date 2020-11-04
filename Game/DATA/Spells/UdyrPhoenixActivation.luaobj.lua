@@ -1,6 +1,87 @@
 BuffTextureName = "Udyr_PhoenixStance.dds"
 BuffName = "UdyrPhoenixActivation"
 AutoBuffActivateEffect = ""
+OnBuffActivateBuildingBlocks = {
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AbilityPowerInc",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        16,
+        24,
+        32,
+        40,
+        48
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "AttackDamageInc",
+      DestVarTable = "InstanceVars",
+      SrcValueByLevel = {
+        8,
+        12,
+        16,
+        20,
+        24
+      }
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AbilityPowerInc",
+      ValueVarTable = "InstanceVars",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "AttackDamageInc",
+      ValueVarTable = "InstanceVars",
+      Index = 2
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AttackDamageInc",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  },
+  {
+    Function = BBIncStat,
+    Params = {
+      Stat = IncFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DeltaVar = "AbilityPowerInc",
+      DeltaVarTable = "InstanceVars",
+      Delta = 0
+    }
+  }
+}
 BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,

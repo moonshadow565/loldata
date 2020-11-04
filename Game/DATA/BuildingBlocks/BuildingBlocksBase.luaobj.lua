@@ -1109,6 +1109,17 @@ function L0(A0, A1, A2)
   end
 end
 BBExecutePeriodically = L0
+function L0(A0, A1, A2)
+  local L3, L4, L5, L6
+  L3 = GetTable
+  L4 = A0
+  L5 = A1.TrackTimeVarTable
+  L6 = false
+  L3 = L3(L4, L5, L6)
+  L4 = A1.TrackTimeVar
+  L3[L4] = nil
+end
+BBExecutePeriodicallyReset = L0
 function L0(A0, A1)
   local L2, L3, L4, L5, L6
   L2 = A1.SrcValue

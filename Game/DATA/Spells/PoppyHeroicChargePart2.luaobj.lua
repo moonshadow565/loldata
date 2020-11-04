@@ -1,3 +1,5 @@
+BuffTextureName = "Poppy_HeroicCharge.dds"
+AutoBuffActivateEffect = "HeroicCharge_cas2.troy"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
@@ -25,6 +27,17 @@ OnBuffActivateBuildingBlocks = {
     Params = {CasterVar = "Caster"}
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 2,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Caster",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "NewTargetPos",
@@ -35,14 +48,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "Damage",
+      DestVar = "DamageTwo",
       DestVarTable = "InstanceVars",
       SrcValueByLevel = {
-        40,
-        80,
-        120,
-        160,
-        200
+        75,
+        125,
+        175,
+        225,
+        275
       }
     }
   },
@@ -63,6 +76,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetGhosted
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Owner",
@@ -73,16 +94,17 @@ OnBuffActivateBuildingBlocks = {
       Gravity = 0,
       MoveBackBy = 0,
       MovementType = FIRST_COLLISION_HIT,
-      MovementOrdersType = CANCEL_ORDER
+      MovementOrdersType = CANCEL_ORDER,
+      IdealDistance = 0
     }
   },
   {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Owner",
-      EffectName = "HeroicCharge_cas2.troy",
+      EffectName = "HeroicCharge_cas.troy",
       Flags = 0,
-      EffectIDVar = "SelfParticle2",
+      EffectIDVar = "ParticleCharge2",
       EffectIDVarTable = "InstanceVars",
       TargetObjectVar = "Target",
       SpecificUnitOnlyVar = "Owner",
@@ -100,86 +122,25 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {CasterVar = "Caster"}
   },
   {
-    Function = BBIf,
+    Function = BBSpellEffectRemove,
     Params = {
-      Src1Var = "Caster",
-      Src2Var = "Owner",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBStopCurrentOverrideAnimation,
-        Params = {AnimationName = "RunUlt", TargetVar = "Owner"}
-      }
-    }
-  }
-}
-BuffOnUpdateActionsBuildingBlocks = {
-  {
-    Function = BBSetBuffCasterUnit,
-    Params = {CasterVar = "Caster"}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Caster",
-      Src2Var = "Owner",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "WillMove",
-          Src1VarTable = "InstanceVars",
-          Value2 = true,
-          CompareOp = CO_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBPlayAnimation,
-            Params = {
-              AnimationName = "RunUlt",
-              ScaleTime = 0,
-              TargetVar = "Owner",
-              Loop = true
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "WillMove",
-              DestVarTable = "InstanceVars",
-              SrcValue = false
-            }
-          }
-        }
-      }
+      EffectIDVar = "ParticleCharge2",
+      EffectIDVarTable = "InstanceVars"
     }
   },
   {
-    Function = BBIf,
+    Function = BBSetStatus,
     Params = {
-      Src1Var = "WillRemove",
-      Src1VarTable = "InstanceVars",
-      Value2 = true,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffRemoveCurrent,
-        Params = {TargetVar = "Owner"}
-      }
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetGhosted
     }
   }
 }
 BuffOnMoveEndBuildingBlocks = {
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "SelfParticle2",
-      EffectIDVarTable = "InstanceVars"
-    }
+    Function = BBSetBuffCasterUnit,
+    Params = {CasterVar = "Caster"}
   },
   {
     Function = BBDistanceBetweenObjectAndPoint,
@@ -194,7 +155,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "DistanceVar",
-      Value2 = 50,
+      Value2 = 75,
       CompareOp = CO_LESS_THAN_OR_EQUAL
     }
   },
@@ -210,10 +171,6 @@ BuffOnMoveEndBuildingBlocks = {
           BuffName = "PoppyHeroicChargePart2Check"
         },
         SubBlocks = {
-          {
-            Function = BBSetBuffCasterUnit,
-            Params = {CasterVar = "Caster"}
-          },
           {
             Function = BBIf,
             Params = {
@@ -265,17 +222,6 @@ BuffOnMoveEndBuildingBlocks = {
             }
           },
           {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
-          },
-          {
-            Function = BBSpellEffectRemove,
-            Params = {
-              EffectIDVar = "SelfParticle2",
-              EffectIDVarTable = "InstanceVars"
-            }
-          },
-          {
             Function = BBSpellBuffAdd,
             Params = {
               TargetVar = "Owner",
@@ -284,7 +230,7 @@ BuffOnMoveEndBuildingBlocks = {
               BuffAddType = BUFF_RENEW_EXISTING,
               BuffType = BUFF_Internal,
               MaxStack = 1,
-              NumberStacks = 1,
+              NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0
@@ -295,18 +241,15 @@ BuffOnMoveEndBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellEffectRemove,
-    Params = {
-      EffectIDVar = "SelfParticle2",
-      EffectIDVarTable = "InstanceVars"
-    }
+    Function = BBSpellBuffRemoveCurrent,
+    Params = {TargetVar = "Owner"}
   }
 }
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "heroiccharge_cas2.troy"
+      Name = "heroiccharge_cas.troy"
     }
   },
   {

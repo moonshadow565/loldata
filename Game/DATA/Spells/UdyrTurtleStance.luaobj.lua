@@ -246,43 +246,106 @@ SelfExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "CooldownPerc",
-      Src1Value = 2.5,
+      Src1Value = 1.5,
       Src2Value = 0,
       DestVar = "CooldownPerc",
       MathOp = MO_MULTIPLY
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBGetSlotSpellInfo,
     Params = {
-      SrcVar = "CooldownPerc",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
+      DestVar = "CurrentCD",
       SpellSlotValue = 0,
-      OwnerVar = "Owner"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBIf,
     Params = {
-      SrcVar = "CooldownPerc",
-      SrcValue = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
+      Src1Var = "CurrentCD",
+      Src2Var = "CooldownPerc",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "CooldownPerc",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 0,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCD",
       SpellSlotValue = 2,
-      OwnerVar = "Owner"
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
     }
   },
   {
-    Function = BBSetSlotSpellCooldownTime,
+    Function = BBIf,
     Params = {
-      SrcVar = "CooldownPerc",
-      SrcValue = 0,
+      Src1Var = "CurrentCD",
+      Src2Var = "CooldownPerc",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "CooldownPerc",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 2,
+          OwnerVar = "Owner"
+        }
+      }
+    }
+  },
+  {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "CurrentCD",
+      SpellSlotValue = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
-      SpellSlotValue = 3,
-      OwnerVar = "Owner"
+      OwnerVar = "Owner",
+      Function = GetSlotSpellCooldownTime
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CurrentCD",
+      Src2Var = "CooldownPerc",
+      CompareOp = CO_LESS_THAN_OR_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetSlotSpellCooldownTime,
+        Params = {
+          SrcVar = "CooldownPerc",
+          SrcValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          SpellSlotValue = 3,
+          OwnerVar = "Owner"
+        }
+      }
     }
   },
   {
