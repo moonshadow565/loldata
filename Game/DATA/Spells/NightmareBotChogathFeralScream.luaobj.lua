@@ -13,13 +13,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "feralscream_cas3.troy"
+      Name = "nightmarebotschogathferalscream_cas3.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "feralscream_cas2.troy"
+      Name = "nightmarebotschogathferalscream_cas2.troy"
     }
   },
   {

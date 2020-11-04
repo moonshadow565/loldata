@@ -17,21 +17,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "testcuberender10vision"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "nightmarebotziggsqdropmine"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "expirationtimer"
     }
   },
   {
