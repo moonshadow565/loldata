@@ -10,5 +10,17 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "cassiotwinfang_refreshsound.troy"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cassiopeia_base_e_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cassiopeia_base_passive_mana.troy"
+    }
   }
 }

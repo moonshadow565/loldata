@@ -8,7 +8,8 @@ BuffName = "KhazixREvo"
 AutoBuffActivateEffect = "Khazix_Stealth_Evolved_Texture.troy"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "KhazixDroid"
+  "KhazixDroid",
+  "KhazixSkin02"
 }
 SpellVOOverrideSkins = {
   "KhazixDroid"

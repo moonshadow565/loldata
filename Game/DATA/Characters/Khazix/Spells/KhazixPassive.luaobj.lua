@@ -7,7 +7,7 @@ BuffTextureName = "Khazix_P.dds"
 BuffName = "KhazixPassive"
 PersistsThroughDeath = true
 SpellFXOverrideSkins = {
-  "ReefMalphite"
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

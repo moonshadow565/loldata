@@ -1,7 +1,7 @@
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = true
 SpellFXOverrideSkins = {
-  "KhazixDroid"
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

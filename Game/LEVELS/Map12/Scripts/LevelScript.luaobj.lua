@@ -141,7 +141,7 @@ L0_0.ExpUpgrade = 0
 L0_0.ExpInhibitor = 0
 L0_0.GoldGiven = 30
 L0_0.GoldBonus = 0
-L0_0.GoldUpgrade = 0.5
+L0_0.GoldUpgrade = 1
 L0_0.GoldInhibitor = 0
 L0_0.GoldShared = 0
 L0_0.GoldShareUpgrade = 0
@@ -476,8 +476,7 @@ function L0_0()
     L4_29(L5_30)
     L4_29.NumOfMeleeMinionsPerWave = 3
     L4_29.NumOfCasterMinionsPerWave = 3
-    L6_31 = 12
-    L4_29(L5_30, L6_31)
+    L4_29(L5_30)
     L4_29()
   end
   L4_29(L5_30)
@@ -503,7 +502,7 @@ function L0_0()
 end
 ApplyAramBuffs = L0_0
 function L0_0()
-  LoadLevelScriptIntoScript("CreateLevelProps.lua", 12)
+  LoadLevelScriptIntoScript("CreateLevelProps.lua")
   if GetGameMode() == "TUTORIAL" then
     CreateLevelPropsTutorial()
   else

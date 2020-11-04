@@ -13,6 +13,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "globalwallmarker"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "globalwallpush"
     }
   },
@@ -44,12 +50,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "anivia_skn5_wallburst_5.troy"
-    }
-  },
-  {
-    Function = BBPreloadCharacter,
-    Params = {
-      Name = "aniviaiceblock"
     }
   },
   {

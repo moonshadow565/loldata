@@ -22,7 +22,8 @@ ChainMissileParameters = {
   CanHitFriends = 0
 }
 SpellFXOverrideSkins = {
-  "KhazixDroid"
+  "KhazixDroid",
+  "KhazixSkin02"
 }
 PreLoadBuildingBlocks = {
   {

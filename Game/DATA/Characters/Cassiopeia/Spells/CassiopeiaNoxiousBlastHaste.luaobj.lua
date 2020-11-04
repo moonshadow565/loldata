@@ -5,5 +5,12 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Cassiopeia_NoxiousBlast.dds"
 BuffName = "CassiopeiaNoxiousBlastHaste"
-AutoBuffActivateEffect = "Interventionspeed_buf.troy"
 SpellDamageRatio = 1
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "cassio_q_buff.troy"
+    }
+  }
+}

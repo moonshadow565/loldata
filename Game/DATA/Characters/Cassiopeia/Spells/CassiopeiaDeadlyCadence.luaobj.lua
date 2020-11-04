@@ -5,6 +5,13 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Cassiopeia_DeadlyCadence.dds"
 BuffName = "CassiopeiaDeadlyCadence"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+PersistsThroughDeath = true
 NonDispellable = true
+PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapoisonticker"
+    }
+  }
+}

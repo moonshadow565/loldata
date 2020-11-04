@@ -62,5 +62,11 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "khazixrevo"}
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "khazix_base_r_evo2_charactertexture.troy"
+    }
   }
 }

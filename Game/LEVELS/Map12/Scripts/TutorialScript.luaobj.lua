@@ -359,8 +359,7 @@ function L0()
   local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11
   L0 = LoadLevelScriptIntoScript
   L1 = "BBLuaConversionLibrary.lua"
-  L2 = 3
-  L0(L1, L2)
+  L0(L1)
   L0 = LogTutorial
   L1 = "Getting the player ID"
   L0(L1)

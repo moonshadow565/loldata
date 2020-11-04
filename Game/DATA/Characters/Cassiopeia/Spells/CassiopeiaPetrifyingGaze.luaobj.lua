@@ -4,19 +4,19 @@ DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
 AutoBuffActivateEffect = "LOC_Stun.troy"
-AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
+AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Overhead_Loc"
 SpellDamageRatio = 1
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cass_skn4_petrify_cas.troy"
+      Name = "cassiopeia_skin04_r_petrify_cas.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cass_skn4_castglow.troy"
+      Name = "cassiopeia_skin04_r_castglow.troy"
     }
   },
   {
@@ -31,12 +31,18 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {
+      Name = "cassiopeiapetrifyinggazestun"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {Name = "slow"}
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "casspetrifymiss_tar.troy"
+      Name = "cassiopeia_base_r_petrifymiss_tar.troy"
     }
   },
   {

@@ -7,13 +7,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassmiasma_tar_green.troy"
+      Name = "cassiopeia_base_w_miasma_tar_green.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "cassmiasma_tar_red.troy"
+      Name = "cassiopeia_base_w_miasma_tar_red.troy"
     }
   },
   {
