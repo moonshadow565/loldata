@@ -12,8 +12,8 @@ LevelProp_HA_AP_Chains_Long2.sco -100
 __NAV_C02.sco -100
 __Spawn_T1.sco -100
 __NAV_C04.sco -100
-LevelProp_HA_AP_ShpNorth.sco -100
 __NAV_C05.sco -100
+__NAV_C06.sco -100
 Info_OrderRandomThingy02.sco -100
 AIPath.sco -100
 LevelProp_HA_AP_Chains4.sco -100
@@ -22,7 +22,7 @@ __NAV_C016.sco -100
 __LevelSize_.sco -100
 __NAV_C011.sco -100
 LevelProp_HA_AP_BridgeLaneStatue2.sco -100
-__NAV_C06.sco -100
+LevelProp_HA_AP_ShpNorth.sco -100
 Turret_T1_C_09.sco -100
 LevelProp_HA_AP_Poro2.sco -100
 __NAV_C07.sco -100

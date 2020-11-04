@@ -1773,6 +1773,13 @@ function L0()
   L0(L1)
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_HUD
+  L2 = false
+  L3 = HIGHLIGHT_TYPE_SPELL
+  L4 = 1
+  L5 = 0
+  L0(L1, L2, L3, L4, L5)
+  L0 = ToggleUIHighlight
+  L1 = HIGHLIGHT_UI_ELEMENT_HUD
   L2 = true
   L3 = HIGHLIGHT_TYPE_HP
   L4 = 0
