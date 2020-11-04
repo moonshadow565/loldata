@@ -7,6 +7,12 @@ SpellFXOverrideSkins = {
 }
 PreLoadBuildingBlocks = {
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "braumrmissile"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "braum_base_r_pbaoe_cas.troy"
@@ -41,9 +47,21 @@ PreLoadBuildingBlocks = {
     Params = {Name = "root"}
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "braumpulselineknockup"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "braum_base_r_slow_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "braumpulselineslow"
     }
   }
 }

@@ -11,28 +11,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "braum_r_pulse_pbaoe_impact.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "braum_base_r_firstknockup_tar.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "root"}
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumrmissile"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
       Name = "braum_base_r_slow_tar.troy"
     }
   },
@@ -47,6 +25,16 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "braumpulselineslow"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "braum_base_r_firstknockup_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "root"}
   },
   {
     Function = BBPreloadParticle,

@@ -25,6 +25,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lissandrarenemy2"
+    }
+  },
+  {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender10vision"
@@ -32,18 +38,12 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
+    Params = {Name = "lissandrar"}
+  },
+  {
+    Function = BBPreloadSpell,
     Params = {
       Name = "expirationtimer"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "lissandrarenemy2"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "lissandrar"}
   }
 }
