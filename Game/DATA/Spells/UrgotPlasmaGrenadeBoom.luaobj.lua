@@ -53,9 +53,9 @@ TargetExecuteBuildingBlocks = {
   {
     Function = BBGetStat,
     Params = {
-      Stat = GetFlatMagicDamageMod,
+      Stat = GetFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DestVar = "AP"
+      DestVar = "AD"
     }
   },
   {
@@ -63,20 +63,20 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "dmg",
       SrcValueByLevel = {
-        100,
-        155,
-        210,
-        265,
-        320
+        75,
+        130,
+        185,
+        240,
+        295
       }
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "AP",
+      Src1Var = "AD",
       Src1Value = 0,
-      Src2Value = 0.8,
+      Src2Value = 0.6,
       DestVar = "BonusDamage",
       MathOp = MO_MULTIPLY
     }
@@ -130,11 +130,11 @@ TargetExecuteBuildingBlocks = {
       DestVar = "ArmorReduced",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        -10,
-        -15,
-        -20,
-        -25,
-        -30
+        -0.12,
+        -0.14,
+        -0.16,
+        -0.18,
+        -0.2
       }
     }
   },

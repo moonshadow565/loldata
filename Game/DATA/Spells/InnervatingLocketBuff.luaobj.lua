@@ -7,7 +7,7 @@ BuffOnUpdateActionsBuildingBlocks = {
       TimeBetweenExecutions = 1,
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
-      ExecuteImmediately = true
+      ExecuteImmediately = false
     },
     SubBlocks = {
       {
@@ -18,14 +18,6 @@ BuffOnUpdateActionsBuildingBlocks = {
           CompareOp = CO_EQUAL
         },
         SubBlocks = {
-          {
-            Function = BBIncHealth,
-            Params = {
-              TargetVar = "Owner",
-              Delta = 25,
-              HealerVar = "Attacker"
-            }
-          },
           {
             Function = BBIncPAR,
             Params = {

@@ -163,6 +163,38 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
+UpdateSelfBuffStatsBuildingBlocks = {
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "AD"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "AD",
+      Src1Value = 0,
+      Src2Value = 0.6,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBSetSpellToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "BonusDamage",
+      Index = 1,
+      SlotNumber = 2,
+      SlotType = SpellSlots,
+      SlotBook = SPELLBOOK_CHAMPION,
+      TargetVar = "Owner"
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

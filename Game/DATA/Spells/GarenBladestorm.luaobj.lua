@@ -116,7 +116,7 @@ OnBuffActivateBuildingBlocks = {
       Flags = 0,
       EffectIDVar = "ParticleID",
       EffectIDVarTable = "InstanceVars",
-      BoneName = "BUFFBONE_WEAPON_1",
+      BoneName = "BUFFBONE_GLB_WEAPON_1",
       TargetObjectVar = "Owner",
       TargetBoneName = "BUFFBONE_WEAPON_3",
       SpecificUnitOnlyVar = "Owner",
@@ -153,21 +153,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "BonusDamage",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "BonusDamageHero",
-      RequiredVarTable = "InstanceVars"
-    }
-  },
-  {
-    Function = BBRequireVar,
-    Params = {
-      RequiredVar = "RatioLvl",
+      RequiredVar = "baseDamage",
       RequiredVarTable = "InstanceVars"
     }
   }
@@ -328,16 +314,33 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBGetTotalAttackDamage,
         Params = {
           TargetVar = "Owner",
-          DestVar = "TotalDamage"
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "RatioLvl",
-          Src1VarTable = "InstanceVars",
-          Src2Var = "TotalDamage",
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
           Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "bonusDamage",
+          Src1Value = 0.5,
           Src2Value = 0,
           DestVar = "RatioDamage",
           MathOp = MO_MULTIPLY
@@ -358,7 +361,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "RatioDamage",
-          Src2Var = "BonusDamageHero",
+          Src2Var = "baseDamage",
           Src2VarTable = "InstanceVars",
           Src1Value = 0,
           Src2Value = 0,
@@ -370,7 +373,7 @@ BuffOnUpdateActionsBuildingBlocks = {
         Function = BBMath,
         Params = {
           Src1Var = "PreBonusCrit",
-          Src2Var = "BonusDamageHero",
+          Src2Var = "baseDamage",
           Src2VarTable = "InstanceVars",
           Src1Value = 0,
           Src2Value = 0,
@@ -716,28 +719,14 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBSetVarInTable,
     Params = {
-      DestVar = "BonusDamage",
+      DestVar = "baseDamage",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        7.5,
-        17.5,
-        27.5,
-        37.5,
-        47.5
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "BonusDamageHero",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        15,
-        35,
-        55,
+        30,
+        45,
+        60,
         75,
-        95
+        90
       }
     }
   },
@@ -752,20 +741,6 @@ SelfExecuteBuildingBlocks = {
         13,
         12,
         11
-      }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "RatioLvl",
-      DestVarTable = "NextBuffVars",
-      SrcValueByLevel = {
-        0.35,
-        0.35,
-        0.35,
-        0.35,
-        0.35
       }
     }
   },

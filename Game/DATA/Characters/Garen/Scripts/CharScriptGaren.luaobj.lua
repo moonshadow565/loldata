@@ -23,17 +23,34 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBGetTotalAttackDamage,
         Params = {
           TargetVar = "Owner",
-          DestVar = "GarenDamageVar",
-          DestVarTable = "InstanceVars"
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
         }
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "GarenDamageVar",
-          Src1VarTable = "InstanceVars",
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
           Src1Value = 0,
-          Src2Value = 0.35,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 1,
           DestVar = "Spell3Display",
           MathOp = MO_MULTIPLY
         }
@@ -48,33 +65,6 @@ UpdateSelfBuffActionsBuildingBlocks = {
           SlotType = SpellSlots,
           SlotBook = SPELLBOOK_CHAMPION,
           TargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBSetSpellToolTipVar,
-        Params = {
-          Value = 0,
-          ValueVar = "GarenDamageVar",
-          ValueVarTable = "InstanceVars",
-          Index = 1,
-          SlotNumber = 0,
-          SlotType = SpellSlots,
-          SlotBook = SPELLBOOK_CHAMPION,
-          TargetVar = "Owner"
-        }
-      },
-      {
-        Function = BBSetVarInTable,
-        Params = {
-          DestVar = "BladeBonus",
-          DestVarTable = "InstanceVars",
-          SrcValueByLevel = {
-            15,
-            35,
-            55,
-            75,
-            95
-          }
         }
       }
     }
@@ -105,6 +95,39 @@ SetVarsByLevelBuildingBlocks = {
         30,
         31,
         32
+      }
+    }
+  }
+}
+CharOnSpellCastBuildingBlocks = {
+  {
+    Function = BBGetCastInfo,
+    Params = {DestVar = "name", Info = GetSpellName}
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "name",
+      Value2 = "garenjustice",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffAdd,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GarenJusticePreCast",
+          BuffAddType = BUFF_REPLACE_EXISTING,
+          StacksExclusive = true,
+          BuffType = BUFF_Internal,
+          MaxStack = 1,
+          NumberOfStacks = 1,
+          Duration = 1,
+          BuffVarsTable = "NextBuffVars",
+          TickRate = 0,
+          CanMitigateDuration = false
+        }
       }
     }
   }
@@ -278,40 +301,13 @@ CharOnLevelUpSpellBuildingBlocks = {
     }
   }
 }
-CharOnSpellCastBuildingBlocks = {
-  {
-    Function = BBGetCastInfo,
-    Params = {DestVar = "name", Info = GetSpellName}
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "name",
-      Value2 = "garenjustice",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSpellBuffAdd,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "GarenJusticePreCast",
-          BuffAddType = BUFF_REPLACE_EXISTING,
-          StacksExclusive = true,
-          BuffType = BUFF_Internal,
-          MaxStack = 1,
-          NumberOfStacks = 1,
-          Duration = 1,
-          BuffVarsTable = "NextBuffVars",
-          TickRate = 0,
-          CanMitigateDuration = false
-        }
-      }
-    }
-  }
-}
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenjusticeprecast"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {
@@ -334,12 +330,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "garencommandkill"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "garenjusticeprecast"
     }
   }
 }

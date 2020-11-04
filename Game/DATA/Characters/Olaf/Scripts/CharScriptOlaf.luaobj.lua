@@ -9,142 +9,73 @@ UpdateSelfBuffActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBGetSlotSpellInfo,
+        Function = BBGetPAROrHealth,
         Params = {
-          DestVar = "Level",
-          SpellSlotValue = 1,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
+          DestVar = "MaxHealth",
           OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
+          Function = GetMaxHealth,
+          PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "MaxHealth",
+          Src1Value = 0,
+          Src2Value = 0.005,
+          DestVar = "HealthDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "HealthDamage",
+          Index = 1,
+          SlotNumber = 1,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      }
+    }
+  }
+}
+CharOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Attacker",
+      Src2Var = "Owner",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPAROrHealth,
+        Params = {
+          DestVar = "CurrentHealth",
+          OwnerVar = "Owner",
+          Function = GetHealth,
+          PARType = PAR_MANA
         }
       },
       {
         Function = BBIf,
         Params = {
-          Src1Var = "Level",
-          Value2 = 0,
-          CompareOp = CO_GREATER_THAN
+          Src1Var = "CurrentHealth",
+          Src2Var = "DamageAmount",
+          CompareOp = CO_LESS_THAN_OR_EQUAL
         },
         SubBlocks = {
           {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "BaseDamage",
-              SrcValueByLevel = {
-                12,
-                18,
-                24,
-                30,
-                36
-              }
-            }
-          },
-          {
-            Function = BBSetVarInTable,
-            Params = {
-              DestVar = "HealthPercent",
-              SrcValueByLevel = {
-                0.003,
-                0.006,
-                0.009,
-                0.012,
-                0.015
-              }
-            }
-          },
-          {
-            Function = BBGetPAROrHealth,
-            Params = {
-              DestVar = "MaxHealth",
-              OwnerVar = "Owner",
-              Function = GetMaxHealth,
-              PARType = PAR_MANA
-            }
-          },
-          {
             Function = BBMath,
             Params = {
-              Src1Var = "MaxHealth",
-              Src2Var = "HealthPercent",
+              Src1Var = "CurrentHealth",
               Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "HealthDamage",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "BaseDamage",
-              Src2Var = "HealthDamage",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "BonusDamage",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBSetSpellToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "BonusDamage",
-              ValueVarTable = "InstanceVars",
-              Index = 1,
-              SlotNumber = 1,
-              SlotType = SpellSlots,
-              SlotBook = SPELLBOOK_CHAMPION,
-              TargetVar = "Owner"
-            }
-          }
-        }
-      },
-      {
-        Function = BBElse,
-        Params = {},
-        SubBlocks = {
-          {
-            Function = BBGetPAROrHealth,
-            Params = {
-              DestVar = "MaxHealth",
-              OwnerVar = "Owner",
-              Function = GetMaxHealth,
-              PARType = PAR_MANA
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "MaxHealth",
-              Src1Value = 0,
-              Src2Value = 0.003,
-              DestVar = "HealthDamage",
-              MathOp = MO_MULTIPLY
-            }
-          },
-          {
-            Function = BBMath,
-            Params = {
-              Src2Var = "HealthDamage",
-              Src1Value = 12,
-              Src2Value = 0,
-              DestVar = "BonusDamage",
-              DestVarTable = "InstanceVars",
-              MathOp = MO_ADD
-            }
-          },
-          {
-            Function = BBSetSpellToolTipVar,
-            Params = {
-              Value = 0,
-              ValueVar = "BonusDamage",
-              ValueVarTable = "InstanceVars",
-              Index = 1,
-              SlotNumber = 1,
-              SlotType = SpellSlots,
-              SlotBook = SPELLBOOK_CHAMPION,
-              TargetVar = "Owner"
+              Src2Value = 1,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
             }
           }
         }
@@ -344,47 +275,6 @@ CharOnLevelUpSpellBuildingBlocks = {
           Stat = IncPermanentFlatArmorPenetrationMod,
           TargetVar = "Owner",
           Delta = 10
-        }
-      }
-    }
-  }
-}
-CharOnPreDamageBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Attacker",
-      Src2Var = "Owner",
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetPAROrHealth,
-        Params = {
-          DestVar = "CurrentHealth",
-          OwnerVar = "Owner",
-          Function = GetHealth,
-          PARType = PAR_MANA
-        }
-      },
-      {
-        Function = BBIf,
-        Params = {
-          Src1Var = "CurrentHealth",
-          Src2Var = "DamageAmount",
-          CompareOp = CO_LESS_THAN_OR_EQUAL
-        },
-        SubBlocks = {
-          {
-            Function = BBMath,
-            Params = {
-              Src1Var = "CurrentHealth",
-              Src1Value = 0,
-              Src2Value = 1,
-              DestVar = "DamageAmount",
-              MathOp = MO_SUBTRACT
-            }
-          }
         }
       }
     }

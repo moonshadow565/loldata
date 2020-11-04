@@ -16,7 +16,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Level",
       Src1Value = 0,
-      Src2Value = 0.006,
+      Src2Value = 0.0059,
       DestVar = "BonusAttackSpeed",
       MathOp = MO_MULTIPLY
     }
@@ -26,7 +26,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusAttackSpeed",
       Src1Value = 0,
-      Src2Value = 0.15,
+      Src2Value = 0.114,
       DestVar = "BonusAttackSpeed",
       DestVarTable = "InstanceVars",
       MathOp = MO_ADD
@@ -47,7 +47,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatCritChanceMod,
       TargetVar = "Owner",
-      Delta = 0.15
+      Delta = 0.08
     }
   }
 }
@@ -77,7 +77,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatCritChanceMod,
       TargetVar = "Owner",
-      Delta = -0.15
+      Delta = -0.08
     }
   }
 }
@@ -88,12 +88,14 @@ TargetExecuteBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_CombatEnchancer,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 240,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }

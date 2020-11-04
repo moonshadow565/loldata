@@ -45,7 +45,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Params = {
           DestVar = "HealthRegenBonus",
           DestVarTable = "NextBuffVars",
-          SrcValue = 4
+          SrcValue = 0
         }
       },
       {
@@ -276,12 +276,12 @@ ItemOnSpellCastBuildingBlocks = {
                   TargetVar = "Owner",
                   AttackerVar = "Owner",
                   BuffName = "InnervatingLocketBuff",
-                  BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+                  BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Heal,
                   MaxStack = 1,
                   NumberOfStacks = 1,
-                  Duration = 1.9,
+                  Duration = 2.25,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
                   CanMitigateDuration = false

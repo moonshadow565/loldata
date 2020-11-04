@@ -19,130 +19,34 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   },
   {
-    Function = BBIf,
+    Function = BBForNClosestUnitsInTargetArea,
     Params = {
-      Src1Var = "Level",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
+      AttackerVar = "Owner",
+      CenterVar = "Owner",
+      Range = 550,
+      Flags = "AffectEnemies AffectHeroes ",
+      IteratorVar = "Unit",
+      MaximumUnitsToPick = 3,
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
-        Function = BBForEachUnitInTargetAreaRandom,
+        Function = BBSpellCast,
         Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 550,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 3,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Owner",
-              TargetVar = "Unit",
-              PosVar = "Owner",
-              EndPosVar = "Owner",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 0,
-              OverrideForceLevelVar = "Level",
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetAreaRandom,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 550,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 3,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Owner",
-              TargetVar = "Unit",
-              PosVar = "Owner",
-              EndPosVar = "Owner",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 0,
-              OverrideForceLevelVar = "Level",
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
-            }
-          }
-        }
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 3,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBForEachUnitInTargetAreaRandom,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 550,
-          Flags = "AffectEnemies AffectHeroes ",
-          IteratorVar = "Unit",
-          MaximumUnitsToPick = 3,
-          InclusiveBuffFilter = true
-        },
-        SubBlocks = {
-          {
-            Function = BBSpellCast,
-            Params = {
-              CasterVar = "Owner",
-              TargetVar = "Unit",
-              PosVar = "Owner",
-              EndPosVar = "Owner",
-              OverrideCastPosition = false,
-              SlotNumber = 0,
-              SlotType = ExtraSlots,
-              OverrideForceLevel = 0,
-              OverrideForceLevelVar = "Level",
-              OverrideCoolDownCheck = true,
-              FireWithoutCasting = true,
-              UseAutoAttackSpell = false,
-              ForceCastingOrChannelling = false,
-              UpdateAutoAttackTimer = false
-            }
-          }
+          CasterVar = "Owner",
+          TargetVar = "Unit",
+          PosVar = "Owner",
+          EndPosVar = "Owner",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }

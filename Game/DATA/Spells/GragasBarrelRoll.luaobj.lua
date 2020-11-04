@@ -29,6 +29,13 @@ BuffOnMissileEndBuildingBlocks = {
         Params = {TargetVar = "Owner", DestVar = "TeamID"}
       },
       {
+        Function = BBGetSkinID,
+        Params = {
+          UnitVar = "Owner",
+          SkinIDVar = "GragasSkinID"
+        }
+      },
+      {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "TargetPos",
@@ -58,6 +65,14 @@ BuffOnMissileEndBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "SkinID",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "GragasSkinID"
+        }
+      },
+      {
         Function = BBSpellBuffAdd,
         Params = {
           TargetVar = "Owner",
@@ -72,6 +87,14 @@ BuffOnMissileEndBuildingBlocks = {
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
           CanMitigateDuration = false
+        }
+      },
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "SkinID",
+          DestVarTable = "NextBuffVars",
+          SrcVar = "GragasSkinID"
         }
       },
       {

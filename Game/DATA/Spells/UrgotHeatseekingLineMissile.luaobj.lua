@@ -15,11 +15,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BaseDamage",
       SrcValueByLevel = {
-        30,
-        60,
-        90,
-        120,
-        150
+        15,
+        45,
+        75,
+        105,
+        135
       }
     }
   },
@@ -34,7 +34,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AttackDamage",
-      Src1Value = 0.7,
+      Src1Value = 0.85,
       Src2Value = 0,
       DestVar = "BonusAD",
       MathOp = MO_MULTIPLY

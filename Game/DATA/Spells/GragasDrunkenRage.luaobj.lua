@@ -78,11 +78,11 @@ ChannelingStartBuildingBlocks = {
       DestVar = "ManaTick",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        25,
-        30,
+        20,
+        27.5,
         35,
-        40,
-        45
+        42.5,
+        50
       }
     }
   },
@@ -125,10 +125,10 @@ ChannelingSuccessStopBuildingBlocks = {
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         0.1,
+        0.12,
         0.14,
-        0.18,
-        0.22,
-        0.26
+        0.16,
+        0.18
       }
     }
   },

@@ -164,60 +164,103 @@ UpdateSelfBuffActionsBuildingBlocks = {
     }
   }
 }
-SetVarsByLevelBuildingBlocks = {
+CharOnHitUnitBuildingBlocks = {
   {
-    Function = BBSetVarInTable,
+    Function = BBIfHasBuff,
     Params = {
-      DestVar = "HealAmount",
-      DestVarTable = "CharVars",
-      SrcValueByLevel = {
-        40,
-        42,
-        45,
-        47,
-        50,
-        52,
-        55,
-        57,
-        60,
-        62,
-        65,
-        67,
-        70,
-        72,
-        75,
-        77,
-        80,
-        82
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VorpalSpikes"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 550,
+          OffsetAngle = 0,
+          PositionVar = "castPosition"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Target",
+          PosVar = "castPosition",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
       }
     }
   }
 }
-CharOnKillUnitBuildingBlocks = {
+CharOnMissBuildingBlocks = {
   {
-    Function = BBIncHealth,
+    Function = BBIfHasBuff,
     Params = {
-      TargetVar = "Owner",
-      Delta = 0,
-      DeltaVar = "HealAmount",
-      DeltaVarTable = "CharVars",
-      HealerVar = "Owner"
-    }
-  },
-  {
-    Function = BBSpellEffectCreate,
-    Params = {
-      BindObjectVar = "Owner",
-      EffectName = "EternalThirst_buf.troy",
-      Flags = 0,
-      EffectIDVar = "Particle",
-      TargetObjectVar = "Target",
-      SpecificUnitOnlyVar = "Owner",
-      SpecificTeamOnly = TEAM_UNKNOWN,
-      UseSpecificUnit = false,
-      FOWTeam = TEAM_UNKNOWN,
-      FOWVisibilityRadius = 0,
-      SendIfOnScreenOrDiscard = false
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "VorpalSpikes"
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPointByUnitFacingOffset,
+        Params = {
+          UnitVar = "Owner",
+          Distance = 550,
+          OffsetAngle = 0,
+          PositionVar = "castPosition"
+        }
+      },
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 2,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBSpellCast,
+        Params = {
+          CasterVar = "Owner",
+          TargetVar = "Target",
+          PosVar = "castPosition",
+          OverrideCastPosition = false,
+          SlotNumber = 0,
+          SlotType = ExtraSlots,
+          OverrideForceLevel = 0,
+          OverrideForceLevelVar = "Level",
+          OverrideCoolDownCheck = true,
+          FireWithoutCasting = true,
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
+        }
+      }
     }
   }
 }
@@ -344,106 +387,6 @@ CharOnDisconnectBuildingBlocks = {
     }
   }
 }
-CharOnHitUnitBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "VorpalSpikes"
-    },
-    SubBlocks = {
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 550,
-          OffsetAngle = 0,
-          PositionVar = "castPosition"
-        }
-      },
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 2,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Target",
-          PosVar = "castPosition",
-          OverrideCastPosition = false,
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
-      }
-    }
-  }
-}
-CharOnMissBuildingBlocks = {
-  {
-    Function = BBIfHasBuff,
-    Params = {
-      OwnerVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "VorpalSpikes"
-    },
-    SubBlocks = {
-      {
-        Function = BBGetPointByUnitFacingOffset,
-        Params = {
-          UnitVar = "Owner",
-          Distance = 550,
-          OffsetAngle = 0,
-          PositionVar = "castPosition"
-        }
-      },
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 2,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBSpellCast,
-        Params = {
-          CasterVar = "Owner",
-          TargetVar = "Target",
-          PosVar = "castPosition",
-          OverrideCastPosition = false,
-          SlotNumber = 0,
-          SlotType = ExtraSlots,
-          OverrideForceLevel = 0,
-          OverrideForceLevelVar = "Level",
-          OverrideCoolDownCheck = true,
-          FireWithoutCasting = true,
-          UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false,
-          UpdateAutoAttackTimer = false
-        }
-      }
-    }
-  }
-}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -456,9 +399,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
+    Function = BBPreloadSpell,
     Params = {
-      Name = "eternalthirst_buf.troy"
+      Name = "vorpalspikes"
     }
   },
   {
@@ -475,12 +418,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "championchampiondelta"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "vorpalspikes"
     }
   }
 }

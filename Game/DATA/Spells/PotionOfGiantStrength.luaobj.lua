@@ -15,7 +15,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Level",
       Src1Value = 0,
-      Src2Value = 10,
+      Src2Value = 5.59,
       DestVar = "BonusHealth",
       MathOp = MO_MULTIPLY
     }
@@ -25,29 +25,8 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "BonusHealth",
       Src1Value = 0,
-      Src2Value = 220,
+      Src2Value = 134.41,
       DestVar = "BonusHealth",
-      DestVarTable = "InstanceVars",
-      MathOp = MO_ADD
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "Level",
-      Src1Value = 0,
-      Src2Value = 1,
-      DestVar = "BonusDmg",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "BonusDmg",
-      Src1Value = 0,
-      Src2Value = 10,
-      DestVar = "BonusDmg",
       DestVarTable = "InstanceVars",
       MathOp = MO_ADD
     }
@@ -67,9 +46,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusDmg",
-      DeltaVarTable = "InstanceVars",
-      Delta = 0
+      Delta = 10
     }
   }
 }
@@ -86,17 +63,6 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBMath,
-    Params = {
-      Src2Var = "BonusDmg",
-      Src2VarTable = "InstanceVars",
-      Src1Value = -1,
-      Src2Value = 0,
-      DestVar = "BonusDmg",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
     Function = BBIncPermanentStat,
     Params = {
       Stat = IncPermanentFlatHPPoolMod,
@@ -110,8 +76,7 @@ OnBuffDeactivateBuildingBlocks = {
     Params = {
       Stat = IncPermanentFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "BonusDmg",
-      Delta = 0
+      Delta = -10
     }
   }
 }

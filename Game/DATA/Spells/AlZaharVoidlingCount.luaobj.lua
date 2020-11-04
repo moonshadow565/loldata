@@ -15,7 +15,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBIf,
     Params = {
       Src1Var = "Count",
-      Value2 = 4,
+      Value2 = 3,
       CompareOp = CO_GREATER_THAN_OR_EQUAL
     },
     SubBlocks = {

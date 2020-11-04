@@ -39,24 +39,25 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "CurrentHeal",
           SrcValueByLevel = {
+            34,
+            36,
+            38,
             40,
             42,
-            45,
-            47,
+            44,
+            46,
+            48,
             50,
             52,
-            55,
-            57,
+            54,
+            56,
+            58,
             60,
             62,
-            65,
-            67,
-            70,
-            72,
-            75,
-            77,
-            80,
-            82
+            64,
+            66,
+            68,
+            70
           }
         }
       },
@@ -65,6 +66,8 @@ BuffOnUpdateActionsBuildingBlocks = {
         Params = {
           DestVar = "ManaAmount",
           SrcValueByLevel = {
+            7,
+            7.5,
             8,
             8.5,
             9,
@@ -134,6 +137,8 @@ BuffOnKillBuildingBlocks = {
     Params = {
       DestVar = "ManaAmount",
       SrcValueByLevel = {
+        7,
+        7.5,
         8,
         8.5,
         9,
@@ -163,6 +168,58 @@ BuffOnKillBuildingBlocks = {
       PARType = PAR_MANA,
       DeltaVar = "ManaAmount"
     }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "HealAmount",
+      SrcValueByLevel = {
+        34,
+        36,
+        38,
+        40,
+        42,
+        44,
+        46,
+        48,
+        50,
+        52,
+        54,
+        56,
+        58,
+        60,
+        62,
+        64,
+        66,
+        68,
+        70
+      }
+    }
+  },
+  {
+    Function = BBIncHealth,
+    Params = {
+      TargetVar = "Owner",
+      Delta = 0,
+      DeltaVar = "HealAmount",
+      HealerVar = "Owner"
+    }
+  },
+  {
+    Function = BBSpellEffectCreate,
+    Params = {
+      BindObjectVar = "Owner",
+      EffectName = "EternalThirst_buf.troy",
+      Flags = 0,
+      EffectIDVar = "Particle",
+      TargetObjectVar = "Target",
+      SpecificUnitOnlyVar = "Owner",
+      SpecificTeamOnly = TEAM_UNKNOWN,
+      UseSpecificUnit = false,
+      FOWTeam = TEAM_UNKNOWN,
+      FOWVisibilityRadius = 0,
+      SendIfOnScreenOrDiscard = false
+    }
   }
 }
 BuffOnDeathBuildingBlocks = {
@@ -177,6 +234,12 @@ BuffOnDeathBuildingBlocks = {
   }
 }
 PreLoadBuildingBlocks = {
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "eternalthirst_buf.troy"
+    }
+  },
   {
     Function = BBPreloadSpell,
     Params = {Name = "feast"}

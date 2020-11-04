@@ -40,6 +40,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Owner",
       TargetVar = "Target",
       Damage = 0,
       DamageVar = "Dmg",

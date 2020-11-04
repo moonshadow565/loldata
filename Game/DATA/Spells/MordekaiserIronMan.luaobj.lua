@@ -22,12 +22,12 @@ BuffOnUpdateActionsBuildingBlocks = {
       },
       {
         Function = BBGetLevel,
-        Params = {TargetVar = "Owner", DestVar = "CharLevel"}
+        Params = {TargetVar = "Owner", DestVar = "Level"}
       },
       {
         Function = BBMath,
         Params = {
-          Src1Var = "CharLevel",
+          Src1Var = "Level",
           Src1Value = 0,
           Src2Value = 30,
           DestVar = "ShieldMax",
@@ -53,11 +53,45 @@ BuffOnUpdateActionsBuildingBlocks = {
         }
       },
       {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "shieldPercent",
+          SrcValueByLevel = {
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            25,
+            25,
+            25,
+            25,
+            25,
+            25,
+            30,
+            30,
+            30,
+            30,
+            30,
+            30
+          }
+        }
+      },
+      {
+        Function = BBSetBuffToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "shieldPercent",
+          Index = 2
+        }
+      },
+      {
         Function = BBMath,
         Params = {
           Src1Var = "MaxEnergy",
           Src1Value = 0,
-          Src2Value = 0.03,
+          Src2Value = 0.05,
           DestVar = "ShieldDecay",
           MathOp = MO_MULTIPLY
         }

@@ -35,8 +35,8 @@ OnBuffDeactivateBuildingBlocks = {
       DestVar = "BaseCooldown",
       SrcValueByLevel = {
         40,
-        35,
-        30
+        32,
+        24
       }
     }
   },
@@ -84,16 +84,6 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBSealSpellSlot,
     Params = {
       SpellSlot = 1,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       TargetVar = "Owner",
