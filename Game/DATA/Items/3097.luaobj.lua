@@ -2,6 +2,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "talentreaper"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "goldpertencounter"
     }
   },

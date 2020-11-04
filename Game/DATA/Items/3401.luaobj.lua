@@ -4,19 +4,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "kagesluckypick"
+      Name = "talentreaper"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
       Name = "goldpertencounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "talentreaper"
     }
   }
 }
