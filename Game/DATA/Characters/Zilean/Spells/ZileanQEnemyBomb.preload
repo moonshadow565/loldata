@@ -1,4 +1,6 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="zilean_base_q_attach.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="zilean_base_q_attach_enemy.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_skin05_q_timebomb_green.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_skin05_q_timebomb_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zilean_base_q_timebomb_green.troy"}}, 
