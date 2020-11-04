@@ -190,20 +190,11 @@ BuffOnUpdateActionsBuildingBlocks = {
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBApplyTaunt,
                 Params = {
-                  TargetVar = "Owner",
                   AttackerVar = "Unit",
-                  BuffName = "TauntNoParticle",
-                  BuffAddType = BUFF_REPLACE_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Internal,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 0.5,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  TargetVar = "Owner",
+                  Duration = 0.5
                 }
               }
             }
@@ -1475,12 +1466,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "heimerdinger_turret_birth.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "tauntnoparticle"
     }
   },
   {

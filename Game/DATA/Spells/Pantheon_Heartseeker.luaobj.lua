@@ -1,4 +1,6 @@
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
 ChannelDuration = 1.3
 BuffName = "Heartseeker"
 ChannelingStartBuildingBlocks = {
@@ -38,7 +40,8 @@ ChannelingStartBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1.3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -82,7 +85,7 @@ ChannelingUpdateActionsBuildingBlocks = {
     }
   }
 }
-ChannelingCancelStopBuildingBlocks = {
+ChannelingSuccessStopBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {
@@ -92,7 +95,7 @@ ChannelingCancelStopBuildingBlocks = {
     }
   }
 }
-ChannelingSuccessStopBuildingBlocks = {
+ChannelingCancelStopBuildingBlocks = {
   {
     Function = BBSpellBuffRemove,
     Params = {

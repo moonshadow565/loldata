@@ -24,7 +24,8 @@ OnBuffActivateBuildingBlocks = {
       AnimationName = "Death",
       ScaleTime = 4,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
@@ -170,6 +171,14 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBSpellBuffRemoveType,
     Params = {TargetVar = "Owner", Type = BUFF_Sleep}
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "WillRevive"
+    }
   },
   {
     Function = BBGetSlotSpellInfo,
@@ -397,7 +406,7 @@ OnBuffDeactivateBuildingBlocks = {
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBPlayAnimation,
@@ -405,12 +414,13 @@ OnBuffDeactivateBuildingBlocks = {
       AnimationName = "idle1",
       ScaleTime = 0,
       TargetVar = "Owner",
-      Loop = false
+      Loop = false,
+      Blend = false
     }
   },
   {
     Function = BBUnlockAnimation,
-    Params = {OwnerVar = "Owner"}
+    Params = {OwnerVar = "Owner", Blend = false}
   },
   {
     Function = BBSpellEffectCreate,
@@ -429,26 +439,20 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Owner",
-      AttackerVar = "Owner",
-      BuffName = "WillRevive"
-    }
-  },
-  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "HasBeenRevived",
       BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
       BuffType = BUFF_Internal,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 300,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -516,21 +520,20 @@ BuffOnUpdateStatsBuildingBlocks = {
       SrcValue = false,
       Status = SetTargetable
     }
-  },
+  }
+}
+BuffOnPreDamageBuildingBlocks = {
   {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncFlatHPRegenMod,
-      TargetVar = "Owner",
-      Delta = -100
-    }
-  },
-  {
-    Function = BBIncFlatPARRegenMod,
-    Params = {
-      PARType = PAR_MANA,
-      TargetVar = "Owner",
-      Delta = -100
+    Function = BBIf,
+    Params = {Value1 = DAMAGESOURCE_INTERNALRAW, CompareOp = CO_DAMAGE_SOURCETYPE_IS_NOT},
+    SubBlocks = {
+      {
+        Function = BBSetVarInTable,
+        Params = {
+          DestVar = "DamageAmount",
+          SrcValue = 0
+        }
+      }
     }
   }
 }
@@ -542,14 +545,14 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "willrevive"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "guardianangel_tar.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "willrevive"}
   },
   {
     Function = BBPreloadSpell,

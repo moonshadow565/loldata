@@ -78,7 +78,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -133,7 +134,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 250,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {
@@ -143,6 +145,7 @@ TargetExecuteBuildingBlocks = {
           AttackerVar = "Attacker",
           BuffName = "BlindingDart",
           BuffAddType = BUFF_STACKS_AND_OVERLAPS,
+          StacksExclusive = true,
           BuffType = BUFF_CombatDehancer,
           MaxStack = 100,
           NumberOfStacks = 1,
@@ -155,7 +158,8 @@ TargetExecuteBuildingBlocks = {
             2.5,
             3
           },
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -167,7 +171,8 @@ TargetExecuteBuildingBlocks = {
       CenterVar = "Target",
       Range = 125,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-      IteratorVar = "Unit"
+      IteratorVar = "Unit",
+      InclusiveBuffFilter = true
     },
     SubBlocks = {
       {

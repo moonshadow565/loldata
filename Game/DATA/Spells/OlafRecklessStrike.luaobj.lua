@@ -91,35 +91,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBGetPAROrHealth,
-    Params = {
-      DestVar = "CurrentHealth",
-      OwnerVar = "Owner",
-      Function = GetHealth,
-      PARType = PAR_MANA
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CurrentHealth",
-      Src2Var = "SelfDamage",
-      CompareOp = CO_LESS_THAN_OR_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "CurrentHealth",
-          Src1Value = 0,
-          Src2Value = 1,
-          DestVar = "SelfDamage",
-          MathOp = MO_SUBTRACT
-        }
-      }
-    }
-  },
-  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Target",

@@ -41,8 +41,10 @@ BuffOnCollisionBuildingBlocks = {
                       BuffType = BUFF_Internal,
                       MaxStack = 1,
                       NumberOfStacks = 1,
-                      Duration = 1.5,
+                      Duration = 0,
                       BuffVarsTable = "NextBuffVars",
+                      DurationVar = "tauntDuration",
+                      DurationVarTable = "InstanceVars",
                       TickRate = 0,
                       CanMitigateDuration = false
                     }
@@ -422,8 +424,10 @@ SelfExecuteBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 1.5,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "tauntDuration",
+              DurationVarTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false
             }
@@ -571,8 +575,10 @@ BuffOnMoveEndBuildingBlocks = {
               BuffType = BUFF_Internal,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 1.5,
+              Duration = 0,
               BuffVarsTable = "NextBuffVars",
+              DurationVar = "tauntDuration",
+              DurationVarTable = "InstanceVars",
               TickRate = 0,
               CanMitigateDuration = false
             }

@@ -61,11 +61,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "BonusDamage",
       SrcValueByLevel = {
-        8,
-        14,
-        20,
-        26,
-        32
+        4,
+        10,
+        16,
+        22,
+        28
       }
     }
   },
@@ -73,7 +73,7 @@ TargetExecuteBuildingBlocks = {
     Function = BBMath,
     Params = {
       Src2Var = "AbilityPower",
-      Src1Value = 0.35,
+      Src1Value = 0.3,
       Src2Value = 0,
       DestVar = "AbilityPower",
       MathOp = MO_MULTIPLY

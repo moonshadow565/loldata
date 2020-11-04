@@ -155,22 +155,14 @@ TargetExecuteBuildingBlocks = {
               {
                 Function = BBSetVarInTable,
                 Params = {
-                  DestVar = "AttackSpeedMod",
-                  DestVarTable = "NextBuffVars",
-                  SrcValue = 0
-                }
-              },
-              {
-                Function = BBSetVarInTable,
-                Params = {
                   DestVar = "MovementSpeedMod",
                   DestVarTable = "NextBuffVars",
                   SrcValueByLevel = {
-                    -0.1,
-                    -0.17,
-                    -0.24,
-                    -0.31,
-                    -0.38
+                    -0.15,
+                    -0.2,
+                    -0.25,
+                    -0.3,
+                    -0.35
                   }
                 }
               },
@@ -179,7 +171,7 @@ TargetExecuteBuildingBlocks = {
                 Params = {
                   TargetVar = "Target",
                   AttackerVar = "Owner",
-                  BuffName = "Chilled",
+                  BuffName = "FrostArrow",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
                   BuffType = BUFF_Slow,
@@ -328,22 +320,14 @@ TargetExecuteBuildingBlocks = {
                   {
                     Function = BBSetVarInTable,
                     Params = {
-                      DestVar = "AttackSpeedMod",
-                      DestVarTable = "NextBuffVars",
-                      SrcValue = 0
-                    }
-                  },
-                  {
-                    Function = BBSetVarInTable,
-                    Params = {
                       DestVar = "MovementSpeedMod",
                       DestVarTable = "NextBuffVars",
                       SrcValueByLevel = {
-                        -0.1,
-                        -0.17,
-                        -0.24,
-                        -0.31,
-                        -0.38
+                        -0.15,
+                        -0.2,
+                        -0.25,
+                        -0.3,
+                        -0.35
                       }
                     }
                   },
@@ -352,7 +336,7 @@ TargetExecuteBuildingBlocks = {
                     Params = {
                       TargetVar = "Target",
                       AttackerVar = "Owner",
-                      BuffName = "Chilled",
+                      BuffName = "FrostArrow",
                       BuffAddType = BUFF_RENEW_EXISTING,
                       StacksExclusive = true,
                       BuffType = BUFF_Slow,
@@ -513,22 +497,14 @@ TargetExecuteBuildingBlocks = {
                       {
                         Function = BBSetVarInTable,
                         Params = {
-                          DestVar = "AttackSpeedMod",
-                          DestVarTable = "NextBuffVars",
-                          SrcValue = 0
-                        }
-                      },
-                      {
-                        Function = BBSetVarInTable,
-                        Params = {
                           DestVar = "MovementSpeedMod",
                           DestVarTable = "NextBuffVars",
                           SrcValueByLevel = {
-                            -0.1,
-                            -0.17,
-                            -0.24,
-                            -0.31,
-                            -0.38
+                            -0.15,
+                            -0.2,
+                            -0.25,
+                            -0.3,
+                            -0.35
                           }
                         }
                       },
@@ -537,7 +513,7 @@ TargetExecuteBuildingBlocks = {
                         Params = {
                           TargetVar = "Target",
                           AttackerVar = "Owner",
-                          BuffName = "Chilled",
+                          BuffName = "FrostArrow",
                           BuffAddType = BUFF_RENEW_EXISTING,
                           StacksExclusive = true,
                           BuffType = BUFF_Slow,
@@ -581,6 +557,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {Name = "chilled"}
+    Params = {Name = "frostarrow"}
   }
 }

@@ -41,62 +41,155 @@ UpdateSelfBuffActionsBuildingBlocks = {
         }
       },
       {
-        Function = BBForEachUnitInTargetArea,
-        Params = {
-          AttackerVar = "Owner",
-          CenterVar = "Owner",
-          Range = 800,
-          Flags = "AffectFriends AffectHeroes ",
-          IteratorVar = "Unit",
-          InclusiveBuffFilter = true
-        },
+        Function = BBIf,
+        Params = {Src1Var = "Owner", CompareOp = CO_IS_TYPE_HERO},
         SubBlocks = {
           {
-            Function = BBIf,
+            Function = BBForEachUnitInTargetArea,
             Params = {
-              Src1Var = "Unit",
-              Src2Var = "Owner",
-              CompareOp = CO_EQUAL
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 1200,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
             },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "ManaManipulatorAuraSelf",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 4.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ManaManipulatorAuraSelf",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 4.1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElse,
+                Params = {},
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ManaManipulatorAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 4.1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
                 }
               }
             }
-          },
+          }
+        }
+      },
+      {
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
           {
-            Function = BBElse,
-            Params = {},
+            Function = BBForEachUnitInTargetArea,
+            Params = {
+              AttackerVar = "Owner",
+              CenterVar = "Owner",
+              Range = 1200,
+              Flags = "AffectFriends AffectHeroes ",
+              IteratorVar = "Unit",
+              InclusiveBuffFilter = true
+            },
             SubBlocks = {
               {
-                Function = BBSpellBuffAdd,
+                Function = BBGetPetOwner,
+                Params = {PetVar = "Owner", DestVar = "Caster"}
+              },
+              {
+                Function = BBIf,
                 Params = {
-                  TargetVar = "Unit",
-                  AttackerVar = "Attacker",
-                  BuffName = "ManaManipulatorAuraFriend",
-                  BuffAddType = BUFF_RENEW_EXISTING,
-                  StacksExclusive = true,
-                  BuffType = BUFF_Aura,
-                  MaxStack = 1,
-                  NumberOfStacks = 1,
-                  Duration = 4.1,
-                  BuffVarsTable = "NextBuffVars",
-                  TickRate = 0,
-                  CanMitigateDuration = false
+                  Src1Var = "Unit",
+                  Src2Var = "Owner",
+                  CompareOp = CO_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBIfNotHasBuff,
+                    Params = {
+                      OwnerVar = "Owner",
+                      CasterVar = "Caster",
+                      BuffName = "ManaManipulatorAuraFriend"
+                    },
+                    SubBlocks = {
+                      {
+                        Function = BBSpellBuffAdd,
+                        Params = {
+                          TargetVar = "Unit",
+                          AttackerVar = "Attacker",
+                          BuffName = "ManaManipulatorAuraSelf",
+                          BuffAddType = BUFF_RENEW_EXISTING,
+                          StacksExclusive = true,
+                          BuffType = BUFF_Aura,
+                          MaxStack = 1,
+                          NumberOfStacks = 1,
+                          Duration = 4.1,
+                          BuffVarsTable = "NextBuffVars",
+                          TickRate = 0,
+                          CanMitigateDuration = false
+                        }
+                      }
+                    }
+                  }
+                }
+              },
+              {
+                Function = BBElseIf,
+                Params = {
+                  Src1Var = "Unit",
+                  Src2Var = "Caster",
+                  CompareOp = CO_NOT_EQUAL
+                },
+                SubBlocks = {
+                  {
+                    Function = BBSpellBuffAdd,
+                    Params = {
+                      TargetVar = "Unit",
+                      AttackerVar = "Attacker",
+                      BuffName = "ManaManipulatorAuraFriend",
+                      BuffAddType = BUFF_RENEW_EXISTING,
+                      StacksExclusive = true,
+                      BuffType = BUFF_Aura,
+                      MaxStack = 1,
+                      NumberOfStacks = 1,
+                      Duration = 4.1,
+                      BuffVarsTable = "NextBuffVars",
+                      TickRate = 0,
+                      CanMitigateDuration = false
+                    }
+                  }
                 }
               }
             }
@@ -143,7 +236,7 @@ ItemOnSpellCastBuildingBlocks = {
               AttackerVar = "Owner",
               CenterVar = "Owner",
               Range = 900,
-              Flags = "AffectFriends AffectMinions AffectHeroes ",
+              Flags = "AffectFriends AffectHeroes ",
               IteratorVar = "Unit",
               InclusiveBuffFilter = true
             },
@@ -183,64 +276,6 @@ ItemOnSpellCastBuildingBlocks = {
                       BuffVarsTable = "NextBuffVars",
                       TickRate = 0,
                       CanMitigateDuration = false
-                    }
-                  }
-                }
-              },
-              {
-                Function = BBElse,
-                Params = {},
-                SubBlocks = {
-                  {
-                    Function = BBGetPAROrHealth,
-                    Params = {
-                      DestVar = "UnitHealth",
-                      OwnerVar = "Unit",
-                      Function = GetHealthPercent,
-                      PARType = PAR_MANA
-                    }
-                  },
-                  {
-                    Function = BBIf,
-                    Params = {
-                      Src1Var = "UnitHealth",
-                      Value2 = 1,
-                      CompareOp = CO_NOT_EQUAL
-                    },
-                    SubBlocks = {
-                      {
-                        Function = BBSpellEffectCreate,
-                        Params = {
-                          BindObjectVar = "Unit",
-                          EffectName = "InnervatingLocket_itm.troy",
-                          Flags = 0,
-                          EffectIDVar = "Particle",
-                          TargetObjectVar = "Target",
-                          SpecificUnitOnlyVar = "Owner",
-                          SpecificTeamOnly = TEAM_UNKNOWN,
-                          UseSpecificUnit = false,
-                          FOWTeam = TEAM_UNKNOWN,
-                          FOWVisibilityRadius = 0,
-                          SendIfOnScreenOrDiscard = false
-                        }
-                      },
-                      {
-                        Function = BBSpellBuffAdd,
-                        Params = {
-                          TargetVar = "Unit",
-                          AttackerVar = "Owner",
-                          BuffName = "InnervatingLocketBuff",
-                          BuffAddType = BUFF_RENEW_EXISTING,
-                          StacksExclusive = true,
-                          BuffType = BUFF_CombatEnchancer,
-                          MaxStack = 1,
-                          NumberOfStacks = 1,
-                          Duration = 1.9,
-                          BuffVarsTable = "NextBuffVars",
-                          TickRate = 0,
-                          CanMitigateDuration = false
-                        }
-                      }
                     }
                   }
                 }

@@ -139,6 +139,30 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Speed",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 150
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Gravity",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 45
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "IdealDistance",
+      DestVarTable = "NextBuffVars",
+      SrcValue = 100
+    }
+  },
+  {
     Function = BBIf,
     Params = {
       Src1Var = "LifeTime",
@@ -180,7 +204,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -227,7 +252,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -274,7 +300,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -316,7 +343,8 @@ OnBuffDeactivateBuildingBlocks = {
           OverrideCoolDownCheck = true,
           FireWithoutCasting = true,
           UseAutoAttackSpell = false,
-          ForceCastingOrChannelling = false
+          ForceCastingOrChannelling = false,
+          UpdateAutoAttackTimer = false
         }
       }
     }
@@ -357,10 +385,35 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 0,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "Cooldown",
+      SrcValueByLevel = {
+        14,
+        13,
+        12,
+        11,
+        10
+      }
+    }
+  },
+  {
     Function = BBMath,
     Params = {
+      Src1Var = "Cooldown",
       Src2Var = "CooldownMod",
-      Src1Value = 10,
+      Src1Value = 0,
       Src2Value = 0,
       DestVar = "Cooldown",
       MathOp = MO_MULTIPLY

@@ -349,6 +349,47 @@ CharOnLevelUpSpellBuildingBlocks = {
     }
   }
 }
+CharOnPreDamageBuildingBlocks = {
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "Attacker",
+      Src2Var = "Owner",
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetPAROrHealth,
+        Params = {
+          DestVar = "CurrentHealth",
+          OwnerVar = "Owner",
+          Function = GetHealth,
+          PARType = PAR_MANA
+        }
+      },
+      {
+        Function = BBIf,
+        Params = {
+          Src1Var = "CurrentHealth",
+          Src2Var = "DamageAmount",
+          CompareOp = CO_LESS_THAN_OR_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBMath,
+            Params = {
+              Src1Var = "CurrentHealth",
+              Src1Value = 0,
+              Src2Value = 1,
+              DestVar = "DamageAmount",
+              MathOp = MO_SUBTRACT
+            }
+          }
+        }
+      }
+    }
+  }
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,

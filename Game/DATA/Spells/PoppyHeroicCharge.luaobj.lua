@@ -157,6 +157,52 @@ BuffOnUpdateActionsBuildingBlocks = {
     }
   }
 }
+CanCastBuildingBlocks = {
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanMove",
+      Status = GetCanMove
+    }
+  },
+  {
+    Function = BBGetStatus,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "CanCast",
+      Status = GetCanCast
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanMove",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "CanCast",
+      Value2 = true,
+      CompareOp = CO_NOT_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBSetReturnValue,
+        Params = {SrcValue = false}
+      }
+    }
+  }
+}
 TargetExecuteBuildingBlocks = {
   {
     Function = BBGetCastSpellTargetPos,
@@ -276,7 +322,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 0.05,
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -292,7 +339,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 3,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   }
 }
@@ -310,7 +358,8 @@ BuffOnMoveEndBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 0.01,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -346,6 +395,10 @@ BuffOnMoveEndBuildingBlocks = {
               DestVarTable = "InstanceVars",
               MathOp = MO_ADD
             }
+          },
+          {
+            Function = BBBreakSpellShields,
+            Params = {TargetVar = "Caster"}
           },
           {
             Function = BBApplyDamage,
@@ -389,7 +442,8 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
@@ -514,7 +568,8 @@ BuffOnMoveEndBuildingBlocks = {
                           NumberOfStacks = 1,
                           Duration = 2,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       },
                       {
@@ -530,7 +585,8 @@ BuffOnMoveEndBuildingBlocks = {
                           NumberOfStacks = 1,
                           Duration = 2,
                           BuffVarsTable = "NextBuffVars",
-                          TickRate = 0
+                          TickRate = 0,
+                          CanMitigateDuration = false
                         }
                       }
                     }
@@ -552,56 +608,11 @@ BuffOnMoveEndBuildingBlocks = {
               NumberOfStacks = 1,
               Duration = 2,
               BuffVarsTable = "NextBuffVars",
-              TickRate = 0
+              TickRate = 0,
+              CanMitigateDuration = false
             }
           }
         }
-      }
-    }
-  }
-}
-CanCastBuildingBlocks = {
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanMove",
-      Status = GetCanMove
-    }
-  },
-  {
-    Function = BBGetStatus,
-    Params = {
-      TargetVar = "Owner",
-      DestVar = "CanCast",
-      Status = GetCanCast
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanMove",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
-      }
-    }
-  },
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "CanCast",
-      Value2 = true,
-      CompareOp = CO_NOT_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBSetReturnValue,
-        Params = {SrcValue = false}
       }
     }
   }

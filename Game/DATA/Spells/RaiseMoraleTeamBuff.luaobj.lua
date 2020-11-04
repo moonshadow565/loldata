@@ -15,7 +15,7 @@ OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
-      RequiredVar = "AttackSpeedMod",
+      RequiredVar = "AttackDmgMod",
       RequiredVarTable = "InstanceVars"
     }
   },
@@ -42,9 +42,9 @@ BuffOnUpdateStatsBuildingBlocks = {
   {
     Function = BBIncStat,
     Params = {
-      Stat = IncPercentAttackSpeedMod,
+      Stat = IncFlatPhysicalDamageMod,
       TargetVar = "Owner",
-      DeltaVar = "AttackSpeedMod",
+      DeltaVar = "AttackDmgMod",
       DeltaVarTable = "InstanceVars",
       Delta = 0
     }

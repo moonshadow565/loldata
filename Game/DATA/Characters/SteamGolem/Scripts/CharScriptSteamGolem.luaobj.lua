@@ -163,7 +163,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
                   BuffName = "ManaBarrierCooldown",
                   BuffAddType = BUFF_RENEW_EXISTING,
                   StacksExclusive = true,
-                  BuffType = BUFF_Internal,
+                  BuffType = BUFF_CombatEnchancer,
                   MaxStack = 1,
                   NumberOfStacks = 1,
                   Duration = 60,
@@ -311,7 +311,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

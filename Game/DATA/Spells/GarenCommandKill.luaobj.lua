@@ -2,8 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 BuffTextureName = "Garen_CommandingPresence.dds"
 BuffName = "GarenCommandKill"
-AutoBuffActivateEffect = "Enrageweapon_buf.troy"
-AutoBuffActivateAttachBoneName = "weapon_tip"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
@@ -92,7 +92,8 @@ BuffOnKillBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }
@@ -172,7 +173,8 @@ BuffOnLevelUpSpellBuildingBlocks = {
           NumberOfStacks = 1,
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
-          TickRate = 0
+          TickRate = 0,
+          CanMitigateDuration = false
         }
       }
     }

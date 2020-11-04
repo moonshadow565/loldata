@@ -11,16 +11,52 @@ BuffOnUpdateActionsBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBIncHealth,
+        Function = BBIf,
         Params = {
-          TargetVar = "Owner",
-          Delta = 25,
-          HealerVar = "Attacker"
+          Src1Var = "Target",
+          Src2Var = "Attacker",
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 25,
+              HealerVar = "Attacker"
+            }
+          },
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 10,
+              PARType = PAR_MANA
+            }
+          }
         }
       },
       {
-        Function = BBIncPAR,
-        Params = {TargetVar = "Owner", Delta = 10}
+        Function = BBElse,
+        Params = {},
+        SubBlocks = {
+          {
+            Function = BBIncHealth,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 13,
+              HealerVar = "Attacker"
+            }
+          },
+          {
+            Function = BBIncPAR,
+            Params = {
+              TargetVar = "Owner",
+              Delta = 5,
+              PARType = PAR_MANA
+            }
+          }
+        }
       }
     }
   }
