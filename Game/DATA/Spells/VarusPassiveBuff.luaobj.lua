@@ -7,6 +7,9 @@ BuffTextureName = "12.dds"
 BuffName = "VarusPassiveBuff"
 PersistsThroughDeath = true
 NonDispellable = true
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
@@ -24,6 +27,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "varuspassivetracker"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "varusidle.troy"
     }
   }
 }

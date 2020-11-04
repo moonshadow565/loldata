@@ -1,12 +1,9 @@
 BuffTextureName = "UrgotCorrosiveCharge.dds"
 BuffName = "UrgotCorrosiveDebuff"
+SpellFXOverrideSkins = {
+  "VarusAscended"
+}
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "varuseaoemini_amber.troy"
-    }
-  },
   {
     Function = BBPreloadParticle,
     Params = {
