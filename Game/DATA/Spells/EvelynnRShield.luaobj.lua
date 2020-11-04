@@ -1,6 +1,6 @@
 DoesntBreakShields = false
 CastingBreaksStealth = false
-BuffTextureName = "Evelynn_Drink.dds"
+BuffTextureName = "Evelynn_AgonysEmbrace.dds"
 BuffName = "EvelynnRShield"
 SpellFXOverrideSkins = {
   "BloodkingVladimir"

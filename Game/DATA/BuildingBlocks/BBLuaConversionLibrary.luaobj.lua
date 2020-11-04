@@ -342,16 +342,16 @@ AddDebugCircle = L0
 function L0(A0)
   local L1, L2, L3
   L1 = {}
-  L1.DebugCircleID = A0
+  L1.DebugObjectID = A0
   passThroughParams = L1
   L1 = {}
   perBlockParams = L1
-  L1 = BBRemoveDebugCircle
+  L1 = BBRemoveDebugObject
   L2 = passThroughParams
   L3 = perBlockParams
   L1(L2, L3)
 end
-RemoveDebugCircle = L0
+RemoveDebugObject = L0
 function L0(A0, A1)
   local L2, L3, L4
   L2 = {}
@@ -369,7 +369,7 @@ ModifyDebugCircleRadius = L0
 function L0(A0, A1, A2, A3, A4)
   local L5, L6, L7
   L5 = {}
-  L5.DebugCircleID = A0
+  L5.DebugObjectID = A0
   passThroughParams = L5
   L5 = {}
   L5.ColorR = A1
@@ -377,9 +377,9 @@ function L0(A0, A1, A2, A3, A4)
   L5.ColorB = A3
   L5.ColorA = A4
   perBlockParams = L5
-  L5 = BBModifyDebugCircleColor
+  L5 = BBModifyDebugObjectColor
   L6 = passThroughParams
   L7 = perBlockParams
   L5(L6, L7)
 end
-ModifyDebugCircleColor = L0
+ModifyDebugObjectColor = L0

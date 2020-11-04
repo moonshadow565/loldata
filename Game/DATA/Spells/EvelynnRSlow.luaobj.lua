@@ -1,7 +1,7 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
-BuffTextureName = "Evelynn_Drink.dds"
+BuffTextureName = "Evelynn_AgonysEmbrace.dds"
 BuffName = "EvelynnRSlow"
 AutoBuffActivateEffect = "Global_Slow.troy"
 AutoCooldownByLevel = {

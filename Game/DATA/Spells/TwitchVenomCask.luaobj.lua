@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadCharacter,
     Params = {
-      Name = "testcuberender"
+      Name = "testcuberender10vision"
     }
   },
   {

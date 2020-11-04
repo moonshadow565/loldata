@@ -8,17 +8,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "zyrapqueenofthorns"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyrapqueenofthornsspawn"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "zyrapqueenofthornscd"
-    }
   }
 }

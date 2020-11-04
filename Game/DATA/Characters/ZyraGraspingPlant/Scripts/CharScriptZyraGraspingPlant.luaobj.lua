@@ -14,7 +14,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "Zyrapheromone"
+      Name = "zyrapheromone"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "zyraplantattackindicator"
     }
   }
 }

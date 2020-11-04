@@ -3,7 +3,6 @@ DoesntTriggerSpellCasts = false
 IsDamagingSpell = true
 BuffTextureName = "KarmaSoulShield.dds"
 BuffName = "KarmaSoulShield"
-AutoBuffActivateEffect = ""
 OnPreDamagePriority = 3
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
 PreLoadBuildingBlocks = {

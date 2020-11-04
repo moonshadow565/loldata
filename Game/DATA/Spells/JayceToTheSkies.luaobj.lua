@@ -14,12 +14,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "jaycetotheskies"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "jayce_jump_cas.troy"
@@ -45,6 +39,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "jaycetotheskieslock"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "jaycetotheskies"
     }
   }
 }
