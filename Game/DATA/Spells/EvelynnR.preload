@@ -2,5 +2,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="evelynn_r_cas.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="evelynnrshield"}}, 
 {Function=BBPreloadSpell, Params={Name="evelynnrslow"}}, 
-{Function=BBPreloadSpell, Params={Name="evelynnwpassive"}}, 
 }
