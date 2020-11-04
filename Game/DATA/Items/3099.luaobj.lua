@@ -26,7 +26,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
             Params = {
               DestVar = "CooldownReduction",
               DestVarTable = "NextBuffVars",
-              SrcValue = -0.15
+              SrcValue = -0.1
             }
           },
           {
@@ -66,7 +66,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -89,7 +90,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -147,7 +149,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                               Duration = 1.2,
                               BuffVarsTable = "NextBuffVars",
                               TickRate = 0,
-                              CanMitigateDuration = false
+                              CanMitigateDuration = false,
+                              IsHiddenOnClient = false
                             }
                           }
                         }
@@ -176,7 +179,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -203,7 +207,8 @@ UpdateSelfBuffActionsBuildingBlocks = {
                           Duration = 1.2,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }

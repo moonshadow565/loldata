@@ -207,10 +207,11 @@ OnBuffActivateBuildingBlocks = {
           BuffType = BUFF_Slow,
           MaxStack = 100,
           NumberOfStacks = 1,
-          Duration = 2.5,
+          Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -226,6 +227,28 @@ OnBuffDeactivateBuildingBlocks = {
     }
   },
   {
+    Function = BBGetSlotSpellInfo,
+    Params = {
+      DestVar = "Level",
+      SpellSlotValue = 3,
+      SpellbookType = SPELLBOOK_CHAMPION,
+      SlotType = SpellSlots,
+      OwnerVar = "Owner",
+      Function = GetSlotSpellLevel
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "baseCooldown",
+      SrcValueByLevel = {
+        6,
+        6,
+        6
+      }
+    }
+  },
+  {
     Function = BBMath,
     Params = {
       Src2Var = "CooldownStat",
@@ -238,8 +261,9 @@ OnBuffDeactivateBuildingBlocks = {
   {
     Function = BBMath,
     Params = {
+      Src1Var = "baseCooldown",
       Src2Var = "Multiplier",
-      Src1Value = 6,
+      Src1Value = 0,
       Src2Value = 0,
       DestVar = "NewCooldown",
       MathOp = MO_MULTIPLY
@@ -405,10 +429,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 2.5,
+              Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -529,10 +554,11 @@ BuffOnUpdateActionsBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 100,
               NumberOfStacks = 1,
-              Duration = 2.5,
+              Duration = 1,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -613,9 +639,9 @@ SelfExecuteBuildingBlocks = {
           DestVar = "ManaCost",
           DestVarTable = "NextBuffVars",
           SrcValueByLevel = {
+            20,
             25,
-            35,
-            45
+            30
           }
         }
       },
@@ -633,7 +659,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

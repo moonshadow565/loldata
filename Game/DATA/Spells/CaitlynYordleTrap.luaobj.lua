@@ -363,14 +363,6 @@ BuffOnUpdateActionsBuildingBlocks = {
               DestVarTable = "InstanceVars",
               SrcValue = true
             }
-          },
-          {
-            Function = BBOverrideAnimation,
-            Params = {
-              ToOverrideAnim = "Idle1",
-              OverrideAnim = "Spell1",
-              OwnerVar = "Owner"
-            }
           }
         }
       }
@@ -421,7 +413,7 @@ SelfExecuteBuildingBlocks = {
   {
     Function = BBPlayAnimation,
     Params = {
-      AnimationName = "Idle1",
+      AnimationName = "Spell1",
       ScaleTime = 1,
       TargetVar = "Other3",
       Loop = false,

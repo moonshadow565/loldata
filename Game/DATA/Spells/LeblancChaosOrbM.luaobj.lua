@@ -10,7 +10,6 @@ AutoCooldownByLevel = {
   10,
   8
 }
-PersistsThroughDeath = true
 NonDispellable = true
 TriggersSpellCasts = true
 SetSpellDamageRatio = 1
@@ -43,134 +42,6 @@ OnBuffDeactivateBuildingBlocks = {
   }
 }
 TargetExecuteBuildingBlocks = {
-  {
-    Function = BBIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 1,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            77,
-            121,
-            165,
-            209,
-            253
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.66,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElseIf,
-    Params = {
-      Src1Var = "Level",
-      Value2 = 2,
-      CompareOp = CO_EQUAL
-    },
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            87.5,
-            137.5,
-            187.5,
-            237.5,
-            287.5
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.75,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  },
-  {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBGetSlotSpellInfo,
-        Params = {
-          DestVar = "Level",
-          SpellSlotValue = 0,
-          SpellbookType = SPELLBOOK_CHAMPION,
-          SlotType = SpellSlots,
-          OwnerVar = "Owner",
-          Function = GetSlotSpellLevel
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          DamageByLevel = {
-            98,
-            154,
-            210,
-            266,
-            322
-          },
-          Damage = 0,
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.84,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
-    }
-  },
   {
     Function = BBIfHasBuff,
     Params = {
@@ -337,6 +208,23 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_CombatDehancer,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 3.5,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Target",
@@ -397,19 +285,131 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
+    Function = BBIf,
     Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_CombatDehancer,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 3.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
+      Src1Var = "Level",
+      Value2 = 1,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            77,
+            121,
+            165,
+            209,
+            253
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.66,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElseIf,
+    Params = {
+      Src1Var = "Level",
+      Value2 = 2,
+      CompareOp = CO_EQUAL
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            87.5,
+            137.5,
+            187.5,
+            237.5,
+            287.5
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.75,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 0,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            98,
+            154,
+            210,
+            266,
+            322
+          },
+          Damage = 0,
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.84,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      }
     }
   }
 }

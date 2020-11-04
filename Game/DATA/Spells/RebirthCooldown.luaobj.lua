@@ -16,13 +16,14 @@ OnBuffDeactivateBuildingBlocks = {
       BuffName = "RebirthReady",
       BuffAddType = BUFF_RENEW_EXISTING,
       StacksExclusive = true,
-      BuffType = BUFF_Internal,
+      BuffType = BUFF_Aura,
       MaxStack = 1,
       NumberOfStacks = 1,
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

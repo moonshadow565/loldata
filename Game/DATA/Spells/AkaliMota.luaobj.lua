@@ -224,7 +224,8 @@ BuffOnBeingHitBuildingBlocks = {
                           Duration = 0.1,
                           BuffVarsTable = "NextBuffVars",
                           TickRate = 0,
-                          CanMitigateDuration = false
+                          CanMitigateDuration = false,
+                          IsHiddenOnClient = false
                         }
                       }
                     }
@@ -268,6 +269,23 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Target",
+      AttackerVar = "Attacker",
+      BuffAddType = BUFF_RENEW_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Damage,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 6,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Attacker",
@@ -295,22 +313,6 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Attacker",
-      BuffAddType = BUFF_RENEW_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Damage,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 6,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
-    }
-  },
-  {
     Function = BBIfHasBuff,
     Params = {
       OwnerVar = "Owner",
@@ -332,7 +334,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 0.1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }

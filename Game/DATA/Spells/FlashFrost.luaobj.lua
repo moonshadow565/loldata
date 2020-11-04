@@ -66,19 +66,19 @@ OnBuffDeactivateBuildingBlocks = {
     },
     SubBlocks = {
       {
-        Function = BBDestroyMissile,
-        Params = {
-          MissileIDVar = "FlashMissileId",
-          MissileIDVarTable = "InstanceVars"
-        }
-      },
-      {
         Function = BBGetMissilePosFromID,
         Params = {
           TargetIDVar = "FlashMissileId",
           TargetIDVarTable = "InstanceVars",
           TargetID = 0,
           ResultVar = "MissileEndPosition"
+        }
+      },
+      {
+        Function = BBDestroyMissile,
+        Params = {
+          MissileIDVar = "FlashMissileId",
+          MissileIDVarTable = "InstanceVars"
         }
       },
       {
@@ -211,7 +211,8 @@ OnBuffDeactivateBuildingBlocks = {
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -369,7 +370,7 @@ BuffOnMissileEndBuildingBlocks = {
             Params = {
               AttackerVar = "Attacker",
               TargetVar = "Unit",
-              Duration = 0.75
+              Duration = 1
             }
           },
           {
@@ -402,7 +403,8 @@ BuffOnMissileEndBuildingBlocks = {
               Duration = 3,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
-              CanMitigateDuration = false
+              CanMitigateDuration = false,
+              IsHiddenOnClient = false
             }
           }
         }
@@ -480,7 +482,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 25000,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

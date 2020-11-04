@@ -1,9 +1,17 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 SpellFXOverrideSkins = {
-  "GangsterTwitch"
+  "GangsterTwitch",
+  "PunkTwitch"
 }
 TargetExecuteBuildingBlocks = {
+  {
+    Function = BBGetTeamID,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "TwitchTeamId"
+    }
+  },
   {
     Function = BBGetStat,
     Params = {
@@ -43,7 +51,35 @@ TargetExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TwitchTeamId",
+              FOWVisibilityRadius = 10,
+              SendIfOnScreenOrDiscard = true
+            }
+          }
+        }
+      },
+      {
+        Function = BBElseIf,
+        Params = {
+          Src1Var = "TwitchSkinID",
+          Value2 = 5,
+          CompareOp = CO_EQUAL
+        },
+        SubBlocks = {
+          {
+            Function = BBSpellEffectCreate,
+            Params = {
+              BindObjectVar = "Target",
+              EffectName = "twitch_punk_sprayandPray_tar.troy",
+              Flags = 0,
+              EffectIDVar = "a",
+              TargetObjectVar = "Target",
+              SpecificUnitOnlyVar = "Owner",
+              SpecificTeamOnly = TEAM_UNKNOWN,
+              UseSpecificUnit = false,
+              FOWTeam = TEAM_UNKNOWN,
+              FOWTeamOverrideVar = "TwitchTeamId",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           }
@@ -65,7 +101,8 @@ TargetExecuteBuildingBlocks = {
               SpecificTeamOnly = TEAM_UNKNOWN,
               UseSpecificUnit = false,
               FOWTeam = TEAM_UNKNOWN,
-              FOWVisibilityRadius = 0,
+              FOWTeamOverrideVar = "TwitchTeamId",
+              FOWVisibilityRadius = 10,
               SendIfOnScreenOrDiscard = true
             }
           }
@@ -107,6 +144,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "twitch_gangster_sprayandpray_tar.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "twitch_punk_sprayandpray_tar.troy"
     }
   },
   {

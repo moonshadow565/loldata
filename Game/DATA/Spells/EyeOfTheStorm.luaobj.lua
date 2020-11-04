@@ -4,6 +4,8 @@ IsDamagingSpell = true
 BuffTextureName = "Janna_EyeOfTheStorm.dds"
 BuffName = "Eye Of The Storm"
 AutoBuffActivateEffect = ""
+OnPreDamagePriority = 3
+DoOnPreDamageInExpirationOrder = true
 AutoBuffActivateEvent = "DeathsCaress_buf.troy"
 OnBuffActivateBuildingBlocks = {
   {
@@ -46,6 +48,17 @@ OnBuffActivateBuildingBlocks = {
       TargetVar = "Owner",
       SourceVar = "Attacker"
     }
+  },
+  {
+    Function = BBIncreaseShield,
+    Params = {
+      UnitVar = "Owner",
+      AmountVar = "TotalArmorAmount",
+      AmountVarTable = "InstanceVars",
+      Amount = 0,
+      MagicShield = true,
+      PhysicalShield = true
+    }
   }
 }
 OnBuffDeactivateBuildingBlocks = {
@@ -55,9 +68,40 @@ OnBuffDeactivateBuildingBlocks = {
       EffectIDVar = "Particle",
       EffectIDVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "TotalArmorAmount",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBRemoveShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "TotalArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
+        }
+      }
+    }
   }
 }
 BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "oldArmorAmount",
+      DestVarTable = "InstanceVars",
+      SrcVar = "TotalArmorAmount",
+      SrcVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBIf,
     Params = {
@@ -86,6 +130,31 @@ BuffOnPreDamageBuildingBlocks = {
           DestVar = "DamageAmount",
           SrcValue = 0
         }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "oldArmorAmount",
+          Src1VarTable = "InstanceVars",
+          Src2Var = "TotalArmorAmount",
+          Src2VarTable = "InstanceVars",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "oldArmorAmount",
+          DestVarTable = "InstanceVars",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
+        }
       }
     }
   },
@@ -111,6 +180,17 @@ BuffOnPreDamageBuildingBlocks = {
           DestVar = "TotalArmorAmount",
           DestVarTable = "InstanceVars",
           SrcValue = 0
+        }
+      },
+      {
+        Function = BBReduceShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "oldArmorAmount",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = true
         }
       },
       {
@@ -198,7 +278,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -215,7 +296,8 @@ TargetExecuteBuildingBlocks = {
       Duration = 5,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   }
 }

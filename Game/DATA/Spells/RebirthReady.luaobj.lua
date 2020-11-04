@@ -4,11 +4,49 @@ PersistsThroughDeath = true
 NonDispellable = true
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "WillRemove",
       DestVarTable = "InstanceVars",
       SrcValue = false
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "RebirthArmorMod",
+      SrcValueByLevel = {
+        -40,
+        -40,
+        -40,
+        -40,
+        -25,
+        -25,
+        -25,
+        -10,
+        -10,
+        -10,
+        -10,
+        5,
+        5,
+        5,
+        20,
+        20,
+        20,
+        20
+      }
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "RebirthArmorMod",
+      Index = 1
     }
   }
 }
@@ -88,20 +126,20 @@ BuffOnPreDamageBuildingBlocks = {
                     -40,
                     -40,
                     -40,
-                    -20,
-                    -20,
-                    -20,
-                    -20,
-                    10,
-                    10,
-                    10,
-                    10,
-                    40,
-                    40,
-                    40,
-                    40,
-                    40,
-                    40
+                    -25,
+                    -25,
+                    -25,
+                    -10,
+                    -10,
+                    -10,
+                    -10,
+                    5,
+                    5,
+                    5,
+                    20,
+                    20,
+                    20,
+                    20
                   }
                 }
               },
@@ -119,7 +157,8 @@ BuffOnPreDamageBuildingBlocks = {
                   Duration = 6,
                   BuffVarsTable = "NextBuffVars",
                   TickRate = 0,
-                  CanMitigateDuration = false
+                  CanMitigateDuration = false,
+                  IsHiddenOnClient = false
                 }
               }
             }
@@ -134,6 +173,46 @@ BuffOnPreDamageBuildingBlocks = {
           }
         }
       }
+    }
+  }
+}
+BuffOnLevelUpBuildingBlocks = {
+  {
+    Function = BBGetLevel,
+    Params = {TargetVar = "Owner", DestVar = "Level"}
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "RebirthArmorMod",
+      SrcValueByLevel = {
+        -40,
+        -40,
+        -40,
+        -40,
+        -25,
+        -25,
+        -25,
+        -10,
+        -10,
+        -10,
+        -10,
+        5,
+        5,
+        5,
+        20,
+        20,
+        20,
+        20
+      }
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "RebirthArmorMod",
+      Index = 1
     }
   }
 }

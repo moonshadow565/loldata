@@ -5,12 +5,25 @@ AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = ""
 AutoBuffActivateAttachBoneName2 = ""
 AutoBuffActivateEffect3 = ""
+OnPreDamagePriority = 2
+DoOnPreDamageInExpirationOrder = true
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "ShieldHealth",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBIncreaseShield,
+    Params = {
+      UnitVar = "Owner",
+      AmountVar = "ShieldHealth",
+      AmountVarTable = "InstanceVars",
+      Amount = 0,
+      MagicShield = true,
+      PhysicalShield = false
     }
   }
 }
@@ -40,7 +53,30 @@ OnBuffDeactivateBuildingBlocks = {
       BuffVarsTable = "NextBuffVars",
       DurationVar = "Duration",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "ShieldHealth",
+      Src1VarTable = "InstanceVars",
+      Value2 = 0,
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBRemoveShield,
+        Params = {
+          UnitVar = "Owner",
+          AmountVar = "ShieldHealth",
+          AmountVarTable = "InstanceVars",
+          Amount = 0,
+          MagicShield = true,
+          PhysicalShield = false
+        }
+      }
     }
   }
 }
@@ -62,6 +98,15 @@ BuffOnUpdateActionsBuildingBlocks = {
   }
 }
 BuffOnPreDamageBuildingBlocks = {
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "oldArmorAmount",
+      DestVarTable = "InstanceVars",
+      SrcVar = "ShieldHealth",
+      SrcVarTable = "InstanceVars"
+    }
+  },
   {
     Function = BBIf,
     Params = {
@@ -138,6 +183,31 @@ BuffOnPreDamageBuildingBlocks = {
                   DestVar = "DamageAmount",
                   SrcValue = 0
                 }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "oldArmorAmount",
+                  Src1VarTable = "InstanceVars",
+                  Src2Var = "ShieldHealth",
+                  Src2VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "oldArmorAmount",
+                  DestVarTable = "InstanceVars",
+                  MathOp = MO_SUBTRACT
+                }
+              },
+              {
+                Function = BBReduceShield,
+                Params = {
+                  UnitVar = "Owner",
+                  AmountVar = "oldArmorAmount",
+                  AmountVarTable = "InstanceVars",
+                  Amount = 0,
+                  MagicShield = true,
+                  PhysicalShield = false
+                }
               }
             }
           },
@@ -163,6 +233,17 @@ BuffOnPreDamageBuildingBlocks = {
                   DestVar = "ShieldHealth",
                   DestVarTable = "InstanceVars",
                   SrcValue = 0
+                }
+              },
+              {
+                Function = BBReduceShield,
+                Params = {
+                  UnitVar = "Owner",
+                  AmountVar = "oldArmorAmount",
+                  AmountVarTable = "InstanceVars",
+                  Amount = 0,
+                  MagicShield = true,
+                  PhysicalShield = false
                 }
               }
             }

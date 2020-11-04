@@ -32,6 +32,18 @@ BuffOnUpdateStatsBuildingBlocks = {
       DeltaVar = "DamageAmount",
       Delta = 0
     }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "DamageAmount",
+      Index = 1
+    }
+  },
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {Value = 25, Index = 2}
   }
 }
 BuffOnUpdateActionsBuildingBlocks = {

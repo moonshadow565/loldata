@@ -89,10 +89,10 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Damage",
       SrcValueByLevel = {
+        50,
         70,
-        85,
-        100,
-        115,
+        90,
+        110,
         130
       }
     }
@@ -102,11 +102,11 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "AoEDamage",
       SrcValueByLevel = {
-        0.65,
-        0.65,
-        0.65,
-        0.65,
-        0.65
+        0.5,
+        0.5,
+        0.5,
+        0.5,
+        0.5
       }
     }
   },
@@ -159,7 +159,8 @@ TargetExecuteBuildingBlocks = {
           Duration = 5,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {
@@ -185,7 +186,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.38,
+              SpellDamageRatio = 0.35,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -208,7 +209,7 @@ TargetExecuteBuildingBlocks = {
               DamageType = MAGIC_DAMAGE,
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
-              SpellDamageRatio = 0.38,
+              SpellDamageRatio = 0.35,
               PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
@@ -288,7 +289,7 @@ TargetExecuteBuildingBlocks = {
                       DamageType = MAGIC_DAMAGE,
                       SourceDamageType = DAMAGESOURCE_SPELLAOE,
                       PercentOfAttack = 1,
-                      SpellDamageRatio = 0.247,
+                      SpellDamageRatio = 0.175,
                       PhysicalDamageRatio = 1,
                       IgnoreDamageIncreaseMods = false,
                       IgnoreDamageCrit = false
