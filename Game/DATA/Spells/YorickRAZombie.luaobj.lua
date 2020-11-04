@@ -24,11 +24,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yorickultstun"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravenrcast"
-    }
   }
 }
