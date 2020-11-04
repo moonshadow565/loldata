@@ -1,4 +1,4 @@
-local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19
+local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20
 L0 = {}
 L1 = "Champion"
 L2 = "Champion_Clone"
@@ -11,14 +11,15 @@ L8 = "Monster"
 L9 = "Monster_Epic"
 L10 = "Monster_Large"
 L11 = "Special_SyndraSphere"
-L12 = "Structure"
-L13 = "Structure_Trap"
-L14 = "Turret"
-L15 = "Turret_Outer"
-L16 = "Turret_Inner"
-L17 = "Turret_Inhib"
-L18 = "Turret_Nexus"
-L19 = "Turret_Shrine"
+L12 = "Special_Tunnel"
+L13 = "Structure"
+L14 = "Structure_Trap"
+L15 = "Turret"
+L16 = "Turret_Outer"
+L17 = "Turret_Inner"
+L18 = "Turret_Inhib"
+L19 = "Turret_Nexus"
+L20 = "Turret_Shrine"
 L0[1] = L1
 L0[2] = L2
 L0[3] = L3
@@ -38,6 +39,7 @@ L0[16] = L16
 L0[17] = L17
 L0[18] = L18
 L0[19] = L19
+L0[20] = L20
 UnitTags = L0
 L0 = {}
 UnitTagFlags = L0
