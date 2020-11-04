@@ -5,5 +5,4 @@ CastingBreaksStealth = true
 IsDamagingSpell = false
 BuffTextureName = "BlindMonkWOne.dds"
 BuffName = "BlindMonkSafeguard"
-AutoBuffActivateEffect = "blindMonk_W_shield_self.troy"
 OnPreDamagePriority = 3

@@ -1,3 +1,0 @@
-BuffTextureName = "Rumble_Junkyard Titan2.dds"
-BuffName = "RumbleDangerZone"
-PersistsThroughDeath = true

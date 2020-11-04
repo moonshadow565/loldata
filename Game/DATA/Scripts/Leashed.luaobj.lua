@@ -1,13 +1,13 @@
 RUN_IN_FEAR = 2
 HOSTILE = 1
 INACTIVE = 0
-LEASH_RADIUS = 850
-LEASH_PROTECTION_RADIUS = 750
-INNER_RELEASH_RADIUS = 750
+LEASH_RADIUS = 800
+LEASH_PROTECTION_RADIUS = 700
+INNER_RELEASH_RADIUS = 700
 RELEASH_RADIUS = 1150
 FEAR_WANDER_DISTANCE = 500
 VERY_FAR_DISTANCE = 9000
-LEASH_COUNTER_THRESHOLD = 5
+LEASH_COUNTER_THRESHOLD = 6
 DoLuaShared("AIComponentSystem")
 AddComponent("OutOfCombatRegen")
 AddComponent("DefaultFearBehavior")
@@ -229,9 +229,12 @@ function TimerRetreat()
     L2_20 = GetTarget()
     if L2_20 ~= nil then
       SetLeashCounter(GetLeashCounter() + 1)
+    else
+      SetLeashCounter(GetLeashCounter() + 2)
     end
   elseif L1_19 > LEASH_RADIUS and L0_18 ~= AI_RETREAT then
     isLeashing = true
+    SetLeashCounter(GetLeashCounter() + 1)
     OutOfCombatRegen:Start()
     Retreat()
   end
@@ -340,6 +343,7 @@ function FindNewTarget()
   else
     TurnOffAutoAttack(STOPREASON_MOVING)
     OutOfCombatRegen:Start()
+    SetLeashCounter(GetLeashCounter() + 1)
     Retreat()
   end
 end

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ekko_base_e_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_e_weapon_glow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_e_vanish.troy"}}, 
+}

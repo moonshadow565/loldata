@@ -1,0 +1,11 @@
+NotSingleTargetSpell = true
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = false
+CastingBreaksStealth = true
+IsDamagingSpell = true
+BuffTextureName = "Ekko_W.dds"
+BuffName = "EkkoWStun"
+AutoBuffActivateEffect = "LOC_Stun.troy"
+AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CENTER_LOC"
+SpellDamageRatio = 1
+PopupMessage1 = "game_floatingtext_Stunned"

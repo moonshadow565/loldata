@@ -1,0 +1,14 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_indicator.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_branch_timeline.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_cas.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_cas_enemy.troy"}}, 
+{Function=BBPreloadCharacter, Params={Name="testcuberender10vision"}}, 
+{Function=BBPreloadSpell, Params={Name="ekkowmis"}}, 
+{Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_detonate_slow.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="ekko_base_w_detonate_slow_enemy.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="root"}}, 
+{Function=BBPreloadSpell, Params={Name="slow"}}, 
+{Function=BBPreloadModule, Params={Name="Ekko.EkkoFunctions"}}, 
+}

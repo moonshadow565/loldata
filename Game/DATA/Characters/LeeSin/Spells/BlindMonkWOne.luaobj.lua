@@ -9,3 +9,6 @@ AutoCooldownByLevel = {
   10,
   6
 }
+SpellFXOverrideSkins = {
+  "LeeSinSkin10"
+}

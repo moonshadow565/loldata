@@ -1,5 +1,9 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="skarnerbrushcheck"}}, 
+{Function=BBPreloadParticle, Params={Name="skarner_base_e_tar_consume.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="skarner_base_passive_impact.troy"}}, 
+{Function=BBPreloadSpell, Params={Name="skarnerpassivestun"}}, 
+{Function=BBPreloadSpell, Params={Name="skarnerpassivecooldown"}}, 
 {Function=BBPreloadSpell, Params={Name="skarnerimpaleflashlock"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_cas_01.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="skarner_base_r_cas_02.troy"}}, 
