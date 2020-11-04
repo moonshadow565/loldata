@@ -7,6 +7,50 @@ TargetExecuteBuildingBlocks = {
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "percentOfAttack",
+      SrcVar = "percentOfAttack",
+      SrcVarTable = "CharVars"
+    }
+  },
+  {
+    Function = BBGetTotalAttackDamage,
+    Params = {
+      TargetVar = "Owner",
+      DestVar = "totalDamage"
+    }
+  },
+  {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetBaseAttackDamage,
+      TargetVar = "Owner",
+      DestVar = "BaseDamage"
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src1Var = "totalDamage",
+      Src2Var = "BaseDamage",
+      Src1Value = 0,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_SUBTRACT
+    }
+  },
+  {
+    Function = BBMath,
+    Params = {
+      Src2Var = "BonusDamage",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "BonusDamage",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
     Function = BBSpellEffectCreate,
     Params = {
       BindObjectVar = "Target",
@@ -45,61 +89,154 @@ TargetExecuteBuildingBlocks = {
         0
       },
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
-    Function = BBSetVarInTable,
+    Function = BBGetStat,
     Params = {
-      DestVar = "percentOfAttack",
-      SrcVar = "percentOfAttack",
-      SrcVarTable = "CharVars"
-    }
-  },
-  {
-    Function = BBApplyDamage,
-    Params = {
-      AttackerVar = "Attacker",
-      CallForHelpAttackerVar = "Attacker",
-      TargetVar = "Target",
-      DamageByLevel = {
-        350,
-        500,
-        650
-      },
-      Damage = 0,
-      DamageType = MAGIC_DAMAGE,
-      SourceDamageType = DAMAGESOURCE_SPELLAOE,
-      PercentOfAttack = 0,
-      PercentOfAttackVar = "percentOfAttack",
-      SpellDamageRatio = 0.9,
-      PhysicalDamageRatio = 1,
-      IgnoreDamageIncreaseMods = false,
-      IgnoreDamageCrit = false
+      Stat = GetFlatPhysicalDamageMod,
+      TargetVar = "Owner",
+      DestVar = "PhysPreMod"
     }
   },
   {
     Function = BBMath,
     Params = {
-      Src1Var = "percentOfAttack",
-      Src1VarTable = "CharVars",
-      Src1Value = 0,
-      Src2Value = 0.92,
-      DestVar = "percentOfAttack",
-      DestVarTable = "CharVars",
+      Src2Var = "PhysPreMod",
+      Src1Value = 1,
+      Src2Value = 0,
+      DestVar = "PhysPostMod",
       MathOp = MO_MULTIPLY
     }
   },
   {
+    Function = BBGetStat,
+    Params = {
+      Stat = GetFlatMagicDamageMod,
+      TargetVar = "Owner",
+      DestVar = "APPreMod"
+    }
+  },
+  {
     Function = BBMath,
     Params = {
-      Src1Var = "percentOfAttack",
-      Src1VarTable = "CharVars",
-      Src1Value = 0,
-      Src2Value = 0.3,
-      DestVar = "percentOfAttack",
-      DestVarTable = "CharVars",
-      MathOp = MO_MAX
+      Src2Var = "APPreMod",
+      Src1Value = 0.9,
+      Src2Value = 0,
+      DestVar = "APPostMod",
+      MathOp = MO_MULTIPLY
+    }
+  },
+  {
+    Function = BBIf,
+    Params = {
+      Src1Var = "PhysPostMod",
+      Src2Var = "APPostMod",
+      CompareOp = CO_GREATER_THAN
+    },
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Owner",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            350,
+            500,
+            650
+          },
+          Damage = 0,
+          DamageVar = "BonusDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 0,
+          PercentOfAttackVar = "percentOfAttack",
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "percentOfAttack",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0.92,
+          DestVar = "percentOfAttack",
+          DestVarTable = "CharVars",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "percentOfAttack",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0.3,
+          DestVar = "percentOfAttack",
+          DestVarTable = "CharVars",
+          MathOp = MO_MAX
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          DamageByLevel = {
+            350,
+            500,
+            650
+          },
+          Damage = 0,
+          DamageVar = "APPostMod",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELLAOE,
+          PercentOfAttack = 0,
+          PercentOfAttackVar = "percentOfAttack",
+          SpellDamageRatio = 0,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "percentOfAttack",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0.92,
+          DestVar = "percentOfAttack",
+          DestVarTable = "CharVars",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "percentOfAttack",
+          Src1VarTable = "CharVars",
+          Src1Value = 0,
+          Src2Value = 0.3,
+          DestVar = "percentOfAttack",
+          DestVarTable = "CharVars",
+          MathOp = MO_MAX
+        }
+      }
     }
   }
 }

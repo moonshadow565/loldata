@@ -1,28 +1,100 @@
+BuffOnCollisionTerrainBuildingBlocks = {}
+BuffOnCollisionBuildingBlocks = {}
 UpdateSelfBuffActionsBuildingBlocks = {
   {
-    Function = BBGetTotalAttackDamage,
-    Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
-  },
-  {
-    Function = BBMath,
+    Function = BBExecutePeriodically,
     Params = {
-      Src2Var = "BaseDamage",
-      Src1Value = 1,
-      Src2Value = 0,
-      DestVar = "AttackDamage",
-      MathOp = MO_MULTIPLY
-    }
-  },
-  {
-    Function = BBSetSpellToolTipVar,
-    Params = {
-      Value = 0,
-      ValueVar = "AttackDamage",
-      Index = 1,
-      SlotNumber = 0,
-      SlotType = SpellSlots,
-      SlotBook = SPELLBOOK_CHAMPION,
-      TargetVar = "Attacker"
+      TimeBetweenExecutions = 1,
+      TrackTimeVar = "LastTime2Executed",
+      TrackTimeVarTable = "InstanceVars",
+      ExecuteImmediately = true
+    },
+    SubBlocks = {
+      {
+        Function = BBGetSlotSpellInfo,
+        Params = {
+          DestVar = "Level",
+          SpellSlotValue = 3,
+          SpellbookType = SPELLBOOK_CHAMPION,
+          SlotType = SpellSlots,
+          OwnerVar = "Owner",
+          Function = GetSlotSpellLevel
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {
+          TargetVar = "Owner",
+          DestVar = "totalDamage"
+        }
+      },
+      {
+        Function = BBGetStat,
+        Params = {
+          Stat = GetBaseAttackDamage,
+          TargetVar = "Owner",
+          DestVar = "baseDamage"
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "totalDamage",
+          Src2Var = "baseDamage",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "bonusDamage",
+          MathOp = MO_SUBTRACT
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "bonusDamage",
+          Src1Value = 0,
+          Src2Value = 1,
+          DestVar = "Spell3Display",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "Spell3Display",
+          Index = 1,
+          SlotNumber = 3,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Owner"
+        }
+      },
+      {
+        Function = BBGetTotalAttackDamage,
+        Params = {TargetVar = "Owner", DestVar = "BaseDamage"}
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src2Var = "BaseDamage",
+          Src1Value = 1,
+          Src2Value = 0,
+          DestVar = "AttackDamage",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBSetSpellToolTipVar,
+        Params = {
+          Value = 0,
+          ValueVar = "AttackDamage",
+          Index = 1,
+          SlotNumber = 0,
+          SlotType = SpellSlots,
+          SlotBook = SPELLBOOK_CHAMPION,
+          TargetVar = "Attacker"
+        }
+      }
     }
   }
 }
@@ -61,7 +133,8 @@ CharOnSpellCastBuildingBlocks = {
           Duration = 1,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       }
     }
@@ -82,7 +155,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {
@@ -99,7 +173,8 @@ CharOnActivateBuildingBlocks = {
       Duration = 25000,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
-      CanMitigateDuration = false
+      CanMitigateDuration = false,
+      IsHiddenOnClient = false
     }
   },
   {

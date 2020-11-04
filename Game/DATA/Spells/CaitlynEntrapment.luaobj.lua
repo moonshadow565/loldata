@@ -129,7 +129,8 @@ SelfExecuteBuildingBlocks = {
           Duration = 0.25,
           BuffVarsTable = "NextBuffVars",
           TickRate = 0,
-          CanMitigateDuration = false
+          CanMitigateDuration = false,
+          IsHiddenOnClient = false
         }
       },
       {

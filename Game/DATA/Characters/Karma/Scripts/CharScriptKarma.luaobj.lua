@@ -14,7 +14,7 @@ UpdateSelfBuffActionsBuildingBlocks = {
         Function = BBSetVarInTable,
         Params = {
           DestVar = "MantraTimerCooldown",
-          SrcValue = 30
+          SrcValue = 25
         }
       },
       {
@@ -69,7 +69,7 @@ CharOnActivateBuildingBlocks = {
     Params = {
       DestVar = "MantraTimerCooldown",
       DestVarTable = "CharVars",
-      SrcValue = 30
+      SrcValue = 25
     }
   },
   {

@@ -296,7 +296,8 @@ BuffOnUpdateActionsBuildingBlocks = {
           ScaleTime = 0,
           TargetVar = "Owner",
           Loop = true,
-          Blend = false
+          Blend = false,
+          Lock = true
         }
       },
       {
@@ -736,11 +737,11 @@ SelfExecuteBuildingBlocks = {
       DestVar = "SpellCooldown",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
-        15,
         14,
         13,
         12,
-        11
+        11,
+        10
       }
     }
   },
