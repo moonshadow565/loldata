@@ -39,6 +39,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadCharacter,
+    Params = {Name = "testcube"}
+  },
+  {
     Function = BBPreloadSpell,
     Params = {
       Name = "yorickreviveally"
