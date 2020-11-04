@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="gangplank_base_r_speed_zone.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="gangplank_base_r_speed_zone_enemy.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
 {Function=BBPreloadSpell, Params={Name="gangplankrspeed"}}, 
 }
