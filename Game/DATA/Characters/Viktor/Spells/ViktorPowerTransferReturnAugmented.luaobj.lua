@@ -19,12 +19,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "viktorpowertransferhaste"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "viktorpowertransferreturn"
     }
   }
