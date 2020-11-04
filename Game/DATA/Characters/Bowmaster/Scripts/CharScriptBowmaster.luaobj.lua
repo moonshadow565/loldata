@@ -247,6 +247,23 @@ CharOnActivateBuildingBlocks = {
       TickRate = 0,
       CanMitigateDuration = false
     }
+  },
+  {
+    Function = BBSpellBuffAdd,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "BowMasterFocusDisplay",
+      BuffAddType = BUFF_REPLACE_EXISTING,
+      StacksExclusive = true,
+      BuffType = BUFF_Aura,
+      MaxStack = 1,
+      NumberOfStacks = 1,
+      Duration = 25000,
+      BuffVarsTable = "NextBuffVars",
+      TickRate = 0,
+      CanMitigateDuration = false
+    }
   }
 }
 CharOnDisconnectBuildingBlocks = {
@@ -264,7 +281,8 @@ CharOnDisconnectBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

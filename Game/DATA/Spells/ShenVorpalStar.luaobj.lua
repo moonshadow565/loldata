@@ -29,7 +29,7 @@ OnBuffActivateBuildingBlocks = {
       FOWTeam = TEAM_UNKNOWN,
       FOWTeamOverrideVar = "TeamID",
       FOWVisibilityRadius = 10,
-      SendIfOnScreenOrDiscard = false
+      SendIfOnScreenOrDiscard = true
     }
   }
 }

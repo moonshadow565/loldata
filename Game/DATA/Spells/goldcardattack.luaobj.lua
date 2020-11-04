@@ -33,14 +33,6 @@ TargetExecuteBuildingBlocks = {
     Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_AI},
     SubBlocks = {
       {
-        Function = BBSpellBuffRemove,
-        Params = {
-          TargetVar = "Owner",
-          AttackerVar = "Owner",
-          BuffName = "PickACard"
-        }
-      },
-      {
         Function = BBGetSlotSpellInfo,
         Params = {
           DestVar = "Level",
@@ -65,6 +57,23 @@ TargetExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBApplyDamage,
+        Params = {
+          AttackerVar = "Attacker",
+          CallForHelpAttackerVar = "Attacker",
+          TargetVar = "Target",
+          Damage = 0,
+          DamageVar = "BonusDamage",
+          DamageType = MAGIC_DAMAGE,
+          SourceDamageType = DAMAGESOURCE_SPELL,
+          PercentOfAttack = 1,
+          SpellDamageRatio = 0.4,
+          PhysicalDamageRatio = 1,
+          IgnoreDamageIncreaseMods = false,
+          IgnoreDamageCrit = false
+        }
+      },
+      {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
@@ -84,23 +93,6 @@ TargetExecuteBuildingBlocks = {
       {
         Function = BBBreakSpellShields,
         Params = {TargetVar = "Target"}
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "BonusDamage",
-          DamageType = MAGIC_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_SPELL,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0.4,
-          PhysicalDamageRatio = 1,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
       },
       {
         Function = BBIf,
@@ -124,17 +116,55 @@ TargetExecuteBuildingBlocks = {
         }
       }
     }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBGetCastSpellTargetPos,
+        Params = {
+          DestVar = "TargetPosition"
+        }
+      },
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Nothing",
+          PosVar = "TargetPosition",
+          EffectName = "PickaCard_yellow_tar.troy",
+          Flags = 0,
+          EffectIDVar = "arrm8y",
+          TargetObjectVar = "Nothing",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWTeamOverrideVar = "TeamID",
+          FOWVisibilityRadius = 10,
+          SendIfOnScreenOrDiscard = true
+        }
+      }
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "PickACard"
+    }
   }
 }
 PreLoadBuildingBlocks = {
-  {
-    Function = BBPreloadSpell,
-    Params = {Name = "pickacard"}
-  },
   {
     Function = BBPreloadParticle,
     Params = {
       Name = "pickacard_yellow_tar.troy"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {Name = "pickacard"}
   }
 }

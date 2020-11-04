@@ -53,6 +53,24 @@ OnBuffDeactivateBuildingBlocks = {
 }
 TargetExecuteBuildingBlocks = {
   {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "GarenBladestorm"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellBuffRemove,
+        Params = {
+          TargetVar = "Owner",
+          AttackerVar = "Owner",
+          BuffName = "GarenBladestorm"
+        }
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Owner",
@@ -64,7 +82,8 @@ TargetExecuteBuildingBlocks = {
       NumberOfStacks = 1,
       Duration = 1,
       BuffVarsTable = "NextBuffVars",
-      TickRate = 0
+      TickRate = 0,
+      CanMitigateDuration = false
     }
   },
   {
@@ -80,7 +99,8 @@ TargetExecuteBuildingBlocks = {
       OverrideCoolDownCheck = false,
       FireWithoutCasting = false,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }
@@ -95,6 +115,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "garen_damacianjustice_cas_sword.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "garenbladestorm"
     }
   }
 }

@@ -102,26 +102,6 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = true
-    }
-  },
-  {
     Function = BBRequireVar,
     Params = {
       RequiredVar = "SpellCooldown",
@@ -175,26 +155,6 @@ OnBuffDeactivateBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetCanAttack
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 0,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
-    }
-  },
-  {
-    Function = BBSealSpellSlot,
-    Params = {
-      SpellSlot = 3,
-      SpellbookType = SPELLBOOK_CHAMPION,
-      SlotType = SpellSlots,
-      TargetVar = "Owner",
-      State = false
     }
   },
   {
@@ -423,6 +383,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "CritHero",
@@ -462,6 +423,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "DamageToDealHero",
@@ -507,6 +469,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "CritMinion",
@@ -546,6 +509,7 @@ BuffOnUpdateActionsBuildingBlocks = {
                     Function = BBApplyDamage,
                     Params = {
                       AttackerVar = "Attacker",
+                      CallForHelpAttackerVar = "Attacker",
                       TargetVar = "Unit",
                       Damage = 0,
                       DamageVar = "DamageToDeal",

@@ -68,6 +68,14 @@ OnBuffActivateBuildingBlocks = {
     }
   },
   {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = false,
+      Status = SetCanMove
+    }
+  },
+  {
     Function = BBMove,
     Params = {
       UnitVar = "Target",
@@ -92,6 +100,14 @@ OnBuffDeactivateBuildingBlocks = {
       SlotType = SpellSlots,
       TargetVar = "Owner",
       State = false
+    }
+  },
+  {
+    Function = BBSetStatus,
+    Params = {
+      TargetVar = "Owner",
+      SrcValue = true,
+      Status = SetCanMove
     }
   }
 }
@@ -263,7 +279,7 @@ BuffOnMoveEndBuildingBlocks = {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
-      SpellSlotValue = 0,
+      SpellSlotValue = 2,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       OwnerVar = "Owner",
@@ -275,7 +291,13 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       DestVar = "MoveSpeedMod",
       DestVarTable = "NextBuffVars",
-      SrcValue = -0.4
+      SrcValueByLevel = {
+        -0.2,
+        -0.25,
+        -0.3,
+        -0.35,
+        -0.4
+      }
     }
   },
   {
@@ -293,7 +315,7 @@ BuffOnMoveEndBuildingBlocks = {
     Params = {
       AttackerVar = "Owner",
       CenterVar = "Caster",
-      Range = 350,
+      Range = 225,
       Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
@@ -356,7 +378,7 @@ BuffOnMoveEndBuildingBlocks = {
               BuffType = BUFF_Slow,
               MaxStack = 1,
               NumberOfStacks = 1,
-              Duration = 2.2,
+              Duration = 1.7,
               BuffVarsTable = "NextBuffVars",
               TickRate = 0,
               CanMitigateDuration = false
@@ -399,7 +421,7 @@ BuffOnMoveEndBuildingBlocks = {
       BuffType = BUFF_Slow,
       MaxStack = 1,
       NumberOfStacks = 1,
-      Duration = 2.2,
+      Duration = 1.7,
       BuffVarsTable = "NextBuffVars",
       TickRate = 0,
       CanMitigateDuration = false

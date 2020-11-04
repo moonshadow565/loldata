@@ -11,6 +11,13 @@ OnBuffActivateBuildingBlocks = {
       RequiredVar = "BaseDamage",
       RequiredVarTable = "InstanceVars"
     }
+  },
+  {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "IsSheen",
+      RequiredVarTable = "InstanceVars"
+    }
   }
 }
 BuffOnHitUnitBuildingBlocks = {
@@ -31,30 +38,78 @@ BuffOnHitUnitBuildingBlocks = {
         },
         SubBlocks = {
           {
-            Function = BBMath,
+            Function = BBIf,
             Params = {
-              Src1Var = "BaseDamage",
+              Src1Var = "IsSheen",
               Src1VarTable = "InstanceVars",
-              Src1Value = 0,
-              Src2Value = 0.8,
-              DestVar = "PercentBase",
-              MathOp = MO_MULTIPLY
+              Value2 = false,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "BaseDamage",
+                  Src1VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 1.3,
+                  DestVar = "PercentBase",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "DamageAmount",
+                  Src2Var = "PercentBase",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "DamageAmount",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
             }
           },
           {
-            Function = BBMath,
+            Function = BBIf,
             Params = {
-              Src1Var = "DamageAmount",
-              Src2Var = "PercentBase",
-              Src1Value = 0,
-              Src2Value = 0,
-              DestVar = "DamageAmount",
-              MathOp = MO_ADD
+              Src1Var = "IsSheen",
+              Src1VarTable = "InstanceVars",
+              Value2 = true,
+              CompareOp = CO_EQUAL
+            },
+            SubBlocks = {
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "BaseDamage",
+                  Src1VarTable = "InstanceVars",
+                  Src1Value = 0,
+                  Src2Value = 0.8,
+                  DestVar = "PercentBase",
+                  MathOp = MO_MULTIPLY
+                }
+              },
+              {
+                Function = BBMath,
+                Params = {
+                  Src1Var = "DamageAmount",
+                  Src2Var = "PercentBase",
+                  Src1Value = 0,
+                  Src2Value = 0,
+                  DestVar = "DamageAmount",
+                  MathOp = MO_ADD
+                }
+              },
+              {
+                Function = BBSpellBuffRemoveCurrent,
+                Params = {TargetVar = "Owner"}
+              }
             }
-          },
-          {
-            Function = BBSpellBuffRemoveCurrent,
-            Params = {TargetVar = "Owner"}
           }
         }
       }

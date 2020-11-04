@@ -10,6 +10,7 @@ AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
 AutoBuffActivateEffect2 = "AlZaharNetherGrasp_tar.troy"
 AutoBuffActivateAttachBoneName2 = "root"
+PopupMessage1 = "game_floatingtext_Stunned"
 ChannelingStartBuildingBlocks = {
   {
     Function = BBIfNotHasBuff,
@@ -115,6 +116,14 @@ ChannelingStartBuildingBlocks = {
     }
   },
   {
+    Function = BBApplyStun,
+    Params = {
+      AttackerVar = "Owner",
+      TargetVar = "Target",
+      Duration = 2.5
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
@@ -129,23 +138,6 @@ ChannelingStartBuildingBlocks = {
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false
-    }
-  },
-  {
-    Function = BBSpellBuffAdd,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "Suppression",
-      BuffAddType = BUFF_REPLACE_EXISTING,
-      StacksExclusive = true,
-      BuffType = BUFF_Suppression,
-      MaxStack = 1,
-      NumberOfStacks = 1,
-      Duration = 2.5,
-      BuffVarsTable = "NextBuffVars",
-      TickRate = 0,
-      CanMitigateDuration = false
     }
   }
 }
@@ -293,6 +285,14 @@ ChannelingCancelStopBuildingBlocks = {
     Function = BBSpellBuffRemove,
     Params = {
       TargetVar = "Target",
+      AttackerVar = "Owner",
+      BuffName = "Stun"
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Target",
       AttackerVar = "Attacker",
       BuffName = "AlZaharNetherGrasp"
     }
@@ -303,14 +303,6 @@ ChannelingCancelStopBuildingBlocks = {
       TargetVar = "Owner",
       AttackerVar = "Owner",
       BuffName = "AlZaharNetherGraspSound"
-    }
-  },
-  {
-    Function = BBSpellBuffRemove,
-    Params = {
-      TargetVar = "Target",
-      AttackerVar = "Owner",
-      BuffName = "Suppression"
     }
   },
   {
@@ -358,8 +350,6 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "suppression"
-    }
+    Params = {Name = "stun"}
   }
 }

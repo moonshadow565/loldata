@@ -230,7 +230,7 @@ function L0(A0, A1, A2)
   L5 = perBlockParams
   L3(L4, L5)
 end
-SpellBuffRemove = L0
+TutorialSpellBuffRemove = L0
 function L0(A0, A1, A2, A3, A4, A5)
   local L6, L7, L8
   L6 = {}

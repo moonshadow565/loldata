@@ -86,9 +86,9 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "DtD",
       SrcValueByLevel = {
-        150,
-        275,
-        400
+        125,
+        250,
+        375
       }
     }
   },
@@ -97,9 +97,9 @@ SelfExecuteBuildingBlocks = {
     Params = {
       DestVar = "PercentByLevel",
       SrcValueByLevel = {
-        0.25,
-        0.25,
-        0.25
+        0.2,
+        0.2,
+        0.2
       }
     }
   },
