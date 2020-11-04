@@ -20,12 +20,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "viktorchaosstorm"
-    }
-  },
-  {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_chaosstorm_beam.troy"
@@ -45,6 +39,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "viktor_chaosstorm_damage_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "viktorchaosstorm"
     }
   }
 }
