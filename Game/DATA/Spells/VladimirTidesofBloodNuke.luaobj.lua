@@ -1,5 +1,5 @@
 NotSingleTargetSpell = false
-DoesntBreakShields = false
+DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 SpellDamageRatio = 1
@@ -65,6 +65,10 @@ TargetExecuteBuildingBlocks = {
       DestVar = "FinalDamage",
       MathOp = MO_MULTIPLY
     }
+  },
+  {
+    Function = BBBreakSpellShields,
+    Params = {TargetVar = "Target"}
   },
   {
     Function = BBApplyDamage,

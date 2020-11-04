@@ -7,6 +7,13 @@ AutoBuffActivateEffect = ""
 PopupMessage1 = "game_floatingtext_Snared"
 OnBuffActivateBuildingBlocks = {
   {
+    Function = BBRequireVar,
+    Params = {
+      RequiredVar = "TickRate",
+      RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
     Function = BBGetTeamID,
     Params = {TargetVar = "Attacker", DestVar = "TeamID"}
   },
@@ -118,7 +125,9 @@ BuffOnUpdateActionsBuildingBlocks = {
   {
     Function = BBExecutePeriodically,
     Params = {
-      TimeBetweenExecutions = 0.4,
+      TimeBetweenExecutions = 0,
+      TickTimeVar = "TickRate",
+      TickTimeVarTable = "InstanceVars",
       TrackTimeVar = "LastTimeExecuted",
       TrackTimeVarTable = "InstanceVars",
       ExecuteImmediately = true
@@ -244,6 +253,20 @@ TargetExecuteBuildingBlocks = {
     }
   },
   {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "TickRate",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        0.6,
+        0.5,
+        0.45,
+        0.42,
+        0.4
+      }
+    }
+  },
+  {
     Function = BBSpellBuffAdd,
     Params = {
       TargetVar = "Target",
@@ -256,10 +279,10 @@ TargetExecuteBuildingBlocks = {
       Duration = 0,
       BuffVarsTable = "NextBuffVars",
       DurationByLevel = {
-        0.8,
         1.2,
-        1.6,
-        2,
+        1.5,
+        1.8,
+        2.1,
         2.4
       },
       TickRate = 0,

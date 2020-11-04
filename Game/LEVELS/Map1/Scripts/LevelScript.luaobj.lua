@@ -72,6 +72,7 @@ DISABLE_MINION_SPAWN_BASE_TIME = 300
 DISABLE_MINION_SPAWN_MAG_TIME = 0
 LAST_WAVE = -1
 SPECIAL_MINION_MODE = "none"
+HQTurretAttackable = false
 OrderNames = {
   MeleeMinionName = "Blue_Minion_Basic",
   ArcherMinionName = "Blue_Minion_Wizard",
@@ -704,6 +705,7 @@ end
 BonusesCounter = 0
 function ApplyBarracksDestructionBonuses(_ARG_0_, _ARG_1_)
   BonusesCounter = BonusesCounter + 1
+  Log("BonusesCounter: " .. BonusesCounter)
   for _FORV_5_ = 1, 3 do
     if _ARG_0_ == TEAM_ORDER then
       OrderBarracksBonuses[_FORV_5_].MeleeHPBonus = OrderBarracksBonuses[_FORV_5_].MeleeHPBonus + MELEE_HEALTH_INHIBITOR
@@ -810,6 +812,7 @@ function ApplyBarracksRespawnReductions(_ARG_0_, _ARG_1_)
       if _FORV_5_ == _ARG_1_ + 1 then
         totalNumberOfOrderBarracks = totalNumberOfOrderBarracks + 1
         ChaosBarracksBonuses[_FORV_5_].WillSpawnSuperMinion = 0
+        Log("red Super minion disabled " .. _FORV_5_)
       end
       if totalNumberOfOrderBarracks == 3 then
         SetInvulnerable(GetHQ(TEAM_ORDER), true)
