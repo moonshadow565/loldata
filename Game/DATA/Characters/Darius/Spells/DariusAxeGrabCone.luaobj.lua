@@ -4,19 +4,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Base_E_Tar.troy"
+      Name = "darius_base_e_tar.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_E_tar_02.troy"
+      Name = "darius_base_e_tar_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "darius_Base_E_tar_unit_trail.troy"
+      Name = "darius_base_e_tar_unit_trail.troy"
     }
   },
   {
@@ -28,13 +28,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Skin02_e_activate_zaunKnight.troy"
+      Name = "darius_skin02_e_activate_zaunknight.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Skin02_W_Atomic_Mist_03.troy"
+      Name = "darius_skin02_w_atomic_mist_03.troy"
     }
   },
   {
@@ -44,9 +44,15 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariusegrabsound"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Darius_Base_E_Axegrab_Collision.troy"
+      Name = "darius_base_e_axegrab_collision.troy"
     }
   }
 }

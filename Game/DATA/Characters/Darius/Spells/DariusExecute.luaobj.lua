@@ -27,6 +27,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "dariusrkillsound"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_base_r_blood_spatter_self.troy"
