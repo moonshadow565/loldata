@@ -59,6 +59,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "elise_spider_e_land_sound.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "elise_spider_e_dragline_drop.troy"
     }
   },

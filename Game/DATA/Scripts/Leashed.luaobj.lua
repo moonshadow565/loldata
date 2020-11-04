@@ -278,7 +278,7 @@ function L0_0()
     ResetAndStartTimer("TimerRegen")
     Retreat()
   end
-  if L0_20 == AI_RETREAT and IsMovementStopped() == true then
+  if L0_20 == AI_RETREAT and (IsMovementStopped() == true or GetAmImmovable() == true) then
     if GetDistToRetreat() < 100 then
       OnStoppedMoving()
     else
@@ -327,6 +327,8 @@ function L0_0()
     if L1_26 ~= nil then
       if TargetInAttackRange() then
         TurnOnAutoAttack(L1_26)
+      elseif GetAmImmovable() == true then
+        Retreat()
       elseif TargetInCancelAttackRange() == false then
         TurnOffAutoAttack(STOPREASON_MOVING)
       end
