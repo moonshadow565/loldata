@@ -1,7 +1,7 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
-BuffTextureName = "Summoner_PromoteSR.dds"
+BuffTextureName = "BannerOfCommand_Promote.dds"
 BuffName = "SummonerPromoteSR"
 AutoBuffActivateEffect = "bloodboil_buf.troy"
 AutoBuffActivateAttachBoneName = "l_hand"

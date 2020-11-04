@@ -17,7 +17,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Riven_Base_R_Buff.troy"
+      Name = "riven_base_r_buff.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "riven_skin05_r_avatar.troy"
     }
   },
   {
