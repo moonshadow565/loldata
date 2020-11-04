@@ -1,3 +1,4 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="sru_spawn_platform.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="project_spawn_platform_01.troy"}}, 
 }

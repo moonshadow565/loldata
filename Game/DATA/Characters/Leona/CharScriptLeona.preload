@@ -3,4 +3,5 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="apbonusdamagetotowers"}}, 
 {Function=BBPreloadSpell, Params={Name="leonasunlightpassive"}}, 
 {Function=BBPreloadSpell, Params={Name="globalrecallfacingsouth"}}, 
+{Function=BBPreloadSpell, Params={Name="leonaprojectidleparticles"}}, 
 }

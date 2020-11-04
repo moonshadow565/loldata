@@ -9,6 +9,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="temp_supportdetonatehit.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="global_item_fom_hit.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="global_item_fom_hit_red.troy"}}, 
-{Function=BBPreloadSpell, Params={Name="timebombcountdown"}}, 
-{Function=BBPreloadSpell, Params={Name="healthbomb"}}, 
 }

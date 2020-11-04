@@ -1,0 +1,2 @@
+DoesntBreakShields = true
+IsDeathRecapSource = true

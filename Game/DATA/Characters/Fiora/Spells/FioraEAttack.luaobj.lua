@@ -1,1 +1,3 @@
-SpellFXOverrideSkins = {""}
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}

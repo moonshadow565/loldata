@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="masteryiwujudeactivated"}}, 
 {Function=BBPreloadSpell, Params={Name="wujustylesuperchargedvisual"}}, 
+{Function=BBPreloadParticle, Params={Name="masteryi_skin09_ba_wuju_tar_01.troy"}}, 
 }

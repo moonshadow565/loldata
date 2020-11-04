@@ -2,7 +2,6 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="syndra_base_q_tar_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="syndra_base_q_tar.troy"}}, 
 {Function=BBPreloadCharacter, Params={Name="syndrasphere"}}, 
-{Function=BBPreloadSpell, Params={Name="syndraqspell"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraq"}}, 
 {Function=BBPreloadParticle, Params={Name="syndra_base_q_lv5_aoe_explode.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="syndra_base_q_aoe_explode.troy"}}, 

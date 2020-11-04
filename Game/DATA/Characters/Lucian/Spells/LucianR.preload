@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="lucianr"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_skin06_r_lightgun.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="lucian_skin06_r_darkgun.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="lucianrdisable"}}, 
 {Function=BBPreloadSpell, Params={Name="lucianrmissile"}}, 
 {Function=BBPreloadSpell, Params={Name="lucianrmissileoffhand"}}, 

@@ -4,5 +4,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadCharacter, Params={Name="testcube"}}, 
 {Function=BBPreloadCharacter, Params={Name="testcuberender"}}, 
 {Function=BBPreloadSpell, Params={Name="expirationtimer"}}, 
-{Function=BBPreloadSpell, Params={Name="howlinggale"}}, 
 }

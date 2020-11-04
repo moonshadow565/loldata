@@ -1,5 +1,5 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="zed_stormblade_clonedeath.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="zed_base_clonedeath.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="zed_clone_idle.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="Zed_Base_Clone_idle.troy"}}, 
 }

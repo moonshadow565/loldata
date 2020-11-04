@@ -5,5 +5,9 @@ BuffTextureName = "Fiora_R.dds"
 BuffName = "FioraRMark"
 DisplayName = "FioraRMark"
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {""}
-SpellVOOverrideSkins = {""}
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}
+SpellVOOverrideSkins = {
+  "FioraSkin04"
+}

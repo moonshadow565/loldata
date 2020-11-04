@@ -8,6 +8,3 @@ AutoCooldownByLevel = {
   10,
   6
 }
-SpellFXOverrideSkins = {
-  "ZedStormNinja"
-}

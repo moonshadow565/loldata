@@ -1,0 +1,6 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadParticle, Params={Name="masteryi_base_e_buff.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="masteryi_base_e_sword1_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="masteryi_base_e_sword4_buf.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="masteryi_skin09_e_buff_bottom.troy"}}, 
+}

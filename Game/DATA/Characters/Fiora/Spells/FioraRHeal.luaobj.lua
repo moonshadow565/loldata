@@ -4,5 +4,7 @@ IsDamagingSpell = true
 BuffTextureName = "Fiora_R_Heal.dds"
 BuffName = "FioraRHeal"
 PersistsThroughDeath = true
-SpellFXOverrideSkins = {""}
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}
 SpellVOOverrideSkins = {""}

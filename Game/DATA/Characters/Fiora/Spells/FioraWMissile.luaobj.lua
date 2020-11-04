@@ -4,4 +4,6 @@ DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "FioraE.dds"
 BuffName = "FioraE"
-SpellFXOverrideSkins = {"CyberFiora"}
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}

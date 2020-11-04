@@ -19,3 +19,9 @@ ChainMissileParameters = {
   CanHitEnemies = 1,
   CanHitFriends = 0
 }
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}
+SpellVOOverrideSkins = {
+  "FioraSkin04"
+}

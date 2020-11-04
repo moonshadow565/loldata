@@ -23,5 +23,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="fiora_base_passive_se_timeout_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_passive_nw_timeout_red.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="fiora_base_passive_ne_timeout_red.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="fiora_base_ba_tar.troy"}}, 
 }

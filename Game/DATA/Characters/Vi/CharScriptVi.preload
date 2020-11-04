@@ -10,6 +10,7 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="viwproc"}}, 
 {Function=BBPreloadSpell, Params={Name="viwvisual"}}, 
 {Function=BBPreloadSpell, Params={Name="viw"}}, 
+{Function=BBPreloadSpell, Params={Name="tahmkenchwdevourimmune"}}, 
 {Function=BBPreloadParticle, Params={Name="vi_skin02_r_flash_02.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="vi_skin02_r_flash_01.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="vijaycesound"}}, 
