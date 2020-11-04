@@ -609,6 +609,7 @@ function L0()
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
   L0.MinimapIcon = "Vilemaw"
+  L0.TimerType = "Vilemaw"
 end
 NeutralMinionInit = L0
 function L0(A0)
