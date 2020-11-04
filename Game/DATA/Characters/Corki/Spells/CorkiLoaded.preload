@@ -6,5 +6,4 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="srhomeguardspeed"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_loaded.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="corki_base_w_ring.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="corki_base_loadup_allysound.troy"}}, 
 }

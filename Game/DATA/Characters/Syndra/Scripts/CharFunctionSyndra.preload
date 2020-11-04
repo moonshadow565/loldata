@@ -6,9 +6,9 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="syndraemissile3"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraemissile2"}}, 
 {Function=BBPreloadModule, Params={Name="Global.CustomTables"}}, 
+{Function=BBPreloadSpell, Params={Name="syndrae"}}, 
 {Function=BBPreloadParticle, Params={Name="syndra_base_e_tar.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraebump"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraespheremissile"}}, 
-{Function=BBPreloadSpell, Params={Name="syndrae"}}, 
 {Function=BBPreloadSpell, Params={Name="syndraedebuff"}}, 
 }

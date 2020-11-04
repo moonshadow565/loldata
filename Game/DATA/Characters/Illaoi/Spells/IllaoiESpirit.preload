@@ -21,6 +21,8 @@ PreLoadBuildingBlocks = {
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spirittimerk.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_linkbeam_damage.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_linkdamage.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spirittimera.troy"}}, 
-{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spirittimeroutline.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoibase_e_spirittimera.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoibase_e_spirittimeroutline.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_skin01_e_spirittimera.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_skin01_e_spirittimeroutline.troy"}}, 
 }

@@ -1,5 +1,6 @@
 PreLoadBuildingBlocks = {
 {Function=BBPreloadSpell, Params={Name="illaoievessel"}}, 
+{Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritexpire_sound.troy"}}, 
 {Function=BBPreloadParticle, Params={Name="illaoi_base_e_spiritreturn.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="illaoiehold"}}, 
 {Function=BBPreloadSpell, Params={Name="illaoiemis"}}, 
