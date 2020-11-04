@@ -4,5 +4,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "nashorstoothcd"
     }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "interventionheal_buf.troy"
+    }
   }
 }

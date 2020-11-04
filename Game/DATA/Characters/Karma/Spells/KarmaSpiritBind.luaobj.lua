@@ -49,6 +49,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "karmaspiritbindcheck"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "tempkarma_w_cas.troy"

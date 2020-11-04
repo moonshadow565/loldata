@@ -4,11 +4,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "itemminionshred"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "madredsrazors"
-    }
   }
 }

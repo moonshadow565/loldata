@@ -3,5 +3,5 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = false
-BuffTextureName = "3114_Malady.dds"
+BuffTextureName = "3091_Wits_End.dds"
 BuffName = "MaladySpell"

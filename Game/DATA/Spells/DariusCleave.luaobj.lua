@@ -6,7 +6,8 @@ BuffName = "RenekthonCleaveReady"
 SpellToggleSlot = 1
 IsDeathRecapSource = true
 SpellFXOverrideSkins = {
-  "Darius_ZaunKnight"
+  "Darius_ZaunKnight",
+  "Darius_NorseKing"
 }
 PreLoadBuildingBlocks = {
   {

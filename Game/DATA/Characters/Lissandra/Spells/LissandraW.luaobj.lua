@@ -26,5 +26,11 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "lissandrawfrozen"
     }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "lissandrawrootmissile"
+    }
   }
 }

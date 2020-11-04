@@ -23,6 +23,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
+      Name = "darius_w_weapon_02_norse_king.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
       Name = "darius_w_activate_zaunknight.troy"
     }
   },
@@ -30,6 +36,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "darius_atomic_mist.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "darius_frost_mist.troy"
     }
   },
   {

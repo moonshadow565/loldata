@@ -4,7 +4,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "consecrationaura_tar.troy"
+      Name = "fiddlesticks_dreadwarning_tar.troy"
     }
   }
 }
