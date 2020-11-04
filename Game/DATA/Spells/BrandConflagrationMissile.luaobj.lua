@@ -26,7 +26,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
-          EffectName = "BrandConflagration_buf_frost.troy",
+          EffectName = "BrandConflagration_tar_frost.troy",
           Flags = 0,
           EffectIDVar = "VarA",
           TargetObjectVar = "Target",
@@ -53,7 +53,7 @@ TargetExecuteBuildingBlocks = {
         Function = BBSpellEffectCreate,
         Params = {
           BindObjectVar = "Target",
-          EffectName = "BrandConflagration_buf.troy",
+          EffectName = "BrandConflagration_tar.troy",
           Flags = 0,
           EffectIDVar = "VarA",
           TargetObjectVar = "Target",
@@ -118,13 +118,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandconflagration_buf_frost.troy"
+      Name = "brandconflagration_tar_frost.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "brandconflagration_buf.troy"
+      Name = "brandconflagration_tar.troy"
     }
   },
   {

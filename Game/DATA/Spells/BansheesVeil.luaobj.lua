@@ -2,7 +2,8 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "066_Sindoran_Shielding_Amulet.dds"
 BuffName = "BansheesVeil"
-AutoBuffActivateEffect = "bansheesveil_buf.troy"
+AutoBuffActivateEffect = ""
+AutoBuffActivateAttachBoneName = ""
 BuffOnAllowAddBuildingBlocks = {
   {
     Function = BBIf,
@@ -60,7 +61,11 @@ BuffOnAllowAddBuildingBlocks = {
           UseSpecificUnit = false,
           FOWTeam = TEAM_UNKNOWN,
           FOWVisibilityRadius = 0,
-          SendIfOnScreenOrDiscard = false
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = false,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
         }
       },
       {
@@ -84,6 +89,78 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       RequiredVar = "WillRemove",
       RequiredVarTable = "InstanceVars"
+    }
+  },
+  {
+    Function = BBGetTeamID,
+    Params = {TargetVar = "Owner", DestVar = "TeamID"}
+  },
+  {
+    Function = BBIfHasBuff,
+    Params = {
+      OwnerVar = "Owner",
+      AttackerVar = "Owner",
+      BuffName = "XerathAscended"
+    },
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "bansheesveil_buf_tempXerath.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          BoneName = "C_BUFFBONE_GLB_CENTER_LOC",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = true,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  },
+  {
+    Function = BBElse,
+    Params = {},
+    SubBlocks = {
+      {
+        Function = BBSpellEffectCreate,
+        Params = {
+          BindObjectVar = "Owner",
+          EffectName = "bansheesveil_buf.troy",
+          Flags = 0,
+          EffectIDVar = "a",
+          EffectIDVarTable = "InstanceVars",
+          TargetObjectVar = "Owner",
+          SpecificUnitOnlyVar = "Owner",
+          SpecificTeamOnly = TEAM_UNKNOWN,
+          UseSpecificUnit = false,
+          FOWTeam = TEAM_UNKNOWN,
+          FOWVisibilityRadius = 0,
+          SendIfOnScreenOrDiscard = false,
+          PersistsThroughReconnect = true,
+          BindFlexToOwnerPAR = false,
+          FollowsGroundTilt = false,
+          FacesTarget = false
+        }
+      }
+    }
+  }
+}
+OnBuffDeactivateBuildingBlocks = {
+  {
+    Function = BBSpellEffectRemove,
+    Params = {
+      EffectIDVar = "a",
+      EffectIDVarTable = "InstanceVars"
     }
   }
 }
@@ -120,7 +197,8 @@ BuffOnUpdateStatsBuildingBlocks = {
         Params = {
           TargetVar = "Owner",
           AttackerVar = "Owner",
-          BuffName = "BansheesVeil"
+          BuffName = "BansheesVeil",
+          ResetDuration = 0
         }
       }
     }
@@ -205,7 +283,11 @@ BuffOnBeingSpellHitBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -249,7 +331,11 @@ BuffOnBeingSpellHitBuildingBlocks = {
                   UseSpecificUnit = false,
                   FOWTeam = TEAM_UNKNOWN,
                   FOWVisibilityRadius = 0,
-                  SendIfOnScreenOrDiscard = false
+                  SendIfOnScreenOrDiscard = false,
+                  PersistsThroughReconnect = false,
+                  BindFlexToOwnerPAR = false,
+                  FollowsGroundTilt = false,
+                  FacesTarget = false
                 }
               }
             }
@@ -267,15 +353,21 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "bansheesveiltimer"
+      Name = "bansheesveil_buf_tempxerath.troy"
+    }
+  },
+  {
+    Function = BBPreloadParticle,
+    Params = {
+      Name = "bansheesveil_buf.troy"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "bansheesveil"
+      Name = "bansheesveiltimer"
     }
   }
 }
