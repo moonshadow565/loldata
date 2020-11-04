@@ -1,4 +1,4 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
-BuffTextureName = "3812_Reapers_Favor.dds"
-BuffName = "ItemMonsterBurn"
+BuffTextureName = "3812_Deaths_Dance.dds"
+BuffName = "ItemDeathsDoorBleed"

@@ -1,0 +1,5 @@
+PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="minibaronvulnerablecooldown"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_eyeopentexture.troy"}}, 
+{Function=BBPreloadParticle, Params={Name="sru_riftherald_eyeglow.troy"}}, 
+}

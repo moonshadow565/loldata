@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="shyvanadragon"}}, 
 {Function=BBPreloadCharacter, Params={Name="shyvanadragon"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanaimmolatedragon"}}, 
 {Function=BBPreloadSpell, Params={Name="shyvanadoubleattackdragon"}}, 

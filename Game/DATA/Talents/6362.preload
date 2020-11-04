@@ -1,4 +1,2 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="masterythunderlordhelper"}}, 
-{Function=BBPreloadSpell, Params={Name="masterylordsdecreestacks"}}, 
 }

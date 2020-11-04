@@ -1,4 +1,0 @@
-PreLoadBuildingBlocks = {
-{Function=BBPreloadSpell, Params={Name="masterypromote"}}, 
-{Function=BBPreloadSpell, Params={Name="turretshield"}}, 
-}

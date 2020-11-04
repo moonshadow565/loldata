@@ -1516,7 +1516,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 360
-  L0.GroupDelaySpawnTime = 50
+  L0.GroupDelaySpawnTime = 65
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_DRAGON_KILL"
   L0.KillEvents = L1
   L0.SpectatorKillEvents = L1
@@ -1590,7 +1590,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 420
-  L0.GroupDelaySpawnTime = 1100
+  L0.GroupDelaySpawnTime = 1115
   L0.CampLevel = 2
   L0.RevealEvent = "VO_INTERACTIVE_REVEAL_ENEMY_NASHOR_KILL"
   L0.KillEvents = L1
@@ -1628,7 +1628,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 180
-  L0.GroupDelaySpawnTime = 50
+  L0.GroupDelaySpawnTime = 65
   L0.SpawnDuration = 2.2
   L0.AIScript = "RiverCrab.lua"
   L0.Name = "Baron Crab"
@@ -1638,7 +1638,7 @@ function L0()
   L1[1] = L2
   L0.GroupsChance = L1
   L0.GroupsRespawnTime = 180
-  L0.GroupDelaySpawnTime = 50
+  L0.GroupDelaySpawnTime = 65
   L0.SpawnDuration = 2.2
   L0.AIScript = "RiverCrab.lua"
   L0.Name = "SRU_RiftHerald"
