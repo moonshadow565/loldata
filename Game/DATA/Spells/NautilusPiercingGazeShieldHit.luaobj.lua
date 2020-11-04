@@ -6,6 +6,5 @@ IsDamagingSpell = false
 BuffTextureName = "LuxPrismaWrap.dds"
 BuffName = "LuxShield"
 AutoBuffActivateEffect = "Naut_Shield.troy"
-AutoBuffActivateAttachBoneName = ""
 OnPreDamagePriority = 3
 DoOnPreDamageInExpirationOrder = true
