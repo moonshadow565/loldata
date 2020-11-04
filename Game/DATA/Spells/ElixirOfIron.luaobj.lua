@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "2038_Potion_of_Elusiveness.dds"
+BuffTextureName = "2138_Elixir_of_Iron.dds"
 BuffName = "ElixirOfIron"
 AutoBuffActivateEffect = "Global_Item_ElixirOfIron_Buf.troy"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_CHEST_LOC"

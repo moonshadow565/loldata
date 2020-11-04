@@ -1,6 +1,6 @@
 NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = true
-BuffTextureName = "2040_Ichor_of_Rage.dds"
+BuffTextureName = "2140_Elixir_of_Wrath.dds"
 BuffName = "ElixirOfWrath"
 AutoBuffActivateEffect = "Global_Item_ElixirOfWrath_Buf.troy"
 AutoBuffActivateAttachBoneName = "C_Buffbone_Glb_Center_Loc"

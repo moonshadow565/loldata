@@ -469,8 +469,6 @@ function OnGameStartup()
   local L0_38
   L0_38 = SpawnLaneSigilEffects
   L0_38()
-  L0_38 = LuaForEachChampion
-  L0_38(TEAM_UNKNOWN, "ApplyJungleTracker")
   L0_38 = 0
   OrderHQPos = GetKeyLocation(L0_38, TEAM_ORDER)
   ChaosHQPos = GetKeyLocation(L0_38, TEAM_CHAOS)
