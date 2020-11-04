@@ -1,11 +1,11 @@
-BuffTextureName = "GragasBodySlam.dds"
+BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "XenZhaoSweepArmor"
 OnBuffActivateBuildingBlocks = {
   {
     Function = BBGetSlotSpellInfo,
     Params = {
       DestVar = "Level",
-      SpellSlotValue = 2,
+      SpellSlotValue = 3,
       SpellbookType = SPELLBOOK_CHAMPION,
       SlotType = SpellSlots,
       OwnerVar = "Owner",

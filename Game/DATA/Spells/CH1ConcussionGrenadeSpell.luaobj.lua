@@ -77,7 +77,7 @@ TargetExecuteBuildingBlocks = {
       AttackerVar = "Owner",
       CenterVar = "Target",
       Range = 250,
-      Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
+      Flags = "AffectEnemies AffectNeutral AffectBuildings AffectMinions AffectHeroes AffectTurrets ",
       IteratorVar = "Unit",
       InclusiveBuffFilter = true
     },

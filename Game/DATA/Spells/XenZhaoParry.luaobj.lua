@@ -1,6 +1,6 @@
 NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = false
-BuffTextureName = "XenZhao_CrescentSweep.dds"
+BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "XenZhaoParry"
 AutoBuffActivateEffect = ""
 AutoBuffActivateAttachBoneName = ""
@@ -199,6 +199,30 @@ SelfExecuteBuildingBlocks = {
         }
       },
       {
+        Function = BBIf,
+        Params = {
+          Src1Var = "Unit",
+          Value2 = true,
+          CompareOp = CO_IS_NOT_HERO
+        },
+        SubBlocks = {
+          {
+            Function = BBIf,
+            Params = {
+              Src1Var = "DtDReal",
+              Value2 = 600,
+              CompareOp = CO_GREATER_THAN
+            },
+            SubBlocks = {
+              {
+                Function = BBSetVarInTable,
+                Params = {DestVar = "DtDReal", SrcValue = 600}
+              }
+            }
+          }
+        }
+      },
+      {
         Function = BBApplyDamage,
         Params = {
           AttackerVar = "Attacker",
@@ -221,6 +245,20 @@ SelfExecuteBuildingBlocks = {
     Function = BBSetVarInTable,
     Params = {
       DestVar = "MRByLevel",
+      DestVarTable = "NextBuffVars",
+      SrcValueByLevel = {
+        30,
+        40,
+        50,
+        60,
+        70
+      }
+    }
+  },
+  {
+    Function = BBSetVarInTable,
+    Params = {
+      DestVar = "ArmorAmount",
       DestVarTable = "NextBuffVars",
       SrcValueByLevel = {
         30,

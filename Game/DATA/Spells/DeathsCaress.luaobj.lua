@@ -73,7 +73,8 @@ OnBuffActivateBuildingBlocks = {
       SpellSlot = 1,
       SlotType = SpellSlots,
       Cost = 0,
-      CostVar = "ManaCostInc"
+      CostVar = "ManaCostInc",
+      PARType = PAR_MANA
     }
   }
 }
@@ -110,7 +111,8 @@ OnBuffDeactivateBuildingBlocks = {
           CenterVar = "Owner",
           Range = 525,
           Flags = "AffectEnemies AffectNeutral AffectMinions AffectHeroes ",
-          IteratorVar = "Unit"
+          IteratorVar = "Unit",
+          InclusiveBuffFilter = true
         },
         SubBlocks = {
           {
@@ -129,6 +131,7 @@ OnBuffDeactivateBuildingBlocks = {
               SourceDamageType = DAMAGESOURCE_SPELLAOE,
               PercentOfAttack = 1,
               SpellDamageRatio = 0,
+              PhysicalDamageRatio = 1,
               IgnoreDamageIncreaseMods = false,
               IgnoreDamageCrit = false
             }
@@ -192,7 +195,8 @@ OnBuffDeactivateBuildingBlocks = {
       SpellSlotOwnerVar = "Owner",
       SpellSlot = 1,
       SlotType = SpellSlots,
-      Cost = 0
+      Cost = 0,
+      PARType = PAR_MANA
     }
   }
 }
@@ -334,15 +338,28 @@ TargetExecuteBuildingBlocks = {
           TargetVar = "Owner",
           PosVar = "Owner",
           EndPosVar = "Owner",
+          OverrideCastPosition = false,
           SlotNumber = 0,
           SlotType = ExtraSlots,
           OverrideForceLevel = 0,
           OverrideForceLevelVar = "Level",
           OverrideCoolDownCheck = true,
           FireWithoutCasting = false,
-          UseAutoAttackSpell = false
+          UseAutoAttackSpell = false,
+          ForceCastingOrChannelling = false
         }
       }
+    }
+  }
+}
+BuffOnUpdateStatsBuildingBlocks = {
+  {
+    Function = BBSetBuffToolTipVar,
+    Params = {
+      Value = 0,
+      ValueVar = "TotalArmorAmount",
+      ValueVarTable = "InstanceVars",
+      Index = 1
     }
   }
 }

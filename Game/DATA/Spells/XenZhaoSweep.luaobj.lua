@@ -3,7 +3,7 @@ DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffTextureName = "XenZhao_Charge.dds"
+BuffTextureName = "XenZhao_CrescentSweepNew.dds"
 BuffName = "XenZhaoSweep"
 OnBuffActivateBuildingBlocks = {
   {
@@ -290,7 +290,7 @@ BuffOnMoveEndBuildingBlocks = {
       DamageType = MAGIC_DAMAGE,
       SourceDamageType = DAMAGESOURCE_SPELLAOE,
       PercentOfAttack = 1,
-      SpellDamageRatio = 0,
+      SpellDamageRatio = 0.4,
       PhysicalDamageRatio = 1,
       IgnoreDamageIncreaseMods = false,
       IgnoreDamageCrit = false

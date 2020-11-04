@@ -198,6 +198,14 @@ OnBuffActivateBuildingBlocks = {
           {
             Function = BBSetVarInTable,
             Params = {
+              DestVar = "IdealDistance",
+              DestVarTable = "NextBuffVars",
+              SrcValue = 1000
+            }
+          },
+          {
+            Function = BBSetVarInTable,
+            Params = {
               DestVar = "Gravity",
               DestVarTable = "NextBuffVars",
               SrcValue = 10

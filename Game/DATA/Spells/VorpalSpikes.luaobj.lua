@@ -1,5 +1,8 @@
 NotSingleTargetSpell = true
-DoesntTriggerSpellCasts = false
+DoesntBreakShields = true
+DoesntTriggerSpellCasts = true
+CastingBreaksStealth = false
+IsDamagingSpell = false
 BuffTextureName = "GreenTerror_ChitinousExoplates.dds"
 BuffName = "Vorpal Spikes"
 AutoBuffActivateEffect = ""
@@ -42,7 +45,8 @@ BuffOnHitUnitBuildingBlocks = {
       OverrideCoolDownCheck = true,
       FireWithoutCasting = true,
       UseAutoAttackSpell = false,
-      ForceCastingOrChannelling = false
+      ForceCastingOrChannelling = false,
+      UpdateAutoAttackTimer = false
     }
   }
 }

@@ -216,6 +216,22 @@ BuffOnHitUnitBuildingBlocks = {
     }
   },
   {
+    Function = BBIf,
+    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_TURRET},
+    SubBlocks = {
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "TotalDamage",
+          Src1Value = 0,
+          Src2Value = 0.5,
+          DestVar = "TotalDamage",
+          MathOp = MO_MULTIPLY
+        }
+      }
+    }
+  },
+  {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Caster",

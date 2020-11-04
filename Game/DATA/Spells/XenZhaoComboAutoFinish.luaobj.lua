@@ -1,4 +1,4 @@
-BuffTextureName = "Annie_Incinerate.dds"
+BuffTextureName = "XenZhao_ThreeTalon.dds"
 BuffName = "XenZhaoComboAutoFinish"
 OnBuffActivateBuildingBlocks = {
   {
@@ -180,14 +180,6 @@ BuffOnPreAttackBuildingBlocks = {
               ForceCastingOrChannelling = false,
               UpdateAutoAttackTimer = true
             }
-          },
-          {
-            Function = BBSpellBuffRemove,
-            Params = {
-              TargetVar = "Owner",
-              AttackerVar = "Owner",
-              BuffName = "XenZhaoComboAutoFinish"
-            }
           }
         }
       }
@@ -199,12 +191,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "xenziou_chainattack_indicator.troy"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "xenzhaocomboautofinish"
     }
   }
 }

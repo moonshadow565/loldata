@@ -12,7 +12,7 @@ OnBuffActivateBuildingBlocks = {
     Function = BBAddUnitPerceptionBubble,
     Params = {
       TeamVar = "CasterID",
-      Radius = 700,
+      Radius = 1100,
       TargetVar = "Owner",
       Duration = 180,
       SpecificUnitsClientOnlyVar = "Nothing",
@@ -43,6 +43,7 @@ OnBuffDeactivateBuildingBlocks = {
     Function = BBApplyDamage,
     Params = {
       AttackerVar = "Owner",
+      CallForHelpAttackerVar = "Attacker",
       TargetVar = "Owner",
       Damage = 600,
       DamageType = TRUE_DAMAGE,
@@ -62,14 +63,6 @@ BuffOnUpdateStatsBuildingBlocks = {
       TargetVar = "Owner",
       SrcValue = true,
       Status = SetMagicImmune
-    }
-  },
-  {
-    Function = BBIncStat,
-    Params = {
-      Stat = IncPercentBubbleRadiusMod,
-      TargetVar = "Owner",
-      Delta = -0.5
     }
   }
 }

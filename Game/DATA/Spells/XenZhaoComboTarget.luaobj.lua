@@ -1,4 +1,4 @@
-BuffTextureName = "Annie_Incinerate.dds"
+BuffTextureName = "XenZhao_ThreeTalon.dds"
 BuffName = "XenZhaoComboTarget"
 SpellToggleSlot = 1
 OnBuffActivateBuildingBlocks = {

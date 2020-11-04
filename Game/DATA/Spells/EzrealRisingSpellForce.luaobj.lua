@@ -14,7 +14,7 @@ OnBuffActivateBuildingBlocks = {
     Params = {
       Src1Var = "Count",
       Src1Value = 0,
-      Src2Value = 10,
+      Src2Value = 15,
       DestVar = "TotalAttackSpeed",
       MathOp = MO_MULTIPLY
     }

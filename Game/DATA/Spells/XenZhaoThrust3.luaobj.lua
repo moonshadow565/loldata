@@ -23,43 +23,19 @@ TargetExecuteBuildingBlocks = {
     Params = {
       DestVar = "Combo1DamageLeet",
       SrcValueByLevel = {
+        15,
         30,
-        40,
-        50,
+        45,
         60,
-        70
+        75
       }
-    }
-  },
-  {
-    Function = BBSetVarInTable,
-    Params = {
-      DestVar = "WeaponDamage",
-      SrcValueByLevel = {
-        0.6,
-        0.7,
-        0.8,
-        0.9,
-        1
-      }
-    }
-  },
-  {
-    Function = BBMath,
-    Params = {
-      Src1Var = "AttackDmg",
-      Src2Var = "WeaponDamage",
-      Src1Value = 0,
-      Src2Value = 0,
-      DestVar = "BonusDmg",
-      MathOp = MO_MULTIPLY
     }
   },
   {
     Function = BBMath,
     Params = {
       Src1Var = "Combo1DamageLeet",
-      Src2Var = "BonusDmg",
+      Src2Var = "AttackDmg",
       Src1Value = 0,
       Src2Value = 0,
       DestVar = "Combo1Damage",
@@ -95,7 +71,7 @@ TargetExecuteBuildingBlocks = {
     Params = {
       TargetVar = "Target",
       AttackerVar = "Owner",
-      BuffName = "PowerFistSlow",
+      BuffName = "XenZhaoKnockup",
       BuffAddType = BUFF_STACKS_AND_OVERLAPS,
       StacksExclusive = true,
       BuffType = BUFF_Stun,
@@ -109,58 +85,58 @@ TargetExecuteBuildingBlocks = {
   },
   {
     Function = BBIf,
-    Params = {Src1Var = "Target", CompareOp = CO_IS_TYPE_HERO},
+    Params = {
+      Src1Var = "HitResult",
+      Value2 = HIT_Critical,
+      CompareOp = CO_EQUAL
+    },
     SubBlocks = {
       {
-        Function = BBApplyDamage,
+        Function = BBMath,
         Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "Combo1Damage",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
+          Src1Var = "AttackDmg",
+          Src1Value = 0,
+          Src2Value = 2,
+          DestVar = "ComboDamageCrit",
+          MathOp = MO_MULTIPLY
+        }
+      },
+      {
+        Function = BBMath,
+        Params = {
+          Src1Var = "Combo1DamageLeet",
+          Src2Var = "ComboDamageCrit",
+          Src1Value = 0,
+          Src2Value = 0,
+          DestVar = "Combo1Damage",
+          MathOp = MO_ADD
         }
       }
     }
   },
   {
-    Function = BBElse,
-    Params = {},
-    SubBlocks = {
-      {
-        Function = BBMath,
-        Params = {
-          Src1Var = "Combo1Damage",
-          Src1Value = 0,
-          Src2Value = 2,
-          DestVar = "MinionDamage",
-          MathOp = MO_MULTIPLY
-        }
-      },
-      {
-        Function = BBApplyDamage,
-        Params = {
-          AttackerVar = "Attacker",
-          CallForHelpAttackerVar = "Attacker",
-          TargetVar = "Target",
-          Damage = 0,
-          DamageVar = "MinionDamage",
-          DamageType = PHYSICAL_DAMAGE,
-          SourceDamageType = DAMAGESOURCE_ATTACK,
-          PercentOfAttack = 1,
-          SpellDamageRatio = 0,
-          PhysicalDamageRatio = 0,
-          IgnoreDamageIncreaseMods = false,
-          IgnoreDamageCrit = false
-        }
-      }
+    Function = BBApplyDamage,
+    Params = {
+      AttackerVar = "Attacker",
+      CallForHelpAttackerVar = "Attacker",
+      TargetVar = "Target",
+      Damage = 0,
+      DamageVar = "Combo1Damage",
+      DamageType = PHYSICAL_DAMAGE,
+      SourceDamageType = DAMAGESOURCE_ATTACK,
+      PercentOfAttack = 1,
+      SpellDamageRatio = 0,
+      PhysicalDamageRatio = 0,
+      IgnoreDamageIncreaseMods = false,
+      IgnoreDamageCrit = true
+    }
+  },
+  {
+    Function = BBSpellBuffRemove,
+    Params = {
+      TargetVar = "Attacker",
+      AttackerVar = "Attacker",
+      BuffName = "XenZhaoComboAutoFinish"
     }
   }
 }
@@ -174,7 +150,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "powerfistslow"
+      Name = "xenzhaocomboautofinish"
     }
   }
 }

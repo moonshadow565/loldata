@@ -53,6 +53,8 @@ BuffOnHitUnitBuildingBlocks = {
                 Params = {
                   DestVar = "HealAmount",
                   SrcValueByLevel = {
+                    25,
+                    25,
                     30,
                     30,
                     35,
@@ -68,9 +70,7 @@ BuffOnHitUnitBuildingBlocks = {
                     60,
                     60,
                     65,
-                    65,
-                    70,
-                    70
+                    65
                   }
                 }
               },
