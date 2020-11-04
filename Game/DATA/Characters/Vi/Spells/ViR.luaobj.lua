@@ -46,6 +46,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "virdunktarget"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "expirationtimer"
     }
   },

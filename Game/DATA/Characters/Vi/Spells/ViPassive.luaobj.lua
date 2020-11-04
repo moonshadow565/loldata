@@ -5,12 +5,6 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "vipassivebuff"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
       Name = "vipassiveready"
     }
   }

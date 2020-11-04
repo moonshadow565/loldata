@@ -1,7 +1,8 @@
 BuffTextureName = "LuxLightStrikeKugel.dds"
 BuffName = "LuxEEnd"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
+SpellFXOverrideSkins = {
+  "SteelLegionLux"
+}
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
