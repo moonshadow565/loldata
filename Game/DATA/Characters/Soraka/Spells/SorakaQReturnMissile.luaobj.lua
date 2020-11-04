@@ -2,6 +2,7 @@ NotSingleTargetSpell = false
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = false
+IsDamagingSpell = false
 AutoCooldownByLevel = {
   0,
   0,
@@ -12,4 +13,3 @@ AutoCooldownByLevel = {
 SpellFXOverrideSkins = {
   "SorakaSkin04"
 }
-IsDamagingSpell = false

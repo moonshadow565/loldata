@@ -1,10 +1,13 @@
 NotSingleTargetSpell = true
 DoesntBreakShields = true
 DoesntTriggerSpellCasts = false
-IsDamagingSpell = false
 BuffTextureName = "Fiora_BurstofSpeed.dds"
 SpellToggleSlot = 3
 OnPreDamagePriority = 3
+SpellFXOverrideSkins = {
+  "FioraSkin04"
+}
+IsDamagingSpell = false
 ChainMissileParameters = {
   MaximumHits = {
     4,
@@ -18,7 +21,4 @@ ChainMissileParameters = {
   CanHitSameTargetConsecutively = 0,
   CanHitEnemies = 1,
   CanHitFriends = 0
-}
-SpellFXOverrideSkins = {
-  "FioraSkin04"
 }
