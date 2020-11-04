@@ -3,11 +3,15 @@ DoesntBreakShields = true
 DoesntTriggerSpellCasts = true
 CastingBreaksStealth = true
 IsDamagingSpell = true
-BuffName = "XenZhaoSweep"
+BuffTextureName = "Yasuo_E.dds"
+BuffName = "YasuoDashWrapper"
+PersistsThroughDeath = true
 PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
-    Params = {Name = "yasuodash"}
+    Params = {
+      Name = "yasuodummyspell"
+    }
   },
   {
     Function = BBPreloadSpell,
@@ -17,9 +21,7 @@ PreLoadBuildingBlocks = {
   },
   {
     Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuodummyspell"
-    }
+    Params = {Name = "yasuodash"}
   },
   {
     Function = BBPreloadSpell,
@@ -85,12 +87,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "yasuo_base_e_timer5.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_e_timer_tar.troy"
     }
   }
 }

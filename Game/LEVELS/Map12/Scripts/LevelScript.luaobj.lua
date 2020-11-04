@@ -456,6 +456,62 @@ function L0_0()
   L0_1.WaveSpawnRate = 30000
   L0_1.SingleMinionSpawnDelay = 800
   L0_1.DidPowerGroup = false
+  if L0_1 == "FIRSTBLOOD" then
+    INITIAL_TIME_TO_SPAWN = L1_2
+    MELEE_EXP_GIVEN = L1_2
+    MELEE_GOLD_GIVEN = L1_2
+    MELEE_GOLD_UPGRADE = L1_2
+    CASTER_EXP_GIVEN = L1_2
+    CASTER_GOLD_GIVEN = L1_2
+    CASTER_GOLD_UPGRADE = L1_2
+    CANNON_EXP_GIVEN = L1_2
+    CANNON_GOLD_GIVEN = L1_2
+    CANNON_GOLD_UPGRADE = L1_2
+    SUPER_EXP_GIVEN = L1_2
+    SUPER_GOLD_GIVEN = L1_2
+    MELEE_HEALTH_UPGRADE = L1_2
+    MELEE_DAMAGE_UPGRADE = L1_2
+    MELEE_EXP_UPGRADE = L1_2
+    MELEE_ARMOR_UPGRADE = L1_2
+    MELEE_MR_UPGRADE = L1_2
+    CASTER_HEALTH_UPGRADE = L1_2
+    CASTER_DAMAGE_UPGRADE = L1_2
+    CASTER_EXP_UPGRADE = L1_2
+    CASTER_ARMOR_UPGRADE = L1_2
+    CASTER_MR_UPGRADE = L1_2
+    CANNON_HEALTH_UPGRADE = L1_2
+    CANNON_DAMAGE_UPGRADE = L1_2
+    CANNON_EXP_UPGRADE = L1_2
+    CANNON_ARMOR_UPGRADE = L1_2
+    CANNON_MR_UPGRADE = L1_2
+    SUPER_HEALTH_UPGRADE = L1_2
+    SUPER_DAMAGE_UPGRADE = L1_2
+    SUPER_GOLD_UPGRADE = L1_2
+    SUPER_EXP_UPGRADE = L1_2
+    SUPER_ARMOR_UPGRADE = L1_2
+    SUPER_MR_UPGRADE = L1_2
+    MAXIMUM_MELEE_GOLD_BONUS = L1_2
+    MAXIMUM_CASTER_GOLD_BONUS = L1_2
+    MAXIMUM_CANNON_GOLD_BONUS = L1_2
+    MAXIMUM_SUPER_GOLD_BONUS = L1_2
+    UPGRADE_MINION_TIMER = L1_2
+    L1_2.MeleeExpGiven = L2_3
+    L1_2.MeleeGoldGiven = L2_3
+    L1_2.CasterExpGiven = L2_3
+    L1_2.CasterGoldGiven = L2_3
+    L1_2.CannonExpGiven = L2_3
+    L1_2.CannonGoldGiven = L2_3
+    L1_2.SuperExpGiven = L2_3
+    L1_2.SuperGoldGiven = L2_3
+    L1_2.MeleeExpGiven = L2_3
+    L1_2.MeleeGoldGiven = L2_3
+    L1_2.CasterExpGiven = L2_3
+    L1_2.CasterGoldGiven = L2_3
+    L1_2.CannonExpGiven = L2_3
+    L1_2.CannonGoldGiven = L2_3
+    L1_2.SuperExpGiven = L2_3
+    L1_2.SuperGoldGiven = L2_3
+  end
   if L0_1 == "TUTORIAL" then
     L1_2(L2_3)
     L1_2(L2_3)
@@ -528,7 +584,9 @@ function L0_0()
   else
     InitTimer("UpgradeMinionTimer", UPGRADE_MINION_TIMER, true)
     InitTimer("AllowDamageOnBuildings", 10, false)
-    InitTimer("ApplyAramBuffs", 1, false)
+    if GetGameMode() == "ARAM" then
+      InitTimer("ApplyAramBuffs", 1, false)
+    end
   end
 end
 OnLevelInitServer = L0_0
@@ -537,6 +595,10 @@ function L0_0()
   ApplyPersistentBuffToAllChampions("AramShopDisableNoParticle", false)
 end
 ApplyAramBuffs = L0_0
+function L0_0()
+  ApplyPersistentBuffToAllChampions("HowlingAbyss_FB_MS", false)
+end
+ApplyFirstBloodBuffs = L0_0
 function L0_0()
   LoadLevelScriptIntoScript("CreateLevelProps.lua", 12)
   if GetGameMode() == "TUTORIAL" then

@@ -2,7 +2,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "globalruncyclemanager"
+      Name = "yasuoruncyclemanager"
     }
   },
   {
@@ -56,7 +56,19 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "yasuoisaclone"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "yasuoravailabletest"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoqselfreveal"
     }
   },
   {
@@ -117,6 +129,12 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuocritattack4"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoisemoting"
     }
   },
   {

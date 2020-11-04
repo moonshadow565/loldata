@@ -7,24 +7,6 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempitemshank_3.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempitemshank_2.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "tempitemshank_1.troy"
-    }
-  },
-  {
     Function = BBPreloadSpell,
     Params = {
       Name = "yasuopassivemsshieldon"

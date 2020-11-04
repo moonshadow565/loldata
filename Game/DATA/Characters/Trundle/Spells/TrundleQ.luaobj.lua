@@ -38,6 +38,10 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {Name = "trundleq"}
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "trundle_q_bite_tar.troy"

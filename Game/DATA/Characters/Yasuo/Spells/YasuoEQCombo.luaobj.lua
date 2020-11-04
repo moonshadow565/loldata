@@ -65,6 +65,12 @@ PreLoadBuildingBlocks = {
     }
   },
   {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoqprotect"
+    }
+  },
+  {
     Function = BBPreloadParticle,
     Params = {
       Name = "temp_yasuoq_garen_bladestormcrit_tar.troy"
@@ -73,7 +79,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "yasuoqprotect"
+      Name = "yasuoeqcombosoundhit"
     }
   },
   {
@@ -83,6 +89,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {Name = "yasuoq3w"}
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "yasuoeqcombosoundmiss"
+    }
   },
   {
     Function = BBPreloadParticle,
