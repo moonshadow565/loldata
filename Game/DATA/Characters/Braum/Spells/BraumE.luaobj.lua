@@ -8,5 +8,6 @@ BuffName = "BraumDRShield"
 AutoBuffActivateAttachBoneName = "C_BUFFBONE_GLB_HEAD_LOC"
 SpellToggleSlot = 3
 SpellFXOverrideSkins = {
-  "BraumSkin01"
+  "BraumSkin01",
+  "BraumSkin02"
 }

@@ -1,4 +1,4 @@
-local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26
+local L0, L1, L2, L3, L4, L5, L6, L7, L8, L9, L10, L11, L12, L13, L14, L15, L16, L17, L18, L19, L20, L21, L22, L23, L24, L25, L26, L27, L28
 L0 = {}
 L1 = "Champion"
 L2 = "Champion_Clone"
@@ -10,22 +10,24 @@ L7 = "Minion_Summon"
 L8 = "Monster"
 L9 = "Monster_Epic"
 L10 = "Monster_Large"
-L11 = "Special_EpicMonsterIgnores"
-L12 = "Special_SyndraSphere"
-L13 = "Special_TeleportTarget"
-L14 = "Special_Tunnel"
-L15 = "Special_AzirW"
-L16 = "Special_AzirR"
-L17 = "Structure"
-L18 = "Structure_Inhibitor"
-L19 = "Structure_Nexus"
-L20 = "Structure_Turret"
-L21 = "Structure_Turret_Outer"
-L22 = "Structure_Turret_Inner"
-L23 = "Structure_Turret_Inhib"
-L24 = "Structure_Turret_Nexus"
-L25 = "Structure_Turret_Shrine"
-L26 = "Ward"
+L11 = "Special_AzirW"
+L12 = "Special_AzirR"
+L13 = "Special_EpicMonsterIgnores"
+L14 = "Special_SyndraSphere"
+L15 = "Special_TeleportTarget"
+L16 = "Special_Tunnel"
+L17 = "Special_TurretIgnores"
+L18 = "Special_Void"
+L19 = "Structure"
+L20 = "Structure_Inhibitor"
+L21 = "Structure_Nexus"
+L22 = "Structure_Turret"
+L23 = "Structure_Turret_Outer"
+L24 = "Structure_Turret_Inner"
+L25 = "Structure_Turret_Inhib"
+L26 = "Structure_Turret_Nexus"
+L27 = "Structure_Turret_Shrine"
+L28 = "Ward"
 L0[1] = L1
 L0[2] = L2
 L0[3] = L3
@@ -52,6 +54,8 @@ L0[23] = L23
 L0[24] = L24
 L0[25] = L25
 L0[26] = L26
+L0[27] = L27
+L0[28] = L28
 UnitTags = L0
 L0 = {}
 UnitTagFlags = L0
@@ -71,14 +75,16 @@ L0 = _BuildTags
 L0()
 function L0(A0)
   local L1, L2, L3, L4, L5, L6, L7
-  L1 = 0
+  L1 = {}
   for L5 in L2, L3, L4 do
     L6 = UnitTagFlags
     L6 = L6[L5]
     if L6 ~= nil then
-      L6 = UnitTagFlags
-      L6 = L6[L5]
-      L1 = L1 + L6
+      L6 = #L1
+      L6 = L6 + 1
+      L7 = UnitTagFlags
+      L7 = L7[L5]
+      L1[L6] = L7
     end
   end
   return L1

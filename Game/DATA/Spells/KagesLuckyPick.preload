@@ -1,4 +1,4 @@
 PreLoadBuildingBlocks = {
-{Function=BBPreloadParticle, Params={Name="temp_trueicehit.troy"}}, 
 {Function=BBPreloadSpell, Params={Name="kagesluckypickdisplay"}}, 
+{Function=BBPreloadParticle, Params={Name="temp_trueicehit.troy"}}, 
 }

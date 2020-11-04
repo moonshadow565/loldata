@@ -5,6 +5,5 @@ CastingBreaksStealth = false
 IsDamagingSpell = false
 BuffTextureName = "Yasuo_E.dds"
 BuffName = "YasuoDashWrapper"
-SpellToggleSlot = 3
 IsDeathRecapSource = true
 PersistsThroughDeath = true

@@ -1,13 +1,12 @@
-local L0_0
-function L0_0()
+DoLuaShared("ObjectTags")
+function OnInit()
   SetState(AI_HARDIDLE)
   InitTimer("TimerFindEnemies", 0.15, true)
   return false
 end
-OnInit = L0_0
-L0_0 = {}
-turretTargetList = L0_0
-L0_0 = {
+turretTargetList = {}
+DEBUG_MINION_STATE_TABLE = {
+  [0] = "AI_IDLE",
   "AI_SOFTATTACK",
   "AI_HARDATTACK",
   "AI_ATTACKMOVESTATE",
@@ -28,16 +27,14 @@ L0_0 = {
   "AI_SIEGEATTACK",
   "AI_LAST_NONPET_AI_STATE"
 }
-L0_0[0] = "AI_IDLE"
-DEBUG_MINION_STATE_TABLE = L0_0
-function L0_0(A0_1, A1_2)
+function OnTargetLost(A0_0, A1_1)
   if GetState() == AI_HALTED then
     return false
   end
   if #turretTargetList > 0 then
     newTarget = turretTargetList[1]
   else
-    newTarget = FindTargetInAcR()
+    newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Ward)
   end
   if newTarget == nil then
     if GetState() == AI_HARDIDLE_ATTACKING or GetState() == AI_TAUNTED then
@@ -52,24 +49,21 @@ function L0_0(A0_1, A1_2)
   NetSetState(AI_HARDIDLE)
   return true
 end
-OnTargetLost = L0_0
-function L0_0(A0_3, A1_4)
+function OnCallForHelp(A0_2, A1_3)
   if GetState() == AI_HALTED then
     return
   end
-  if A1_4 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
+  if A1_3 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
     NetSetState(AI_HARDIDLE_ATTACKING)
-    SetTarget(A1_4)
+    SetTarget(A1_3)
   end
 end
-OnCallForHelp = L0_0
-function L0_0(A0_5, A1_6)
-  if ObjectInAttackRange(A1_6) then
-    PutTargetInTargetList(A1_6)
+function OnReceiveImportantCallForHelp(A0_4, A1_5)
+  if ObjectInAttackRange(A1_5) then
+    PutTargetInTargetList(A1_5)
   end
 end
-OnReceiveImportantCallForHelp = L0_0
-function L0_0()
+function OnTauntBegin()
   if GetState() == AI_HALTED then
     return
   end
@@ -79,8 +73,7 @@ function L0_0()
     SetTarget(tauntTarget)
   end
 end
-OnTauntBegin = L0_0
-function L0_0()
+function OnTauntEnd()
   if GetState() == AI_HALTED then
     return
   end
@@ -93,24 +86,21 @@ function L0_0()
     TimerFindEnemies()
   end
 end
-OnTauntEnd = L0_0
-function L0_0()
+function OnCanMove()
   if GetState() == AI_HALTED then
     return
   end
   NetSetState(AI_HARDIDLE)
   TimerFindEnemies()
 end
-OnCanMove = L0_0
-function L0_0()
+function OnCanAttack()
   if GetState() == AI_HALTED then
     return
   end
   NetSetState(AI_HARDIDLE)
   TimerFindEnemies()
 end
-OnCanAttack = L0_0
-function L0_0()
+function TimerFindEnemies()
   if GetState() == AI_HALTED then
     return
   end
@@ -119,7 +109,7 @@ function L0_0()
     if #turretTargetList > 0 then
       newTarget = turretTargetList[1]
     else
-      newTarget = FindTargetInAcR()
+      newTarget = FindTargetInAcRWithFilter(0, UnitTagFlags.Ward)
     end
     if newTarget == nil then
       TurnOffAutoAttack(STOPREASON_TARGET_LOST)
@@ -139,39 +129,35 @@ function L0_0()
     end
   end
 end
-TimerFindEnemies = L0_0
-function L0_0(A0_7)
-  local L3_8, L4_9, L6_10
-  L3_8 = false
-  for _FORV_5_ = 1, #L6_10 do
-    if turretTargetList[_FORV_5_] == A0_7 then
-      L3_8 = true
+function PutTargetInTargetList(A0_6)
+  local L3_7, L4_8, L6_9
+  L3_7 = false
+  for _FORV_5_ = 1, #L6_9 do
+    if turretTargetList[_FORV_5_] == A0_6 then
+      L3_7 = true
       break
     end
   end
-  if not L3_8 then
-    L4_9[L6_10] = A0_7
+  if not L3_7 then
+    L4_8[L6_9] = A0_6
   end
 end
-PutTargetInTargetList = L0_0
-function L0_0()
-  local L0_11
-  L0_11 = 1
-  while L0_11 <= #turretTargetList do
-    if not ObjectInAttackRange(turretTargetList[L0_11]) then
-      for _FORV_4_ = L0_11 + 1, #turretTargetList do
+function UpdateTargetList()
+  local L0_10
+  L0_10 = 1
+  while L0_10 <= #turretTargetList do
+    if not ObjectInAttackRange(turretTargetList[L0_10]) then
+      for _FORV_4_ = L0_10 + 1, #turretTargetList do
         turretTargetList[_FORV_4_ - 1] = turretTargetList[_FORV_4_]
       end
       turretTargetList[#turretTargetList] = nil
     else
-      L0_11 = L0_11 + 1
+      L0_10 = L0_10 + 1
     end
   end
 end
-UpdateTargetList = L0_0
-function L0_0()
+function HaltAI()
   StopTimer("TimerFindEnemies")
   TurnOffAutoAttack(STOPREASON_IMMEDIATELY)
   NetSetState(AI_HALTED)
 end
-HaltAI = L0_0

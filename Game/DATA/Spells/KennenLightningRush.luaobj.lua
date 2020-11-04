@@ -5,5 +5,4 @@ CastingBreaksStealth = true
 IsDamagingSpell = true
 BuffTextureName = "Kennen_LightningRush.dds"
 BuffName = "KennenLightningRush"
-AutoBuffActivateEffect = ""
 SpellToggleSlot = 3

@@ -1,4 +1,5 @@
 PreLoadBuildingBlocks = {
+{Function=BBPreloadSpell, Params={Name="root"}}, 
 {Function=BBPreloadSpell, Params={Name="resistantskindragon"}}, 
 {Function=BBPreloadSpell, Params={Name="ascbufftransfer"}}, 
 {Function=BBPreloadSpell, Params={Name="ascxerathcontrol"}}, 

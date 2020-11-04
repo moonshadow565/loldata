@@ -1,2 +1,2 @@
-BuffTextureName = "2053_Cloth_And_Mantle.dds"
+BuffTextureName = "2053_Raptor_Cloak.dds"
 BuffName = "ItemVoidSpeed"

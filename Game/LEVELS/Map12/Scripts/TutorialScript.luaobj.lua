@@ -526,33 +526,33 @@ function L0()
   L1 = LogTutorial
   L2 = "Locking player input"
   L1(L2)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_CAMERA_LOCKING
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_CAMERA_LOCKING
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_CAMERA_MOVEMENT
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_CAMERA_MOVEMENT
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_ABILITIES
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_ABILITIES
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_SUMMONER_SPELLS
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_SUMMONER_SPELLS
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_MOVEMENT
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_MOVEMENT
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_SHOP
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_SHOP
   L1(L2, L3)
-  L1 = SetInputLockFlag
-  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
-  L3 = true
+  L1 = LockInputIfNotLocked
+  L2 = playerID
+  L3 = INPUT_LOCK_MINIMAP_MOVEMENT
   L1(L2, L3)
   L1 = TutorialSpellBuffAdd
   L2 = playerID
@@ -1156,7 +1156,7 @@ function L0()
 end
 EventForThisBattle = L0
 function L0()
-  local L0, L1, L2
+  local L0, L1, L2, L3
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_MoveChampion"
   L2 = "EventMoveAshe"
@@ -1170,21 +1170,23 @@ function L0()
   L0 = LockCamera
   L1 = true
   L0(L1)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
   L0(L1, L2)
   L0 = LogTutorial
   L1 = "Freeing player movement"
   L0(L1)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
 end
 EventMoveChampion = L0
 function L0()
@@ -1259,17 +1261,17 @@ function L0()
   L0 = LogTutorial
   L1 = "Locking movement"
   L0(L1)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
   L0(L1, L2)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MOVEMENT
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_MOVEMENT
   L0(L1, L2)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
   L0(L1, L2)
   L0 = LogTutorial
   L1 = "Remove waypoint1 with expiration timer"
@@ -1386,18 +1388,20 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking movement"
   L0(L1)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
   L0(L1, L2)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = LogTutorial
   L1 = "Setting up event trigger"
   L0(L1)
@@ -1593,9 +1597,11 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking abilities"
   L0(L1)
-  L0 = ToggleInputLockFlag
-  L1 = INPUT_LOCK_ABILITIES
-  L0(L1)
+  L0 = SetInputLockFlag
+  L1 = playerID
+  L2 = INPUT_LOCK_ABILITIES
+  L3 = false
+  L0(L1, L2, L3)
   L0 = ShowObjectiveText
   L1 = "game_tutorial_objective_level_up"
   L0(L1)
@@ -1825,9 +1831,11 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking summoner spells"
   L0(L1)
-  L0 = ToggleInputLockFlag
-  L1 = INPUT_LOCK_SUMMONER_SPELLS
-  L0(L1)
+  L0 = SetInputLockFlag
+  L1 = playerID
+  L2 = INPUT_LOCK_SUMMONER_SPELLS
+  L3 = false
+  L0(L1, L2, L3)
   L0 = ToggleUIHighlight
   L1 = HIGHLIGHT_UI_ELEMENT_HUD
   L2 = true
@@ -1989,13 +1997,13 @@ function L0()
   L0 = LogTutorial
   L1 = "Locking movement"
   L0(L1)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MOVEMENT
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_MOVEMENT
   L0(L1, L2)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MINIMAPMOVEMENT
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_MINIMAPMOVEMENT
   L0(L1, L2)
   L0 = LogTutorial
   L1 = "While also moving the player"
@@ -2077,9 +2085,11 @@ function L0()
   L0 = LogTutorial
   L1 = "Unlocking Item Shop"
   L0(L1)
-  L0 = ToggleInputLockFlag
-  L1 = INPUT_LOCK_SHOP
-  L0(L1)
+  L0 = SetInputLockFlag
+  L1 = playerID
+  L2 = INPUT_LOCK_SHOP
+  L3 = false
+  L0(L1, L2, L3)
   L0 = PingMinimapPosition
   L1 = playerID
   L2 = shopPosition
@@ -2196,13 +2206,15 @@ function L0()
   L2 = "EventUnlockCamera"
   L0(L1, L2)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = LogTutorial
   L1 = "Closing shop window"
   L0(L1)
@@ -2256,6 +2268,19 @@ end
 PingNunuRepeatedly = L0
 function L0()
   local L0, L1, L2, L3, L4, L5
+  L0 = LogTutorial
+  L1 = "Unlocking camera movement"
+  L0(L1)
+  L0 = SetInputLockFlag
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
+  L3 = false
+  L0(L1, L2, L3)
+  L0 = SetInputLockFlag
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = PlayTutorialAudioEvent
   L1 = "Tutorial_UnlockCamera"
   L2 = ""
@@ -2306,13 +2331,13 @@ function L0()
   L0(L1)
   L0 = 0
   continueNunuPinging = L0
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
   L0(L1, L2)
-  L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_MOVEMENT
-  L2 = true
+  L0 = LockInputIfNotLocked
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_MOVEMENT
   L0(L1, L2)
   L0 = MoveCameraFromCurrentPositionToPoint
   L1 = playerID
@@ -2421,13 +2446,15 @@ function L0()
   L1 = allyID
   L0(L1)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_LOCKING
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_LOCKING
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_CAMERA_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_CAMERA_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = AddPosPerceptionBubble
   L1 = GetPosition
   L2 = firstChaosTurret
@@ -2517,13 +2544,15 @@ function L0()
   L1 = "Unlocking movement"
   L0(L1)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInputLockFlag
-  L1 = INPUT_LOCK_MINIMAP_MOVEMENT
-  L2 = false
-  L0(L1, L2)
+  L1 = playerID
+  L2 = INPUT_LOCK_MINIMAP_MOVEMENT
+  L3 = false
+  L0(L1, L2, L3)
   L0 = SetInvulnerable
   L1 = firstChaosTurret
   L2 = true

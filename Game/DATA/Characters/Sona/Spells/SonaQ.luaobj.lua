@@ -9,7 +9,7 @@ PersistsThroughDeath = true
 SpellFXOverrideSkins = {
   "GuqinSona",
   "PaxSona",
-  "SonaDJAmbientSkin06",
-  "SonaDJElectricSkin06",
-  "SonaDJDubstepSkin06"
+  "SonaDJGenre03Skin06",
+  "SonaDJGenre01Skin06",
+  "SonaDJGenre02Skin06"
 }
