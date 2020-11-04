@@ -3,7 +3,7 @@ HOSTILE = 1
 INACTIVE = 0
 LEASH_COUNTER_THRESHOLD = 6
 DEFAULT_FRUSTRATION_SEARCH_TIME = 0.05
-DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME = 0.5
+DELAY_BETWEEN_FRUSTRATION_SEARCH_TIME = 0.6
 AGGRESSION_FIRST_SWEEP_RANGE = 400
 LEASH_PROTECTION_BARRIER = 100
 INNER_RANGE_BEFORE_CAMP_RELEASES = 700
@@ -355,7 +355,7 @@ function TimerFrustrationSearch()
       L4_39 = true
     end
   end
-  if L10_45 > L6_41 + OUTER_RANGE_BOUND and L0_35 ~= AI_RETREAT and L9_44 > LEASH_PROTECTION_BARRIER * 2 then
+  if L10_45 > L6_41 + OUTER_RANGE_BOUND and L0_35 ~= AI_RETREAT then
     L4_39 = true
   end
   if L9_44 > L6_41 + OUTER_RANGE_BOUND then
@@ -374,7 +374,7 @@ function TimerReturningHome()
     SetLeashOrientation()
     AIScriptSpellBuffRemove(GetThis(), "JungleFrustration")
     SetLeashCounter(0)
-    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 1, 1, 0.25)
+    AIScriptSpellBuffStackingAdd(GetThis(), GetThis(), "JungleFrustrationReset", 0, 1, 0.25)
     SetGhosted(false)
     SetState(AI_ATTACK)
     SetRoamState(GetOriginalState())
