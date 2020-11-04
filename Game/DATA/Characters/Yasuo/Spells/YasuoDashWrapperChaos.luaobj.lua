@@ -9,61 +9,37 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_skin01_e_timer1.troy"
+      Name = "temp_yasuo_skin01_lanterntimer1.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_e_timer1.troy"
+      Name = "temp_yasuo_lanterntimer1.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_skin01_e_timer2.troy"
+      Name = "temp_yasuo_lanterntimer2.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_e_timer2.troy"
+      Name = "temp_yasuo_lanterntimer3.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_skin01_e_timer3.troy"
+      Name = "temp_yasuo_lanterntimer4.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "yasuo_base_e_timer3.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin01_e_timer4.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_e_timer4.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_skin01_e_timer5.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "yasuo_base_e_timer5.troy"
+      Name = "temp_yasuo_lanterntimer5.troy"
     }
   }
 }

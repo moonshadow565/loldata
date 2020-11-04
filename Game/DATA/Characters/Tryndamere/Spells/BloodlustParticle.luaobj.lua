@@ -1,5 +1,6 @@
 BuffTextureName = "DarkChampion_Bloodlust.dds"
 BuffName = "Blood Lust"
+AutoBuffActivateEffect = ""
 SpellFXOverrideSkins = {
   "TryndamereDemonsword"
 }
@@ -7,7 +8,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "tryndamere_base_bloodlust_flame.troy"
+      Name = "bloodlust_flame.troy"
     }
   }
 }

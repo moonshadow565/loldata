@@ -51,11 +51,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "yasuo_w_windwall_ult_impact.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "yasuowblockmarker"
-    }
   }
 }

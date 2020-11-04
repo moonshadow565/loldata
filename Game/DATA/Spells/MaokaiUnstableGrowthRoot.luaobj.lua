@@ -1,4 +1,4 @@
-BuffTextureName = "Maokai_TwistedAdvance.dds"
+BuffTextureName = "GreenTerror_SpikeSlam.dds"
 BuffName = "MaokaiUnstableGrowthRoot"
 PopupMessage1 = "game_floatingtext_Snared"
 PreLoadBuildingBlocks = {

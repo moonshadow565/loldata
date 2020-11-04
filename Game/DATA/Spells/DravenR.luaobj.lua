@@ -55,11 +55,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "draven_r_missile_end_sound.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "dravenrcast"
-    }
   }
 }

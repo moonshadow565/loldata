@@ -11,19 +11,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riven_base_r_sword.troy"
+      Name = "exile_ult_blade_swap_base.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riven_base_r_buff.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_r_avatar.troy"
+      Name = "exile_ult_attack_buf.troy"
     }
   },
   {

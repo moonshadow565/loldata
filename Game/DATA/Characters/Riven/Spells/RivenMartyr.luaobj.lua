@@ -1,7 +1,6 @@
 NotSingleTargetSpell = false
 DoesntBreakShields = false
 DoesntTriggerSpellCasts = false
-BuffName = "BlindMonkSafeguard"
 AutoCooldownByLevel = {
   22,
   18,
@@ -14,7 +13,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riven_base_w_ult_cas.troy"
+      Name = "exile_w_cast_ult_01.troy"
     }
   },
   {
@@ -32,13 +31,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riven_base_w_ult_cas_ground.troy"
+      Name = "exile_w_cast_ult_02.troy"
     }
   },
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "riven_base_w_cast.troy"
+      Name = "exile_w_cast_01.troy"
     }
   }
 }

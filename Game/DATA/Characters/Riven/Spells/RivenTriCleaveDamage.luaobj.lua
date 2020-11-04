@@ -27,7 +27,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Riven_Base_Q_01_Wpn_Trail.troy"
+      Name = "exile_q_01_trail_02.troy"
     }
   },
   {
@@ -39,7 +39,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Riven_Base_Q_02_Wpn_Trail.troy"
+      Name = "exile_q_02_trail_02.troy"
     }
   },
   {
@@ -51,7 +51,7 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadParticle,
     Params = {
-      Name = "Riven_Base_Q_03_Wpn_Trail.troy"
+      Name = "exile_q_03_trail_02.troy"
     }
   },
   {
@@ -136,36 +136,6 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadParticle,
     Params = {
       Name = "riven_s2_q_03_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_01_detonate_ult.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_02_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_01_detonate.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_03_detonate_ult.troy"
-    }
-  },
-  {
-    Function = BBPreloadParticle,
-    Params = {
-      Name = "riven_skin05_q_03_detonate.troy"
     }
   },
   {

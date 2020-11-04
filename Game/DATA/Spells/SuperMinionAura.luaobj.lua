@@ -1,2 +1,2 @@
-BuffTextureName = "SuperMinionBuff_Red.dds"
-BuffName = "SuperMinionAura"
+BuffTextureName = "Rumble_Junkyard Titan2.dds"
+BuffName = "MinionSuperAura"

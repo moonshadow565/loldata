@@ -2,7 +2,7 @@ NotSingleTargetSpell = false
 DoesntTriggerSpellCasts = true
 IsDamagingSpell = true
 BuffTextureName = "Yasuo_Q2.dds"
-BuffName = "YasuoQ"
+BuffName = "YasuoQ2Open"
 SpellFXOverrideSkins = {
   "CyberEzreal"
 }
