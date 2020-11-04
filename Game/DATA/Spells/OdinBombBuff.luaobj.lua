@@ -2,10 +2,6 @@ NotSingleTargetSpell = true
 DoesntTriggerSpellCasts = false
 BuffTextureName = "DrMundo_BurningAgony.dds"
 BuffName = "OdinShrineBombBuff"
-AutoBuffActivateEffect = ""
-AutoBuffActivateAttachBoneName = ""
-AutoBuffActivateEffect2 = ""
-AutoBuffActivateAttachBoneName2 = ""
 AutoCooldownByLevel = {
   120,
   100,
@@ -39,9 +35,9 @@ PreLoadBuildingBlocks = {
     }
   },
   {
-    Function = BBPreloadSpell,
+    Function = BBPreloadParticle,
     Params = {
-      Name = "odinbombsuppression"
+      Name = "elixirsight_aura_02.troy"
     }
   }
 }

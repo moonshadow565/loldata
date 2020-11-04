@@ -28,9 +28,14 @@ L0_0 = {
 }
 L0_0[0] = "AI_IDLE"
 DEBUG_MINION_STATE_TABLE = L0_0
-function L0_0()
+function L0_0(A0_1, A1_2)
   if GetState() == AI_HALTED then
     return
+  end
+  if A0_1 == LOST_VISIBILITY then
+    NetSetState(AI_HARDIDLE_ATTACKING)
+    SetTarget(A1_2)
+    return true
   end
   newTarget = FindTargetInAcR()
   if newTarget == nil then
@@ -47,13 +52,13 @@ function L0_0()
   return true
 end
 OnTargetLost = L0_0
-function L0_0(A0_1, A1_2)
+function L0_0(A0_3, A1_4)
   if GetState() == AI_HALTED then
     return
   end
-  if A1_2 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
+  if A1_4 and (GetState() == AI_HARDIDLE or GetState() == AI_HARDIDLE_ATTACKING) then
     NetSetState(AI_HARDIDLE_ATTACKING)
-    SetTarget(A1_2)
+    SetTarget(A1_4)
   end
 end
 OnCallForHelp = L0_0

@@ -57,41 +57,5 @@ PreLoadBuildingBlocks = {
     Params = {
       Name = "braum_base_e_block_ba_cas2.troy"
     }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvoashe"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvonami"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvoriven"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvoezreal"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvocaitlyn"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "braumedummyvodraven"
-    }
   }
 }

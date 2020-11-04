@@ -30,6 +30,12 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
+      Name = "rengarrspeed"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
       Name = "rengarrtrack"
     }
   },
@@ -43,6 +49,18 @@ PreLoadBuildingBlocks = {
     Function = BBPreloadCharacter,
     Params = {
       Name = "testcuberender"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarralert"
+    }
+  },
+  {
+    Function = BBPreloadSpell,
+    Params = {
+      Name = "rengarralertsound"
     }
   },
   {

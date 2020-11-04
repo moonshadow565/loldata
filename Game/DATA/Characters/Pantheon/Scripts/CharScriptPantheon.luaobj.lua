@@ -8,25 +8,13 @@ PreLoadBuildingBlocks = {
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "pantheonPassive"
+      Name = "pantheonpassive"
     }
   },
   {
     Function = BBPreloadSpell,
     Params = {
-      Name = "pantheonEPassive"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonPassivecounter"
-    }
-  },
-  {
-    Function = BBPreloadSpell,
-    Params = {
-      Name = "pantheonPassiveshield"
+      Name = "pantheonepassive"
     }
   }
 }

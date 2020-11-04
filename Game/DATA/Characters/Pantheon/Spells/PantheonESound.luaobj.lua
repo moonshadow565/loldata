@@ -1,5 +1,5 @@
 BuffTextureName = "Pantheon_HSS.dds"
-BuffName = "Pantheon HeartseekerSound"
+BuffName = "PantheonESound"
 SpellFXOverrideSkins = {
   "PantheonSkin06"
 }
